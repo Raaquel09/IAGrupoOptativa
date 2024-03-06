@@ -1,0 +1,927 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Contracts with Inspections</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+				<date type="published" when="2024-02-26">26 Feb 2024</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Tomer</forename><surname>Ezra</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="institution">Harvard University</orgName>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Stefano</forename><surname>Leonardi</surname></persName>
+							<email>leonardi@diag.uniroma1.it</email>
+							<affiliation key="aff1">
+								<orgName type="institution">Sapienza University of Rome</orgName>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Matteo</forename><surname>Russo</surname></persName>
+							<email>mrusso@diag.uniroma1.it</email>
+							<affiliation key="aff2">
+								<orgName type="institution">Sapienza University of Rome</orgName>
+								<address>
+									<settlement>Email</settlement>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Contracts with Inspections</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date type="published" when="2024-02-26">26 Feb 2024</date>
+						</imprint>
+					</monogr>
+					<idno type="MD5">F6EE63348FC55B94D6395AB61EF2A61F</idno>
+					<idno type="arXiv">arXiv:2402.16553v1[cs.GT]</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.2" ident="GROBID" when="2024-03-06T22:17+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>In the classical principal-agent hidden-action model, a principal delegates the execution of a costly task to an agent for which he can choose among actions with different costs and different success probabilities to accomplish the task. To incentivize the agent to exert effort, the principal can commit to a contract, which is the amount of payment based on the task's success. A crucial assumption of this model is that the principal can only base the payment on the outcome but not on the agent's chosen action.</p><p>In this work, we relax the hidden-action assumption and introduce a new model where the principal is allowed to inspect subsets of actions at some cost that depends on the inspected subset. If the principal discovers that the agent did not select the agreed-upon action through the inspection, the principal can withhold payment. This relaxation of the model introduces a broader strategy space for the principal, who now faces a tradeoff between positive incentives (increasing payment) and negative incentives (increasing inspection).</p><p>We show how to find the best deterministic incentive-compatible inspection scheme for all monotone inspection cost functions. We then turn to randomized inspection schemes and show that one can efficiently find the best randomized incentive-compatible inspection scheme when the inspection cost function is submodular. We complement this result by showing that it is impossible to efficiently find the optimal randomized inspection scheme for the more general case of XOS inspection cost functions.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1">Introduction</head><p>Contract theory is the field of economics that studies the interaction between two interested parties, a principal and an agent, and seeks to answer the foundational question: "How do we incentivize people to work?" The original model that captures the tension between the two rational individuals involved is called hidden-action principal-agent interaction <ref type="bibr" target="#b27">[28,</ref><ref type="bibr" target="#b28">29,</ref><ref type="bibr" target="#b24">25]</ref>. The principal aims to incentivize an agent to take some costly action among a set of n potential actions A. Each action a that the agent can take incurs a cost c(a) for the agent and results in a distribution over the set of m potential outcomes O = {o 1 , . . . , o m }, where each outcome o j is associated with a reward for the principal r j . In order to incentivize the agent to exert effort, that will more likely lead to a favorable outcome, the principal can post a payment scheme (or a contract) that maps the set of outcomes to payments for the agent. The goal of the principal is to design a contract that incentivizes the agent to exert effort, which will maximize her own expected utility (reward minus payment). The postulates defining contract design are limited-liability which states that the payments are only one-way from the principal to the agent, and hidden-action, which states that the payments can only depend on the realized outcome and not the action taken by the agent. When outcomes are binary (m = 2), it is without loss of generality to assume that r 1 = 0, r 2 = 1, i.e., success or failure, and each action a is associated with the probability of success f (a). Then, the goal of the principal is to find a single-parameter α ∈ [0, 1] (the payment in case of success), such that the agent is incentivized to take some action a * (i.e., a * ∈ arg max a αf (a) − c(a)) with maximum utility for the principal (i.e., maximizing (1 − α)f (a * )).</p><p>However, in many real-life scenarios, the principal may be able to examine specific actions performed by the agent. For example, a store owner can send inspectors to check the performance of his salespeople, and a company can install activity monitoring software on the computers of its employees. In such scenarios, the principal could base the payment not only on the outcome but also on the result of the inspection.</p><p>Contracts with inspection schemes. In this work, we relax the hidden-action postulate by allowing the principal to inspect the actions taken by the agent, incurring an inspection cost.</p><p>However, if the principal is allowed to condition payment on the event of an inspection, she could easily extract the entire welfare by inspecting the welfare-maximizing action i * = arg max i f (i)−c(i) with a very low probability ε, and paying the agent c(i * ) ε only if this action is actually inspected. The agent is incentivized to select action i * since the utility from it is non-negative, and all other actions lead to receiving a payment of 0. The principal's utility is then f (i * )− c(i * )− ε•v(i * ), where v(i * ) is the cost of inspecting action i * . When ε → 0, then this utility converges to the maximum social welfare of the problem. This solution concept would be not only trivial but also not very useful in practice since it uses that the agent is willing to accept a payment just in an arbitrarily small probability. Therefore, we focus on natural contracts, where the principal must commit to a payment and inspection distribution in advance and is only permitted to withhold payment if the agent is caught not performing the desired action.</p><p>Our setting can be described as follows: We are given a set of actions A the agent can carry out, each associated with a cost c(a), where c : A → R ≥0 , a success probability f (a), where f : A → [0, 1], and an inspection cost function v : 2 A → R ≥0 . The principal then proposes an inspection scheme described by a suggested action i ∈ A, a payment α, and an inspection distribution p over subsets of actions. If the agent takes the suggested action i, then he is paid α in case of success. If the agent takes some other action j = i, then, only in the case that neither action i nor action j are inspected, the agent is paid α in case of success. We say that an inspection scheme is incentive-compatible (IC) if the suggested action is the best response for the agent. The principal's goal is to find the IC inspection scheme that maximizes the utility of the principal.</p><p>Regarding the example of a manager hiring an inspector to evaluate the salespeople's performance, it may not be feasible or cost-effective to conduct inspections consistently. Consequently, the principal may choose to inspect the salespeople with a certain probability, thereby reducing inspection costs. This strategic approach could potentially result in increased utility, as illustrated in the following example.</p><p>Example 1.1. Let us consider the following instance with three actions A = {⊥, b, g}: c(⊥) = 0, f (⊥) = 1  10 , v(⊥) = 1, c(b) = 1 10 , f (b) = 1 2 , v(b) = 1, c(g) = 7  20 , f (g) = 1, v(g) = 1  10 . We assume v to be additive.</p><p>• Under no inspection, we can observe that α ∈ [0, 1  4 ) incentivizes action ⊥ and offering α = 0 yields utility 1  10 ; α ∈ [ 1 4 , 1 2 ) incentivizes action b and offering α = 1 4 yields utility</p><formula xml:id="formula_0">3 8 &gt; 1 10 ; α ∈ [ 1 2</formula><p>, 1] incentivizes action g and offering α = 1 2 yields utility 1 2 &gt; 3 8 . Thus, the highest utility for the principal is 1  2 and corresponds to action g.</p><p>• If the principal is only allowed to use a deterministic inspection schemes, i.e., always inspect a specific subset of actions, then inspecting any action different from action g yields strictly negative utility to the principal. The principal can thus ask the agent to do action g, inspect it, and offer α = 7 20 , leading to a utility of 13  20 − 1 10 = 11 20 &gt; 1 2 , i.e., it is strictly larger than the highest utility under no inspection.</p><p>• Under randomized inspection schemes, the principal can ask the agent to take action g, inspect it with probability 3  7 (and all other actions with probability 0), offer α = 7 20 (so as to incentivize action g over the other actions), which leads to a utility of 13  20 − 3 70 = 17 28 &gt; 11  20 , i.e., it is larger than in the previous two scenarios.</p><p>In our study, we make the assumption that the inspection cost of actions falls within the complement-free hierarchy introduced by Lehmann et al. <ref type="bibr" target="#b32">[33]</ref>, and widely used in the context of combinatorial auctions <ref type="bibr" target="#b13">[14,</ref><ref type="bibr" target="#b3">4,</ref><ref type="bibr" target="#b10">11]</ref>, combinatorial and multi-agent contracts <ref type="bibr" target="#b15">[16,</ref><ref type="bibr" target="#b17">18]</ref>, as well as Prophet Inequalities and pricing <ref type="bibr" target="#b10">[11,</ref><ref type="bibr" target="#b22">23]</ref> to mention a few. This hierarchy encompasses various realworld scenarios, as can be seen in the example with the company using a monitoring software, where it might be cheaper to buy a monitoring software that checks multiple measures simultaneously rather than purchasing a monitoring software for each measure separately. The inspection cost, in this case, exhibits subadditivity or potentially even submodularity.</p><p>Our guiding question is that of investigating the tractability of the optimal inspection scheme under different classes of cost functions. We aim to characterize when the best deterministic or randomized inspection scheme can be efficiently found.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.1">Our Contribution and Techniques</head><p>We first show how to design a simple algorithm that finds the optimal deterministic IC inspection scheme in time polynomial in the number of actions for every monotone combinatorial cost function (Theorem 3.1). To find the best deterministic inspection scheme, we make the following observations. Either it is beneficial to inspect the suggested action i and pay the minimal amount to ensure that the action has non-negative utility c(i) f (i) ; otherwise, the payment should be such that the agent's utility from action i is the same as from some other action j. This allows us to consider a polynomial number of values of α such that either α = c(i) f (i) or α = c(i)−c(j) f (i)−f (j) for some action j.</p><p>For each such α, the set of actions that need to be inspected can be calculated easily: They are the actions with strictly larger utility for the agent under contract α.</p><p>We then shift our focus to randomized inspection schemes. The first of our two main results proves that for the class of submodular inspection cost functions (i.e., decreasing marginals), one can find the optimal randomized inspection scheme in polynomial time. In particular, we show: Main Result 1 (Theorem 4.1): One can efficiently find the optimal randomized IC inspection scheme for instances with submodular inspection cost functions, given value query access to the inspection cost function.</p><p>The key ingredients for finding the optimal randomized inspection schemes for submodular inspection cost functions are outlined in the following steps: We first devise an algorithm that given a sequence of marginal probabilities p(j) for each action j, computes the distribution over subsets of actions that minimizes the expected inspection cost while inspecting each action j with a marginal probability p(j). In particular, we show that this distribution is supported by a few sets (at most n + 1), and all sequences of marginals with the same order can be supported by the same sets. This means that, for two sequences of marginals {p 1 (j)} j∈A , {p 2 (j)} j∈A , with a bijection π : [n] → A, for which p 1 (π(1)) ≤ . . . ≤ p 1 (π(n)) and p 2 (π(1)) ≤ . . . ≤ p 2 (π(n)), then the two distributions returned by the aforementioned algorithm on p 1 , p 2 have the same support. Utilizing this tool, for each suggested action i, we can partition the interval [0, 1] of potential values of α (the payment) into at most n 2 sub-intervals for which within each sub-interval, the optimal randomized inspection scheme only inspects the same n + 1 inspected sets. For each such interval, we show that finding the best inspection scheme that suggests action i and uses α in the interval, is equivalent to a simple program in a constant number of variables and constraints. Consequently, we can reduce the original problem to solving a small (polynomial) number of optimization problems.</p><p>We complement the former result and show an impossibility result for the class of XOS inspection cost functions (the next class in the complement-free hierarchy <ref type="bibr" target="#b32">[33]</ref> see Section 2 for a formal definition).</p><p>Main Result 2 (Theorem 5.1): Finding the best randomized IC inspection scheme for instances with XOS inspection cost functions, requires an exponential number of value (or demand) queries.</p><p>To demonstrate this hardness result, we carefully construct a family of instances with the same values of A, f, c, but with different XOS inspection cost functions parameterized by a set T . For each inspection cost function in the family, we show that the optimal randomized inspection scheme is a solution to a specific form of optimization problem that always admits a unique optimal solution. Distinguishing from the inspection cost function what T is, requires an exponential number of value and demand queries. Given the knowledge of T , one can easily find the unique optimal inspection scheme, and from the unique optimal inspection scheme, one can easily derive the parameter T of the instance. Moreover, in Appendix A, we extend Example 1.1 and show that the gap between the optimal deterministic inspection scheme and optimal randomized inspection scheme, can be as large as Ω(n). Since the utility of the principal is bounded by the welfare achievable in the non-strategic version of the problem, the gap is known to also be at most O(n). Lastly, in Appendix B we discuss the gaps in the principal's utility between IC inspection schemes, and non-IC inspection schemes for both the deterministic and randomized cases. In particular, we show that there is no gap in the case of deterministic inspection schemes, but there are cases that admit a gap for randomized inspection schemes.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.2">Related Work</head><p>(Algorithmic) Contract Theory. After the seminal work of Grossman and Hart <ref type="bibr" target="#b24">[25]</ref>, who initiated the field of "Contract Theory", and that of Holmstrom and Milgrom <ref type="bibr" target="#b27">[28,</ref><ref type="bibr" target="#b28">29]</ref>, recent years have witnessed a surge of interest in algorithmic questions related to this model <ref type="bibr" target="#b14">[15]</ref><ref type="bibr" target="#b15">[16]</ref><ref type="bibr" target="#b16">[17]</ref><ref type="bibr" target="#b17">[18]</ref>. Dütting et al. <ref type="bibr" target="#b14">[15,</ref><ref type="bibr" target="#b16">17]</ref> are among the first to model the problem from an algorithmic viewpoint. Their results prove that it is possible to achieve optimality in the worst case through linear contracts, contracts that pay the agent proportionally to the reward associated with an outcome. Numerous other studies have indicated robust optimality of linear contracts in non-Bayesian settings, particularly in the context of max-min criteria <ref type="bibr" target="#b6">[7,</ref><ref type="bibr" target="#b34">35,</ref><ref type="bibr" target="#b33">34,</ref><ref type="bibr" target="#b11">12]</ref>. Recently, Kambhampati <ref type="bibr" target="#b29">[30]</ref> has shown how, in certain scenarios, randomized contracts can enhance principal's reward under max-min criteria.</p><p>Combinatorial Models of Contract Theory. Mostly related to our setting are works that study algorithmic contract design in various combinatorial settings. Dütting et al. <ref type="bibr" target="#b15">[16]</ref> consider agents who can select a subset of actions instead of being limited to a single action, and the probability of success is a function of the set of taken actions. They show that if the success probability function is Gross-Substitutes (a set function class defined in <ref type="bibr" target="#b30">[31]</ref>), then the optimal contract can be found in polynomial time. This model has been adapted by <ref type="bibr" target="#b18">[19,</ref><ref type="bibr" target="#b12">13,</ref><ref type="bibr" target="#b20">21]</ref>, for different classes of combinatorial set functions including submodular, XOS, and supermodular.</p><p>Another line of research extended the principal-agent model to accommodate settings with multiple agents <ref type="bibr" target="#b4">[5,</ref><ref type="bibr" target="#b19">20,</ref><ref type="bibr" target="#b17">18,</ref><ref type="bibr" target="#b9">10,</ref><ref type="bibr" target="#b12">13,</ref><ref type="bibr" target="#b20">21]</ref>. Pioneering work on combinatorial agency by Babaioff et al. <ref type="bibr" target="#b4">[5]</ref> and Emek and Feldman <ref type="bibr" target="#b19">[20]</ref> considers a model where n agents exert effort (or not) and succeed in their assigned tasks with some probability. The success or failure of the entire project is then assumed to be a Boolean function of individual successes and failures. Dütting et al. <ref type="bibr" target="#b17">[18]</ref> draw the connection between multi-agent contract design and the complement-free hierarchy <ref type="bibr" target="#b32">[33]</ref>: Here, each agent possesses a binary action space, and the success probability is a function of the set of agents exerting effort. They show that the frontier of tractability is the XOS function class, as the function becomes subadditive, the problem is hard to approximate.</p><p>Conversely, Alon et al. <ref type="bibr" target="#b1">[2]</ref> investigate the "common agency" problem, which revolves around coordinating several principals to propose a contract to an agent. They expand upon VCG contracts, initially introduced by Lavi and Shamash <ref type="bibr" target="#b31">[32]</ref> for situations with complete information, to accommodate scenarios where principals lack complete information about the agent's attributes.</p><p>Finally, Castiglioni et al. <ref type="bibr" target="#b9">[10]</ref> considers scenarios where the principal observes not just the final outcome, but also the individual (stochastic) outcomes of the agents. Then, the goal of the principal is to design contracts that depend on the individual outcomes. Their focus is on principal's utility functions with the properties of IR-supermodularity (increasing returns), i.e., her utility grows faster as agents put more effort, or DR-submodularity (diminishing returns), i.e., her utility grows slower.</p><p>Contracts in Bayesian and Learning settings. Alon et al. <ref type="bibr" target="#b0">[1]</ref> explore the contract design problem under private cost per unit-of-effort model, and Alon et al. <ref type="bibr" target="#b2">[3]</ref>, Castiglioni et al. <ref type="bibr" target="#b7">[8]</ref>, Gottlieb and Moreira <ref type="bibr" target="#b23">[24]</ref> in Bayesian settings (with private types). Moreover, in the Bayesian setting, Guruganesh et al. <ref type="bibr" target="#b25">[26]</ref> and Castiglioni et al. <ref type="bibr" target="#b8">[9]</ref> demonstrate that the principal can enhance her utility by offering a randomized menu of contracts rather than a single fixed contract.</p><p>In the context of online learning, Ho et al. <ref type="bibr" target="#b26">[27]</ref> examine the learning of monotone contracts, presenting a zooming algorithm that achieves sublinear regret. Relaxing the monotonicity assumption, Zhu et al. <ref type="bibr" target="#b35">[36]</ref> consider the intrinsic dimension as a complexity measure based on the covering number of a spherical code. They derive a regret bound that exponentially depends on the intrinsic dimension.</p><p>Inspection Strategies. In the context of inspections, Fallah and Jordan <ref type="bibr" target="#b21">[22]</ref> study the problem of a single principal interacting with multiple agents: In particular, the principal aims to encourage safety-compliant actions to maximize utility by utilizing payments and a constrained budget for random inspections. Finally, Ball and Knoepfle <ref type="bibr" target="#b5">[6]</ref> have investigated the problem of determining the optimal timing for inspections in a time-dependent setting. Focusing on scenarios where agents exhibit impatience over time, the study explores the ideal moments for conducting inspections.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2">Model</head><p>We consider a setting of a single principal and a single agent. The agent can choose an action a ∈ A, each is associated with a cost c(a) ∈ R ≥0 and a success probability f (a) ∈ [0, 1]. We assume that the agent has a null action ⊥ ∈ A for which c(⊥) = 0 which enforces the game to be individually rational for him, and that there are overall n actions (i.e., |A| = n). The null action can be viewed as allowing the agent to opt out of the suggested contract. The principal can inspect the actions taken by the agent and pay for the inspection cost. If the principal inspects action set S ⊆ A, it costs her v(S), where v : 2 A → R ≥0 is a combinatorial function which is normalized (i.e., v(∅) = 0) and monotone (i.e., for every S ⊆ T ⊆ A it holds that v(S) ≤ v(T )). An instance of our setting is then defined by a quadruplet (A, c, f, v). The principal's task is to design an inspection scheme consisting of three components: (1) a suggested action a ∈ A, (2) a contract α ∈ [0, 1], and (3) an inspection distribution p which is a distribution over sets that the principal commits to inspect (i.e., S⊆A p(S) = 1, and for all S ⊆ A, p(S) ∈ [0, 1]). An inspection scheme (a, α, p) is deterministic if there exists S ⊆ A, such that p(S) = 1 and for every T = S, f (T ) = 0. For an action a ∈ A and an inspection distribution p, we denote by p(a) def == S:a∈S p(S).</p><p>Agent's and Principal's Utility. In order to introduce the agent's expected utility under inspection scheme (i, α, p), we observe that if the agent takes the incentivized action (action i), then the agent's utility is αf (i) − c(i) in expectation. If, instead, the agent decides to take action j = i, as long as the principal does not inspect a set containing either i or j, then we say that the agent is not caught and is paid the promised α-fraction of the reward (in case of success). Otherwise (the principal inspects some set containing i or j), the agent is caught and thus paid 0. In expectation, we have that, for j = i, the utility is αf (j) • (1 − S:{i,j}∩S =∅ p(S)) − c(j). <ref type="foot" target="#foot_0">1</ref> To summarize, given an inspection scheme (i, α, p) the principal proposes, the agent's expected utility from selecting action j is:</p><formula xml:id="formula_1">u a (i, α, p, j) = αf (j) − c(j) if j = i αf (j) • (1 − S:{i,j}∩S =∅ p(S)) − c(j) if j = i .</formula><p>On the other hand, the principal's expected utility from proposing inspection scheme (i, α, p) and the agent selecting action j is</p><formula xml:id="formula_2">u p (i, α, p, j) =    (1 − α) • f (j) − S⊆A p(S) • v(S) if j = i 1 − α • 1 − S:{i,j}∩S =∅ p(S) • f (j) − S⊆A p(S) • v(S) if j = i .</formula><p>The goal of the principal is to find an incentive-compatible (IC) inspection scheme (i, α, p), where, by incentive-compatible, we mean that i ∈ arg max ℓ∈A u a (i, α, p, ℓ), i.e., the agent is incentivized to take the suggested action i. Among the incentive-compatible inspection schemes, the principal wants to find the one with the highest utility, i.e., u p (i, α, p, i) is maximized, and i ∈ arg max ℓ∈A u a (i, α, p, ℓ).</p><p>We first observe that it is always better for the principal to inspect the suggested action i by itself or inspect some other set of actions not including i. Observation 2.1. Given an inspection scheme (i, α, p), define inspection distribution p ′ such that p ′ ({i})</p><formula xml:id="formula_3">def == p(i), p ′ (S)</formula><p>def == 0 for S such that i ∈ S, S = {i}, and p ′ (S) def == p(S) otherwise. It holds that, for all j ∈ A,</p><formula xml:id="formula_4">• j ∈ arg max ℓ∈A u a (i, α, p, ℓ) ⇐⇒ j ∈ arg max ℓ∈A u a (i, α, p ′ , ℓ); • u p (i, α, p ′ , j) ≥ u p (i, α, p, j).</formula><p>Proof. The first part of the observation follows since for each j ∈ A \ {i},</p><formula xml:id="formula_5">S:{i,j}∩S =∅ p(S) = S:{i,j}∩S =∅ p ′ (S),<label>(1)</label></formula><p>therefore, the functions u a (i, α, p, j) = u a (i, α, p ′ , j) (and it also holds that</p><formula xml:id="formula_6">u a (i, α, p, i) = u a (i, α, p ′ , i)).</formula><p>The second part of the claim follows by Equation ( <ref type="formula" target="#formula_5">1</ref>) and by the monotonicity of v, i.e.,</p><formula xml:id="formula_7">S⊆A p(S) • v(S) = S⊆A:i∈S p(S) • v(S) + S⊆A:i / ∈S p(S) • v(S) ≥ S⊆A:i∈S p(S) • v({i}) + S⊆A:i / ∈S p(S) • v(S) = p(i) • v({i}) + S⊆A:i / ∈S p(S) • v(S) = S⊆A p ′ (S) • v(S),</formula><p>which concludes the proof.</p><p>Note that the modification to the inspection scheme of Observation 2.1 above preserves determinism, i.e., if the initial inspection scheme (i, α, p) is deterministic, then also (i, α, p ′ ) created by Observation 2.1 is.</p><p>In Appendix B, we discuss non-incentive-compatible inspection schemes, where the principal might suggest some action j to induce the agent to best respond with action i in order to gain higher utility. We show that, for deterministic inspection schemes, incentive-compatibility is without loss of generality, and the principal has no gain in suggesting an action that is not the best response of the agent. However, for randomized inspection schemes, non-incentive-compatible inspection schemes can yield higher principal's utility than the best incentive-compatible one.</p><p>Combinatorial Inspection Cost Functions. We focus on inspection cost functions v : 2 A → R ≥0 that belong to one of the following classes of set functions <ref type="bibr" target="#b32">[33]</ref>:</p><formula xml:id="formula_8">• Set function v is additive if for every S ⊆ A it holds that v(S) = i∈S v({i}).</formula><p>• Set function v is submodular if for any two sets S, S ′ ⊆ A with S ⊆ S ′ and any</p><formula xml:id="formula_9">i ∈ A it holds that v(i | S) ≥ v(i | S ′ ) where v(i | S) = v({i} ∪ S) − v(S) is called marginal. • Set function v is XOS if there exists a collection of additive functions {γ ℓ : 2 A → R ≥0 } ℓ∈[k] such that for each set S ⊆ A it holds that v(S) = max ℓ∈[k] γ ℓ (S).</formula><p>• Set function v is subadditive if for any two sets S, S ′ ⊆ A it holds that v(S)+v(S ′ ) ≥ v(S ∪S ′ ).</p><p>It is well known that additive ⊂ submodular ⊂ XOS ⊂ subadditive and all containment relations are strict <ref type="bibr" target="#b32">[33]</ref>.</p><p>Oracles for accessing v. As is common in the combinatorial optimization literature involving set functions, we assume two primitives for accessing v:</p><p>• A value oracle for v is given S ∈ 2 A and returns v(S).</p><p>• A demand oracle for v is given a vector of prices q = (q 1 , . . . , q n ) ∈ R n ≥0 and returns a set S ∈ 2 A that maximizes v(S) − j∈S q j . We denote this set by D(v, q). Both value and demand oracles are considered standard in combinatorial optimization problems over set functions. In markets for goods (e.g., combinatorial auctions), a demand query corresponds to the best bundle to purchase given item prices. Demand oracles have proven useful in previous studies on combinatorial contracts <ref type="bibr" target="#b15">[16]</ref> and multi-agent contracts <ref type="bibr" target="#b17">[18]</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3">Deterministic Inspection Schemes</head><p>In this section, we present a polynomial time algorithm that finds the best contract with a deterministic inspection scheme. Formally we prove the following theorem: Theorem 3.1. There exists an algorithm that for every instance (A, c, f, v) returns the optimal deterministic IC inspection-scheme that runs in time polynomial in n = |A|, and uses at most n<ref type="foot" target="#foot_1">2</ref> value queries to v.</p><p>In order to prove the above theorem, we first note that a deterministic inspection scheme can be described by a triplet (i, α, S) composed of the suggested action i, the contract α, and the inspected set S. We next present the algorithm for finding the best deterministic inspection scheme.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.1">Algorithm</head><p>We first go over all actions with c(i) = 0, and consider the one with the maximal value of f (i), i.e., let i * = arg max i {f (i) | i ∈ A ∧ c(i) = 0}. This action can be incentivized by using the inspection scheme (i * , 0, ∅), which gives the principal an expected utility of f (i * ).</p><p>We then go over all actions i ∈ A with f (i) &gt; c(i) &gt; 0, and for each such i we define 2</p><formula xml:id="formula_10">A i = j | f (j) &lt; f (i) ∧ c(i) − c(j) f (i) − f (j) &gt; c(i) f (i) , in particular, for every j ∈ A i it must be that c(i)−c(j) f (i)−f (j) &gt; c(i) f (i) &gt; 0.</formula><p>The interpretation of A i is the set of actions j with lower value of f than i, such that if the principal uses α = c(i) f (i) then the agent strictly favors them over i. Then, we define</p><formula xml:id="formula_11">S i def == A i ∪ j ′ = i | f (j ′ ) ≥ f (i) ∧ f (j ′ ) • c(i) f (i) &gt; c(j ′ )</formula><p>and for each j ∈ A i , we define</p><formula xml:id="formula_12">S i,j def == j ′ ∈ A i | c(i) − c(j ′ ) f (i) − f (j ′ ) &gt; c(i) − c(j) f (i) − f (j) ∪ j ′ | f (j ′ ) ≥ f (i) ∧ c(i) − c(j) f (i) − f (j) • (f (j ′ ) − f (i)) &gt; c(j ′ ) − c(i) .</formula><p>The interpretation of S i (respectively, S i,j ) is the set of actions that needs to be inspected if i is not inspected and α = c(i) f (i) (respectively, when α = c(i)−c(j) f (i)−f (j) ), as if any of these actions is not inspected, the agent strictly favor them over action i.</p><p>We then consider for each j ∈ A i the inspection scheme (i, c(i)−c(j) f (i)−f (j) , S i,j ). We also consider the inspection schemes (i, c(i) f (i) , S i ), and (i, c(i) f (i) , {i}). We return the inspection scheme with the maximum utility for the principal among all considered inspection schemes.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.2">Proof of Theorem 3.1</head><p>Incentive compatibility. We first show that every inspection scheme considered by our algorithm is indeed IC. For the inspection scheme defined by (i * , 0, ∅), this is trivially true, since the agent's utility for action i * is 0, while for every other action cannot be more than 0. Now, consider inspection scheme (i, c(i)−c(j) f (i)−f (j) , S i,j ) where j ∈ A i . Since j ∈ A i , then the utility of the agent from selecting action i is strictly positive, as</p><formula xml:id="formula_13">c(i)−c(j) f (i)−f (j) • f (i) − c(i) &gt; c(i) f (i) • f (i) − c(i) = 0.</formula><p>On the other hand, for j ′ = i, if j ′ ∈ S i,j then the agent's utility from selecting j ′ is at most 0, since the principal inspects action j ′ . Else (j ′ / ∈ S i,j ), if j ′ ∈ A i , then we get that j ′ must satisfy that</p><formula xml:id="formula_14">c(i)−c(j ′ ) f (i)−f (j ′ ) ≤ c(i)−c(j) f (i)−f (j) , which implies that, if we denote by δ i,j,j ′ = c(i)−c(j) f (i)−f (j) − c(i)−c(j ′ ) f (i)−f (j ′ ) ≥ 0, then f (i) • c(i) − c(j) f (i) − f (j) − c(i) = f (i) • c(i) − c(j ′ ) f (i) − f (j ′ ) − c(i) + f (i) • δ i,j,j ′ ≥ (f (i) − f (j ′ ) + f (j ′ )) • c(i) − c(j ′ ) f (i) − f (j ′ ) − (c(i) − c(j ′ ) + c(j ′ )) + f (j ′ ) • δ i,j,j ′ = f (j ′ ) • c(i) − c(j ′ ) f (i) − f (j ′ ) − c(j ′ ) + f (j ′ ) • δ i,j,j ′ = f (j ′ ) • c(i) − c(j) f (i) − f (j) − c(j ′ ),<label>(2)</label></formula><p>where the first and last equalities are by the definition of δ i,j,j ′ , and the inequality is since f (i) &gt; f (j ′ ). This implies that the agent does not want to deviate to j ′ . For</p><formula xml:id="formula_15">j ′ / ∈ A i , then if f (j ′ ) &lt; f (i) then the same inequalities as (2) work since δ i,j,j ′ = c(i)−c(j) f (i)−f (j) − c(i) f (i) + c(i) f (i) − c(i)−c(j ′ ) f (i)−f (j ′ ) ≥ 0. We are left to consider the case that f (j ′ ) ≥ f (i). If f (j ′ ) = f (i), then the condition j ′ / ∈ S i,j implies that c(j ′ ) ≥ c(i), thus the agent cannot strictly favor action j ′ over i. If f (j ′ ) &gt; f (i) then the condition j ′ / ∈ S i,j implies that c(i)−c(j) f (i)−f (j) ≤ c(i)−c(j ′ ) f (i)−f (j ′ )</formula><p>, which allows us to use Inequality (2) by observing that δ i,j,j ′ ≤ 0 and f (i) ≤ f (j ′ ).</p><p>An equivalent analysis (as for the former case) shows that the inspection scheme (i, c(i) f (i) , S i ) is IC.</p><p>For inspection scheme i, c(i) f (i) , {i} , the utility from action i is 0, and from any other action is non-positive since action i is inspected.</p><p>Optimality. We next show that for every IC inspection scheme (i, α, S), the algorithm considers an inspection scheme with at least as much expected utility for the principal. The case of c(i) = 0 is solved trivially by the first inspection scheme that the algorithm considers (inspection scheme (i * , 0, ∅)).</p><p>Else (c(i) &gt; 0), then it must be that αf (i) ≥ c(i) (as otherwise it contradicts the individual rationality of the agent), thus f (i) &gt; 0, and α ≥ c(i) f (i) . We next consider three cases: If i ∈ S, then the inspection scheme i, c(i) f (i) , {i} achieves at least the same utility for the principal. Otherwise (i / ∈ S), if A i ⊆ S, then it must be that S i ⊆ S. Assume towards contradiction that there exists j ′ ∈ S i \ S, then it must belong to S i \ A i (since S contains A i ). If f (j ′ ) = f (i) then the condition is equivalent to c(j ′ ) &lt; c(i) which means that the agent can benefit from switching to j ′ as it has the same expected payment from the principal, but with a lower cost (which is a contradiction to</p><formula xml:id="formula_16">IC). If f (j ′ ) &gt; f (i) then by definition of S i \ A i , it holds that c(i) f (i) &gt; c(j ′ ) f (j ′ ) thus αf (j ′ ) − c(j ′ ) = α − c(i) f (i) + c(i) f (i) • f (j ′ ) − c(j ′ ) &gt; α − c(i) f (i) • f (j ′ ) ≥ α − c(i) f (i) • f (i) = αf (i) − c(i),</formula><p>which is a contradiction to IC, thus, inspection scheme (i, c(i) f (i) , S i ) gives at least the same utility to the principal.</p><p>Else (∃j</p><formula xml:id="formula_17">∈ A i \ S), then consider j * = arg max j∈A i \S c(i)−c(j) f (i)−f (j) . It must be that α ≥ c(i)−c(j * ) f (i)−f (j * ) , as otherwise αf (j * ) − c(j * ) = α − c(i) − c(j * ) f (i) − f (j * ) + c(i) − c(j * ) f (i) − f (j * ) • (f (j * ) − f (i) + f (i)) − c(j * ) = α − c(i) − c(j * ) f (i) − f (j * ) • f (j * ) + c(i) − c(j * ) f (i) − f (j * ) • f (i) − c(i) &gt; α − c(i) − c(j * ) f (i) − f (j * ) • f (i) + c(i) − c(j * ) f (i) − f (j * ) • f (i) − c(i) = αf (i) − c(i),</formula><p>where the inequality is since α &lt; c(i)−c(j * ) f (i)−f (j * ) , and since f (j * ) &lt; f (i). By definitions of j * , S i,j * , it holds that A i ∩S i, * j ⊆ S. It also holds that since α ≥ c(i)−c(j * ) f (i)−f (j * ) , every action j ′ ∈ S i,j * \A i must be in S. Assume towards contradiction that there exists j ′ ∈ S i,j * \A i \S.</p><formula xml:id="formula_18">Then, f (j ′ ) ≥ f (i), therefore, it holds that αf (j ′ ) − c(j ′ ) ≥ α − c(i) − c(j * ) f (i) − f (j * ) f (i) + c(i) − c(j * ) f (i) − f (j * ) f (j ′ ) − c(j ′ ) &gt; α − c(i) − c(j * ) f (i) − f (j * ) f (i) + c(i) − c(j * ) f (i) − f (j * ) f (i) − c(i) = αf (i) − c(i),</formula><p>where the first inequality is since α ≥ c(i)−c(j * ) f (i)−f (j * ) , and since f (j ′ ) ≥ f (i), and the second inequality is since j ′ ∈ S i,j * \ A i . Therefore, S i,j * ⊆ S, thus inspection scheme (i, c(i)−c(j * ) f (i)−f (j * ) , S i,j * ) gives at least the same utility to the principal, which concludes the proof.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Complexity.</head><p>The algorithm uses at most O(n 2 ) value queries since it ask for each i at most n + 1 queries. The algorithm runs in polynomial time by design.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4">Randomized Inspection Schemes: Submodular Inspection Cost</head><p>In this section, we shift our attention to randomized inspection schemes, recalling that the gap between deterministic and randomized inspection schemes in terms of the principal's expected utility can be as large as Ω(n) (see Appendix A for further details). Our main result is a polynomial time algorithm that finds the optimal randomized inspection scheme for submodular inspection cost functions. Formally, we show the following: Theorem 4.1. For every instance (A, c, f, v) with submodular inspection cost function v, there exists an optimal randomized incentive-compatible inspection scheme (i, α, p) where p is supported by at most n+1 sets. Moreover, such an optimal inspection scheme can be found in time polynomial in n = |A| using value query access to v.</p><p>Before describing the algorithm and showing why Theorem 4.1 holds, we prove the following key lemma that will be useful in the remainder: Lemma 4.2. For a set A with cardinality n, let p : 2 A → R ≥0 be an arbitrary function, and let v : 2 A → R ≥0 be a submodular function. Let p(j) = S⊆A:j∈S p(S). Let π : [n] → A be an arbitrary bijection such that p(π(1)) ≤ . . . ≤ p(π(n)) (such a bijection always exists). For p ′ : 2 A → R ≥0 such that for every t ∈ [n], p ′ ({π(t), ..., π(n)}) = p(π(t)) − p(π(t − 1)) where p(π(0)) = 0, otherwise p ′ (S) = 0 for S = ∅, and p ′ (∅) = S⊆A p(S) − p(π(n)) it holds that:</p><formula xml:id="formula_19">1. S⊆A p ′ (S) = S⊆A p(S);</formula><p>2. For all j ∈ A, p ′ (j) = S⊆A:j∈S p ′ (S) = p(j);</p><formula xml:id="formula_20">3. S⊆A p ′ (S) • v(S) ≤ S⊆A p(S) • v(S).</formula><p>Proof. The first claim holds since</p><formula xml:id="formula_21">S⊆A p ′ (S) = p ′ (∅) + t∈[n] p ′ ({π(t), ..., π(n)}) = p ′ (∅) + t∈[n] p(π(t)) − p(π(t − 1)) = S⊆A p(S),</formula><p>where the last equality holds by telescoping and by definition of p ′ (∅).</p><p>To show the second claim, let ℓ be the preimage of j according to bijection π , i.e., j = π(ℓ). We get</p><formula xml:id="formula_22">p ′ (j) = S⊆A:j∈S p ′ (S) = t≤ℓ p ′ ({π(t), ..., π(n)}) = t≤ℓ (p(π(t)) − p(π(t − 1))) = p(π(ℓ)) − p(π(0)) = p(π(ℓ)) = p(j).</formula><p>For the third claim, we have</p><formula xml:id="formula_23">S⊆A p(S) • v(S) = S⊆A p(S) • n ℓ=1 ½ [π(ℓ) ∈ S] • v(π(ℓ) | S \ {π(1), . . . , π(ℓ)}) ≥ S⊆A p(S) • n ℓ=1 ½ [π(ℓ) ∈ S] • v(π(ℓ) | A \ {π(1), . . . , π(ℓ)}) = n ℓ=1 v(π(ℓ) | A \ {π(1), . . . , π(ℓ)}) •   S⊆A:π(ℓ)∈S p(S)   = n ℓ=1 p(π(ℓ)) • v(π(ℓ) | A \ {π(1), . . . , π(ℓ)}) = n ℓ=1 (p(π(ℓ)) − p(π(ℓ − 1)) • v(A \ {π(1), . . . , π(ℓ − 1)}) = n ℓ=1 p ′ (A \ {π(1), . . . , π(ℓ − 1)}) • v(A \ {π(1), . . . , π(ℓ − 1)}) = S⊆A p ′ (S) • v(S),</formula><p>where the first equality is by definition of marginals, the inequality is by submodularity of v, the second equality is by switching the order of summations, the third equality is by definition of p(π(ℓ)), the fourth equality follows from telescoping, the fifth equality holds by definition of p ′ , and the last equality follows since all added sets to the summation have either p ′ (S) = 0 or S = ∅ for which v(S) = 0.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.1">Algorithm</head><p>Our algorithm reformulates the problem of finding the best inspection scheme as solving a polynomial number of optimization problems, each with a constant number of variables and constraints. We first write it as a program over an exponential number of variables (the probabilities to inspect each set p(S), and the payment α). We then partition the interval [0, 1] of options for α to subintervals such that within each sub-interval the marginal probabilities that the actions are needed to be inspected have the same relative order. This allows us to solve the program in each sub-interval separately, and use Lemma 4.2 to decrease the number of variables from the objective function from an exponential number to a constant number. We then solve each optimization (non-linear) program, and return the best one.</p><p>We now explain our algorithm formally:</p><p>Step 1: Going over the actions. We fix action i ∈ A. If c(i) = 0, then the inspection scheme (i, 0, p(∅)), where p ∅ is the deterministic inspection distribution that inspects ∅ with probability 1, is the optimal IC inspection scheme that incentivizes action i (since the principal pays 0). If instead f (i) ≤ c(i), then incentivizing action i cannot guarantee a positive utility to the principal, and therefore, the inspection scheme (⊥, 0, p ∅ ) guarantees at least the same utility.</p><p>Otherwise, we have that f (i) &gt; c(i) &gt; 0, then by using Observation 2.1 we can formulate the problem of finding the optimal (randomized) IC inspection scheme that incentivizes action i as min α,p</p><formula xml:id="formula_24">αf (i) + S⊆A p(S) • v(S) s.t. αf (i) − c(i) ≥ αf (j) • (1 − p(i) − p(j)) − c(j), ∀j = i (3) α ∈ [0, 1], p ∈ ∆(2 A ), p(i) = p({i}).</formula><p>We note that the constraints written above are the incentive-compatibility constraints, written in terms of marginal probabilities of inspection, that we need to satisfy for the agent to take action i. Since ⊥ ∈ A, we can add a constraint to Program (3) of the form α ≥ c(i) f (i) without changing feasibility. Next, for each j ∈ A, if f (j) = 0, the incentive-compatibility constraint is less restrictive than α ≥ c(i) f (i) and can thus be discarded. Else (f (j) &gt; 0), the incentive-compatibility constraint is equivalent to</p><formula xml:id="formula_25">p(j) ≥ 1 − p(i) − αf (i) − c(i) + c(j) αf (j) .</formula><p>For convenience, we name the right-hand side above as η j (α, p(i)), for each j = i with f (j) &gt; 0.</p><p>Step 2: Partitioning the interval [0, 1] to sub-intervals. Let us now define the set of α's for a specific action i and each of the n−1 2 pairs j, j ′ = i as the α's respectively satisfying η j (α, p(i)) = η j ′ (α, p(i)). Formally, let C i be the set of all α i (j, j ′ )'s such that f (j) = f (j ′ ) and that satisfy</p><formula xml:id="formula_26">α i (j, j ′ ) : η j (α, p(i)) = η j ′ (α, p(i)) ⇐⇒ α i (j, j ′ ) def == (c(i) − c(j)) • f (j ′ ) − (c(i) − c(j ′ )) • f (j) (f (j ′ ) − f (j)) • f (i) .</formula><p>Let us observe that α's so defined do not depend on p(i). Hence, without loss of generality, we order elements in C i in non-decreasing order and reindex them as α i,ℓ 's. We first remove all α i,ℓ 's not in (0, 1), and we add α i,0 = 0, and</p><formula xml:id="formula_27">α i,|C i | = 1 to C i .</formula><p>Step 3: Solve the simplified program. We note that within any interval [α i,ℓ , α i,ℓ+1 ), the order of η's is preserved, that is, there exists a bijection π i,ℓ :</p><formula xml:id="formula_28">[n − 1] → A \ {i} such that η π i,ℓ (1) (α, p(i)) ≤ . . . ≤ η π i,ℓ (n−1) (α, p(i)). For convenience, we set η π i,ℓ (0) (α, p(i)) = −∞ and η π i,ℓ (n) (α, p(i)) = +∞.</formula><p>Moreover, since this is a minimization problem, we would like p(j)'s to be as small as possible (yet non-negative), thus, we can derive that p(j) = max{0, η j (α, p(i))} for all j ∈ A \ {i}.</p><p>Let </p><formula xml:id="formula_29">k ∈ {0} ∪ [n − 1] be such that η π i,ℓ (k) (α, p(i)) ≤ 0 &lt; η π i,ℓ (k+1) (α, p(i))</formula><formula xml:id="formula_30">αf (i) + p(i) • v({i}) + η π i,ℓ (k+1) (α, p(i)) • v(A \ {i, π i,ℓ (1), . . . , π i,ℓ (k)}) + n−1 t=k+2 (η π i,ℓ (t) (α, p(i)) − η π i,ℓ (t−1) (α, p(i))) • v(A \ {i, π i,ℓ (1), . . . , π i,ℓ (t − 1)}) s.t. η π i,ℓ (k) (α, p(i)) ≤ 0 &lt; η π i,ℓ (k+1) (α, p(i)) (4) max α i,ℓ , c(i) f (i) ≤ α ≤ α i,ℓ+1 .</formula><p>Let us observe that Program (4) is a constrained minimization problem in two variables, namely, α, p(i).</p><p>Step 4: Output. The algorithm considers all the inspection schemes in Steps 1, 2, 3 above</p><formula xml:id="formula_31">for each i ∈ A, ℓ ∈ n−1 2 , k ∈ {0} ∪ [n − 1].</formula><p>For each, it computes, using Program (4), the optimal α, p(i), and calculates the optimal inspection scheme using Lemma 4.2 with p(j) = 0 for j ∈ {π i,ℓ (1), . . . , π i,ℓ (k)}, p(j) = η j (α, p(i)) for j ∈ {π i,ℓ (k + 1), . . . , π i,ℓ (n − 1)}, and p(i). It returns the inspection scheme with the maximal expected utility among all suggestions.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.2">Proof of Theorem 4.1</head><p>Correctness. It is sufficient to consider actions i ∈ A with f (i) &gt; c(i) &gt; 0, in particular, that a feasible solution for Program (3) corresponds to a feasible solution for Program (4), and vice versa. Consider the optimal inspection scheme that incentivizes action i, which by Observation 2.1 is the solution α, p to Program (3) (with respect to action i). We know that there exists an ℓ such that α ∈ [α i,ℓ , α i,ℓ+1 ). Since within [α i,ℓ , α i,ℓ+1 ) the order of η's is preserved, by the structure guarantee of Lemma 4.2 we obtain that there exists a distribution p ′ with minimum expected cost with marginals max{0, η j }, for j = i, and p(i) for j = i (that always inspect i as a singleton), and is supported by the set {i} and on sets of the form {π i,ℓ (j), ..., π i,ℓ (n − 1)} for j ∈ [n]. Since (η π i,ℓ (0) , . . . , η π i,ℓ (n) ) is an increasing sequence with η π i,ℓ (0) = −∞, and η π i,ℓ (n) = ∞, then there exists k such that η π i,ℓ (k) (α, p ′ (i)) ≤ 0 &lt; η π i,ℓ (k+1) (α, p ′ (i)), which means that for the corresponding Program (4) with i, ℓ, k, the constraints are satisfied (and the objective has the same value). Overall, the optimal solution (α, p), corresponds to a feasible solution with the same objective value for one of the Programs (4) with the corresponding i, ℓ, k.</p><p>We also need to show that from a feasible solution to Program (4), we can construct a feasible solution to Program (3) with the same objective value. Consider a solutions α, p(i) to Programs (4), parametrized by combinations of i, ℓ, k. For marginals of 0 for all j ≤ k, and of η π i,ℓ (j) (α, p(i)) for j &gt; k, we apply Lemma 4.2 (on the set A \ {i}), and create the minimal cost distribution p ′ where p ′ ({i}) = p(i), and for all j ∈ [n − 1] we have p ′ (π i,ℓ (j)) = max{0, η π i,ℓ (j) (α, p(i))}. <ref type="foot" target="#foot_2">3</ref> Thus, α, p ′ is a feasible solution to Program (3) since for every j = i, we have that p ′ (j) ≥ η j (α, p(i)) (which equivalent to the constraint of Program ( <ref type="formula">3</ref>)). By Lemma 4.2 p ′ has a lower expected inspection cost than p and since it uses the same value of α, it concludes the proof.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Runtime and Number of Value</head><p>Queries. The algorithm presented in this section contains three nested loops: Step 1 is performed for each i ∈ A, that is n times. For each Step 1, Step 2 is performed at most O(n 2 ) times, since this is the maximum cardinality C i has. For each iteration of Step 2, Step 3 solves a program in two variables (α, p(i)) for each possible value of k, i.e., n − 1 times at most. Thus, the algorithm runs in polynomial time.</p><p>Moreover, as for the number of value queries used by the algorithm, we know from what is argued above that there are O(n 3 ) iterations of Steps 1, 2. For each different k we iterate over in Step 3, we query the value of the same sets, thereby making n value queries for all the iterations of Step 3. Thus, the algorithm requires O(n<ref type="foot" target="#foot_3">4</ref> ) value queries to the inspection cost function v overall.</p><p>Support. The support of the created distribution is of size at most n + 1. This follows from the fact that besides adding the set {i} to the support, the distribution is supported by the outcome of Lemma 4.2 on A \ {i} which is at most of size n.</p><p>The theorem follows.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5">Impossibility beyond Submodular Inspection Cost</head><p>In this section, we complement our positive result from Section 4 and show that for the class of XOS inspection cost functions (the next class in the hierarchy of complement-free set functions <ref type="bibr" target="#b32">[33]</ref>), it is not possible to find the optimal (randomized) inspection scheme using a polynomial number of value queries. Moreover, the impossibility result applies even in the case where the algorithm has access to function v via demand queries (as opposed to just value queries). Formally, we prove the following: Theorem 5.1. Every algorithm that for every instance (A, f, c, v) with XOS inspection cost function v over n = |A| actions returns the optimal randomized inspection scheme, uses at least 5 4 n value or demand queries.</p><p>To show Theorem 5.1, we construct a family of instances parameterized by a random hidden set T such that, for every instance, there exists a unique principal's utility maximizing randomized inspection scheme, and there is a one-to-one correspondence between T and this unique best inspection scheme. Additionally, using less than an exponential number of value and demand queries, one cannot extract the hidden parameter of the instance (set T ).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.1">Hard Instance Construction</head><p>Let us consider an instance with n = k + 3 actions for a k &gt; 5 being a prime number, where we name the actions A = {⊥, g, x, 1, . . . , k}. We now define a family of instances I T = (A, f, c, v T ) parametrized by a random set T ⊆ A, where |T | = 4k 5 , and such that: (1)</p><formula xml:id="formula_32">f (⊥) = 0, f (g) = 1, f (x) = 3 10 , f (i) = 1 5 ∀i ∈ [k], (2) c(⊥) = 0, c(g) = 1 10 , c(x) = 1 100 , c(i) = 1 100 ∀i ∈ [k].</formula><p>We next describe the inspection cost function:</p><formula xml:id="formula_33">v T (S) def == ½ [S \ {⊥, g} = ∅] 40 + ½ [⊥ ∈ S] + ½ [g ∈ S] (5) + 1 80k •        0 if |S| = 0 1 0 &lt; |S \ {⊥, g, x}| &lt; 4k 5 or S \ {⊥, g, x} ∈ cyclic(T ) 2 if |S \ {⊥, g, x}| &gt; 4k 5 and S \ {⊥, g, x} / ∈ cyclic(T )</formula><p>, where cyclic(T )</p><formula xml:id="formula_34">def == {T t | t ∈ [k]}, and T t def == {((j + t) mod k) + 1 | j ∈ T }</formula><p>, is defined to be the collection of all sets obtained by cyclic shifts of elements in T .</p><p>We now show that these inspection cost functions are XOS:</p><formula xml:id="formula_35">Lemma 5.2. For every T ⊆ A with |T | = 4k 5 , v T is XOS. Proof.</formula><p>Let us consider the following collection Γ of additive functions:</p><formula xml:id="formula_36">• γ x (S) def == 1 40 • ½ [x ∈ S] + ½ [⊥ ∈ S] + ½ [g ∈ S]</formula><p>, defined for action x;</p><formula xml:id="formula_37">• γ i (S) def == 1 40 + 1 80k • ½ [i ∈ S] + ½ [⊥ ∈ S] + ½ [g ∈ S], defined for each action i ∈ [k]; • γ S ′ (S) def == 1 40 + 1 40k • |S∩S ′ | |S ′ | + ½ [⊥ ∈ S]+ ½ [g ∈ S], defined for each subset of actions S ′ ⊆ [k] such that |S ′ | &gt; 4k 5 and S ′ / ∈ cyclic(T ).</formula><p>We now show that (1) for all S ⊆ A and all functions γ ∈ Γ, v T (S) ≥ γ(S), and (2) for all S ⊆ A, there exists a function γ ∈ Γ such that v T (S) = γ(S). This trivially holds for S = ∅. Moreover, for both claims, since the summands</p><formula xml:id="formula_38">½ [⊥ ∈ S] , ½ [g ∈ S]</formula><p>are common between v T and γ's, we can ignore them, i.e., consider v ′ T and γ ′ which are respectively obtained from v T and γ by subtracting</p><formula xml:id="formula_39">the term ½ [⊥ ∈ S] + ½ [g ∈ S]</formula><p>, and consider a new instance without actions ⊥, g.</p><p>For (1), we observe that, for S = {x}, it holds that for every</p><formula xml:id="formula_40">γ ′ ∈ Γ ′ , γ ′ (S) ≤ 1 40 = v ′ T (S). For all S ⊆ A \ {⊥, g}, such that v ′ T (S) = 1 40 + 1 80k , then max{γ ′ x (S), max i∈[k] γ ′ i (S)} ≤ 1 40 + 1 80k = v ′ T (S)</formula><p>. Also, for every γ ′ of the third type defined by a set S ′ , it holds that S ′ \ S = ∅. Therefore,</p><formula xml:id="formula_41">γ ′ S ′ (S) ≤ ( 1 40 + 1 40k ) • |S ′ |−1 |S ′ | ≤ ( 1 40 + 1 40k ) • ⌈ 4k 5 ⌉−1 ⌈ 4k 5 ⌉ ≤ v ′ T (S). For S such that v ′ T (S) = 1 40 + 1 40k</formula><p>, then for all γ ′ ∈ Γ ′ , it holds that γ ′ (S) ≤ 1 40 + 1 40k , which concludes the proof of (1). For <ref type="bibr" target="#b1">(2)</ref></p><formula xml:id="formula_42">, if S = {x} then γ ′ x (S) = v ′ T (S). Otherwise, if S is such that v ′ T (S) = 1 40 + 1 80k , then it means that there exists some action i ∈ S ∩ [k], therefore, γ ′ i (S) = v ′ T (S). If instead, v ′ T (S) = 1 40 + 1 40k , then it means that S is such that |S \ {x}| &gt; 4k 5 and S \ {x} / ∈ cyclic(T ), therefore γ ′ S exists (in Γ ′ ), thus, γ ′ S (S) = 1 40 + 1 40k</formula><p>, which concludes the proof of (2).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.2">Proof of Theorem 5.1</head><p>We next prove Theorem 5.1, as per the following lemmas.</p><p>Lemma 5.3. For every T ⊆ A with |T | = 4k 5 , the unique principal's utility maximizing randomized inspection scheme of instance I T is g, α = c(g) f (g) , p , where p(S ∪{x})</p><formula xml:id="formula_43">= 1 2|T | , for S ∈ cyclic(T ), p({x}) = 2 3 − k 2|T | , and p(∅) = 1 3 .</formula><p>Proof. In order to show that the unique optimal inspection scheme is I T , we first need to show that it is never more profitable for the principal to incentivize some other action j over action g.</p><p>To do so, we bound the utility that the principal can extract from any other action, by the social welfare induced by this action, ignoring incentive-compatibility constraints. In particular, observe that the social welfare of actions ⊥,</p><formula xml:id="formula_44">x or i ∈ [k] is respectively f (⊥) − c(⊥) = 0, f (x) − c(x) = 29 100 and f (i) − c(i) = 19</formula><p>100 . On the other hand, under inspection scheme I T , we have that p(g) = 0, p(⊥) = 0, p(x) = 2 3 and p(i) = 1 2 . Thus, the agent's best response is to take action g since</p><formula xml:id="formula_45">u a g, c(g) f (g) , p, ⊥ = f (⊥) • c(g) f (g) • (1 − p(⊥) − p(g)) − c(⊥) = 0 u a g, c(g) f (g) , p, x = f (x) • c(g) f (g) • (1 − p(x) − p(g)) − c(x) = 1 100 − 1 100 = 0 u a g, c(g) f (g) , p, i = f (i) • c(g) f (g) • (1 − p(i) − p(g)) − c(i) = 1 100 − 1 100 = 0, ∀ i ∈ [k] u a g, c(g) f (g) , p, g = f (g) • c(g) f (g) − c(g) = 0,</formula><p>thus, the agent does not strictly favor any other action over action g. Therefore, the principal's utility reads</p><formula xml:id="formula_46">u p (g, α, p, g) = 1 − c(g) f (g) −   p({x}) • v({x}) + S∈cyclic(T ) p(S ∪ {x}) • v(S ∪ {x})   = 9 10 − 2 3 − k 2|T | • 1 40 − k 2|T | 1 40 + 1 80k = 53 60 − 1 160 • |T | .</formula><p>From above, we see that incentivizing g through inspection scheme I T is always more profitable than incentivizing any other action j = g, since 53 60 − 1 160•|T | &gt; 29 100 &gt; 19 100 &gt; 0 (respectively, the principal's utilities arising by incentivizing actions x, i ∈ [k], ⊥).</p><p>Our next step is to show that no other inspection scheme I ′ T def == (g, α ′ , p ′ ) = I T can be optimal. We can assume that α ′ ≥ c(g) f (g) , as otherwise g would not be incentivized since the agent's utility from choosing action g is strictly negative, but from selecting ⊥ is 0. We can also assume that p ′ (⊥) = 0 because it is never profitable to inspect the null action (since it has a strictly positive cost, and the constraint derived from ⊥ is that the agent's utility from g is non-negative). Moreover, it must be the case that p ′ ({g}) = 0, or else there would exist a distribution p ′′ such that p ′′ ({g}) = 0, p ′′ ({x} ∪ [k]) = p ′ ({x} ∪ [k]) + p ′ ({g}) and p ′′ (S) = p ′ (S) for all other sets, that still incentivizes g but yields better utility to the principal (since v T ({x} ∪ [k]) &lt; v({g})), contradicting optimality of</p><formula xml:id="formula_47">I ′</formula><p>T . From the incentive-compatibility constraints, we derive that</p><formula xml:id="formula_48">p ′ (x) ≥ 1 − α ′ f (g) − c(g) + c(x) α ′ f (x) (6) p ′ (i) ≥ 1 − α ′ f (g) − c(g) + c(i) α ′ f (i) , ∀ i ∈ [k].</formula><p>Therefore, since f (i), c(i) are constant across all actions i ∈ [k], we obtain</p><formula xml:id="formula_49">k • 1 − α ′ f (g) − c(g) + c(i) α ′ f (i) ≤ i∈[k] p ′ (i) = i∈[k] S⊆A:i∈S p ′ (S) ≤ (|T | − 1) • S⊆A:0&lt;|S∩[k]|&lt; 4k 5 p ′ (S) =: y 1 + |T | • S⊆A:S∩[k]∈cyclic(T ) p ′ (S) =: y 2 + k • S⊆A:|S∩[k]|≥ 4k 5 S∩[k] / ∈cyclic(T )</formula><p>p ′ (S)</p><formula xml:id="formula_50">=: y 3 ,<label>(7)</label></formula><p>where the last inequality follows from the definition of marginal probabilities, from partitioning sets into the respective types and upper bounding their cardinalities. We observe that (1) if the principal inspects x it pays at least 1 40 ;</p><p>(2) if the principal decides to inspect actions from [k], then she pays an additional term that depends on the set of either 1 80k or 1 40k . All in all, the principal's cost (payment plus the inspection cost) is at least</p><formula xml:id="formula_51">α ′ f (g) + 1 40 • p ′ (x) + 1 80k • (y 1 + y 2 ) + 1 40k • y 3 .<label>(8)</label></formula><p>In order to lower bound the principal's cost, we simply need to minimize Equation ( <ref type="formula" target="#formula_51">8</ref>) subject to constraints in Equation <ref type="bibr" target="#b5">(6)</ref> and Equation <ref type="bibr" target="#b6">(7)</ref> as well as the constraints of α ′ ≥ c(g) f (g) , y 1 + y 2 + y 3 ≤ 1 and 0 ≤ p ′ (x), y 1 , y 2 , y 3 ≤ 1. Let us simplify Equation <ref type="bibr" target="#b7">(8)</ref> as follows: we first note that in the minimizing solution y 1 = 0, as otherwise if one defined y ′ 1 = 0 and y ′ 2 = y 2 + |T |−1 |T | • y 1 , (α ′ , p ′ (i), 0, y ′ 2 , y 3 ) would still be feasible and the objective evaluated on this tuple would be strictly smaller than the original one. To show the same with respect to y 3 , we observe that for y </p><formula xml:id="formula_52">′ 2 = min{ k 2|T | , y 2 + y 3 • k |T | },</formula><formula xml:id="formula_53">= y 2 + y 3 • k |T | ≤ 1, it holds that (α ′ , p ′ (i), 0, y ′</formula><p>2 , 0) would still be feasible and the objective evaluated on this tuple would be strictly smaller than the original one. Now, we observe that either p ′ (x) = 0, which implies that</p><formula xml:id="formula_54">α ′ • f (g) − c(g) ≥ α ′ f (x) − c(x), thus α ′ ≥ 9</formula><p>70 , and u p (g, α ′ , p ′ , g) ≤ (1 − α ′ )f (g) ≤ 61 70 which is strictly less than the utility of I T . Otherwise (p ′ (x) &gt; 0), and Equation ( <ref type="formula">6</ref>) can be replaced with equality, as we could lower the value of p ′ (x) (up to equality or 0) and still be feasible. Similarly, once y 1 = y 3 = 0, either y 2 = 0 which implies that α</p><formula xml:id="formula_55">′ • f (g) − c(g) ≥ α ′ f (i) − c(i), thus α ′ ≥ 9</formula><p>80 , and u p (g, α ′ , p ′ , g) ≤ (1 − α ′ )f (g) ≤ 71 80 , which is strictly less than the utility of I T . Thus, also Equation ( <ref type="formula" target="#formula_50">7</ref>) can be replaced with equality. Hence, we can write the objective function in Equation <ref type="bibr" target="#b7">(8)</ref> as</p><formula xml:id="formula_56">α ′ f (g) + 1 40 • 1 − α ′ f (g) − c(g) + c(x) α ′ f (x) + 1 80k • k |T | • 1 − α ′ f (g) − c(g) + c(i) α ′ f (i) = α ′ + 1 40 • 1 − 10 α ′ − 1/10 + 1/100 3α ′ + 1 80 • 1 |T | • 1 − 5 α ′ − 1/10 + 1/100 α ′ = α ′ + 9 1200 + 9 1600|T | • 1 α ′ − 7 120 − 33 560|T | .</formula><p>This is minimized, for every |T |, at α ′ = 1 10 . In summary, the unique optimal solution is α</p><formula xml:id="formula_57">′ = 1 10 , p ′ (x) = 2 3 , y 1 = y 3 = 0, y 2 = k 2|T | .</formula><p>To achieve this minimal cost, the principal must inspect a non-empty set with a probability of exactly p ′ (x) (otherwise, the lower bound of Equation ( <ref type="formula" target="#formula_51">8</ref>) is not tight), which means that all non-empty sets inspected S with p ′ (S) &gt; 0 must contain x.</p><p>It also must be that each action i ∈ [k] is inspected with probability p ′ (i) ≥ 1 2 . For every S ∈ cyclic(T ), let P S be p ′ (S∪{x}). To encode p ′ (i) ≥ 1  2 for all i ∈ [k], we get the following system of k inequalities in k variables P S 's, together with the equality encoding S∈cyclic(T</p><formula xml:id="formula_58">) p ′ (S ∪{x}) = k 2|T | : For all i ∈ [k],</formula><p>S∈cyclic(T ):i∈S</p><formula xml:id="formula_59">P S ≥ 1 2 S∈cyclic(T ) P S = k 2 • |T | .</formula><p>Since k is a prime number larger than 5 (thus 0 &lt; |T | &lt; k), the binary vectors representing P S for S ∈ cyclic(T ) are independent vectors (over R) thus, the unique solution is where for all S ∈ cyclic(T ), P S = 1 2|T | , and therefore p ′ (S ∪ {x}) = 1 2|T | . To summarize, in the optimal inspection I ′ T , in order to incentivize action g, the principal has to inspect sets such that their intersection with the k bad actions belongs to the cyclic shifts of T , i.e., p ′ ({x}</p><formula xml:id="formula_60">) = 2 3 − k 2|T | , p ′ (∅) = 1 3 and p ′ (S ∪ {x}) = 1</formula><p>2|T | for all S ∈ cyclic(T ). This implies that I ′ T = I T , which is a contradiction. I T is, thus, the unique principal's utility maximizing (randomized) inspection scheme.</p><p>Observation 5.4. Provided that we know what sets belong to the collection cyclic(T ), we can compute the unique optimal inspection scheme I T , inspecting each of the S ∈ cyclic(T ) with probability exactly 1 2|T | . The vice versa also holds. Hence, finding any set S ∈ cyclic(T ) via value or demand queries implies finding the unique optimal inspection scheme I T and vice versa. Proof. Let us consider any algorithm that uses value and demand queries to find some set S ∈ cyclic(T ). We show that it is possible to modify the algorithm only to use value queries (each demand query can be replaced by a single value query), and still find some set S ∈ cyclic(T ). Therefore, it is sufficient only to bound the number of value queries that are needed to find some set S ∈ cyclic(T ).</p><p>First, since g, ⊥ have an additive value of 1, we observe that g, ⊥ ∈ D(v T , q) if and only if q g ≤ 1 and q ⊥ ≤ 1 respectively, so we can ignore their prices, and find the demand with respect to demand query q = (q 1 , . . . , q k , q x ). Now, we can observe that since the image (after ignoring actions ⊥, g)</p><formula xml:id="formula_61">of v T is 0, 1 40 , 1 40 + 1 80k , 1 40 + 1 40k</formula><p>, and since a demand query returns the least expensive set among sets with the same value, we can partition the subsets of [k] ∪ {x} into four parts with the same value of v T , and the demand set must be one of the cheapest sets within each part.</p><p>Let us make the following considerations, given a vector of prices q = (q 1 , . . . , q k , q x ), and letting π : [k] → [k] be a permutation that satisfies q π(1) ≤ . . . ≤ q π(k) :</p><p>• The cheapest set with a value v T of 0 is the empty set ∅ (this is the only set with this value).</p><p>• The cheapest set with a value v T of From above, we have that, if {π(1), . . . , π(|T |)} / ∈ cyclic(T ) then in order to calculate the demand D(v T , q), one only needs to know v T (π(1), . . . , π(|T |)). Thus, we can modify the original algorithm as follows: Every time the original algorithm asks a demand query to compute D(v T , q), the modified algorithm asks the value query for the set {π( <ref type="formula" target="#formula_5">1</ref> We next lower bound the number of value queries needed for the modified algorithm to find some set S ∈ cyclic(T ). Note that, all k sets belonging to cyclic(T ) have size 4k ∈ cyclic(T ) only reveals the information that sets S ′ ∈ cyclic(S) do not belong to cyclic(T ). In other words, each value query can exclude at most k sets from the search of cyclic(T ). This implies that the expected number of value queries needed to find any set belonging to cyclic(T ) is</p><formula xml:id="formula_62">t∈ 1 k •( k ⌈ 4k /5⌉ ) k k ⌈ 4k /5⌉ − (t − 1) • k • t ≥ 1 k • k ⌈ 4k /5⌉ + k •   H   k ⌈ 4k /5⌉ k   − 1   ≥ 1 k • 5 4 k ,</formula><p>where we have used that v b ≥ v b b , and the fact that k is large enough. This concludes the proof.</p><p>In summary, Lemma 5.3 shows that for the constructed XOS inspection cost function (which is XOS by Lemma 5.2), the unique optimal inspection scheme has to inspect according to I T . Due to Observation 5.4, we know that computing the optimal inspection scheme is as hard as finding (through value or demand queries) any set in cyclic(T ). Finally, Lemma 5.5 shows that the number of value or demand queries to v T that is needed for finding a set in cyclic(T ), is exponential in the number of actions n. This concludes the proof of Theorem 5.1.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6">Discussion</head><p>We introduce a principal-agent model that relaxes the hidden-action assumption and that allows the principal to incentivize the agent through both positive incentives (payments) and negative incentives (inspections). To begin our analysis, we focus on deterministic IC inspection schemes where the principal inspects a subset of actions with certainty. We demonstrate that finding the best deterministic IC inspection scheme can be done efficiently for all (monotone) cost functions.</p><p>However, committing to deterministic inspection schemes can lead to significantly reduced utilities. As a result, we explore the use of randomized inspection schemes, which are commonly employed in practice. We then provide an efficient method for determining the optimal randomized IC inspection scheme when the inspection cost function is submodular. We complement our positive result by showing that the problem becomes intractable when dealing with XOS inspection cost functions. This highlights the class of submodular functions as the boundary of tractability for this problem.</p><p>Although our negative result for XOS functions indicates that finding the exact optimum is not possible, it still allows for the potential of efficiently approximating the optimal solution. Exploring the approximation version of this problem, especially when inspection cost functions are XOS or subadditive, holds promise for future research. While our work primarily focuses on the principal suggesting a single action, an intriguing direction for further exploration would involve considering scenarios where the principal can suggest a subset of actions. Furthermore, investigating the contract with inspections model in the presence of non-binary outcomes, an agent that can choose subsets of actions, multiple agents working on the same project, or hidden types would provide interesting avenues for future study. best respond by some other action i = j: We call these types of inspection schemes non-incentivecompatible (non-IC).</p><p>We show that, for deterministic inspection, IC inspection schemes are without loss of generality in that they can extract at least as much utility as non-IC inspection schemes. Theorem B.1. For every instance (A, c, f, v), and every deterministic non-incentive-compatible inspection scheme (j, α, S) with agent's best response i, there exists a deterministic incentivecompatible inspection scheme (i ′ , α ′ , S ′ ) with agent's best response i ′ yielding at least as much utility for the principal.</p><p>Proof. Let us consider a non-incentive-compatible inspection scheme (j, α, S) inducing the agent to take action i = j as the best response.</p><p>If {i, j} ∩ S = ∅ (i.e., at least one of i, j is inspected), then we know that the principal pays the agent 0, which means that her incurred cost c(i) is 0. Therefore, the principal could simply suggest action i, offer α = 0, and inspect set S, and the agent's best response would still be i. This means that the deterministic incentive-compatible inspection scheme (i, 0, S) still induces the agent's best response to be i, and thus achieves the same utility as the non-incentive-compatible one.</p><p>Otherwise, {i, j} ∩ S = ∅, and we have that u a (j, α, S, ℓ) = u a (i, α, S, ℓ) for every ℓ ∈ A. Thus i is also the best response to (i, α, S).</p><p>For randomized inspection schemes, the same does not hold, as the next example demonstrates. • Under no inspection, the best the principal can do is incentivizing action 2 by offering α = 2  3 , which yields a utility of 1  3 . Note that the utility from incentivizing action 1 is 3 10 &lt; 1 3 .</p><p>• The best randomized incentive-compatible inspection scheme for the principal is to suggest action 2 and solve the following program: Hence, α ≈ 0.548, p(1) ≈ 0.326, and p(2) = 0, yielding a principal's utility of approximately 0.355. This is the best IC-inspection scheme since an IC-inspection scheme that incentivizes action ⊥ (respectively, 1) cannot give the principal a utility that is better than f (⊥)−c(⊥) = 0 (respectively, f (1) − c(1) = 3  10 ).</p><p>• Let us consider the randomized non-incentive-compatible inspection scheme (⊥, 1, p), where p({⊥}) = 1 2 , p({1}) = 1 4 , and p(∅) = 1 4 . Then, the agent's utility from taking each of the three actions is:</p><formula xml:id="formula_63">u a (⊥, 1, p, ⊥) = 0,</formula></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Lemma 5 . 5 . 4 k</head><label>554</label><figDesc>Given a random hidden set T ⊆ A with |T | = 4k 5 , and oracle access to function v T , finding any S ∈ cyclic(T ) requires at least 5 value or demand queries to v T .</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head></head><label></label><figDesc>), . . . , π(|T |)}. If v T ({π(1), . . . , π(|T |)}) = 1 40 + 1 40k , it means that {π(1), . . . , π(|T |)} / ∈ cyclic(T ), and so the modified algorithm (as well as the original one) keep on interrogating the value (resp. demand) oracle. Otherwise, we have that {π(1), . . . , π(|T |)} ∈ cyclic(T ), and the modified algorithm can stop and return this set.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head>5</head><label></label><figDesc>and the number of subsets of [k] of size 4k 5 is k ⌈ 4k /5⌉ . Therefore, each value query on sets S /</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head>Example B. 2 .</head><label>2</label><figDesc>Let us consider the following instance with three actionsA = {⊥, 1, 2}: c(⊥) = 0, f (⊥) = 0, c(1) = 1 10 , f (1) = 2 5 , c(2) = 1 2 , f (2) = 1,and the additive inspection cost functionv(S) def == 3 10 • ½ [1 ∈ S] + 2 • ½ [2 ∈ S].</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_0"><head></head><label></label><figDesc>and, by applying Lemma 4.2 on the set A \ {i}, we write Program (3) in the following simplified form:</figDesc><table><row><cell>min α,p(i)</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_1"><head></head><label></label><figDesc>• |T | + y 3 • k. It also holds that y ′ 2 ≤ 1, and thus, for y ′ 2</figDesc><table><row><cell>and y ′ 3 = 0, condition Equation (7) holds since either y ′ 2 = k 2|T | , and</cell></row><row><cell>Equation (7) holds since α ′ ≥ 1 10 or y ′ 2 = y 2 + y 3 • k |T | and Equation (7) holds since y ′ 2 • |T | =</cell></row><row><cell>y 2</cell></row></table></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="1" xml:id="foot_0">Notice that 1 − S:{i,j}∩S =∅ p(S) is precisely the probability the agent does not get caught by the principal.</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="2" xml:id="foot_1">Observe that Ai is well defined since f (i) &gt; f (j) and f (i) &gt; 0.</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="3" xml:id="foot_2">Observe that Lemma</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="4" xml:id="foot_3">.2 can be applied using only the marginals p(j)'s instead of receiving a full distribution p. Moreover, to ensure that the created distribution p ′ is indeed a distribution, we can set p ′ (∅) to 1 − p(i) − max j =i p(j) which is at least 0 as otherwise this would not be a feasible solution to Program (4).</note>
+		</body>
+		<back>
+
+			<div type="acknowledgement">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Acknowledgments</head><p>Stefano Leonardi and Matteo Russo are partially supported by the ERC Advanced Grant 788893 AMDROMA "Algorithmic and Mechanism Design Research in Online Markets" and MIUR PRIN project ALGADIMAR "Algorithms, Games, and Digital Markets". Tomer Ezra is supported by the Harvard University Center of Mathematical Sciences and Applications.</p></div>
+			</div>
+
+			<div type="annex">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>A Gaps between Randomized and Deterministic Inspection Schemes</head><p>In spite of their convenient structural properties, such as computational tractability in finding them, deterministic inspection schemes can be much worse than randomized ones. In particular, we extend Example 1.1 and show that the principal's utility gap between deterministic and randomized inspection schemes can grow as the instance size grows. Formally, we prove the following result: Proposition A.1. There exists an instance (A, f, c, v), and an IC randomized inspection scheme (i, α, p) such that for every deterministic IC inspection scheme (i ′ , α ′ , S), it holds that</p><p>Proof. We present the following instance (Table <ref type="table">1</ref>) where v :</p><p>, and f, c are defined in the following table:</p><p>Table <ref type="table">1</ref>: Instance exhibiting Ω(n) gap between deterministic and randomized inspection schemes. Similar instances have been used to study various other types of gaps between optimal contract vs optimal linear contract (in different settings) for example, in <ref type="bibr" target="#b14">[15,</ref><ref type="bibr" target="#b25">26]</ref>.</p><p>We first show that the best deterministic inspection scheme never inspects (i.e., always inspects the empty set). Indeed, any deterministic inspection scheme that inspects a non-empty set must pay at least n 2 n , since v(S) ≥ n 2 n for all S = ∅. Since the maximal social welfare arising from the instance (when ignoring incentive constraints) is in correspondence of action n − 1 and equals n 2 n , then the highest expected reward minus payment to an agent a deterministic inspection can extract from the instance is bounded above by the social welfare. This means that the utility by inspecting some non-empty set is at most 0.</p><p>Hence, since the principal does not inspect, we have, by the incentive-compatibility constraints, that if the principal wants to incentivize the agent to take action j = ⊥, then it must hold that:</p><p>which by rearranging gives us that α ≥ 1 − 1 2 j . Thus, the utility from incentivizing action j is at most (1 − α)f (j) = 1 2 j • 2 j+1 2 n = 2 2 n . On the other hand, let us consider the randomized IC inspection scheme with suggested action n − 1, with contract α = 1 − n 2 n , and p(∅) = 1 2 , p({n − 1}) = 1 2 as our randomized inspection distribution. The utility of the agent for action n − 1 is α • f (n − 1) − c(n − 1) = 0, while for every other action j = ⊥, n − 1, we have that</p><p>Hence, the agent is incentivized to take action n − 1. Thus, the principal gets</p><p>which concludes the proof. <ref type="table">1</ref> can be easily modified to have v(S) = 0 for all S ⊆ A, implying that the gap in principal's utility between no inspection and best deterministic inspection can also be at least Ω(n).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Remark A.2. The instance presented in Table</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>B Non Incentive-Compatible Inspection Schemes</head><p>In the main body of the paper, we focused on incentive-compatible inspection schemes. Indeed, we observe that the principal may propose an inspection scheme (j, α, p) so as to cause the agent to</p><p>From above, we see that action 2 is in the agent's best response set with respect to inspection scheme (⊥, 1, p). The principal pays 1 to the agent only with probability 1 2 (the probability the agent is not caught taking an action different from ⊥), and incurs an inspection cost of 3  10 (for inspecting action 1) only with probability 1  4 . All in all, the principal has utility </p></div>			</div>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">Contracts with private cost per unit-of-effort</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Alon</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Dütting</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Talgam-Cohen</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">EC</title>
+				<imprint>
+			<publisher>ACM</publisher>
+			<date type="published" when="2021">2021</date>
+			<biblScope unit="page" from="52" to="69" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">Incomplete information VCG contracts for common agency</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Alon</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Lavi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><forename type="middle">S</forename><surname>Shamash</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Talgam-Cohen</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">EC</title>
+				<imprint>
+			<publisher>ACM</publisher>
+			<date type="published" when="2021">2021</date>
+			<biblScope unit="page">70</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">Bayesian analysis of linear contracts</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Alon</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Duetting</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Talgam-Cohen</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">EC</title>
+				<imprint>
+			<publisher>ACM</publisher>
+			<date type="published" when="2023">2023</date>
+			<biblScope unit="page">66</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">Improved truthful mechanisms for subadditive combinatorial auctions: Breaking the logarithmic barrier</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Assadi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Kesselheim</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Singla</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">SODA</title>
+				<imprint>
+			<publisher>SIAM</publisher>
+			<date type="published" when="2021">2021</date>
+			<biblScope unit="page" from="653" to="661" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">Combinatorial agency</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Babaioff</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Feldman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Nisan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Winter</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">J. Econ. Theory</title>
+		<imprint>
+			<biblScope unit="volume">147</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="999" to="1034" />
+			<date type="published" when="2012">2012</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<monogr>
+		<title level="m" type="main">Should the timing of inspections be predictable? In EC</title>
+		<author>
+			<persName><forename type="first">I</forename><surname>Ball</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Knoepfle</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2023">2023</date>
+			<publisher>ACM</publisher>
+			<biblScope unit="page">206</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">Robustness and linear contracts</title>
+		<author>
+			<persName><forename type="first">G</forename><surname>Carroll</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">American Economic Review</title>
+		<imprint>
+			<biblScope unit="volume">105</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="536" to="563" />
+			<date type="published" when="2015">2015</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">Bayesian agency: Linear versus tractable contracts</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Castiglioni</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Marchesi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Gatti</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Artif. Intell</title>
+		<imprint>
+			<biblScope unit="volume">307</biblScope>
+			<biblScope unit="page">103684</biblScope>
+			<date type="published" when="2022">2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">Designing menus of contracts efficiently: The power of randomization</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Castiglioni</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Marchesi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Gatti</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">EC</title>
+				<imprint>
+			<publisher>ACM</publisher>
+			<date type="published" when="2022">2022</date>
+			<biblScope unit="page" from="705" to="735" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">Multi-agent contract design: How to commission multiple agents with individual outcomes</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Castiglioni</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Marchesi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Gatti</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">EC</title>
+				<imprint>
+			<publisher>ACM</publisher>
+			<date type="published" when="2023">2023</date>
+			<biblScope unit="page" from="412" to="448" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">A constant factor prophet inequality for online combinatorial auctions</title>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">R</forename><surname>Correa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Cristi</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">STOC</title>
+				<imprint>
+			<publisher>ACM</publisher>
+			<date type="published" when="2023">2023</date>
+			<biblScope unit="page" from="686" to="697" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">Robust incentives for teams</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Dai</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Toikka</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Econometrica</title>
+		<imprint>
+			<biblScope unit="volume">90</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="1583" to="1613" />
+			<date type="published" when="2022">2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">On supermodular contracts and dense subgraphs</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Deo-Campo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Vuong</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Dughmi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Patel</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Prasad</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 2024 Annual ACM-SIAM Symposium on Discrete Algorithms (SODA)</title>
+				<meeting>the 2024 Annual ACM-SIAM Symposium on Discrete Algorithms (SODA)</meeting>
+		<imprint>
+			<publisher>SIAM</publisher>
+			<date type="published" when="2024">2024</date>
+			<biblScope unit="page" from="109" to="132" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">Approximation algorithms for combinatorial auctions with complement-free bidders</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Dobzinski</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Nisan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Schapira</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">STOC</title>
+				<imprint>
+			<publisher>ACM</publisher>
+			<date type="published" when="2005">2005</date>
+			<biblScope unit="page" from="610" to="618" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">Simple versus optimal contracts</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Dütting</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Roughgarden</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Talgam-Cohen</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">EC</title>
+				<imprint>
+			<publisher>ACM</publisher>
+			<date type="published" when="2019">2019</date>
+			<biblScope unit="page" from="369" to="387" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<analytic>
+		<title level="a" type="main">Combinatorial contracts</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Dütting</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Ezra</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Feldman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Kesselheim</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">FOCS</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2021">2021</date>
+			<biblScope unit="page" from="815" to="826" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<analytic>
+		<title level="a" type="main">The complexity of contracts</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Dütting</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Roughgarden</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Talgam-Cohen</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">SIAM J. Comput</title>
+		<imprint>
+			<biblScope unit="volume">50</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="211" to="254" />
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<analytic>
+		<title level="a" type="main">Multi-agent contracts</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Dütting</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Ezra</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Feldman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Kesselheim</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">STOC</title>
+				<imprint>
+			<publisher>ACM</publisher>
+			<date type="published" when="2023">2023</date>
+			<biblScope unit="page" from="1311" to="1324" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<analytic>
+		<title level="a" type="main">Combinatorial contracts beyond gross substitutes</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Dutting</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Feldman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Tzur</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 2024 Annual ACM-SIAM Symposium on Discrete Algorithms (SODA)</title>
+				<meeting>the 2024 Annual ACM-SIAM Symposium on Discrete Algorithms (SODA)</meeting>
+		<imprint>
+			<publisher>SIAM</publisher>
+			<date type="published" when="2024">2024</date>
+			<biblScope unit="page" from="92" to="108" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<analytic>
+		<title level="a" type="main">Computing optimal contracts in combinatorial agencies</title>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Emek</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Feldman</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Theor. Comput. Sci</title>
+		<imprint>
+			<biblScope unit="volume">452</biblScope>
+			<biblScope unit="page" from="56" to="74" />
+			<date type="published" when="2012">2012</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<analytic>
+		<title level="a" type="main">On the (In)approximability of Combinatorial Contracts</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Ezra</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Feldman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Schlesinger</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">15th Innovations in Theoretical Computer Science Conference (ITCS 2024)</title>
+				<imprint>
+			<publisher>Schloss Dagstuhl -Leibniz-Zentrum für Informatik</publisher>
+			<date type="published" when="2024">2024</date>
+			<biblScope unit="volume">287</biblScope>
+			<biblScope unit="page" from="1" to="44" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<monogr>
+		<title level="m" type="main">Contract design with safety inspections</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Fallah</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">I</forename><surname>Jordan</surname></persName>
+		</author>
+		<idno>CoRR, abs/2311.02537</idno>
+		<imprint>
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<analytic>
+		<title level="a" type="main">Combinatorial auctions via posted prices</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Feldman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Gravin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Lucier</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">SODA</title>
+				<imprint>
+			<publisher>SIAM</publisher>
+			<date type="published" when="2015">2015</date>
+			<biblScope unit="page" from="123" to="135" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b23">
+	<analytic>
+		<title level="a" type="main">Simple contracts with adverse selection and moral hazard</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Gottlieb</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Moreira</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Theoretical Economics</title>
+		<imprint>
+			<biblScope unit="volume">17</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="1357" to="1401" />
+			<date type="published" when="2022">2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b24">
+	<analytic>
+		<title level="a" type="main">An analysis of the principal-agent problem</title>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">J</forename><surname>Grossman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">O</forename><forename type="middle">D</forename><surname>Hart</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Econometrica</title>
+		<imprint>
+			<biblScope unit="volume">51</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="7" to="45" />
+			<date type="published" when="1983">1983</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b25">
+	<analytic>
+		<title level="a" type="main">Contracts under moral hazard and adverse selection</title>
+		<author>
+			<persName><forename type="first">G</forename><surname>Guruganesh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Schneider</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">R</forename><surname>Wang</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">EC</title>
+				<imprint>
+			<publisher>ACM</publisher>
+			<date type="published" when="2021">2021</date>
+			<biblScope unit="page" from="563" to="582" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b26">
+	<analytic>
+		<title level="a" type="main">Adaptive contract design for crowdsourcing markets: Bandit algorithms for repeated principal-agent problems</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Ho</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Slivkins</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">W</forename><surname>Vaughan</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">J. Artif. Intell. Res</title>
+		<imprint>
+			<biblScope unit="volume">55</biblScope>
+			<biblScope unit="page" from="317" to="359" />
+			<date type="published" when="2016">2016</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b27">
+	<analytic>
+		<title level="a" type="main">Aggregation and linearity in the provision of intertemporal incentives</title>
+		<author>
+			<persName><forename type="first">B</forename><surname>Holmstrom</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Milgrom</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Econometrica</title>
+		<imprint>
+			<biblScope unit="volume">55</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="303" to="328" />
+			<date type="published" when="1987">1987</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b28">
+	<analytic>
+		<title level="a" type="main">Multitask principal-agent analyses: Incentive contracts, asset ownership, and job design</title>
+		<author>
+			<persName><forename type="first">B</forename><surname>Holmstrom</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Milgrom</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Law, Economics, and Organization</title>
+		<imprint>
+			<biblScope unit="volume">7</biblScope>
+			<biblScope unit="page" from="24" to="52" />
+			<date type="published" when="1991">1991</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b29">
+	<analytic>
+		<title level="a" type="main">Randomization is optimal in the robust principal-agent problem</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Kambhampati</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Economic Theory</title>
+		<imprint>
+			<biblScope unit="volume">207</biblScope>
+			<biblScope unit="page">2023</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b30">
+	<analytic>
+		<title level="a" type="main">Job matching, coalition formation, and gross substitutes</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">S</forename><surname>Kelso</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><forename type="middle">P</forename><surname>Crawford</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Econometrica</title>
+		<imprint>
+			<biblScope unit="volume">50</biblScope>
+			<biblScope unit="issue">6</biblScope>
+			<biblScope unit="page" from="1483" to="1504" />
+			<date type="published" when="1982">1982</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b31">
+	<analytic>
+		<title level="a" type="main">Principal-agent VCG contracts</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Lavi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><forename type="middle">S</forename><surname>Shamash</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">J. Econ. Theory</title>
+		<imprint>
+			<biblScope unit="volume">201</biblScope>
+			<biblScope unit="page">105443</biblScope>
+			<date type="published" when="2022">2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b32">
+	<analytic>
+		<title level="a" type="main">Combinatorial auctions with decreasing marginal utilities</title>
+		<author>
+			<persName><forename type="first">B</forename><surname>Lehmann</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Lehmann</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Nisan</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Games Econ. Behav</title>
+		<imprint>
+			<biblScope unit="volume">55</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="270" to="296" />
+			<date type="published" when="2006">2006</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b33">
+	<analytic>
+		<title level="a" type="main">A general framework for robust contracting models</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Walton</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Carroll</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Econometrica</title>
+		<imprint>
+			<biblScope unit="volume">90</biblScope>
+			<biblScope unit="issue">5</biblScope>
+			<biblScope unit="page" from="2129" to="2159" />
+			<date type="published" when="2022">2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b34">
+	<analytic>
+		<title level="a" type="main">Robust contract designs: Linear contracts and moral hazard</title>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Yu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X</forename><surname>Kong</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Oper. Res</title>
+		<imprint>
+			<biblScope unit="volume">68</biblScope>
+			<biblScope unit="issue">5</biblScope>
+			<biblScope unit="page" from="1457" to="1473" />
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b35">
+	<analytic>
+		<title level="a" type="main">The sample complexity of online contract design</title>
+		<author>
+			<persName><forename type="first">B</forename><surname>Zhu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Bates</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Yang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Jiao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">I</forename><surname>Jordan</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">EC</title>
+				<imprint>
+			<publisher>ACM</publisher>
+			<date type="published" when="2023">2023</date>
+			<biblScope unit="page">1188</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

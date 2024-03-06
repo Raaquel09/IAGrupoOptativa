@@ -1,0 +1,3127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">GROUNDHOG : Grounding Large Language Models to Holistic Segmentation</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+				<date type="published" when="2024-02-26">26 Feb 2024</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author role="corresp">
+							<persName><forename type="first">Yichi</forename><surname>Zhang</surname></persName>
+							<email>zhangyic@umich.edu</email>
+							<affiliation key="aff0">
+								<orgName type="institution">University of Michigan</orgName>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Ziqiao</forename><surname>Ma</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="institution">University of Michigan</orgName>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Xiaofeng</forename><surname>Gao</surname></persName>
+							<affiliation key="aff1">
+								<orgName type="laboratory">Amazon AGI</orgName>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Suhaila</forename><surname>Shakiah</surname></persName>
+							<affiliation key="aff1">
+								<orgName type="laboratory">Amazon AGI</orgName>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Qiaozi</forename><surname>Gao</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Joyce</forename><surname>Chai</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="institution">University of Michigan</orgName>
+							</affiliation>
+							<affiliation key="aff1">
+								<orgName type="laboratory">Amazon AGI</orgName>
+							</affiliation>
+						</author>
+						<title level="a" type="main">GROUNDHOG : Grounding Large Language Models to Holistic Segmentation</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date type="published" when="2024-02-26">26 Feb 2024</date>
+						</imprint>
+					</monogr>
+					<idno type="MD5">BF838F65055D58AD0E00BDD73E97C8C7</idno>
+					<idno type="arXiv">arXiv:2402.16846v1[cs.CV]</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.2" ident="GROBID" when="2024-03-06T22:18+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Describe the image briefly.</p><p>A man and a little girl are sitting in a shopping cart.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>👤</head><p>Generate a short caption.</p><p>Two dogs are playing with a stick in a field.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>👤</head><p>Describe the given picture in very detail.</p><p>In this image, we can see a boat on the water. There are few people inside the boat. There are also few people on the rocks. In the background, there are trees, hills, and sky.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>👤 (a) Grounded Image Captioning (GIC).</head><p>Provide a distinct description for that &lt;PTR&gt;.</p><p>Blue container with apples. (c) Grounded Visual Question Answering (GVQA).</p><p>Figure <ref type="figure">1</ref>. We propose GROUNDHOG, a multimodal large language model that enhances its text output with pixel-level phrase grounding across diverse semantic granularities. The figure demonstrates outputs from our model on the four task types we considered in this work.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Abstract</head><p>Most multimodal large language models (MLLMs) learn language-to-object grounding through causal language modeling where grounded objects are captured by bounding boxes as sequences of location tokens. This paradigm lacks pixel-level representations that are important for fine-grained visual understanding and diagnosis. In this work, we introduce GROUNDHOG, an MLLM developed by grounding Large Language Models to holistic segmentation. GROUNDHOG incorporates a masked feature extractor and converts extracted features into visual entity tokens for the MLLM backbone, which then con- † Work done during internship at Amazon AGI.</p><p>nects groundable phrases to unified grounding masks by retrieving and merging the entity masks. To train GROUND-HOG, we carefully curated M3G2, a grounded visual instruction tuning dataset with Multi-Modal Multi-Grained Grounding, by harvesting a collection of segmentationgrounded datasets with rich annotations. Our experimental results show that GROUNDHOG achieves superior performance on various language grounding tasks without taskspecific fine-tuning, and significantly reduces object hallucination. GROUNDHOG also demonstrates better grounding towards complex forms of visual input and provides easy-to-understand diagnosis in failure cases.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.">Introduction</head><p>Multimodal large language models (MLLMs) have received an increasing amount of attention to address tasks that necessitate non-linguistic knowledge, e.g., perception and reasoning about the visual world <ref type="bibr" target="#b38">[39,</ref><ref type="bibr" target="#b83">84]</ref>. For finegrained visual understanding, grounded MLLMs often learn language-to-object grounding by causal language modeling, where grounded objects are captured by bounding boxes as sequences of location tokens. However, bounding boxes are insufficient in indicating amorphous stuff <ref type="bibr" target="#b4">[5]</ref>, semantic parts of objects <ref type="bibr" target="#b22">[23]</ref>, finer-grained regions with irregular shapes <ref type="bibr" target="#b25">[26]</ref>, or groups of instances at the same time. As a result, a single bounding box can often include other irrelevant semantics in order to engulf the target entities, leading to ambiguity in detection. In addition, the generated box coordinate lacks interpretability. When the model hallucinates, such as incorrectly predicting the association between objects and language, it is hard to diagnose whether the problem is due to the model's failure to detect the object, or its incorrect alignment of the object with language.</p><p>To address these issues, in this work, we introduce GROUNDHOG, an MLLM developed by grounding Large Language Models to holistic segmentation. Our goal of language grounding is to connect text spans that refer to or can be deduced from visual information, termed as groundable phrases <ref type="bibr" target="#b50">[51]</ref>, to their corresponding regions of visual entities. GROUNDHOG incorporates a masked feature extractor that takes an input image and a set of class-agnostic entity mask proposals, and converts each mask's features into visual entity tokens for an MLLM backbone. This MLLM then connects groundable phrases to unified grounding masks by retrieving and merging the entity masks. Compared to previous grounded MLLMs, GROUNDHOG unlocks unprecedented pixel-level visionlanguage alignment. It naturally supports visual pointers as input, and can plug-in-and-play with any choice of mask proposal networks, e.g., Segment Anything Model (SAM) <ref type="bibr" target="#b34">[35]</ref>, domain-specific semantic segmentation models, or user-provided mask candidates. We introduce an enhanced Mask2Former <ref type="bibr" target="#b9">[10]</ref> as our default mask proposal network, which detects regions at multiple granularities, e.g., instances (things and stuff), semantic parts, and visual text, leading to a holistic coverage of visual semantics.</p><p>To train GROUNDHOG, we curated a Multi-Modal Multi-Grained Grounding (M3G2) dataset consisting of 2.5M text-image pairs for visually grounded instruction tuning, consisting of 36 sub-problems derived and augmented from 27 existing datasets. We present extensive experiments on vision-language tasks that require grounding, including grounded language generation with minimal object hallucination, language-guided segmentation, visual question answering with answer grounding, and referential dialog with spatial pointer inputs (Figure <ref type="figure">1</ref>). Our empirical results show that GROUNDHOG, without task-specific fine-tuning, can achieve superior or comparable performance with previous models that either require fine-tuning or are specialized only for that dataset. In addition, GROUNDHOG has supports easy-to-understand diagnosis when grounding fails.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.">Our Method: GROUNDHOG</head><p>The language grounding task can be succinctly delineated into two fundamental components: localization and recognition, as established in the literature <ref type="bibr" target="#b50">[51,</ref><ref type="bibr" target="#b68">69,</ref><ref type="bibr" target="#b91">92]</ref>. Such categorization not only aids in the identification of object presence (objectness) without reliance on specific object classes, but also sets the stage for models to be robust in open-vocabulary settings. Building upon this framework, we formulate the grounding process as an entity segment selection problem, which involves (1) proposing entity segmentation masks where the masks encapsulate regions with discernible semantic content, and (2) recognizing the retrieved entities through the understanding of both visual and language context. Concurrently performing both tasks is where MLLMs bring a distinct advantage. This decoupled design of entity mask proposal and languageguided grounding brings several advantages. First, it allows independent improvement of the mask proposal model and MLLM, where specialized data, training, and inference setups can be applied. Second, by decoupling language grounding, it becomes straightforward to determine if a failure is due to the model's inability to propose the entity segment, or its misalignment of the object with the language, thus improving the interpretability of the whole framework. Third, as shown later, when connecting the two parts to work in tandem in a model-independent manner, the MLLM can benefit from multiple different vision specialist models in a plug-and-play fashion. In the remainder of this section, we give details of our model design.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.1.">Building Entity Features from Masks</head><p>Our approach assumes the availability of a mask proposal model, which is capable of generating a set of classagnostic entity masks from an image with high coverage. In contrast to prior studies that relied on low-level features <ref type="bibr" target="#b7">[8,</ref><ref type="bibr" target="#b12">13,</ref><ref type="bibr" target="#b45">46,</ref><ref type="bibr" target="#b56">57]</ref>, GROUNDHOG interprets the image as a collection of entities. The primary challenge then becomes the derivation of effective visual features to accurately represent these entities. To achieve a complete decoupling of the MLLM from the mask proposal model responsible for providing the masks, we propose to condition the entity features solely on the binary masks without using any embeddings from the mask proposal model. Specifically, the mask corresponding to each entity is employed to extract patch features from pretrained vision foundation models, such as CLIP <ref type="bibr" target="#b62">[63]</ref> and DINOv2 <ref type="bibr" target="#b54">[55]</ref>, through a convolutional mask pooling layer <ref type="bibr" target="#b11">[12]</ref>. Given that the feature map dimensions The output hidden states of the grounding tokens are averaged and used to retrieve the entities to ground, which will be merged into a single grounding mask for the phrase.</p><p>Modules are colored by their trainability: parameter-free operators (grey), frozen (blue), trainable (orange), and partially trainable (mix).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>SAM Multi-Modal Language Model</head><p>What is that &lt;PTR&gt; ?</p><p>A black dog …</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Masked Feature Extractor</head><p>Figure <ref type="figure">3</ref>. GROUNDHOG can take arbitrary spatial prompts that can be resolved by an interactive segmentation model, such as SAM.</p><p>The placeholder pointer token &lt;PTR&gt; will be replaced by the extracted entity features and fed as input to the model.</p><p>are usually smaller than those of the mask proposals, we resize the masks to match the size of the feature maps prior to pooling. The pooled features are then fed into a Multi-Layer Perceptron (MLP) network to align with the input embeddings of the MLLM. We empirically find the combination of CLIP and DINOv2 features yields the best result, and these features are added to obtain the final input visual entity tokens to the MLLM.</p><p>Spatial Prompts Furthermore, for grounded MLLMs to be more broadly applicable, they must be capable of interpreting multi-modal user inputs, including spatial prompts.</p><p>Thanks to the mask model agnostic design, GROUND-HOGcan seamlessly support such inputs. As demonstrated in Figure <ref type="figure">3</ref>, by applying an interactive segmentation model such as Segment-Anything (SAM) <ref type="bibr" target="#b34">[35]</ref>, arbitrary spatial prompts can be translated into binary masks and processed by the same masked feature extractor we just introduced. This extracted feature for the pointed entity will replace the pointer token &lt;PTR&gt; placeholder in the textual input.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.2.">Language Grounding to Entity Segmentation</head><p>Existing box-grounded MLLMs typically append location tokens after the groundable phrases <ref type="bibr" target="#b7">[8,</ref><ref type="bibr" target="#b8">9,</ref><ref type="bibr" target="#b56">57,</ref><ref type="bibr" target="#b84">85]</ref>. However, this method is not readily interpretable. To alleviate this disconnect, we introduce a pair of grounding tokens &lt;GRD&gt; and &lt;/GRD&gt; to indicate the start and end of groundable phrases, with the assumption that grounding these phrases requires mapping to certain representations of visual entities irrespective of the visual modality. In Figure <ref type="figure" target="#fig_1">2</ref>, a sentence can be represented as I see &lt;GRD&gt; two dogs &lt;/GRD&gt; on &lt;GRD&gt; the beach &lt;/GRD&gt;, with two distinct visual entities grounded. The representation of each groundable phrase, termed as the grounding query, is obtained by adding &lt;GRD&gt; and &lt;/GRD&gt;'s output embedding from the last transformer layer of the MLLM. The representation is then used to retrieve the entities that the phrase should be grounded to. In particular, we concatenate the grounding query with the last layer output of each visual entity token, and use an MLP to predict a scalar score for each entity. Finally, we merge all the mask proposals into one single mask with pixel-wise maximization:</p><formula xml:id="formula_0">M h,w = max q S q • M q,h,w</formula><p>where S q is the normalized score of the q-th mask ranging from 0 to 1, and M q,h,w denotes the pixel probability at position (h, w) for the q-th mask. Note that a phrase may ground to multiple entities, thus multiple mask proposals may get a high score simultaneously and be selected in conjunction. One of the primary benefits of this decoupled design is its transparency in the selection of entities. Users can easily visualize both the mask proposals and their respective scores, providing a clear understanding of how a grounding mask is predicted. This level of clarity and interpretability is a significant advantage, offering users a tangible insight into the model's grounding process.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.3.">Towards Holistic Entity Mask Proposals</head><p>In order to support holistic language grounding to arbitrary segmentations, the entity proposal should have two essential properties. First, the proposals should strike a delicate balance in terms of semantic atomicity. While it is possible to merge multiple proposals later to form multi-entity segmentations, the reverse, i.e., dividing a single proposal into smaller segments, is not feasible. Therefore, instance segmentation is generally preferred over semantic segmentation. However, the segmentation should not be excessively fine-grained to the extent that it compromises basic semantic integrity. Over-segmentation can lead to a loss of the coherent concept of an entity, which is detrimental to the grounding process. Second, the entity proposals should have a high coverage of entities, encompassing a diverse range of granularities. This includes not only tangible objects (things) and amorphous concepts (stuff) but also extends to sub-components of objects (parts of things) and structured regions such as areas containing visual text. The ability to propose entities across this spectrum of granularity is pivotal, as it directly determines the upper bound of the grounding capability of MLLM. We initiated our study with a Mask2Former model pretrained on the COCO panoptic segmentation dataset, capable of segmenting 134 object categories. However, preliminary experiments revealed its limitations in semantic coverage and adaptability to open-world scenarios. To enhance this, we developed Mask2Former+, an upgraded version designed for multi-grained segmentation. This upgrade involved creating a diverse dataset by merging annotations from various sources, including COCO <ref type="bibr" target="#b4">[5]</ref>, LVIS <ref type="bibr" target="#b24">[25]</ref>, Entity-v2 <ref type="bibr" target="#b60">[61]</ref>, Pascal <ref type="bibr" target="#b15">[16]</ref>, PACO <ref type="bibr" target="#b63">[64]</ref> (Figure <ref type="figure" target="#fig_7">8</ref>); MHP-v2 <ref type="bibr" target="#b39">[40]</ref> for human part parsing; and TextOCR <ref type="bibr" target="#b67">[68]</ref> for text segmentation. Additionally, we expanded the model's capabilities by adding 50 expert queries each for semantic parts and visual text regions, alongside the original 200 entity queries. We assessed Mask2Former+'s performance on 1000 images from validation splits from 4 grounding benchmarks, RefCOCO+ <ref type="bibr" target="#b85">[86]</ref>, PhraseCut <ref type="bibr" target="#b76">[77]</ref>, Reason-Seg <ref type="bibr" target="#b36">[37]</ref>, and TextVQA-X <ref type="bibr" target="#b66">[67]</ref>. We use the Any-IoU <ref type="bibr" target="#b29">[30]</ref> metric for evaluation, i.e., for each ground truth mask, we extract the most overlapped mask proposals and compute the IoU, then take the average. As Table <ref type="table" target="#tab_0">1</ref> demonstrates, Mask2Former+ shows consistent improvements across all domains, particularly in those significantly divergent from COCO. This highlights its enhanced adaptability and precision in a broader range of segmentation challenges, providing a good mask proposal model for GROUNDHOG. We  refer to Appendix A for more details of the model and data.</p><formula xml:id="formula_1">GCAP PNG ✓ ✓ ✓ ✓ ✓ 132k Flickr30K-Entity ✓ ✓ ✓ ✓ ✓ 149k RES RefCOCO ✓ ✓ ✓ 113k RefCOCO+ ✓ ✓ ✓ 112k RefCOCOg ✓ ✓ ✓ 80k RefCLEF ✓ ✓ ✓ 105k gRefCOCO ✓ ✓ ✓ 194k PhraseCut ✓ ✓ ✓ ✓ ✓ ✓ 85k D-Cube ✓ ✓ ✓ ✓ 10k ReasonSeg ✓ ✓ ✓ ✓ ✓ ✓ 1k RIO ✓ ✓ ✓ ✓ 28k SK-VG ✓ ✓ 23k GVQA VizWiz-G ✓ ✓ ✓ ✓ ✓ 6k TextVQA-X ✓ ✓ ✓ 15k GQA ✓ ✓ ✓ ✓ ✓ 302k VQS ✓ ✓ 20k Shikra-BinaryQA ✓ ✓ ✓ ✓ ✓ 4k EntityCount ✓ ✓ ✓ ✓ ✓ ✓ 11k FoodSeg-QA ✓ ✓ ✓ ✓ 7k LVIS-QA ✓ ✓ ✓ ✓ ✓ 95k RD RefCOCO-REG ✓ ✓ ✓ ✓ 17k RefCOCO+-REG ✓ ✓ ✓ ✓ 17k RefCOCOg-REG ✓ ✓ ✓ ✓ 22k gRefCOCO-REG ✓ ✓ ✓ ✓ 20k VG-SpotCap ✓ ✓ ✓ ✓ ✓ ✓ 247k V7W ✓ ✓ ✓ 23k PointQA ✓ ✓ 64k VCR ✓ ✓ ✓ 156k ShikraRD ✓ ✓ ✓ ✓ ✓ ✓ 2k SVIT-RD ✓ ✓ ✓ ✓ ✓ ✓ 33k Guesswhat ✓ ✓ ✓ ✓ 193k VG-RefMatch ✓ ✓ ✓ ✓ ✓ ✓ 247k HierText ✓ ✓ ✓ ✓ 6k M3G2 (Total) 2.5M</formula></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.">Our Dataset: M3G2</head><p>In this section, we introduce M3G2, a Multi-Modal Multi-Grained Grounding dataset consisting of 2.5M text-image pairs for visually grounded instruction tuning, consisting of 36 sub-problems derived and augmented from 27 existing datasets. We re-organize and augment public datasets of language grounding, visual question answering, referring expression segmentation, and referring expression generation into various forms of visually grounded dialogue for grounded instruction tuning, outlined briefly in Table <ref type="table" target="#tab_1">2</ref>. The dataset is categorized into four main types: (1) Grounded Image Captioning (GIC), ( <ref type="formula">2</ref>) Referential Expression Segmentation (RES), (3) Grounded Visual Question Answering (GVQA), and (4) Referential Dialog (RD). We provide illustrated descriptions of our prompt design, accompanied by examples of each task type as depicted in Fi gure 4. We detail the task schema in the following sections and provide the complete sets of templates in Appendix B.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.1.">Grounded Image Captioning (GIC)</head><p>The task of grounded image captioning requires the model to produce a narrative for the visual scene, and accurately identify and associate the groundable phrases with their respective binary segmentation masks. The objective of this task is to empower the model to articulate the scene while acknowledging various visual elements and their spatial interrelations. We incorporate the Panoptic Narrative Grounding (PNG) dataset <ref type="bibr" target="#b33">[34]</ref> for dense and detailed scene descriptions, as well as the Flickr30K-Entity dataset <ref type="bibr" target="#b58">[59]</ref> for concise descriptions of the salient contents in the image. We create a collection of task prompt templates that instruct the model to describe the image either in detail or briefly.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.2.">Referring Expression Segmentation (RES)</head><p>In contrast to previous tasks, the referring expression segmentation task requires that the model generates a segmentation mask based on a given referring expression. Besides the RefCOCO series <ref type="bibr" target="#b43">[44,</ref><ref type="bibr" target="#b52">53,</ref><ref type="bibr" target="#b85">86]</ref>, we have further leveraged existing RES benchmarks <ref type="bibr" target="#b36">[37,</ref><ref type="bibr" target="#b65">66,</ref><ref type="bibr" target="#b76">77,</ref><ref type="bibr" target="#b78">79,</ref><ref type="bibr" target="#b79">80]</ref> for this purpose. To frame a RES task, our prompts clearly direct the model to focus on the segmentation aspect of the given referring expression. An example prompt in Figure <ref type="figure" target="#fig_2">4</ref> could be Localize the sandwich on the plate at the far end. The model's expected output would repeat the provided referring expression and accompany it with the correct segmentation mask, as in Here it is: &lt;GRD&gt; the sandwich on the plate at the far end &lt;/GRD&gt; with a correct mask associated.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.3.">Grounded Visual Question Answering (GVQA)</head><p>The task of grounded visual question answering requires the model to comprehend a question (with optional pointers) and to produce an answer that is grounded to a binary segmentation mask that justifies the answer. The goal of this task is to enable natural QA-based interaction with users and reasoning in the model with grounded explanations. Specifically, we harvest and adapt a collection of public VQA datasets with grounding annotations <ref type="bibr" target="#b5">[6,</ref><ref type="bibr" target="#b7">8,</ref><ref type="bibr" target="#b18">19,</ref><ref type="bibr" target="#b28">29]</ref>, QA benchmarks on visual text <ref type="bibr" target="#b64">[65]</ref>, and create templated QA pairs from segmentation datasets <ref type="bibr" target="#b24">[25,</ref><ref type="bibr" target="#b60">61]</ref>. Our prompt templates instruct the model to respond either as open-ended</p><p>[USER] Provide a concise and informative caption for the image, focusing on the primary subjects.</p><p>[ASSISTANT] &lt;GRD&gt; A burger &lt;/GRD&gt; and &lt;GRD&gt; a pickle &lt;/GRD&gt; sit on &lt;GRD&gt; a plate &lt;/GRD&gt;.</p><p>[USER] Is this vegetarian? Highlight the region in the picture that supports your answer.</p><p>[ASSISTANT] &lt;GRD&gt; No &lt;/GRD&gt;.</p><p>[USER] Please describe &lt;PTR&gt; in the image in a way that it can be uniquely identified.</p><p>[ASSISTANT] &lt;GRD&gt; the sandwich lying at the farthest side of my plate &lt;/GRD&gt;.</p><p>[USER] Localize the sandwich in the plate at the far end.</p><p>[ASSISTANT] Here it is: &lt;GRD&gt; the sandwich in the plate at the far end &lt;/GRD&gt;.  answers or by selecting from multiple choices, with the response anchored to a segmentation mask (Figure <ref type="figure" target="#fig_2">4</ref>).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.4.">Referential Dialogue (RD)</head><p>The task of referential dialogue requires the model to conduct dialogue communication with users, especially when conditioned on user-provided spatial prompts. This includes existing RD datasets <ref type="bibr" target="#b7">[8,</ref><ref type="bibr" target="#b51">52,</ref><ref type="bibr" target="#b87">88,</ref><ref type="bibr" target="#b89">90,</ref><ref type="bibr" target="#b93">94]</ref>, multi-turn augmentations from segmentation datasets <ref type="bibr" target="#b16">[17,</ref><ref type="bibr" target="#b35">36,</ref><ref type="bibr" target="#b47">48]</ref> as well as the referring expression generation (REG) task the RefCOCO series <ref type="bibr" target="#b43">[44,</ref><ref type="bibr" target="#b52">53,</ref><ref type="bibr" target="#b85">86]</ref>. The REG task differs from the region captioning task in that it demands the description to be a referring expression that distinctly identifies the targeted object. Effective REG calls for the model to engage in dialogue interactions cooperatively, adhering to the Gricean Maxims <ref type="bibr" target="#b23">[24]</ref> which dictate that communication should be as informative, truthful, relevant, and clear as necessary.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.">Experiment and Analysis</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.1.">Implementation</head><p>Learning from Both Box and Mask Supervision. In the M3G2 dataset, not all sub-datasets include mask supervision. We employ different loss functions to effectively benefit from grounded supervision from both mask and box annotations. When the mask annotations are available, we apply the dice loss L dice and binary cross-entropy loss L bce between the predicted grounding masks and the ground truth masks of each phrase, following Cheng et al. <ref type="bibr" target="#b9">[10]</ref>. When the box annotations are present, we apply the projection loss L proj as introduced by Tian et al. <ref type="bibr" target="#b69">[70]</ref>. The final loss calculation is a linear combination of the language modeling loss L lm and these mask-related losses. We refer to Appendix C for more details and explanations of these loss terms. Parameter-Efficient Training Details. We adopt the LLaMA2-7B model <ref type="bibr" target="#b70">[71]</ref> as our base LLM, and initialized the weight from LLaVA-1.5 <ref type="bibr" target="#b44">[45]</ref>. For the vision encoders, we use the OpenAI CLIP@336 <ref type="bibr" target="#b62">[63]</ref> model and DINOv2-L/14-reg <ref type="bibr" target="#b14">[15]</ref> pretrained checkpoints. We freeze all the parameters of Mask2Former+, CLIP, and DINOv2 during training. We use Low-Rank Adaptation (LoRA) <ref type="bibr" target="#b27">[28]</ref> with r = 16 and α = 16 to tune the LLM, including all the linear layers, input embeddings, and the LM head. We train all the new components introduced for connecting these models, including the MLP projection layer of CLIP and DINOv2, and the mask retrieval head. As a result, less than 2% of the total parameters are trainable in the whole model. We use the AdamW optimizer <ref type="bibr" target="#b48">[49]</ref> with an initial learning rate of 2e-4 and a cosine annealing rate. We train our model on the balanced sampled M3G2 dataset for 2 epochs, which takes around 2 days using 8 40G A100 GPUs.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.2.">Generalist in Grounded Vision-Language Tasks</head><p>We first demonstrate GROUNDHOG's capabilities as a generalist model for three different types of grounded visionlanguage tasks. It's worth noting that, unlike previous work that needs dataset-specific fine-tuning on each of the tasks, GROUNDHOG can achieve comparable performance on all the tasks directly after training on M3G2, i.e., all the reported results from our model are from a single set of weights without any dataset-specific fine-tuning.</p><p>Language Grounding To Segmentation. We start by evaluating the model on language grounding tasks, which takes text as input and generates segmentation masks as output. We assess GROUNDHOG on Referential Expression Segmentation (RES) <ref type="bibr" target="#b31">[32]</ref> and Caption Phrase Grounding (CPG) tasks. While traditional RES benchmarks <ref type="bibr" target="#b31">[32,</ref><ref type="bibr" target="#b53">54]</ref> focus on single-instance referents requiring primarily visual understanding, we expanded our evaluation to include complex scenarios involving multi-instance or negative queries <ref type="bibr" target="#b43">[44,</ref><ref type="bibr" target="#b76">77]</ref>, and those necessitating common sense reasoning <ref type="bibr" target="#b36">[37,</ref><ref type="bibr" target="#b61">62]</ref>. For single-instance RES, we report the cIoU; and for the other benchmarks, we report the mIoU. The results, as detailed in Table <ref type="table" target="#tab_3">3</ref>, show GROUNDHOG outperforming the generalist model LISA across all benchmarks and achieving significant improvements over specialist models in multi-instance, null, and reasoning-based RES tasks. It also performs comparably on the competitive Re-fCOCO series. For CPG tasks, which involve grounding all phrases in a caption and demand a deep understanding of the context for coreference resolution, we first evaluated GROUNDHOG on the Flickr30K-Entity dataset <ref type="bibr" target="#b58">[59]</ref>. Since this dataset only has box annotations, we convert the mask predictions of our model to box and compute the top-1 box recall following the merged-box protocol (All-IoU) <ref type="bibr" target="#b29">[30]</ref>. Despite not specializing in predicting boxes, GROUNDHOG still outperforms Shikra 7B/13B <ref type="bibr" target="#b7">[8]</ref> and is</p><p>Describe the image in detail.</p><p>In this image, a man wearing a watch is playing a game. He is holding a white color object.</p><p>In the background, we can see trees, a fence, grass, and sand.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>👤</head><p>Briefly describe this event.</p><p>Four dogs are jumping over a hurdle.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>👤</head><p>Describe this event shortly.</p><p>A man is jumping off a cliff into the water.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>👤</head><p>Yes.</p><p>Nothing.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>👤</head><p>Does this tree look healthy?</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>👤</head><p>What's on the screen?</p><p>Locate "lighter bed" in this image.</p><p>Lighter bed.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>👤</head><p>Highlight "number 2" in the image, segment the whole person. Describe the image in detail.</p><p>In this image, a man wearing a watch is playing a game. He is holding a white color object.</p><p>In the background, we can see trees, a fence, grass, and sand.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>👤</head><p>Briefly describe this event.</p><p>Four dogs are jumping over a hurdle.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>👤</head><p>Describe this event shortly.</p><p>A man is jumping off a cliff into the water.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>👤</head><p>Yes.</p><p>Nothing.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>👤</head><p>Does this tree look healthy?</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>👤</head><p>What's on the screen?</p><p>Locate "lighter bed" in this image.</p><p>Lighter bed.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>👤</head><p>Highlight "number 2" in the image, segment the whole person.   on par with Ferret-7B <ref type="bibr" target="#b84">[85]</ref> in a concurrent work (Table <ref type="table" target="#tab_4">4</ref>). Additionally, on the PNG dataset <ref type="bibr" target="#b33">[34]</ref> which tests phrase grounding in longer narratives, GROUNDHOG surpasses the previous state-of-the-art model, PiGLET <ref type="bibr" target="#b21">[22]</ref>, in all metrics including average recall of grounding masks and detailed scores for things, stuffs, and singular and plural entities (Table <ref type="table" target="#tab_5">5</ref>).</p><p>Grounded Language Generation. Our model excels in generating language that accurately grounds to segmentation masks during user conversations. Quantitatively, we assess grounded captioning on the Flickr30K-Entity dataset <ref type="bibr" target="#b58">[59]</ref>, employing standard text generation metrics such as Bleu-4 <ref type="bibr" target="#b55">[56]</ref>, METEOR <ref type="bibr" target="#b3">[4]</ref>, CIDEr <ref type="bibr" target="#b72">[73]</ref>, and SPICE <ref type="bibr" target="#b1">[2]</ref> for language quality; and the F1 all score for grounding accuracy following You et al. <ref type="bibr" target="#b84">[85]</ref>. As shown in Table <ref type="table" target="#tab_8">8</ref>, GROUNDHOG significantly surpasses existing box-based grounded MLLMs, even their 13B versions, in both language quality and grounding accuracy. This improvement is hypothesized to stem from the diverse task distribution in our M3G2 dataset. We show some generated captions in Figure <ref type="figure" target="#fig_5">5</ref>, with a highlight of box-to-pixel generalization (Figure <ref type="figure" target="#fig_5">5a</ref>) and novel category grounding (Figure <ref type="figure" target="#fig_5">5b</ref>). See the Appendix for more examples. For groundable question answering, we evaluate on the TextVQA-X benchmark <ref type="bibr" target="#b64">[65]</ref>. GROUNDHOG outperforms the state-of-the-art specialist model SAB <ref type="bibr" target="#b32">[33]</ref> by a significant margin, as measured by the mean IoU of the predicted mask (  tial, particularly in interactive tasks. We evaluated its performance on two pointer-based QA benchmarks, PointerQA Twice <ref type="bibr" target="#b51">[52]</ref> and V7W <ref type="bibr" target="#b93">[94]</ref>, which require the model to answer questions guided by spatial prompts, such as bounding boxes. The model is tasked to generate freeform textual answers in PointerQA Twice , and selects from multiple-choice options in V7W. GROUNDHOG demonstrates superior performance in these benchmarks, outperforming previous models as shown in Table <ref type="table" target="#tab_7">7</ref>. This highlights its effectiveness in spatial understanding and response accuracy. To further demonstrate the effectiveness of using SAM for the pointer-to-mask conversion, we show the bestmatched mask proposal from our Mask2Former+ model in comparison to the mask from SAM in Figure <ref type="figure" target="#fig_6">6</ref>. While the best match proposal from the Mask2Former+ model includes a broader area, the SAM-generated mask offers a more precise representation of the specified region, potentially leading to a more accurate caption.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.3.">Trustworthiness and Transparency</head><p>Beyond its superior performance as a grounding generalist, we highlight two key improvements for creating a more trustworthy and transparent agent. Reduced Object Hallucination. Thanks to the varied task distribution and the inclusion of negative questionanswering samples in M3G2 dataset, GROUNDHOG significantly reduces object hallucination. We assessed this using the POPE <ref type="bibr" target="#b41">[42]</ref> benchmark, which includes binary questions about object existence across three splits, each with a different object distribution (with an order of difficulty Random &lt; Popular &lt; Adversarial). Remarkably, GROUND-HOG consistently outperforms other models in both accuracy and F1 score across all splits, particularly on the more challenging ones. It shows an absolute improvement of 5.2% in accuracy for Popular and 4.0% for Adversarial over the previously best-performing model. This suggests that our model's enhanced grounding capability plays a significant role in mitigating the object hallucination problem.</p><p>Explainability and Diagnosability. Another important highlight of GROUNDHOG is its enhancement of explainability through the decoupled design of entity proposal and selection, as outlined earlier in section 2.2. This is exemplified in the case study illustrated in Figure <ref type="figure">7</ref>, which illustrates the mask proposal scoring and selective merging process of our model. We show the top-4 masks, where the higher-score masks are labeled in green while the lowerscore masks are labeled in red. Users can easily interpret that the failure is due to the incapability of MLLM to recognize the word "KWIK", despite it being successfully localized and proposed as an entity candidate.</p><p>"KWIK E MART" Merge 0.352 0.002 0.713 1.000 Figure <ref type="figure">7</ref>. Illustration of a partially correct grounding. The grounding phrase and the ground truth mask are shown on the left. The top-4 mask proposals are presented, with highly-scored masks (green) selected for the merged mask, and low-scored masks (red) excluded. This illustrates the failure to recognize the word "KWIK" by the MLLM, despite its successful proposal.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Setups</head><p>RefCOCO+ Flickr30K TextVQA-X </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.4.">Ablation Studies</head><p>We performed 3 ablation studies to validate our design decisions, training, and evaluating a subset of the M3G2 dataset that includes RefCOCO+, Flickr30K, and TextVQA. These cover a range of visual entities from various image sources and granularities. We start by comparing our Mask2Former+ with the original Mask2Former for mask proposal effectiveness. As indicated in Table <ref type="table" target="#tab_11">10</ref>, the original Mask2Former performs slightly better on Ref-COCO, as it is developed specificity on COCO object categories. However, Mask2Former+ significantly surpasses the original in domains with non-COCO entities. Our second set of experiments examined the choice of visual entity features. Although using either CLIP or DINOv2 features alone shows advantages in specific datasets, their combination consistently yields the best results across all datasets.</p><p>To obtain a robust grounding query representation, we ex-perimented with using the output embedding of the &lt;GRD&gt; token, the &lt;/GRD&gt; token, and their sum. We found that the latter approach achieves the best overall results. Finally, we demonstrate that our decoupling design of the mask proposal model and MLLM allows for training at a lower resolution (320px) to expedite grounding training, while scaling up the resolution during evaluation enhances performance.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.">Related Work</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.1.">Multimodal Large Language Models</head><p>Building on the recent advance of large language models (LLMs), there is an increasing effort in adapting pretrained large language models for multimodal tasks, such as understanding and interpreting visual information <ref type="bibr" target="#b0">[1,</ref><ref type="bibr" target="#b71">72]</ref>. More recently, visual instruction tuning has gained much interest due to its surprising performance with a modest amount of data and computing resources. Various models have been developed, noticeably MiniGPT4 <ref type="bibr" target="#b92">[93]</ref> , LLaVA <ref type="bibr" target="#b44">[45,</ref><ref type="bibr" target="#b45">46]</ref> and concurrent models <ref type="bibr" target="#b12">[13,</ref><ref type="bibr" target="#b19">20,</ref><ref type="bibr" target="#b37">38,</ref><ref type="bibr" target="#b74">75,</ref><ref type="bibr" target="#b82">83]</ref>. Despite their promising performances, MLLMs often produce objects that are not presented in the given images, a phenomenon referred to as the object hallucination problem <ref type="bibr" target="#b13">[14,</ref><ref type="bibr" target="#b30">31,</ref><ref type="bibr" target="#b41">42]</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.2.">MLLM with Language Grounding</head><p>The ability to connect language to their corresponding visual elements in the physical world, known as grounding <ref type="bibr" target="#b26">[27]</ref>, is crucial in everyday human communication about our shared surroundings. Grounding datasets have been shown to benefit vision-language pre-training, both in terms of object-level recognition <ref type="bibr" target="#b40">[41]</ref> and language learning <ref type="bibr" target="#b50">[51]</ref>.</p><p>Recent works unify text and grounding regions into token sequences <ref type="bibr" target="#b49">[50,</ref><ref type="bibr" target="#b73">74,</ref><ref type="bibr" target="#b80">81]</ref> in casual language modeling. Based on such paradigm, researchers have developed a family of grounded MLLM, including GPT4ROI <ref type="bibr" target="#b88">[89]</ref>, Kosmos-2 <ref type="bibr" target="#b56">[57]</ref>, Shikra <ref type="bibr" target="#b7">[8]</ref>, PVIT <ref type="bibr" target="#b6">[7]</ref>, BuboGPT <ref type="bibr" target="#b90">[91]</ref>, Qwen-VL <ref type="bibr" target="#b2">[3]</ref>, and Ferret <ref type="bibr" target="#b84">[85]</ref>. Despite their promising performance, these models focus on object grounding to bounding box, which cannot handle pixel-level grounding across various semantic granularities. Furthermore, it lacks the diagnosability and explainability in failure cases. We introduce GROUND-HOG to fill this gap.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.3.">Language-Guided Semantic Localization</head><p>The field of language-guided semantic localization has a long history in the vision-language research community, requiring that the model localize a given referring expression with bounding boxes or segmentation masks. This task has evolved from early attempts to understand simple referring expressions within images, such as the well-known Ref-COCO series <ref type="bibr" target="#b52">[53,</ref><ref type="bibr" target="#b85">86]</ref> and their generalized variant <ref type="bibr" target="#b43">[44]</ref> that takes no-target and multi-target into account. The integration of advanced language reasoning from LLMs has enabled research to tackle even more nuanced reasoning tasks that involve complex language contexts <ref type="bibr" target="#b36">[37,</ref><ref type="bibr" target="#b57">58,</ref><ref type="bibr" target="#b86">87]</ref>. No-tably, LISA <ref type="bibr" target="#b36">[37]</ref> formulates a reasoning segmentation task to bring language-informed reasoning into semantic segmentation, and contributes a powerful baseline. Our model builds on these developments, but is designed to be more universally applicable as a grounded MLLM.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6.">Conclusion</head><p>In this study, we introduce GROUNDHOG, a novel framework designed to enable pixel-level explainable grounding in large language models, leveraging holistic segmentation.</p><p>The system builds upon a pre-trained mask proposal network to provide pixel-level visual features for the large language models, allowing them to retrieve segmentation mask proposals that can be used for grounding. We also present M3G2, a dataset of 1.9M training text-image pairs with 36 sub-problems derived from 27 existing datasets for visually grounded instruction tuning, facilitating precise visionlanguage alignment at the pixel level. We show that after training on M3G2, GROUNDHOG achieves superior performance on various grounding tasks. Through extensive case studies, we further show that GROUNDHOG unlocks explainability and diagnosability, and demonstrates better grounding towards occluded objects, groups of multiple instances, amorphous background regions, semantic parts of objects, and objects with irregular shapes.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Limitations And Future Work</head><p>This work, while exciting, has several limitations that we acknowledge and aim to address in future research. Firstly, the datasets utilized to develop M3G2 consist of a blend of existing academic datasets. The quality of annotations in these datasets varies significantly, and they often lack comprehensive coverage of concepts. To enhance training efficiency, applying data filtering methods could help reduce the size of the dataset without compromising its effectiveness. Additionally, expanding the vision-language grounding data to a web-scale could significantly improve the comprehensiveness of grounding learning. Secondly, our current model is limited to processing only single images. Although the entity-centric approach we adopted could theoretically extend to other modalities like 3D or video, this potential has not yet been empirically validated. Testing and validating our model on datasets relevant to these modalities would be a valuable direction for future research. This step is crucial to understanding the model's effectiveness across different types of application scenarios and further improving its usefulness.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Appendix A. Mask2Former+ Implementation Details</head><p>Our enhancement of the original Mask2Former model focuses on broadening its segmentation capabilities beyond the 134 common object categories it currently handles, which include 80 things and 55 stuffs as defined in the COCO dataset. The primary goal is to enable the model to recognize an expanded range of object categories, as well as segmentation masks of various levels of granularities, such as semantic parts and visual text regions.</p><p>Training data. We have compiled a comprehensive dataset by combining multiple existing segmentation datasets. This ensemble encompasses a wide spectrum of entities (things and stuff), their semantic parts, and visual text, drawn from sources such as COCO <ref type="bibr" target="#b4">[5]</ref>, LVIS <ref type="bibr" target="#b24">[25]</ref>, Entity-v2 <ref type="bibr" target="#b60">[61]</ref>, Pascal <ref type="bibr" target="#b15">[16]</ref>, PACO <ref type="bibr" target="#b63">[64]</ref>, MHP-v2 <ref type="bibr" target="#b39">[40]</ref>, and TextOCR <ref type="bibr" target="#b67">[68]</ref>. The resulting dataset comprises over 200K images and 4.5M masks, as summarized in Table <ref type="table" target="#tab_13">11</ref>. Notably, the annotations from COCO, LVIS, and PACO are based on a shared set of COCO images. We merged these annotations to ensure comprehensive mask proposal coverage, thereby providing holistic instance coverage within each image, as can be illustrated in Figure <ref type="figure" target="#fig_7">8</ref>.  Model. Building on the foundation of the original Mask2Former <ref type="bibr" target="#b9">[10]</ref>, we developed Mask2Former+, a panoptic segmentation model designed for multi-grained segmentation. We initialize our model from the Mask2Former checkpoint with the Swin-L backbone pre-trained on the COCO panoptic segmentation dataset <ref type="bibr" target="#b33">[34]</ref>. Besides the 200 entity queries that are trained for thing and stuff proposals, we added 50 additional expert queries for the segmenting parts and the visual text regions, respectively. Given that not all images have annotations for every type of segmentation (for instance, the TextOCR dataset provides annotations only for visual text regions), our model computes the groupwise matching loss exclusively for the annotations available in each dataset. This approach ensures that the model benefits from partial annotations without compromising its ability to recognize other levels of granularity when certain annotations are unavailable. Although most samples in our dataset also have semantic annotations such as object categories, we do not use them but only train the model for class-agnostic mask proposals. We train the model for 20k iterations on our combined segmentation dataset with a batch size of 16 using the Detectron2 library <ref type="bibr" target="#b77">[78]</ref>.<ref type="foot" target="#foot_0">1</ref> </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>B. The M3G2 Dataset</head><p>In this section, we introduce the M3G2 dataset with Multi-Modal Multi-Grained Grounding. M3G2 is a comprehensive dataset consisting of 36 sub-problems, derived and augmented from 27 existing datasets with grounded visionlanguage annotations. The dataset is categorized into four main types: (1) Grounded Image Captioning (GIC), (2) Grounded Visual Question Answering (GVQA), (3) Referential Expression Segmentation (RES), and (4) Referential Dialog (RD). Details on the dataset sources, image origins, types of grounding annotations, semantic granularity, and data statistics are summarized in Table <ref type="table" target="#tab_15">12</ref>. All datasets are formatted into the conversation format between a human user and a model assistant, where the user provides task objectives as instructions, and model responses are generated automatically based on the annotations.</p><p>Grounded Image Captioning (GIC). GIC focuses on generating image captions that ground to visual entities presented in the image. We incorporate the Panoptic Narrative Grounding (PNG) <ref type="bibr" target="#b33">[34]</ref> and Flickr30K-Entity <ref type="bibr" target="#b58">[59]</ref> datasets. PNG, derived from Localize Narrative <ref type="bibr" target="#b59">[60]</ref> and COCO Segmentation <ref type="bibr" target="#b4">[5]</ref>, provides long and detailed narratives with an average of 36.  Describe the picture's every detail. Describe the image in a short sentence.</p><p>Describe the given picture in very detail. Describe the image in a clear and concise manner. Make a fine description of the image. Generate a short caption for the picture.</p><p>Generate a long caption for the given image. Caption the image in a few words.</p><p>Give me a detailed caption of this image.</p><p>Table <ref type="table" target="#tab_3">13</ref>. Instruction templates for the GIC task.</p><p>ble 13, where we use key words such as "short/briefly" and "in detail" to distinguish between short and long captioning.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Referential Expression Segmentation (RES)</head><p>. RES is a task combining language understanding with precise visual segmentation. Our dataset includes 10 diverse sources.</p><p>To improve the learning efficiency and enhance contextual understanding, we format queries from the same image into a simulated multi-turn dialog, as illustrated in Figures 16 and 17. We employ the widely used RefCOCO/+/g datasets <ref type="bibr" target="#b31">[32,</ref><ref type="bibr" target="#b53">54]</ref> and RefCLEF <ref type="bibr" target="#b65">[66]</ref> for single-object RES. gRefCOCO <ref type="bibr" target="#b43">[44]</ref> is employed for multi-object and negative queries. To enhance the visual diversity, we also incorporate PhraseCut <ref type="bibr" target="#b76">[77]</ref> and D-Cube <ref type="bibr" target="#b79">[80]</ref> that use an image source different than COCO. Additionally, ReasonSeg <ref type="bibr" target="#b36">[37]</ref>, RIO <ref type="bibr" target="#b61">[62]</ref>, and SK-VG <ref type="bibr" target="#b78">[79]</ref> are included, where a textual context is given and the models need to not only understand  that context, but also equips with a certain degree of commonsense knowledge to successfully solve the query, such as shown in Figure <ref type="figure" target="#fig_13">17b</ref>, 17c and 17d. The dialogue templates are listed in Table <ref type="table" target="#tab_17">14</ref>.</p><p>Grounded Visual Question Answering (GVQA). The GVQA task extends the visual question answering by additionally requiring visual grounding of the answer. We include 8 datasets for the grounded VQA task in M3G2. First, we collect and organize some existing datasets that can directly fit into our grounded vision-language task framework, including VizWiz-Grounding <ref type="bibr" target="#b5">[6]</ref>, TextVQA-X <ref type="bibr" target="#b64">[65]</ref>, GQA <ref type="bibr" target="#b28">[29]</ref>, VQA <ref type="bibr" target="#b18">[19]</ref> and Shikra-BinaryQA <ref type="bibr" target="#b7">[8]</ref> (Figure <ref type="figure" target="#fig_15">18</ref>). To further improve the data scale and visual concept coverage, we enlarge the GVQA collection by re-purposing existing panoptic segmentation datasets with templated instruc-Learning from Both Box and Mask Supervision. In the M3G2 dataset, not all sub-datasets include mask supervision, necessitating a hybrid loss approach to effectively benefit from grounded supervision from both mask and box annotations. We address this by employing different loss functions based on the type of annotation available. When mask annotations are available, we apply the dice loss L dice and binary cross-entropy loss L bce between the predicted grounding masks and the ground truth masks of each phrase, following Cheng et al. <ref type="bibr" target="#b9">[10]</ref>. In cases where only box annotations are present, we apply the projection loss L proj as introduced by Tian et al. <ref type="bibr" target="#b69">[70]</ref>, which selects the mask whose projection on the axis matches the best with the annotated box. Essentially, this can be seen as a 1D dice loss calculated between the projected masks and the edges of the ground truth boxes along both the x and y axes. Given that the primary objective of grounding is to accurately select the correct mask, we assign different weights to these loss components. The mask dice loss and box projection loss are both weighted at 1, while the mask bce loss is given a lower weight of 0.1. The final loss calculation is a summation of the language modeling loss L lm and these mask-related losses.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>LLM Configuration</head><p>We adopt the Vicuna-7B model <ref type="bibr" target="#b10">[11]</ref> as our base LLM, and use the OpenAI CLIP@336 <ref type="bibr" target="#b62">[63]</ref> model and DINOv2-L/14-reg <ref type="bibr" target="#b14">[15]</ref> pretrained checkpoints. We use the original conversation template from Vicuna, where all the interactions are formatted as &lt;system message&gt; &lt;s&gt; USER: &lt;utterance&gt; ASSISTANT: &lt;utterance&gt; &lt;/s&gt;.</p><p>Parameter-Efficient Training. We freeze all the parameters of the Mask2Former+, the CLIP, and the DINOv2 model during training. We use Low-Rank Adaptation (LoRA) <ref type="bibr" target="#b27">[28]</ref> with r = 16 and α = 16 to tune the LLM, including all the linear layers, input embeddings, and the LM head. We train all the new components introduced for connecting these models, including the MLP projection layer of CLIP and DINOv2, and the mask retrieval head. As a result, less than 2% of the total parameters are trainable in the whole model. We use the AdamW optimizer <ref type="bibr" target="#b48">[49]</ref> with an initial learning rate of 2e-4 and a cosine annealing rate. We train our model on the balanced sampled M3G2 dataset for 2 epochs, which takes around 2 days using 8 40G A100 GPUs.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>D. Additional Qualitative Results</head><p>We provide additional qualitative examples generated by GROUNDHOG. See Figure <ref type="figure">9</ref> &amp; 10 for GIC, Figure <ref type="figure">11</ref> for RES, Figure <ref type="figure" target="#fig_3">12</ref> for GVQA, and Figure <ref type="figure">13</ref> &amp; 14 for RD, respectively.</p><p>Let's play a game! Describe &lt;PTR&gt; in the photo so I can find it</p><p>The boy in the back wearing a white shirt. Did I capture its essence?</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>👤</head><p>Is the man &lt;PTR_0&gt; touching the food &lt;PTR_1&gt; directly with his hand &lt;PTR_2&gt;? Include your thinking process as well.</p><p>The man is not touching the food directly with his hand. Instead, he is using a spoon to serve himself a portion of the food.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>👤</head><p>Provide a distinct clue for that &lt;PTR&gt;.              </p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head></head><label></label><figDesc>👤 &lt;PTR&gt; Could you please segment out "laptop barely onscreen not apple" in the image? Laptop barely onscreen not apple. Feb 2. 👤 What date is shown on the calendar? 👤 (d) Referential Dialogue (RD). (b) Referential Expression Segmentation (RES).</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>beachFigure 2 .</head><label>2</label><figDesc>Figure2. The model architecture of GROUNDHOG model. Given a set of class-agnostic entity mask proposals, the masked feature extractor first extracts the feature of each entity as the visual input of the multi-modal large language model (left). The output hidden states of the grounding tokens are averaged and used to retrieve the entities to ground, which will be merged into a single grounding mask for the phrase. Modules are colored by their trainability: parameter-free operators (grey), frozen (blue), trainable (orange), and partially trainable (mix).</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head>Figure 4 .</head><label>4</label><figDesc>Figure 4. The M3G2 dataset for grounded visual instruction tuning. M3G2 is a diverse dataset of multiple granularities, unifying 4 different task types with visually grounded dialogue.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head>Number 2 .</head><label>2</label><figDesc>👤 Use one word to highlight &lt;PTR&gt; in the image. Bench. 👤 &lt;PTR&gt; (a) Grounded short caption generation on Flickr30K-Entity. While only box supervisions are available for this dataset, GROUNDHOG generalize to pixel-level grounding after joint training on M3G2.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_4"><head></head><label></label><figDesc>Grounded detailed narrative generation on PNG. GROUNDHOG successfully generalize to grounding a novel category watch in the generated caption, which is not included in the 80 categories of PNG annotation.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_5"><head>Figure 5 .</head><label>5</label><figDesc>Figure 5. Examples of GROUNDHOG's performance in grounded image captioning.</figDesc><graphic coords="7,273.65,190.58,71.42,95.50" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_6"><head>Figure 6 .</head><label>6</label><figDesc>Figure 6. Region caption using the best match proposal from Mask2Former+ versus from SAM. Mask2Former+ fails to propose the exact mask of the spire, leading to a less precise caption.</figDesc><graphic coords="7,311.65,268.66,251.84,103.40" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_7"><head>Figure 8 .</head><label>8</label><figDesc>Figure 8. Illustrations of the merged segmentation annotations from COCO Panoptic, LVIS, and PACO datasets.</figDesc><graphic coords="14,308.86,67.03,236.22,120.91" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_8"><head>25 .Figure 13 .</head><label>2513</label><figDesc>Figure 13. Additional qualitative examples for referential dialogue with pointer input.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_9"><head>Figure 15 .</head><label>15</label><figDesc>Figure 15. Data samples for the GCAP task.</figDesc><graphic coords="22,50.11,400.53,494.99,122.61" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_10"><head></head><label></label><figDesc>(a) Example of the referential expression segmentation task originated from RefCOCO+. (b) Example of the referential expression segmentation task originated from PhraseCut. (c) Example of the generalized referential expression segmentation task originated from gRefCOCO.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_11"><head>Figure 16 .</head><label>16</label><figDesc>Figure 16. Data samples for the RES task (part 1).</figDesc><graphic coords="23,50.11,498.08,494.95,163.73" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_12"><head></head><label></label><figDesc>(a) Example of the generalized referential expression segmentation task originated from D-Cube. (b) Example of the reasoning-based referential expression segmentation task originated from ReasonSeg. (c) Example of the reasoning-based referential expression segmentation task originated from RIO. (d) Example of the reasoning-based referential expression segmentation task originated from SK-VG.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_13"><head>Figure 17 .</head><label>17</label><figDesc>Figure 17. Data samples for the RES task (part 2).</figDesc><graphic coords="24,50.11,571.77,494.99,85.47" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_14"><head></head><label></label><figDesc>(a) Example of grounded VQA originated from VizWiz-Grounding. (b) Example of grounded VQA originated from TextVQA-X. (c) Example of grounded VQA with chain-of-thought reasoning originated from GQA. (d) Example of grounded VQA task originated from VQS. (e) Example of the grounded VQA with chain-of-thought reasoning originated from Shikra-BinaryQA.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_15"><head>Figure 18 .</head><label>18</label><figDesc>Figure 18. Data samples of the GVQA task (part 1).</figDesc><graphic coords="25,50.11,531.93,494.99,108.10" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_16"><head></head><label></label><figDesc>(a) Example of the grounded VQA task originated from EntityCount. (b) Example of the grounded VQA task originated from FoodSeg-QA. (c) Example of the grounded VQA task originated from LVIS-QA.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_17"><head>Figure 19 .</head><label>19</label><figDesc>Figure 19. Data samples of the GVQA task (part 2).</figDesc><graphic coords="26,50.11,527.74,494.99,164.04" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_18"><head></head><label></label><figDesc>(a) Refer expression generation (RefCOCO+). (b) Region captioning (VG). (c) Example of the referring QA task from V7W. (d) Example of the referring QA task originated from PointQA-Local. (e) Example of the referring QA task originated from PointQA-Twice. (f) Example of the referring QA task originated from VCR. (g) Example of the referential dialog task originated from ShikraRD. (h) Example of the referential dialog task originated from SVIT.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_19"><head>Figure 20 .</head><label>20</label><figDesc>Figure 20. Data samples of the RD task (part 1).</figDesc><graphic coords="27,56.29,522.89,480.11,171.05" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_20"><head></head><label></label><figDesc>(a) Example of the guesswhat game originated from GuessWhat. (b) Example of the referential region matching game originated from VG. (c) Example of the referred text reading task originated from HierText.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_21"><head>Figure 21 .</head><label>21</label><figDesc>Figure 21. Data samples of the RD task (part 2).</figDesc><graphic coords="28,50.11,498.42,494.97,65.84" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_0"><head>Table 1 .</head><label>1</label><figDesc>The average Any-IoU of the proposals on each dataset. The vanilla Mask2Former is trained on the COCO-Panoptic dataset and our Mask2Former+ is trained on our combined dataset. Mask2Former+ obtains a consistent improvement in all scenarios, especially in non-COCO domains.</figDesc><table><row><cell>Model</cell><cell cols="5">RefCOCO+ PhraseCut ReasonSeg TextVQA-X</cell></row><row><cell>Mask2Former</cell><cell></cell><cell>0.867</cell><cell>0.563</cell><cell>0.602</cell><cell>0.137</cell></row><row><cell cols="2">Mask2Former+</cell><cell>0.873</cell><cell>0.624</cell><cell>0.745</cell><cell>0.446</cell></row><row><cell>Task</cell><cell>Dataset</cell><cell></cell><cell>Gr. Ann.</cell><cell>Sem. Gran.</cell><cell># Pairs</cell></row><row><cell></cell><cell></cell><cell></cell><cell cols="2">M B Po S Th Pa G Tx</cell><cell>Train</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_1"><head>Table 2</head><label>2</label><figDesc></figDesc><table /><note>. Summary of datasets included in M3G2. The datasets are grouped by four task types: Grounded Image Captioning, Referring Expression Segmentation, Grounded Visual Question Answering, and Referential Dialogue. We show the availability of Grounding Annotations (Box, Mask, and Pointer inputs), the Semantic Granularity (Stuff, Things, Parts, Groups, and Text), and the number of text-image pairs for training.</note></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_3"><head>Table 3 .</head><label>3</label><figDesc>Results on 7 Referring Expression Segmentation (RES) benchmarks with single instance queries<ref type="bibr" target="#b31">[32,</ref><ref type="bibr" target="#b53">54]</ref>, multi-/null instance queries<ref type="bibr" target="#b43">[44,</ref><ref type="bibr" target="#b76">77]</ref> and reasoning-based queries<ref type="bibr" target="#b36">[37,</ref><ref type="bibr" target="#b61">62]</ref>. We report cIoU for RefCOCO/+/g and mIoU for other benchmarks, respectively.</figDesc><table><row><cell></cell><cell></cell><cell></cell><cell></cell><cell cols="2">Single Instance</cell><cell></cell><cell></cell><cell></cell><cell cols="2">Multi-/No Instance</cell><cell cols="2">Reasoning</cell><cell></cell></row><row><cell>Model</cell><cell></cell><cell>RefCOCO</cell><cell></cell><cell></cell><cell cols="2">RefCOCO+</cell><cell cols="2">RefCOCOg</cell><cell cols="3">gRefCOCO PhraseCut ReasonSeg</cell><cell cols="2">RIO</cell></row><row><cell></cell><cell cols="8">val test-A test-B val test-A test-B val-u test-u</cell><cell>val</cell><cell>test</cell><cell>val</cell><cell cols="2">test-c test-u</cell></row><row><cell>Specialist</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell>MDETR [30]</cell><cell>-</cell><cell>-</cell><cell>-</cell><cell>-</cell><cell>-</cell><cell>-</cell><cell>-</cell><cell>-</cell><cell>-</cell><cell>53.7</cell><cell>-</cell><cell>44.1</cell><cell>22.0</cell></row><row><cell>CRIS [76]</cell><cell>70.5</cell><cell>73.2</cell><cell>66.1</cell><cell>62.3</cell><cell>68.1</cell><cell>53.7</cell><cell>59.9</cell><cell>60.4</cell><cell>55.3</cell><cell>-</cell><cell>-</cell><cell>-</cell><cell>-</cell></row><row><cell>LAVT [82]</cell><cell>72.7</cell><cell>75.8</cell><cell>68.8</cell><cell>62.1</cell><cell>68.4</cell><cell>55.1</cell><cell>61.2</cell><cell>62.1</cell><cell>58.4</cell><cell>-</cell><cell>-</cell><cell>-</cell><cell>-</cell></row><row><cell>ReLA [44]</cell><cell>73.8</cell><cell>76.5</cell><cell>70.2</cell><cell>66.0</cell><cell>71.0</cell><cell>57.7</cell><cell>65.0</cell><cell>66.0</cell><cell>63.6</cell><cell>-</cell><cell>22.4</cell><cell>-</cell><cell>-</cell></row><row><cell>PolyFormer [47]</cell><cell>76.9</cell><cell>78.5</cell><cell>74.8</cell><cell>72.2</cell><cell>75.7</cell><cell>66.7</cell><cell>71.2</cell><cell>71.2</cell><cell>-</cell><cell>-</cell><cell>-</cell><cell>48.8</cell><cell>26.8</cell></row><row><cell cols="2">UNINEXT-H [43] 82.2</cell><cell>83.4</cell><cell>81.3</cell><cell>72.5</cell><cell>76.4</cell><cell>66.2</cell><cell>74.7</cell><cell>76.4</cell><cell>-</cell><cell>-</cell><cell>-</cell><cell>-</cell><cell>-</cell></row><row><cell>Generalist</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell>LISA 7B [37]</cell><cell>74.1</cell><cell>76.5</cell><cell>71.1</cell><cell>62.4</cell><cell>67.4</cell><cell>56.5</cell><cell>66.4</cell><cell>68.5</cell><cell>-</cell><cell>-</cell><cell>44.0</cell><cell>-</cell><cell>-</cell></row><row><cell cols="2">LISA 7B (FT) [37] 74.9</cell><cell>79.1</cell><cell>72.3</cell><cell>65.1</cell><cell>70.8</cell><cell>58.1</cell><cell>67.9</cell><cell>70.6</cell><cell>-</cell><cell>-</cell><cell>52.9</cell><cell>-</cell><cell>-</cell></row><row><cell>7B</cell><cell>78.5</cell><cell>79.9</cell><cell>75.7</cell><cell>70.5</cell><cell>75.0</cell><cell>64.9</cell><cell>74.1</cell><cell>74.6</cell><cell>66.7</cell><cell>54.5</cell><cell>56.2</cell><cell>57.9</cell><cell>33.9</cell></row><row><cell></cell><cell cols="2">Flickr30K-E</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell>Model</cell><cell cols="3">R@1 val R@1 test</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell>Shikra 13B</cell><cell>77.4</cell><cell>78.4</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell>Ferret 13B</cell><cell>81.1</cell><cell>84.8</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell>Shikra 7B</cell><cell>75.8</cell><cell>76.5</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell>Ferret 7B</cell><cell>80.4</cell><cell>82.2</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell>7B</cell><cell>79.2</cell><cell>79.8</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_4"><head>Table 4 .</head><label>4</label><figDesc></figDesc><table /><note>Top-1 box recall results on Flickr30K-Entity [59]. PNG Model AR AR th AR st AR s AR p PiGLET 65.9 64.0 68.6 67.2 54.5 7B 66.8 65.0 69.4 70.4 57.7</note></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_5"><head>Table 5 .</head><label>5</label><figDesc>Phrase grounding results on PNG<ref type="bibr" target="#b20">[21]</ref>.</figDesc><table><row><cell>Model</cell><cell>TextVQA-X [mIoU]</cell></row><row><cell>SAB</cell><cell>29.0</cell></row><row><cell>7B</cell><cell>39.8</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_6"><head>Table 6 .</head><label>6</label><figDesc>Visual text QA results on the TextVQA-X<ref type="bibr" target="#b66">[67]</ref> validation set.</figDesc><table><row><cell></cell><cell cols="2">PointQA Twice V7W</cell></row><row><cell>Model</cell><cell>Acc</cell><cell>Acc</cell></row><row><cell>Shikra 13B</cell><cell>70.3</cell><cell>85.3</cell></row><row><cell>GPT4RoI 13B</cell><cell>-</cell><cell>84.8</cell></row><row><cell>Shikra 7B</cell><cell>-</cell><cell>-</cell></row><row><cell>GPT4RoI 7B</cell><cell>-</cell><cell>81.8</cell></row><row><cell>7B</cell><cell>72.4</cell><cell>85.5</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_7"><head>Table 7</head><label>7</label><figDesc></figDesc><table /><note>. Results on PointQATwice<ref type="bibr" target="#b51">[52]</ref> and V7W<ref type="bibr" target="#b93">[94]</ref> test sets.</note></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_8"><head>Table 8</head><label>8</label><figDesc></figDesc><table><row><cell>Model</cell><cell cols="5">Bleu-4 METEOR CIDEr SPICE F1 all</cell></row><row><cell>Shikra 13B</cell><cell>-</cell><cell>-</cell><cell>73.9</cell><cell>-</cell><cell>-</cell></row><row><cell>Ferret 13B</cell><cell>37.0</cell><cell>25.5</cell><cell>76.1</cell><cell>18.3</cell><cell>15.1</cell></row><row><cell>Ferret 7B</cell><cell>35.1</cell><cell>24.6</cell><cell>74.8</cell><cell>18.0</cell><cell>15.0</cell></row><row><cell>7B</cell><cell>36.7</cell><cell>26.5</cell><cell>91.3</cell><cell>20.4</cell><cell>32.1</cell></row></table><note>. Grounded Captioning on Flickr30K-Entity<ref type="bibr" target="#b58">[59]</ref>.</note></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_9"><head>Table 6</head><label>6</label><figDesc></figDesc><table><row><cell>Input Prompt M2F+ Best Match</cell><cell>SAM</cell></row><row><cell>"a red</cell><cell>"spire in red</cell></row><row><cell>brick tower"</cell><cell>brick"</cell></row></table><note>). Spatial Prompt Understanding. For grounded MLLMs, accurately interpreting multimodal instructions is essen-</note></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_10"><head>Table 9</head><label>9</label><figDesc></figDesc><table><row><cell>Model</cell><cell cols="5">Accuracy Precision Recall F1 Score Yes (%)</cell></row><row><cell>Random</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell>mPLUG-Owl</cell><cell>53.30</cell><cell>51.71</cell><cell>99.53</cell><cell>68.06</cell><cell>96.23</cell></row><row><cell>LLaVA</cell><cell>54.43</cell><cell>52.32</cell><cell>99.80</cell><cell>68.65</cell><cell>95.37</cell></row><row><cell>MultiModal-GPT</cell><cell>50.03</cell><cell>50.02</cell><cell>100.00</cell><cell>66.68</cell><cell>99.97</cell></row><row><cell>MiniGPT-4</cell><cell>77.83</cell><cell>75.38</cell><cell>82.67</cell><cell>78.86</cell><cell>54.83</cell></row><row><cell>InstructBLIP</cell><cell>88.73</cell><cell>85.08</cell><cell>93.93</cell><cell>89.29</cell><cell>55.20</cell></row><row><cell>Shikra-13B</cell><cell>86.90</cell><cell>94.40</cell><cell>79.26</cell><cell>86.19</cell><cell>43.26</cell></row><row><cell>Ferret-13B</cell><cell>90.24</cell><cell>97.72</cell><cell>83.00</cell><cell>89.76</cell><cell>43.26</cell></row><row><cell>7B</cell><cell>91.03</cell><cell>85.80</cell><cell>96.40</cell><cell>90.79</cell><cell>45.88</cell></row><row><cell>Popular</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell>mPLUG-Owl</cell><cell>50.63</cell><cell>50.32</cell><cell>99.27</cell><cell>66.79</cell><cell>98.63</cell></row><row><cell>LLaVA</cell><cell>52.43</cell><cell>51.25</cell><cell>99.80</cell><cell>67.72</cell><cell>97.37</cell></row><row><cell>MultiModal-GPT</cell><cell>50.00</cell><cell>50.00</cell><cell>100.00</cell><cell>66.67</cell><cell>100.00</cell></row><row><cell>MiniGPT-4</cell><cell>68.30</cell><cell>64.27</cell><cell>82.40</cell><cell>72.21</cell><cell>64.10</cell></row><row><cell>InstructBLIP</cell><cell>81.37</cell><cell>75.07</cell><cell>93.93</cell><cell>83.45</cell><cell>62.57</cell></row><row><cell>Shikra-13B</cell><cell>83.97</cell><cell>87.55</cell><cell>79.20</cell><cell>83.16</cell><cell>45.23</cell></row><row><cell>Ferret-13B</cell><cell>84.90</cell><cell>88.24</cell><cell>80.53</cell><cell>84.21</cell><cell>45.63</cell></row><row><cell>7B</cell><cell>90.13</cell><cell>85.93</cell><cell>93.81</cell><cell>89.70</cell><cell>45.80</cell></row><row><cell>Adversarial</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell>mPLUG-Owl</cell><cell>50.67</cell><cell>50.34</cell><cell>99.33</cell><cell>66.82</cell><cell>98.67</cell></row><row><cell>LLaVA</cell><cell>50.77</cell><cell>50.39</cell><cell>99.87</cell><cell>66.98</cell><cell>99.10</cell></row><row><cell>MultiModal-GPT</cell><cell>50.00</cell><cell>50.00</cell><cell>100.00</cell><cell>66.67</cell><cell>100.00</cell></row><row><cell>MiniGPT-4</cell><cell>66.60</cell><cell>62.45</cell><cell>83.27</cell><cell>71.37</cell><cell>66.67</cell></row><row><cell>InstructBLIP</cell><cell>74.37</cell><cell>67.67</cell><cell>93.33</cell><cell>78.45</cell><cell>68.97</cell></row><row><cell>Shikra-13B</cell><cell>83.10</cell><cell>85.60</cell><cell>79.60</cell><cell>82.49</cell><cell>46.50</cell></row><row><cell>Ferret-13B</cell><cell>82.36</cell><cell>83.60</cell><cell>80.53</cell><cell>82.00</cell><cell>48.18</cell></row><row><cell>7B</cell><cell>86.33</cell><cell>85.93</cell><cell>86.63</cell><cell>86.28</cell><cell>49.60</cell></row></table><note>. Object hallucination results on the POPE<ref type="bibr" target="#b41">[42]</ref> benchmark.</note></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_11"><head>Table 10 .</head><label>10</label><figDesc>Ablation study on model design choices and evaluation setups. Models are trained on RefCOCO+, Flickr30K, TextVQA-X and tested on corresponding validation sets.</figDesc><table><row><cell>Mask Proposal Models</cell><cell></cell><cell></cell><cell></cell></row><row><cell>Mask2Former</cell><cell>67.1</cell><cell>69.0</cell><cell>9.8</cell></row><row><cell>Mask2Former+</cell><cell>66.6</cell><cell>77.2</cell><cell>34.0</cell></row><row><cell>Entity Features</cell><cell></cell><cell></cell><cell></cell></row><row><cell>CLIP</cell><cell>59.8</cell><cell>75.0</cell><cell>32.0</cell></row><row><cell>DINOv2</cell><cell>62.3</cell><cell>76.3</cell><cell>28.4</cell></row><row><cell>CLIP+DINOv2</cell><cell>66.6</cell><cell>77.2</cell><cell>34.0</cell></row><row><cell>Grounding Query</cell><cell></cell><cell></cell><cell></cell></row><row><cell>&lt;GRD&gt; only</cell><cell>64.4</cell><cell>67.5</cell><cell>34.2</cell></row><row><cell>&lt;/GRD&gt; only</cell><cell>64.4</cell><cell>77.2</cell><cell>33.5</cell></row><row><cell>Sum</cell><cell>66.6</cell><cell>77.2</cell><cell>34.0</cell></row><row><cell>Eval Input Resolution</cell><cell></cell><cell></cell><cell></cell></row><row><cell>224-480</cell><cell>54.7</cell><cell>67.2</cell><cell>27.6</cell></row><row><cell>480-640</cell><cell>65.5</cell><cell>76.7</cell><cell>27.6</cell></row><row><cell>800-1024</cell><cell>66.6</cell><cell>77.2</cell><cell>34.0</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_13"><head>Table 11 .</head><label>11</label><figDesc>Summary of the training datasets for Mask2Former+. Entity includes both thing and stuff categories.</figDesc><table /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_15"><head>Table 12 .</head><label>12</label><figDesc>The full list of datasets used in M3G2.</figDesc><table><row><cell>Instruction Templates for Brief Captioning</cell><cell>Instruction Templates for Detailed Captioning</cell></row><row><cell>Describe the image briefly.</cell><cell>Describe the image in detail.</cell></row><row><cell>Describe the image in a few words.</cell><cell></cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_16"><head></head><label></label><figDesc>Help me highlight the region of {}. Demonstrate where "{}" is located in this image. Show me where to find in this photo. Identify and mark the region of {} for me. Can you highlight "{}"?Can you extract the segment: {} for me? Can you localize "{}" in this image? Could you please segment out {} in the image?</figDesc><table><row><cell></cell><cell>Instruction Templates For RES</cell></row><row><cell>Highlight "{}" in the image.</cell><cell>Segment "{}" in the image.</cell></row><row><cell>Segment: {}.</cell><cell>Help me segment out {}.</cell></row><row><cell>Localize "{}" in the image.</cell><cell>Help me localize {}.</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_17"><head>Table 14 .</head><label>14</label><figDesc>Templates used for the RES task.</figDesc><table /></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="1" xml:id="foot_0">https://github.com/facebookresearch/detectron2</note>
+		</body>
+		<back>
+
+			<div type="acknowledgement">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Acknowledgements</head><p>This work was supported by Amazon and NSF IIS-1949634. We would like to thank the anonymous reviewers for their valuable comments and suggestions.</p></div>
+			</div>
+
+			<div type="annex">
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Instruction Templates For Short Response VQA. {}Answer with a single word or a short phrase. Given the image, answer the question "{}" with a single word or a short phrase.</p><p>Give a short answer to the question "{}" based on the image.</p><p>Instruction Templates For Chain-of-Thought Response VQA. {}Let's think step by step. {}Please include the reasoning process. {}Before giving the answer, please explain your reasoning. {}Explain your logic before giving the answer. Please answer the following question "{}", and describe your thought process.</p><p>Instruction Templates For Grounding Answer to Masks. Show where in the image you found your answer. Mark the part of the image that supports your answer. Please highlight your evidence in the image. Point out the evidence from the image. Indicate the area in the image that justifies your response. Highlight the section of the image that backs up your answer. Shade the section of the image that confirms your reply. Emphasize the part of the image that relates to your answer.  tions and model responses. Specifically, based on the annotations from LVIS <ref type="bibr" target="#b24">[25]</ref> and EntityV2 <ref type="bibr" target="#b60">[61]</ref>, we design questions about object presence, object counting, and segment query with a possibly negative request (i.e. the target object does not exist in the image), for the model to learn to recognize a diverse set of concepts more faithfully. See Figure <ref type="figure">19</ref> for examples of such multi-turn QA, and example question templates used in Table <ref type="table">15</ref>.</p><p>Referential Dialog (RD) . RD features multi-modal conversations where the user can refer to objects or regions in the image by a spatial prompt (e.g. a bounding box). We include various types of RD in our dataset and the templates used are listed in Table <ref type="table">16</ref>. First, we add several existing RD datasets such as V7W <ref type="bibr" target="#b93">[94]</ref>, PointQA <ref type="bibr" target="#b51">[52]</ref>, VCR <ref type="bibr" target="#b87">[88]</ref>, ShikraRD <ref type="bibr" target="#b7">[8]</ref> and SVIT <ref type="bibr" target="#b89">[90]</ref> without much modifications. We then revisit the RefCOCO series <ref type="bibr" target="#b43">[44,</ref><ref type="bibr" target="#b52">53,</ref><ref type="bibr" target="#b85">86]</ref> for referential expression generation, where the referred object is given and the goal is to generate a unique description that leads to that object. We use the region caption annotations from the VG dataset <ref type="bibr" target="#b35">[36]</ref> for region captioning and a region-matching game. We select a set of region pointers and several descriptions to provide to the model, and the goal is to match the pointed regions with the descriptions (Figure <ref type="figure">21b</ref>). We repurpose the GuessWhat dataset <ref type="bibr" target="#b16">[17]</ref> to make it fit into our RD formulation, as shown in Figure <ref type="figure">21a</ref>. We also construct a referred text reading task based on the HierText <ref type="bibr" target="#b47">[48]</ref> dataset and enhance the model's capability of text recognition, as shown in Figure <ref type="figure">21c</ref>.</p><p>Instruction Templates For REG. Provide a distinct description for that &lt;PTR&gt; Describe the selected area in a unique way. &lt;PTR&gt; Share a unique description of the region &lt;PTR&gt; Offer a one-of-a-kind descriptor &lt;PTR&gt; Describe the selected area &lt;PTR&gt; uniquely. Point out &lt;PTR&gt; in the picture with a unique description. Tell me how &lt;PTR&gt; stands out in the photo. Use your words to highlight just &lt;PTR&gt; in the image. Please describe &lt;PTR&gt; in the image in a way that it can be uniquely identified. If you had to describe just &lt;PTR&gt; to someone, how would you do it? What makes &lt;PTR&gt; different from everything else in the picture? How can you describe &lt;PTR&gt; in the image in a way that it can be uniquely identified? Can you provide a referring expression for &lt;PTR&gt; such that it sets it apart from others? Let's play a game! Describe &lt;PTR&gt; in the photo so I can find it.  </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>C. GROUNDHOG Implementation Details</head><p>Data Balancing. In constructing the M3G2 dataset, we recognized the need to address the varying scales of the multiple constituent datasets to ensure a balanced data distribution during training. To achieve this, we have implemented dataset-specific sampling strategies, adjusting the volume of data from each source dataset through either upsampling or down-sampling. The ratios we applied are as follows:</p><p>• PNG: up-sampled by a factor of 2. • Flickr30k-Entities: up-sampled by 1.5 times.</p><p>• RefCOCO + : up-sampled by 1.5 times.</p><p>• RefCOCOg: up-sampled by 1.5 times.</p><p>• SK-VG: up-sampled by a factor of 2.</p><p>• Dcube (multiturn): up-sampled by a factor of 10.</p><p>• ReasonSeg: up-sampled by a factor of 10.</p><p>• Shikra-Binary: up-sampled by a factor of 10.</p><p>• VCR-Open (multiturn): down-sampled by half.</p><p>• VCR-Multiturn: down-sampled to 10%.</p><p>• VizWiz: up-sampled by a factor of 3.</p><p>• LVIS-QA: down-sampled by half.</p><p>• TextVQAX: up-sampled by a factor of 2.</p><p>• EntityCount: up-sampled by a factor of 2.</p><p>• VG-SpotCap: down-sampled by half.</p><p>• Shikra-RD: up-sampled by a factor of 10.</p><p>• HierText: up-sampled by a factor of 5.</p><p>• GuessWhat-Oracle: down-sampled to 20%.</p><p>• GuessWhat-Guesser: down-sampled to 20%.</p><p>• SVIT: up-sampled by a factor of 3.</p><p>The balanced sampled dataset contains 1.8 million samples in total.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Describe the image briefly.</head><p>A girl is reading a book to another girl.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>👤</head><p>Describe the image in a clear and concise manner.</p><p>A woman is painting a picture of a mountain.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>👤 Could you please describe the image in a few words?</head><p>A man is talking on his cellphone while holding a child.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>👤</head><p>Describe the image in a clear and concise manner.</p><p>A girl in glasses is holding two American flags.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>👤</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Can you write a short description of the image?</head><p>A man in a brown shirt and plaid shorts is doing a handstand on a lawn.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>👤</head><p>Caption the image briefly.</p><p>A person in a black coat jumps in the snow. In this image, we can see a girl standing on the floor and holding a toy in her hand. In the background of the image, there is a sofa, chair, television, curtain, wall, and window.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>👤</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>👤</head><p>Can you tell me about the image? In detail.</p><p>In this image, I can see a black and white dog jumping in the water. There are a few people standing and some sitting. I can see vehicles in white, black, and red colors. In the background, there are a few trees and the sky. In this image, I can see a brown sofa with a cat sitting on it. A dog is sitting on the floor. In the background, I can see a brown table and a yellow wall. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>👤</head><p>What was the picture about? Indicate the area in the image that justifies your response.</p><p>Vitamix 3600 is printed on the image.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>👤</head><p>What kind of boat is mentioned on the page? Shade the section of the image that confirms your reply.</p><p>Ice boat is printed on the page.  </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>👤</head></div>			</div>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">Flamingo: a visual language model for few-shot learning</title>
+		<author>
+			<persName><forename type="first">Jean-Baptiste</forename><surname>Alayrac</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jeff</forename><surname>Donahue</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Pauline</forename><surname>Luc</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Antoine</forename><surname>Miech</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Iain</forename><surname>Barr</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yana</forename><surname>Hasson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Karel</forename><surname>Lenc</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Arthur</forename><surname>Mensch</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Katherine</forename><surname>Millican</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Malcolm</forename><surname>Reynolds</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Advances in Neural Information Processing Systems</title>
+				<imprint>
+			<date type="published" when="2022">2022</date>
+			<biblScope unit="volume">35</biblScope>
+			<biblScope unit="page" from="23716" to="23736" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">Spice: Semantic propositional image caption evaluation</title>
+		<author>
+			<persName><forename type="first">Peter</forename><surname>Anderson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Basura</forename><surname>Fernando</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mark</forename><surname>Johnson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Stephen</forename><surname>Gould</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 14th European Conference on Computer Vision</title>
+				<meeting>the 14th European Conference on Computer Vision</meeting>
+		<imprint>
+			<date type="published" when="2016">2016</date>
+			<biblScope unit="page" from="382" to="398" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<monogr>
+		<author>
+			<persName><forename type="first">Jinze</forename><surname>Bai</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Shuai</forename><surname>Bai</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Shusheng</forename><surname>Yang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Shijie</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sinan</forename><surname>Tan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Peng</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Junyang</forename><surname>Lin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Chang</forename><surname>Zhou</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jingren</forename><surname>Zhou</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:2308.12966</idno>
+		<title level="m">Qwen-vl: A frontier large vision-language model with versatile abilities</title>
+				<imprint>
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">Meteor: An automatic metric for mt evaluation with improved correlation with human judgments</title>
+		<author>
+			<persName><forename type="first">Satanjeev</forename><surname>Banerjee</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Alon</forename><surname>Lavie</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the acl workshop on intrinsic and extrinsic evaluation measures for machine translation and/or summarization</title>
+				<meeting>the acl workshop on intrinsic and extrinsic evaluation measures for machine translation and/or summarization</meeting>
+		<imprint>
+			<date type="published" when="2005">2005</date>
+			<biblScope unit="page" from="65" to="72" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">Cocostuff: Thing and stuff classes in context</title>
+		<author>
+			<persName><forename type="first">Holger</forename><surname>Caesar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jasper</forename><surname>Uijlings</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Vittorio</forename><surname>Ferrari</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the IEEE conference on computer vision and pattern recognition</title>
+				<meeting>the IEEE conference on computer vision and pattern recognition</meeting>
+		<imprint>
+			<date type="published" when="2018">2018</date>
+			<biblScope unit="volume">4</biblScope>
+			<biblScope unit="page">1</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">Grounding answers for visual questions asked by visually impaired people</title>
+		<author>
+			<persName><forename type="first">Chongyan</forename><surname>Chen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Samreen</forename><surname>Anjum</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Danna</forename><surname>Gurari</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition</title>
+				<meeting>the IEEE/CVF Conference on Computer Vision and Pattern Recognition</meeting>
+		<imprint>
+			<date type="published" when="2022">2022</date>
+			<biblScope unit="volume">5</biblScope>
+			<biblScope unit="page" from="19098" to="19107" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<monogr>
+		<title level="m" type="main">Position-enhanced visual instruction tuning for multimodal large language models</title>
+		<author>
+			<persName><forename type="first">Chi</forename><surname>Chen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ruoyu</forename><surname>Qin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Fuwen</forename><surname>Luo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Xiaoyue</forename><surname>Mi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Peng</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Maosong</forename><surname>Sun</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yang</forename><surname>Liu</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:2308.13437</idno>
+		<imprint>
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<monogr>
+		<title level="m" type="main">Shikra: Unleashing multimodal llm&apos;s referential dialogue magic</title>
+		<author>
+			<persName><forename type="first">Keqin</forename><surname>Chen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Zhao</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Weili</forename><surname>Zeng</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Richong</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Feng</forename><surname>Zhu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Rui</forename><surname>Zhao</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:2306.15195</idno>
+		<imprint>
+			<date type="published" when="2009">2023. 2, 3, 5, 6, 9</date>
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">Pix2seq: A language modeling framework for object detection</title>
+		<author>
+			<persName><forename type="first">Ting</forename><surname>Chen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Saurabh</forename><surname>Saxena</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Lala</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">David</forename><forename type="middle">J</forename><surname>Fleet</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Geoffrey</forename><surname>Hinton</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">International Conference on Learning Representations</title>
+				<imprint>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">Masked-attention mask transformer for universal image segmentation</title>
+		<author>
+			<persName><forename type="first">Bowen</forename><surname>Cheng</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ishan</forename><surname>Misra</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Alexander</forename><forename type="middle">G</forename><surname>Schwing</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Alexander</forename><surname>Kirillov</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Rohit</forename><surname>Girdhar</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the IEEE/CVF conference on computer vision and pattern recognition</title>
+				<meeting>the IEEE/CVF conference on computer vision and pattern recognition</meeting>
+		<imprint>
+			<date type="published" when="2004">2022. 2, 5, 1, 4</date>
+			<biblScope unit="page" from="1290" to="1299" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<monogr>
+		<author>
+			<persName><forename type="first">Wei-Lin</forename><surname>Chiang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Zhuohan</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Zi</forename><surname>Lin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ying</forename><surname>Sheng</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Zhanghao</forename><surname>Wu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Hao</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Lianmin</forename><surname>Zheng</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Siyuan</forename><surname>Zhuang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yonghao</forename><surname>Zhuang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Joseph</forename><forename type="middle">E</forename><surname>Gonzalez</surname></persName>
+		</author>
+		<ptr target="https://vicuna.lmsys.org,2023.4" />
+		<title level="m">An opensource chatbot impressing gpt-4 with 90%* chatgpt quality</title>
+				<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">Convolutional feature masking for joint object and stuff segmentation</title>
+		<author>
+			<persName><forename type="first">Jifeng</forename><surname>Dai</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Kaiming</forename><surname>He</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jian</forename><surname>Sun</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the IEEE conference on computer vision and pattern recognition</title>
+				<meeting>the IEEE conference on computer vision and pattern recognition</meeting>
+		<imprint>
+			<date type="published" when="2015">2015</date>
+			<biblScope unit="page" from="3992" to="4000" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<monogr>
+		<title level="m" type="main">Instructblip: Towards generalpurpose vision-language models with instruction tuning</title>
+		<author>
+			<persName><forename type="first">Wenliang</forename><surname>Dai</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Junnan</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Dongxu</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Anthony</forename><surname>Meng</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Huat</forename><surname>Tiong</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Junqi</forename><surname>Zhao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Weisheng</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Boyang</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Pascale</forename><surname>Fung</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Steven</forename><surname>Hoi</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:2305.06500</idno>
+		<imprint>
+			<date type="published" when="2023">2023</date>
+			<biblScope unit="volume">2</biblScope>
+			<biblScope unit="page">9</biblScope>
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">Plausible may not be faithful: Probing object hallucination in vision-language pre-training</title>
+		<author>
+			<persName><forename type="first">Wenliang</forename><surname>Dai</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Zihan</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ziwei</forename><surname>Ji</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Dan</forename><surname>Su</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Pascale</forename><surname>Fung</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 17th Conference of the European Chapter of the Association for Computational Linguistics</title>
+				<meeting>the 17th Conference of the European Chapter of the Association for Computational Linguistics</meeting>
+		<imprint>
+			<date type="published" when="2023">2023</date>
+			<biblScope unit="page" from="2128" to="2140" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<monogr>
+		<author>
+			<persName><forename type="first">Timothée</forename><surname>Darcet</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Maxime</forename><surname>Oquab</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Julien</forename><surname>Mairal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Piotr</forename><surname>Bojanowski</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:2309.16588</idno>
+		<title level="m">Vision transformers need registers</title>
+				<imprint>
+			<date type="published" when="2023">2023</date>
+			<biblScope unit="volume">6</biblScope>
+			<biblScope unit="page">4</biblScope>
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<analytic>
+		<title level="a" type="main">Part-aware panoptic segmentation</title>
+		<author>
+			<persName><forename type="first">Panagiotis</forename><surname>Daan De Geus</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Chenyang</forename><surname>Meletis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Xiaoxiao</forename><surname>Lu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Gijs</forename><surname>Wen</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Dubbelman</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition</title>
+				<meeting>the IEEE/CVF Conference on Computer Vision and Pattern Recognition</meeting>
+		<imprint>
+			<date type="published" when="2021">2021</date>
+			<biblScope unit="volume">4</biblScope>
+			<biblScope unit="page">1</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<analytic>
+		<title level="a" type="main">Guesswhat?! visual object discovery through multi-modal dialogue</title>
+		<author>
+			<persName><forename type="first">De</forename><surname>Harm</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Florian</forename><surname>Vries</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sarath</forename><surname>Strub</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Olivier</forename><surname>Chandar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Hugo</forename><surname>Pietquin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Aaron</forename><surname>Larochelle</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Courville</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition</title>
+				<meeting>the IEEE Conference on Computer Vision and Pattern Recognition</meeting>
+		<imprint>
+			<date type="published" when="2017">2017</date>
+			<biblScope unit="volume">5</biblScope>
+			<biblScope unit="page">3</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<analytic>
+		<title level="a" type="main">The pascal visual object classes (voc) challenge</title>
+		<author>
+			<persName><forename type="first">Mark</forename><surname>Everingham</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Luc</forename><surname>Van Gool</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">I</forename><surname>Christopher</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">John</forename><surname>Williams</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Andrew</forename><surname>Winn</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Zisserman</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">International journal of computer vision</title>
+		<imprint>
+			<biblScope unit="volume">88</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="303" to="338" />
+			<date type="published" when="2010">2010</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<analytic>
+		<title level="a" type="main">Vqs: Linking segmentations to questions and answers for supervised attention in vqa and question-focused semantic segmentation</title>
+		<author>
+			<persName><forename type="first">Chuang</forename><surname>Gan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yandong</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Haoxiang</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Chen</forename><surname>Sun</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Boqing</forename><surname>Gong</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the IEEE international conference on computer vision</title>
+				<meeting>the IEEE international conference on computer vision</meeting>
+		<imprint>
+			<date type="published" when="2017">2017</date>
+			<biblScope unit="volume">5</biblScope>
+			<biblScope unit="page" from="1811" to="1820" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<monogr>
+		<author>
+			<persName><forename type="first">Tao</forename><surname>Gong</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Chengqi</forename><surname>Lyu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Shilong</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yudong</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Miao</forename><surname>Zheng</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Qian</forename><surname>Zhao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Kuikun</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Wenwei</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ping</forename><surname>Luo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Kai</forename><surname>Chen</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:2305.04790</idno>
+		<title level="m">Multimodal-gpt: A vision and language model for dialogue with humans</title>
+				<imprint>
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<analytic>
+		<title level="a" type="main">Panoptic narrative grounding</title>
+		<author>
+			<persName><forename type="first">Cristina</forename><surname>González</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Nicolás</forename><surname>Ayobi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Isabela</forename><surname>Hernández</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">José</forename><surname>Hernández</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jordi</forename><surname>Pont-Tuset</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Pablo</forename><surname>Arbeláez</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the IEEE/CVF International Conference on Computer Vision</title>
+				<meeting>the IEEE/CVF International Conference on Computer Vision</meeting>
+		<imprint>
+			<date type="published" when="2021">2021</date>
+			<biblScope unit="page" from="1364" to="1373" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<analytic>
+		<title level="a" type="main">Piglet: Pixel-level grounding of language expressions with transformers</title>
+		<author>
+			<persName><forename type="first">Cristina</forename><surname>González</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Nicolás</forename><surname>Ayobi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Isabela</forename><surname>Hernández</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jordi</forename><surname>Pont-Tuset</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Pablo</forename><surname>Arbeláez</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Pattern Analysis and Machine Intelligence</title>
+		<imprint>
+			<biblScope unit="issue">7</biblScope>
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<analytic>
+		<title level="a" type="main">Objects as context for detecting their semantic parts</title>
+		<author>
+			<persName><forename type="first">Abel</forename><surname>Gonzalez-Garcia</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Davide</forename><surname>Modolo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Vittorio</forename><surname>Ferrari</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition</title>
+				<meeting>the IEEE Conference on Computer Vision and Pattern Recognition</meeting>
+		<imprint>
+			<date type="published" when="2018">2018</date>
+			<biblScope unit="page" from="6907" to="6916" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b23">
+	<analytic>
+		<title level="a" type="main">Logic and conversation</title>
+		<author>
+			<persName><surname>Herbert P Grice</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Speech acts</title>
+				<imprint>
+			<publisher>Brill</publisher>
+			<date type="published" when="1975">1975</date>
+			<biblScope unit="page" from="41" to="58" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b24">
+	<analytic>
+		<title level="a" type="main">Lvis: A dataset for large vocabulary instance segmentation</title>
+		<author>
+			<persName><forename type="first">Agrim</forename><surname>Gupta</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Piotr</forename><surname>Dollar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ross</forename><surname>Girshick</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the IEEE/CVF conference on computer vision and pattern recognition</title>
+				<meeting>the IEEE/CVF conference on computer vision and pattern recognition</meeting>
+		<imprint>
+			<date type="published" when="2019">2019</date>
+			<biblScope unit="volume">4</biblScope>
+			<biblScope unit="page">3</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b25">
+	<analytic>
+		<title level="a" type="main">Vision gnn: An image is worth graph of nodes</title>
+		<author>
+			<persName><forename type="first">Kai</forename><surname>Han</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yunhe</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jianyuan</forename><surname>Guo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yehui</forename><surname>Tang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Enhua</forename><surname>Wu</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Advances in Neural Information Processing Systems</title>
+				<imprint>
+			<date type="published" when="2022">2022</date>
+			<biblScope unit="volume">35</biblScope>
+			<biblScope unit="page" from="8291" to="8303" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b26">
+	<analytic>
+		<title level="a" type="main">The symbol grounding problem</title>
+		<author>
+			<persName><forename type="first">Stevan</forename><surname>Harnad</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Physica D: Nonlinear Phenomena</title>
+		<imprint>
+			<biblScope unit="volume">42</biblScope>
+			<biblScope unit="issue">1-3</biblScope>
+			<biblScope unit="page" from="335" to="346" />
+			<date type="published" when="1990">1990</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b27">
+	<analytic>
+		<title level="a" type="main">Lowrank adaptation of large language models</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Edward</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Phillip</forename><surname>Hu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Zeyuan</forename><surname>Wallis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yuanzhi</forename><surname>Allen-Zhu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Shean</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Lu</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Weizhu</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Chen</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">International Conference on Learning Representations</title>
+				<imprint>
+			<date type="published" when="2021">2021</date>
+			<biblScope unit="volume">6</biblScope>
+			<biblScope unit="page">4</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b28">
+	<analytic>
+		<title level="a" type="main">Gqa: A new dataset for real-world visual reasoning and compositional question answering</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Drew</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Christopher</forename><forename type="middle">D</forename><surname>Hudson</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Manning</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the IEEE/CVF conference on computer vision and pattern recognition</title>
+				<meeting>the IEEE/CVF conference on computer vision and pattern recognition</meeting>
+		<imprint>
+			<date type="published" when="2019">2019</date>
+			<biblScope unit="volume">5</biblScope>
+			<biblScope unit="page" from="6700" to="6709" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b29">
+	<analytic>
+		<title level="a" type="main">Mdetrmodulated detection for end-to-end multi-modal understanding</title>
+		<author>
+			<persName><forename type="first">Aishwarya</forename><surname>Kamath</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mannat</forename><surname>Singh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yann</forename><surname>Lecun</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Gabriel</forename><surname>Synnaeve</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ishan</forename><surname>Misra</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Nicolas</forename><surname>Carion</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the IEEE/CVF International Conference on Computer Vision</title>
+				<meeting>the IEEE/CVF International Conference on Computer Vision</meeting>
+		<imprint>
+			<date type="published" when="2021">2021</date>
+			<biblScope unit="volume">4</biblScope>
+			<biblScope unit="page">6</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b30">
+	<analytic>
+		<title level="a" type="main">Hallucination in object detection-a study in visual part verification</title>
+		<author>
+			<persName><forename type="first">Bart</forename><surname>Osman Semih Kayhan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jan</forename><forename type="middle">C</forename><surname>Vredebregt</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Van Gemert</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">2021 IEEE International Conference on Image Processing (ICIP)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2021">2021</date>
+			<biblScope unit="page" from="2234" to="2238" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b31">
+	<analytic>
+		<title level="a" type="main">Referitgame: Referring to objects in photographs of natural scenes</title>
+		<author>
+			<persName><forename type="first">Sahar</forename><surname>Kazemzadeh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Vicente</forename><surname>Ordonez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mark</forename><surname>Matten</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Tamara</forename><surname>Berg</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 2014 conference on empirical methods in natural language processing (EMNLP)</title>
+				<meeting>the 2014 conference on empirical methods in natural language processing (EMNLP)</meeting>
+		<imprint>
+			<date type="published" when="2014">2014</date>
+			<biblScope unit="volume">6</biblScope>
+			<biblScope unit="page" from="787" to="798" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b32">
+	<analytic>
+		<title level="a" type="main">Sentence attention blocks for answer grounding</title>
+		<author>
+			<persName><forename type="first">Seyedalireza</forename><surname>Khoshsirat</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Chandra</forename><surname>Kambhamettu</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the IEEE/CVF International Conference on Computer Vision</title>
+				<meeting>the IEEE/CVF International Conference on Computer Vision</meeting>
+		<imprint>
+			<date type="published" when="2023">2023</date>
+			<biblScope unit="page" from="6080" to="6090" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b33">
+	<analytic>
+		<title level="a" type="main">Panoptic segmentation</title>
+		<author>
+			<persName><forename type="first">Alexander</forename><surname>Kirillov</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Kaiming</forename><surname>He</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ross</forename><surname>Girshick</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Carsten</forename><surname>Rother</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Piotr</forename><surname>Dollár</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the IEEE/CVF conference on computer vision and pattern recognition</title>
+				<meeting>the IEEE/CVF conference on computer vision and pattern recognition</meeting>
+		<imprint>
+			<date type="published" when="2019">2019</date>
+			<biblScope unit="volume">5</biblScope>
+			<biblScope unit="page">1</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b34">
+	<analytic>
+		<title level="a" type="main">Segment anything</title>
+		<author>
+			<persName><forename type="first">Alexander</forename><surname>Kirillov</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Eric</forename><surname>Mintun</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Nikhila</forename><surname>Ravi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Hanzi</forename><surname>Mao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Chloe</forename><surname>Rolland</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Laura</forename><surname>Gustafson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Tete</forename><surname>Xiao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Spencer</forename><surname>Whitehead</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Alexander</forename><forename type="middle">C</forename><surname>Berg</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Wan-Yen</forename><surname>Lo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Piotr</forename><surname>Dollar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ross</forename><surname>Girshick</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)</title>
+				<meeting>the IEEE/CVF International Conference on Computer Vision (ICCV)</meeting>
+		<imprint>
+			<date type="published" when="2023">2023</date>
+			<biblScope unit="volume">2</biblScope>
+			<biblScope unit="page">3</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b35">
+	<analytic>
+		<title level="a" type="main">Visual genome: Connecting language and vision using crowdsourced dense image annotations</title>
+		<author>
+			<persName><forename type="first">Ranjay</forename><surname>Krishna</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yuke</forename><surname>Zhu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Oliver</forename><surname>Groth</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Justin</forename><surname>Johnson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Kenji</forename><surname>Hata</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Joshua</forename><surname>Kravitz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Stephanie</forename><surname>Chen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yannis</forename><surname>Kalantidis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Li-Jia</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">David</forename><forename type="middle">A</forename><surname>Shamma</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">International journal of computer vision</title>
+		<imprint>
+			<biblScope unit="volume">123</biblScope>
+			<biblScope unit="page">3</biblScope>
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b36">
+	<monogr>
+		<author>
+			<persName><forename type="first">Xin</forename><surname>Lai</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Zhuotao</forename><surname>Tian</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yukang</forename><surname>Chen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yanwei</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yuhui</forename><surname>Yuan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Shu</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jiaya</forename><surname>Jia</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Lisa</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:2308.00692</idno>
+		<title level="m">Reasoning segmentation via large language model</title>
+				<imprint>
+			<date type="published" when="2006">2023. 4, 5, 6</date>
+			<biblScope unit="volume">9</biblScope>
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b37">
+	<monogr>
+		<title level="m" type="main">Otter: A multi-modal model with in-context instruction tuning</title>
+		<author>
+			<persName><forename type="first">Bo</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yuanhan</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Liangyu</forename><surname>Chen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jinghao</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jingkang</forename><surname>Yang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ziwei</forename><surname>Liu</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:2305.03726</idno>
+		<imprint>
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b38">
+	<monogr>
+		<title level="m" type="main">Multimodal foundation models: From specialists to general-purpose assistants</title>
+		<author>
+			<persName><forename type="first">Chunyuan</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Zhe</forename><surname>Gan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Zhengyuan</forename><surname>Yang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jianwei</forename><surname>Yang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Linjie</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Lijuan</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jianfeng</forename><surname>Gao</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:2309.10020</idno>
+		<imprint>
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b39">
+	<monogr>
+		<author>
+			<persName><forename type="first">Jianshu</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jian</forename><surname>Zhao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yunchao</forename><surname>Wei</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Congyan</forename><surname>Lang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yidong</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Terence</forename><surname>Sim</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Shuicheng</forename><surname>Yan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jiashi</forename><surname>Feng</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:1705.07206</idno>
+		<title level="m">Multiplehuman parsing in the wild</title>
+				<imprint>
+			<date type="published" when="2017">2017</date>
+			<biblScope unit="volume">4</biblScope>
+			<biblScope unit="page">1</biblScope>
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b40">
+	<analytic>
+		<title level="a" type="main">Grounded language-image pre-training</title>
+		<author>
+			<persName><forename type="first">Liunian</forename><surname>Harold</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Li</forename></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Pengchuan</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Haotian</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jianwei</forename><surname>Yang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Chunyuan</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yiwu</forename><surname>Zhong</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Lijuan</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Lu</forename><surname>Yuan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Lei</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jenq-Neng</forename><surname>Hwang</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition</title>
+				<meeting>the IEEE/CVF Conference on Computer Vision and Pattern Recognition</meeting>
+		<imprint>
+			<date type="published" when="2022">2022</date>
+			<biblScope unit="page" from="10965" to="10975" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b41">
+	<analytic>
+		<title level="a" type="main">Evaluating object hallucination in large vision-language models</title>
+		<author>
+			<persName><forename type="first">Yifan</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yifan</forename><surname>Du</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Kun</forename><surname>Zhou</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jinpeng</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Wayne</forename><forename type="middle">Xin</forename><surname>Zhao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ji-Rong</forename><surname>Wen</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing</title>
+				<meeting>the 2023 Conference on Empirical Methods in Natural Language Processing</meeting>
+		<imprint>
+			<date type="published" when="2023">2023</date>
+			<biblScope unit="volume">8</biblScope>
+			<biblScope unit="page">9</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b42">
+	<monogr>
+		<title level="m" type="main">Uninext: Exploring a unified architecture for vision recognition</title>
+		<author>
+			<persName><forename type="first">Fangjian</forename><surname>Lin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jianlong</forename><surname>Yuan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sitong</forename><surname>Wu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Fan</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Zhibin</forename><surname>Wang</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:2304.13700</idno>
+		<imprint>
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b43">
+	<analytic>
+		<title level="a" type="main">Gres: Generalized referring expression segmentation</title>
+		<author>
+			<persName><forename type="first">Chang</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Henghui</forename><surname>Ding</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Xudong</forename><surname>Jiang</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition</title>
+				<meeting>the IEEE/CVF Conference on Computer Vision and Pattern Recognition</meeting>
+		<imprint>
+			<date type="published" when="2009">2023. 5, 6, 9</date>
+			<biblScope unit="volume">2</biblScope>
+			<biblScope unit="page">3</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b44">
+	<monogr>
+		<author>
+			<persName><forename type="first">Haotian</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Chunyuan</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yuheng</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yong</forename><forename type="middle">Jae</forename><surname>Lee</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:2310.03744</idno>
+		<title level="m">Improved baselines with visual instruction tuning</title>
+				<imprint>
+			<date type="published" when="2023">2023</date>
+			<biblScope unit="volume">6</biblScope>
+			<biblScope unit="page">9</biblScope>
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b45">
+	<monogr>
+		<author>
+			<persName><forename type="first">Haotian</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Chunyuan</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Qingyang</forename><surname>Wu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yong</forename><forename type="middle">Jae</forename><surname>Lee</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:2304.08485</idno>
+		<title level="m">Visual instruction tuning</title>
+				<imprint>
+			<date type="published" when="2023">2023</date>
+			<biblScope unit="volume">2</biblScope>
+			<biblScope unit="page">9</biblScope>
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b46">
+	<analytic>
+		<title level="a" type="main">Polyformer: Referring image segmentation as sequential polygon generation</title>
+		<author>
+			<persName><forename type="first">Jiang</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Hui</forename><surname>Ding</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Zhaowei</forename><surname>Cai</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yuting</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ravi</forename><surname>Kumar Satzoda</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Vijay</forename><surname>Mahadevan</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Manmatha</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition</title>
+				<meeting>the IEEE/CVF Conference on Computer Vision and Pattern Recognition</meeting>
+		<imprint>
+			<date type="published" when="2023">2023</date>
+			<biblScope unit="page" from="18653" to="18663" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b47">
+	<analytic>
+		<title level="a" type="main">Alessandro Bissacco, Yasuhisa Fujii, and Michalis Raptis. Towards end-to-end unified scene text detection and layout analysis</title>
+		<author>
+			<persName><forename type="first">Shangbang</forename><surname>Long</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Siyang</forename><surname>Qin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Dmitry</forename><surname>Panteleev</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition</title>
+				<meeting>the IEEE/CVF Conference on Computer Vision and Pattern Recognition</meeting>
+		<imprint>
+			<date type="published" when="2022">2022</date>
+			<biblScope unit="volume">5</biblScope>
+			<biblScope unit="page">3</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b48">
+	<monogr>
+		<author>
+			<persName><forename type="first">Ilya</forename><surname>Loshchilov</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Frank</forename><surname>Hutter</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:1711.05101</idno>
+		<title level="m">Decoupled weight decay regularization</title>
+				<imprint>
+			<date type="published" when="2017">2017</date>
+			<biblScope unit="volume">6</biblScope>
+			<biblScope unit="page">4</biblScope>
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b49">
+	<analytic>
+		<title level="a" type="main">Unified-io: A unified model for vision, language, and multi-modal tasks</title>
+		<author>
+			<persName><forename type="first">Jiasen</forename><surname>Lu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Christopher</forename><surname>Clark</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Rowan</forename><surname>Zellers</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">The Eleventh International Conference on Learning Representations</title>
+				<imprint>
+			<date type="published" when="2022">2022</date>
+		</imprint>
+	</monogr>
+	<note>Roozbeh Mottaghi, and Aniruddha Kembhavi</note>
+</biblStruct>
+
+<biblStruct xml:id="b50">
+	<analytic>
+		<title level="a" type="main">World-to-words: Grounded open vocabulary acquisition through fast mapping in vision-language models</title>
+		<author>
+			<persName><forename type="first">Ziqiao</forename><surname>Ma</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jiayi</forename><surname>Pan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Joyce</forename><surname>Chai</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 61st Annual Meeting of the Association for Computational Linguistics</title>
+		<title level="s">Long Papers</title>
+		<meeting>the 61st Annual Meeting of the Association for Computational Linguistics</meeting>
+		<imprint>
+			<date type="published" when="2023">2023</date>
+			<biblScope unit="volume">1</biblScope>
+			<biblScope unit="page">9</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b51">
+	<monogr>
+		<title level="m" type="main">Will Hinthorn, and Olga Russakovsky. Point and ask: Incorporating pointing into visual question answering</title>
+		<author>
+			<persName><forename type="first">Arjun</forename><surname>Mani</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Nobline</forename><surname>Yoo</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:2011.13681</idno>
+		<imprint>
+			<date type="published" when="2006">2020. 5, 6</date>
+			<biblScope unit="volume">7</biblScope>
+			<biblScope unit="page">3</biblScope>
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b52">
+	<analytic>
+		<title level="a" type="main">Generation and comprehension of unambiguous object descriptions</title>
+		<author>
+			<persName><forename type="first">Junhua</forename><surname>Mao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jonathan</forename><surname>Huang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Alexander</forename><surname>Toshev</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Oana</forename><surname>Camburu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Alan</forename><forename type="middle">L</forename><surname>Yuille</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Kevin</forename><surname>Murphy</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the IEEE conference on computer vision and pattern recognition</title>
+				<meeting>the IEEE conference on computer vision and pattern recognition</meeting>
+		<imprint>
+			<date type="published" when="2016">2016</date>
+			<biblScope unit="volume">5</biblScope>
+			<biblScope unit="page">3</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b53">
+	<analytic>
+		<title level="a" type="main">Generation and comprehension of unambiguous object descriptions</title>
+		<author>
+			<persName><forename type="first">Junhua</forename><surname>Mao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jonathan</forename><surname>Huang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Alexander</forename><surname>Toshev</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Oana</forename><surname>Camburu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Alan</forename><forename type="middle">L</forename><surname>Yuille</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Kevin</forename><surname>Murphy</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the IEEE conference on computer vision and pattern recognition</title>
+				<meeting>the IEEE conference on computer vision and pattern recognition</meeting>
+		<imprint>
+			<date type="published" when="2016">2016</date>
+			<biblScope unit="volume">6</biblScope>
+			<biblScope unit="page" from="11" to="20" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b54">
+	<monogr>
+		<author>
+			<persName><forename type="first">Maxime</forename><surname>Oquab</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Timothée</forename><surname>Darcet</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Théo</forename><surname>Moutakanni</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Huy</forename><surname>Vo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Marc</forename><surname>Szafraniec</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Vasil</forename><surname>Khalidov</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Pierre</forename><surname>Fernandez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Daniel</forename><surname>Haziza</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Francisco</forename><surname>Massa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Alaaeldin</forename><surname>El-Nouby</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:2304.07193</idno>
+		<title level="m">Learning robust visual features without supervision</title>
+				<imprint>
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b55">
+	<analytic>
+		<title level="a" type="main">Bleu: a method for automatic evaluation of machine translation</title>
+		<author>
+			<persName><forename type="first">Kishore</forename><surname>Papineni</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Salim</forename><surname>Roukos</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Todd</forename><surname>Ward</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Wei-Jing</forename><surname>Zhu</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 40th annual meeting of the Association for Computational Linguistics</title>
+				<meeting>the 40th annual meeting of the Association for Computational Linguistics</meeting>
+		<imprint>
+			<date type="published" when="2002">2002</date>
+			<biblScope unit="page" from="311" to="318" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b56">
+	<monogr>
+		<title level="m" type="main">Kosmos-2: Grounding multimodal large language models to the world</title>
+		<author>
+			<persName><forename type="first">Zhiliang</forename><surname>Peng</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Wenhui</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Li</forename><surname>Dong</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yaru</forename><surname>Hao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Shaohan</forename><surname>Huang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Shuming</forename><surname>Ma</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Furu</forename><surname>Wei</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:2306.14824</idno>
+		<imprint>
+			<date type="published" when="2023">2023</date>
+			<biblScope unit="volume">3</biblScope>
+			<biblScope unit="page">9</biblScope>
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b57">
+	<monogr>
+		<title level="m" type="main">Detgpt: Detect what you need via reasoning</title>
+		<author>
+			<persName><forename type="first">Renjie</forename><surname>Pi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jiahui</forename><surname>Gao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Shizhe</forename><surname>Diao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Rui</forename><surname>Pan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Hanze</forename><surname>Dong</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jipeng</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Lewei</forename><surname>Yao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jianhua</forename><surname>Han</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Hang</forename><surname>Xu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Lingpeng</forename><surname>Kong</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Tong</forename><surname>Zhang</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:2305.14167</idno>
+		<imprint>
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b58">
+	<analytic>
+		<title level="a" type="main">and Svetlana Lazebnik. Flickr30k entities: Collecting region-to-phrase correspondences for richer image-to-sentence models</title>
+		<author>
+			<persName><forename type="first">Liwei</forename><surname>Bryan A Plummer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Chris</forename><forename type="middle">M</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Juan</forename><forename type="middle">C</forename><surname>Cervantes</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Julia</forename><surname>Caicedo</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Hockenmaier</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the IEEE international conference on computer vision</title>
+				<meeting>the IEEE international conference on computer vision</meeting>
+		<imprint>
+			<date type="published" when="2015">2015</date>
+			<biblScope unit="volume">6</biblScope>
+			<biblScope unit="page">1</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b59">
+	<analytic>
+		<title level="a" type="main">Connecting vision and language with localized narratives</title>
+		<author>
+			<persName><forename type="first">Jordi</forename><surname>Pont-Tuset</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jasper</forename><surname>Uijlings</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Soravit</forename><surname>Changpinyo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Radu</forename><surname>Soricut</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Vittorio</forename><surname>Ferrari</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 16th European Conference on Computer Vision</title>
+				<meeting>the 16th European Conference on Computer Vision</meeting>
+		<imprint>
+			<date type="published" when="2020">2020</date>
+			<biblScope unit="page" from="647" to="664" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b60">
+	<analytic>
+		<title level="a" type="main">High quality entity segmentation</title>
+		<author>
+			<persName><forename type="first">Lu</forename><surname>Qi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jason</forename><surname>Kuen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Tiancheng</forename><surname>Shen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jiuxiang</forename><surname>Gu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Wenbo</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Weidong</forename><surname>Guo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jiaya</forename><surname>Jia</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Zhe</forename><surname>Lin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ming-Hsuan</forename><surname>Yang</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the IEEE/CVF International Conference on Computer Vision</title>
+				<meeting>the IEEE/CVF International Conference on Computer Vision</meeting>
+		<imprint>
+			<date type="published" when="2023">2023</date>
+			<biblScope unit="volume">4</biblScope>
+			<biblScope unit="page">3</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b61">
+	<analytic>
+		<title level="a" type="main">RIO: A benchmark for reasoning intention-oriented objects in open environments</title>
+		<author>
+			<persName><forename type="first">Mengxue</forename><surname>Qu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yu</forename><surname>Wu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Wu</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Xiaodan</forename><surname>Liang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jingkuan</forename><surname>Song</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yao</forename><surname>Zhao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yunchao</forename><surname>Wei</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Thirty-seventh Conference on Neural Information Processing Systems Datasets and Benchmarks Track</title>
+				<imprint>
+			<date type="published" when="2023">2023</date>
+			<biblScope unit="volume">6</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b62">
+	<analytic>
+		<title level="a" type="main">Learning transferable visual models from natural language supervision</title>
+		<author>
+			<persName><forename type="first">Alec</forename><surname>Radford</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jong</forename><forename type="middle">Wook</forename><surname>Kim</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Chris</forename><surname>Hallacy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Aditya</forename><surname>Ramesh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Gabriel</forename><surname>Goh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sandhini</forename><surname>Agarwal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Girish</forename><surname>Sastry</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Amanda</forename><surname>Askell</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Pamela</forename><surname>Mishkin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jack</forename><surname>Clark</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">International conference on machine learning</title>
+				<imprint>
+			<date type="published" when="2021">2021</date>
+			<biblScope unit="volume">6</biblScope>
+			<biblScope unit="page">4</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b63">
+	<analytic>
+		<title level="a" type="main">Parts and attributes of common objects</title>
+		<author>
+			<persName><forename type="first">Anmol</forename><surname>Vignesh Ramanathan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Vladan</forename><surname>Kalia</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yi</forename><surname>Petrovic</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Baixue</forename><surname>Wen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Baishan</forename><surname>Zheng</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Rui</forename><surname>Guo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Aaron</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Rama</forename><surname>Marquez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Abhishek</forename><surname>Kovvuri</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Kadian</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition</title>
+				<meeting>the IEEE/CVF Conference on Computer Vision and Pattern Recognition</meeting>
+		<imprint>
+			<date type="published" when="2023">2023</date>
+			<biblScope unit="volume">4</biblScope>
+			<biblScope unit="page">1</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b64">
+	<monogr>
+		<title level="m" type="main">A first look: Towards explainable textvqa models via visual and textual explanations</title>
+		<author>
+			<persName><forename type="first">Varun</forename><surname>Nagaraj Rao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Xingjian</forename><surname>Zhen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Karen</forename><surname>Hovsepian</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mingwei</forename><surname>Shen</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:2105.02626</idno>
+		<imprint>
+			<date type="published" when="2021">2021</date>
+			<biblScope unit="volume">5</biblScope>
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b65">
+	<analytic>
+		<title level="a" type="main">Grounding of textual phrases in images by reconstruction</title>
+		<author>
+			<persName><forename type="first">Anna</forename><surname>Rohrbach</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Marcus</forename><surname>Rohrbach</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ronghang</forename><surname>Hu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Trevor</forename><surname>Darrell</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Bernt</forename><surname>Schiele</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 14th European Conference on Computer Vision</title>
+				<meeting>the 14th European Conference on Computer Vision</meeting>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2016">2016</date>
+			<biblScope unit="volume">5</biblScope>
+			<biblScope unit="page" from="817" to="834" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b66">
+	<analytic>
+		<title level="a" type="main">Towards vqa models that can read</title>
+		<author>
+			<persName><forename type="first">Amanpreet</forename><surname>Singh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Vivek</forename><surname>Natarjan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Meet</forename><surname>Shah</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yu</forename><surname>Jiang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Xinlei</forename><surname>Chen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Devi</forename><surname>Parikh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Marcus</forename><surname>Rohrbach</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition</title>
+				<meeting>the IEEE Conference on Computer Vision and Pattern Recognition</meeting>
+		<imprint>
+			<date type="published" when="2019">2019</date>
+			<biblScope unit="volume">4</biblScope>
+			<biblScope unit="page">6</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b67">
+	<monogr>
+		<title level="m" type="main">TextOCR: Towards largescale end-to-end reasoning for arbitrary-shaped scene text</title>
+		<author>
+			<persName><forename type="first">Amanpreet</forename><surname>Singh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Guan</forename><surname>Pang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mandy</forename><surname>Toh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jing</forename><surname>Huang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Wojciech</forename><surname>Galuba</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Tal</forename><surname>Hassner</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2021">2021</date>
+			<biblScope unit="volume">4</biblScope>
+			<biblScope unit="page">1</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b68">
+	<analytic>
+		<title level="a" type="main">R-fcn-3000 at 30fps: Decoupling detection and classification</title>
+		<author>
+			<persName><forename type="first">Bharat</forename><surname>Singh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Hengduo</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Abhishek</forename><surname>Sharma</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Larry</forename><forename type="middle">S</forename><surname>Davis</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the IEEE conference on computer vision and pattern recognition</title>
+				<meeting>the IEEE conference on computer vision and pattern recognition</meeting>
+		<imprint>
+			<date type="published" when="2018">2018</date>
+			<biblScope unit="page" from="1081" to="1090" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b69">
+	<analytic>
+		<title level="a" type="main">Boxinst: High-performance instance segmentation with box annotations</title>
+		<author>
+			<persName><forename type="first">Zhi</forename><surname>Tian</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Chunhua</forename><surname>Shen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Xinlong</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Hao</forename><surname>Chen</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition</title>
+				<meeting>the IEEE/CVF Conference on Computer Vision and Pattern Recognition</meeting>
+		<imprint>
+			<date type="published" when="2021">2021</date>
+			<biblScope unit="volume">5</biblScope>
+			<biblScope unit="page">4</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b70">
+	<monogr>
+		<title level="m" type="main">Llama 2: Open foundation and fine-tuned chat models</title>
+		<author>
+			<persName><forename type="first">Hugo</forename><surname>Touvron</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Louis</forename><surname>Martin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Kevin</forename><surname>Stone</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Peter</forename><surname>Albert</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Amjad</forename><surname>Almahairi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yasmine</forename><surname>Babaei</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Nikolay</forename><surname>Bashlykov</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Soumya</forename><surname>Batra</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Prajjwal</forename><surname>Bhargava</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Shruti</forename><surname>Bhosale</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:2307.09288</idno>
+		<imprint>
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b71">
+	<analytic>
+		<title level="a" type="main">Multimodal few-shot learning with frozen language models</title>
+		<author>
+			<persName><forename type="first">Maria</forename><surname>Tsimpoukelli</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jacob</forename><forename type="middle">L</forename><surname>Menick</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Serkan</forename><surname>Cabi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Oriol</forename><surname>Eslami</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Felix</forename><surname>Vinyals</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Hill</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Advances in Neural Information Processing Systems</title>
+				<imprint>
+			<date type="published" when="2021">2021</date>
+			<biblScope unit="volume">34</biblScope>
+			<biblScope unit="page" from="200" to="212" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b72">
+	<analytic>
+		<title level="a" type="main">Cider: Consensus-based image description evaluation</title>
+		<author>
+			<persName><forename type="first">Ramakrishna</forename><surname>Vedantam</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Lawrence</forename><surname>Zitnick</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Devi</forename><surname>Parikh</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the IEEE conference on computer vision and pattern recognition</title>
+				<meeting>the IEEE conference on computer vision and pattern recognition</meeting>
+		<imprint>
+			<date type="published" when="2015">2015</date>
+			<biblScope unit="page" from="4566" to="4575" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b73">
+	<analytic>
+		<title level="a" type="main">Ofa: Unifying architectures, tasks, and modalities through a simple sequence-to-sequence learning framework</title>
+		<author>
+			<persName><forename type="first">Peng</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">An</forename><surname>Yang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Rui</forename><surname>Men</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Junyang</forename><surname>Lin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Shuai</forename><surname>Bai</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Zhikang</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jianxin</forename><surname>Ma</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Chang</forename><surname>Zhou</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jingren</forename><surname>Zhou</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Hongxia</forename><surname>Yang</surname></persName>
+		</author>
+		<idno>PMLR, 2022. 9</idno>
+	</analytic>
+	<monogr>
+		<title level="m">International Conference on Machine Learning</title>
+				<imprint>
+			<biblScope unit="page" from="23318" to="23340" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b74">
+	<monogr>
+		<title level="m" type="main">Large language model is also an open-ended decoder for vision-centric tasks</title>
+		<author>
+			<persName><forename type="first">Wenhai</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Zhe</forename><surname>Chen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Xiaokang</forename><surname>Chen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jiannan</forename><surname>Wu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Xizhou</forename><surname>Zhu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Gang</forename><surname>Zeng</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ping</forename><surname>Luo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Tong</forename><surname>Lu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jie</forename><surname>Zhou</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yu</forename><surname>Qiao</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:2305.11175</idno>
+		<imprint>
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b75">
+	<analytic>
+		<title level="a" type="main">Cris: Clipdriven referring image segmentation</title>
+		<author>
+			<persName><forename type="first">Zhaoqing</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yu</forename><surname>Lu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Qiang</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Xunqiang</forename><surname>Tao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yandong</forename><surname>Guo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mingming</forename><surname>Gong</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Tongliang</forename><surname>Liu</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the IEEE/CVF conference on computer vision and pattern recognition</title>
+				<meeting>the IEEE/CVF conference on computer vision and pattern recognition</meeting>
+		<imprint>
+			<date type="published" when="2022">2022</date>
+			<biblScope unit="page" from="11686" to="11695" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b76">
+	<analytic>
+		<title level="a" type="main">Phrasecut: Language-based image segmentation in the wild</title>
+		<author>
+			<persName><forename type="first">Chenyun</forename><surname>Wu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Zhe</forename><surname>Lin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Scott</forename><surname>Cohen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Trung</forename><surname>Bui</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Subhransu</forename><surname>Maji</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition</title>
+				<meeting>the IEEE/CVF Conference on Computer Vision and Pattern Recognition</meeting>
+		<imprint>
+			<date type="published" when="2020">2020</date>
+			<biblScope unit="volume">4</biblScope>
+			<biblScope unit="page" from="10216" to="10225" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b77">
+	<monogr>
+		<title/>
+		<author>
+			<persName><forename type="first">Yuxin</forename><surname>Wu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Alexander</forename><surname>Kirillov</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Francisco</forename><surname>Massa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Wan-Yen</forename><surname>Lo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ross</forename><surname>Girshick</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Detectron2</surname></persName>
+		</author>
+		<ptr target="https://github.com/facebookresearch/detectron2,2019.1" />
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b78">
+	<analytic>
+		<title level="a" type="main">Advancing referring expression segmentation beyond single image</title>
+		<author>
+			<persName><forename type="first">Yixuan</forename><surname>Wu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Zhao</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Chi</forename><surname>Xie</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Feng</forename><surname>Zhu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Rui</forename><surname>Zhao</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the IEEE/CVF International Conference on Computer Vision</title>
+				<meeting>the IEEE/CVF International Conference on Computer Vision</meeting>
+		<imprint>
+			<date type="published" when="2023">2023</date>
+			<biblScope unit="volume">5</biblScope>
+			<biblScope unit="page" from="2628" to="2638" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b79">
+	<analytic>
+		<title level="a" type="main">Described object detection: Liberating object detection with flexible expressions</title>
+		<author>
+			<persName><forename type="first">Chi</forename><surname>Xie</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Zhao</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yixuan</forename><surname>Wu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Feng</forename><surname>Zhu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Rui</forename><surname>Zhao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Shuang</forename><surname>Liang</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Thirty-seventh Conference on Neural Information Processing Systems</title>
+				<imprint>
+			<date type="published" when="2023">2023</date>
+			<biblScope unit="volume">5</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b80">
+	<monogr>
+		<title level="m" type="main">Unitab: Unifying text and box outputs for grounded visionlanguage modeling</title>
+		<author>
+			<persName><forename type="first">Zhengyuan</forename><surname>Yang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Zhe</forename><surname>Gan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jianfeng</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Xiaowei</forename><surname>Hu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Faisal</forename><surname>Ahmed</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Zicheng</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yumao</forename><surname>Lu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Lijuan</forename><surname>Wang</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2022">2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b81">
+	<analytic>
+		<title level="a" type="main">Lavt: Language-aware vision transformer for referring image segmentation</title>
+		<author>
+			<persName><forename type="first">Zhao</forename><surname>Yang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jiaqi</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yansong</forename><surname>Tang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Kai</forename><surname>Chen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Hengshuang</forename><surname>Zhao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Philip</forename><surname>Hs</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Torr</forename></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition</title>
+				<meeting>the IEEE/CVF Conference on Computer Vision and Pattern Recognition</meeting>
+		<imprint>
+			<date type="published" when="2022">2022</date>
+			<biblScope unit="page" from="18155" to="18165" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b82">
+	<monogr>
+		<author>
+			<persName><forename type="first">Qinghao</forename><surname>Ye</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Haiyang</forename><surname>Xu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Guohai</forename><surname>Xu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jiabo</forename><surname>Ye</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ming</forename><surname>Yan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yiyang</forename><surname>Zhou</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Junyang</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Anwen</forename><surname>Hu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Pengcheng</forename><surname>Shi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yaya</forename><surname>Shi</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:2304.14178</idno>
+		<title level="m">mplug-owl: Modularization empowers large language models with multimodality</title>
+				<imprint>
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b83">
+	<monogr>
+		<author>
+			<persName><forename type="first">Shukang</forename><surname>Yin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Chaoyou</forename><surname>Fu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sirui</forename><surname>Zhao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ke</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Xing</forename><surname>Sun</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Tong</forename><surname>Xu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Enhong</forename><surname>Chen</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:2306.13549</idno>
+		<title level="m">A survey on multimodal large language models</title>
+				<imprint>
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b84">
+	<monogr>
+		<title level="m" type="main">Ferret: Refer and ground anything anywhere at any granularity</title>
+		<author>
+			<persName><forename type="first">Haoxuan</forename><surname>You</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Haotian</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Zhe</forename><surname>Gan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Xianzhi</forename><surname>Du</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Bowen</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Zirui</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Liangliang</forename><surname>Cao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Shih-Fu</forename><surname>Chang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yinfei</forename><surname>Yang</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:2310.07704</idno>
+		<imprint>
+			<date type="published" when="2023">2023</date>
+			<biblScope unit="volume">7</biblScope>
+			<biblScope unit="page">9</biblScope>
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b85">
+	<analytic>
+		<title level="a" type="main">Modeling context in referring expressions</title>
+		<author>
+			<persName><forename type="first">Licheng</forename><surname>Yu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Patrick</forename><surname>Poirson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Shan</forename><surname>Yang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Alexander</forename><forename type="middle">C</forename><surname>Berg</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Tamara</forename><forename type="middle">L</forename><surname>Berg</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Computer Vision-ECCV 2016: 14th European Conference</title>
+				<meeting><address><addrLine>Amsterdam, The Netherlands</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2016">October 11-14, 2016. 2016</date>
+			<biblScope unit="volume">4</biblScope>
+			<biblScope unit="page">3</biblScope>
+		</imprint>
+	</monogr>
+	<note>Proceedings, Part II 14</note>
+</biblStruct>
+
+<biblStruct xml:id="b86">
+	<monogr>
+		<author>
+			<persName><forename type="first">Yuhang</forename><surname>Zang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Wei</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jun</forename><surname>Han</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Kaiyang</forename><surname>Zhou</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Chen</forename><forename type="middle">Change</forename><surname>Loy</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:2305.18279</idno>
+		<title level="m">Contextual object detection with multimodal large language models</title>
+				<imprint>
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b87">
+	<analytic>
+		<title level="a" type="main">From recognition to cognition: Visual commonsense reasoning</title>
+		<author>
+			<persName><forename type="first">Rowan</forename><surname>Zellers</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yonatan</forename><surname>Bisk</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ali</forename><surname>Farhadi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yejin</forename><surname>Choi</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the IEEE/CVF conference on computer vision and pattern recognition</title>
+				<meeting>the IEEE/CVF conference on computer vision and pattern recognition</meeting>
+		<imprint>
+			<date type="published" when="2019">2019</date>
+			<biblScope unit="volume">5</biblScope>
+			<biblScope unit="page">3</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b88">
+	<monogr>
+		<author>
+			<persName><forename type="first">Shilong</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Peize</forename><surname>Sun</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Shoufa</forename><surname>Chen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Min</forename><surname>Xiao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Wenqi</forename><surname>Shao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Wenwei</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Kai</forename><surname>Chen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ping</forename><surname>Luo</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:2307.03601</idno>
+		<title level="m">Gpt4roi: Instruction tuning large language model on region-of-interest</title>
+				<imprint>
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b89">
+	<monogr>
+		<title level="m" type="main">Svit: Scaling up visual instruction tuning</title>
+		<author>
+			<persName><forename type="first">Bo</forename><surname>Zhao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Boya</forename><surname>Wu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Tiejun</forename><surname>Huang</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:2307.04087</idno>
+		<imprint>
+			<date type="published" when="2023">2023</date>
+			<biblScope unit="volume">5</biblScope>
+			<biblScope unit="page">3</biblScope>
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b90">
+	<monogr>
+		<title level="m" type="main">Bubogpt: Enabling visual grounding in multi-modal llms</title>
+		<author>
+			<persName><forename type="first">Yang</forename><surname>Zhao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Zhijie</forename><surname>Lin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Daquan</forename><surname>Zhou</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Zilong</forename><surname>Huang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jiashi</forename><surname>Feng</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Bingyi</forename><surname>Kang</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:2307.08581</idno>
+		<imprint>
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b91">
+	<analytic>
+		<title level="a" type="main">Regionclip: Regionbased language-image pretraining</title>
+		<author>
+			<persName><forename type="first">Yiwu</forename><surname>Zhong</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jianwei</forename><surname>Yang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Pengchuan</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Chunyuan</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Noel</forename><surname>Codella</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Liunian</forename><surname>Harold Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Luowei</forename><surname>Zhou</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Xiyang</forename><surname>Dai</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Lu</forename><surname>Yuan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yin</forename><surname>Li</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition</title>
+				<meeting>the IEEE/CVF Conference on Computer Vision and Pattern Recognition</meeting>
+		<imprint>
+			<date type="published" when="2022">2022</date>
+			<biblScope unit="page" from="16793" to="16803" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b92">
+	<monogr>
+		<author>
+			<persName><forename type="first">Deyao</forename><surname>Zhu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jun</forename><surname>Chen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Xiaoqian</forename><surname>Shen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Xiang</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mohamed</forename><surname>Elhoseiny</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:2304.10592</idno>
+		<title level="m">Minigpt-4: Enhancing vision-language understanding with advanced large language models</title>
+				<imprint>
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b93">
+	<analytic>
+		<title level="a" type="main">Visual7w: Grounded question answering in images</title>
+		<author>
+			<persName><forename type="first">Yuke</forename><surname>Zhu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Oliver</forename><surname>Groth</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Michael</forename><surname>Bernstein</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Li</forename><surname>Fei-Fei</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the IEEE conference on computer vision and pattern recognition</title>
+				<meeting>the IEEE conference on computer vision and pattern recognition</meeting>
+		<imprint>
+			<date type="published" when="2016">2016</date>
+			<biblScope unit="volume">6</biblScope>
+			<biblScope unit="page">3</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

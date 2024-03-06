@@ -1,0 +1,1908 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Beyond Self-learned Attention: Mitigating Attention Bias in Transformer-based Models Using Attention Guidance</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+				<date type="published" when="2024-02-26">26 Feb 2024</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author role="corresp">
+							<persName><roleName>Amazon, USA</roleName><forename type="first">Jiri</forename><surname>Gesi</surname></persName>
+							<email>jirigesi@amazon.com</email>
+							<affiliation key="aff0">
+								<orgName type="department">IFTELHAR AHMED</orgName>
+								<orgName type="institution">University of California</orgName>
+								<address>
+									<settlement>Irvine</settlement>
+									<country key="US">USA</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff1">
+								<orgName type="institution">Jiri Gesi</orgName>
+								<address>
+									<settlement>Amazon, Palo Alto</settlement>
+									<region>California</region>
+									<country key="US">USA</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff2">
+								<orgName type="department">Iftelhar Ahmed</orgName>
+								<orgName type="institution">University of California</orgName>
+								<address>
+									<settlement>Irvine, Irvine</settlement>
+									<region>California</region>
+									<country key="US">USA</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Beyond Self-learned Attention: Mitigating Attention Bias in Transformer-based Models Using Attention Guidance</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date type="published" when="2024-02-26">26 Feb 2024</date>
+						</imprint>
+					</monogr>
+					<idno type="MD5">7E2763FC21CE3D10521EE2553E906A24</idno>
+					<idno type="DOI">10.1145/nnnnnnn.nnnnnnn</idno>
+					<idno type="arXiv">arXiv:2402.16790v1[cs.SE]</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.2" ident="GROBID" when="2024-03-06T22:17+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>
+					<term>machine learning</term>
+					<term>attention bias</term>
+					<term>fine-tuning</term>
+					<term>attention guiding</term>
+				</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Transformer-based models have demonstrated considerable potential for source code modeling tasks in software engineering. However, they are limited by their dependence solely on automatic self-attention weight learning mechanisms. Previous studies have shown that these models overemphasize delimiters added by tokenizers (e.g., [CLS], [SEP]), which may lead to overlooking essential information in the original input source code. To address this challenge, we introduce SyntaGuid, a novel approach that utilizes the observation that attention weights tend to be biased towards specific source code syntax tokens and abstract syntax tree (AST) elements in fine-tuned language models when they make correct predictions. SyntaGuid facilitates the guidance of attention-weight learning, leading to improved model performance on various software engineering tasks. We evaluate the effectiveness of SyntaGuid on multiple tasks and demonstrate that it outperforms existing state-of-the-art models in overall performance without requiring additional data. Experimental result shows that SyntaGuid can improve overall performance up to 3.25% and fix up to 28.3% wrong predictions. Our work represents the first attempt to guide the attention of Transformer-based models towards critical source code tokens during fine-tuning, highlighting the potential for enhancing Transformer-based models in software engineering.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1">INTRODUCTION</head><p>Pre-trained Language Models (PLMs) such as BERT <ref type="bibr" target="#b18">[19]</ref>, GPT <ref type="bibr" target="#b48">[50]</ref>, and T5 <ref type="bibr" target="#b49">[51]</ref> have exhibited notable performance gains in various Natural Language Processing (NLP) tasks <ref type="bibr" target="#b16">[17,</ref><ref type="bibr" target="#b32">33,</ref><ref type="bibr" target="#b65">67]</ref>. This trend has been further extended to software engineering applications, including but not limited to code summarization <ref type="bibr" target="#b10">[11,</ref><ref type="bibr" target="#b11">12,</ref><ref type="bibr" target="#b39">40]</ref>, code translation <ref type="bibr" target="#b19">[20,</ref><ref type="bibr" target="#b47">49,</ref><ref type="bibr" target="#b61">63]</ref>, and code search <ref type="bibr" target="#b20">[21,</ref><ref type="bibr" target="#b24">25,</ref><ref type="bibr" target="#b26">27]</ref>. These models are built on the Transformer network architecture <ref type="bibr" target="#b55">[57]</ref>, featuring a self-attention mechanism that learns the weight and interdependence of attention among tokens within an input sequence.</p><p>The self-attention mechanism uses attention weight to capture inter-relationships and longrange dependencies among tokens in a sequence. Prior research has investigated how attention weights are distributed across different hidden layers of the PLM <ref type="bibr" target="#b20">[21,</ref><ref type="bibr" target="#b24">25,</ref><ref type="bibr" target="#b56">58]</ref> and different code syntax <ref type="bibr" target="#b60">[62,</ref><ref type="bibr" target="#b67">69]</ref>. In the most recent work, Zhang et al. <ref type="bibr" target="#b67">[69]</ref> identified that CodeBERT <ref type="bibr" target="#b20">[21]</ref> pays more attention to certain types of tokens and statements such as keywords and data-related statements. The prevailing methodology in the field involves a two-step paradigm on PLMs: pre-training </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Self Learned Attention Guided Learned Attention</head><p>Fig. <ref type="figure">1</ref>. Illustration of attention guiding mechanism followed by fine-tuning. Here, PLMs undergo fine-tuning to achieve optimal performance for specific downstream tasks. Despite this widespread usage, our understanding of how attention weight distribution evolves during the fine-tuning process and how it varies between correct and incorrect prediction subsets is limited. Prior research has illuminated that the performance of non-transformer-based models can be influenced by the biases inherent in the features they learn <ref type="bibr" target="#b21">[22]</ref>. Addressing these biases has been shown to bolster the robustness of such models <ref type="bibr" target="#b22">[23]</ref>. In contrast, for transformer-based models, the learned features are encapsulated within these attention weights. Should biases, such as attention bias, manifest within these learned attention weights, it can pave the way for pioneering techniques that harness this knowledge, aiming to augment the efficacy of fine-tuned PLMs.</p><p>To address this research void, we investigate the disparities in attention-weight assignments between correct and incorrect sub-datasets within fine-tuned PLMs across various downstream tasks. Our empirical findings suggest that fine-tuned PLMs are inclined toward specific syntax tokens, which include identifiers, modifiers, and Abstract Syntax Tree (AST) elements like method signatures, especially during accurate predictions. Moreover, our analysis reveals a notable correlation: when PLMs allocate diminished attention to certain tokens, the performance of the fine-tuned PLMs can be adversely affected. Stemming from this observation, we introduce an innovative attention-guiding mechanism. This mechanism is designed to encourage attention heads to prioritize these pivotal syntax tokens and AST elements, thereby enhancing the efficacy of the fine-tuned model.</p><p>Figure <ref type="figure">1</ref> provides a visual representation of the attention-guiding mechanism we have devised for the fine-tuning of source code PLMs. On the left side of Figure <ref type="figure">1</ref>, one observes the input source code processed by a pre-trained model for fine-tuning, devoid of any attention-guiding interventions. The emergent attention weight vectors are autonomously derived, with darker hues signifying elevated attention weight allocations. Drawing from the insights of Sharma et al. <ref type="bibr" target="#b51">[53]</ref>, it is evident that autonomously learned attention heads frequently allocate significant attention weight to tokenization-induced delimiters, such as [CLS] and <ref type="bibr">[SEP]</ref>, which demarcate the initial and terminal positions in the learned attention weight vectors, respectively. In contrast, the right segment of Figure1 presents the analogous source code input, albeit with the integration of the attention-guiding mechanism. This strategy is designed to stimulate the self-attention heads to prioritize pre-designated critical tokens. A related methodology is presented by Deshpande et al. <ref type="bibr" target="#b17">[18]</ref> for natural language text, wherein they propose generic pre-defined attention patterns to guide self-attention heads. However, due to the significant differences between programming languages and natural languages, their approach and findings are not directly applicable to software engineering tasks. To. the best of our knowledge, our work is the first to investigate attention bias and ways to mitigate it in software engineering.</p><p>In this study, we aim to investigate following research questions: RQ1: How does the attention weight distribution in the fine-tuned Pre-trained language model differ for program syntax tokens and AST elements when comparing correct predictions to incorrect ones?</p><p>RQ2: In various downstream tasks, which attention weight allocations to syntax tokens and AST elements most profoundly influence the performance of the fine-tuned model?</p><p>RQ3: To what degree does our introduced Syntax pattern attention Guiding mechanism, Syn-taGuid, enhance the performance of the fine-tuned Pre-trained Language Model?</p><p>Our study makes several significant contributions to the field of PLMs for software engineering:</p><p>• Attention bias investigation: we undertook a pioneering set of experiments to provide empirical evidence highlighting the propensity of fine-tuned PLMs to exhibit bias in their attention weight towards specific source code syntax tokens and AST elements. • Attention Bias Impact Analysis: Through rigorous experimental evaluations, we have ascertained that the performance of fine-tuned models can be adversely affected by the presence of attention bias. • Introduction of SyntaGuid: We have introduced a cutting-edge attention-guiding mechanism, termed SyntaGuid. This technique is designed to channel the attention weight of PLMs towards pivotal source code syntax tokens and AST elements. Our empirical assessments underscore the efficacy of SyntaGuid across a spectrum of software engineering downstream tasks, cementing its stature as a versatile solution to enhance the performance of fine-tuned PLMs.</p><p>The remainder of the paper is structured as follows. Section 2 describes the necessary background. Section 3 presents details of the empirical analysis. Section 4 presents our proposed approach SyntaGuid. Section 5 places results in the broader context of work to date and Section 6 outlines the implications for practitioners and researchers. Section 7 presents the related works. Section 8 lists the threats to validate our results. Section 9 concludes with a summary of the key findings and an outlook on our future work.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2">BACKGROUND</head><p>In this section, we explain the necessary backgrounds.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.1">Self-attention-based Transformer Model</head><p>The Transformer <ref type="bibr" target="#b55">[57]</ref> architecture, which relies on the self-attention mechanism, has emerged as a popular choice for learning representations of source code. Let 𝑐 = {𝑡 1 , 𝑡 2 , ..., 𝑡 𝑛 } denote a code snippet consisting of a sequence of 𝑛 code tokens. A Transformer model comprises 𝐿 layers of Transformer blocks that transform the code snippet into contextual representations at different layers, denoted by</p><formula xml:id="formula_0">𝐻 𝑙 = [ℎ 𝑙 1 , ℎ 𝑙 1 , ..., ℎ 𝑙 𝑛 ],</formula><p>where 𝑙 denotes the 𝑙 𝑡ℎ layer. The layer representation 𝐻 𝑙 for each layer is computed using the 𝑙 𝑡ℎ Transformer block, i.e., 𝐻 𝑙 = 𝑇 𝑟𝑎𝑛𝑠 𝑓 𝑜𝑟𝑚𝑒𝑟 (𝐻 𝑙 −1 ), 𝑙 ∈ {1, 2, ..., 𝐿}, where 𝐿 is the total number of layers.</p><p>In each layer of the Transformer model, self-attention heads are utilized to aggregate the output vectors from the previous layer. Given an input sequence of code tokens 𝑐 = {𝑡 1 , 𝑡 2 , ..., 𝑡 𝑛 }, the self-attention mechanism computes a set of attention weights for each token 𝑤 𝑖 over the tokens in the input, represented as: 𝐴𝑡𝑡𝑒𝑛(𝑤 𝑖 ) = (𝛼 𝑖,1 (𝑐), 𝛼 𝑖,2 (𝑐), ..., 𝛼 𝑖,𝑛 (𝑐)) Here, 𝛼 𝑖,𝑗 (𝑐) represents the attention that token 𝑤 𝑖 pays to token 𝑤 𝑗 , which is computed from the scaled dot-product of the query vector of 𝑤 𝑖 and the key vector of 𝑤 𝑗 , followed by a softmax. The general form of the attention mechanism is expressed as the weighted sum of the value vector 𝑉 , using the query vector 𝑄 and the key vector 𝐾:</p><formula xml:id="formula_1">𝐴𝑡𝑡 (𝑄, 𝐾, 𝑉 ) = 𝑠𝑜 𝑓 𝑡𝑚𝑎𝑥 ( 𝑄𝐾 𝑇 √ 𝑑 𝑚𝑜𝑑𝑒𝑙 ) • 𝑉</formula><p>Here, 𝑑 𝑚𝑜𝑑𝑒𝑙 denotes the dimensionality of the hidden representation. For self-attention, the query, key, and value vectors are obtained by mapping the previous hidden representation 𝐻 𝑙 −1 using different linear functions, i.e., 𝑄 = 𝐻 𝑙 −1 • 𝑊 𝑙 𝑄 , 𝐾 = 𝐻 𝑙 −1 • 𝑊 𝑙 𝐾 , and 𝑉 = 𝐻 𝑙 −1 • 𝑊 𝑙 𝑉 , respectively. Finally, the encoder produces the final contextual representation</p><formula xml:id="formula_2">𝐻 𝑙 = [ℎ 𝑙 1 , ℎ 𝑙 2 , ..., ℎ 𝑙 𝑛 ],</formula><p>which is obtained from the output of the last Transformer block.</p><p>To further clarify, the positional encoding of each token is calculated using sine and cosine functions, as shown below:</p><formula xml:id="formula_3">𝑤 𝑖 = 𝑒 (𝑤 𝑖 ) + 𝑝𝑜𝑠 (𝑤 𝑖 )</formula><p>where 𝑒 denotes the word embedding layer, and 𝑝𝑜𝑠 denotes the positional embedding layer. Typically, the positional encoding implies the position of the code token based on sine and cosine functions.</p><p>Overall, the combination of self-attention mechanism, multi-head attention, and positional encoding enables Transformer models to effectively capture both the syntactic and semantic features of source code, making them a popular choice for many software engineering tasks.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.2">Pre-training Language Model</head><p>Given a corpus C, each sentence (or code snippet) is first tokenized into a series of tokens. Prior to pre-training, the model takes the concatenation of two segments as the input, defined as 𝑐 1 = {𝑡 1 , 𝑡 2 , ..., 𝑡 𝑛 } and 𝑐 2 = {𝑤 1 , 𝑤 2 , ..., 𝑤 𝑚 }, where 𝑛 and 𝑚 denote the lengths of the two segments, respectively. The two segments are concatenated with a special separator token <ref type="bibr">[SEP]</ref>. Furthermore, the first and last tokens of concatenated sequence are padded with a special classification token [CLS] and an ending token [EOS], respectively. Formally, the input of each training sample can be represented as follows:</p><formula xml:id="formula_4">𝑠 = [𝐶𝐿𝑆], 𝑡 1 , 𝑡 2 , ..., 𝑡 𝑛 , [𝑆𝐸𝑃], 𝑤 1 , 𝑤 2 , ..., 𝑤 𝑚 [𝐸𝑂𝑆].</formula><p>The Transformer encoder is then used for pre-training with two self-supervised learning objectives: Masked Language Modeling (MLM) and Next Sentence Prediction (NSP). In MLM, a certain percentage of the tokens in an input sentence is randomly selected and replaced with the special token <ref type="bibr">[MASK]</ref>. Specifically, BERT chooses 15% of the input tokens for possible replacement, and among them, 80% are replaced with [MASK], 10% remain unchanged, and the remaining 10% are randomly replaced with tokens from the vocabulary. The purpose of MLM is to train the model to predict the masked tokens based on the surrounding context. For NSP, it is modeled as a binary classification task to predict whether two segments are consecutive. <ref type="bibr">Positive</ref>  </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.3">Pre-trained models for source code</head><p>Recently, self-supervised learning techniques using MLM have gained popularity for natural language understanding and generation <ref type="bibr" target="#b37">[38,</ref><ref type="bibr">45,</ref><ref type="bibr" target="#b62">64]</ref>. Similarly, in the field of software engineering, several pre-trained code models have been proposed for program comprehension, code generation and etc <ref type="bibr">[1,</ref><ref type="bibr" target="#b5">6,</ref><ref type="bibr" target="#b6">7]</ref>. In this study, we have chosen to use the CodeBERT <ref type="bibr" target="#b20">[21]</ref> pre-trained model since this is one of the state-of-the-art code models for code representation learning.</p><p>CodeBERT pre-trains the model on two tasks: MLM and Replaced Token Detection (RTD). In MLM, two random tokens from the input pair of code and natural language comments are masked, and the model aims to predict the original token from a large vocabulary. The RTD task involves two generators and a discriminator. The generators predict the original token for the masked token, while the discriminator predicts whether the tokens are original or not. After pre-training, CodeBERT can be fine-tuned on downstream tasks, making it a versatile model for a wide range of software engineering applications, such as defect detection <ref type="bibr" target="#b39">[40]</ref>, clone detection <ref type="bibr" target="#b4">[5,</ref><ref type="bibr" target="#b39">40]</ref>, code generation <ref type="bibr" target="#b5">[6,</ref><ref type="bibr" target="#b6">7,</ref><ref type="bibr">45]</ref> etc.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3">EMPIRICAL ANALYSIS OF ATTENTION WEIGHT ASSIGNMENT BIAS</head><p>In this section, we explain the research methodology and experimental framework employed to analyze the attention bias and its impact on fine-tuned PLMs tailored for downstream tasks. The primary aim of this empirical study is to discern the degree to which fine-tuned PLMs allocate varying attention weights to specific positions within the source code syntax, contrasting between accurate and erroneous predictions. Furthermore, we seek to probe the potential ramifications arising from these disparities in attention-weight assignments.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.1">Study Design</head><p>Multi-head attention is a fundamental mechanism in Transformer-based models for language modeling, which enables the quantification of token importance in a given sentence. This attention distribution facilitates the learning and representation of a sentence by assigning higher weights to tokens that carry greater significance. Extracting useful information from PLMs requires an understanding of the important tokens within the code. As source code can be analyzed at different levels of granularity, including tokens, statements, and AST statements, this study focuses on the atomic unit of source code, i.e., syntax tokens and AST statements. Examining attention weights at this level of granularity can provide insights into fine-tuned PLM's performance with respect to the assigned attention on larger code blocks. Hence, we decided to focus on this granularity.</p><p>To address our research questions, we utilize the attention weights from the Transformer layers of fine-tuned PLMs to measure the importance of each token. We subsequently explore whether the collected attention weights exhibit significant differences between correct and incorrect predictions.</p><p>For instance, one of our target PLM CodeBERT consists of 12 self-attention layers, each containing 12 heads that compute attention weights for the same token. To yield a comprehensive estimate of the attention weight for each token, we adopt an approach that aggregates the attention scores across all layers and heads. This approach is consistent with prior studies in the field <ref type="bibr" target="#b30">[31,</ref><ref type="bibr" target="#b40">41,</ref><ref type="bibr" target="#b51">53,</ref><ref type="bibr" target="#b56">58]</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.2">Experiment tasks</head><p>Our goal was to cover a wide range of tasks in our evaluation. Our analysis requires executing the PLMs for a task and analyzing the learned attention-weights differences between correct and incorrect predictions, making it difficult to analyze all possible software engineering tasks investigated in the literature. So, we elected to assess two code comprehension tasks: code clone detection and the cloze test, in addition to a code generation task termed code translation since this covers both types of tasks, namely comprehension and generation <ref type="bibr" target="#b43">[44]</ref>. The subsequent sections provide an in-depth overview of each task and the corresponding dataset employed in our research. Table <ref type="table" target="#tab_1">1</ref> summaries of the datasets and state-of-the-art performance PLMs for these tasks according to Niu et al <ref type="bibr" target="#b43">[44]</ref>.</p><p>• Task 1: Cloze test. Cloze tests predict a masked word or phrase from context. Extended to source code in the CodeXGlue dataset <ref type="bibr" target="#b39">[40]</ref>, we focus on the ClozeTest-all dataset, which contains instances of masked code functions, docstrings, and 930 target words. Introduced by Microsoft Research, it covers six programming languages and is available in the CodeXGLUE repository <ref type="bibr" target="#b39">[40]</ref>. • Task 2: Clone detection.Clone detection identifies duplicate code in software, often resulting from practices like copy-pasting, which can negatively impact software development <ref type="bibr" target="#b50">[52]</ref>. Binary classification algorithms categorize code pairs as equivalent or not. We use the Big-CloneBench dataset, a comprehensive benchmark for clone detection <ref type="bibr" target="#b53">[55]</ref>, which includes 6 million true clone pairs and 260 thousand false pairs across ten functionalities. The benchmark is available on GitHub <ref type="bibr" target="#b4">[5]</ref>. • Task3: Code translation. This task translates software from one language to another <ref type="bibr" target="#b28">[29]</ref>.</p><p>We use the CodeXGLUE's Code2Code dataset, translating Java to C# <ref type="bibr" target="#b39">[40]</ref>. Curated from repositories like Lucene[2], POI [3], and Antlr <ref type="bibr" target="#b9">[10]</ref>, it focuses on parallel functions between languages, excluding duplicates and empty functions.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.3">Selected syntax types and AST statements</head><p>For our analysis, we needed to decide on the elements for which we wanted to conduct the attention-weight analysis. We decided to analyze elements that were identified to be important to humans. Building on the foundational research by Aljehane et al. <ref type="bibr" target="#b12">[13]</ref>, which delved into the differential attention patterns between expert and novice programmers while reading source code, our investigation focuses on syntax tokens and AST elements. We focus on key syntax tokens, including identifiers, modifiers, operators, data types, separators, keywords, strings, and Booleans. For the extraction of these tokens from the source code, we employ Javalang <ref type="bibr" target="#b8">[9]</ref>, a renowned Java syntax parsing library. Additionally, we examine AST statements like Method signature, If-else, While, and Return statements to understand the attention dynamics of the fine-tuned CodeBERT.</p><p>For the identification of these AST statements, we leverage tree-sitter-java [8], a widely-adopted Java AST parsing library.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.4">Attention weight bias analysis</head><p>In our study, we fine-tuned models for the tasks delineated earlier, employing the original training datasets and hyper-parameters as specified in the CodeXGLUE benchmark <ref type="bibr" target="#b39">[40]</ref>. Comprehensive details regarding hyper-parameters can be found on our study's companion website <ref type="bibr" target="#b3">[4]</ref>. Following the fine-tuning, we segregated the prediction data into two distinct categories based on the model's accuracy: those with correct predictions and those with incorrect ones. Our analysis then delved into the attention weights allocated to each syntax token and AST statement, contrasting these weights between the two aforementioned categories. It's pertinent to note that the PLM tokenizer <ref type="bibr" target="#b18">[19]</ref> might fragment a single source code token into several tokens. To address this, we adopted the methodology proposed by Sharma et al <ref type="bibr" target="#b51">[53]</ref> to compute the attention weights assigned by selfattention heads to each syntax and AST statement token. Given the multiple tests conducted, we incorporated the Bonferroni correction <ref type="bibr" target="#b14">[15]</ref> to adjust for multiple hypothesis testing, leading to a revised p-value threshold of 0.01. To ascertain the presence of significant disparities between the correct and incorrect prediction groups across all syntax tokens and AST statements, we employed the non-parametric Mann-Whitney test <ref type="bibr" target="#b41">[42]</ref>, given the non-normal distribution of our data.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.5">Attention bias impact analysis</head><p>In our endeavor to discern the potential impact of attention bias on the performance of fine-tuned PLMs, we systematically partitioned the testing datasets into groups characterized by high and low attention weights. To elucidate, consider the architecture of the pre-trained CodeBERT, which comprises 12 layers, each housing 12 self-attention heads. For a given layer, we aggregated the attention weights assigned by all 12 self-attention heads across the testing instances and computed the mean value. This mean served as a threshold to categorize the attention weights of individual heads within that layer as either high or low. Given CodeBERT's 12-layer structure, we derived a distinct threshold for each layer. A layer was designated as 'high attention' if more than half of its self-attention heads assigned attention weights exceeding their respective thresholds. Conversely, it was labeled 'low attention' if fewer than half of the heads did so. Layers with an equal split of high and low attention heads were excluded from this categorization.</p><p>Subsequently, a testing instance was classified as receiving 'high attention' if it was processed by more than half of the layers designated as 'high attention'. Conversely, if it was processed by fewer than half of such layers, it was deemed to have received 'low attention'. Instances processed by an equal number of 'high' and 'low attention' layers were not categorized.</p><p>By employing this methodology, we effectively partitioned the testing data into paired groups of high and low attention. We then assessed the model's predictive performance across these groups to investigate the potential influence of attention bias on the efficacy of fine-tuned PLMs.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4">SYNTAGUID: SYNTAX PATTERN ATTENTION GUIDING</head><p>In this section, we present our novel approach for fine-tuning Transformer-based models on source code by utilizing attention guiding. Specifically, we begin by formally defining the Masked Language Modeling (MLM) set up within the context of Transformers <ref type="bibr" target="#b55">[57]</ref> and proceed to describe the attention-guiding technique. Subsequently, we introduce our proposed Syntax Pattern Attention Guiding (SyntaGuid) technique, which leverages the syntactic structure of source code to guide the attention mechanism during fine-tuning. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.1">Masked Language Modeling</head><p>The application of Transformers in sequence-to-sequence prediction tasks involves training on a dataset D comprising pairs of sequences 𝑥 and their corresponding labels 𝑦. In the case of MLM, the input sequence 𝑥 1 , 𝑥 2 , ..., 𝑥 𝑛 of length 𝑛 consists of individual tokens, and the output labels 𝑦 1 , 𝑦 2 , ..., 𝑦 𝑛 are identical to the input sequence, i.e., 𝑦 𝑖 = 𝑥 𝑖 . A certain fraction 𝑘 of the input tokens, randomly selected, are masked by replacing them with a special &lt;MASK&gt; token. These masked indices are grouped together in a set C. The MLM objective is defined as a cross-entropy loss on the model's predictions ŷ𝑖 at the masked locations 𝑗 ∈ C and is employed to optimize all the parameters 𝜃 of the model by minimizing the loss:</p><formula xml:id="formula_5">L 𝑀𝐿𝑀 (𝑥, 𝑦) = − ∑︁ 𝑗 ∈ ⌋ 𝑙𝑜𝑔P(𝑦 𝑗 |𝑥; 𝜃 )<label>(1)</label></formula><p>The Transformer architecture used for MLM involves 𝑙 layers, each containing ⟨ self-attention heads. Let 𝑠 𝑘 be the input activations to layer 𝑘 of this model, with |𝑠 𝑘 | = 𝑛. The initial input activations 𝑠 1 are equivalent to the input sequence 𝑥, such that 𝑠 1 = 𝑠 = 𝑥. For every position 𝑝 in the output, each attention head in layer 𝑘 induces a probability distribution over all positions in the input 𝑠 𝑘 . Specifically, the attention activations for a single head, denoted as a function of 𝑠 and described by Equation 1 in Vaswani et al. <ref type="bibr" target="#b55">[57]</ref>, can be expressed as follows:</p><formula xml:id="formula_6">H(𝑠) = 𝑠𝑜 𝑓 𝑡𝑚𝑎𝑥 ( 𝑄𝐾 𝑇 √ 𝑑 𝑘 ) ∈ R 𝑛×𝑛<label>(2)</label></formula><p>the query and key matrices of dimension 𝑑 𝑘 are denoted by 𝑄 and 𝐾, respectively. For notational convenience, we drop the dependence on the input sequence 𝑠 in the following sections. The attention paid by token 𝑝 in the head's output layer to token 𝑞 in the head's input layer is represented by the scalar H(𝑠) [𝑝, 𝑞].</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.2">Syntax Pattern Attention Guiding</head><p>The technique of attention guiding has been introduced to encourage self-attention heads to allocate more attention to predefined important positions of tokens <ref type="bibr" target="#b17">[18]</ref>. This approach can function as an auxiliary objective to regularize the fine-tuning process of downstream tasks <ref type="bibr" target="#b17">[18,</ref><ref type="bibr" target="#b58">60]</ref>. To guide an attention head, a mean squared error (MSE) loss is applied to H using a pre-defined pattern P(𝑠) ≡ P ∈ R 𝑛×𝑛 , where || • || 𝐹 denotes the Frobenius norm:</p><formula xml:id="formula_7">L 𝑎𝑔 = ||H − P|| 𝐹</formula><p>(3) Figure <ref type="figure">2</ref> presents four examples of attention guiding patterns for a given code snippet. Specifically, Figure <ref type="figure">2-(a)</ref> illustrates the attention guiding pattern that makes self-attention heads focus on the first [CLS] token. On the other hand, Figure <ref type="figure">2-(b</ref>) depicts the pattern that guides self-attention heads to focus on the next tokens.</p><p>In Section 3, our analysis of attention weights reveals a bias in the self-attention heads of finetuned PLMs might towards certain syntax tokens, such as identifiers and modifiers, as well as specific AST statements like method signatures. In order to capitalize on this insight and encourage the self-attention heads to focus more on critical programming language information, we introduce two sets of syntax attention guiding patterns: syntax token attention patterns and AST statements patterns.</p><p>• Syntax token attention patterns guide self-attention heads focusing on specific syntax type token positions, such as idetifier, keywords, operator, data types in a given source code sequence. As an example:</p><formula xml:id="formula_8">P 𝑆 𝑦𝑛𝑡𝑎𝑥 [𝑝, 𝑞] = 1 𝑞 𝑆 𝑦𝑛𝑡𝑎𝑥 = 𝐼𝑑𝑒𝑛𝑡𝑖 𝑓 𝑖𝑒𝑟 0 𝑜𝑡ℎ𝑒𝑟𝑤𝑖𝑠𝑒<label>(4)</label></formula><p>where 𝑞 𝑡 𝑦𝑝𝑒 is the syntax type of source code token 𝑞. Two attention guiding patterns that focus on identifier and operator syntax tokens are presented in Figure <ref type="figure">2-(c</ref>) and (d), respectively. • Abstract syntax tree statements attention patterns guide attention heads focusing on token positions belong to particular AST statements, such as Method signatures, If-else, and Return statements. As an example:</p><formula xml:id="formula_9">P 𝐴𝑆𝑇 [𝑝, 𝑞] = 1 𝑞 𝐴𝑆𝑇 = 𝑅𝑒𝑡𝑢𝑟𝑛 0 𝑜𝑡ℎ𝑒𝑟𝑤𝑖𝑠𝑒<label>(5)</label></formula><p>where 𝑞 𝑎𝑠𝑡 belongs to the Return statements in AST for input source code sequence. SyntaGuid Loss Function. We apply the attention loss in Equation 3 to each head in each layer to obtain the overall source code syntax attention guidance (SAG) loss:</p><formula xml:id="formula_10">L 𝑆𝐴𝐺 (𝑥) = ℓ ∑︁ 𝑘=1 ℎ ∑︁ 𝑗=1 L 𝑎𝑔 × I(𝑘, 𝑗)<label>(6)</label></formula><p>where I(𝑘, 𝑗) denotes an indicator function which is 1 only if the 𝑗 𝑡 ℎ head in layer 𝑘 is being guided.</p><p>In principle, this loss permits any choice of patterns for each P𝑘 𝑗. However, for the sake of simplicity in our experiments, we guide a specific head number to the same pattern across all layers. That is, P𝑗 is constant for all layers. We use the gradients from this loss to update all the model's parameters, including the feedforward and input embedding layers. It is important to note that this loss depends solely on the input 𝑥 and not on the labels 𝑦.</p><p>Finally, the overall optimization objective is obtained by combining the attention guidance (AG) loss with the MLM loss:</p><formula xml:id="formula_11">L (𝜃 ) = E (𝑥,𝑦)∼D [L 𝑀𝐿𝑀 + 𝛼 • L 𝑆𝐴𝐺 ] (<label>7</label></formula><formula xml:id="formula_12">)</formula><p>where 𝛼 is a hyper-parameter that controls the scale that we apply on selected heads for attention guiding. According to Deshpande et al. <ref type="bibr" target="#b17">[18]</ref>, the L 𝑆𝐴𝐺 converges faster than L 𝑀𝐿𝑀 . We linearly decay 𝛼 from an initial value 𝛼 0 = 1 to 0 as the fine-tuning progresses.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.3">Syntax attention patterns</head><p>Based on the attention bias results presented in Section 3, we have observed that the self-attention heads of fine-tuned CodeBERT assign significantly higher attention weights to certain syntax tokens, including identifiers, modifiers, operators, basic data types, separators, keywords, and string tokens. Additionally, the self-attention heads of CodeBERT also assign greater attention weights to specific code structures, such as method signatures, if-else statements, and Return statements. Therefore, we propose the following attention guiding patterns for syntax token attention guiding during pre-trained model fine-tuning:</p><p>1.</p><p>[Modifier] attends to the modifier syntax tokens.</p><p>2.</p><p>[Separator] attends to the separator syntax tokens.</p><p>3.</p><p>[Key] attends to the keyword syntax tokens.</p><p>4.</p><p>[Identifier] attends to the identifier syntax tokens .</p><p>5.</p><p>[DataType] attends to the basic data type syntax tokens.</p><p>6.</p><p>[Operator] attends to the operator syntax tokens.</p><p>7.</p><p>[String] attends to the string syntax tokens. And, following abstract syntax tree attention guiding patterns:</p><p>1.</p><p>[MethodSignature] attends to tokens belonging to the method signature AST statement.</p><p>2.</p><p>[IfElseElement] attends to tokens belonging to the If-else AST statement.</p><p>3.</p><p>[ReturnElement] attends to tokens belonging to the Return AST statement. Furthermore, to enable a comprehensive evaluation of our proposed attention guiding patterns, we compare their performance with the local and global attention patterns proposed by Deshpande et al. <ref type="bibr" target="#b17">[18]</ref>. The global attention patterns focus self-attention heads on global position, such as </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.4">Experimental setup</head><p>In this study, we employ the software engineering tasks of code clone detection, cloze test, and code translation, which were previously described in Section 3, along with their respective datasets. It is noteworthy that the AG patterns proposed by Deshpande et al. <ref type="bibr" target="#b17">[18]</ref> are intended for natural languages, whereas our guiding patterns are specifically designed for source code. As a result, we replicated their AG patterns to compare their effectiveness with our code-specific patterns.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.4.1">Implementation details.</head><p>To ensure comparability across different experimental settings, we select CodeBERT <ref type="bibr" target="#b20">[21]</ref> as the foundational pre-trained model for all our evaluations. CodeBERT is a prominent pre-trained model specifically designed for code, and has served as the foundation for RoBERTa <ref type="bibr" target="#b38">[39]</ref>, a widely-used language model in other programming language modeling studies <ref type="bibr" target="#b24">[25,</ref><ref type="bibr" target="#b29">30,</ref><ref type="bibr" target="#b56">58,</ref><ref type="bibr" target="#b57">59,</ref><ref type="bibr" target="#b60">62,</ref><ref type="bibr" target="#b64">66]</ref>.</p><p>Basic model fine-tune. We tune the learning rate is 5e-5 for two epochs. The batch size for training is 16 and for testing is 32.</p><p>AG model. For attention guiding models, we guide a fraction of 𝜆 ∈ { 1 4 , 2 4 , 3 4 , 1} of heads in each layer. We choose 𝛼 for equation 7 from the set {1, 10, 100} such that scales of the MLM loss and auxiliary loss are comparable at the beginning of the fine-tuning. To achieve fair comparison and reduce deep learning model's variance impact <ref type="bibr" target="#b46">[48]</ref>, we used five-fold cross validation for each basic and AG model. <ref type="bibr" target="#b20">[21,</ref><ref type="bibr" target="#b27">28,</ref><ref type="bibr" target="#b59">61,</ref><ref type="bibr" target="#b63">65]</ref>, we evaluate the performance of our models using precision, recall, and F1 score <ref type="bibr" target="#b23">[24]</ref>. Precision measures the accuracy of the predicted clone pairs. Whereas recall represents the proportion of actual clone pairs correctly predicted by the model. The F1 score is the harmonic mean of precision and recall, providing a balanced assessment of the model's performance. The objective of the Cloze test is to predict the appropriate code token for a blank position in the context of the surrounding code. Consequently, we evaluate the prediction accuracy, which is calculated using the same formula as precision (i.e., the number of correct predictions divided by the total number of predictions).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.4.2">Evaluation metrics. Consistent with prior works on code clone detection</head><p>Regarding the code translation task, we adopt the evaluation metrics proposed in CodeXGLUE. Specifically, we report three metrics: BLEU <ref type="bibr" target="#b45">[47]</ref> score, CodeBLEU score <ref type="bibr" target="#b39">[40]</ref>, and accuracy (ACC). BLEU score is a commonly used metric for machine translation tasks, which measures the similarity between the generated code and the target code based on n-gram precision. CodeBLEU is a variant of BLEU proposed by CodeXGLUE, which takes into account not only surface-level matching but also grammatical and logical correctness, utilizing the AST and data-flow structure. In addition, we also evaluate the accuracy, which calculates the exact match between generated code and the target code.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5">RESULTS</head><p>In this section, we delineate the results of our experiments pertaining to the subsequent research questions:</p><p>• RQ1: How does the attention weight distribution in the fine-tuned PLMs differ for program syntax tokens and AST statements when comparing correct predictions to incorrect ones? • RQ2: In various downstream tasks, which attention weight allocations to syntax tokens and AST statements most profoundly influence the performance of the fine-tuned model? • RQ3: To what degree does our introduced syntax pattern attention guiding mechanism, SyntaGuid, enhance the performance of the fine-tuned Pre-trained Language Model?</p><p>Due to space constraints, we present only the results for CodeBERT on the cloze test across all research questions in this paper. The evaluation results for code clone detection and code translation tasks are available on our companion website <ref type="bibr" target="#b3">[4]</ref> which shows similar results as the cloze test. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.1">Attention Bias in Fine-Tuned PLMs</head><p>Our primary objective was to ascertain whether attention bias exists in fine-tuned PLMs for software engineering tasks. We partitioned the test data into subsets of correctly predicted and mispredicted instances and then assessed potential disparities in attention assignment to source code syntax and AST element tokens. This analysis was crucial in determining the presence or absence of attention bias in these models.</p><p>Figure <ref type="figure">3</ref> and 4 depict the attention weights allocated by the 12 attention heads across 12 layers to various syntax tokens and AST statements for cloze test <ref type="bibr" target="#b39">[40]</ref>. In Figure <ref type="figure">3 and 4</ref>, the triangle ▼ symbolizes the average attention values designated to syntax tokens for correctly predicted instances, with the solid line representing the cumulative average of all attention heads. Conversely, the circle • represents the average attention values for mispredicted instances, with the dashed line indicating the overall average across all heads.</p><p>The data in Figure <ref type="figure">3</ref> suggests that, for successful predictions in the cloze test, the self-attention mechanism tends to favor certain syntax tokens, including Identifier, Modifier, Operators and etc. However, attention weights for Boolean syntax tokens do not exhibit a pronounced difference. To ascertain the statistical significance of these disparities, we conducted a paired t-test <ref type="bibr" target="#b41">[42]</ref>, comparing attention weights between correctly and incorrectly predicted instances. The results indicate statistically significant differences in attention weights for Identifier (p-value &lt; 2.13e-20), Modifier (p-value &lt; 1.12e-16) and Operator (p-value &lt; 4.82e-21) syntax tokens. In contrast, Boolean tokens did not exhibit a significant difference (p-value &lt; 0.31). The self-attention mechanism within the fine-tuned PLM distinctly exhibits a propensity to allocate heightened attention weights to syntax tokens, notably the Identifier, Modifier, and Operator.</p><p>As depicted in Figure <ref type="figure">4</ref>, the self-attention heads manifest a pronounced inclination to allocate higher attention weights to specific AST statements, notably Method Signatures, If-else, and Return statements, when predictions by the fine-tuned PLM model are accurate. A statistical evaluation was undertaken to discern the disparities in attention distribution across these AST statements between correct and erroneous predictions. The analysis revealed significant differences in attention for Method Signatures (p-value &lt; 4.70e-26), If-else statements (p-value &lt; 2.43e-12), and Return statements (p-value &lt; 0.92e-3). Conversely, attention distribution for While statement did not exhibit a significant difference (p-value &lt; 0.36). The fine-tuned PLM's self-attention mechanism notably favors AST statements such as Method Signatures, If-else and Return statements. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.2">Evaluation of Model Performance Under Attention Bias</head><p>In addressing our second research question, we investigated the influence of attention bias on the performance of fine-tuned PLMs. To this end, we partitioned the test dataset into subsets characterized by high and low attention weights assigned to source code syntax and AST tokens using the approach explained in Section 3.5. The ensuing performance disparities between these subsets were then evaluated for each program syntax token.</p><p>Figure <ref type="figure" target="#fig_4">5</ref> offers a comparative analysis of model accuracy across different syntax tokens based on the attention weights assigned. The dataset was categorized based on a spectrum of attention weight thresholds, derived from the attention weights of all 12 heads in each layer. This figure particularly underscores the model's performance on four distinct syntax tokens. From Figure <ref type="figure" target="#fig_4">5</ref>, it is evident that the model tends to perform better when it allocates more pronounced attention weights to specific syntax tokens, notably the Identifier, Modifier, and Operator tokens, with accuracy drops being most pronounced when all 12 heads allocate diminished attention. However, this trend is less pronounced for Boolean tokens, where the performance differential is relatively muted.</p><p>Figure <ref type="figure" target="#fig_5">6</ref> offers a comparative analysis of model accuracy based on the attention weights allocated to various AST statements. The model's performance drops most significantly when it allocates diminished attention to the "Method Signature" statement, with the accuracy dropping from 84.62% to 74.83%. For "If-else" and "Return" statements, the most pronounced accuracy drops are observed when all 12 heads allocate diminished attention, resulting in drops from 81.32% to 76.38% and 81.58% to 76.38%, respectively. The "While" statement, on the other hand, exhibits the least change in accuracy, with the most significant drop being from 83.95% to 81.68% when the top 3 heads allocate diminished attention.</p><p>Our findings highlight that the performance of fine-tuned PLMs can be significantly influenced by the attention dynamics directed towards specific source code syntax tokens and AST statements, with the "Method Signature" emerging as a particularly influential element.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.3">Evaluation of Syntax Pattern Attention Guiding</head><p>Our previous findings indicate that attention bias does influence fine-tuned PLMs (Ft-PLMs) performance when self-attention heads assign lower attention weight to particular syntax and AST tokens, leading to our proposal of the SyntaGuid attention guiding (AG) technique, which can push part of self-attention heads pay extra attention on particular tokens. To ascertain the efficacy of SyntaGuid in mitigating performance issues in attention-biased subsets, we conducted further experiments, the results of which are presented herein. Table <ref type="table" target="#tab_2">2</ref> presents the empirical results on three software engineering tasks. The baseline finetuned PLMs on three tasks without using any attention guiding techniques. The syntax and AST attention guiding patterns are proposed in this study and the global and local AG patterns are derived from Deshpande et al. <ref type="bibr" target="#b17">[18]</ref>.</p><p>In cloze test, our experimental results reveal that AG patterns enhance Ft-PLM's predictive accuracy. Specifically, the application of global AG patterns improves Ft-PLM's prediction accuracy from 64.57% to 64.71%, while local attention patterns lead to an accuracy improvement to 64.86%. Notably, when both local and global AG patterns are utilized concurrently, the resulting accuracy is further enhanced to 64.95%. In contrast, the incorporation of syntax token AG patterns results in a significant improvement in Ft-PLM's prediction accuracy, achieving a score of 65.88% (p-value &lt; 5.24e-07). Similarly, the utilization of AST AG patterns leads to an accuracy improvement of 66.27% (p-value &lt; 1.94e-08). Moreover, the simultaneous integration of syntax token and AST AG patterns results in an accuracy improvement to 67.82% (p-value &lt; 3.19e-10).</p><p>In our investigation of code clone detection, we found that the use of global AG patterns improved the F1 score of Ft-PLM from 0.941 to 0.942, while the application of local attention patterns resulted in a decrease in F1 score to 0.938. However, when both global and local attention patterns were applied simultaneously, the F1 score increased to 0.948. Interestingly, we observed that the use of our proposed syntax token and AST statements attention patterns resulted in a higher F1 score of 0.946 and 0.942, respectively. When both sets of attention patterns were applied simultaneously, the F1 score further increased to 0.950 (p-value &lt; 6.53e-05). It is worth mentioning that the default Ft-PLM already achieved a very high F1 score of 0.941 in code clone detection, and the addition of AG patterns only resulted in a marginal improvement.</p><p>In the task of code translation, our empirical results show that the application of global AG patterns enhances the BLEU score of the default Ft-PLM model from 71.99 to 74.83, CodeBLEU score from 85.10 to 85.35 and accuracy from 59.00 to 59.31. Similarly, local AG patterns improve the BLEU score to 72.05, CodeBLEU score to 86.79, and accuracy to 59.73. By using both patterns simultaneously, we achieve a further improvement in BLEU score (73.95), CodeBLEU score (86.73) and accuracy <ref type="bibr">(60.21)</ref>. In contrast, our proposed syntax token AG pattern improves the default Ft-PLM's code to code translation BLEU score to 74.36, CodeBLEU to 87.82, and accuracy to 60.55. Furthermore, the AST AG pattern enhances the BLEU score to 72.91, CodeBLEU to 86.55, and accuracy to 60.82. Finally, when both patterns are applied to the Ft-PLM model, the BLEU score reaches 76.88, CodeBLEU score reaches 88.23 and accuracy improves to 61.93.</p><p>Our proposed attention guiding mechanism aims to improve Ft-PLM prediction performance by fixing incorrect predictions by the model. In addition to evaluating the performance of the fine-tuned models using commonly used evaluation metrics for each software engineering task, we  One interesting observation from Table <ref type="table" target="#tab_2">2</ref> was that the efficacy of the proposed syntax token and AST statements AG patterns is more prominent for the Cloze test as compared to code translation. We posit that this is due to the relatively larger data size of Cloze test (50k) as compared to code translation (around 11.5k). So we sought to investigate the impact of training data size on the proposed AG patterns' effectiveness. For this purpose, we randomly selected 25%, 50%, 75%, and 100% of the training set for Cloze test fine-tuning and conducted experiments. Our findings indicate that both syntax token AG patterns and AST AG patterns improve the fine-tuned PLM model's performance on the Cloze test at different training data sizes. Combining both AG patterns always resulted in the best performance. When only 25% of training data was used, syntax token AG patterns performed better than AST AG patterns. However, after using 50% of training data, the AST AG patterns consistently outperformed the syntax token AG patterns. For a detailed breakdown of our findings, we refer the reader to Figure <ref type="figure" target="#fig_6">7</ref>.</p><p>Based on our experimental results, we can conclude that our proposed SyntaGuid is able to improve the fine tuned PLMs performance through pushing part of self-attention heads paying more attention to part of syntax and AST statement tokens at different training data size.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6">IMPLICATIONS</head><p>Based on our findings and analyses, we provide the following implications for researchers and practitioners.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6.1">Implications for researchers</head><p>We demonstrate that fine-tuned PLM assigns significantly greater weights to specific types of syntax tokens and AST elements when making correct predictions in Section 3. This provides a new perspective for interpreting attention-based models and analyzing the attention weight distribution in Transformer-based models. One intriguing future research entails investigating the applicability of these syntax tokens and AST elements and their associated weights for building defect prediction models. Another interesting future research direction would entail utilizing this information to build a tool for explaining the model's decisions to a developer. Also, we believe a study on a more extensive group of software engineering tasks and language models can uncover more syntax tokens and AST elements and opportunities to further improve the performances of fine-tuned models.</p><p>We propose a method to guide self-attention heads to pay more attention to critical token positions, though our approach only guides a fraction of the self-attention heads to focus on input source code sequence positions. However, there is potential for more fine-grained attention guidance, such as directing identifier tokens to pay attention to operator tokens or if-else elements. Such granular token-to-token attention analysis may prove valuable for guiding attention. Additionally, researchers have proposed utilizing contrastive learning methods or pruning unimportant source code to retrain the pre-trained language models. Combining syntax-based attention guidance with other methods may lead to further improvements in Transformer-based models for programming languages.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6.2">Implications for practitioners</head><p>Based on the results presented in Table <ref type="table" target="#tab_3">3</ref>, it is evident that incorporating syntax attention guiding patterns can effectively rectify erroneous predictions without adding extra data. Oversampling has been demonstrated to be an effective approach for enhancing the performance of machine learning models. However, utilizing Transformer-based models to automatically learn representation features for programming languages presents a challenge in achieving oversampling, as the learned representation features are challenging to employ for this purpose, in contrast to tabular data. Hence, our proposed attention guiding mechanism, which does not require any extra data, represents a promising option for improving Transformer-based models for software engineering tasks. Moreover, as illustrated in Figure <ref type="figure" target="#fig_6">7</ref>, our attention guiding approach exhibits a robust performance across different data sizes, further highlighting its efficacy.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="7">RELATED WORKS</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="7.1">Attention analysis in Software Engineering</head><p>Attention-based neural networks have found extensive applications in the realm of software engineering <ref type="bibr" target="#b13">[14,</ref><ref type="bibr" target="#b25">26,</ref><ref type="bibr" target="#b35">36,</ref><ref type="bibr" target="#b36">37,</ref><ref type="bibr" target="#b52">54]</ref>. This attention mechanism plays a crucial role by assigning heightened attention values or energy to salient elements within input data, enabling researchers to construct models or provide insights into their predictions. This mechanism has been harnessed in diverse ways within the field, such as for code summarization <ref type="bibr" target="#b35">[36]</ref>, for the selection of vital Abstract Syntax Tree paths to predict appropriate function names <ref type="bibr" target="#b13">[14]</ref>, for identifying pertinent sections in context files to generate summaries <ref type="bibr" target="#b25">[26]</ref>, in the context of code search <ref type="bibr" target="#b52">[54]</ref>, and for enhancing bug detection <ref type="bibr" target="#b36">[37]</ref>. Our approach distinguishes itself from previous works in a notable manner. Rather than solely utilizing the attention mechanism for training a neural model, we embark on a comprehensive exploration and analysis of the attention mechanism itself. This exploration aims to uncover any inherent biases, shed light on its behavior and characteristics, and subsequently propose and validate an approach to mitigate these biases. Our overarching goal is to enhance the overall performance of the model by addressing these attention-related biases.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="7.2">Analyzing self-attention weight</head><p>Recent studies <ref type="bibr" target="#b10">[11,</ref><ref type="bibr" target="#b30">31,</ref><ref type="bibr" target="#b42">43,</ref><ref type="bibr" target="#b44">46]</ref> have investigated the attention assignment patterns of Transformerbased language models trained for software engineering tasks. For instance, Karmakar etal <ref type="bibr" target="#b30">[31]</ref> applied four probing tasks on pre-trained code models to investigate whether pre-trained models can learn different aspects of source code such as syntactic, structural, surface-level, and semantic information. Wan et al. <ref type="bibr" target="#b56">[58]</ref> showed that CodeBERT's attention aligns strongly with syntax structure of the code and it preserves the syntax structure of code in the intermediate representations of each Transformer layer. In addition, Zhang et al <ref type="bibr" target="#b67">[69]</ref> and Sharma et al <ref type="bibr" target="#b51">[53]</ref> reveal that CodeBERT, in general, pays more attention to certain types of tokens and statements. However, none of the prior studies investigated the alteration of attention weight distribution between correct and incorrect prediction groups and our study sets itself apart by showing that CodeBERT demonstrates a noteworthy bias toward assigning greater attention weights to particular syntax tokens and statements when making correct predictions.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="7.3">Guiding self-attention weight</head><p>Numerous studies have delved into techniques for directing the self-attention mechanisms of language models toward crucial syntax tokens and statements within source code. For example, Zhang et al. <ref type="bibr" target="#b67">[69]</ref> introduced a novel pre-trained model for source code that steers attention towards vital syntax tokens by excluding less important or frequently occurring tokens in the input source code sequence during the pre-training phase. Similarly, Wang et al. <ref type="bibr" target="#b60">[62]</ref> proposed an alternative pre-trained model that channels the attention of self-attention heads towards symbolic and syntactic characteristics of source code through contrastive learning <ref type="bibr" target="#b31">[32]</ref>. In contrast to these approaches, which primarily focus on the pre-training phase, our method centers on attention guidance during the fine-tuning stage. This approach can enhance the performance of the fine-tuned model more efficiently, as fine-tuning demands considerably less time, computational resources, and data compared to the resource-intensive pre-training phase.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="8">THREATS TO VALIDITY</head><p>We have taken care to ensure that our results are unbiased and have tried to eliminate the effects of random noise, but it's possible that our mitigation strategies may not have been effective.</p><p>Dataset Bias: It is important to note that our findings may not necessarily apply to all software engineering datasets and tasks, as we have only evaluated our approach on the publicly available BigCloneBench <ref type="bibr" target="#b59">[61]</ref>, CodeXGLUE code translation, and cloze test datasets <ref type="bibr" target="#b39">[40]</ref>. However, these datasets have been used in previous studies <ref type="bibr" target="#b15">[16,</ref><ref type="bibr" target="#b33">34,</ref><ref type="bibr" target="#b57">59,</ref><ref type="bibr" target="#b66">68,</ref><ref type="bibr" target="#b67">69]</ref>. Thus, their quality and reliability are well-established. We are aware that concerns have been raised regarding BigCloneBench; hence we conducted the studies on other datasets to mitigate any bias arising due to conducting the study only on BigCloneBench dataset. Moreover, the software engineering datasets we have considered are diverse in size, programming language, and complexity, which mitigates concerns of bias due to dataset selection. Therefore, we believe our selection is appropriate to address the research questions.</p><p>Bias Due to Syntax Extraction: One potential bias can arise from the syntax extraction process. Specifically, we utilized javalang <ref type="bibr" target="#b8">[9]</ref> to extract the source code token syntax types and tree-sitter-java [8] to extract the AST elements, and the selected sets of syntax types and structures were obtained from Aljehane et al. <ref type="bibr" target="#b12">[13]</ref> study about the attention difference between expert and novice programmers' when debugging. Even though different syntax extraction libraries may yield different results, the libraries we used have been widely adopted in previous research <ref type="bibr" target="#b34">[35,</ref><ref type="bibr" target="#b51">53,</ref><ref type="bibr" target="#b54">56]</ref>.</p><p>Bias Due to Pre-trained Language Model: Our study focuses on examining the attentionweight assignment differences in fine-tuned language models. Despite the existence of various PLMs, including GraphCodeBERT, SynCoBERT, and CodeT5, we chose to employ CodeBERT. This decision was influenced by the fact that prior studies referenced in the related work section (Section 7) conducted their analyses using CodeBERT. We aimed to facilitate direct comparisons and contrasts between our findings and theirs.</p><p>Bias Due to Implementation: To address the potential bias, we took several measures to minimize errors in our study. First, we relied on existing implementations in CodeXGLUE for fine-tuning CodeBERT without attention guiding and applying global and local attention guiding patterns, as well as our proposed syntax attention guiding patterns. Additionally, we thoroughly tested our code and data to identify and correct any potential errors. However, we cannot completely rule out the possibility of implementation bias.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="9">CONCLUSION</head><p>In our research, we embarked on an exploration to discern the allocation patterns of attention weights by self-attention heads in Transformer-based models, specifically focusing on source code syntax tokens and AST statements during both accurate and erroneous predictions. The empirical findings underscored an inclination of self-attention heads to allocate increased attention weights to select syntax tokens and AST statements during accurate predictions. Leveraging this insight, we introduced SyntaGuid, a mechanism designed to optimize the performance of fine-tuned PLMs in downstream tasks by directing self-attention heads toward specific source code elements. Empirical validations highlighted the efficacy of SyntaGuid, evidencing a marked enhancement in the performance of fine-tuned PLMs across diverse software engineering tasks, with an overall performance boost of up to 3.25% and rectification of up to 28.30% of previously erroneous predictions. We investigated on three software engineering tasks, a future direction could be evaluating the results on other software engineering tasks.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="10">DATA AVAILABILITY</head><p>As part of our commitment to open science policy, all data collected for this study are made available as supplemental material. We provide our replication package in <ref type="bibr" target="#b3">[4]</ref>.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>[</head><label></label><figDesc>CLS] sum = num1 + num2;[SEP]    </figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>[</head><label></label><figDesc>Fig. 2. Example attention guiding patterns for code snippet "&lt;s&gt; sum = num1 + num2; &lt;\s&gt;", whose syntax type list is: [[CLS], identifier, operator, identifier, operator, identifier, separator, [SEP]].</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head></head><label></label><figDesc>[First], [CLS], and [SEP]. And the local attention patterns either focus on the next or previous tokens, such as [NEXT] and [PREV]. This enables us to conduct a fair and thorough analysis of the effectiveness of our proposed attention guiding patterns compared to other existing patterns.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head>Fig. 3 .Fig. 4 .</head><label>34</label><figDesc>Fig. 3. Comparison of attention weights on syntax tokens: Correctly Predicted vs. Mis-predicted groups</figDesc><graphic coords="11,45.83,84.68,394.34,86.70" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_4"><head>Fig. 5 .</head><label>5</label><figDesc>Fig. 5. Comparison of model accuracy based on Syntax attention weight: Low vs. High attention weights</figDesc><graphic coords="12,75.40,84.68,335.19,121.77" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_5"><head>Fig. 6 .</head><label>6</label><figDesc>Fig. 6. Comparison of model accuracy based on AST attention weight: Low vs. High attention weights</figDesc><graphic coords="13,75.40,84.68,335.20,117.29" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_6"><head>Fig. 7 .</head><label>7</label><figDesc>Fig. 7. Performance of Ft-PLM with syntax AG patterns across training data sizes</figDesc><graphic coords="15,114.84,212.75,256.32,126.36" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_1"><head>Table 1 .</head><label>1</label><figDesc>Details of PLMs and datasets of evaluation tasks</figDesc><table><row><cell>Task</cell><cell>Pre-trained Model</cell><cell>Dataset</cell><cell cols="2">Size Language</cell></row><row><cell>Cloze Test</cell><cell>CodeBERT [21]</cell><cell>CodeXGlue</cell><cell>50k</cell><cell>Java</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_2"><head>Table 2 .</head><label>2</label><figDesc>Results on software engineering tasks. 'AG' denotes attention guiding patterns; AG global and AG local are from<ref type="bibr" target="#b17">[18]</ref>, while AG syntax and AG AST are introduced in this study. Numbers with * are statistically significant (paired t-test) compared to their respective Ft-PLM values.</figDesc><table><row><cell>Task name</cell><cell></cell><cell>Cloze test</cell><cell></cell><cell cols="2">Code clone detetcion</cell><cell></cell><cell></cell><cell cols="2">Code translation</cell></row><row><cell>Evaluation metrics</cell><cell>Acc.</cell><cell>Acc. Delta (%)</cell><cell>Pre.</cell><cell>Rec.</cell><cell>F1</cell><cell>F1 Delta (%)</cell><cell cols="3">BLEU CodeBLEU Acc.</cell><cell>Acc. delta (%)</cell></row><row><cell>Ft-PLMs</cell><cell>64.57</cell><cell>-</cell><cell cols="3">0.947 0.935 0.941</cell><cell>-</cell><cell>71.99</cell><cell>85.10</cell><cell>59.00</cell><cell>-</cell></row><row><cell>Ft-PLMs + 𝐴𝐺 𝑔𝑙𝑜𝑏𝑎𝑙</cell><cell>64.71</cell><cell>0.14</cell><cell cols="3">0.951 0.933 0.942</cell><cell>0.10</cell><cell>74.83</cell><cell>85.35</cell><cell>59.31</cell><cell>0.3</cell></row><row><cell>Ft-PLMs + 𝐴𝐺 𝑙𝑜𝑐𝑎𝑙</cell><cell>64.86</cell><cell>0.29</cell><cell cols="3">0.935 0.940 0.938</cell><cell>-0.34</cell><cell>72.05</cell><cell>86.79</cell><cell>59.73</cell><cell>0.7</cell></row><row><cell>Ft-PLMs + 𝐴𝐺 𝑔𝑙𝑜𝑏𝑎𝑙 + 𝐴𝐺 𝑙𝑜𝑐𝑎𝑙</cell><cell>64.95</cell><cell>0.38</cell><cell cols="3">0.948 0.947 0.948</cell><cell>0.70</cell><cell>73.95</cell><cell>86.73</cell><cell>60.21</cell><cell>1.21</cell></row><row><cell>Ft-PLMs + 𝐴𝐺𝑠𝑦𝑛𝑡𝑎𝑥</cell><cell>65.88*</cell><cell>1.31</cell><cell cols="3">0.959 0.934 0.946</cell><cell>0.54</cell><cell>74.36</cell><cell>87.82</cell><cell>60.55</cell><cell>1.55</cell></row><row><cell>Ft-PLMs + 𝐴𝐺𝐴𝑆𝑇</cell><cell>66.27*</cell><cell>1.70</cell><cell cols="3">0.954 0.931 0.942</cell><cell>0.13</cell><cell>72.91</cell><cell>86.55</cell><cell>60.82</cell><cell>1.8</cell></row><row><cell>Ft-PLMs + 𝐴𝐺𝑠𝑦𝑛𝑡𝑎𝑥 + 𝐴𝐺𝐴𝑆𝑇</cell><cell>67.82*</cell><cell>3.25</cell><cell cols="3">0.962* 0.938 0.950*</cell><cell>0.88</cell><cell>76.88*</cell><cell>88.23*</cell><cell>61.93*</cell><cell>2.9</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_3"><head>Table 3 .</head><label>3</label><figDesc>Attention guiding performance on fixing wrong predictions by default Ft-PLMs</figDesc><table><row><cell>Task Name</cell><cell>Correct</cell><cell>Cloze test Wrong</cell><cell>Fixed</cell><cell>Fix</cell><cell>Correct</cell><cell cols="2">Code clone detection Wrong Fixed</cell><cell>Fix</cell><cell>Correct</cell><cell cols="2">Code Translation Wrong Fixed</cell><cell>Fix</cell></row><row><cell></cell><cell>prediction</cell><cell>prediction</cell><cell>prediction</cell><cell>%</cell><cell>prediction</cell><cell>prediction</cell><cell>prediction</cell><cell>%</cell><cell>prediction</cell><cell>prediction</cell><cell>prediction</cell><cell>%</cell></row><row><cell>Ft-PLMs</cell><cell>2,412</cell><cell>1,323</cell><cell>-</cell><cell></cell><cell>393,399</cell><cell>22,017</cell><cell>-</cell><cell>-</cell><cell>590</cell><cell>410</cell><cell>-</cell><cell></cell></row><row><cell>Ft-PLMs + 𝐴𝐺𝑔𝑙𝑜𝑏𝑎𝑙</cell><cell>2,417</cell><cell>1,318</cell><cell>5</cell><cell>0.40%</cell><cell>395,061</cell><cell>20,355</cell><cell>1,662</cell><cell>7.55%</cell><cell>593</cell><cell>407</cell><cell>-3</cell><cell>0.76%</cell></row><row><cell>Ft-PLMs + 𝐴𝐺𝑙𝑜𝑐𝑎𝑙</cell><cell>2,423</cell><cell>1,312</cell><cell>11</cell><cell>0.82%</cell><cell>388,414</cell><cell>27,002</cell><cell>-4,985</cell><cell>-22.64%</cell><cell>597</cell><cell>403</cell><cell>-7</cell><cell>1.78%</cell></row><row><cell>Ft-PLMs + 𝐴𝐺𝑔𝑙𝑜𝑏𝑎𝑙 + 𝐴𝐺𝑙𝑜𝑐𝑎𝑙</cell><cell>2,426</cell><cell>1,309</cell><cell>14</cell><cell>1.07%</cell><cell>392,568</cell><cell>22,848</cell><cell>-831</cell><cell>-3.77%</cell><cell>602</cell><cell>398</cell><cell>-12</cell><cell>2.95%</cell></row><row><cell>Ft-PLMs + 𝐴𝐺𝑠𝑦𝑛𝑡𝑎𝑥</cell><cell>2,461</cell><cell>1,274</cell><cell>49</cell><cell>3.70%</cell><cell>398,259</cell><cell>17,157</cell><cell>4,860</cell><cell>22.08%</cell><cell>606</cell><cell>395</cell><cell>-16</cell><cell>3.78%</cell></row><row><cell>Ft-PLMs + 𝐴𝐺𝐴𝑆𝑇</cell><cell>2,475</cell><cell>1,260</cell><cell>63</cell><cell>4.80%</cell><cell>396,431</cell><cell>18,985</cell><cell>3,033</cell><cell>13.77%</cell><cell>608</cell><cell>392</cell><cell>-18</cell><cell>4.44%</cell></row><row><cell>Ft-PLMs + 𝐴𝐺𝑠𝑦𝑛𝑡𝑎𝑥 + 𝐴𝐺𝐴𝑆𝑇</cell><cell>2,533</cell><cell>1,202</cell><cell>121</cell><cell>9.17%</cell><cell>399,630</cell><cell>15,786</cell><cell>6,231</cell><cell>28.30%</cell><cell>619</cell><cell>381</cell><cell>-29</cell><cell>7.15%</cell></row></table></figure>
+		</body>
+		<back>
+
+			<div type="availability">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Code Clone Detection</head><p>SynCoBERT <ref type="bibr" target="#b60">[62]</ref> BigCloneBench 901k Java Code Translation PLBART <ref type="bibr" target="#b10">[11]</ref> CodeTrans 11.5k Java-C#</p></div>
+			</div>
+
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<monogr>
+		<ptr target="https://aws.amazon.com/codewhisperer/" />
+		<title level="m">Amazon CodeWhisperer: build applications faster with the ML-powered coding companion</title>
+				<imprint>
+			<biblScope unit="page" from="2023" to="2023" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<monogr>
+		<title level="m" type="main">The Apache Lucene™ project develops open-source search software</title>
+		<ptr target="https://lucene.apache.org/" />
+		<imprint>
+			<biblScope unit="page" from="2023" to="2023" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<monogr>
+		<ptr target="https://poi.apache.org" />
+		<title level="m">Apache POI -the Java API for Microsoft Documents</title>
+				<imprint>
+			<biblScope unit="page" from="2023" to="2023" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<monogr>
+		<ptr target="https://github.com/syntaxGuiding/SytaGuid" />
+		<title level="m">Attention bias analysis and attentiong guiding experiment results companion website</title>
+				<imprint>
+			<biblScope unit="page" from="2023" to="2023" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<monogr>
+		<title level="m">BigCloneBench github webpage</title>
+				<imprint>
+			<biblScope unit="page" from="2023" to="2023" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<monogr>
+		<ptr target="https://www.deepmind.com/blog/competitive-programming-with-alphacode" />
+		<title level="m">Competitive programming with AlphaCode</title>
+				<imprint>
+			<biblScope unit="page" from="2023" to="2023" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<monogr>
+		<ptr target="https://github.com/features/copilot" />
+		<title level="m">Copilot: Your AI pair programmer</title>
+				<imprint>
+			<biblScope unit="page" from="2023" to="2023" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<monogr>
+		<ptr target="https://github.com/tree-sitter/tree-sitter-java" />
+		<title level="m">Java program for tree-sitter</title>
+				<imprint>
+			<biblScope unit="page" from="2023" to="2023" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<monogr>
+		<ptr target="https://github.com/c2nes/javalang" />
+		<title level="m">javalang Python library for working with Java source code</title>
+				<imprint>
+			<biblScope unit="page" from="2023" to="2023" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<monogr>
+		<title level="m" type="main">The Project organization for the ANTLR parser generator</title>
+		<ptr target="https://github.com/antlr/" />
+		<imprint>
+			<biblScope unit="page" from="2023" to="2023" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<monogr>
+		<title level="m" type="main">Unified pre-training for program understanding and generation</title>
+		<author>
+			<persName><forename type="first">Saikat</forename><surname>Wasi Uddin Ahmad</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Baishakhi</forename><surname>Chakraborty</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Kai-Wei</forename><surname>Ray</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Chang</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:2103.06333</idno>
+		<imprint>
+			<date type="published" when="2021">2021. 2021</date>
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">Multilingual training for software engineering</title>
+		<author>
+			<persName><forename type="first">Toufique</forename><surname>Ahmed</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Premkumar</forename><surname>Devanbu</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 44th International Conference on Software Engineering</title>
+				<meeting>the 44th International Conference on Software Engineering</meeting>
+		<imprint>
+			<date type="published" when="2022">2022</date>
+			<biblScope unit="page" from="1443" to="1455" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">Determining differences in reading behavior between experts and novices by investigating eye movement on source code constructs during a bug fixing task</title>
+		<author>
+			<persName><forename type="first">Salwa</forename><surname>Aljehane</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Bonita</forename><surname>Sharif</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jonathan</forename><surname>Maletic</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">ACM Symposium on Eye Tracking Research and Applications</title>
+				<imprint>
+			<date type="published" when="2021">2021</date>
+			<biblScope unit="page" from="1" to="6" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<monogr>
+		<author>
+			<persName><forename type="first">Uri</forename><surname>Alon</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Shaked</forename><surname>Brody</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Omer</forename><surname>Levy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Eran</forename><surname>Yahav</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:1808.01400</idno>
+		<title level="m">Generating sequences from structured representations of code</title>
+				<imprint>
+			<date type="published" when="2018">2018. 2018</date>
+			<biblScope unit="volume">2</biblScope>
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">Multiple significance tests: the Bonferroni method</title>
+		<author>
+			<persName><forename type="first">Martin</forename><surname>Bland</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Douglas</forename><forename type="middle">G</forename><surname>Altman</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Bmj</title>
+		<imprint>
+			<biblScope unit="volume">310</biblScope>
+			<biblScope unit="page">170</biblScope>
+			<date type="published" when="1995">1995. 1995</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<analytic>
+		<title level="a" type="main">Varclr: Variable semantic representation pre-training via contrastive learning</title>
+		<author>
+			<persName><forename type="first">Qibin</forename><surname>Chen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jeremy</forename><surname>Lacomis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Edward</forename><forename type="middle">J</forename><surname>Schwartz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Graham</forename><surname>Neubig</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Bogdan</forename><surname>Vasilescu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Claire</forename><forename type="middle">Le</forename><surname>Goues</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 44th International Conference on Software Engineering</title>
+				<meeting>the 44th International Conference on Software Engineering</meeting>
+		<imprint>
+			<date type="published" when="2022">2022</date>
+			<biblScope unit="page" from="2327" to="2339" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<monogr>
+		<author>
+			<persName><forename type="first">Kevin</forename><surname>Clark</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Minh-Thang</forename><surname>Luong</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Quoc</forename><forename type="middle">V</forename><surname>Le</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Christopher</forename><forename type="middle">D</forename><surname>Manning</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:2003.10555</idno>
+		<title level="m">Electra: Pre-training text encoders as discriminators rather than generators</title>
+				<imprint>
+			<date type="published" when="2020">2020. 2020</date>
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<monogr>
+		<title level="m" type="main">Guiding attention for self-supervised learning with transformers</title>
+		<author>
+			<persName><forename type="first">Ameet</forename><surname>Deshpande</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Karthik</forename><surname>Narasimhan</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:2010.02399</idno>
+		<imprint>
+			<date type="published" when="2020">2020. 2020</date>
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<monogr>
+		<title level="m" type="main">Bert: Pre-training of deep bidirectional transformers for language understanding</title>
+		<author>
+			<persName><forename type="first">Jacob</forename><surname>Devlin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ming-Wei</forename><surname>Chang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Kenton</forename><surname>Lee</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Kristina</forename><surname>Toutanova</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:1810.04805</idno>
+		<imprint>
+			<date type="published" when="2018">2018. 2018</date>
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<monogr>
+		<title level="m" type="main">CodeTrans: Towards Cracking the Language of Silicon&apos;s Code Through Self-Supervised Deep Learning and High Performance Computing</title>
+		<author>
+			<persName><forename type="first">Ahmed</forename><surname>Elnaggar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Wei</forename><surname>Ding</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Llion</forename><surname>Jones</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Tom</forename><surname>Gibbs</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Tamas</forename><surname>Feher</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Christoph</forename><surname>Angerer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Silvia</forename><surname>Severini</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Florian</forename><surname>Matthes</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Burkhard</forename><surname>Rost</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:2104.02443</idno>
+		<imprint>
+			<date type="published" when="2021">2021. 2021</date>
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<monogr>
+		<author>
+			<persName><forename type="first">Zhangyin</forename><surname>Feng</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Daya</forename><surname>Guo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Duyu</forename><surname>Tang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Nan</forename><surname>Duan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Xiaocheng</forename><surname>Feng</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ming</forename><surname>Gong</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Linjun</forename><surname>Shou</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Bing</forename><surname>Qin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ting</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Daxin</forename><surname>Jiang</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:2002.08155</idno>
+		<title level="m">Codebert: A pre-trained model for programming and natural languages</title>
+				<imprint>
+			<date type="published" when="2020">2020. 2020</date>
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<analytic>
+		<title level="a" type="main">An Empirical Examination of the Impact of Bias on Just-in-time Defect Prediction</title>
+		<author>
+			<persName><forename type="first">Jiri</forename><surname>Gesi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jiawei</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Iftekhar</forename><surname>Ahmed</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 15th ACM/IEEE International Symposium on Empirical Software Engineering and Measurement (ESEM)</title>
+				<meeting>the 15th ACM/IEEE International Symposium on Empirical Software Engineering and Measurement (ESEM)</meeting>
+		<imprint>
+			<date type="published" when="2021">2021</date>
+			<biblScope unit="page" from="1" to="12" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<analytic>
+		<title level="a" type="main">Leveraging Feature Bias for Scalable Misprediction Explanation of Machine Learning Models</title>
+		<author>
+			<persName><forename type="first">Jiri</forename><surname>Gesi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Xinyun</forename><surname>Shen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yunfan</forename><surname>Geng</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Qihong</forename><surname>Chen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Iftekhar</forename><surname>Ahmed</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 45th International Conference on Software Engineering (ICSE)</title>
+				<meeting>the 45th International Conference on Software Engineering (ICSE)</meeting>
+		<imprint>
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b23">
+	<analytic>
+		<title level="a" type="main">A probabilistic interpretation of precision, recall and F-score, with implication for evaluation</title>
+		<author>
+			<persName><forename type="first">Cyril</forename><surname>Goutte</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Eric</forename><surname>Gaussier</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Advances in Information Retrieval: 27th European Conference on IR Research, ECIR 2005</title>
+		<title level="s">Proceedings</title>
+		<meeting><address><addrLine>Santiago de Compostela, Spain</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2005-03-21">2005. March 21-23, 2005</date>
+			<biblScope unit="volume">27</biblScope>
+			<biblScope unit="page" from="345" to="359" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b24">
+	<monogr>
+		<author>
+			<persName><forename type="first">Daya</forename><surname>Guo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Shuo</forename><surname>Ren</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Shuai</forename><surname>Lu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Zhangyin</forename><surname>Feng</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Duyu</forename><surname>Tang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Shujie</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Long</forename><surname>Zhou</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Nan</forename><surname>Duan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Alexey</forename><surname>Svyatkovskiy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Shengyu</forename><surname>Fu</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:2009.08366</idno>
+		<title level="m">Graphcodebert: Pre-training code representations with data flow</title>
+				<imprint>
+			<date type="published" when="2020">2020. 2020</date>
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b25">
+	<analytic>
+		<title level="a" type="main">Improved automatic summarization of subroutines via attention to file context</title>
+		<author>
+			<persName><forename type="first">Sakib</forename><surname>Haque</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Alexander</forename><surname>Leclair</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Lingfei</forename><surname>Wu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Collin</forename><surname>Mcmillan</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 17th International Conference on Mining Software Repositories</title>
+				<meeting>the 17th International Conference on Mining Software Repositories</meeting>
+		<imprint>
+			<date type="published" when="2020">2020</date>
+			<biblScope unit="page" from="300" to="310" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b26">
+	<monogr>
+		<author>
+			<persName><forename type="first">Paras</forename><surname>Jain</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ajay</forename><surname>Jain</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Tianjun</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Pieter</forename><surname>Abbeel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Joseph</forename><forename type="middle">E</forename><surname>Gonzalez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ion</forename><surname>Stoica</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:2007.04973</idno>
+		<title level="m">Contrastive code representation learning</title>
+				<imprint>
+			<date type="published" when="2020">2020. 2020</date>
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b27">
+	<analytic>
+		<title level="a" type="main">Deckard: Scalable and accurate tree-based detection of code clones</title>
+		<author>
+			<persName><forename type="first">Lingxiao</forename><surname>Jiang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ghassan</forename><surname>Misherghi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Zhendong</forename><surname>Su</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Stephane</forename><surname>Glondu</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">29th International Conference on Software Engineering (ICSE&apos;07)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2007">2007</date>
+			<biblScope unit="page" from="96" to="105" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b28">
+	<analytic>
+		<title level="a" type="main">Cure: Code-aware neural machine translation for automatic program repair</title>
+		<author>
+			<persName><forename type="first">Nan</forename><surname>Jiang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Thibaud</forename><surname>Lutellier</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Lin</forename><surname>Tan</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">2021 IEEE/ACM 43rd International Conference on Software Engineering (ICSE)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2021">2021</date>
+			<biblScope unit="page" from="1161" to="1173" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b29">
+	<analytic>
+		<title level="a" type="main">Learning and evaluating contextual embedding of source code</title>
+		<author>
+			<persName><forename type="first">Aditya</forename><surname>Kanade</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Petros</forename><surname>Maniatis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Gogul</forename><surname>Balakrishnan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Kensen</forename><surname>Shi</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">International conference on machine learning</title>
+				<imprint>
+			<publisher>PMLR</publisher>
+			<date type="published" when="2020">2020</date>
+			<biblScope unit="page" from="5110" to="5121" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b30">
+	<analytic>
+		<title level="a" type="main">What do pre-trained code models know about code?</title>
+		<author>
+			<persName><forename type="first">Anjan</forename><surname>Karmakar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Romain</forename><surname>Robbes</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">2021 36th IEEE/ACM International Conference on Automated Software Engineering (ASE)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2021">2021</date>
+			<biblScope unit="page" from="1332" to="1336" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b31">
+	<analytic>
+		<title level="a" type="main">Supervised contrastive learning</title>
+		<author>
+			<persName><forename type="first">Prannay</forename><surname>Khosla</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Piotr</forename><surname>Teterwak</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Chen</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Aaron</forename><surname>Sarna</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yonglong</forename><surname>Tian</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Phillip</forename><surname>Isola</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Aaron</forename><surname>Maschinot</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ce</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Dilip</forename><surname>Krishnan</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Advances in neural information processing systems</title>
+		<imprint>
+			<biblScope unit="volume">33</biblScope>
+			<biblScope unit="page" from="18661" to="18673" />
+			<date type="published" when="2020">2020. 2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b32">
+	<monogr>
+		<author>
+			<persName><forename type="first">Guillaume</forename><surname>Lample</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Alexis</forename><surname>Conneau</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:1901.07291</idno>
+		<title level="m">Cross-lingual language model pretraining</title>
+				<imprint>
+			<date type="published" when="2019">2019. 2019</date>
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b33">
+	<analytic>
+		<title level="a" type="main">Coderl: Mastering code generation through pretrained models and deep reinforcement learning</title>
+		<author>
+			<persName><forename type="first">Hung</forename><surname>Le</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yue</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Akhilesh</forename><surname>Deepak Gotmare</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Silvio</forename><surname>Savarese</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Steven</forename><surname>Chu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Hong</forename><surname>Hoi</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Advances in Neural Information Processing Systems</title>
+		<imprint>
+			<biblScope unit="volume">35</biblScope>
+			<biblScope unit="page" from="21314" to="21328" />
+			<date type="published" when="2022">2022. 2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b34">
+	<analytic>
+		<title level="a" type="main">HyperAST: Enabling Efficient Analysis of Software Histories at Scale</title>
+		<author>
+			<persName><forename type="first">Quentin</forename><surname>Le Dilavrec</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Djamel</forename><forename type="middle">Eddine</forename><surname>Khelladi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Arnaud</forename><surname>Blouin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jean-Marc</forename><surname>Jézéquel</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">37th IEEE/ACM International Conference on Automated Software Engineering</title>
+				<imprint>
+			<date type="published" when="2022">2022</date>
+			<biblScope unit="page" from="1" to="12" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b35">
+	<analytic>
+		<title level="a" type="main">A neural model for generating natural language summaries of program subroutines</title>
+		<author>
+			<persName><forename type="first">Alexander</forename><surname>Leclair</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Siyuan</forename><surname>Jiang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Collin</forename><surname>Mcmillan</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">2019 IEEE/ACM 41st International Conference on Software Engineering (ICSE)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2019">2019</date>
+			<biblScope unit="page" from="795" to="806" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b36">
+	<analytic>
+		<title level="a" type="main">Improving bug detection via context-based code representation learning and attention-based neural networks</title>
+		<author>
+			<persName><forename type="first">Yi</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Shaohua</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Tien</forename><forename type="middle">N</forename><surname>Nguyen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Son</forename><surname>Van Nguyen</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Proceedings of the ACM on Programming Languages</title>
+		<imprint>
+			<biblScope unit="volume">3</biblScope>
+			<biblScope unit="page" from="1" to="30" />
+			<date type="published" when="2019">2019. 2019</date>
+		</imprint>
+	</monogr>
+	<note>OOPSLA</note>
+</biblStruct>
+
+<biblStruct xml:id="b37">
+	<analytic>
+		<title level="a" type="main">Pre-train, prompt, and predict: A systematic survey of prompting methods in natural language processing</title>
+		<author>
+			<persName><forename type="first">Pengfei</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Weizhe</forename><surname>Yuan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jinlan</forename><surname>Fu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Zhengbao</forename><surname>Jiang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Hiroaki</forename><surname>Hayashi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Graham</forename><surname>Neubig</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Comput. Surveys</title>
+		<imprint>
+			<biblScope unit="volume">55</biblScope>
+			<biblScope unit="page" from="1" to="35" />
+			<date type="published" when="2023">2023. 2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b38">
+	<monogr>
+		<author>
+			<persName><forename type="first">Yinhan</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Myle</forename><surname>Ott</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Naman</forename><surname>Goyal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jingfei</forename><surname>Du</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mandar</forename><surname>Joshi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Danqi</forename><surname>Chen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Omer</forename><surname>Levy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mike</forename><surname>Lewis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Luke</forename><surname>Zettlemoyer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Veselin</forename><surname>Stoyanov</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:1907.11692</idno>
+		<title level="m">Roberta: A robustly optimized bert pretraining approach</title>
+				<imprint>
+			<date type="published" when="2019">2019. 2019</date>
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b39">
+	<monogr>
+		<title level="m" type="main">Codexglue: A machine learning benchmark dataset for code understanding and generation</title>
+		<author>
+			<persName><forename type="first">Shuai</forename><surname>Lu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Daya</forename><surname>Guo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Shuo</forename><surname>Ren</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Junjie</forename><surname>Huang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Alexey</forename><surname>Svyatkovskiy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ambrosio</forename><surname>Blanco</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Colin</forename><surname>Clement</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Dawn</forename><surname>Drain</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Daxin</forename><surname>Jiang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Duyu</forename><surname>Tang</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:2102.04664</idno>
+		<imprint>
+			<date type="published" when="2021">2021. 2021</date>
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b40">
+	<monogr>
+		<author>
+			<persName><forename type="first">Wei</forename><surname>Ma</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mengjie</forename><surname>Zhao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Xiaofei</forename><surname>Xie</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Qiang</forename><surname>Hu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Shangqing</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jie</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Wenhan</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yang</forename><surname>Liu</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:2212.10017</idno>
+		<title level="m">Is Self-Attention Powerful to Learn Code Syntax and Semantics?</title>
+				<imprint>
+			<date type="published" when="2022">2022. 2022</date>
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b41">
+	<monogr>
+		<title level="m" type="main">On a test of whether one of two random variables is stochastically larger than the other. The annals of mathematical statistics</title>
+		<author>
+			<persName><forename type="first">B</forename><surname>Henry</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Donald</forename><forename type="middle">R</forename><surname>Mann</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Whitney</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="1947">1947. 1947</date>
+			<biblScope unit="page" from="50" to="60" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b42">
+	<analytic>
+		<title level="a" type="main">Studying the usage of text-to-text transfer transformer to support code-related tasks</title>
+		<author>
+			<persName><forename type="first">Antonio</forename><surname>Mastropaolo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Simone</forename><surname>Scalabrino</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Nathan</forename><surname>Cooper</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">David</forename><surname>Nader Palacio</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Denys</forename><surname>Poshyvanyk</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Rocco</forename><surname>Oliveto</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Gabriele</forename><surname>Bavota</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">2021 IEEE/ACM 43rd International Conference on Software Engineering (ICSE)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2021">2021</date>
+			<biblScope unit="page" from="336" to="347" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b43">
+	<monogr>
+		<title level="m" type="main">An empirical comparison of pre-trained models of source code</title>
+		<author>
+			<persName><forename type="first">Changan</forename><surname>Niu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Chuanyi</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Vincent</forename><surname>Ng</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Dongxiao</forename><surname>Chen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jidong</forename><surname>Ge</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Bin</forename><surname>Luo</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:2302.04026</idno>
+		<imprint>
+			<date type="published" when="2023">2023. 2023</date>
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b44">
+	<analytic>
+		<title level="a" type="main">Thinking like a developer? comparing the attention of humans with neural models of code</title>
+		<author>
+			<persName><forename type="first">Matteo</forename><surname>Paltenghi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Michael</forename><surname>Pradel</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">2021 36th IEEE/ACM International Conference on Automated Software Engineering (ASE)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2021">2021</date>
+			<biblScope unit="page" from="867" to="879" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b45">
+	<analytic>
+		<title level="a" type="main">Bleu: a method for automatic evaluation of machine translation</title>
+		<author>
+			<persName><forename type="first">Kishore</forename><surname>Papineni</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Salim</forename><surname>Roukos</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Todd</forename><surname>Ward</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Wei-Jing</forename><surname>Zhu</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 40th annual meeting of the Association for Computational Linguistics</title>
+				<meeting>the 40th annual meeting of the Association for Computational Linguistics</meeting>
+		<imprint>
+			<date type="published" when="2002">2002</date>
+			<biblScope unit="page" from="311" to="318" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b46">
+	<analytic>
+		<title level="a" type="main">Deviate: A deep learning variance testing framework</title>
+		<author>
+			<persName><forename type="first">Hung</forename><surname>Viet Pham</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mijung</forename><surname>Kim</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Lin</forename><surname>Tan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yaoliang</forename><surname>Yu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Nachiappan</forename><surname>Nagappan</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">2021 36th IEEE/ACM International Conference on Automated Software Engineering (ASE)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2021">2021</date>
+			<biblScope unit="page" from="1286" to="1290" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b47">
+	<monogr>
+		<author>
+			<persName><forename type="first">Long</forename><surname>Phan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Hieu</forename><surname>Tran</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Daniel</forename><surname>Le</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Hieu</forename><surname>Nguyen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">James</forename><surname>Anibal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Alec</forename><surname>Peltekian</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yanfang</forename><surname>Ye</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:2105.08645</idno>
+		<title level="m">Cotext: Multi-task learning with code-text transformer</title>
+				<imprint>
+			<date type="published" when="2021">2021. 2021</date>
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b48">
+	<analytic>
+		<title level="a" type="main">Language models are unsupervised multitask learners</title>
+		<author>
+			<persName><forename type="first">Alec</forename><surname>Radford</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jeffrey</forename><surname>Wu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Rewon</forename><surname>Child</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">David</forename><surname>Luan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Dario</forename><surname>Amodei</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ilya</forename><surname>Sutskever</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">OpenAI blog</title>
+		<imprint>
+			<biblScope unit="volume">1</biblScope>
+			<biblScope unit="page">9</biblScope>
+			<date type="published" when="2019">2019. 2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b49">
+	<analytic>
+		<title level="a" type="main">Exploring the limits of transfer learning with a unified text-to-text transformer</title>
+		<author>
+			<persName><forename type="first">Colin</forename><surname>Raffel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Noam</forename><surname>Shazeer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Adam</forename><surname>Roberts</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Katherine</forename><surname>Lee</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sharan</forename><surname>Narang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Michael</forename><surname>Matena</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yanqi</forename><surname>Zhou</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Wei</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Peter</forename><forename type="middle">J</forename><surname>Liu</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">The Journal of Machine Learning Research</title>
+		<imprint>
+			<biblScope unit="volume">21</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="5485" to="5551" />
+			<date type="published" when="2020">2020. 2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b50">
+	<analytic>
+		<title level="a" type="main">Sourcerercc: Scaling code clone detection to big-code</title>
+		<author>
+			<persName><forename type="first">Hitesh</forename><surname>Sajnani</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Vaibhav</forename><surname>Saini</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jeffrey</forename><surname>Svajlenko</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Cristina</forename><forename type="middle">V</forename><surname>Roy</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Lopes</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 38th International Conference on Software Engineering</title>
+				<meeting>the 38th International Conference on Software Engineering</meeting>
+		<imprint>
+			<date type="published" when="2016">2016</date>
+			<biblScope unit="page" from="1157" to="1168" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b51">
+	<analytic>
+		<title level="a" type="main">An exploratory study on code attention in BERT</title>
+		<author>
+			<persName><forename type="first">Rishab</forename><surname>Sharma</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Fuxiang</forename><surname>Chen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Fatemeh</forename><surname>Fard</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">David</forename><surname>Lo</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 30th IEEE/ACM International Conference on Program Comprehension</title>
+				<meeting>the 30th IEEE/ACM International Conference on Program Comprehension</meeting>
+		<imprint>
+			<date type="published" when="2022">2022</date>
+			<biblScope unit="page" from="437" to="448" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b52">
+	<analytic>
+		<title level="a" type="main">Improving code search with co-attentive representation learning</title>
+		<author>
+			<persName><forename type="first">Jianhang</forename><surname>Shuai</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ling</forename><surname>Xu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Chao</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Meng</forename><surname>Yan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Xin</forename><surname>Xia</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yan</forename><surname>Lei</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 28th International Conference on Program Comprehension</title>
+				<meeting>the 28th International Conference on Program Comprehension</meeting>
+		<imprint>
+			<date type="published" when="2020">2020</date>
+			<biblScope unit="page" from="196" to="207" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b53">
+	<analytic>
+		<title level="a" type="main">Towards a big data curated benchmark of inter-project code clones</title>
+		<author>
+			<persName><forename type="first">Jeffrey</forename><surname>Svajlenko</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Judith</forename><forename type="middle">F</forename><surname>Islam</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Iman</forename><surname>Keivanloo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mohammad</forename><surname>Roy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mia</forename><surname>Mamun</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">2014 IEEE International Conference on Software Maintenance and Evolution</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2014">2014</date>
+			<biblScope unit="page" from="476" to="480" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b54">
+	<analytic>
+		<title level="a" type="main">Intellicode compose: Code generation using transformer</title>
+		<author>
+			<persName><forename type="first">Alexey</forename><surname>Svyatkovskiy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Shengyu</forename><surname>Shao Kun Deng</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Neel</forename><surname>Fu</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Sundaresan</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 28th ACM Joint Meeting on European Software Engineering Conference and Symposium on the Foundations of Software Engineering</title>
+				<meeting>the 28th ACM Joint Meeting on European Software Engineering Conference and Symposium on the Foundations of Software Engineering</meeting>
+		<imprint>
+			<date type="published" when="2020">2020</date>
+			<biblScope unit="page" from="1433" to="1443" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b55">
+	<monogr>
+		<title level="m" type="main">Attention is all you need. Advances in neural information processing systems</title>
+		<author>
+			<persName><forename type="first">Ashish</forename><surname>Vaswani</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Noam</forename><surname>Shazeer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Niki</forename><surname>Parmar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jakob</forename><surname>Uszkoreit</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Llion</forename><surname>Jones</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Aidan</forename><forename type="middle">N</forename><surname>Gomez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Łukasz</forename><surname>Kaiser</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Illia</forename><surname>Polosukhin</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2017">2017. 2017</date>
+			<biblScope unit="page">30</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b56">
+	<analytic>
+		<title level="a" type="main">What do they capture? a structural analysis of pre-trained language models for source code</title>
+		<author>
+			<persName><forename type="first">Wei</forename><surname>Yao Wan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Hongyu</forename><surname>Zhao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yulei</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Guandong</forename><surname>Sui</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Hai</forename><surname>Xu</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Jin</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 44th International Conference on Software Engineering</title>
+				<meeting>the 44th International Conference on Software Engineering</meeting>
+		<imprint>
+			<date type="published" when="2022">2022</date>
+			<biblScope unit="page" from="2377" to="2388" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b57">
+	<analytic>
+		<title level="a" type="main">Bridging pre-trained models and downstream tasks for source code understanding</title>
+		<author>
+			<persName><forename type="first">Deze</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Zhouyang</forename><surname>Jia</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Shanshan</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yue</forename><surname>Yu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yun</forename><surname>Xiong</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Wei</forename><surname>Dong</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Xiangke</forename><surname>Liao</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 44th International Conference on Software Engineering</title>
+				<meeting>the 44th International Conference on Software Engineering</meeting>
+		<imprint>
+			<date type="published" when="2022">2022</date>
+			<biblScope unit="page" from="287" to="298" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b58">
+	<monogr>
+		<title level="m" type="main">Paying More Attention to Self-attention: Improving Pre-trained Language Models via Attention Guiding</title>
+		<author>
+			<persName><forename type="first">Shanshan</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Zhumin</forename><surname>Chen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Zhaochun</forename><surname>Ren</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Huasheng</forename><surname>Liang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Qiang</forename><surname>Yan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Pengjie</forename><surname>Ren</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:2204.02922</idno>
+		<imprint>
+			<date type="published" when="2022">2022. 2022</date>
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b59">
+	<analytic>
+		<title level="a" type="main">Detecting code clones with graph neural network and flow-augmented abstract syntax tree</title>
+		<author>
+			<persName><forename type="first">Wenhan</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ge</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Bo</forename><surname>Ma</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Xin</forename><surname>Xia</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Zhi</forename><surname>Jin</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">2020 IEEE 27th International Conference on Software Analysis, Evolution and Reengineering (SANER)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2020">2020</date>
+			<biblScope unit="page" from="261" to="271" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b60">
+	<monogr>
+		<title level="m" type="main">Syncobert: Syntax-guided multi-modal contrastive pre-training for code representation</title>
+		<author>
+			<persName><forename type="first">Xin</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yasheng</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Fei</forename><surname>Mi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Pingyi</forename><surname>Zhou</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yao</forename><surname>Wan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Xiao</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Li</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Hao</forename><surname>Wu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jin</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Xin</forename><surname>Jiang</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:2108.04556</idno>
+		<imprint>
+			<date type="published" when="2021">2021. 2021</date>
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b61">
+	<monogr>
+		<title level="m" type="main">Codet5: Identifier-aware unified pre-trained encoderdecoder models for code understanding and generation</title>
+		<author>
+			<persName><forename type="first">Yue</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Weishi</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Shafiq</forename><surname>Joty</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Steven</forename><forename type="middle">Ch</forename><surname>Hoi</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:2109.00859</idno>
+		<imprint>
+			<date type="published" when="2021">2021. 2021</date>
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b62">
+	<monogr>
+		<author>
+			<persName><forename type="first">Jason</forename><surname>Wei</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Maarten</forename><surname>Bosma</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Vincent</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Kelvin</forename><surname>Zhao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Adams</forename><forename type="middle">Wei</forename><surname>Guu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Brian</forename><surname>Yu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Nan</forename><surname>Lester</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Andrew</forename><forename type="middle">M</forename><surname>Du</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Quoc V</forename><surname>Dai</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Le</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:2109.01652</idno>
+		<title level="m">Finetuned language models are zero-shot learners</title>
+				<imprint>
+			<date type="published" when="2021">2021. 2021</date>
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b63">
+	<analytic>
+		<title level="a" type="main">Deep learning code fragments for code clone detection</title>
+		<author>
+			<persName><forename type="first">Martin</forename><surname>White</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Michele</forename><surname>Tufano</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Christopher</forename><surname>Vendome</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Denys</forename><surname>Poshyvanyk</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 31st IEEE/ACM international conference on automated software engineering</title>
+				<meeting>the 31st IEEE/ACM international conference on automated software engineering</meeting>
+		<imprint>
+			<date type="published" when="2016">2016</date>
+			<biblScope unit="page" from="87" to="98" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b64">
+	<analytic>
+		<title level="a" type="main">A systematic evaluation of large language models of code</title>
+		<author>
+			<persName><forename type="first">Uri</forename><surname>Frank F Xu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Graham</forename><surname>Alon</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Vincent</forename><surname>Neubig</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Josua Hellendoorn</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 6th ACM SIGPLAN International Symposium on Machine Programming</title>
+				<meeting>the 6th ACM SIGPLAN International Symposium on Machine Programming</meeting>
+		<imprint>
+			<date type="published" when="2022">2022</date>
+			<biblScope unit="page" from="1" to="10" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b65">
+	<analytic>
+		<title level="a" type="main">Xlnet: Generalized autoregressive pretraining for language understanding</title>
+		<author>
+			<persName><forename type="first">Zhilin</forename><surname>Yang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Zihang</forename><surname>Dai</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yiming</forename><surname>Yang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jaime</forename><surname>Carbonell</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Russ</forename><forename type="middle">R</forename><surname>Salakhutdinov</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Quoc V</forename><surname>Le</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Advances in neural information processing systems</title>
+		<imprint>
+			<biblScope unit="volume">32</biblScope>
+			<date type="published" when="2019">2019. 2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b66">
+	<analytic>
+		<title level="a" type="main">Natural attack for pre-trained models of code</title>
+		<author>
+			<persName><forename type="first">Zhou</forename><surname>Yang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jieke</forename><surname>Shi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Junda</forename><surname>He</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">David</forename><surname>Lo</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 44th International Conference on Software Engineering</title>
+				<meeting>the 44th International Conference on Software Engineering</meeting>
+		<imprint>
+			<date type="published" when="2022">2022</date>
+			<biblScope unit="page" from="1482" to="1493" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b67">
+	<analytic>
+		<title level="a" type="main">Diet code is healthy: Simplifying programs for pre-trained models of code</title>
+		<author>
+			<persName><forename type="first">Zhaowei</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Hongyu</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Beijun</forename><surname>Shen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Xiaodong</forename><surname>Gu</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 30th ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering</title>
+				<meeting>the 30th ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering</meeting>
+		<imprint>
+			<date type="published" when="2022">2022</date>
+			<biblScope unit="page" from="1073" to="1084" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

@@ -1,0 +1,776 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Quasi Directed Jónsson Operations Imply Bounded Width (For fo-expansions of symmetric binary cores with free amalgamation)</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+				<date type="published" when="2024-02-27">February 27, 2024</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author role="corresp">
+							<persName><forename type="first">Micha</forename><forename type="middle">L</forename><surname>Wrona</surname></persName>
+							<email>michal.wrona@uj.edu.pl</email>
+							<affiliation key="aff0">
+								<orgName type="institution">Jagiellonian University Kraków</orgName>
+								<address>
+									<country key="PL">Poland</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Quasi Directed Jónsson Operations Imply Bounded Width (For fo-expansions of symmetric binary cores with free amalgamation)</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date type="published" when="2024-02-27">February 27, 2024</date>
+						</imprint>
+					</monogr>
+					<idno type="MD5">471C69A8E15D5C1D419E9CFCE696FB4A</idno>
+					<idno type="arXiv">arXiv:2402.16540v1[cs.LO]</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.2" ident="GROBID" when="2024-03-06T22:19+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Every CSP(B) for a finite structure B is either in P or it is NP-complete but the proofs of the finite-domain CSP dichotomy by Andrei Bulatov and Dimitryi Zhuk not only show the computational complexity separation but also confirm the algebraic tractability conjecture stating that tractability origins from a certain system of operations preserving B. The establishment of the dichotomy was in fact preceded by a number of similar results for stronger conditions of this type, i.e. for system of operations covering not necessarily all tractable finite-domain CSPs.</p><p>A similar, infinite-domain algebraic tractability conjecture is known for first-order reducts of countably infinite finitely bounded homogeneous structures and is currently wide open. In particular, with an exception of a quasi near-unanimity operation there are no known systems of operations implying tractability in this regime. This paper changes the state-of-the-art and provides a proof that a chain of quasi directed Jónsson operations imply tractability and bounded width for a large and natural class of infinite structures.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1">Introduction</head><p>Constraint Satisfaction Problems form a large class of computational problems whose complexity has been studied separately as well as within the formalism CSP(B) where B is a relational structure over domain A. An instance I of CSP(B) consists of a set of constraints := ((x 1 , . . . , x k ), R) formed out of a tuple of variables and a k-ary relation R in B. The question is whether there is a solution to I, i.e., an assignment of elements from A to the variables such that for all we have f ((x 1 , . . . , x k )) ∈ R.</p><p>The formalism CSP(B) for a finite B captures a number of natural problems. Indeed, if B is a graph H, then we cope with an H-coloring problem <ref type="bibr" target="#b17">[18]</ref>, in particular with a k-colouring problem. If the domain of B has only two elements, then CSP(B) is a Boolean satisfiability problem such as k-SAT or NAE-SAT <ref type="bibr" target="#b25">[26]</ref>. There are also structures B whose CSP(B) comes down to solving a system of equations over a finite field <ref type="bibr" target="#b18">[19]</ref>. The variety of natural NP-complete and polynomially solvable problems within this formalism raises a number of natural questions including:</p><p>1. Is there a single simple technique of showing NP-completness for CSP(B)? 2. Is there a single algorithm that solves all polynomially tractable CSP(B)?</p><p>3. Are all CSP(B) either NP-complete or polynomially tractable?</p><p>The conjecture that the answer to the last question is affirmative was known as the Feder-Vardi Conjecture <ref type="bibr" target="#b16">[17]</ref>. However, there was no reasonable progress until the questions were reformulated in the language of universal algebra <ref type="bibr" target="#b14">[15]</ref>. The immediate consequence of that step was the conditional answer to the first question and a clear algebraic conjecture concerning the second question known as the algebraic tractability conjecture saying that a CSP(B) is in PTIME if and only if the algebra corresponding to B lies in a Taylor variety. Actually, this conjecture has a number of equivalent formulations and the one of which we care the One should however keep in mind that a direct proof of tractability for Jónsson operations <ref type="bibr" target="#b2">[3]</ref> came prior to the equivalence of the three-conditions.</p><p>The main result of this paper, explained in details in the following subsection, states that every firstorder expansion B of a finitely-bounded homogeneous symmetric binary core (all relations are binary and symmetric) whose age has free amalgamation and which is preserved by a chain of directed quasi Jónsson operations has bounded width, and in consequence CSP(B) may be solved in polynomial time by establishing local consistency.</p><p>Examples of symmetric binary structures are the countably infinite homogeneous universal graph a.k.a. the random graph G or the countably infinite homogeneous universal graph omitting cliques of size k, for any k ≥ 3, known as the k-th Henson graph H k . The complexity classifications of CSPs for first-order reducts of these structures have been obtained in <ref type="bibr" target="#b11">[12]</ref> and respectively in <ref type="bibr" target="#b8">[9]</ref>. The authors of the latter paper actually suggest that a reasonable intermediate step towards confirming Conjecture 1 might be to prove it for first-order reducts of structures whose age has free amalgamation. Here we make a major step towards completing that goal, which is much more challenging, even for symmetric binary cores, than the classification for homogeneous graphs presented in that paper. Homogeneous graphs have been classified in <ref type="bibr" target="#b20">[21]</ref> -there are only few types of these. There are no such results for symmetric binary cores whose age has free amalgamation except for some partial results over multi-graphs with three kinds of edges <ref type="bibr" target="#b15">[16]</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.1">The Main Result</head><p>In this section we present the main result of this paper.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.1.1">Fraïssé Amalgamation and Free Amalgamation</head><p>Let B 1 , B 2 be two structures over the same signature τ such that all the common elements are the elements of A. We say that C is an amalgam of B 1 and B 2 over A if for i = 1, 2 there are embeddings f i : B i → C such that f 1 (a) = f 2 (a) for every a ∈ A. An isomorphism-closed class C of relational τ -structures has the amalgamation property if C is closed under taking amalgams. A class of finite τ -structures that contains at most countably many non-isomorphic structures, has the amalgamation property, and is closed under taking induced substructures and isomorphisms is called an amalgamation class. It is known that there is a deep connection between amalgamation classes and homogeneous structures. The age of a homogeneous τ -structure A is the class of all finite τ -structures that embed into A. First of all, it is known that the age of a homogeneous structure is an amalgamation class. But what is more surprising is that out of any amalgamation class one can construct a unique, up to isomorphism, homogeneous structure. Theorem 1. (Fraïssé) Let τ be a countable relational signature and let C be an amalgamation class of τ -structures. Then there is a homogeneous and at most countable τ -structure A whose age equals C . The structure A is unique up to isomorphism, and called the Fraïssé-limit of C .</p><p>For example, we have that (Q; &lt;) is the Fraïssé-limit of the class of all finite linear orders, G is the Fraïssé-limit of the class of all finite graphs and that H k is the Fraïssé-limit of the class of all finite graphs omitting k-cliques. In fact, in the two last cases as an amalgam of the graphs G 1 and G 2 one can take the union G 1 ∪ G 2 of G 1 and G 2 . We amalgamate without imposing new edges. Observe that it is in general not the case for linear orders when one usually have to add additional arcs to impose transitivity.</p><p>In general, we say that B 1 ∪ B 2 is a free amalgam of B 1 and B 2 over B 1 ∩ B 2 . A class of structures C for which taking free amalgams suffices is the class with the free amalgamation property. For the sake of simplicity we will simply say say that the class has free amalgamation.</p><p>A more general recipe of obtaining a finitely bounded homogeneous structure over a signature τ = {A, B} whose age has free-amalgamation is given in <ref type="bibr" target="#b15">[16]</ref>. First take any finite set of finite 2-graphs F A with A-edges and B-edges: every two different vertices are connected by an A-edge or a B-edge. The class of finite structures C A over τ omitting the 2-graphs in F A has free amalgamation and the Fraïssé limit A of C A is the desired τ -structures.</p><p>Although, it is not the case that the age of all homogeneous structures has free amalgamation, it is a natural restriction for structures considered in Conjecture 1.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.2">Formulation of the Main Result</head><p>We will prove the tractability of CSP(B) for templates under consideration by employing an algorithm establishing (k, l)-minimality for (k ≤ l). This algorithm is a slight variation of the better known procedure for enforcing (k, l)-consistency but better suited for measuring the level of consistency needed to solve a problem <ref type="bibr" target="#b1">[2]</ref>. Roughly speaking, it propagates the local information about k variables in context of l variables through the structure of a CSP instance until a fixed-point is reached. Sometimes it only narrows the search space, but in the case of 2-coloring, 2-SAT, Horn-SAT or the already mentioned DIGRAPH ACYCLICITY, the procedure simply decides whether a given instance of the problem has a solution.</p><p>We say that a structure B has relational width (k, l) if establishing (k, l)-minimality on an instance of CSP(B) decides if it has a solution. A structure B has bounded (relational) width if it has relational width (k, l) for some (k ≤ l).</p><p>Here comes the main result of this paper. Theorem 2. Let A be a finitely bounded homogeneous symmetric binary core whose age has free amalgamation and B a first-order expansion of A preserved by a chain of quasi directed Jónsson operations. Then CSP(B) has relational width (2, L A ) where L A is the size of the largest forbidden structure in F A but not smaller than 3. In particular, CSP(B) is in PTIME.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.3">Bounded (Strict) Width Collapses</head><p>A structure B has strict width k if every non-trivial (k, k + 1)-minimal instance of CSP(B) not only has a solution but also every its partial solution may be extended to a total solution. It is known that an ωcategorical structure (all structures in this paper are ω-categorical, for a definition see <ref type="bibr" target="#b5">[6]</ref>) has strict width k if and only if it is preserved by a (k + 1)-ary quasi near-unanimity operation. Thus, any first-order expansion B of a finitely bounded homogeneous symmetric binary core whose age has free amalgamation and which is preserved by a (k + 1)-ary quasi near-unanimity polymorphism has relational width (k, k + 1). Theorem 2 implies a stronger result.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Corollary 1.</head><p>Let A be a finitely bounded homogeneous symmetric binary core whose age has free amalgamation and B a first-order expansion of A with bounded strict width. Then B has relational width (2, L A ) where L A is the size of the largest forbidden structure in F A but not smaller than 3.</p><p>Proof. The corollary follows by Theorem 2 and Proposition 6.9.10 in <ref type="bibr" target="#b5">[6]</ref>.</p><p>A similar result has been shown for first-order reducts of homogeneous graphs in <ref type="bibr" target="#b28">[29]</ref> and first-order expansions of (not necessarily symmetric) binary cores which do not forbid any substructures of size 3, 4, 5, or 6 in <ref type="bibr" target="#b27">[28]</ref>. That kind of results imply that in the considered cases the level of consistency needed to solve CSP(B) for a first-order reduct (expansion) of A depends rather on A than on B. These results are related to the original bounded width hierarchy collapse in <ref type="bibr" target="#b1">[2]</ref> which says that a finite structure with bounded width has relational width <ref type="bibr" target="#b0">(1,</ref><ref type="bibr" target="#b0">1)</ref> or <ref type="bibr" target="#b1">(2,</ref><ref type="bibr" target="#b2">3)</ref>. The already discussed bounded width collapses for infinite-domain CSP consider only strict width. In <ref type="bibr" target="#b21">[22]</ref>, one can find a result similar to Corollary 1 considering structures with bounded width but not necessarily bounded strict width.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.4">Black box approach and canonical polymorphisms</head><p>An approach of converging to an algorithm for a pseudo-Siggers operation in Conjecture 1 by finding polynomial-time algorithms for weaker and weaker algebraic conditions is not the only approach that can possibly lead to resolving the conjecture. Indeed, all the algorithmic results in the classification for the first-order reducts of G or H k with k ≥ 3 may be obtained by use of a black box reduction to finite CSP from <ref type="bibr" target="#b9">[10]</ref>. See <ref type="bibr" target="#b22">[23]</ref> for a neat proof of the latter. That black box reduction is obtained by use of canonical polymorphisms <ref type="bibr" target="#b12">[13]</ref> and in particular of a canonical pseudo-Siggers operation. The problem with this approach is that already getting from homogeneous graphs to homogeneous hypergraphs makes the use of the simple black box reduction impossible <ref type="bibr" target="#b24">[25,</ref><ref type="bibr" target="#b23">24]</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.5">Organisation of the Present Article</head><p>All the notions and definitions that have not been properly introduced in Section 1 are defined in Section 2. In Section 3 we treat B whose relational clones are called implicationally uniform. We show that such B have relational width (2, L A ). Section 4 is dedicated to B whose relational clones are implicationally non-uniform -in that case B is not preserved by any chains of quasi directed Jónsson operations. Armed with these results, we give a proof of Theorem 2 in Section 5.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2">Preliminaries</head><p>We use [n] for {1, . . . , n} and we write t[i] as a reference to the i-th element of an n-ary tuple with i ∈ [n]. A structure is usually denote by A, B, C etc. and their corresponding domains by A, B, C etc.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.1">Structures, Relations and Formulas</head><p>All structures A considered in this paper are ω-categorical, i.e., all countable models of the theory of A are isomorphic. It is very well known that an automorphism group of A, denoted here by Aut(A), of an ωcategorical structure A is oligomorphic, i.e., there are at most finitely many orbits of k-tuples w.r.t. Aut(A) for all k ∈ N. An orbit of a n-tuple t is the set {s</p><formula xml:id="formula_0">∈ A n | ∃α ∈ Aut(A) (s[1], . . . , s[n]) = (α(t[1]), . . . , α(t[n]))}.</formula><p>Since all orbits in this paper are w.r.t. to the automorphism group Aut(A) of a structure A we will simply say orbits instead of more formally: orbits w.r.t. Aut(A). An orbit of a pair is called an orbital. Observe that every orbital except for = is anti-reflexive.</p><p>An ω-categorical structure A is a core, also referred to as a model-complete core, if all of its endomorphisms are elementary self-embeddings, i.e., preserve all first-order formulas definable in A. In this paper, we deal with finitely bounded homogeneous core structures A over finite signatures. They are all ω-categorical. We additionally assume that all relations in A are both binary and symmetric. Thus, we mainly cope with finitely bounded homogeneous binary cores A and their first-order expansions B that are structures containing all the relations in A as well as some other relations with first-order definitions in A.</p><p>For the sake of clarity we will use the same symbol R for a relational symbol in the signature τ of B as well as for the relation R A .</p><p>Since the age of A has free amalgamation, it follows that</p><formula xml:id="formula_1">N = (a 1 , a 2 ) ∈ A 2 | R∈τ ¬R A (a 1 , a 2 )</formula><p>is nonempty. It is also straightforward to see that N is an orbital w.r.t. Aut(A). We intend to use Theorem 4.5.1 in <ref type="bibr" target="#b5">[6]</ref> and therefore assume that all orbitals are in A. Hence we need a new definition of free amalgamation known also as free amalgamation over N, see e.g. <ref type="bibr" target="#b15">[16]</ref>. Definition 2. Let A be a finitely bounded homogeneous symmetric binary core over a signature containing N. We say that the age of A has free amalgamation (w.r.t. N) if for all finite substructures D, B 1 , B 2 such that D is a common substructure of B 1 and B 2 of A there exists an amalgam C of B 1 and</p><formula xml:id="formula_2">B 2 over D satisfying (a, b) ∈ N C for all a ∈ B 1 \ B 2 and b ∈ B 2 \ B 1 . We say that C is a free amalgam (w.r.t. N) of B 1 and B 2 over D.</formula><p>It is easy to see that the age of a finitely bounded symmetric binary core has free amalgamation according to the definition in Section 1 if and only if its expansion with all orbitals has free amalgamation w.r.t N.</p><p>Example 1. The graph H 3 = (H 3 , E) pp-defines N(x 1 , x 2 ) ≡ ∃y E(x 1 , y) ∧ E(y, x 2 ). We have that the age of a {E}-structure H 3 has free-amalgamation while the expansion of H 3 seen as a {E, N}-structure has free amalgamation w.r.t. N.</p><p>For the sake of simplicity we will write that the age of a finitely bounded homogeneous symmetric binary core expanded with all orbitals has free amalgamation instead of more properly writing that it has free amalgamation w.r.t. N.</p><p>Observe now that every orbit of k-tuples w.r.t. Aut(A) where A is a finitely bounded homogeneous symmetric binary core may be defined by a conjunction of atomic formulae B(x, y) where B is an orbital w.r.t. Aut(A). It explains the following definition. Definition 3. Let A be a finitely bounded homogeneous symmetric binary core over signature τ . We say that a k-ary tuple t = (t <ref type="bibr" target="#b0">[1]</ref></p><formula xml:id="formula_3">, . . . , t[k]) is a (B 1,2 , . . . B 1,k , B 2,3 , . . . , B 2,k , . . . , B k−1,k ) − tuple,</formula><p>where the indices above are pairs (i &lt; j) in [k] 2 ordered lexicographically, if B i,j is an orbital w.r.t. Aut(A) and (t[i], t[j]) ∈ B i,j for all i &lt; j.</p><p>If we do not care about other orbitals, we often simply write that t is a (B 1,2 , . . . ,</p><formula xml:id="formula_4">B k−1,k )-tuple requiring only that (t[1], t[2]) ∈ B 1,2 and (t[k − 1], t[k]) ∈ B k−1,k and we do not care about other (t[i], t[j]). Example 2. A tuple t ∈ H 3 3 where H 3 = (H 3 , E, N) is a (E, E, N)-tuple if (t[1], t[2]) ∈ E, (t[1], t[3]</formula><p>) ∈ E and (t <ref type="bibr" target="#b1">[2]</ref>, t <ref type="bibr" target="#b2">[3]</ref>) ∈ N. The tuple t is in particular a (E, . . . , N)-tuple.</p><p>A projection of a formula ϕ(x 1 , . . . , x k ) over the set of free variables {x 1 , . . . , x k } to variables {x i1 , . . . , x i l } is the relation</p><formula xml:id="formula_5">R ′ (y 1 , . . . , y l ) ≡ ∃x 1 • • • ∃x k R(x 1 , . . . , x k ) ∧ l j=1 y j = x ij .</formula><p>A projection Π i1,...,i l R of a k-ary relation R to coordinates {i 1 , . . . , i l } is a projection of R(x 1 , . . . , x k ) to {x i1 , . . . , x i l }. We extend this notation to {i 1 , . . . , i l } ⊆ {−k, . . . , −1, 1, . . . , k} where the coordinate −l is a shorthand for k + 1 − l. Definition 4. Let R be an n-ary relation with n ≥ 3 and A ⊆ Π 1,2 (R). Then</p><formula xml:id="formula_6">A + R = {(c, d) | ∃t ∈ R (t[1], t[2]) ∈ A ∧ (t[−2], t[−1]) = (c, d)}.</formula><p>We use the above definition mainly in the following context. Definition 5. We say that R is a (A → B)-implication, which we denote also by R : A → B if:</p><formula xml:id="formula_7">• A Π 1,2 (R), B Π −2,−1 (R),<label>and</label></formula><formula xml:id="formula_8">• B = A + R.</formula><p>We will usually consider pairs of implications satisfying the following condition. Definition 6. We say that two relations R 1 and R 2 agree on projections if</p><formula xml:id="formula_9">• Π 1,2 (R 1 ) = Π −2,−1 (R 2 ) and Π 1,2 (R 2 ) = Π −2,−1 (R 1 ).</formula><p>Two implications R 1 : A → B and R 2 : B → A are complementary if they agree on projections.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.2">Primitive-Positive Definability and Polymorphisms</head><p>A primitive-positive (pp)-formula is a first-order formula built up exclusively from atomic formulae, conjunction, equality and existential quantifiers. A relation R is pp-definable in a structure B if it can be defined by a pp-formula. Definition 7. A relational clone of B is the set of all relations pp-definable in B.</p><p>A polymorphism f : A m → A of a structure B over domain A is a homomorphism from a power of the structure B to B. A polymorphism f of a relation R ⊆ A n is a polymorphism of a structure (A, R). In this case we say that f preserves B or R.</p><p>There is a deep connection between the polymorphisms of a structure B, denoted by Pol(B), and the relations pp-definable in that structure. Theorem 3. ( <ref type="bibr" target="#b10">[11]</ref>) Let B be a countable ω-categorical structure. Then R is preserved by the polymorphisms of B if and only if it has a primitive-positive definition in A.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.3">Constraints, CSP and Minimality</head><p>A constraint over domain A is a pair ((x 1 , . . . , x k ), R) where (x 1 , . . . , x k ) is a tuple of pairwise different variables and R ⊆ A k . A set of variables in called also the scope of is denoted by V( ). A projection Π xi 1 ,...,xi l of a constraint to variables {x i1 , . . . , x i l } ⊆ V( ) is a constraint ((x i1 , . . . , x i l ), Π i1,...,i l R). Definition 8. An instance I of CSP(B) for a relational structure B over domain A and a set of variables V = {v 1 , . . . , v n } is a set of constraints of the form ((x 1 , . . . , x k ), R) such that {x 1 , . . . , x k } ⊆ V and R is in B. The question is whether there is a solution to I, i.e., a mapping f : V → A such that for every constraint ((x 1 , . . . , x k ), R) it holds that (f (x 1 ), . . . , f (x k )) ∈ R.</p><p>We say that a constraint ((x 1 , . . . , x k ), R) is non-trivial if R is different from ∅ and trivial otherwise. We say that an instance I is non-trivial if all constraints in it are non-trivial, and trivial otherwise.</p><formula xml:id="formula_10">Definition 9. An instance I over variables V = {v 1 , . . . , v n } is (k, l)-minimal with k ≤ l if</formula><p>1. every l-element subset of V is contained in the scope of some constraint, and 2. for all k-element subsets of variables {x 1 , . . . , x k } and all constraints 1 , 2 whose scope contains (x 1 , . . . , x k ) we have that Π x1,...,x k 1 equals Π x1,...,x k 2 .</p><p>An algorithm that transforms any instance into a (k, l)-minimal instance is straightforward and works in time O(|V| m ) where m is the maximum of l and the largest arity in the signature of B. Indeed, we simply introduce a new constraint ((x 1 , . . . , x l ), A l ) for all pairwise different variables x 1 , . . . , x l ∈ V to satisfy the first condition and then remove tuples (orbits of tuples) from the relations in constraints in the instance as long as the second condition is not satisfied. It is widely known and easy to prove that an instance J of the CSP obtained by the described algorithm has the same set of solutions as I: they are equivalent. In particular, if J is trivial, then I has no solutions. Under a natural assumption that B contains all at most l-ary relations pp-definable in B, we have that J is an instance of CSP(B). From now on this assumption will be in effect. Definition 10. A relational structure B has relational width (k, l) if every (k, l)-minimal instance I of CSP(B) has a solution iff it is non-trivial.</p><p>A relational structure B has bounded relational width if it has relational width (k, l) for some natural numbers k ≤ l.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3">Implicationally Uniform Relational Clones Imply Bounded Width</head><p>In this section we deal with B whose relational clones have a very particular property. Definition 11. We say that a relational clone is implicationally uniform if for every pair of complementary implications R 1 : A → B and R 2 : B → A in it we have that A = B. Otherwise, we say that a relational clone is implicationally non-uniform.</p><p>In this section, we show that if a relational clone of B is implicationally uniform, then CSP(B) is solvable by establishing (2, L A )-minimality where L A is the size of the largest forbidden substructure in F A but not smaller than 3. We consider instances over variables {v 1 , . . . , v n }. Since instances I of interest are (2, L A )minimal, the projection of every constraint to variables v i , v j with i, j ∈ [n] is the same binary relation. We denote it by I i,j . The next important notion that we are going to use is a (directed) graph of an instance. Definition 12. Let I be an instance of CSP(B) over variables {v 1 , . . . , v n } and a first-order expansion B of a finitely bounded homogeneous symmetric binary core A. A (directed) graph G I of an instance I consists of vertices of the form</p><formula xml:id="formula_11">((v i , v j ), A) such that A I i,j has a pp-definition in B.</formula><p>There is an arc between ((v i , v j ), A) and</p><formula xml:id="formula_12">((v k , v l ), B) in G I if there is a relation R in the relational clone of B such that • Π 1,2 (R) = I i,j , Π −2,−1 (R) = I k,l and • R is a (A → B)-implication.</formula><p>We are now ready to prove that the minimality algorithm solves instances of CSP(B) such that the relational clone of B is implicationally uniform clones. Theorem 4. Let B be a first-order expansion of a finitely bounded homogeneous symmetric binary core A such that the relational clone of B is implicationally uniform and I a non-trivial (2, L A )-minimal instance of CSP(B) where L A is the maximal size of a structure in F A but not smaller than 3. Then I has a solution.</p><p>Proof. We will measure the size of an instance I of CSP(B) by the sum of the number of orbits across all constraints, i.e., size(I) = (x,R)∈I number of orbits(R)</p><p>Suppose now that the theorem does not hold and take a minimal in size instance of CSP(B) that is nontrivial (2, L A )-minimal and has no solution. We start with a case where every I i,j with i, j ∈ [n] contains only one orbit. In this case we construct a finite structure C over the domain consisting of variables in I so that (v i , v j ) ∈ O C if and only if I i,j = O. Since L A ≥ 3 we have that C respects the transitivity of =, i.e. we have</p><formula xml:id="formula_13">(v i k , v im ) ∈= C whenever (v i k , v i l ) ∈= C and (v i l , v im ) ∈= C . In fact, = C is an equivalence relation on {v 1 , . . . , v n }. Thus consider a quotient structure D which is C/ = C and whose domain is the set of equivalence classes of = C . We have ([v i ] = C , [v j ] = C ) ∈ O C if and only if I i,j = O. Since I is (2, L A )-minimal</formula><p>there is an embedding of D into A and a homomorphism of C into A. The latter is also a solution to I which was to be proved.</p><p>The previous case represents the situation where G I is empty. Now, we move to the case where at least one I i,j with i = j in [n] is not an orbital. Since every orbital is pp-definable in A and thereby in B, and I i,j contains at least two orbitals, from now on the graph G I is non-empty. We will look at maximal strongly connected components M of G I , i.e. strongly connected components such that every arc originating in M ends up in M. For the sake of simplicity we simply say that M is a maximal component of G I . We start with a simple observation. (All omitted proofs may be found in the appendix.) Observation 1. Let M be a maximal component of G I , then for all pairs of vertices ((v i , v j ), A) and</p><formula xml:id="formula_14">((v k , v l ), B) in M we have A = B.</formula><p>Proof. Assume on the contrary that there is a cycle in M containing both ((v i , v j ), A) and ((v k , v l ), B) with</p><formula xml:id="formula_15">A = B. It implies that there is a chain of implications R 1 : A 1 → A 2 , R 2 : A 2 → A 3 , . . . , R a : A a → B, R a+1 : B → B 1 , R a+2 : B 1 → B 2 , .</formula><p>. . , R a+b : B a+b → A satisfying the conditions in Definition 12. In particular all these relations are pp-definable in B. By use of •-composition in Definition 14, we have that</p><formula xml:id="formula_16">((R 1 • R 2 ) • • • • • R a ) is a (A → B)-implication and that ((R a+1 • R a+2 ) • • • • • R a+b ) is a (B → A)-implication.</formula><p>Clearly R 1 , R 2 are complementary. The fact that A = B contradicts the fact that the relational clone of B is implicationally uniform. Thus, from now on we assume that G I contains a maximal strongly connected component M in which all vertices are of the form ((v i , v j ), A) with the same A. We reduce the size of an I so that every R in a constraint ((x 1 , . . . , x k ), R) in I is replaced by</p><formula xml:id="formula_17">R(x 1 , . . . , x k ) ∧ ((xi,xj),A)∈M A(x i , x j ).</formula><p>The new instance will be denoted by J . In order to show that it is non-trivial and (2, L A )-minimal consider the following observation, which directly follows from the definition of G I .</p><p>Observation 2. Let R be a k-ary relation in a relational clone of B and R(v i1 , . . . , v i k ) an atomic formula over variables of the instance I such that for all l, m ∈</p><formula xml:id="formula_18">[k] the projection of R(v i1 , . . . , v i k ) to v i l , v im is I i l ,im . Then for all c &gt; 0 and a 1 , b 1 , . . . , a c , b c , l, k ∈ [m] satisfying ((v ia j , v i b j ), A) ∈ M for all j ∈ [c] we have that the projection of R ′ (v i1 , . . . , v i k ) ≡   R(v i1 , . . . , v i k ) ∧ j∈[c] A(v ia j , v i b j )   to any v i l , v im with l, m ∈ [k] is either • I i l ,im or • A and then ((v i l , v im ), A) ∈ M.</formula><p>Proof. Assume the contrary and take a minimal c such that there are</p><formula xml:id="formula_19">v i l , v im with l, m ∈ [k] and such that the projection of R ′ (v i1 , . . . , v i k ) to v i l , v im is B / ∈ {A, I i l ,im , ∅}.</formula><p>Observe that since c is minimal, we can assume that B = ∅. Then let e ∈ [c] be such that for I = [c] \ {e} we have that the projection of</p><formula xml:id="formula_20">R ′′ (v i1 , . . . , v i k ) ≡   R(v i1 , . . . , v i k ) ∧ j∈I A(v ia j , v i b j )   to v ia e , v i be , v i l , v im is a (A → B)</formula><p>-implication for some B I i l ,im . Since A and R are pp-definable in B, by the definition of G I , it follows that M contains ((v i l , v im ), B) which contradicts Observation 1.</p><p>The other thing that could happen is when the projection of R ′ (v i1 , . . . , v i k ) to v i l , v im is A and ((v i l , v im ), A) / ∈ M. But then again by the definition of G I the vertex ((v i l , v im ), A) should have been in M. It completes the proof of the observation.</p><p>By the observation above it follows that for every constraint ((v i1 , . . . ,</p><formula xml:id="formula_21">v i k ), R) ∈ I a projection of R(v i1 , . . . , v i k ) ∧ ((vi l ,vi m ),A)∈M A(v i l , v im ) to v i l , v im for any l, m ∈ [k] is either I i l ,im</formula><p>or A and the latter case holds only when ((v i l , v im ), A) ∈ M. It follows that J is non-trivial and (2, L A )-minimal. Furthermore, if I does not have a solution, then J does not have it either. Since J is of a smaller size than I we have a contradiction with the minimality of I.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4">Implicationally Non-Uniform Clones Are Not Preserved By Chains of Quasi Directed Jónsson Operations</head><p>In this section we show that whenever a relational clone of B is implicationally non-uniform, i.e. it contains complementary relations R 1 : A → B and R 2 : B → A with A = B, then B is not preserved by any chain of quasi directed Jónsson operations. We start with a definition of a directed bipartite graph B R1,R2 which reflects the structure of R 1 , R 2 which agree on projections. We use it mainly for R 1 , R 2 which are complementary implications.</p><p>If it is not stated otherwise we will assume that both R 1 and R 2 are quaternary. To this end, for every binary relation A first-order definable in A we set</p><formula xml:id="formula_22">• V L (A) := {O L | O is an orbital contained in A}, and • V R (A) := {O R | O is an orbital contained in A}.</formula><p>Definition 13. Let R 1 , R 2 be two relations that agree on projections. We define B R1,R2 to be a bipartite digraph over vertices</p><formula xml:id="formula_23">V L (Π 1,2 (R 1 )) ∪ V R (Π 1,2 (R 2 )</formula><p>where we have two kinds of arcs:</p><formula xml:id="formula_24">• (O L , P R ) ∈ V L (Π 1,2 (R 1 )) × V R (Π 1,2 (R 2 )) if the relation R 1 contains a (O, . . . , P)-tuple, • (O R , P L ) ∈ V R (Π 1,2 (R 2 )) × V L (Π 1,2 (R 1 )) if the relation R 2 contains a (O, . . . , P)-tuple.</formula><p>A strongly connected component of B R1,R2 is simply called a component. A component is non-trivial if it contains more than one vertex. A component N is maximal if all outgoing edges end up in N and it is minimal if all ingoing edges originate in N .</p><p>For the sake of simplicity we say that a subgraph of B R1,R2 induced by</p><formula xml:id="formula_25">(V L (C) ∪ V R (D)) for some binary relations C ⊆ Π 1,2 (R 1 ) and D ⊆ Π 1,2 (R 2 ) is a (C, D)-subgraph of B R1,R2 . In particular, a component (V L (C) ∪ V R (D)) of B R1,R2 induces a (C, D)-subgraph and in this case we say also that that component is a (C, D)-component. We say that a (C, D)-component in B R1,R2 contains a tuple t if it is a (C, . . . , D)-tuple in R 1 or a (D, . . . , C)-tuple in R 2 with C ⊆ C and D ⊆ D. Observation 3. Let R 1 : A → B and R 2 : B → A be complementary. Then a (A, B) subgraph of B R1,R2</formula><p>has both a minimal and a maximal component. Furthermore, a</p><formula xml:id="formula_26">(Π 1,2 (R 1 ) \ A, Π 3,4 \ B)-subgraph of B R1,R2 has a minimal component. Proof. Since A+R 1 = B and B+R 2 = A, we have that for any vertex A L in V L (A) there exists B R in V B (A) such that R 1 contains an (A, . . . , B)-tuple and that for any B R in V B (A) we have A L in V L (A) such that a (B, . . . , A)-tuple is in R 2 .</formula><p>It follows that by an appropriately long walk we can reach a component from where there is no outgoing arc. It is a maximal component in the (A, B)-subgraph of B R1,R2 . For the minimal component in the (A, B)-subgraph of B R1,R2 notice that for any</p><formula xml:id="formula_27">A L in V L (A) there exists B R in V R (B) such that a (B, . . . , A)-tuple is in R 2 and that for any B R in V R (B) there exists A L in V L (A) such that a (A, . . . , B)-tuple is in R 1 .</formula><p>Thus by walking from any vertex in (A, B)-subgraph backwards but inside the subgraph we reach a minimal component in (A, B).</p><formula xml:id="formula_28">For the minimal component in a (Π 1,2 (R 1 ) \ A, Π 3,4 \ B)- subgraph of B R1,R2</formula><p>we do the same thing just start with any vertex in there and go against the arrows.</p><p>We will now define a •-composition of two quaternary relations, another slightly different ⊲⊳-composition is defined later on.</p><formula xml:id="formula_29">Definition 14. Let R 1 , R 2 be two quaternary relations such that π −2,−1 (R 1 ) = π 1,2 (R 2 ). We define a •-composition R 1 • R 2 of R 1 and</formula><p>R 2 to be the relation defined by the formula ∃y∃z R 1 (x 1 , x 2 , y, z) ∧ R 2 (y, z, x 3 , x 4 ).</p><p>We will write (R 1 • R 2 ) n as a shorthand for the expression ((</p><formula xml:id="formula_30">• • • (((R 1 • R 2 ) • R 1 ) • R 2 ) • • • • • R 1 ) • R 2 )</formula><p>where both R 1 and R 2 occur n times. Observation 4. Let R 1 : A → B and R 2 : B → A be quaternary complementary implications. Then, for all n ≥ 1 we have both of the following:</p><formula xml:id="formula_31">• S 2n ≡ (R 1 • R 2 ) n contains an (O, . . . , P)-tuple iff there is a path in B R1,R2 of length 2n from O L to P L ; • S 2n+1 ≡ (R 1 • R 2 ) n • R 1 contains an (O, . . . , P)-tuple iff there is a path in B R1,R2 of length 2n + 1 from O L to P R .</formula><p>Proof. We prove the observation by induction on n ≥ 1. Notice that if R 1 contains an (O, . . . , A)-tuple and R 2 contains an (A, . . . , P)-tuple for some orbital A, then by the homogeneity of A, the relation S 2 has an (O, . . . , P)-tuple. On the other hand if there are no such tuples, by the definition of S 2 , there is not an (O, . . . , P)-tuple in S 2 .</p><p>In the induction step consider S 2n+1 ≡ S 2n • R 1 . If there is an (O, . . . , P)-tuple in S 2n+1 , then for some orbital A, by the definition of this relation, we have an (O, . . . , A)-tuple in S 2n and an (A, . . . , P)-tuple in R 1 . By the induction hypothesis, there is a path of length 2n from O L to A L in B R1,R2 , and hence a path of length 2n + 1 from O L to P R . On the other hand, if there is a path from O L to P R in B R1,R2 of length 2n + 1, then there exists some A so that there is a path of length 2n from O L to A L in B R1,R2 and a (A, . . . , P)-tuple in R 1 . By the induction hypothesis, there is an (O, . . . , A)-tuple in S 2n . By the homogeneity of A, there is an (O, . . . , P)-tuple in S 2n+1 . The proof for S 2n with n &gt; 1 is analogous. We just replace R 1 with R 2 and S 2n+1 with S 2n in the proof above. It completes the proof of the observation. The next step is to extend the above observation so that it specifies what kind of a tuple we can expect, for that we need the following definition. Definition 15. A quaternary tuple t is</p><formula xml:id="formula_32">• degenerated if t[1] = t[4] and t[2] = t[3], • essentially ternary if t[2] = t[3] and t[1] = t[4],</formula><p>• essentially quaternary if t[i] = t[j] whenever i ∈ {1, 2} and j ∈ {3, 4},</p><p>• partially-free if t <ref type="bibr" target="#b0">[1,</ref><ref type="bibr" target="#b3">4]</ref> ∈ N.</p><p>• fully-free if (t[i], t[j]) ∈ N whenever i ∈ {1, 2} and j ∈ {3, 4}. We now prove observation that tells us what kind of tuples we can expect in a •-composition of two relations.</p><formula xml:id="formula_33">Observation 5. Let R 1 : A → B and R 2 : B → C be such that R 1 contains a (A, . . . , B)-tuple t 1 and R 2 contains a (B, . . . , C)-tuple t 2 . Then R 3 := R 1 • R 2 is a (A → C)-implication containing a (A, . . . , C)-tuple t 3 which is</formula><p>• essentially ternary if both t 1 and t 2 are essentially ternary, A, C anti-reflexive and B is =,</p><p>• essentially quaternary if both t 1 , t 2 are essentially ternary and all A, B, C are anti-reflexive,</p><p>• fully-free if both t 1 , t 2 are essentially quaternary,</p><p>• partially-free if t 1 is essentially quaternary and t 2 essentially ternary and C is not = or t 1 is essentially ternary and t 2 essentially quaternary and A is not =,</p><p>• essentially quaternary (fully-free) if at least one of t 1 , t 2 is essentially quaternary (fully-free)</p><p>• non-degenerated if at least one of them is non-degenerated. Proof. It is straightforward that R 3 is a (A → C)-implication. The rest of the observation we prove case by case.</p><p>The age of A has free amalgamation and therefore there are a, b, c ∈ A such that (a, b) ∈ A, (b, c) ∈ B and (a, c) ∈ N. The first item follows.</p><p>For the second case we consider a, b, c, d ∈ A such that (a, b, b, c) is isomorphic with t 1 and (b, c, c, d) with t 2 . Since the age of A has free amalgamation, we may assume that (a, d) ∈ N. Observe that (a, b, c, d) is in R 3 and is essentially quaternary.</p><p>For the third case we need a, b, c, d, e, f ∈ A such that (a, b, c, d) is isomorphic with t 1 and (c, d, e, f ) with t 2 . Again using the fact that the age of A has free amalgamation, we may assume that (i, j) ∈ N whenever i ∈ {a, b} and j ∈ {e, f }. Observe that (a, b, e, f ) is in R 3 and is fully free.</p><p>For the fourth case we only look at the first part. To this end we consider a, b, c, d, e such that (a, b, c, d) is isomorphic to t 1 and (c, d, e) to t 2 . Since a = d and d = e we may assume that (a, e) ∈ N. It follows that (a, b, d, e) is a partially free and is in N.</p><p>The proof of the fifth and the sixth case is straightforward and very similar to the proof of the preceding cases.</p><p>We now define a self-complementary implication.</p><p>Definition 16. We say that an implication R :</p><formula xml:id="formula_34">A → A is self-complementary if R and R are complementary and every non-trivial component of B R1,R2 is a (C, C)-component.</formula><p>The following will be used throughout the paper.</p><formula xml:id="formula_35">Observation 6. Let R 1 : A → B and R 2 : B → A be complementary implications. Then R ≡ R 1 • R 2 is a self-complementary (A → A)-implication.</formula><p>Proof. The relation R is clearly a (A → A)-implication. Since every vertex in B R1,R2 has an incoming edge we have that Π 3,4 (R) = Π 1,2 (R), and hence R, R are complementary.</p><p>Observe now that every non-trivial maximal component in considered bipartite digraphs corresponds to a maximal in the number of pairwise different vertices closed walk. From a closed walk in B R1,R2 corresponding to a maximal (C, D)-component one can get a closed walk in B R,R corresponding to a component (C, C) in B R,R by contracting all two arcs with a vertex from V R (D) in the middle into one arc. Suppose now that it is not a maximal component, i.e. there is a (C ′ , C ′′ )-component in B R,R containing the (C, C)-component. But then from a corresponding walk one can create a closed walk in B R1,R2 corresponding to a component containing vertices</p><formula xml:id="formula_36">(V L (C ′ ) ∪ V L (C ′′ ) ∪ V R (D)). It contradicts the maximality of the (C, D)-component in B R1,R2 . It follows that R is a self-complementary implication.</formula><p>A non-trivial component in B R1,R2 for two R 1 , R 2 which agree on projections is degenerated if all tuples in it are degenerated. Observe that a non-trivial degenerated component contains exactly two (O, O, =, = , O, O)-tuples for some orbital O and therefore we will call it an O-degenerated component.</p><p>In the proof announced at the beginning of this section we distiguish two cases: either there is a non-trivial component in B R1,R2 which is non-degenerated or all non-trivial components in B R1,R2 are degenerated. We take care of the former case in Section 4.1 and of the latter in Section 4.2.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.1">A non-trivial non-degenerated component</head><p>We start from a proposition which reduces the situation we take care of in this section to two simple cases. Proof. Let t be a non-degenerated (A, . . . , C)-tuple in a nontrivial (A, A)-component of B R1,R2 . Without loss of generality we may assume that either t is essentially quaternary or A is anti-reflexive. Indeed, if t[2] = t[3] and t[1] = t <ref type="bibr" target="#b3">[4]</ref> we replace R 1 with R 1 (x 2 , x 1 , x 4 , x 3 ), if C is =, then we swap R 1 with R 2 and if A, C are both = and t is essentially ternary, then t is degenerated which contradicts the asumption.</p><p>By Observation 4, it follows that there is</p><formula xml:id="formula_37">k such that R ′ 2 ≡ R 2 • (R 1 • R 2 ) k contains a (B, . . . , A)-tuple and that R ≡ R 1 • R ′</formula><p>2 is a self-complementary implication that contains a non-degenerated (A, . . . , A)-tuple. The last tuple is non-degenerated by Observation 5. By the same observation, it follows that R ′ = (R • R) 2 contains an essentially quaternary (A, . . . , A)-tuple and that S := (R ′ • R ′ ) 2 has a fully-free (A, . . . , A)tuple, i.e., a (A, N, N, N, N, A)-tuple. The relation S is clearly a self-complementary (A → A)-implication by Observation 6.</p><p>By Observation 3, there is a (B, B)-component in B R1,R2 with A ∩ B = ∅. It follows that there exists l such that S ′ := S l contains both an (A, N, N, A)-tuple and a (B, . . . , B)-tuple s for some B. If the latter tuple is not a (B, B, =, =, B, B)-tuple and B is not =, then as above we show that T = (((S ′ • S ′ ) 2 ) 2 has a (B, N, N, N, N, B)-tuple. If B is =, then the non-degenerated s has to be essentially quaternary. Then, again, by Observation 5, T has a (B, N, N, N, N, B)-tuple. T clearly also contain a (A, N, N, N, N, A)-tuple and is a self-complementary implication.</p><p>Finally, observe that B T ′ ,T ′ where</p><formula xml:id="formula_38">T ′ (x 1 , x 2 , x 3 , x 4 ) ≡ T (x 1 , x 2 , x 3 , x 4 ) ∧ T (x 4 , x 3 , x 2 , x 1 )</formula><p>contains a (A, . . . B)-tuple only if T contains that tuple and additionally a (B, . . . A)-tuple. Since all components in B T,T are (C, C)-components the orbitals A and B cannot come from two different components. Indeed, if T contains a (A, . . . , B)-tuple where B R is in a component above the component of A L , then by the shape of the components it cannot have a (B, . . . , A)-tuple. It follows that B T ′ ,T ′ is a union of disjoint non-trival (A, A)-components each of which is a subset of some non-trivial component in B T,T . In particular, we have that T ′ is a (A → A)-implication with A ⊆ A.</p><p>It is a trivial thing that = is transitive. We also observe that for any orbital O and for all elements a, b, c ∈ A such that (a, b) ∈ O and (b = c); or a = b and (b, c) ∈ O we have (a, c) ∈ O. The latter property of = will be called semi-transitivity. Obviously, semi-transitivity implies transitivity.</p><p>We will now show that in both cases in the lemma above B is not preserved by a chain of quasi directed Jónsson operations. Each time we will use the following definition. Definition 17. Let A be a finitely bounded homogeneous symmetric binary core whose age has free amalgamation, U, V ⊆ [3] and M, O, P ∈ {A, B} for some orbitals A, B. We say that (u, v) in A 3 is a (U, V )-constant pair of triples satisfying MOP(u, v) if all of the following hold.</p><formula xml:id="formula_39">1. (u[1], v[1]) ∈ M, (u[2], v[2]) ∈ O, (u[3], v[3]) ∈ P. 2. u[i] = u[j] iff i, j ∈ U and v[i] = v[j] iff i, j ∈ V .</formula><p>3. For all other a, b ∈ {u <ref type="bibr" target="#b0">[1]</ref>, u <ref type="bibr" target="#b1">[2]</ref>, u <ref type="bibr" target="#b2">[3]</ref>, v <ref type="bibr" target="#b0">[1]</ref>, v <ref type="bibr" target="#b1">[2]</ref>, v <ref type="bibr" target="#b2">[3]</ref>} for which the above conditions and the semi-transitivity of equality do not determine the orbital, we have (a, b) ∈ N.</p><p>Obviously not for all U, V ⊆ [3] and M, O, P there are u, v satisfying the conditions above. Therefore anytime we use that definition we make sure the appropriate u, v exist. Proof. Suppose that there is a chain (D 1 , . . . , D n ) of quasi directed Jónsson operations preserving B and R. We will show that this assumption contradicts the fact that Pol(B) preserves B which should be preserved since structB contains all orbitals w.r.t Aut(A).</p><p>At various steps of the proof we simultaneously consider three different cases:</p><p>1. both A and B are anti-reflexive, 2. only A is anti-reflexive, 3. only B is anti-reflexive.</p><p>In the following claim we consider two different types of (U, V )-constant pairs of triples. Inspect Figure <ref type="figure" target="#fig_3">2</ref> and observe that t, s is a ([3], <ref type="bibr" target="#b1">[2]</ref>)-constant pair of triples in A satisfying AAB(u, v) and that u, v is a ([3], {2, 3})-constant pair of triples (u, v) in A satisfying ABB(u, v). According to Definition 17 we have that O is</p><formula xml:id="formula_40">1. N if A and C are anti-reflexive, 2. B if A is = and B is anti-reflexive, 3. A if C is = and A is anti-reflexive.</formula><p>We are now ready to formulate and prove the claim whose proof is a large part of the proof of the lemma. Claim 1. For all i ∈ [n] we have both of the following.</p><p>• For all ([3], <ref type="bibr" target="#b1">[2]</ref>)-constant pairs of triples (u, v) in A satisfying AAB(u, v) we have that (D i (u), D i (v)) ∈ A.</p><p>• For all ([3], {2, 3})-constant pairs of triples (u, v) in A satisfying ABB(u, v) we have that</p><formula xml:id="formula_41">(D i (u), D i (v)) ∈ A.</formula><p>Proof. We prove the claim by the induction on i ∈ [n].</p><p>(BASE CASE) In the base case we cope with i = 1. Let (u, v) be a ([3], <ref type="bibr" target="#b1">[2]</ref>)-constant pair of triples in A satisfying AAB(u, v). We now show that there is u ′ ∈ A 3 such as u with a difference that (u</p><formula xml:id="formula_42">′ [3], v[3]) ∈ A.</formula><p>By the fact that B has free amalgamation over N we have that there exists p, r ∈ A 3 satisfying the conditions from Figure <ref type="figure" target="#fig_0">1</ref>. Since A is homogeneous, there exists an automorphism α of A such that α(u</p><formula xml:id="formula_43">[i]) = α(p[i]) and α(v[i]) = α(r[i]) for i ∈ [3]. Now α −1 (p ′ [3]) is the desired u ′ [3]. Since B contains A it follows that (D 1 (u ′ ), D 1 (v)) ∈ A. By (1), we have D 1 (u ′ ) = D 1 (u), and hence (D 1 (u), D 1 (v)) ∈ A. Since A ⊆ A,it</formula><p>completes the proof of the base case for the first item.</p><p>For the second bullet, let (u, v) be a ([3], {2, 3})-constant pair of triples satisfying ABB(u, v). Consult now Figure <ref type="figure" target="#fig_3">2</ref> to see that there exists a ( <ref type="bibr" target="#b1">[2]</ref>, <ref type="bibr" target="#b2">[3]</ref>)-constant pair of triples s, t ∈ A 3 satisfying AAC(s, t) such that</p><formula xml:id="formula_44">• a 1 = (s[1], t[1], u[1], v[1]) is a (A, N, N, N, N, A)-tuple, • a 2 = (s[2], t[2], u[2], v[2]</formula><p>) is a (A, N, N, N, N, B)-tuple, and s <ref type="bibr" target="#b0">[1]</ref> s <ref type="bibr" target="#b1">[2]</ref> s <ref type="bibr" target="#b2">[3]</ref> t <ref type="bibr" target="#b0">[1]</ref> t <ref type="bibr" target="#b1">[2]</ref> t <ref type="bibr" target="#b2">[3]</ref> u <ref type="bibr" target="#b0">[1]</ref> u <ref type="bibr" target="#b1">[2]</ref> u <ref type="bibr" target="#b2">[3]</ref> v <ref type="bibr" target="#b0">[1]</ref> v <ref type="bibr" target="#b1">[2]</ref> v <ref type="bibr" target="#b2">[3]</ref> u ′ s <ref type="bibr" target="#b0">[1]</ref> s <ref type="bibr" target="#b1">[2]</ref> s <ref type="bibr" target="#b2">[3]</ref> t <ref type="bibr" target="#b0">[1]</ref> t <ref type="bibr" target="#b1">[2]</ref> t <ref type="bibr" target="#b2">[3]</ref> u <ref type="bibr" target="#b0">[1]</ref> u <ref type="bibr" target="#b1">[2]</ref> u <ref type="bibr" target="#b2">[3]</ref> v <ref type="bibr" target="#b0">[1]</ref> v <ref type="bibr" target="#b1">[2]</ref> v <ref type="bibr" target="#b2">[3]</ref> u Let now u ′ be as u except for the second coordinate so that the tuple (INDUCTION STEP) For the induction step, consider any ([3], <ref type="bibr" target="#b1">[2]</ref>)-constant pair of triples (u, v) in A satisfying AAB(u, v). We want to show that (D i+1 (u),</p><formula xml:id="formula_45">• a 3 = (s[3], t[3], u[3], v[3]) is a (B, N, N, N, N, B)-tuple. p[1] = p[2] = p[3] r[1] = r[2] r[3] p ′ [3]</formula><formula xml:id="formula_46">a ′ 2 = (s[2], t[2], u ′ [2], v[2]) is a (A, N, N, N, N, A)-tuple. Now all a 1 , a ′ 2 , a 3 are tuples in R. Since (D 1 (s), D 1 (t)) ∈ A and A + R = A we have that (D 1 (u ′ ), D 1 (v)) ∈ A. By (2) we have D 1 (u ′ ) = D 1 (u),</formula><formula xml:id="formula_47">D i+1 (v)) ∈ A. To that end consider v ′ such that v ′ [1] = v[1] and v ′ [2] = v ′ [3] = v[3]. Observe that (u, v ′ ) is a ([3], {2, 3})-constant pair of triples in A satisfying ABB(u, v ′ ). By the induction hypothesis, it follows that (D i (u), D i (v ′ )) ∈ A. By (3), we have D i (v) = D i+1 (v ′ ) and clearly D i+1 (u) = D i (u). It follows that (D i+1 (u), D i+1 (v)) ∈ A. Now, as in the base case we show that (D i+1 (u), D i+1 (v)) ∈ A for all ([3], {2, 3})-constant pair of triples (u, v) in A satisfying ABB(u, v). It completes the proof of the claim.</formula><p>Finally we have to show that (D n (u), D n (v)) ∈ A for some ( <ref type="bibr" target="#b2">[3]</ref>, <ref type="bibr" target="#b2">[3]</ref>)-constant pair of triples u, v satisfying BBB(u, v). Since the age of A has free amalgamation and the structure is homogeneous, there exists a ({2, 3}, <ref type="bibr" target="#b2">[3]</ref>)-constant pair of triples (s, t) in A satisfying ABB(s, t) such that <ref type="bibr" target="#b0">[1]</ref>) is a (A, N, N, N, N, B)-tuple,</p><formula xml:id="formula_48">• a 1 = (s[1], t[1], u[1], v</formula><p>• a 2 = (s <ref type="bibr" target="#b1">[2]</ref>, t <ref type="bibr" target="#b1">[2]</ref>, u <ref type="bibr" target="#b1">[2]</ref>, v <ref type="bibr" target="#b1">[2]</ref>) is a (B, N, N, N, N, B)-tuple, and <ref type="bibr" target="#b2">[3]</ref>) is a (B, N, N, N, N, B)-tuple (See Figure <ref type="figure" target="#fig_4">3</ref>.) Let now u ′ be as u except for u ′ <ref type="bibr" target="#b0">[1]</ref> which is such that a</p><formula xml:id="formula_49">• a 3 = (s[3], t[3], u[3], v</formula><formula xml:id="formula_50">′ 1 = (s[1], t[1], u ′ [1], v[1]) is a (A, N, N, N, N, A)-tuple. Now all a ′ 1 , a 2 , a 3 are tuples in R. Since (D n (s), D n (t)) ∈ A and A + R = A we have that (D n (u ′ ), D n (v)) ∈ A. By (4), we have D n (u ′ ) = D n (u). It follows that (D n (u), D n (v)) ∈ A for (u, v) satisfying BBB(u, v).</formula><p>Since B A, we arrived at a contradiction. It completes the proof of the lemma.</p><p>The following lemma is a version of Lemma 1 but with a slightly different condition on the second tuple and a bit more complicated proof. Proof. The proof goes along the lines of the proof of Lemma 1. We assume on the contrary that there exists a chain (D 1 , . . . , D n ) of quasi directed Jónsson operations preserving R and show that it contradicts the fact that B contains all orbitals.</p><p>s <ref type="bibr" target="#b0">[1]</ref> s <ref type="bibr" target="#b1">[2]</ref> s <ref type="bibr" target="#b2">[3]</ref> t <ref type="bibr" target="#b0">[1]</ref> t <ref type="bibr" target="#b1">[2]</ref> t <ref type="bibr" target="#b2">[3]</ref> u <ref type="bibr" target="#b0">[1]</ref> u <ref type="bibr" target="#b1">[2]</ref> u <ref type="bibr" target="#b2">[3]</ref> v <ref type="bibr" target="#b0">[1]</ref> v <ref type="bibr" target="#b1">[2]</ref> v <ref type="bibr">[</ref> In the formulation of the claim below we deal with ([3], <ref type="bibr" target="#b1">[2]</ref>)-constant pairs of triples (u, v) in A satisfying AAB(u, v) as well as ( <ref type="bibr" target="#b2">[3]</ref>, {2, 3})-constant pairs of triples (u, v) in A satisfying ABB(u, v) of which we already know they exist -see the discussion above Claim 1. For other (U, V )-constant tuples in the claim below consult Figures <ref type="figure" target="#fig_9">4 and 6</ref>. Indeed, (u, v) in the former figure is a ( <ref type="bibr" target="#b1">[2]</ref>, <ref type="bibr" target="#b1">[2]</ref>)-constant pair of triples satisfying AAB(u, v) while (u, v) in the latter is a ({2, 3}, {2, 3})-constant pair of triples in A satisfying ABB(s, t). Claim 2. For all i ∈ [n] we have both of the following.</p><p>• For all ([3], <ref type="bibr" target="#b1">[2]</ref>)-constant and all ([2], <ref type="bibr" target="#b1">[2]</ref>)-constant pairs of triples</p><formula xml:id="formula_51">(u, v) in A satisfying AAB(u, v) it is the truth that (D i (u), D i (v)) ∈ A.</formula><p>• For all ([3], {2, 3})-constant and all ({2, 3}, {2, 3})-constant pairs of triples</p><formula xml:id="formula_52">(u, v) in A satisfying ABB(u, v) it is the truth that (D i (u), D i (v)) ∈ A.</formula><p>Proof. We prove the claim by the induction on i ∈ [n].</p><p>(BASE CASE) The fact that for all ([3], <ref type="bibr" target="#b1">[2]</ref>)-constant pairs of triples (u, v) in A satisfying AAB(u, v) we have (D 1 (u), D 1 (v)) ∈ A has been already proved while proving Claim 1.</p><p>Let now (u, v) be any ( <ref type="bibr" target="#b1">[2]</ref>, <ref type="bibr" target="#b1">[2]</ref>)-constant pair of triples satisfying AAB(u, v). Since the age of A has free amalgamation (over N) and the structure is homogeneous, there exists a ( <ref type="bibr" target="#b1">[2]</ref>, <ref type="bibr" target="#b2">[3]</ref>)-constant pair of triples s, t in A (as in Figure <ref type="figure" target="#fig_7">4</ref>) such that <ref type="bibr" target="#b1">[2]</ref>) is a (A, N, N, N, N, A)-tuple, and</p><formula xml:id="formula_53">• a 1 = (s[1], t[1], u[1], v[1]) is a (A, N, N, N, N, A)-tuple, • a 2 = (s[2], t[2], u[2], v</formula><formula xml:id="formula_54">• a 3 = (s[3], t[3], u[3], v[3]) is a (B, B, =, =, B, B)-tuple. Hence all a 1 , a 2 , a 3 ∈ R. Since (D 1 (s), D 1 (t)) ∈ A and A + R = A we have (D 1 (u), D 1 (v)) ∈ A.</formula><p>It completes the proof of the base case for the first bullet.</p><p>For the second bullet, let (u, v) be now a ( <ref type="bibr" target="#b2">[3]</ref>, {2, 3})-constant pair of triples in A satisfying ABB(u, v). Again, since the age of A has free amalgamation and the structure is homogeneous, there exists a ([2], <ref type="bibr" target="#b1">[2]</ref>)constant pair of triples (s, t) in A (as in Figure <ref type="figure" target="#fig_8">5</ref>) such that</p><formula xml:id="formula_55">• a 1 = (s[1], t[1], u[1], v[1]) is a (A, N, N, N, N, A)-tuple, • a 2 = (s[2], t[2], u[2], v[2]</formula><p>) is a (A, N, N, N, N, B)-tuple, and</p><formula xml:id="formula_56">• a 3 = (s[3], t[3], u[3], v[3]) is a (B, B, =, =, B, B)-tuple.</formula><p>Let now u ′ be as u except for the second coordinate. We choose u</p><formula xml:id="formula_57">′ [2] so that a ′ 2 = (s[2], t[2], u ′ [2], v[2]) is a (A, N, N, N, N, A)-tuple. Now all a 1 , a ′ 2 , a 3 are tuples in R. Since (D 1 (s), D 1 (t)) ∈ A and A + R = A we have that (D 1 (u ′ ), D 1 (v)) ∈ A. By (2), we have D 1 (u ′ ) = D 1 (u), and hence (D 1 (u), D 1 (v)) ∈ A.</formula><p>Finally, let (u, v) be a ({2, 3}, {2, 3})-constant pair of triples in A satisfying ABB(u, v). Since the age of A has free amalgamation and the structure is homogeneous, there is some ({2, 3}, <ref type="bibr" target="#b2">[3]</ref>)-constant pair of triples (s, t) in A satisfying ABB(s, t) (as in Figure <ref type="figure" target="#fig_9">6</ref>) such that s • a 2 = (s <ref type="bibr" target="#b1">[2]</ref>, t <ref type="bibr" target="#b1">[2]</ref>, u <ref type="bibr" target="#b1">[2]</ref>, v <ref type="bibr" target="#b1">[2]</ref>) is a (B, B, =, =, B, B)-tuple, and</p><formula xml:id="formula_58">• a 1 = (s[1], t[1], u[1], v[1]) is a (A, N, N, N, N, A)-tuple, s[1] s[2] s[3] t[1] t[2] t[3] u[1] u[2] u[3] v[1] v[2] v[3] u ′ [2]</formula><formula xml:id="formula_60">• a 3 = (s[3], t[3], u[3], v[3]) is a (B, B, =, =, B, B)-tuple.</formula><p>Observe that all a 1 , a 2 , a 3 ∈ R. Since (D 1 (s), D 1 (t) ∈ A) and A + R = A, it follows that (D 1 (u), D 1 (v) ∈ A. It completes the proof of the base case.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>(INDUCTION STEP)</head><p>The fact that (D i+1 (u), D i+1 (v)) ∈ A. for all ([3], <ref type="bibr" target="#b1">[2]</ref>)-constant pair of triples (u, v) in A satisfying AAB(u, v) is shown in the same way as in the proof of Lemma 1.</p><p>The three remaining facts we need to go through the induction step may be proved in the exactly same way as for the base case but one needs to replace D 1 with D i+1 in all reasonings.</p><p>The final step of the proof is to show that (D n (u), D n (v)) ∈ A for a pair of ( <ref type="bibr" target="#b2">[3]</ref>, <ref type="bibr" target="#b2">[3]</ref>)-constant pair of triples (u, v) in A satisfying BBB(u, v). To this end, consider such u, v ∈ A 3 . Since A is homogeneous and its age has free amalgamation over N, there exists a ({2, 3}, {2, 3})-constant pair of triples (s, t) in A (consult Figure <ref type="figure" target="#fig_10">7</ref>) satisfying ABB(s, t) such that</p><formula xml:id="formula_61">• a 1 = (s[1], t[1], u[1], v[1]) is a (A, N, N, N, N, B)-tuple, • a 2 = (s[2], t[2], u[2], v[2]</formula><p>) is a (B, B, =, =, B, B)-tuple, and</p><formula xml:id="formula_62">• a 3 = (s[3], t[3], u[3], v[3]) is a (B, B, =, =, B, B)-tuple.</formula><p>Let now u ′ be as u except for the first coordinate. We choose u</p><formula xml:id="formula_63">′ [1] so that a ′ 1 = (s[1], t[1], u ′ [1], v[1]) is a (A, N, N, N, N, A)-tuple. Now all a ′ 1 , a 2 , a 3 are tuples in R. Since (D n (s), D n (t)) ∈ A and A + R = A we have that (D n (u ′ ), D n (v)) ∈ A. By (4), we have D n (u ′ ) = D n (u) and hence (D n (u), D n (v)) ∈ A for u, v</formula><p>satisfying BBB(u, v). Since D n preserves B, we arrived at a contradiction. It completes the proof of the lemma.</p><p>We will now conclude Section 4.1 by a theorem which follows directly from Proposition 1 and Lemmas 1 and 2.</p><p>s <ref type="bibr" target="#b0">[1]</ref> s <ref type="bibr" target="#b1">[2]</ref> s <ref type="bibr" target="#b2">[3]</ref> t <ref type="bibr" target="#b0">[1]</ref> t <ref type="bibr" target="#b1">[2]</ref> t <ref type="bibr" target="#b2">[3]</ref> u <ref type="bibr" target="#b0">[1]</ref> u <ref type="bibr" target="#b1">[2]</ref> u <ref type="bibr" target="#b2">[3]</ref> v <ref type="bibr" target="#b0">[1]</ref> v <ref type="bibr" target="#b1">[2]</ref> v <ref type="bibr" target="#b2">[3]</ref> u Theorem 5. Let B be a first-order expansion of a finitely bounded homogeneous symmetric binary core which pp-defines R 1 : A → B, R 2 : B → A such that B R1,R2 has a non-degenerated component. Then B is not preserved by any chains of quasi directed Jónnson operations.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.2">All non-trivial components are degenerated</head><p>By the results of the previous subsection we may assume that all nontrivial components in B R1,R2 are degenerated. We reduce this situation via Proposition 2 to three simply cases. To this end we need a number of definitions and observations. Besides the •-composition defined earlier, we also define the ⊲⊳-composition of two relations.</p><formula xml:id="formula_64">Definition 18. Let R 1 , R 2 be two quaternary relations, then R 1 ⊲⊳ R 2 is R 3 (x 1 , x 2 , x 3 , x 4 ) ≡ ∃y 1 y 2 R 3 (x 1 , x 2 , y 1 , y 2 ) ∧ R 2 (y 2 , y 1 , x 1 , x 2 ).</formula><p>The following observation may be proved in the exactly same way as Observation 6</p><p>Observation 7. Let R 1 : A → B and R 2 : B → A be complementary implications. Then R 1 ⊲⊳ R 2 is a self-complementary (A → A)-implication.</p><p>We will write (R 1 ⊲⊳ R 2 ) n as a shorthand for the expression ((</p><formula xml:id="formula_65">• • • (((R 1 ⊲⊳ R 2 ) ⊲⊳ R 1 ) ⊲⊳ R 2 ) ⊲⊳ • • • ⊲⊳ R 1 ) • R 2 )</formula><p>where both R 1 and R 2 occur n times. The next observation is analogous to Observation 4. Observation 8. Let R 1 : A → B and R 2 : B → A be complementary relations. Then, for all n ≥ 1 we have both of the following:</p><formula xml:id="formula_66">• S 2n ≡ (R 1 ⊲⊳ R 2 ) n contains an (O, . . . , P)-tuple iff there is a path in B R1,R2 of length 2n from O L to P L ; • S 2n+1 ≡ (R 1 ⊲⊳ R 2 ) n • R 1 contains an (O, . . . , P)-tuple iff there is a path in B R1,R2 of length 2n + 1 from O L to P R .</formula><p>Finally, the next observation resembles Observation 5 with a proof following strictly from a definition of the ⊲⊳-composition. Proof. We first show that</p><formula xml:id="formula_67">Observation 9. Let R 1 : A → B and R 2 : B → C be such that R 1 contains a (A, . . . , B)-tuple t 1 and R 2 contains a (B, . . . , C)-tuple t 2 . Then R 3 := R 1 ⊲⊳ R 2 is a (A → C)-</formula><formula xml:id="formula_68">FReach L (O L )(x 1 , x 2 ) ≡ ∃y 1 y 2 O(y 1 , y 2 ) ∧ R 3 (y 1 , y 2 , x 1 , x 2 )</formula><p>where</p><formula xml:id="formula_69">R 3 ≡ (R 1 ⊲⊳ R 2 ) n</formula><p>with n being the number of all orbitals in A. By Observation 8, a binary relation defined by a formula above contains all orbitals P such that there is a path from O L to P L in B R1,R2 of length 2n. It is easy to see that if there is any path from O L to P L , then it is of length 2n or of even length smaller than 2n. Since there is a path of length two from O L to O R and back, the formula above defines FReach L (O L ). A proof for FReach R (O R ) is the same we just swap R 1 with R 2 . For BReach P (O P ) we just need to invert the direction of arrows. Therefore we first set R ′ i (x 1 , x 2 , x 3 , x 4 ) ≡ R i (x 4 , x 3 , x 2 , x 1 ) for i ∈ <ref type="bibr" target="#b1">[2]</ref>. Now, in order to define BReach L (O L ) we use the above formula where R 1 , R 2 are replaced with R ′ 2 , R ′ 1 . For BReach R (O R ) we replace in the above formula R 1 , R 2 with R ′ 1 , R ′ 2 . One of the cases tht come up in Proposition 2 is related to the connectedness of a quaternary relation defined as follows.</p><p>Definition 19. We say that a quaternary relation</p><formula xml:id="formula_70">R is connected if B R,R ′ is connected where R ′ (x 1 , x 2 , x 3 , x 4 ) ≡ R(x 4 , x 3 , x 2 , x 1 ).</formula><p>Recall that a quaternary tuple t is partially-free if (t <ref type="bibr" target="#b0">[1]</ref>, t <ref type="bibr" target="#b3">[4]</ref>) ∈ N. We are now ready for the proposition. Proof. Since A = B without loss of generality we can assume that there exists an orbit C ⊆ B \ A. Let D-degenerated component for some orbital D be so that there is a path in B R1,R2 from C to D but there is no path from C to D that goes through another degenerated non-trivial component -we will say that the D-degenerated component is directly above C. In a similar manner, let a E-degenerated component be a one directly below C. We say that π is a direct path from</p><formula xml:id="formula_71">E L to D L in B R1,R2 if it is of the form O 1 L , O 2 R , . . . , O 2k−1 L , O 2k R , O 2k+1 L in B R1,R2 such that O 1 is E, O 2k+1 is D and for all i ∈ [2k] we have that R 1 contains a (O i , . . . , O i+1 )-tuple t i if i is odd and that R 2 contains a (O i , . . . , O i+1</formula><p>)-tuple t i if i is even. We also require that all t i perhaps with an exception of 1 and 2k are non-degenerated. The sentence of tuples t i associated with π will be denoted with τ . The essential length of π is the number of non-degenerated tuples in τ . It is 2k, 2k − 1 or 2k − 2.</p><p>Choose now a direct path π from E L to D L in B R1,R2 of the largest essential length. Since there is one going through C R which is different than both E and D, the essential length of the chosen π is at least 2.</p><p>First consider the case where all non-degenerated tuples in τ are essentially ternary. By Observations 8, 7 and 9, it follows that (R 1 ⊲⊳ R 2 ) k is a self-complementary (A → A)-implication and contains an essentially ternary (E, . . . , D)-tuple. Set a new relation</p><formula xml:id="formula_72">R ′ (x 1 , x 2 , x 3 ) ≡ R(x 1 , x 2 , x 2 , x 3 ) ∧ x 2 = x 3 ∧ C(x 1 , x 2 ) ∧ D(x 2 , x 3 ) where C = FReach L (E L ) ∩ BReach L (D L ) and D = FReach R (E R ) ∩ BReach R (D R ).</formula><p>It is easy to see that the only non-trivial components of R ′ are a D-degenerated and an E-degenerated component and thereby R ′ is a ternary self-complementary (D → D)-implication that contains all tuples required in Case 2.</p><p>Observe also that the same reasoning works when either R 1 or R 2 has an essentially ternary (E, . . . , D)tuple. Thus, from now on we assume that neither of these tuples is present in any of these relations and that τ contains at least one essentially quaternary tuple.</p><p>Consider now the case where there are at least two essentially quaternary tuples in τ . By Observations 6 and 5 we have that R ≡ (R 1 • R 2 ) k is a self-complementary (A → A)-implication which contains a fully free (E, . . . , D)-tuple. Since C / ∈ A, by Observation 3, we have that B R1,R2 has at least three pairwise different O i -degenerated components and two of them are in the (A, A)-subgraph. The same holds for B R,R . Without loss of generality assume that the (O 1 , O 1 )-component is maximal in the (A, A)-subgraph,</p><formula xml:id="formula_73">(O 2 , O 2 ) is minimal in the (A, A)-subgraph and (O 3 , O 3 ) is minimal in the ((Π 1,2 (R) \ A), (Π 1,2 (R) \ A))- subgraph of B R,R . Now, if O 3 is</formula><p>anti-reflexive, then we are in Case 3 already when we see R as a selfcomplementary (A → A)-implication. Otherwise, we are in Case 3 with R seen as a self-complementary (O 1 → O 1 )-implication.</p><p>The last case is where all but one non-degenerated tuple in τ are essentially ternary. First we assume that π is of essential length at least 3. Thus, there must be three consecutive tuples t i , t i+1 , t i+2 of τ such that at least one of them is essentially quaternary and two remaining are essentially ternary. By Observation 5 we have what follows. If there is j ∈ {0, 1} such that t i+j is essentially quaternary, t i+j+1 is essentially ternary and O i+j+2 is not = or there is j ∈ <ref type="bibr" target="#b1">[2]</ref> such that t i+j is essentially quaternary, t i+j−1 is essentially ternary and O i+j−1 is not =, then R 1 • R 2 in case i is odd or R 2 • R 1 in case i is even contains a partially-free tuple. Otherwise one of two cases holds:</p><p>• t i is essentially quaternary, t i+1 essentially ternary and O i+2 is =, or • t i+2 is essentially quaternary, t i+1 essentially ternary and O i+1 is =.</p><p>Again, by Observation 5, we have that either R 1 • R 2 or R 2 • R 1 has an essentially quaternary tuple. Clearly neither O i+3 in the first case nor O i in the second is =. Furthermore both t i+2 in the first case and t i in the second case are essentially ternary. It follows that R</p><formula xml:id="formula_74">1 • R 2 • R 1 in a case i is odd or R 2 • R 1 • R 2 if i</formula><p>is even contain a partially free tuple. By Observations 6, 4 and 5, the relation R ≡ (R 1 • R 2 ) k is a self-complementary (A → A)-implication that contains a partially-free tuple. It is also easy to see that all non-trivial degenerated components in B R1,R2 are also in B R,R . By Observation 3 we have that the former as well as the latter graph has at least three pairwise different O i -degenerated components so that two of them are in (A, A). Now, we complete the reasoning exactly in the same way as in the previous case.</p><p>The only case left to be considered is when τ has exactly two non-degenerated tuples. In particular we can assume that a direct path from E L to D L that goes through C R is of essential length 2. Thus we have a (E, . . . , C)-tuple in R 1 and a (C, . . . , D)-tuple in R 2 . One of these tuples is essentially ternary and the other is essentially quaternary. Without loss of generality assume that the former is essentially ternary. Observe now that R</p><formula xml:id="formula_75">′ 1 (x 1 , x 2 , x 3 , x 4 ) ∧ x 2 = x 3 ∧ C(x 1 , x 2 ) ∧ D(x 3 , x 4 ) where C = FReach L (E L )∩BReach L (D L ) and D = FReach R (E R )∩BReach R (D R</formula><p>) contains a non-degenerated tuple. In order to complete the proof of the proposition we will show that R ′ 1 is not connected, i.e.,the graph B R,R ′ where R ′ (x 1 , x 2 , x 3 , x 4 ) ≡ R(x 4 , x 3 , x 2 , x 1 ) is not connected, in particular that there is no path from E L to D R . Observe that it is enough to show that there is no sequence of tuples t 1 , . . . , t 2k+1 such that t i is a (O i , . . . , O i+1 )-tuple in R 1 when i is odd and such that t i is a (O i+1 , . . . , O i )-tuple in R ′ 1 when i is even and such that O 1 is D and O 2k is E. Recall that R 1 has no (E, . . . , D)-tuple and hence k &gt; 1. It follows that there is a (P, . . . , P ′ )-tuple in R 1 with P ⊆ FReach L (E L )∩BReach L (D L ) and P ′ ⊆ FReach L (E L )∩BReach L (D L ) and such that {P, P ′ } ∩ {E, D} = ∅. It implies that there is a direct path from E L do D L that goes through P L , P ′ R . It has to be of essential length at least 3 which contradicts the assumption. We have that one of the three cases in the formulation of the propositions follows.</p><p>We will now show that in every case from the formulation of Proposition 2, the structure B is not preserved by a chain of quasi directed Jonsson operations. Lemma 3. Let B be a first-order reduct of a finitely bounded homogenous symmetric binary core whose age has free amalgamation. If B pp-defines a quaternary relation R which is not connected and which contains a non-degenerated (A, . . . , B)-tuple, then B is not preserved by any chain of quasi directed Jonsson operations.</p><p>Proof. Let R ′ (x 1 , x 2 , x 3 , x 4 ) ≡ R(x 4 , x 3 , x 2 , x 1 ), and let (A, B)-component be a component of B R,R ′ such that A ⊆ A and B ⊆ B. Since R is not connected, it is a (A → B)-implication, R ′ is a (B → A)-implication and R, R ′ are complementary. Since (A, B) is non-degenerated it follows by Theorem 5 that B is not preserved by any chain of quasi directed Jónsson operations.</p><p>We now turn to Case 2 in the formulation of Proposition 2. Lemma 4. Let B be a first-order expansion of a finitely bounded homogeneous symmetric binary core whose age has free amalgamation. If B pp-defines a ternary self-complementary relation R : A → A which contains: Proof. The proof goes along the lines of similar proofs in the previous subsection. Except for a trivial case of (3, 3)-constant pairs of triples, we use Definition 17 only for ([3], <ref type="bibr" target="#b1">[2]</ref>)-constant and ([3], {2, 3})-constant pairs u, v of triples in A satisfying AAB and ABB respectively with a difference to the original definition such that (v <ref type="bibr" target="#b1">[2]</ref>, v <ref type="bibr" target="#b2">[3]</ref>) ∈ D in the first case and (v <ref type="bibr" target="#b0">[1]</ref>, v <ref type="bibr" target="#b1">[2]</ref>) ∈ D in the second case. There is a (B, D, A)-tuple t in R, and hence both kinds of (U, V )-constant pairs of triples mentioned above exist in A.</p><formula xml:id="formula_76">t[1] t[2] t[3] u[1] u[2] u[3] v[1] v[2] v[3] u ′ [2]</formula><p>We assume on the contrary that there is a chain (D 1 , . . . , D n ) of quasi directed Jónsson operations preserving B and R. We show that it contradicts the fact that Pol(B) preserves A which is pp-definable . Claim 3. For all i ∈ [n] we have both of the following.</p><p>• For all ([3], <ref type="bibr" target="#b1">[2]</ref>)-constant pairs of triples (u, v) in A satisfying AAB(u, v) we have that (D i (u), D i (v)) ∈ A.</p><p>• For all ([3], {2, 3})-constant pairs of triples (u, v) in A satisfying ABB(u, v) we have that (D i (u), D i (v)) ∈ A.</p><p>Proof. We prove the claim by the induction on i ∈ [n].</p><p>(BASE CASE) For the first bullet we start with a ([3], <ref type="bibr" target="#b1">[2]</ref>)-constant pair of triples (u, v) in A satisfying AAB(u, v). If we replace v with v ′ which is identical to v with a difference that v ′</p><formula xml:id="formula_77">[3] = v[2]. It is clear that (u, v ′ ) is a ([3], [<label>3</label></formula><p>])-constant pair of triples in A satisfying AAA, and hence (D</p><formula xml:id="formula_78">1 (u), D 1 (v ′ )) ∈ A. By (1) we have D 1 (v ′ ) = D 1 (v). It follows (D 1 (u), D 1 (v)) ∈ A.</formula><p>For the second bullet in the formulation of the claim, we start with a ([3], {2, 3})-constant pair of triples (u, v) satisfying ABB(u, v) and extend it with t ∈ A 3 as pictured in Figure <ref type="figure" target="#fig_12">8</ref>. Observe that no new elements are needed, and hence the extension is trivial. Indeed, we have that t</p><formula xml:id="formula_79">[1] = t[2] = v[2] and t[3] = v[3]. There also exists u ′ identical with u with a difference that u ′ [2] = u[2] so that • a 1 = (t[1], u[1], v[1]) is a (A, =, A)-tuple in R, • a 2 = (t[2], u ′ [2], v[2]</formula><p>) is a (B, D, A)-tuple in R, and</p><formula xml:id="formula_80">• a 3 = (t[3], u[3], v[3]) is a (B, =, B)-tuple in R.</formula><p>Indeed, since the age of A has free amalgamation we have that there are a, b, c, d ∈ A such that (a, b, c) is a (A, D, B)-tuple, (a, d, c) is a (B, D, A)-tuple and (b, d) ∈ N. If α is an automorphism of A sending (t <ref type="bibr" target="#b1">[2]</ref>, u <ref type="bibr" target="#b1">[2]</ref>, v <ref type="bibr" target="#b1">[2]</ref>) to (a, b, c), then we may take α −1 (d) for u ′ <ref type="bibr" target="#b1">[2]</ref>.</p><p>By the first bullet we have that (D 1 (t), D 1 (u)) ∈ A, by ( <ref type="formula">2</ref>) that (D 1 (t), D 1 (u ′ )) ∈ A. Since R is a (A → A)-implication, it follows that (D 1 (u ′ , v)) ∈ A and (D 1 (u, v)) ∈ A. It completes the proof of the base case.</p><p>t <ref type="bibr" target="#b0">[1]</ref> t <ref type="bibr" target="#b1">[2]</ref> t <ref type="bibr" target="#b2">[3]</ref> u <ref type="bibr" target="#b0">[1]</ref> u <ref type="bibr" target="#b1">[2]</ref> u <ref type="bibr" target="#b2">[3]</ref> v <ref type="bibr" target="#b0">[1]</ref> v <ref type="bibr" target="#b1">[2]</ref> v <ref type="bibr" target="#b2">[3]</ref> u ′ For the final step of the proof of the lemma consider a ( <ref type="bibr" target="#b2">[3]</ref>, <ref type="bibr" target="#b2">[3]</ref>)-constant pair of triples u, v satisfying BBB(u, v) and t ∈ A 3 so that u, t forms a ({2, 3}, <ref type="bibr" target="#b2">[3]</ref>)-constant pair of triples satisfying ABB(u, v) as in Figure <ref type="figure" target="#fig_13">9</ref>. By the assumption we have that there is a (B, D, A)-tuple (c, a, b) in A. Set α to be an automorphism of A sending (a, b) to (u <ref type="bibr" target="#b0">[1]</ref>, v <ref type="bibr" target="#b0">[1]</ref>). Observe that we may take (α(c), α(b), α(b)) for t.</p><p>Let now u ′ be as u with a difference that u ′ [1] satisfying</p><formula xml:id="formula_81">• a 1 = (t[1], u ′ [1], v[1]</formula><p>) is a (B, D, A)-tuple,</p><p>• a 2 = (t <ref type="bibr" target="#b1">[2]</ref>, u <ref type="bibr" target="#b1">[2]</ref>, v <ref type="bibr" target="#b1">[2]</ref>) is a (B, =, B)-tuple, and</p><p>• a 3 = (t <ref type="bibr" target="#b2">[3]</ref>, u <ref type="bibr" target="#b2">[3]</ref>, v <ref type="bibr" target="#b2">[3]</ref>) is a (B, =, B)-tuple.</p><p>as well as (u ′ [1], u[i]) ∈ N for i ∈ {2, 3}. Again, we use the fact that the age of A has free amalgamation in order to see that there are a, b, c, d ∈ A such that (a, b, c) is a (A, D, B)-tuple, (a, d, c) is a (B, D, A)-tuple and (b, d) ∈ N. Sending (t <ref type="bibr" target="#b0">[1]</ref>, u <ref type="bibr" target="#b0">[1]</ref>, v <ref type="bibr" target="#b0">[1]</ref>) by an automorphism α to (a, b, c) we get that u ′ [1] is α −1 (d). Thus, it exists. By (4) we have that (D n (t), D n (u ′ )) ∈ A. Since all a i with i ∈ <ref type="bibr" target="#b2">[3]</ref> are in R and R is a (A → A)implication, it follows that (D n (u ′ ), D n (v)) ∈ A. Again, by (4), we have (D n (u), D n (v)) ∈ A. It contradicts the assumption that D n preserves B and completes the proof of the lemma.</p><p>We finally turn to the third case in Proposition 2. Proof. Again, we assume on the contrary that there is a chain (D 1 , . . . , D n ) of quasi directed Jónsson operations preserving B and R and as usual we show that it contradicts the fact that Pol(B) preserves all orbitals.</p><p>In contrast to the proof of Lemma 4, we use the original version of Definition 17. We provide a claim as usual.</p><p>Claim 4. For all i ∈ [n] we have both of the following.</p><p>s <ref type="bibr" target="#b0">[1]</ref> s <ref type="bibr" target="#b1">[2]</ref> s <ref type="bibr" target="#b2">[3]</ref> t <ref type="bibr" target="#b0">[1]</ref> t <ref type="bibr" target="#b1">[2]</ref> t <ref type="bibr" target="#b2">[3]</ref> u <ref type="bibr" target="#b0">[1]</ref> u <ref type="bibr" target="#b1">[2]</ref> u <ref type="bibr" target="#b2">[3]</ref> v <ref type="bibr" target="#b0">[1]</ref> v <ref type="bibr" target="#b1">[2]</ref> v <ref type="bibr" target="#b2">[3]</ref> t ′ • For all ([3], <ref type="bibr" target="#b1">[2]</ref>)-constant pairs of triples (u, v) in A satisfying AAB(u, v) we have that (D i (u), D i (v)) ∈ A.</p><p>• For all ([3], {2, 3})-constant pairs of triples (u, v) in A satisfying ABB(u, v) we have that (D i (u), D i (v)) ∈ A.</p><p>Proof. We prove the claim by the induction on i ∈ [n].</p><p>(BASE CASE) The first bullet is a special case of what we proved for Claim 1. For the second bullet consider a ( <ref type="bibr" target="#b2">[3]</ref>, {2, 3})-constant pair of triples u, v in A satisfying ABB(u, v) and a ([3], <ref type="bibr" target="#b1">[2]</ref>)-constant pair of triples s, t satisfying AAB(t, s) as in Figure <ref type="figure" target="#fig_15">10</ref>. Observe that all values in vectors s, t are already in u, v and hence s, t exist.</p><p>We will now show that there exist t ′ , u ′ identical to t, u but with a difference that t ′ [2], u ′ <ref type="bibr" target="#b1">[2]</ref> are new and such that</p><p>• a 1 = (s <ref type="bibr" target="#b0">[1]</ref>, t <ref type="bibr" target="#b0">[1]</ref>, u <ref type="bibr" target="#b0">[1]</ref>, v <ref type="bibr" target="#b0">[1]</ref>) is a (A, A, =, =, A, A)-tuple,  <ref type="bibr" target="#b1">[2]</ref>, t <ref type="bibr" target="#b1">[2]</ref>, v <ref type="bibr" target="#b1">[2]</ref>), then we take α −1 (d) for t ′ [2] and α −1 (e) for u ′ <ref type="bibr" target="#b1">[2]</ref>.</p><p>By the first item we have that (D 1 (s), D 1 (t)) ∈ A. By (2), it follows that (D 1 (s), D 1 (t ′ )) ∈ A Since a i ∈ R for i ∈ <ref type="bibr" target="#b2">[3]</ref> we have (D 1 (u ′ ), D 1 (v)) ∈ A. By (2), we have that (D 1 (u), D 1 (v)) ∈ A, which was to be proved. It completes the proof for the base case.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>(INDUCTION STEP)</head><p>The first bullet we prove exactly like in the proof of Claim 1, and the second bullet as in the base case.</p><p>In the final step, as usual, we show that under the working assumptions there is a (3, 3)-constant part of triples (u, v) satisfying BBB such that (D n (u), D n (v)) ∈ A. We provide the reasoning analogous to reasoning in the proof of the claim with a difference that we use Figure <ref type="figure" target="#fig_17">11</ref> instead of Figure <ref type="figure" target="#fig_15">10</ref>.</p><p>We will now conclude Section 4.2 by a theorem which follows directly from Proposition 2 and Lemmas 3, 4 and 5. Theorem 6. Let B be a first-order expansion of a finitely bounded homogeneous symmetric binary core which pp-defines complementary implications R 1 : A → B and R 2 : B → A with A = B and such that every non-trivial component of B R1,R2 is degenerated. Then B is not preserved by any chains of quasi directed Jónnson operations.</p><p>s <ref type="bibr" target="#b0">[1]</ref> s <ref type="bibr" target="#b1">[2]</ref> s <ref type="bibr" target="#b2">[3]</ref> t <ref type="bibr" target="#b0">[1]</ref> t <ref type="bibr" target="#b1">[2]</ref> t <ref type="bibr" target="#b2">[3]</ref> u <ref type="bibr" target="#b0">[1]</ref> u <ref type="bibr" target="#b1">[2]</ref> u <ref type="bibr" target="#b2">[3]</ref> v <ref type="bibr" target="#b0">[1]</ref> v <ref type="bibr" target="#b1">[2]</ref> v <ref type="bibr" target="#b2">[3]</ref> t ′ <ref type="bibr" target="#b1">[2]</ref> u ′ </p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Proposition 1 .</head><label>1</label><figDesc>Let B be a first-order expansion of a finitely bounded homogeneous symmetric binary core whose age has free amalgamation. If B pp-defines complementary implications R 1 : A → B, R 2 : B → A such that B R1,R2 contains a non-trivial non-degenerated component. Then R pp-defines a self-complementary R : A → A such that R contains • a (A, N, N, N, N, A)-tuple for some A ⊆ A and • a (B, N, N, N, N, B)-tuple or a (B, B, =, =, B, B)-tuple for some B A.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>Lemma 1 .</head><label>1</label><figDesc>Let B be a first-order expansion of a finitely bounded homogeneous symmetric binary core A whose age has free amalgamation. If B pp-defines a quaternary self-complementary relation R : A → A. which contains • a (A, N, N, N, N, A)-tuple and • a (B, N, N, N, N, B)-tuple, for two different orbitals A ⊆ A and B A, then R is not preserved by any chain of quasi directed Jónsson operations.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head>Figure 1 :</head><label>1</label><figDesc>Figure 1: A structure in Age(A) needed in the proof of the base case of Claim 1. If both A and B are anti reflexive, then O and P are N. If A is =, then O and P are B. If B is =, then O is A and P is N.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head>Figure 2 :</head><label>2</label><figDesc>Figure2: Since the age of A has free amalgamation over N, it is straightforward to show that there are four vectors s, t, u, v ∈ A 3 and a single additional element u ′<ref type="bibr" target="#b1">[2]</ref> described by the diagram above. By homogeneity of A we may assume that u, v ∈ A 3 are the vectors from the proof of Claim 1. For edges not depicted in the picture the label either follows by the depicted ones and the semi-transitivity of equality or it is N.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_4"><head>Figure 3 :</head><label>3</label><figDesc>Figure 3: Triples s, t, u, v and u ′ used for a final step in the proof of Lemma 1. If it does not follows from the labels in the diagram and the semi-transitivity of equality, all omitted edges are labelled with N.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_5"><head></head><label></label><figDesc>and hence (D 1 (u), D 1 (v)) ∈ A. It completes the base case.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_6"><head>Lemma 2 .</head><label>2</label><figDesc>Let B be a first-order expansion of a finitely bounded homogeneous symmetric binary core A whose age has free amalgamation. If B pp-defines a self-complementary implication R : A → A containing • a (A, N, N, N, N, A)-tuple and • a (B, B, =, = B, B)-tuple, for some orbitals A ⊆ A and B A, then B is not preserved by any chain of quasi directed Jónsson operations.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_7"><head>Figure 4 :</head><label>4</label><figDesc>Figure 4: A substructure of A needed for the proof of the base case of induction in the proof of Claim 2.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_8"><head>Figure 5 :</head><label>5</label><figDesc>Figure 5: Triples u, v, s, t and u ′ which play a role in the proof of the the base case of induction in Claim 2.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_9"><head>Figure 6 :</head><label>6</label><figDesc>Figure 6: Triples u, v, s, t which play a role in the proof of the base case of induction in the proof of Claim 2.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_10"><head>Figure 7 :</head><label>7</label><figDesc>Figure 7: The figure depicts triples s, t, u, v and u ′ used in the final step of the proof of Lemma 2.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_11"><head>Proposition 2 .</head><label>2</label><figDesc>Let B be a first-order expansion of a finitely bounded homogeneous symmetric binary core whose age has free amalgamation. If B pp-defines a pair of complementary implications R 1 : A → B and R 2 : B → A such that A = B and all non-trivial components in B R1,R2 are degenerated, then B pp-defines one of the following: 1. a relation R which is not connected and contains at least one non-degenerated tuple, 2. a ternary self-complementary R : A → A such that B R,R contains a A-degenerated component, a Bdegenerated component for some A ⊆ A, B A and a (B, D, A)-tuple is in R for some anti-reflexive orbital D, 3. a self-complementary R : A → A such that B R,R contains a A-degenerated component, a B-degenerated component for some anti-reflexive A ⊆ A, B A and a partially-free tuple is in R.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_12"><head>Figure 8 :</head><label>8</label><figDesc>Figure 8: The figure needed for a proof of the second item in Claim 3.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_13"><head>Figure 9 :</head><label>9</label><figDesc>Figure 9: A figure which we use in the final step of the proof of Lemma 4.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_14"><head>Lemma 5 .</head><label>5</label><figDesc>Let B be a first-order expansion of a finitely bounded homogeneous symmetric binary core A whose age has free amalgamation. If B pp-defines a self-complementary implication R : A → A such that B R,R contains a A-degenerated component and a B-degenerated component where A ⊆ A and B A are both anti-reflexive and a partially-free (O 11 , O 12 , O 13 , N, O 23 , O 24 , O 34 )-tuple is in R, then B is not preserved by any chain of quasi directed Jónsson operations.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_15"><head>Figure 10 :</head><label>10</label><figDesc>Figure 10: A substructure of A used in the proof of Claim 4.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_16"><head>• a 2</head><label>2</label><figDesc>= (s[2], t ′ [2], u ′ [2], v[2]) is a (O 12 , O 13 , N, O 23 , O 24 , O 34 )-tuple, and • a 3 = (s[3], t[3], u[3], v[3]) is a (B, B, =, = B, B)-tuple. Indeed, since the age of A has free amalgamation there are elements a, b, c, d, e ∈ A such that (a, b, c) is a (A, N, B)-tuple, (a, d, e, c) is a (O 12 , O 13 , N, O 23 , O 24 , O 34 )-tuple and all other orbitals between the elements a, b, c, d, e either follow from semi-transitivity of equality or are N. If α is an automorphism of A sending (a, b, c) to (s</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_17"><head>Figure 11 :5</head><label>11</label><figDesc>Figure 11: A substructure of A used in the final step of the proof of Lemma 5</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_0"><head></head><label></label><figDesc>implication containing a (A, . . . , C)-tuple t 3 which is essentially ternary if both t 1 , t 2 are essentilly ternary.For a vertex O P with P ∈ {L, R} and S ∈ {L, R} we define: FReach S (O P ) = {P S | there is a path in B R1,R2 from O P to P</figDesc><table /><note>S } BReach S (O P ) = {P S | there is a path in B R1,R2 from O P to P S } Observation 10. Let R 1 , R 2 be a pair of complementary relations pp-definable in a first-order expansion of a finitely bounded homogeneous symmetric binary core such that all non-trivial components in B R1,R2 are degenerated and O an orbital such that B R1,R2 contains a non-trivial O-degenerated component, then both FReach P (O P ) and BReach P (O P ) for P ∈ {L, R} are pp-definable in B.</note></figure>
+		</body>
+		<back>
+
+			<div type="acknowledgement">
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>We are ready to prove the main theorem of the paper.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Proof of Theorem 2</head><p>The relational clone of B is clearly either implicationally uniform or not. In the former case the theorem holds by Theorem 4 while in the latter B pp-defines complementary implications R 1 : A → B, R 2 : B → A such that A = B. Now, either B R1,R2 contains a non-trivial non-degenerated component or all non-trivial components of this graph are degenerated. In either case, the structure B is not preserved by any chain of quasi directed Jónsson operations by Theorems 5 or 6.</p></div>
+			</div>
+
+
+			<div type="funding">
+<div xmlns="http://www.tei-c.org/ns/1.0"> *   <p>This author is partially supported by National Science Centre, Poland grant number 2020/37/B/ST6/01179.</p></div>
+			</div>
+
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">Finitely related algebras in congruence distributive varieties have near unanimity terms</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Barto</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Canadian Journal of Mathematics</title>
+		<imprint>
+			<biblScope unit="volume">65</biblScope>
+			<biblScope unit="page" from="3" to="21" />
+			<date type="published" when="2013">2013</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">The collapse of the bounded width hierarchy</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Barto</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">J. Log. Comput</title>
+		<imprint>
+			<biblScope unit="volume">26</biblScope>
+			<biblScope unit="page" from="923" to="943" />
+			<date type="published" when="2016">2016</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">Congruence distributivity implies bounded width</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Barto</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Kozik</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">SIAM J. Comput</title>
+		<imprint>
+			<biblScope unit="volume">39</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="1531" to="1542" />
+			<date type="published" when="2009">2009</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">Constraint satisfaction problems solvable by local consistency methods</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Barto</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Kozik</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">J. ACM</title>
+		<imprint>
+			<biblScope unit="volume">61</biblScope>
+			<biblScope unit="page">19</biblScope>
+			<date type="published" when="2014">2014</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">The algebraic dichotomy conjecture for infinite domain constraint satisfaction problems</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Barto</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Pinsker</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 31st Annual ACM/IEEE Symposium on Logic in Computer Science, LICS &apos;16</title>
+				<editor>
+			<persName><forename type="first">M</forename><surname>Grohe</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">E</forename><surname>Koskinen</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">N</forename><surname>Shankar</surname></persName>
+		</editor>
+		<meeting>the 31st Annual ACM/IEEE Symposium on Logic in Computer Science, LICS &apos;16<address><addrLine>New York, NY, USA</addrLine></address></meeting>
+		<imprint>
+			<publisher>ACM</publisher>
+			<date type="published" when="2016">July 5-8, 2016. 2016</date>
+			<biblScope unit="page" from="615" to="622" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">Complexity of Infinite-Domain Constraint Satisfaction</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Bodirsky</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="s">Lecture Notes in Logic</title>
+		<imprint>
+			<date type="published" when="2021">2021</date>
+			<publisher>Cambridge University Press</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">Datalog and constraint satisfaction with infinite templates</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Bodirsky</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Dalmau</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">J. Comput. Syst. Sci</title>
+		<imprint>
+			<biblScope unit="volume">79</biblScope>
+			<biblScope unit="page" from="79" to="100" />
+			<date type="published" when="2013">2013</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">The complexity of temporal constraint satisfaction problems</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Bodirsky</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Kára</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">J. ACM</title>
+		<imprint>
+			<biblScope unit="volume">57</biblScope>
+			<biblScope unit="page">41</biblScope>
+			<date type="published" when="2010">2010</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">Constraint satisfaction problems for reducts of homogeneous graphs</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Bodirsky</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Martin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Pinsker</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Pongrácz</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">SIAM J. Comput</title>
+		<imprint>
+			<biblScope unit="volume">48</biblScope>
+			<biblScope unit="page" from="1224" to="1264" />
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">A dichotomy for first-order reducts of unary structures</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Bodirsky</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Mottet</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Log. Methods Comput. Sci</title>
+		<imprint>
+			<biblScope unit="volume">14</biblScope>
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">Constraint satisfaction with countable homogeneous templates</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Bodirsky</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Nesetril</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">J. Log. Comput</title>
+		<imprint>
+			<biblScope unit="volume">16</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="359" to="373" />
+			<date type="published" when="2006">2006</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">Schaefer&apos;s theorem for graphs</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Bodirsky</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Pinsker</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">J. ACM</title>
+		<imprint>
+			<biblScope unit="volume">62</biblScope>
+			<biblScope unit="page">52</biblScope>
+			<date type="published" when="2015">2015</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">Homogeneous Structures, A Workshop in Honour of Norbert Sauer&apos;s 70th Birthday</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Bodirsky</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Pinsker</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Contributions to Discrete Mathematics</title>
+		<imprint>
+			<biblScope unit="volume">16</biblScope>
+			<biblScope unit="page" from="36" to="45" />
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+	<note>Canonical Functions: a Proof via Topological Dynamics</note>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">A dichotomy theorem for nonuniform csps</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">A</forename><surname>Bulatov</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">58th IEEE Annual Symposium on Foundations of Computer Science</title>
+				<editor>
+			<persName><forename type="first">C</forename><surname>Umans</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Berkeley, CA, USA</addrLine></address></meeting>
+		<imprint>
+			<publisher>IEEE Computer Society</publisher>
+			<date type="published" when="2017-10-15">2017. October 15-17, 2017 (2017</date>
+			<biblScope unit="page" from="319" to="330" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">Classifying the complexity of constraints using finite algebras</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">A</forename><surname>Bulatov</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Jeavons</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">A</forename><surname>Krokhin</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">SIAM J. Comput</title>
+		<imprint>
+			<biblScope unit="volume">34</biblScope>
+			<biblScope unit="page" from="720" to="742" />
+			<date type="published" when="2005">2005</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<analytic>
+		<title level="a" type="main">Homogeneous Ordered Graphs, Metrically Homogeneous Graphs, and Beyond</title>
+		<author>
+			<persName><forename type="first">G</forename><surname>Cherlin</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="s">Lecture Notes in Logic</title>
+		<imprint>
+			<biblScope unit="volume">2</biblScope>
+			<date type="published" when="2022">2022</date>
+			<publisher>Cambridge University Press</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<analytic>
+		<title level="a" type="main">The computational structure of monotone monadic SNP and constraint satisfaction: A study through datalog and group theory</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Feder</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">Y</forename><surname>Vardi</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">SIAM J. Comput</title>
+		<imprint>
+			<biblScope unit="volume">28</biblScope>
+			<biblScope unit="page" from="57" to="104" />
+			<date type="published" when="1998">1998</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<analytic>
+		<title level="a" type="main">On the complexity of H-coloring</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Hell</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Nešetřil</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Combinatorial Theory, Series B</title>
+		<imprint>
+			<biblScope unit="volume">48</biblScope>
+			<biblScope unit="page" from="92" to="110" />
+			<date type="published" when="1990">1990</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<analytic>
+		<title level="a" type="main">Tractability and learnability arising from algebras with few subpowers</title>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">M</forename><surname>Idziak</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Markovic</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Mckenzie</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Valeriote</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Willard</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">SIAM J. Comput</title>
+		<imprint>
+			<biblScope unit="volume">39</biblScope>
+			<biblScope unit="page" from="3023" to="3037" />
+			<date type="published" when="2010">2010</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<monogr>
+		<title level="m" type="main">Absorption and directed Jónsson terms</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Kazda</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Kozik</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Mckenzie</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Moore</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2018">2018</date>
+			<publisher>Springer International Publishing</publisher>
+			<biblScope unit="page" from="203" to="220" />
+			<pubPlace>Cham</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<analytic>
+		<title level="a" type="main">Countable ultrahomogeneous undirected graphs</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">H</forename><surname>Lachlan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Woodrow</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">TAMS</title>
+		<imprint>
+			<biblScope unit="volume">262</biblScope>
+			<biblScope unit="page" from="51" to="94" />
+			<date type="published" when="1980">1980</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<analytic>
+		<title level="a" type="main">Smooth approximations and relational width collapses</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Mottet</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Nagy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Pinsker</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Wrona</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">48th International Colloquium on Automata, Languages, and Programming, ICALP 2021</title>
+		<title level="s">Schloss Dagstuhl -Leibniz-Zentrum für Informatik</title>
+		<editor>
+			<persName><forename type="first">N</forename><surname>Bansal</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">E</forename><surname>Merelli</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">J</forename><surname>Worrell</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Glasgow, Scotland</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2021">July 12-16, 2021. 2021</date>
+			<biblScope unit="volume">198</biblScope>
+			<biblScope unit="page">20</biblScope>
+		</imprint>
+	</monogr>
+	<note>Virtual Conference</note>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<analytic>
+		<title level="a" type="main">Smooth approximations and csps over finitely bounded homogeneous structures</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Mottet</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Pinsker</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">LICS &apos;22: 37th Annual ACM/IEEE Symposium on Logic in Computer Science</title>
+				<editor>
+			<persName><forename type="first">C</forename><surname>Baier</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">D</forename><surname>Fisman</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Haifa, Israel</addrLine></address></meeting>
+		<imprint>
+			<publisher>ACM</publisher>
+			<date type="published" when="2022">August 2 -5, 2022 (2022</date>
+			<biblScope unit="volume">36</biblScope>
+			<biblScope unit="page">13</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b23">
+	<monogr>
+		<title level="m" type="main">An order out of nowhere: a new algorithm for infinitedomain csps</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Mottet</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Pinsker</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Nagy</surname></persName>
+		</author>
+		<idno>CoRR abs/2301.12977</idno>
+		<imprint>
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b24">
+	<monogr>
+		<title level="m" type="main">Current challenges in infinite-domain constraint satisfaction: Dilemmas of the infinite sheep</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Pinsker</surname></persName>
+		</author>
+		<idno>CoRR abs/2203.17182</idno>
+		<imprint>
+			<date type="published" when="2022">2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b25">
+	<analytic>
+		<title level="a" type="main">The complexity of satisfiability problems</title>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">J</forename><surname>Schaefer</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 10th Annual ACM Symposium on Theory of Computing</title>
+				<editor>
+			<persName><forename type="first">R</forename><forename type="middle">J</forename><surname>Lipton</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">W</forename><forename type="middle">A</forename><surname>Burkhard</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">W</forename><forename type="middle">J</forename><surname>Savitch</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">E</forename><forename type="middle">P</forename><surname>Friedman</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">A</forename><forename type="middle">V</forename><surname>Aho</surname></persName>
+		</editor>
+		<meeting>the 10th Annual ACM Symposium on Theory of Computing<address><addrLine>San Diego, California, USA</addrLine></address></meeting>
+		<imprint>
+			<publisher>ACM</publisher>
+			<date type="published" when="1978">May 1-3, 1978. 1978</date>
+			<biblScope unit="page" from="216" to="226" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b26">
+	<analytic>
+		<title level="a" type="main">A strong Mal&apos;cev condition for varieties omitting the unary type</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">H</forename><surname>Siggers</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Algebra Universalis</title>
+		<imprint>
+			<biblScope unit="volume">64</biblScope>
+			<biblScope unit="page" from="15" to="20" />
+			<date type="published" when="2010">2010</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b27">
+	<analytic>
+		<title level="a" type="main">On the relational width of first-order expansions of finitely bounded homogeneous binary cores with bounded strict width</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Wrona</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">LICS &apos;20: 35th Annual ACM/IEEE Symposium on Logic in Computer Science</title>
+				<editor>
+			<persName><forename type="first">H</forename><surname>Hermanns</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">L</forename><surname>Zhang</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">N</forename><surname>Kobayashi</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">D</forename><surname>Miller</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Saarbrücken, Germany</addrLine></address></meeting>
+		<imprint>
+			<publisher>ACM</publisher>
+			<date type="published" when="2020">July 8-11, 2020 (2020</date>
+			<biblScope unit="page" from="958" to="971" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b28">
+	<analytic>
+		<title level="a" type="main">Relational width of first-order expansions of homogeneous graphs with bounded strict width</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Wrona</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">37th International Symposium on Theoretical Aspects of Computer Science, STACS 2020</title>
+		<title level="s">Schloss Dagstuhl -Leibniz-Zentrum für Informatik</title>
+		<editor>
+			<persName><forename type="first">C</forename><surname>Paul</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">M</forename><surname>Bläser</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Montpellier, France</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2020">March 10-13, 2020. 2020</date>
+			<biblScope unit="volume">154</biblScope>
+			<biblScope unit="page">16</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b29">
+	<analytic>
+		<title level="a" type="main">A proof of the CSP dichotomy conjecture</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Zhuk</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">J. ACM</title>
+		<imprint>
+			<biblScope unit="volume">67</biblScope>
+			<biblScope unit="page">78</biblScope>
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>
