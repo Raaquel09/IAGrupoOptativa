@@ -47,11 +47,9 @@ Necesitamos:
 6 Tener los scripts necesarios para que el cliente funcione correctamente.
 
 
-Lista de requisitos del sistema o dependencias necesarias para ejecutar el proyecto.
 
 
 # Instrucciones de Instalación
-Pasos detallados sobre cómo instalar el proyecto y configurar las dependencias necesarias.
 
 1 Preparar un entorno para comprobar que los scripts funcionan.
 Si queremos hacerlo en Python, habría que entrar en el siguiente enlace e instalarse la versión correspondiente al dispositivo de cada uno.
@@ -287,7 +285,7 @@ Resultado:salidaLinksXml5678910.json
 Los ficheros.json de salida están en la carpeta soluciones xmls.
 
 # Dónde Obtener Ayuda
-Información sobre dónde encontrar ayuda en caso de problemas o preguntas sobre el proyecto. Puede incluir enlaces a documentación adicional, foros de discusión, o formas de contacto directo con el equipo de desarrollo.
+
 
 ## Repositorio de Grobid
 https://github.com/kermitt2/grobid
