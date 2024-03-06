@@ -10,32 +10,40 @@ Zenodo - DOI: https://zenodo.org/doi/10.5281/zenodo.10783171
 
 El proyecto se basa en el manejo de programas escritos en el lenguaje de programación Python y en como se pueden ejecutar en local, con Grobid y Docker.
 Tenemos tres tareas a realizar y de cada una de ellas hay dos versiones del script:
-1 La que ejecutaremos en nuestro entorno local para comprobar que funciona correctamente.
+
+1 La que ejecutaremos en nuestro entorno local para comprobar que funciona correctamente(procesa pdfs).
 
 2 Hace lo mismo pero lleva incluido el código correspondiente para que funcione con el cliente de Python para Grobid.
+O procesa los xmls que nos da la aplicación de Grobid.
 
 ## WordCloud
-Crea una nube de palabras basada en la información que obtiene de un pdf.
-El resultado es una figura.
+Crea una nube de palabras basada en la información que obtiene de un pdf/xml.
+El resultado es una imagen.png
 
 ## NumberOfFigures
-Dibuja un gráfico en el que se ve cuantas figuras tiene cada pdf.
-El resultado es una figura.
+Dibuja un gráfico en el que se ve cuantas figuras tiene cada pdf/xml.
+El resultado es una imagen.png
 
 ## ListOfLinks
-Crea una lista de los links que encuentra en un pdf.
-El resultado es una lista que devuelve por consola en formato json.
+Crea una lista de los links que encuentra en un pdf/xml.
+El resultado es una lista en un fichero.json
 
 
 # Requisitos
 
 Para que este proyecto funcione hay que instalarse una serie de cosas que explicaremos más adelante como hacerlo.
 Necesitamos:
+
 1 Un entorno de python para ejecutar los scripts y comprobar que funciona (también se puede en un entorno virtual como podría ser conda).
+
 2 Las librerías correspondientes a lo que nos pidan los scripts.
+
 3 Instalar Docker.
+
 4 Instalar Grobid (es más fácil hacerlo una vez ya nos hemos instalado Docker).
+
 5 Preparar el cliente de Python para Grobid.
+
 6 Tener los scripts necesarios para que el cliente funcione correctamente.
 
 
@@ -102,7 +110,7 @@ http://localhost:8070/
 Una vez dentro seleccionamos TEI, ponemos la opción Process Fulltext Document, elegimos el pdf que queremos usar y le damos a submit.
 Cuando termine nos habrá generado un fichero.xml, lo descargamos y ese será el fichero que tendrá que procesar nuestro script.
 
-En este caso vamos a hacer lo segundo, es decir, darle como parametro al script el xml general por Grobid.
+En este caso vamos a hacer lo segundo, es decir, darle como parametro al script el xml generado por Grobid.
 
 6 Tener los scripts necesarios para que el cliente funcione correctamente.
 Para que el script se pueda conectar con el cliente es necesario introducir las siguientes líneas de código en nuestro script de Python:
@@ -123,7 +131,9 @@ Y también necesitaremos el fichero config.json (está incluido en el repositori
 
 ## Ejecución en local
 1 Abrimos una terminal donde se encuentra el proyecto.
+
 2 Situarnos en la carpeta en la que tengamos el proyecto.
+
 3 python nombreFichero.py salida.png ejemplo1.pdf ejemplo2.pdf
 En el caso de los links la salida es un fichero.json
 
@@ -190,20 +200,27 @@ Los ficheros.json de salida están en la carpeta soluciones pdfs.
 
 ## Ejecución con Grobid
 En este caso vamos a hacerlo con el cliente de Python para Grobid.
+
 1 Abrimos una terminal donde se encuentra el proyecto.
+
 2 Si no tenemos todavía la imagen de Grobid descargada la descargamos.
 docker pull lfoppiano/grobid:0.7.2 (esto es la versión que quieras tener, si pones lastest se instalará la última)
+
 3 Lanza el servidor de Grobid con Docker.
 docker run -t --rm -p 8070:8070 lfoppiano/grobid:0.7.2 (esto es la versión que quieras tener, si pones lastest se instalará la última)
+
 4 Accede a Grobid para comprobar que se ha conectado correctamente.
 http://localhost:8070/
+
 Como vamos a hacerlo con los xml generados por Grobid:
 Le damos a la opción TEI
 Ponemos la opción Process Fulltext Document
 Elegimos el pdf que queremos usar 
 Le damos a submit
 Y descargamos el xml
+
 5 Abrimos otra terminal donde se encuentra el proyecto.
+
 6 python nombreFichero.py imagenSalida.png ejemplo1.xml ejemplo2.xml
 En el caso de los links la salida es un fichero.json
 
