@@ -1,0 +1,630 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Uniformly global observables for 1D maps with an indifferent fixed point</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+				<date type="published" when="2024-05-09">9 May 2024</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Giovanni</forename><surname>Canestrari</surname></persName>
+							<email>canestrari@mat.uniroma2.it.</email>
+							<affiliation key="aff0">
+								<orgName type="department">Scuola di Dottorato in Matematica</orgName>
+								<orgName type="institution">Università di Roma Tor Vergata</orgName>
+								<address>
+									<addrLine>Via della Ricerca Scientifica 1</addrLine>
+									<postCode>00133</postCode>
+									<settlement>Roma</settlement>
+									<country key="IT">Italy</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Marco</forename><surname>Lenci</surname></persName>
+							<email>marco.lenci@unibo.it</email>
+							<affiliation key="aff1">
+								<orgName type="department">Dipartimento di Fisica e Astronomia</orgName>
+								<orgName type="institution">Università di Bologna</orgName>
+								<address>
+									<addrLine>Via Irnerio 46</addrLine>
+									<postCode>40126</postCode>
+									<settlement>Bologna</settlement>
+									<country key="IT">Italy</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff2">
+								<orgName type="department">Istituto Nazionale di Fisica Nucleare</orgName>
+								<orgName type="institution">Sezione di Bologna</orgName>
+								<address>
+									<addrLine>Viale Berti Pichat 6/2</addrLine>
+									<postCode>40127</postCode>
+									<settlement>Bologna</settlement>
+									<country key="IT">Italy</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Uniformly global observables for 1D maps with an indifferent fixed point</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date type="published" when="2024-05-09">9 May 2024</date>
+						</imprint>
+					</monogr>
+					<idno type="MD5">D5D641E45C088E98E8140E68C5CA571E</idno>
+					<idno type="arXiv">arXiv:2405.05948v1[math.DS]</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.2" ident="GROBID" when="2024-05-12T15:27+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>
+					<term>Mathematics Subject Classification (2020): 37A40</term>
+					<term>37A25</term>
+					<term>37E05</term>
+					<term>37D25</term>
+					<term>37C25 infinite ergodic theory</term>
+					<term>global-local mixing</term>
+					<term>infinite-volume mixing</term>
+					<term>one-dimensional maps</term>
+					<term>intermittent maps</term>
+					<term>non-uniformly expanding maps</term>
+				</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>We study the property of global-local mixing for full-branched expanding maps of either the half-line or the interval, with one indifferent fixed point. Global-local mixing expresses the decorrelation of global vs local observables w.r.t. to an infinite measure µ. Global observables are essentially bounded functions admitting an infinite-volume average, i.e., a limit for the average of the function over bigger and bigger intervals; local observables are integrable functions (both notions are relative to µ). Of course, the definition of global observable depends on the exact definition of infinite-volume average. The first choice for it would be to consider averages over the entire space minus a neighborhood of the indifferent fixed point (a.k.a. the "point at infinity"), in the limit where such neighborhood vanishes. This is the choice that was made in previous papers on the subject. The classes of systems for which global-local mixing was proved, with this natural choice of global observables, are ample but not really general. In this paper we consider uniformly global observables, i.e., L ∞ functions whose averages over any interval V converges to a limit, uniformly as µ(V ) → ∞. Uniformly global observables form quite an extensive subclass of all global observables. We prove global-local mixing in the sense of uniformly global observables, for two truly general classes of expanding maps with one indifferent fixed point, respectively on R + 0 and on (0, 1]. The technical core of the proofs is rather different from previous work.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1">Introduction</head><p>In the context of infinite ergodic theory, the notion of global-local mixing involves two types of observable functions: local observables and global observables.</p><p>If (M, A , µ, T ) is a dynamical system where (M, A , µ) is a σ-finite, infinite measure space and T : M −→ M is surjective, bi-measurable, and non-singular w.r.t. µ, a local observable is a function f ∈ L<ref type="foot" target="#foot_0">1</ref> (M, A , µ).</p><p>The notion of global observable requires a definition of infinite-volume average, which is given as follows. Let V be an exhaustive family, that is, a collection of sets V ∈ A , with µ(V ) &lt; ∞, containing at least an increasing sequence (V k ) k∈N such that k V k = M. The infinite-volume limit V ∋ V ↗ M is defined to be the uniform limit for V ∈ V , as µ(V ) → ∞. In particular, a function F : M −→ R is said to have infinite-volume average µ V (F ), w.r.t. V and µ, if the following limit µ V (F ) := lim</p><formula xml:id="formula_0">V ∋V ↗M 1 µ(V ) V F dµ (1.1)</formula><p>exists, which means that</p><formula xml:id="formula_1">lim r→∞ sup V ∈V µ(V )≥r 1 µ(V ) V F dµ − µ V (F ) = 0. (1.2)</formula><p>A global observable is an essentially bounded function admitting an infinite-volume average, that is, an element of</p><formula xml:id="formula_2">G V (M, A , µ) := {F ∈ L ∞ (M, A , µ) | ∃µ V (F )} . (1.3)</formula><p>This space will be henceforth referred to as the (maximal) space of global observables, relative to V and µ. 1</p><p>Convention. From now on we will abbreviate all notation such as G V (M, A , µ), L ∞ (M, A , µ), etc. to G V , L ∞ , etc. Should certain dependences need to be specified we might write G V (µ), L ∞ (µ), etc.</p><p>The definitions of infinite-volume mixing <ref type="bibr">[L1, L3]</ref> concern the decorrelation properties of global and local observables. Given subspaces G ⊆ G V , L ⊆ L 1 , we say that T (endowed with the measure µ) is global-local mixing w.r.t. V , G and L if</p><formula xml:id="formula_3">∀F ∈ G, ∀g ∈ L, lim n→∞ µ((F • T n )g) = µ V (F ) µ(g),</formula><p>(1.4)</p><p>with the standard notation µ(g) := M g dµ. The reasons one may want/need to restrict the class of global and local observables, respectively, to strict subspaces of G V and L 1 has to do with the truth and feasibility of the sought result. In general, if possible, one would like to show that T is global-local mixing w.r.t. V , G V and L 1 . We refer to this property as full global-local mixing, relative to V . An equivalent way to introduce definition (1.4) is as follows:</p><formula xml:id="formula_4">∀F ∈ G, ∀g ∈ L, g ≥ 0, µ(g) = 1, lim n→∞ T n * µ g (F ) = µ V (F ), (1.5)</formula><p>where µ g is the measure determined by dµg dµ = g and T * is the push-forward operator for T acting on measures. This formulation makes it apparent that global-local mixing defines a sort of "convergence to equilibrium" for a class of probability measures, where the infinite-volume average plays the role of the limit measure and the global observables play the role of test functions. This seems reasonable in all cases where the dynamics tends to spread trajectories all over an infinite-measure space, and so the evolution of probability measures cannot have a limit in any standard measure-theoretic way <ref type="bibr" target="#b9">[L1,</ref><ref type="bibr" target="#b11">L3,</ref><ref type="bibr" target="#b13">L5,</ref><ref type="bibr" target="#b0">BGL1,</ref><ref type="bibr" target="#b1">BGL2,</ref><ref type="bibr" target="#b2">BL,</ref><ref type="bibr" target="#b6">DN,</ref><ref type="bibr" target="#b7">GHR1]</ref>.</p><p>Global observables are also used in the context of global-global mixing, another notion of 'infinite-volume mixing' that was devised in <ref type="bibr">[L1]</ref> (see also <ref type="bibr" target="#b10">[L2,</ref><ref type="bibr" target="#b13">L5,</ref><ref type="bibr" target="#b6">DN,</ref><ref type="bibr" target="#b23">TZ1,</ref><ref type="bibr" target="#b24">TZ2]</ref>), and for the question of pointwise convergence of Birkhoff averages in infinite measure <ref type="bibr">[LM, DLN, BS]</ref>. In infinite ergodic theory, there exist other definitions related to mixing <ref type="bibr">[S, DS]</ref>, including the so-called Hopf-Krickeberg mixing (a short list of recent papers in this area include <ref type="bibr" target="#b15">[MT,</ref><ref type="bibr" target="#b17">P,</ref><ref type="bibr" target="#b18">PT,</ref><ref type="bibr" target="#b8">GHR2]</ref>, see also references therein).</p><p>Expanding maps with a sufficiently flat indifferent fixed point are paradigmatic examples of dynamical systems with an infinite measure. For the reasons set forth earlier, they are generally expected to be global-local mixing (though not global-global mixing, as their "mixing region" is essentially of finite measure in an infinite-measure space <ref type="bibr" target="#b0">[BGL1]</ref>).</p><p>In this paper we consider full-branched expanding maps defined either on (0, 1] or on R + 0 , with a single indifferent fixed point respectively in 0 or at ∞ (the latter case meaning that T (x) ∼ x, as x → +∞). Their infinite-volume mixing properties were studied in <ref type="bibr" target="#b0">[BGL1,</ref><ref type="bibr" target="#b2">BL]</ref> (and partly in <ref type="bibr" target="#b1">[BGL2]</ref>). In <ref type="bibr" target="#b0">[BGL1]</ref> global-local mixing was proved for a class of maps of the interval with an increasing and a decreasing branch (plus certain generalizations) and for a class of maps of the half-line with finitely or infinitely many increasing branches, which preserve the Lebesgue measure (plus certain generalizations). In <ref type="bibr">[BL]</ref> global-local mixing was proved for two classes of maps, of the interval and the half-line respectively, with finitely or infinitely many increasing branches: in the case of the interval, the most relevant assumption was a certain growth condition on the branches of the map; in the case of the half-line, the analogue of such condition was still assumed, though it was much more natural, and no assumption was made on the preservation of the Lebesgue measure. The maps studied in <ref type="bibr" target="#b0">[BGL1]</ref> include the Fairy map and the ones studied in <ref type="bibr">[BL]</ref> include the classical Pomeau-Manneville maps and the Liverani-Saussol-Vaienti maps.</p><p>For all the above maps, the authors proved full global-local mixing relative to the exhaustive families</p><formula xml:id="formula_5">V min := {[a, 1] | 0 &lt; a &lt; 1} , for the case M = (0, 1]; {[0, a] | a &gt; 0} ,</formula><p>for the case M = R + 0 .</p><p>(1.6)</p><p>In both cases, V min is essentially the smallest exhaustive family one can take, if it is to include an increasing sequence of finite-measure sets covering M (whence the notation). Therefore G V min is essentially the largest class of global observables within the framework presented earlier. Since L 1 is also the largest class of local observables within the theory, full global-local mixing w.r.t. V min is the most general result of its type.</p><p>That said, the state of the art is not quite satisfactory, as the classes of maps investigated so far are not as general as one expects global-local mixing to hold for. Here we prove global-local mixing for two general classes of maps, on (0, 1] and R + 0 , respectively, admitting increasing and decreasing full branches, though we slightly restrict the class of global observables. We consider in fact uniformly global observables, that is, global observables relative to the exhaustive families</p><formula xml:id="formula_6">V unif := {[a, b] | 0 &lt; a &lt; b ≤ 1} , for the case M = (0, 1]; {[a, b] | 0 ≤ a &lt; b} , for the case M = R + 0 .</formula><p>(1.7)</p><p>In view of definitions (1.1)-(1.3), this means that averaging one of these observables over any interval with large enough measure will result in a uniformly good approximation of the infinite-volume average. Understandably, G V unif is a strict subspace of G V min . For example, in the case M = R + 0 and µ = m, the Lebesgue measure, it is easy to check that lim</p><formula xml:id="formula_7">r→+∞ 1 r r 0 cos √ x dx = 0, (1.8)</formula><p>while, for all r &gt; 0, sup / inf</p><formula xml:id="formula_8">a∈R + 0 1 r a+r a cos √ x dx = ±1, (1.9) implying that F (x) := cos √ x belongs to G V min but not to G V unif .</formula><p>Uniformly global observables have been previously studied, together with other classes of global observables, in more general contexts than the present one, cf. <ref type="bibr">[DN, DLN]</ref>.</p><p>For the classes of maps we consider, cf. Sections 2.2 and 2.3, we prove full globallocal mixing for uniformly global observables. The technique of the proofs is different from what was used so far: the main tools in <ref type="bibr" target="#b0">[BGL1,</ref><ref type="bibr" target="#b1">BGL2,</ref><ref type="bibr" target="#b2">BL]</ref> were the so-called persistently monotonic local observables, that is, monotonic L 1 functions which maintain their monotonicity when acted upon by the dynamics (namely, by the corresponding transfer operator). Persistently monotonic local observables form an invariant convex cone in L 1 . Here we also use dynamics-invariant cones of local observables, but of a different nature, related to the logarithmic derivative of the observables.</p><p>Here is an outline of the paper: In Section 2 we first introduce the class of uniformly global observables, for both the case of the half-line and of the unit interval, discussing the dependence of their infinite-volume average on the measure defined on the system. Then we define our maps and state the main results, most notably the full global-local mixing for uniformly global observables, w.r.t. relevant equivalence classes of measures. Section 3 contains the core proofs.</p><p>Acknowledgments. This research was partially supported by the PRIN Grant 2017S35EHN of the Ministry of University and Research (MUR), Italy. It is also part of the authors' activity within the DinAmicI community (www.dinamici.org) and within the Gruppo Nazionale di Fisica Matematica, INdAM, Italy. C. G. was also partially supported by the MUR Excellence Department Projects MatMod@TOV and Math@TOV, awarded to the Department of Mathematics, Università di Roma Tor Vergata. Both authors acknowledge the hospitality of the Simons Center for Geometry and Physics at Stony Brook University, where part of this research was carried out.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2">Setup</head><p>For the rest of the paper we will lighten the notation and write V := V unif and G unif (µ) := G V unif (M, B, µ), cf. (1.7) and (1.3), where (M, B) is either R + 0 or (0, 1], endowed with its respective Borel σ-algebra, and µ is an infinite, locally finite measure there. In other words, G unif (µ) is in either case the class of all uniformly global observables, that is, essentially bounded functions F : M −→ R for which there exists µ(F</p><formula xml:id="formula_9">) := µ V unif (F ) such that lim r→∞ sup [a,b]∈Vµ(r) 1 r b a F dµ − µ(F ) = 0, (2.1)</formula><p>having introduced the notation</p><formula xml:id="formula_10">V µ (r) := {[a, b] ∈ V | µ([a, b]) = r} . (2.2) (Notice that (2.1)-(2.</formula><p>2) are equivalent to (1.2).) The Lebesgue measure, in whichever space, will always be denoted by m.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.1">Dependence of the infinite-volume average on the global observable and on the measure</head><p>Let us make some simple observations on the dependence of µ(F ) on F and µ. Setting ω := 0, for the case M = (0, 1]; +∞, for the case M = R + 0 ,</p><p>(2.3) we see that ω is the only "point at infinity" for the measure µ, in the sense that the complement of every neighborhood of ω has finite measure (by the assumptions on µ).</p><p>It is not hard to see that only the values of F around ω count for its infinite-volume average:</p><formula xml:id="formula_11">Proposition 2.1 If F ∈ G unif (µ), G ∈ L ∞ (M, µ) and G(x) − F (x) → 0, as x → ω, then G ∈ G unif (µ) and µ(G) = µ(F ).</formula><p>To prove this proposition it will be convenient to have a notation for the neighborhoods of ω, which will be used in other parts of the paper as well. For M ∈ M, let</p><formula xml:id="formula_12">U M := (0, M ),</formula><p>for the case M = (0, 1]; (M, +∞), for the case M = R + 0 .</p><p>(2.4)</p><p>Proof of Proposition 2.1. By possibly using F − µ(F )1 in lieu of F , where 1(x) ≡ 1, we can always assume µ(F</p><formula xml:id="formula_13">) = 0. Given ε &gt; 0, fix M such that |G − F | ≤ ε/3 in U M .</formula><p>Then, for all r &gt; 0 and</p><formula xml:id="formula_14">V ∈ V µ (r), V G dµ ≤ V \U M |G| dµ + V ∩U M G dµ ≤ ∥G∥ ∞ µ(V \ U M ) + V ∩U M F dµ + ε 3 µ(V ∩ U M ) ≤ (∥G∥ ∞ + ∥F ∥ ∞ ) µ(V \ U M ) + V F dµ + ε 3 r.</formula><p>(2.5)</p><p>Now, dividing by r and taking the sup for V ∈ V µ (r), we see that, for all sufficiently large r, the first term of the above r.h.s. can be made smaller or equal to ε/3 (since</p><formula xml:id="formula_15">µ(V \ U M ) ≤ µ(M \ U M ) &lt; ∞)</formula><p>, and the same for the second term (since µ(F ) = 0, see (2.1)).</p><p>Q.E.D.</p><p>Focusing instead on the dependence of the infinite-volume average on the measure, we have:</p><formula xml:id="formula_16">Proposition 2.2 If µ, ν are two infinite, locally finite measures on M with ν ≪ µ and dν dµ (x) → c ̸ = 0, for x → ω, then ν = µ, in the sense that G unif (ν) = G unif (µ) and ν(F ) = µ(F ) for all F ∈ G unif (ν). Proof. Let us first show that µ is a restriction of ν, meaning that G unif (µ) ⊆ G unif (ν) and, for all F ∈ G unif (µ), ν(F ) = µ(F ). Fix F ∈ G unif (µ). By Proposition 2.1, as V ↗ M, V F dν = µ(V ) 1 µ(V ) V F dν dµ dµ ∼ µ(V )c µ(F ), (2.6)</formula><p>where ∼ denotes exact asymptotics. Using 1 in place of F in the above, one also has that ν(V ) ∼ µ(V )c. Since the limit of the ratio equals the ratio of the limits for our uniform limit V ↗ M as well, our initial claim is proved.</p><p>As for the proof that ν is a restriction of µ, one uses that dν dµ &gt; 0 in a neighborhood U M of ω, where dµ dν</p><formula xml:id="formula_17">(x) = dν dµ (x) −1 → c −1 , (2.7)</formula><p>as x → ω. So one applies the first part of this proof with U M , ν| U M , µ| U M in place of M, µ, ν, respectively. The sought assertion follows from the fact that, by Proposition 2.1, the infinite-volume averages of F 1 U M and F , relative to either µ or ν, exist together and are the same (here 1 U M is the indicator function of U M ).</p><p>Q.E.D.</p><p>Remark 2.3 The above assertion was already proved for general global observables, i.e., functions in G V min , cf. <ref type="bibr" target="#b2">[BL,</ref><ref type="bibr">Rmk. 2]</ref>, but that result does not imply Proposition 2.2.</p><p>Proposition 2.2 is actually implied by a more complicated result which gives fairly general sufficient conditions for µ to be a restriction of ν: Proposition 2.4 Let µ, ν be two infinite, locally finite measures on M with µ ≈ ν (i.e., µ and ν are mutually absolutely continuous). If, for all sufficiently large r &gt; 0, lim</p><formula xml:id="formula_18">M →ω sup V ∈Vµ(r) V ⊆U M sup V dν dµ inf V dν dµ −1 − 1 = 0,<label>(2.8)</label></formula><p>and sup</p><formula xml:id="formula_19">V ∈Vµ(r) ν(V ) &lt; ∞, (2.9)</formula><p>then µ is a restriction of ν.</p><p>The proof of this proposition is given in Section 3.</p><p>Remark 2.5 In the case where µ ≈ m, ν ≈ m, with dµ dm , dν dm ∈ C 1 , the assumption (2.8) of Proposition 2.4 is implied by the following condition, that is somehow easier to check in applications:</p><formula xml:id="formula_20">lim x→ω d dx dν dµ (x) dν dm (x) = 0.</formula><p>(2.10)</p><p>In fact, for any given r &gt; 0 and M ∈ M, let us consider V ∈ V µ (r), V ⊂ U M , as in (2.8), and let x max and x min denote two points in V where dν dµ attains its maximum and minimum, respectively. Denoting the ordinary derivative with the usual apostrophe, we have log sup</p><formula xml:id="formula_21">V dν dµ − log inf V dν dµ = xmax x min dν dµ ′ dν dµ −1 dm ≤ V dν dµ ′ dν dµ dµ dm −1 dµ ≤ sup U M dν dµ ′ dν dm −1 r, (2.11)</formula><p>which, for fixed r, vanishes as M → ω, by (2.10). The uniformity in V of the above limit readily implies (2.8).</p><p>The previous propositions apply to the question of global-local mixing by means of the following simple lemma, which applies to a general dynamical system, as introduced in Section 1.</p><p>Lemma 2.6 Suppose that ν ≪ µ are two measures on M and G is a space of global observables, for the exhaustive family V , where ν V and µ</p><formula xml:id="formula_22">V coincide. If (T, µ) is global- local mixing w.r.t. V , G and L 1 (µ), then (T, ν) is global-local mixing w.r.t. V , G and L 1 (ν). Proof. Take F ∈ G and g ∈ L 1 (ν). Clearly, g dν dµ ∈ L 1 (µ). So, for n → ∞, ν((F • T n )g) = µ (F • T n ) g dν dµ → µ V (F ) µ g dν dµ = ν V (F ) ν(g).</formula><p>(2.12)</p><formula xml:id="formula_23">Q.E.D.</formula><p>We are going to state our main theorem separately for the cases M = R + 0 and M = (0, 1]. It will be morally the same result in both cases, but the two theorems will not be equivalent. Obviously, by means of a suitable conjugation Ψ : (0, 1] −→ R + 0 (say a smooth, decreasing function with a non-integrable singularity in 0), one can always view a dynamical system (R + 0 , B R + 0 , µ, T ) as the system ((0, 1],</p><formula xml:id="formula_24">B (0,1] , µ o , T o ), with µ o := Ψ −1 * µ and T o := ψ −1 • T • ψ,</formula><p>whence a theorem for the former system can be rewritten as a theorem for the latter system, and viceversa. But the assumptions on the map in one case can become quite cumbersome when "translated" in terms of its conjugate (this occurs, for instance, for the expansivity of the map, which is not necessarily preserved by a conjugation of the above type); hence the convenience of stating a different theorem for each case.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.2">Maps of the half-line</head><formula xml:id="formula_25">Let T : R + 0 −→ R + 0 a Markov map w.r.t. the partition {I j } N −1 j=0</formula><p>, where I 0 = (a 1 , +∞) and</p><formula xml:id="formula_26">I j = (a j+1 , a j ), for j = 1, . . . , , N − 1. Here 0 = a N &lt; a N −1 &lt; • • • &lt; a 1 ∈ R + 0 .</formula><p>Clearly, {I j } is a partition only up to a Lebesgue-null set, a subtlety that we shall henceforth forget. Assume the following:</p><p>(A1) T | I j is a bijective map onto R + , and has an extension τ j which is defined on [a 1 , +∞) (for j = 0), or [a j+1 , a j ) or (a j+1 , a j ] (for j ≥ 1, depending on τ j being increasing or decreasing, respectively). The branch τ j is C 2 (this means up to the closed endpoint of its domain).</p><p>(A2) There exists Λ &gt; 1 such that |τ ′ j | ≥ Λ, for all j ≥ 1. Also, τ ′ 0 &gt; 1 and lim</p><formula xml:id="formula_27">x→+∞ τ ′ 0 (x) = 1. (A3) lim x→+∞ τ ′′ 0 (x) τ ′ 0 (x) − 1 = 0.</formula><p>(A4) For all j ≥ 1, either lim</p><formula xml:id="formula_28">x→a − j τ ′′ j (x) (τ ′ j (x)) 2 = 0 or lim x→a + j+1 τ ′′ j (x) (τ ′ j (x)</formula><p>) 2 = 0, depending on τ j being increasing or decreasing, respectively.</p><p>(A5) T is exact w.r.t. m, the Lebesgue measure on R + 0 . Remark 2.7 In [BGL1, App. A] it is shown that, under the assumptions (A1)-( <ref type="formula">A4</ref>) and (A5)' The function u(x) := x − τ 0 (x) is positive, convex and vanishing (hence decreasing), as x → +∞. Furthermore, u ′′ is decreasing (hence vanishing),</p><p>T is exact w.r.t. m. (In fact, Theorem A.1 of <ref type="bibr" target="#b0">[BGL1]</ref> proves that, under such assumptions and the existence of an invariant measure µ, mutually absolutely continuous with m, T is conservative and exact. But this last assumption is only needed for the conservativity of T .)</p><formula xml:id="formula_29">Theorem 2.8 A map T satisfying (A1)-(A5) is fully global-local mixing, relative to m, w.r.t. V = V unif .</formula><p>For the convenience of the reader we recall that the above statement means that T is global-local mixing for the Lebesgue measure, relative to all uniformly global observables and all integrable local observables. An immediate consequence of Theorem 2.8 is that T is global-local mixing for a large class of other measures, though not fully, but relative to a large subclass of uniformly global observables (and all integrable local observables).</p><p>Corollary 2.9 Let q ∈ (0, 1] and ν ≪ m on R + 0 with dν dm bounded and dν dm (x) ∼ x −q , as x → +∞. Under the same hypotheses as Theorem 2.8, m is a strict restriction of ν and</p><formula xml:id="formula_30">(R + 0 , B, ν, T ) is global-local mixing w.r.t. V , G unif (m) and L 1 (ν).</formula><p>Proof of Corollary 2.9. Let us denote by λ q the measure with dλq dm (x) = (x+1) −q . By Proposition 2.4 and Remark 2.5, m is a restriction of λ q . On the other hand, by Proposition 2.2, ν = λ q , so m is a restriction of ν. To show that it is a strict restriction, it suffices to produce a global observable in G unif (λ q ) \ G unif (m). For q ∈ (0, 1), the function F q (x) := cos((x + 1) 1−q ) does the job because, for all a ∈ R + 0 and r &gt; 0, 1 r a+r a F q dλ q = sin((a + r + 1) 1−q ) − sin((a + 1) 1−q ) r(1 − q) , (2.13) implying that F q ∈ G unif (λ q ) with λ q (F q ) = 0. For q = 1, one can take instead F 1 (x) := cos(log(x + 1)). For all a ∈ R + 0 and r &gt; 0, 1 r a+r a F 1 dλ 1 = sin(log(a + r + 1)) − sin(log(a + 1)) r , (2.14) implying again that F 1 ∈ G unif (λ 1 ) with λ 1 (F 1 ) = 0. On the other hand, for every q ∈ (0, 1] and r &gt; 0, clearly</p><formula xml:id="formula_31">lim sup / lim inf a→+∞ 1 r a+r a F q dm = ±1, (2.15) whence F q ̸ ∈ G unif (m).</formula><p>The global-local mixing of (R + 0 , B, ν, T ) w.r.t. V , G unif (m) and L 1 (ν) follows from Theorem 2.8 via Lemma 2.6, applied with G = G unif (m).</p><p>Q.E.D.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.3">Maps of the unit interval</head><p>We now consider maps T : (0, 1] −→ (0, 1] which are Markov for the partition {I j } N −1 j=0 , where I j = (a j , a j+1 ) and 0 = a 0 &lt; a 1 &lt; . . . &lt; a N −1 &lt; a N = 1. Once again, we mention now and then no more that {I j } is only a partition mod m, which here denotes the Lebesgue measure on (0, 1]. These are the assumptions on T :</p><p>(B1) T | I j is a bijective map onto (0, 1), and has a C 2 extension τ j : [a j , a j+1 ] −→ [0, 1] (this means that τ j is C 2 up to the boundary of its domain).</p><p>(B2) There exists Λ &gt; 1 such that |τ ′ j | ≥ Λ, for all j ≥ 1. Also, τ ′ 0 (ξ) &gt; 1, for all ξ ∈ (0, a 1 ].</p><p>(B3) As ξ → 0 + , T ′ (ξ) = 1 + χξ p + o(ξ p ), for some p ≥ 1 and χ &gt; 0.</p><p>(B4) T is exact w.r.t. m (again, the Lebesgue measure on (0, 1]).</p><p>Remark 2.10 It was proved in <ref type="bibr">[T2]</ref> that, assuming (B1)-(B2), τ ′ 0 (0) = 1 (which is part of (B3)) and (B4)' T ′′ &gt; 0 in a neighborhood of 0, T is conservative and exact (w.r.t. m). Moreover, assuming (B1)-(B3), and (B4)', there exists a unique T -invariant measure µ such that dµ dm (ξ) ∼ ξ −p , for ξ → 0 + . This comes from <ref type="bibr">[T3, §1]</ref>, since (B3) implies that</p><formula xml:id="formula_32">T (ξ) = ξ + χ p + 1 ξ p+1 + o(ξ p+1 );</formula><p>(2.16) cf. also <ref type="bibr">[T1]</ref> and <ref type="bibr" target="#b2">[BL,</ref><ref type="bibr">Thm. 2.1]</ref>.</p><p>The above remark shows how the measure λ p , defined by</p><formula xml:id="formula_33">dλ p dm (ξ) = 1 ξ p , (2.17)</formula><p>is especially relevant for maps satisfying (B3). The next theorem, which is the main result of this section, reflects this. The case p = 1 presents certain issues that lead us to consider instead (uniformly) global observables for the measure λ 1+ , defined by</p><formula xml:id="formula_34">dλ 1+ dm (ξ) = − log ξ ξ .</formula><p>(2.18)</p><p>Theorem 2.11 Let T be a map satisfying (B1)-(B4). If p &gt; 1, then T with λ p is fully global-local mixing w.r.</p><formula xml:id="formula_35">t. V = V unif . If p = 1, then T with λ 1 is global-local mixing w.r.t. V = V unif , G unif (λ 1+ ) and L 1 (λ 1 ).</formula><p>Remark 2.12 The purpose of λ 1+ is simply to have a measure whose singularity at 0 is slightly stronger than 1/ξ. The specific form (2.18) is unimportant, except that it behaves well with the many technical arguments of the proof of Theorem 2.11 (Section 3.3). Notice that the case p = 1 was also special for the main theorem of <ref type="bibr">[BL]</ref> (Thm. 2.4) about general global observables.</p><p>Our study of the restrictions of infinite-volume averages shows that, if T is fully global-local mixing for λ p , p &gt; 1, then it is global-local mixing, though not fully, for many other measures, including λ q , for 1 ≤ q &lt; p.</p><p>Corollary 2.13 For 1 ≤ q &lt; p, let ν be an infinite, locally finite measure, absolutely continuous w.r.t. the Lebesgue measure m, with dν dm (ξ) ∼ ξ −q , as ξ → 0 + . Then λ p is a strict restriction of ν. Furthermore, under the same hypotheses as in Theorem 2.11,</p><formula xml:id="formula_36">((0, 1], B, ν, T ) is global-local mixing w.r.t. V , G unif (λ p ) and L 1 (ν).</formula><p>Proof. Using Proposition 2.4 and Remark 2.5, it is easy to see that λ p is a restriction of λ q , and by Proposition 2.2 the same holds for ν. To show that the restriction is strict, it suffices to produce a global observable in G unif (λ q ) \ G unif (λ p ). For q &gt; 1, we may take the function F q (ξ) := cos(ξ −q+1 ), because, for all [a, b] ⊂ (0, 1],</p><formula xml:id="formula_37">1 λ q ([a, b]) b a F q dλ q = sin(a −q ) − sin(b −q ) λ q ([a, b]) q , (2.19)</formula><p>implying that F q ∈ G unif (λ q ), with λ q (F q ) = 0. On the other hand, let r &gt; 0 and p) . In particular, c ∼ rb p , for b → 0 + . Therefore, since q &lt; p, the function F q is approximately constant on V b , when b is very close to 0, giving</p><formula xml:id="formula_38">V b = [b − c, b] ⊂ (0, 1], such that λ p (V b ) = r. A simple calculation shows that c = b − (b 1−p + r(p − 1)) 1/(1−</formula><formula xml:id="formula_39">lim sup / lim inf b→0 + 1 r V b F q dλ p = ±1.</formula><p>(2.20)</p><p>For q = 1, a similar argument holds for the global observable F 1 (ξ) := cos(log(ξ −1 )), yielding that G unif (λ 1 ) \ G unif (λ p ) is non-empty for all p &gt; 1.</p><p>The global-local mixing of ((0, 1], B, ν, T ) as in the statement of the corollary follows once again from Lemma 2.6 (with G = G unif (λ p )).</p><p>Q.E.D.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3">Proofs</head><p>In this section we prove our main results and Proposition 2.4, that was left behind. We start with the latter.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.1">Proof of Proposition 2.4</head><p>Let F ∈ G unif (µ) and, without loss of generality, assume that µ(F ) = 0. We want to prove that ν(F ) exists and equals 0.</p><p>Let us start by noting that, for any</p><formula xml:id="formula_40">V ∈ V , V F dν dµ dµ − ν(V ) µ(V ) V F dµ = V F dν dµ − ν(V ) µ(V ) dµ ≤ ∥F ∥ ∞ sup V dν dµ − inf V dν dµ µ(V ) = ∥F ∥ ∞ sup V dν dµ inf V dν dµ −1 − 1 µ(V ) inf V dν dµ ,<label>(3.1)</label></formula><p>where we have used that, for any</p><formula xml:id="formula_41">x ∈ V , dν dµ (x) − ν(V ) µ(V ) = dν dµ (x) − 1 µ(V ) V dν dµ dµ ≤ sup V dν dµ − inf V dν dµ . (3.2)</formula><p>Dividing both sides by ν(V ) and using that µ(V ) inf V dν dµ ≤ ν(V ), we have the following inequality that we will use later,</p><formula xml:id="formula_42">1 ν(V ) V F dν − 1 µ(V ) V F dµ ≤ ∥F ∥ ∞ sup V dν dµ inf V dν dµ −1 − 1 . (3.3)</formula><p>Fix ε &gt; 0. Since µ(F ) = 0, there exists r = r(ε) &gt; 0 so large that sup</p><formula xml:id="formula_43">V ∈Vµ(r) 1 r V F dµ ≤ ε 4 (3.4)</formula><p>and (2.8)-(2.9) hold. So, by (2.8), there exists M ∈ M such that, for all</p><formula xml:id="formula_44">V ∈ V µ (r), V ⊂ U M , sup V dν dµ inf V dν dµ −1 − 1 ≤ ε 4∥F ∥ ∞ . (3.5)</formula><p>For R &gt; 0, which one should think of as much larger than r, let us consider W ∈ V ν (R). Partition W into adjacent intervals V 0 , V 1 , . . . , V l , from left to right in the case M = R + 0 , and from right to left in the case M = (0, 1], such that µ(V i ) = r, for i = 1, . . . , l, and µ(V 0 ) ≤ r; see Fig. <ref type="figure" target="#fig_0">1</ref>. Let l ′ be the smallest integer between 1 and l such that</p><formula xml:id="formula_45">V l ′ ⊂ U M . Of course, V i ⊂ U M for all i ≥ l ′ . Now write W F dν = l ′ −1 i=0 V i F dν + l i=l ′ V i F dν.</formula><p>(3.6) For i ≥ l ′ , since</p><formula xml:id="formula_46">V i ⊂ U M , 1 ν(V i ) V i F dν − 1 µ(V i ) V i F dµ ≤ ε 4 , (3.7)</formula><p>where we have used (3.3) and (3.5). The estimate (3.7), together with (3.4) and the fact that</p><formula xml:id="formula_47">V i ∈ V µ (r), implies that, for all i ≥ l ′ , V i F dν ≤ ν(V i ) ε 2 . (3.8)</formula><p>As for the other terms in the r.h.s. of (3.6), observe that</p><formula xml:id="formula_48">l ′ −1 i=0 V i F dν ≤ ∥F ∥ ∞ ν(M \ U M ) + sup V ∈Vµ(r) ν(V ) , (3.9) having estimated | V l ′ −1 F dν| ≤ ∥F ∥ ∞ sup V ∈Vµ(r) ν(V ).</formula><p>Notice that this estimate, and thus (3.9), also holds in the case l</p><formula xml:id="formula_49">′ = 1, because µ(V 0 ) ≤ r. Setting R = 2 ε ∥F ∥ ∞ ν(M \ U M ) + sup V ∈Vµ(r) ν(V ) (3.10)</formula><p>one has that for any R ≥ R, the l.h.s. of (3.9) does not exceed Rε/2. This fact, (3.6) and (3.9) imply that, for all R ≥ R and</p><formula xml:id="formula_50">W ∈ V ν (R), W F dν ≤ Rε 2 + ε 2 l i=l ′ ν(V i ) ≤ Rε, (3.11)</formula><p>which is what was to be proved.</p><p>Q.E.D.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.2">Proof of Theorem 2.8</head><p>Here and for the rest of the paper we denote by ϕ j := τ −1 j the inverse branches of T , for both cases M = R + 0 and M = (0, 1]. We begin the proof of Theorem 2.8 with a number of simple lemmas on the properties of the branches and inverse branches of T .</p><formula xml:id="formula_51">Lemma 3.1 For j ≥ 1, either lim x→a − j τ ′ j (x) = +∞ or lim x→a + j+1 τ ′ j (x) = −∞, depending on</formula><p>τ j being increasing or decreasing, respectively.</p><p>Proof. Let us denote with x → • either limit x → a − j or x → a + j+1 , depending on the two cases τ ′ j &gt; 0 or τ ′ j &lt; 0, as in the statement of the lemma. By (A4),</p><formula xml:id="formula_52">lim x→• 1 τ ′ j (x) ′ = 0. (3.12)</formula><p>Therefore 1/τ ′ j (x) has a limit, for x → •, in R. Then, so does τ ′ j (x), in R ∪ {±∞} (because τ ′ j never changes sign). The fact that τ j is monotonic and surjective onto R + 0 forces the conclusion of the lemma.</p><p>Q.E.D.</p><p>Lemma 3.2 For all j, sup</p><formula xml:id="formula_53">R + 0 |ϕ ′′ j | |ϕ ′ j |(1 − |ϕ ′ j |) &lt; ∞. (3.13) Furthermore, lim x→+∞ ϕ ′′ 0 (x) ϕ ′ 0 (x)(1 − ϕ ′ 0 (x)) = 0 (3.14)</formula><p>and, for all j ≥ 1,</p><formula xml:id="formula_54">lim x→+∞ ϕ ′ j (x) = lim x→+∞ ϕ ′′ j (x) ϕ ′ j (x) = 0. (3.15) Proof. Since ϕ ′ j = 1 τ ′ j • ϕ j and ϕ ′′ j = − τ ′′ j (τ ′ j ) 3 • ϕ j , one gets |ϕ ′′ j | |ϕ ′ j | (1 − |ϕ ′ j |) = |τ ′′ j | |τ ′ j | (|τ ′ j | − 1) • ϕ j . (3.16)</formula><p>Let us prove (3.13) for j = 0. From (A1)-(A3), the function</p><formula xml:id="formula_55">|τ ′′ 0 | τ ′ 0 (τ ′ 0 −1) is continuous on [a 0 , +∞) (observe that τ ′</formula><p>0 &gt; 1 up to and including a 0 ) and vanishes at +∞, implying that (3.16) is bounded for j = 0. In addition, (A3) gives (3.14).</p><p>For the case j ≥ 1, let us rewrite the r.h.s. of (3.16) as </p><formula xml:id="formula_56">|τ ′′ j | |τ ′ j | 2 1 − 1 |τ ′ j | • ϕ j . (3.17) Since |τ ′ j | ≥ Λ &gt; 1,</formula><formula xml:id="formula_57">ϕ ′ j = − τ ′′ j (τ ′ j ) 2 • ϕ j ,<label>(3.18)</label></formula><p>(3.15) follows from Lemma 3.1 and (A4).</p><p>Q.E.D.</p><p>Lemma 3.3 For x ∈ I 0 , τ 0 (x) &lt; x.</p><p>Proof. If the claim is false, there must exist a ∈ I 0 such that τ 0 (a) = a. Since τ ′ 0 &gt; 1, it follows that τ 0 (x) &gt; x, for all x &gt; a. Thus, chosen some x 0 &gt; a and denoted x 1 := T (x 0 ), we have that x 1 &gt; x 0 and {T n [x 0 , x 1 )} n∈N is a partition of [x 0 , +∞). This contradicts the exactness of T via the so-called Miernowski-Nogueira criterion <ref type="bibr">[MN]</ref>.</p><p>(See Appendix A.1 of <ref type="bibr">[L4]</ref> for a generalization of said criterion. In the language of that reference, [x 0 , x 1 ) is not asymptotically intersecting and therefore T cannot be exact.)</p><formula xml:id="formula_58">Q.E.D.</formula><p>Let us introduce the main objects that will be used in the proof of Theorem 2.8:</p><formula xml:id="formula_59">Cones of local observables: For M, D, ε &gt; 0, set C M,D,ε := g ∈ L 1 (R + 0 , m) ∩ C 1 (R + 0 ) g &gt; 0, |g ′ | g ≤ D and |g ′ (x)| g(x) ≤ ε, ∀x ≥ M . (3.19) This is a cone, in the sense that g ∈ C M,D,ε and c &gt; 0 implies cg ∈ C M,D,ε . Transfer operator: We define T : L 1 (m) −→ L 1 (m) via the identity ∀F ∈ L ∞ (m), g ∈ L 1 (m), R + 0 (F • T )g dm = R + 0 F T g dm.</formula><p>(3.20)</p><p>In this case, where the reference measure is the Lebesgue measure, T is also referred to as the Perron-Frobenius operator and its explicit formula is notoriously:</p><formula xml:id="formula_60">T g = N −1 j=0 |ϕ ′ j | (g • ϕ j ) = N −1 j=0 σ j ϕ ′ j (g • ϕ j ), (3.21)</formula><p>where σ j := sgn(ϕ ′ j ) (recall that ϕ j is monotonic). Now set</p><formula xml:id="formula_61">D := max 0≤j≤N −1 sup R + 0 |ϕ ′′ j | |ϕ ′ j | (1 − |ϕ ′ j |) , (3.22)</formula><p>which is finite by Lemma 3.2. The following result is a crucial statement that says that the dynamics preserves densities that are "almost flat at infinity".</p><formula xml:id="formula_62">Lemma 3.4 Let D ≥ D. For all ε &gt; 0, there exists M &gt; 0 such that T C M,D,ε ⊆ C M,D,ε . Proof. Let g ∈ C 1 , g &gt; 0.</formula><p>We first establish the inequality <ref type="bibr">(3.23)</ref> that will be used repeatedly in the present proof. A simple computation out of (3.21) yields</p><formula xml:id="formula_63">|( T g) ′ | ≤ max j ϕ ′′ j ϕ ′ j + |(g ′ • ϕ j )ϕ ′ j | g • ϕ j T g,</formula><formula xml:id="formula_64">( T g) ′ = N −1 j=0 σ j ϕ ′′ j (g • ϕ j ) + σ j (ϕ ′ j ) 2 (g ′ • ϕ j ) . (3.24)</formula><p>If in each of the above summands we divide and multiply the left term by ϕ ′ j and the right term by g • ϕ j , we obtain (3.23) after a triangular inequality. Now let ε &gt; 0. By (3.14) and (3.15) there exists M &gt; 0 such that, for all x ≥ M , </p><formula xml:id="formula_65">|ϕ ′′ 0 (x)| ϕ ′ 0 (x)(1 − ϕ ′ 0 (x)) ≤ ε; (3.25) max j≥1 ϕ ′′ j ϕ ′ j + D|ϕ ′ j | ≤ ε. (3.26) Let us show that C D,M,ε is T -invariant,</formula><formula xml:id="formula_66">|( T g) ′ | ≤ max j ϕ ′′ j ϕ ′ j + D|ϕ ′ j | T g ≤ D T g. (3.27)</formula><p>At this point, take x ≥ M . By Lemma 3.3, ϕ 0 (x) &gt; x ≥ M . The properties of g ∈ C D,M,ε imply that</p><formula xml:id="formula_67">|( T g) ′ (x)| ≤ max j ϕ ′′ j (x) ϕ ′ j (x) + g ′ (ϕ j (x)) ϕ ′ j (x) g(ϕ j (x)) T g(x) ≤ max |ϕ ′′ 0 (x)| ϕ ′ 0 (x) + εϕ ′ 0 (x) , max j≥1 ϕ ′′ j (x) ϕ ′ j (x) + D|ϕ ′ j (x)| T g(x)</formula><p>≤ ε T g(x),</p><p>(3.28)</p><p>where the last inequality comes from (3.25)-(3.26). This concludes the proof of Lemma 3.4.</p><formula xml:id="formula_68">Q.E.D.</formula><p>The next lemma formalizes the intuitive fact that if a local observable is almost flat in a neighborhood of infinity, its integral against a uniformly global observable in that neighborhood results approximately in the infinite-volume average of the global observable.</p><p>Lemma 3.5 Let F ∈ G unif (m), m(F ) = 0. For each δ &gt; 0, there exists ε &gt; 0 such that for, every g ∈ C 1 (R + 0 ) and M ≥ 0 with (i) g &gt; 0;</p><p>(ii) m(g) = 1;</p><formula xml:id="formula_69">(iii) |g ′ (x)| g(x) ≤ ε, for all x ≥ M , one has ∞ M F g dm ≤ δ.</formula><p>Proof. Let us assume that F is not almost everywhere 0, otherwise the statement is trivial. By the hypothesis m(F ) = 0, given δ &gt; 0 there exists r &gt; 0 such that sup</p><formula xml:id="formula_70">V ∈Vm(r) 1 r V F dm ≤ δ 2 . (3.29) Set ε := δ 2r∥F ∥∞ . For any g and M verifying (i)-(iii), we decompose ∞ M F g dm = ∞ k=0 M +(k+1)r M +kr F g dm. (3.30) For k ∈ N, call x min,k a minimum point of g in [M + kr, M + (k + 1)r] (recall that g is continuous)</formula><p>. By (3.29), (i), (iii) and the definition of ε,</p><formula xml:id="formula_71">M +(k+1)r M +kr F g dm = M +(k+1)r M +kr F (x) g(x min,k ) + x x min,k g ′ (t) dt dx ≤ δ 2 rg(x min,k ) + r∥F ∥ ∞ ε M +(k+1)r M +kr g(t) dt ≤ δ 2 + δ 2 M +(k+1)r M +rK g(t) dt .</formula><p>(3.31)</p><p>We obtain the assertion of Lemma 3.5 by (3.30)-(3.31), using (ii).</p><p>Q.E.D.</p><p>We are now ready for the final arguments of the proof of Theorem 2.8. It suffices to establish that lim</p><formula xml:id="formula_72">n→∞ m((F • T n )g) = 0, (3.32)</formula><p>for all F ∈ G unif (m) with m(F ) = 0 and all g ∈ L 1 (m). If m(g) = 0, the above follows from the weak form of global-local mixing called (GLM1), which is a simple consequence of the exactness of T <ref type="bibr" target="#b11">[L3,</ref><ref type="bibr">Thm. 3.5</ref>]. 2 So we turn to the case m(g) ̸ = 0. By the linearity of (3.32) in g, we may assume m(g) = 1. Since T is exact, it is enough to show that, for all δ &gt; 0, there exists g δ ∈ L 1 (m), which may depend on F , such that m(g δ ) = 1 and lim sup</p><formula xml:id="formula_73">n→∞ |m((F • T n )g δ )| ≤ 2δ. (3.33)</formula><p>In fact, <ref type="bibr" target="#b11">[L3,</ref><ref type="bibr">Lem. 3.6]</ref> states that if the above conditions holds for g δ , then it holds for all g with m(g) = 1. The arbitrariness of δ then implies (3.32) for all such g. It remains to prove (3.33). Fix δ &gt; 0 and let ε &gt; 0 be given by Lemma 3.5 for the chosen value of δ. Then let M &gt; 0 be given by Lemma 3.4 for the selected value of ε and any fixed value of D ≥ D. Let g δ be any element of C M,D,ε with m(g δ ) = ∥g δ ∥ 1 = 1 (such an element evidently exists). Then, for all n ∈ N,</p><formula xml:id="formula_74">|m((F • T n )g δ )| ≤ |m((1 [0,M ] F ) • T n )g δ )| + |m((1 (M,∞) F ) • T n )g δ )| = |m((1 [0,M ] F ) • T n )g δ )| + ∞ M F ( T n g δ ) dm .</formula><p>(3.34)</p><p>We conclude the proof of Theorem 2.8 if we are able to bound each the above terms with δ, for n large. The first bound comes from the exactness of T , which implies full local-local mixing (LLM) w.r.t. m, namely,</p><formula xml:id="formula_75">∀f ∈ L ∞ (m) ∩ L 1 (m), ∀g ∈ L 1 (m), lim n→∞ m((f • T n )g) = 0; (3.35)</formula><p>cf. <ref type="bibr" target="#b11">[L3,</ref><ref type="bibr">Thm. 3.5</ref>]. The second bound holds for all n and comes directly from Lemma 3.5, since T n g δ ∈ C M,D,ε (by Lemma 3.4) and m( T</p><formula xml:id="formula_76">n g δ ) = ∥ T n g δ ∥ 1 = ∥g δ ∥ 1 = 1. Q.E.D.</formula></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.3">Proof of Theorem 2.11</head><p>Once again, we start with a few calculus lemmas.</p><formula xml:id="formula_77">Lemma 3.6 For p &gt; 1, ϕ ′′ 0 (ξ) → 0 as ξ → 0 + . Proof. Since ϕ ′′ 0 = − τ ′′ 0 (τ ′ 0 ) 3 • ϕ 0 , and lim ξ→0 + τ ′ 0 (ξ) = 1, it is enough to prove that lim ξ→0 + τ ′′ 0 (ξ) = 0. By (B1), τ ′′ 0 (ξ) → c ∈ R, as ξ → 0 + . If c ̸ = 0, the Taylor expansion of τ ′ 0 at 0 would be τ ′ 0 = 1 + cξ + o(ξ), contradicting (B3). Q.E.D.</formula><p>Let ℓ p , ℓ 1+ : (0, 1] −→ R + denote the (infinite) densities of the measures λ p , λ 1+ , respectively:</p><formula xml:id="formula_78">ℓ p (ξ) := 1 ξ p ; (3.36) ℓ 1+ (ξ) := − log ξ ξ .</formula><p>(3.37)</p><p>As already mentioned in Section 2.3, we will work with the function ℓ p , for p &gt; 1, and ℓ 1+ , for p = 1. Since we prove the same statements for all these functions, it is convenient to introduce the common notation</p><formula xml:id="formula_79">3 p⊕ = p, if p &gt; 1; 1+, if p = 1.</formula><p>(3.38)</p><p>The analogue of Lemma 3.2 for interval maps is the combination of the upcoming Lemmas 3.10 and 3.11, which require a few preparatory results.</p><p>Lemma 3.7 Under the above assumptions,</p><formula xml:id="formula_80">lim ξ→0 + 1 − ϕ ′ 0 (ξ) ℓ p⊕ (ξ) ℓ ′ p⊕ (ϕ 0 (ξ)) ℓ ′ p⊕ (ξ) ℓ p⊕ (ϕ 0 (ξ)) 1 − ϕ ′ 0 (ξ) ℓ p⊕ (ϕ 0 (ξ)) ℓ p⊕ (ξ) = p.</formula><p>Proof. Set κ := χ p+1 . By (B3) and (2.16), we have, as ξ → 0 + , ϕ ′ 0 (ξ) = 1 − χξ p + o(ξ p );</p><p>(3.39) ϕ 0 (ξ) = ξ − κξ p+1 + o(ξ p+1 ).</p><p>(3.40)</p><p>Let us first consider the case p &gt; 1. The above expansions give</p><formula xml:id="formula_81">1 − ϕ ′ 0 (ξ) ℓ p (ξ) ℓ ′ p (ϕ 0 (ξ)) ℓ ′ p (ξ) ℓ p (ϕ 0 (ξ)) 1 − ϕ ′ 0 (ξ) ℓ p (ϕ 0 (ξ)) ℓ p (ξ) = 1 − (1 − χξ p + o(ξ p )) ξ ϕ 0 (ξ) 1 − (1 − χξ p + o(ξ p )) ξ p (ϕ 0 (ξ)) p = 1 − (1 − χξ p + o(ξ p )) (1 − κξ p + o(ξ p )) −1 1 − (1 − χξ p + o(ξ p )) (1 − κξ p + o(ξ p )) −p = χ − κ + o(1) χ − pκ + o(1) = p + o(1),</formula><p>(3.41) as claimed. In the case p = 1 we have instead The next lemma is obtained through (some of) the same estimates as presented above, so we omit its proof.</p><formula xml:id="formula_82">ℓ 1+ (ξ) ℓ ′ 1+ (ϕ 0 (ξ)) ℓ ′ 1+ (ξ) ℓ 1+ (ϕ 0 (ξ)) = ξ ϕ 0 (ξ) log ξ log ϕ 0 (ξ) log ϕ 0 (ξ) − 1 log ξ − 1 . (3.42) Therefore, since χ − κ ̸ = 0, 1 − ϕ ′ 0 (ξ) ℓ 1+ (ξ) ℓ ′ 1+ (ϕ 0 (ξ)) ℓ ′ 1+ (ξ) ℓ 1+ (ϕ 0 (ξ)) 1 − ϕ ′ 0 (ξ) ℓ 1+ (ϕ 0 (ξ)) ℓ 1+ (ξ) = 1 − (1 − χξ + o(ξ)) ξ ϕ 0 (ξ) log ξ log ϕ 0 (ξ) log ϕ 0 (ξ) − 1 log ξ − 1 1 − (1 − χξ + o(ξ)) ξ ϕ 0 (ξ) log ϕ 0 (ξ) log ξ = 1 − (1 − χξ + o(ξ)) (1 + κξ + o(ξ)) log ξ log ϕ 0 (ξ) log ϕ 0 (ξ) − 1 log ξ − 1 1 − (1 − χξ + o(ξ)) (1 + κξ + o(ξ)) log ϕ 0 (ξ) log ξ . (<label>3</label></formula><p>Lemma 3.8 Under the above assumptions,</p><formula xml:id="formula_83">lim ξ→0 + ℓ p⊕ (ξ) 1 − ϕ ′ 0 (ξ) ℓ p⊕ (ϕ 0 (ξ)) ℓ p⊕ (ξ) =    χ p + 1 , if p &gt; 1; +∞, if p = 1.</formula><p>It will be convenient below to use modifications of the densities ℓ p⊕ defined as follows:</p><formula xml:id="formula_84">z p⊕ (ξ) :=      ℓ p⊕ (ξ), ξ ∈ (0, η/2]; ϑ(ξ), ξ ∈ (η/2, η); c ξ ∈ [η, 1], (3.46)</formula><p>where η ∈ (0, a 1 ) will be fixed in Lemma 3.9, c ∈ (ℓ p⊕ (η), ℓ p⊕ (η/2)), and  Lemma 3.9 For η small enough (depending on p⊕) and j ∈ {0, 1, . . . , N − 1},</p><formula xml:id="formula_85">ϑ p⊕ ∈ C 1 ((η/2, η)) is a decreasing function with lim ξ→(η/2) + ϑ(ξ) = ℓ p⊕ (η/2), lim ξ→η − ϑ(ξ) = c; (3.47) lim ξ→(η/2) + ϑ ′ (ξ) = ℓ ′ p⊕ (η/2), lim ξ→η − ϑ ′ (ξ) = 0; (3.48) |ϑ ′ (ξ)| ≤ |ℓ ′ p⊕ (ξ)|, ∀ξ ∈ (η/</formula><formula xml:id="formula_86">|ϕ ′ j | z p⊕ • ϕ j z p⊕ &lt; 1.</formula><p>Furthermore, for j ∈ {1, . . . , N − 1}, the above l.h.s. is less than or equal to Λ −1 .</p><p>Proof. First, observe that, for all j ≥ 1 and ξ ∈ (0, 1], ϕ j (ξ) ≥ a 1 . By the monotonicity of z p⊕ and η &lt; a 1 ,</p><formula xml:id="formula_87">z p⊕ (ϕ j (ξ)) ≤ z p⊕ (a 1 ) = c = min (0,1] z p⊕ ,<label>(3.51)</label></formula><p>which, together with |ϕ ′ j | ≤ Λ −1 , proves the second statement of the lemma (and thus the first, limited to j ≥ 1).</p><p>For the case j = 0, notice that, by Lemma 3.8, there exists δ &gt; 0 such that, for all ξ ∈ (0, δ),</p><formula xml:id="formula_88">1 − ϕ ′ 0 (ξ) ℓ p⊕ (ϕ 0 (ξ)) ℓ p⊕ (ξ) &gt; 0, i.e., ϕ ′ 0 (ξ) ℓ p⊕ (ϕ 0 (ξ)) ℓ p⊕ (ξ) &lt; 1. (3.52)</formula><p>Now choose any η ≤ ϕ 0 (δ). For ξ ∈ [δ, 1], using the fact that ϕ 0 is increasing and z p⊕ is decreasing, we have</p><formula xml:id="formula_89">z p⊕ (ϕ 0 (ξ)) z p⊕ (ξ) ≤ z p⊕ (η) min z p⊕ = 1. (3.53)</formula><p>By (B2) and since τ 0 (0) = 0, for ξ ∈ (0, 1], <ref type="bibr">(3.54)</ref> for all ξ ∈ (0, 1]. Let us now establish some useful equivalences:</p><formula xml:id="formula_90">ϕ 0 (ξ) &lt; ξ,</formula><formula xml:id="formula_91">z p⊕ (ϕ 0 (ξ)) z p⊕ (ξ) ≤ ℓ p⊕ (ϕ 0 (ξ)) ℓ p⊕ (ξ) (3.55) ⇐⇒ z p⊕ (ξ) + ϕ 0 (ξ) ξ z ′ p⊕ (s) ds z p⊕ (ξ) ≤ ℓ p⊕ (ξ) + ϕ 0 (ξ) ξ ℓ ′ p⊕ (s) ds ℓ p⊕ (ξ) (3.56) ⇐⇒ ℓ p⊕ (ξ) ξ ϕ 0 (ξ) |z ′ p⊕ (s)| ds ≤ z p⊕ (ξ) ξ ϕ 0 (ξ)</formula><p>|ℓ ′ p⊕ (s)| ds.</p><p>(3.57) So, (3.55) holds true by virtue of (3.57), (3.54) and (3.50). Therefore, using (3.52),</p><formula xml:id="formula_92">ϕ ′ 0 (ξ) z p⊕ (ϕ 0 (ξ)) z p⊕ (ξ) ≤ ϕ ′ 0 (ξ) ℓ p⊕ (ϕ 0 (ξ)) ℓ p⊕ (ξ) &lt; 1,<label>(3.58)</label></formula><p>for all ξ ∈ (0, δ). It remains to prove that the leftmost term above is less than 1 also for ξ ∈ [δ, 1]. But this is an easy consequence of (3.53) and ϕ ′ 0 &lt; 1.</p><p>Q.E.D.</p><p>Lemma 3.10 For all j,</p><formula xml:id="formula_93">sup (0,1] z ′ p⊕ z 2 p⊕ − ϕ ′ j z ′ p⊕ • ϕ j z p⊕ (z p⊕ • ϕ j ) 1 − |ϕ ′ j | z p⊕ • ϕ j z p⊕ &lt; ∞.</formula><p>Proof. Let us first consider the case j = 0. Since z p⊕ = ℓ p⊕ in (0, η/2), by Lemma 3.7 there exists η o ∈ (0, η/2) such that sup</p><formula xml:id="formula_94">(0,ηo) z ′ p⊕ z 2 p⊕ − ϕ ′ 0 z ′ p⊕ • ϕ 0 z p⊕ (z p⊕ • ϕ 0 ) 1 − ϕ ′ 0 z p⊕ • ϕ j z p⊕ = sup (0,ηo) ℓ ′ p⊕ ℓ 2 p⊕ − ϕ ′ 0 ℓ ′ p⊕ • ϕ 0 ℓ p⊕ (ℓ p⊕ • ϕ 0 ) 1 − ϕ ′ 0 ℓ p⊕ • ϕ j ℓ p⊕ ≤ sup (0,ηo) |ℓ ′ p⊕ | ℓ 2 p⊕ • sup (0,ηo) 1 − ϕ ′ 0 ℓ p⊕ (ℓ ′ p⊕ • ϕ 0 ) ℓ ′ p⊕ (ℓ p⊕ • ϕ 0 ) 1 − ϕ ′ 0 ℓ p⊕ • ϕ 0 ℓ p⊕ &lt; ∞ (3.59)</formula><p>On the other hand, by Lemma 3.9, using continuity, inf</p><formula xml:id="formula_95">[ηo,1] 1 − ϕ ′ 0 z p⊕ • ϕ 0 z p⊕ &gt; 0. (3.60)</formula><p>Since the numerator of the leftmost term in (3.59) is bounded outside a neighborhood of the origin (recall that z p⊕ ≥ c &gt; 0), we have proved the claim of the Lemma when j = 0.</p><p>Let us now consider the case j ≥ 1. Lemma 3.9 implies that</p><formula xml:id="formula_96">1 − |ϕ ′ j | z p⊕ • ϕ j z p⊕ ≥ 1 − Λ −1 &gt; 0. (3.61) Also, z ′ p⊕ • ϕ j = 0, because ϕ j ≥ a 1 &gt; η, Thus, sup (0,1] z ′ p⊕ z 2 p⊕ − ϕ ′ j z ′ p⊕ • ϕ j z p⊕ (z p⊕ • ϕ j ) = sup (0,1] |z ′ p⊕ | z 2 p⊕ &lt; ∞, (3.62)</formula><p>because the argument of the sup is bounded in a right neighborhood of 0 and identically null in a left neighborhood of 1. The previous two estimates conclude the proof of Lemma 3.10.</p><p>Q.E.D.</p><p>Lemma 3.11 For all j,</p><formula xml:id="formula_97">sup (0,1] ϕ ′′ j ϕ ′ j z p⊕ 1 − |ϕ ′ j | z p⊕ • ϕ j z p⊕ &lt; ∞.</formula><p>Proof. We proceed as in the previous proof. For j = 0, by Lemma 3.8 there exists η o ∈ (0, η/2) such that sup (0,ηo)</p><formula xml:id="formula_98">|ϕ ′′ 0 | ϕ ′ 0 z p⊕ 1 − ϕ ′ 0 z p⊕ • ϕ 0 z p⊕ = sup (0,ηo) |ϕ ′′ 0 | ϕ ′ 0 ℓ p⊕ 1 − ϕ ′ 0 ℓ p⊕ • ϕ 0 ℓ p⊕ ≤ sup (0,ηo) |ϕ ′′ 0 | ϕ ′ 0 inf (0,ηo) ℓ p⊕ 1 − ϕ ′ 0 ℓ p⊕ • ϕ 0 ℓ p⊕ &lt; ∞ (3.63) (recall that is ϕ ′′ 0 continuous on [0, 1]</formula><p>). The bound on [η o , 1] follows from (3.60) and the definition of z p⊕ .</p><p>In the case j ≥ 1, the assertion follows directly form the second statement of Lemma 3.9, the definition of z p⊕ and the fact that |ϕ</p><formula xml:id="formula_99">′′ j |/|ϕ ′ j | is bounded. Q.E.D.</formula><p>As in the proof of Theorem 2.8, we need cones of local observables and a suitable transfer operator to act on them. intended as a function (0, 1] −→ R. For all g &gt; 0 with |g ′ | g ≤ Dz p⊕ , we have</p><formula xml:id="formula_100">max j ∥D j (g)∥ ∞ ≤ max j sup (0,1] 1 z p⊕ ϕ ′′ j ϕ ′ j + D(z p⊕ • ϕ j )|ϕ ′ j | + ϕ ′ j z ′ p⊕ • ϕ j z p⊕ • ϕ j − z ′ p⊕ z p⊕ .</formula><p>(3.71) Using that D ≥ D, one has that (3.71) is less than or equal to D. Therefore</p><formula xml:id="formula_101">( T p⊕ g) ′ ≤ max j ∥D j (g)∥ ∞ T (gz p⊕ ) ≤ D T (gz p⊕ ) = Dz p⊕ T p⊕ g, (3.72) cf. (3.67).</formula><p>For a given ε &gt; 0, we now describe how to choose δ so that C δ,D,ε is invariant. There exists δ 1 ∈ (0, η/2), cf. (3.46), such that the following functional (in)equalities are true, when restricted to (0, δ 1 ]:</p><formula xml:id="formula_102">|ϕ ′′ 0 | z p⊕ ϕ ′ 0 + z ′ p⊕ z 2 p⊕ − ϕ ′ 0 (z ′ p⊕ • ϕ 0 ) (z p⊕ • ϕ 0 )z p⊕ 1 − ϕ ′ 0 z p⊕ • ϕ 0 z p⊕ −1 = |ϕ ′′ 0 | ϕ ′ 0 ℓ p⊕ 1 − ϕ ′ 0 ℓ p⊕ • ϕ 0 ℓ p⊕ + |ℓ ′ p⊕ | ℓ 2 p⊕ 1 − ϕ ′ 0 ℓ p⊕ (ℓ ′ p⊕ • ϕ 0 ) ℓ ′ p⊕ (ℓ p⊕ • ϕ 0 ) 1 − ϕ ′ 0 ℓ p⊕ • ϕ 0 ℓ p⊕ ≤ ε.</formula><p>(3.73)</p><p>In fact, calling ξ the argument of all the above functions, when ξ → 0 + the second term of the second line of (3.73) vanishes by Lemma 3.7 and the fact that</p><formula xml:id="formula_103">|ℓ ′ p⊕ (ξ)| ℓ 2 p⊕ (ξ) → 0.</formula><p>The same is true for the first term, as a consequence of Lemmas 3.6 and 3.8. Moreover, there exists δ 2 &gt; 0 such that, in (0, δ 2 ], Therefore, looking at (3.69)-(3.70) and using that z ′ p⊕ • ϕ j ≡ 0, for all j ≥ 1, we can write that, on (0, δ],</p><formula xml:id="formula_104">|ϕ ′′ j | z p⊕ |ϕ ′ j | + D(z p⊕ • ϕ j )|ϕ ′ j | z p⊕ + |z ′ p⊕ | z 2 p⊕ ≤ ε, (<label>3</label></formula><formula xml:id="formula_105">( T p⊕ g) ′ ≤ max j≥0 |D j (g)| T (gz p⊕ ) ≤ max 1 z p⊕ |ϕ ′′ 0 | ϕ ′ 0 + ϕ ′ 0 ε(z p⊕ • ϕ 0 ) + z ′ p⊕ z p⊕ − (z ′ p⊕ • ϕ 0 )ϕ ′ 0 z p⊕ • ϕ 0 , max j≥1 1 z p⊕ |ϕ ′′ j | |ϕ ′ j | + |ϕ ′ j |D(z p⊕ • ϕ j ) + |z ′ p⊕ | z p⊕ T (gz p⊕ ).</formula><p>(3.76)</p><p>Once again, the above inequality holds when all the functions are restricted to (0, δ]. Using (3.73) and (3.74), one shows that, with the same restriction on the arguments, both terms inside the above braces are ≤ ε, concluding that, for 0 &lt; ξ ≤ δ, ( T p⊕ g) ′ (ξ) ≤ ε T (gz p⊕ )(ξ) = εz p⊕ (ξ)( T p⊕ g)(ξ).</p><p>(3.77)</p><p>This ends the proof of Lemma 3.12.</p><p>Q.E.D.</p><p>The analogue of Lemma 3.5 is the following lemma, whose proof is included for the reader's convenience. Lemma 3.13 Let F ∈ G unif (ζ p⊕ ), ζ p⊕ (F ) = 0. For each ρ &gt; 0, there exists ε &gt; 0 such that for, every g ∈ C 1 ((0, 1]) and δ ≥ 0 with (i) g &gt; 0;</p><p>(ii) ζ p⊕ (g) = 1;</p><formula xml:id="formula_106">(iii) |g ′ (ξ)| g(ξ)</formula><p>≤ εz p⊕ (ξ), for all ξ ≤ δ, one has δ 0 F g dζ p⊕ ≤ ρ.</p><p>Proof. We assume ∥F ∥ ∞ &gt; 0, otherwise the statement is trivial. By the hypothesis ζ p⊕ (F ) = 0, for any ρ &gt; 0, there exists r &gt; 0 such that sup (3.79)</p><formula xml:id="formula_107">V ∈V ζ p⊕ (r) 1 r V F dζ p⊕ ≤ ρ 2 . (<label>3</label></formula><p>For k ∈ N, denote by ξ min,k a minimum point of g in V k . By (3.78), (i), (iii) and the definition of ε, (3.80)</p><formula xml:id="formula_108">V k F g dζ p⊕ = V k F<label>(</label></formula><p>and we conclude the proof of the lemma by (3.79), (3.80) and (ii).</p><p>Q.E.D.</p><p>As a penultimate step towards the proof of Theorem 2.11, we show that T is fully global-local mixing w.r.t. V and the measure ζ p⊕ . To this end, in complete analogy with the case of maps of R + 0 -see the discussion before (3.33) -it suffices to prove that, for all F ∈ G unif (ζ p⊕ ) with ζ p⊕ (F ) = 0 and ρ &gt; 0, there exists g ρ ∈ L 1 (ζ p⊕ ) with ζ p⊕ (g ρ ) = 1 such that lim sup (3.82)</p><p>For n → ∞, the first term vanishes by local-local mixing, for T is exact (w.r.t z p⊕ as well as m). The second term is bounded above by ρ by Lemma 3.13, since T n p⊕ g ρ ∈ C δ,D,ε (Lemma 3.12) and ζ p⊕ ( T n p⊕ g ρ ) = ∥ T n p⊕ g ρ ∥ L 1 (ζ p⊕ ) = ∥g ρ ∥ L 1 (ζ p⊕ ) = 1. Finally, full global-local mixing w.r.t. ζ p⊕ and w.r.t. λ p⊕ are equivalent properties by Proposition 2.2 and Lemma 2.6. This proves the statement of Theorem 2.11 for the case p &gt; 1. As for the case p = 1, one sees by Proposition 2.4 and Remark 2.5 that ζ 1+ is a restriction of λ 1 . But λ 1+ = ζ 1+ (Proposition 2.2), so λ 1+ is a restriction of λ 1 .<ref type="foot" target="#foot_4">4</ref> Then one applies Lemma 2.6 to conclude that ((0, 1], B, λ 1 , T ) is global-local mixing w.r.t. V , G unif (λ 1+ ) and L 1 (λ 1 ).</p><p>Q.E.D.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Figure 1 :</head><label>1</label><figDesc>Figure 1: Partition of W for the proof of Proposition 2.4 (case M = R + 0 ).</figDesc><graphic coords="13,135.78,112.30,340.16,56.62" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head></head><label></label><figDesc>as in the claim of Lemma 3.4. Take g ∈ C M,D,ε . Since ϕ j ∈ C 2 , T g ∈ C 1 . Also, the surjectivity of T and g &gt; 0 imply T g &gt; 0. Moreover, by (3.23), |g ′ |/g ≤ D and D ≥ D, cf. (3.22), we obtain</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head></head><label></label><figDesc>2, η); (3.49) see Fig. 2. Here η, c, ϑ depend on p⊕. Observe that, by construction,ℓ p⊕ ≤ z p⊕ , |z ′ p⊕ | ≤ |ℓ ′ p⊕ |. (3.50)We also denote by ζ p⊕ the (infinite) measure on (0, 1] with density z p⊕ . The raison d'être of z p⊕ is the following property.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_4"><head>Figure 2 :</head><label>2</label><figDesc>Figure 2: Graph of z p⊕ (solid line) vs graph of ℓ p⊕ (dashed line)</figDesc><graphic coords="21,256.25,223.02,99.21,129.51" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_5"><head></head><label></label><figDesc>.74) whenever j ≥ 1. In fact, for the first two terms, both D|ϕ ′ j |(z p⊕ • ϕ j ) and |ϕ ′′ j /ϕ ′ j | are bounded, for j ≥ 1. As for the third term, δ := min{δ 1 , δ 2 } and let g ∈ C δ,D,ε . We show that T p⊕ g ∈ C δ,D,ε . Evidently,T p⊕ g &gt; 0 and T p⊕ g ∈ C 1 . By (3.72), | T p⊕ g ′ | T p⊕ g ≤ Dz p⊕ . For ξ ≤ δ, by (3.54), ϕ 0 (ξ) ≤ δ, whence |g ′ •ϕ 0 (ξ)| g•ϕ 0 (ξ) ≤ εz p⊕ • ϕ 0 (ξ).</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_6"><head></head><label></label><figDesc>.78) Set ε := ρ 2r∥F ∥∞ . We partition (0, δ] into a countable family of adjacent intervals V k ∈ V ζ p⊕ (r). For all g and δ verifying (i)-(iii),δ 0 F g dζ p⊕ = ∞ k=0 V k F g dζ p⊕ .</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_7"><head>0 F</head><label>0</label><figDesc>n→∞ |ζ p⊕ ((F • T n )g ρ )| ≤ 2ρ. (3.81)To this end, given ρ &gt; 0, we consider ε as given by Lemma 3.13 and δ as given by Lemma 3.12 for such value of ε. Let D ≥ D and g ρ be any element of C δ,D,ε with ζ p⊕ (g ρ ) = 1. For all n ∈ N,|ζ p⊕ ((F • T n )g ρ )| ≤ |ζ p⊕ ((1 [δ,1] F ) • T n )g ρ )| + |ζ p⊕ ((1 (0,δ) F ) • T n )g ρ )| = |ζ p⊕ ((1 [δ,1] F ) • T n )g ρ )| + δ ( T n p⊕ g ρ ) dζ p⊕ .</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_1"><head></head><label></label><figDesc>ξ) g(ξ min,k ) +</figDesc><table><row><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell>ξ</cell></row><row><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell>g ′ (t) dt dζ p⊕ (ξ)</cell></row><row><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell>ξ min,k</cell></row><row><cell>≤</cell><cell>ρ 2</cell><cell cols="5">rg(ξ min,k ) + r∥F ∥ ∞ ε</cell><cell>V k</cell><cell>g(t) z p⊕ (t) dt</cell></row><row><cell>≤</cell><cell></cell><cell>ρ 2</cell><cell>+</cell><cell>ρ 2</cell><cell>V k</cell><cell>g(t) dζ p⊕ (t) .</cell></row></table></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="1" xml:id="foot_0">For a "physical" interpretation of global and local observables see [L1, L2, L3, DN].</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="2" xml:id="foot_1">This theorem and Lemma</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="3" xml:id="foot_2">.6 in the same reference, which we use momentarily, were stated for measure-preserving systems, with another assumptions that ensured that the infinite-volume average was dynamics-invariant. None of these assumptions are needed for the proofs of the statements invoked here. See also Appendix A.1 of[BL].</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="3" xml:id="foot_3">The reader might think that a better notation would be to define ℓ p as in (3.36) and ℓ 1 (ξ) := − log ξ/ξ, but unfortunately we also need the function ℓ 1 (ξ) := 1/ξ.</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="4" xml:id="foot_4">A strict restriction, in fact, as one can see that F 1 (ξ) = cos(log(ξ −1 )) belongs to G unif (λ 1 ) but not to G unif (λ 1+ ); cf. proof of Corollary 2.13 in Section 2.3.</note>
+		</body>
+		<back>
+			<div type="annex">
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Cones of local observables: For δ, D, ε &gt; 0, set</p><p>(3.64) where we have dropped from the indication that all functions are defined in (0, 1]. These cones are analogous to the ones defined in (3.19) for the half-line case, except that they are relative to the distance</p><p>in (0, 1] (notice that the diameter of (0, 1] is infinity, w.r.t. dist).</p><p>Transfer operator: We define</p><p>F T p⊕ g dζ p⊕ .</p><p>(3.66)</p><p>This operator describes the evolution of densities w.r.t. the measure ζ p⊕ . Since dζ p⊕ dm = z p⊕ , a standard computation gives</p><p>where T is the Perron-Frobenius operator for T on (0, 1]. Set</p><p>By Lemmas 3.11 and 3.10, D &lt; ∞.</p><p>Lemma 3.12 Let D ≥ D. For all ε &gt; 0, there exists δ ∈ (0, 1) such that T p⊕ C δ,D,ε ⊆ C δ,D,ε .</p><p>Proof. A somewhat lengthy computation gives</p><p>where <ref type="bibr">(3.70)</ref> </p></div>			</div>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">Infinite mixing for one-dimensional maps with an indifferent fixed point</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Bonanno</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Giulietti</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Lenci</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Nonlinearity</title>
+		<imprint>
+			<biblScope unit="volume">31</biblScope>
+			<biblScope unit="issue">11</biblScope>
+			<biblScope unit="page" from="5180" to="5213" />
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">Global-local mixing for the Boole map</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Bonanno</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Giulietti</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Lenci</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Chaos Solitons Fractals</title>
+		<imprint>
+			<biblScope unit="volume">111</biblScope>
+			<biblScope unit="page" from="55" to="61" />
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">Pomeau-Manneville maps are global-local mixing</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Bonanno</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Lenci</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Discrete Contin. Dyn. Syst</title>
+		<imprint>
+			<biblScope unit="volume">41</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="1051" to="1069" />
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">Almost sure asymptotic behaviour of Birkhoff sums for infinite measure-preserving dynamical systems</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Bonanno</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">I</forename><surname>Schindler</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Discrete Contin. Dyn. Syst</title>
+		<imprint>
+			<biblScope unit="volume">42</biblScope>
+			<biblScope unit="issue">11</biblScope>
+			<biblScope unit="page" from="5541" to="5576" />
+			<date type="published" when="2022">2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">Ergodic theory: nonsingular transformations</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">I</forename><surname>Danilenko</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">E</forename><surname>Silva</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Ergodic Theory. Encyclopedia of Complexity and Systems Science Series</title>
+				<editor>
+			<persName><forename type="first">A</forename><forename type="middle">I</forename><surname>Danilenko</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">C</forename><forename type="middle">E</forename><surname>Silva</surname></persName>
+		</editor>
+		<meeting><address><addrLine>New York</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">Global observables for RW: law of large numbers</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Dolgopyat</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Lenci</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Nándori</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Ann. Inst. Henri Poincaré Probab. Stat</title>
+		<imprint>
+			<biblScope unit="volume">57</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="94" to="115" />
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">Infinite measure mixing for some mechanical systems</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Dolgopyat</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Nándori</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Adv. Math</title>
+		<imprint>
+			<biblScope unit="volume">410</biblScope>
+			<biblScope unit="page">pp</biblScope>
+			<date type="published" when="2022">2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">Quantitative global-local mixing for accessible skew products</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Giulietti</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Hammerlindl</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Ravotti</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Ann. Henri Poincaré</title>
+		<imprint>
+			<biblScope unit="volume">23</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="923" to="971" />
+			<date type="published" when="2022">2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<monogr>
+		<author>
+			<persName><forename type="first">P</forename><surname>Giulietti</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Hammerlindl</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Ravotti</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:2401.10776</idno>
+		<title level="m">Quantitative infinite mixing for noncompact skew products</title>
+				<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">On infinite-volume mixing</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Lenci</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Comm. Math. Phys</title>
+		<imprint>
+			<biblScope unit="volume">298</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="485" to="514" />
+			<date type="published" when="2010">2010</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">Infinite-volume mixing for dynamical systems preserving an infinite measure</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Lenci</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Procedia IUTAM</title>
+		<imprint>
+			<biblScope unit="volume">5</biblScope>
+			<biblScope unit="page" from="204" to="219" />
+			<date type="published" when="2012">2012</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">Exactness, K-property and infinite mixing</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Lenci</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Publ. Mat. Urug</title>
+		<imprint>
+			<biblScope unit="volume">14</biblScope>
+			<biblScope unit="page" from="159" to="170" />
+			<date type="published" when="2013">2013</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">A simple proof of the exactness of expanding maps of the interval with an indifferent fixed point</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Lenci</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Chaos Solitons Fractals</title>
+		<imprint>
+			<biblScope unit="volume">82</biblScope>
+			<biblScope unit="page" from="148" to="154" />
+			<date type="published" when="2016">2016</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">Uniformly expanding Markov maps of the real line: exactness and infinite mixing</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Lenci</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Discrete Contin. Dyn. Syst</title>
+		<imprint>
+			<biblScope unit="volume">37</biblScope>
+			<biblScope unit="issue">7</biblScope>
+			<biblScope unit="page" from="3867" to="3903" />
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">Pointwise convergence of Birkhoff averages for global observables</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Lenci</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Munday</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Chaos</title>
+		<imprint>
+			<biblScope unit="volume">28</biblScope>
+			<biblScope unit="issue">8</biblScope>
+			<biblScope unit="page">16</biblScope>
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<analytic>
+		<title level="a" type="main">Operator renewal theory and mixing rates for dynamical systems with infinite measure</title>
+		<author>
+			<persName><forename type="first">I</forename><surname>Melbourne</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Terhesiu</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Erratum in Invent. Math</title>
+		<imprint>
+			<biblScope unit="volume">189</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="1269" to="1272" />
+			<date type="published" when="2012">2012. 2015</date>
+		</imprint>
+	</monogr>
+	<note>Invent. Math.</note>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<analytic>
+		<title level="a" type="main">Exactness of the Euclidean algorithm and of the Rauzy induction on the space of interval exchange transformations, Ergodic Theory Dynam</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Miernowski</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Nogueira</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Systems</title>
+		<imprint>
+			<biblScope unit="volume">33</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="221" to="246" />
+			<date type="published" when="2013">2013</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<analytic>
+		<title level="a" type="main">Mixing in infinite measure for Z d -extensions, application to the periodic Sinai billiard</title>
+		<author>
+			<persName><forename type="first">F</forename><surname>Pène</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Chaos Solitons Fractals</title>
+		<imprint>
+			<biblScope unit="volume">106</biblScope>
+			<biblScope unit="page" from="44" to="48" />
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<analytic>
+		<title level="a" type="main">Sharp error term in local limit theorems and mixing for Lorentz gases with infinite horizon</title>
+		<author>
+			<persName><forename type="first">F</forename><surname>Pène</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Terhesiu</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Comm. Math. Phys</title>
+		<imprint>
+			<biblScope unit="volume">382</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="1625" to="1689" />
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<analytic>
+		<title level="a" type="main">On mixing-like notions in infinite measure</title>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">E</forename><surname>Silva</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Amer. Math. Monthly</title>
+		<imprint>
+			<biblScope unit="volume">124</biblScope>
+			<biblScope unit="issue">9</biblScope>
+			<biblScope unit="page" from="807" to="825" />
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<analytic>
+		<title level="a" type="main">Estimates of the invariant densities of endomorphisms with indifferent fixed points</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Thaler</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Israel J. Math</title>
+		<imprint>
+			<biblScope unit="volume">37</biblScope>
+			<biblScope unit="page" from="303" to="314" />
+			<date type="published" when="1980">1980</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<analytic>
+		<title level="a" type="main">Transformations on [0,1] with infinite invariant measures</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Thaler</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Israel J. Math</title>
+		<imprint>
+			<biblScope unit="volume">46</biblScope>
+			<biblScope unit="issue">1-2</biblScope>
+			<biblScope unit="page" from="67" to="96" />
+			<date type="published" when="1983">1983</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<monogr>
+		<title level="m" type="main">Examples: One-dimensional maps with indifferent fixed points, Course notes</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Thaler</surname></persName>
+		</author>
+		<ptr target="https://www.plus.ac.at/wp-content/uploads/2021/02/1543201.pdf" />
+		<imprint>
+			<date type="published" when="2001">2001</date>
+			<pubPlace>Marseille</pubPlace>
+		</imprint>
+	</monogr>
+	<note>Infinite ergodic theory</note>
+</biblStruct>
+
+<biblStruct xml:id="b23">
+	<analytic>
+		<title level="a" type="main">Statistical properties of Lorentz gases on aperiodic tilings, Part 1</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Treviño</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Zelerowicz</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Comm. Math. Phys</title>
+		<imprint>
+			<biblScope unit="volume">396</biblScope>
+			<biblScope unit="page" from="1305" to="1338" />
+			<date type="published" when="2022">2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b24">
+	<analytic>
+		<title level="a" type="main">Aperiodic and linearly repetitive Lorentz gases of finite horizon are not exponentially mixing</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Treviño</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Zelerowicz</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Discrete Contin. Dyn. Syst</title>
+		<imprint>
+			<biblScope unit="volume">43</biblScope>
+			<biblScope unit="issue">9</biblScope>
+			<biblScope unit="page" from="3549" to="3562" />
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

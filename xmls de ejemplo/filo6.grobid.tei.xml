@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Responsibility, Causality, and Will in the Timaeus</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher>BRILL</publisher>
+				<availability status="unknown"><p>Copyright BRILL</p>
+				</availability>
+				<date type="published" when="2020-11-18">2020-11-18</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Chad</forename><surname>Jorgenson</surname></persName>
+						</author>
+						<title level="a" type="main">Responsibility, Causality, and Will in the Timaeus</title>
+					</analytic>
+					<monogr>
+						<title level="m">Plato’s &lt;i&gt;Timaeus&lt;/i&gt;</title>
+						<imprint>
+							<publisher>BRILL</publisher>
+							<biblScope unit="page" from="259" to="273"/>
+							<date type="published" when="2020-11-18" />
+						</imprint>
+					</monogr>
+					<idno type="MD5">2042870155A4CB21946BDA2643AE8E02</idno>
+					<idno type="DOI">10.1163/9789004437081_014</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.2" ident="GROBID" when="2024-05-12T15:27+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>Plato -Timaeus -responsibility -will -action -determinism</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>This paper explores a tension in the account of human responsibility given in the Timaeus. In his description of divine causality in the first section of the dialogue, Timaeus denies that the gods bear any responsibility for the evils that befall human beings, arguing that the responsibility lies rather with them. However, in his account of human badness in the third part of the dialogue, Timaeus appears to contradict himself, claiming that environmental and genetic factors are responsible for an individual becoming bad, rather than their own agency. In fact, a close analysis of Timaeus' language reveals that he is proposing a nuanced theory of causality and responsibility that goes beyond a simple opposition between free will and determinism to give a rich account of the various ways in which we can be held causally responsible or not for our actions.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Although the Timaeus is known first and foremost as Plato's contribution to cosmology, its scope extends beyond natural philosophy in the narrow sense to cover a wide range of topics, including ethics and politics. Plato brings the Socratic revolution full circle, not only by reinvigorating the Greek cosmological tradition-from which Socrates had famously turned away in despair (Phaed. 95e-102a)-with a robust injection of teleology, but also by blurring the margins between the inquiry into the structure of the natural world and the Socratic quest for the good life, thus paving the way for the radical naturalization of ethics undertaken by the Stoics.1 At the same time, the Timaeus presents us with a cosmological perspective on a number of central themes in Plato's ethical and political thought. Tripartition, which was introduced in purely psychological terms in the Republic and the Phaedrus, is here given a physiological foundation. The lower "mortal" soul parts (thymos and the appetitive soul) are described as necessary ancillaries to the activity of the rational soul in its embodied condition, and the activity of each part is connected to the functioning of particular bodily organs, especially the brain, the heart, and the gut.</p><p>This move towards a naturalization of the tripartite soul, which connects it not merely to embodiment in general, but to the differentiated organic structures of the human body, sets the stage for a curious passage in which Timaeus claims that all human badness (kakia) is the product of the joint action of two causes: a defective bodily constitution and a bad upbringing (86b-87b). This passage, tucked away in the comparatively little-read third part of the dialogue has been the subject of a slow-moving scholarly controversy for almost a century. Taylor, author of the first major English-language commentary on the Timaeus, cites this passage as a key piece of evidence for his widely rejected thesis that, rather than being an exponent of Plato's own views, Timaeus is, in fact, presenting a pastiche of outdated Pythagorean and Empedoclean ideas.2 On Taylor's view, not only does the attribution of a physiological origin to human badness undermine the Socratic-Platonic insistence on individual responsibility, by making our character a product of biological determinism, it also introduces a flagrant contradiction into <ref type="bibr">Timaeus' account.3</ref> The contradiction that Taylor has in mind appears to be the following. At 42d5-e4, Timaeus explains that, having created the immortal souls destined to animate terrestrial life, the Demiurge deputizes lower-level divinities, the so-called "young gods," to create mortal bodies to house them, along with "what remained to be added of the human soul" (ὅσον ἔτι ἦν ψυχῆς ἀνθρωπίνης δέον προσγενέσθαι, i.e. the mortal parts of soul described at 69a-d), instructing them "to guide the mortal animal as nobly and as well as possible, except insofar as it should be a cause of evils to itself" (κατὰ δύναμιν ὅτι κάλλιστα καὶ ἄριστα τὸ θνητὸν διακυβερνᾶν ζῷον, ὅτι μὴ κακῶν αὐτὸ ἑαυτῷ γίγνοιτο αἴτιον).4 The upshot of this passage, which echoes Socrates' assertionin Republic X that "the chooser is responsible, god is blameless" (αἰτία ἑλομένου· θεὸς ἀναίτιος, 617e4-5), appears to be that the individual is wholly responsible for the evils that occur to them. The gods have structured the world in such a way as to be conducive to our living a good life; if we fail to do so, the onus is squarely on us. However, at 86a-d Timaeus abruptly reverses himself, attributing the existence of human badness to the joint influence of our physical constitution and our upbringing, neither of which are under our control. He concludes "for these [i.e. the causes of badness] we should always lay the responsibility more on those who beget than on those who are begotten, and more on those who rear than on those who are reared" (ὧν αἰτιατέον μὲν τοὺς φυτεύοντας ἀεὶ τῶν φυτευομένων μᾶλλον καὶ τοὺς τρέφοντας τῶν τρεφομένων, 87b4-6). If we are bad, Timaeus seems to be saying, it is in the first instance our body, our parents, and our society that are at fault, not ourselves. We need not share Taylor's idiosyncratic views about the Timaeus as a whole to wonder whether there is not a genuine contradiction here. Does the physiological and sociological account of the origin of badness at 86b-87b not wholly undermine the concentration of responsibility in individual human beings at 42d-e?5 Moreover, if biology and social conditioning, rather than the exercise of autonomous agency, determines the goodness or badness of an individual, how can the gods, who are ultimately responsible for the world being arranged the way it is, be absolved of blame for the evils that we do?</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>1</head><p>Physiological Defects and Human Badness I propose to begin at the end, by examining 86b-87b, in order to determine how strong a causal connection between badness and bodily defectiveness is actually drawn, before turning back to consider to what extent this account can be harmonized with what is said about divine and human responsibility at 42d-e. There is, of course, a first, uncontroversial sense in which the human body is the cause of badness. In order to navigate an environment constituted of dynamic material powers, the embodied rational soul is endowed with two mortal soul-parts, the thymos and the epithymētikon, which are necessary for nutrition, procreation, and self-defence. Although indispensable for survival, given the finitude and fragility of the human body, these sub-rational motivational centres can also corrupt or even wholly supplant the rational soul as the ruling principle within us, if their characteristic affections come to unduly influence our behaviour. In this sense, familiar from the Phaedo and the Republic, embodiment is a necessary, if not, perhaps, sufficient condition for our becoming bad. Timaeus seems to be saying something more, however, namely that within the broad range of existing human bodies, some possess acute physiological defects that, on a weaker reading, make them more inclined to badness or, on a stronger reading, constitute a necessary condition for the development of a bad character. It is this latter idea that has been rejected, on various grounds, as un-Platonic. Thus, Taylor, while accepting that the stronger reading of the passage is correct, attributes it to the character Timaeus rather than to Plato himself. Cornford, by contrast, endorses the weaker reading, arguing that Timaeus is speaking here only of a particular sub-set of psychic disorders and is not claiming that all cases of human badness necessarily have a physiological foundation.6 It is true that the opening line of the passage is ambiguous: Καὶ τὰ μὲν περὶ τὸ σῶμα νοσήματα ταύτῃ συμβαίνει γιγνόμενα, τὰ δὲ περὶ ψυχὴν διὰ σώματος ἕξιν τῇδε (86b1-2). The first clause clearly states : "Illnesses of the body come about as we have described." The second clause, however, can be read in two very different ways. The first possibility is to take διὰ σώματος ἕξιν ("through the condition of the body") as restricting the scope of the τὰ δὲ περὶ ψυχήν ("diseases of the soul"), in which case Timaeus will be announcing a discussion of a particular subset of psychic disorders, namely those that come about as a result of the condition of the body, in contrast to those that do not. The second possibility is to take διὰ σώματος ἕξιν as qualifying τῇδε ("in the following way"), in which case Timaeus will be saying that "[all] psychic disorders [come about] through the condition of the body in the following way."</p><p>Be that as it may, the conclusion of the passage removes any doubt about the intended scope of Timaeus' claim: πρὸς δὲ τούτοις, ὅταν οὕτως κακῶς παγέντων πολιτεῖαι κακαὶ καὶ λόγοι κατὰ πόλεις ἰδίᾳ τε καὶ δημοσίᾳ λεχθῶσιν, ἔτι δὲ μαθήματα μεδαμῇ τούτων ἰατικὰ ἐκ νέων μανθάνηται, ταύτῃ κακοὶ πάντες οἱ κακοὶ διὰ δύο ἀκουσιώτατα γιγνόμεθα. Furthermore, whenever individuals who are so badly constituted live under bad regimes and corresponding discourses are pronounced in public and in private, and, moreover, no studies capable of curing these are pursued from a young age, in this way, all of us who are bad become so on account of two most involuntary causes.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>87a7-b4</head><p>This passage clarifies two points. First, Timaeus is not restricting the discussion to a sub-class of psychic disorders, but is describing the way in which all those who are bad become bad. Second, the corrupting influence of society is understood to play a secondary causal role, since the existence of "badly constituted individuals" (οὕτως κακῶς παγέντων) is, as the genitive absolute construction indicates, a condition for everything that follows.</p><p>Gill has attempted to make this passage more palatable through a comparison with the doctrines of Galen and the Stoics.7 Emphasizing the general theme of the need for proportion between body and soul that runs throughout this section, he argues that Timaeus is closer to the Stoics than to Galen. Whereas Galen propounds a "mechanistic" theory, in which there is a unidirectional causal influence running from the body to the soul, the Stoics emphasize the right proportion between these two elements.8 Yet, as Gill himself acknowledges, although Timaeus does mention the importance of the proportion between body and soul (87c-88b), he does so only after the section on psychic disorders (86b-87b), in which his approach is unmistakably much closer to that of Galen.9 Although Timaeus nowhere advocates a reductive physiological determinism, he does identify the unidirectional influence of bodily defects on the soul as a necessary condition for the development of a bad character, with social and educational factors only subsequently determining the extent to which this disposition towards badness is realized in practice.</p><p>While somewhat counterintuitive, I do not believe that this position is as outlandish as it has been made to seem. Rather, it is a natural consequence of the Timaeus' commitment to two claims about the relationship between body and soul: 1) the operation of the lower soul parts are co-constituted by physiological processes; 2) the human body and its organs possess a fundamentally rational structure. Thus, before even acknowledging the existence of mortal parts of soul, Timaeus describes, in general terms, what occurs when the soul enters into contact with a body in a state of flux (τὸ μὲν προσίοι, τὸ δ' ἀπίοι τοῦ σῶματος),10 namely the generation of a series of different kinds of affections: 7</p><p>Gill, "The Body's Fault? Plato's Timaeus on psychic illness." 8</p><p>Gill, "The Body's Fault?" 70. 9</p><p>Gill, "The Body's Fault?" 71-72. 10</p><p>The terminology here both mirrors and contrasts with the earlier description of the body of the cosmos, where Timaeus explains that the cosmos does not need sense organs or any capacity to take in nutrition: "For nothing left it, nor did anything enter it -for there</p><p>Chad Jorgenson -9789004437081 Downloaded from Brill.com 03/04/2024 06:42:06PM via Open Access. This is an open access chapter distributed under the terms of the CC BY-NC-ND 4.0 license. https://creativecommons.org/licenses/by-nc-nd/4.0/ 1) sensation (aisthēsin); 2) desire (erōta) mixed with pleasure (hedonē) and pain (lypē); 3) fear (phobon) and anger (thymon); 4) "everything that follows on these or by nature stands in opposition to them" (ὅσα τε ἑπόμενα αὐτοῖς καὶ ὁπόσα ἐναντίως πέφυκε διεστηκότα, 42a3-b1). In other words, the mere fact of the soul entering into contact with the body is sufficient to give rise to the affections (pathēmata) characteristic of both the appetitive soul (desire, pleasure, and pain) and thymos (fear and anger).</p><p>How this works in the case of pleasure and pain is explained in more detail at 64a-65b, where Timaeus claims that pain arises from damage to the body's natural structures, while pleasure corresponds to their restoration, insofar as these disruptions and restorations are transmitted to the "mind" (to phronimon). This account of pleasure and pain in terms of the transmission of alterations of bodily states to the perceiving soul is fleshed out in the Philebus, where it is expanded to cover desire, which is defined as a pain accompanied by an awareness of the object that will relieve it.11 Central to the constitution of such affections as desire, pleasure, and pain is the perception by the soul of the condition of the relevant bodily organ. The account of the generation of the various affections is thus simultaneously an account of the ontological structure of the corresponding soul parts.12 For instance, Timaeus explains sexual desire in terms of the descent of marrow from the brain through the spinal cord into the genitals, causing a painful buildup of semen that produces pleasure when it is excreted, as the natural equilibrium of substances in the body is restored.13 This suggests that the phenomenon of sexual desire, which is associated with the appetitive soul, cannot be understood without reference to the underlying physiological structures (i.e. the reproductive system) in which it is grounded.</p><p>But if the pleasures, pains, and desires associated with the appetitive soul are anchored in this way in the natural condition of the body and if the body has a rational structure, permitting it to fulfill certain necessary functions, then why do these affections represent such a threat to the well-being of the soul? That the body and the lower parts of soul should constitute a danger is understandable if we consider it to be fundamentally unstable and irrational, along was nothing [outside of it]" (ἀπῄει τε γὰρ οὐδὲν οὐδὲ προσῄειν αὐτῷ ποθεν-οὐδὲ γὰρ ἦν 33c6-7). 11</p><p>Phil. 32e-35b. On this passage, see <ref type="bibr">Frede,</ref><ref type="bibr">Philebos,</ref><ref type="bibr">[235]</ref><ref type="bibr">[236]</ref><ref type="bibr">[237]</ref><ref type="bibr">[238]</ref> On the association of the mortal parts with bodily movements perceived by the soul, see Karfik, "What the Mortal Parts of the Soul Really Are." 13 Tim. 86d-e; 91a-d. Incidentally this allows him to produce an account to which sexual desire has an appetitive element, while at the same time being an expression of the rational soul's erōs (in line with the Symposium), since the marrow is the seat of the rational soul.</p><p>Chad Jorgenson -9789004437081 Downloaded from Brill.com 03/04/2024 06:42:06PM via Open Access. This is an open access chapter distributed under the terms of the CC BY-NC-ND 4.0 license. https://creativecommons.org/licenses/by-nc-nd/4.0/ the lines of the murky, unstructured bodily flux of the Phaedo. It is less comprehensible if we understand the body and, by extension, the lower parts of soul, to possess a rational structure. The appetitive soul, in particular, alerts us to the condition of our body, thus enabling us to take the measures necessary to avoid sickness and death.</p><p>It is in order to lessen this tension, I believe, that Timaeus attributes to bodily defects a central role in the dysregulation of our emotions and desires, especially in the form of "exaggerated pleasures and pains" (ἡδονὰς δὲ καὶ λύπας ὑπερβαλλούσας, 86b5-6), which are identified as the greatest threat to the project of rational self-government. If healthy pleasures, pains, and desires arise from natural fluctuations in a healthy bodily constitution, then it is reasonable to look for the origin of unhealthy pleasures, pains, and desires in abnormal alterations to our bodily constitution, especially those that result from structural defects in the body. For instance, in a perfectly healthy individual, the natural functioning of the reproductive system would not engender the obsessive pursuit of sexual pleasure. In those cases where sexual desire takes on a pathological character, this is to be explained, in the first instance, in terms of a disfunction in the underlying physiological structures, namely an abnormal porousness of the bones which leads to the excessive production of semen. This unnatural excess of a particular bodily substance is experienced as persistent, painful sexual desire, which Timaeus calls an involuntary "disease of the soul."14 Sexual incontinence, a classic form of appetitive vice, is thus rooted in the abnormal intensity with which certain individuals experience sexual pleasures, pains, and desires, a form hypersensitivity that has underlying physiological causes.</p><p>This conclusion may be rendered more palatable by the observation that Plato is, on the whole, quite pessimistic about the possibilities of things going right on our level of existence. Timaeus' point, I take it, is not that a minority of individuals are condemned to badness due to their abnormal physiological defects-in the manner of a proto-Lombrosian criminologist-but rather that such defectiveness is present to some degree in everyone. After all, Timaeus is careful to stress that his theory concerns how "all of us who are bad become so" (87b4). This would leave open the possibility that certain exceptional individuals may possess a form of natural moderation in virtue of their unusually healthy bodily constitution. In the Symposium, to take a notable example, Socrates is described as exhibiting abnormal resistance to the intoxicating effects of alcohol (214a, 220a), physical hardship and cold (219e-220b), sleep deprivation (223d), and sexual desire (218c-219d). Of course, the most obvious explanation for this imperviousness to bodily affections is the insulating effect of Socrates' wisdom. But the Timaeus suggests that the explanation might run in the other direction as well, in the sense that an inclination towards intellectual pursuits might be encouraged by the possession of an unusually robust constitution that makes us less responsive to bodily pleasure and pain, and therefore less inclined to blindly pursue the former and flee the latter.</p><p>Such a theory is far from advocating a form of physiological determinism, however, because whether or not these physiological vulnerabilities exercise a decisive influence over the development of our character depends on the extent to which they are indulged or curbed. Timaeus' insistence on the influence of "bad regimes" (politeiai kakai) and "discourses that correspond to them" (logoi kata poleis), as the second cause of badness, recalls Books VIII-IX of the Republic.15 The vicious regimes ruled by appetitive soul, such as oligarchy and democracy, are characterized not merely by the dominance of particular classes or social groups, but, more fundamentally, by the hegemony of a value system that takes particular objects of appetitive desire-in this instance, wealth and pleasure respectively-to be the highest good. These societies do not merely open up space for bad desires to develop; they actively foster their growth, encouraging our inchoate physiological predisposition towards vice to crystallize into a bad character. Faced with the possibility of such corrupting influences, the chief remedy that Timaeus proposes is "therapeutic studies" (mathēmata … iatika, 87b2), which are to be pursued from a young age. These studies are designed to bolster the hegemony of reason within the soul and to bring our lower drives under control, taking us back onto the terrain of the more purely ethical and political dialogues. Our physiological defects do not unilaterally shape our character, but they do mark out the boundaries within which it can develop and determine the forms of excess to which it is prone. It is our education, in a broad sense, that determines how our character develops within these boundaries and the extent to which our innate predisposition towards vice is realized.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2">Responsibility and Will</head><p>If a bad character is the result of the joint action of our biology and our upbringing, how are we to understand the earlier affirmation (42d-e) that we, rather than the gods, are responsible for the evils that befall us? On Timaeus' account, the opposite would seem to be true, since the causes of our having Following the interpretation of logoi kata poleis suggested by Cornford, Cosmology, 345n.</p><p>Chad Jorgenson -9789004437081 Downloaded from Brill.com 03/04/2024 06:42:06PM via Open Access. This is an open access chapter distributed under the terms of the CC BY-NC-ND 4.0 license. https://creativecommons.org/licenses/by-nc-nd/4.0/ a certain character, while not wholly biologically determined, nonetheless lie outside of our control. It is the gods who are responsible for creating the human body, and it is even suggested that they exercise a form of providential rule over us. In what sense can they absolved of blame for the condition of our souls?</p><p>In attempting to answer this question, we must be careful to avoid importing foreign notions of moral responsibility or divine providence into the text. For instance, when the gods are enjoined "to guide the mortal animal as nobly and as well as possible" (κατὰ δύναμιν ὅτι κάλλιστα καὶ ἄριστα τὸ θνητὸν διακυβερνᾶν ζῷον … 42e2-3), there is a prima facie temptation to interpret this passage in line with a Stoic or Christian conception of providence, as saying that the world is ordered in all of its details in such a way as to enable us, as individuals, to live the best life possible. The use of the verbs archein (to rule) and diakybernan (to steer) at 42e3-4 suggest an active engagement of the gods in human affairs.</p><p>Despite this talk of ruling and guiding, however, the actual description of the causal influence that the gods exert over human beings suggests that it is restricted to the level of the species, rather than the individual. Thus, the Demiurge is absolved of responsibility for human badness on the basis of three claims:16 i) all souls have the same structure; ii) all souls possess knowledge of "the nature of the whole … and the laws of destiny" (τὴν τοῦ παντὸς φύσιν […] νόμους τε τοὺς εἱμαρμένους, 41e2-3);17 iii) all souls are incarnated for the first time in the same form (γένεσις πρώτη μὲν ἔσοιτο τεταγμένη μία πᾶσιν, ἵνα μήτις ἐλλαττοῖτο ὑπ' αὐτοῦ, 41e3-4). The last condition, in particular, highlights the limits of divine power and responsibility as Timaeus defines them. The equality of starting conditions for which the Demiurge bears responsibility concerns only the class of body that a soul inhabits. The concept of a "birth" (genesis) common to all is directly connected to the notion of a specific bodily "nature" (physis), which tracks the distinction between human beings and other animals, but also between "male" and "female," which are considered two separate forms of human nature (41e-42c). Initially, all souls are embedded in male bodies and only in subsequent births can they become attached to other "natures," including female bodies. There is no suggestion in this passage that the Demiurge's influence extends beyond the level of bodily forms to determine the specific way in which a particular form or "nature" is realized in concrete 16 "[He] ordain[ed] all of these things for them, so that he would not be responsible for the subsequent badness of each of them" (διαθεσμοθετήσας δὲ πάντα αὐτοῖς ταῦτα, ἵνα τῆς ἔπειτα εἴη κακίας ἑκάστων ἀναίτιος, 42d2-4). 17</p><p>The notion that all souls possess knowledge of the nature of reality calls to mind the doctrine of anamnesis, although the term does not appear here.</p><p>Chad Jorgenson -9789004437081 Downloaded from Brill.com 03/04/2024 06:42:06PM via Open Access. This is an open access chapter distributed under the terms of the CC BY-NC-ND 4.0 license. https://creativecommons.org/licenses/by-nc-nd/4.0/ instances. Unlike in Stoicism, divine providence here concerns only universal structures common to particular species or sub-species (in the case of male and female humans), and not individuals qua individuals. The claim that he orders everything "so that no one is disadvantaged by him" (ἵνα μήτις ἐλλαττοῖτο ὑπ' αὐτοῦ, 41e4) is comprehensible only if we deny that the bodily variations responsible for human badness can be ascribed to his causal agency. And, in fact, this passage is carefully worded to avoid such an ascription, stressing the identity of bodily "natures" in a general sense rather than the actual equality of individual human bodies.</p><p>But if the gods are not causally responsible for physiological defects, then where do these variations between bodies come from? The obvious culprit is the second main element of Timaeus' ontology, namely "necessity" (anankē), a countervailing principle to reason, which is both the recipient of rational structure-i.e. the material to which the Demiurge gives form to create the cosmos-and a limiting condition on what can be accomplished. Considered as a limit, necessity manifests itself in two main ways. The first is as a general constraint on what can be accomplished on the level of material reality. Certain trade-offs are made necessary by the fact that particular properties cannot be co-instantiated on the physical level. For instance, the thinness of the skull and the flesh that surrounds it is the result of a trade-off between the conflicting demands of robustness and sensitivity. Longevity is sacrificed for the sake of intelligence, on the grounds that the thick layers of flesh and bone that would afford greater protection would also dull our senses and intellect.18 In such cases, necessity limits what reason can accomplish, but because of the general character of this limitation, it can be deliberately incorporated into the rational design of the human body.</p><p>But necessity also makes itself felt in another way, namely as a "wandering cause" (planōmenē aitia), an apparent residue of the disorderly motion of the elements that precedes-whether ontologically or temporally-the imposition of rational, mathematical structure by the Demiurge. <ref type="bibr" target="#b2">19</ref> The continued operation of irrational mechanical causation within the cosmos enables us to account for localized breakdowns in order, without making it necessary to explain how this is beneficial from the point of view of the whole. It is no coincidence that the humours that randomly invade the different seats of the soul and engender various psychic disorders are described as "wandering" (planēthentes).20 While Timaeus does not explicitly evoke this chaotic motion in describing the origin of the excessive porousness of the bones-the other physiological cause of psychic disorders that he identifies in this passage-it is unclear what else could be responsible. This porousness cannot be the result of the sort of rational trade-off found in the construction of skull, since it occurs only in some bodies and not others.21 If such defects are ultimately due to the operation of a non-rational cause that falls outside of their power, then the lack of responsibility of the gods for the evils that befall an individual can be straightforwardly explained in terms of the limitations of their agency. That is, an appeal to divine causality cannot account for why one person possesses a particular bodily defect and another one does not, but can only explain why the human body, in general, has the form and nature that it has. In this very literal sense, we can say that the gods are "not the cause" (anaitioi) of human badness.</p><p>But if this is so, what are we to make of the corresponding claim that the individual is responsible for the evils that befall them? Here again, we should pay careful attention to Timaeus' exact wording. First of all, he is careful to specify that it is not the soul itself that is "responsible for the evils that occur to it" (κακῶν αὐτὸ ἑαυτῷ γίγνοιτο αἴτιον), but rather the "mortal animal" (τὸ θνητὸν […] ζῷον, 42e2-4). This distinction is subtle, but significant, because the physiological defects that are the ultimate cause of these evils are external to the rational soul, considered in itself, but are constitutive of the human animal qua composite of body and soul. For instance, if a concrete human being is embroiled in misfortunes brought about by his excessive sexual appetites, it is perfectly reasonable to say that he is the proximate cause of these misfortunes, because his desires and corresponding actions, are an expression of his individual character, which is defined by a confluence of psychic and physiological causes. But attributing responsibility in this sense is not incompatible with giving a further explanation of the antecedent biological and social factors that led him to have the character that he does. There is a contradiction here only if we take aitiosas Taylor, Cornford, and, to a lesser extent, Gill do-to refer to some form of autonomous moral responsibility, grounded in free choice, that is undermined to the extent that our actions can be further explained by antecedent physiological and social causes.22 21</p><p>On the status of disease as purely negative in the Timaeus, see Betegh's contribution in this volume. This is in stark contrast to the Stoics who place particular events within the scope of providence and who see disease, in particular, as fulfilling a positive function.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>22</head><p>Both seem to fall victim to the retroactive projection of later notions of choice and freedom of the will criticized by Frede, Free Will. This is true of Cornford more so than Taylor, since Taylor is careful to deny that Plato (or the Greeks in general) are interested in the problem of free will, while still trying to make the notion of choice central to Plato's account. Cornford, by contrast, openly speaks of "free will."</p><p>At the same time, to say that we are causally responsible for the evils that occur to us, as the result of our own vicious character, is not to say that we should be blamed for them. Timaeus remains faithful to the Socratic maxim that no one does evil voluntarily. Although we are responsible for the evils that we do, this does not mean that they express what we truly want for ourselves. The bad desires that we have are undeniably ours, but they are not a direct and spontaneous expression of our original nature, but rather a product of bodily infirmity and of a misguided education. As such, they are more deserving of pity than of blame. At the same time, it is not merely that we cannot be blamed for our badness, but that the notion of blame itself makes little sense, at least at this lofty level of analysis. This point seems to be missed by most commentators, who take Timaeus to say that blame is transferred from the child to the parents.23 In fact, there is a subtle, but significant difference in meaning between the words Timaeus uses in the two cases. Initially, he says that no one does wrong willingly and hence that those who are bad are "wrongly blamed" (ouk orthōs oneidizeitai, 86d7) for their actions. But when he attributes responsibility to parents and educators he uses not oneidizeitai, but aitiateon. The latter term can mean "to blame" someone for a fault, which is how it is generally interpreted here, but it also has the more neutral sense of "identify as the cause." Not coincidentally, this usage of aitiateon is found in Republic II, where Socrates claims that god is good and hence not "responsible" (aitios) for evils, but must rather be "identified as the cause" (aitiateon) of all good things (379c2-7).</p><p>If we take aitiateon in this more neutral sense, it explains the otherwise puzzling fact that our parents are "blamed" insofar as they beget us, and not only insofar as they educate us.24 After all, if we are not to be blamed for our badness, on the grounds that "no one is willingly bad" (κακὸς μὲν γὰρ ἑκὼν οὐδείς, 86d7-e1), then the same will hold of our parents and educators. What the 23 Cf. Cornford, Plato's Cosmology, 346, "blame must fall upon the parents rather than the offspring," Taylor, Commentary, 618, "these [defects], T. thinks, are not our own fault, but those of our parents," Gill, "The Body's Fault?" 61, "people should not be blamed (aitiateon) or held responsible for [these failings]. More precisely, any blame should be attached to those who 'implant' such failings, through social influence, rather than those in whom they are implanted." 24 Gill, "The Body's Fault," does not mention the fact that our parents are held responsible not only for our bad upbringing but also for our physical defects. Taylor, Commentary, 618, attempts to explain this by saying that our parents married unwisely, while Cornford, Plato's Cosmology, 346, refers to a passage in the Laws about the possibility of bad actions having an effect on the souls and bodies of our offspring. In both cases, the assumption that responsibility must be attached to choice leads them to overlook the most obvious and immediate sense in which our parents are the cause of our bodily defects.</p><p>Chad Jorgenson -9789004437081 Downloaded from Brill.com 03/04/2024 06:42:06PM via Open Access. This is an open access chapter distributed under the terms of the CC BY-NC-ND 4.0 license. https://creativecommons.org/licenses/by-nc-nd/4.0/ choice of the word aitiateon is intended to stress, I take it, is that it is not really a question of transferring blame, but rather of individuating the causes of our having a bad character. These include the imperfect bodily constitution that we inherited from our parents and the harmful beliefs we absorbed from our surroundings, both of which play a clear causal role in the development of a bad character. They do not, however, include the gods whose causal influence, as we have seen, covers only what is natural and good, and who thus play no role in our aetiology of vice, as an unhealthy-i.e. unnatural-condition of the soul. If we wish to understand why we are bad and, more important, what can be done to correct this badness, then we must identify the antecedent causes of our character being the way it is, rather than attributing it to some power of autonomous self-determination. Reading into these passages a notion of moral responsibility linked to free choice muddies the waters, obscuring the fact that Timaeus is attempting to demonstrate precisely the opposite. This is not merely a theoretical point, but has practical consequences, since if we misidentify the causes of bad character-by treating it as the result of an autonomous choice independent of biological and social influences-we will propose the wrong treatment for it, making the situation worse rather than better.</p><p>This does not, however, mean that the concept of blame is devoid of uses in other contexts. In the Laws, we encounter blame (oneidos) presented as a "a more severe penalty than a large fine for the reasonable man" (πολλῶν χρημάτων νοῦν κεκτημένῳ ζημία βαρυτέρα, 926d6-7). Taylor seizes on this as evidence that what we find in the Timaeus is fundamentally at odds with Plato's own positions, pointing out that the distinction between voluntary and involuntary harm (blabē) plays a central role in Laws IX.25 But even a cursory examination reveals that the Laws passage complements rather than conflicts with the Timaeus' account of responsibility and blame. The Athenian Stranger pointedly contrasts the notion of "harm" with that of "injustice," precisely in order to allow for what he takes to be a juridically important distinction between voluntary and involuntary acts, without compromising the claim that injustice, as a condition of the soul, is always involuntary. The Athenian Stranger is somewhat vague about what the voluntariness or intentionality of harm consists in, but the specific examples of involuntary killing that he gives-namely as a result of sporting accidents, friendly fire, or medical treatment (865a1-865b4)-suggests that the distinction is fundamentally one of intentionality, that is, of whether or not the killing in question was the intended result of the action that brought it about. His point is that the injustice of an agent is, in itself, not sufficient to establish that a particular harmful act is an injustice.</p><p>Nor is it sufficient that the act itself be harmful for it to constitute an injustice. In order to establish that a harmful act is, in fact, an injustice, it is necessary to establish a causal connection between the act and an unjust disposition of the soul, which is done by means of the concept of intentionality. For instance, from a juridical point of view, it makes a significant difference whether an unjust man kills a fellow soldier in the heat of the battle because he genuinely mistook him for an enemy, a mistake that a just man could just as easily make, or to settle an old score. The question is not whether or not the killing was the result of a genuinely free choice-this does not enter into the picture at all here-but whether or not the killing was motivated by an unjust desire. The voluntariness of the killing-at least, in the absence of a legitimate justification like self-defence-reveals the injustice in the killer's soul, an injustice that the Stranger defines as the tyranny of thumotic or appetitive motivation over reason (863a7-864b4). This is, however, perfectly compatible with saying that the injustice of the soul in which these (voluntary) unjust actions are grounded is itself involuntary, albeit in the slightly different sense of not reflecting our innate desire for the good.</p><p>Not only does this two-tier approach save the phenomena by reconciling our ordinary intuitions about the distinction between intentionally and unintentionally causing harm with the Socratic maxim that injustice is always involuntary, it also clarifies the scope and function of punishment, which is not discussed in the Timaeus. Out of all of the forms of harm or injury that humans can inflict on each other, only one can clearly be identified as injustice, namely the intentional harm caused by an unjust agent as a result of their unjust character. This is also the only case in which the function of justice is punitive rather than restorative (in the sense of compensating the harm caused and reconciling the parties). An unjust act, as opposed to a merely harmful one, reveals an unhealthy disposition of the soul in need of treatment, and not merely for the sake of society as a whole. As the Athenian Stranger puts it "no punishment that conforms to law aims to harm, but, on the whole, accomplishes one of two things; for the person who is punished is made either better or less bad" (οὐ γὰρ ἐπὶ κακῷ δίκη γίγνεται οὐδεμία γενομένη κατὰ νόμον, δυοῖν δὲ θάτερον ἀπεργάζεται σχεδόν• ἢ γὰρ βελτίονα ἢ μοχθηρότερον ἦττον ἐξηργάσατο τὸν τὴν δίκην παρασχόντα, Laws 854d5-e1). For this reason, the concept of intentionality is so important from a juridical point of view. An intentional act lays bare the underlying motivational structures in an agent's soul in a way that an unintentional one does not, helping us to determine what response will lead to the most desirable outcome.</p><p>The use of blame as a punishment, whose severity for the "reasonable man" no doubt derives from its appeal to thymos rather than to the baser appetitive Chad Jorgenson -9789004437081 Downloaded from Brill.com 03/04/2024 06:42:06PM via Open Access. This is an open access chapter distributed under the terms of the CC BY-NC-ND 4.0 license. https://creativecommons.org/licenses/by-nc-nd/4.0/ soul, as in the case of corporal punishment or monetary penalties, can therefore be understood in pragmatic terms, as an instrument of political pedagogy that can be employed to help promote a just disposition in the soul by curbing unjust desires. But none of this requires any substantive notion of free will or even of choice. On the contrary, the aim is to draw our attention away from the notion of autonomous action and towards a more scientific analysis of the causes of bad behaviour. To the extent that we blame others for their injustice, as if it reflected a spontaneous, voluntary decision, we risk making the problem worse, since by misidentifying the causes of their injustice, we will apply the wrong remedies. Seen in this light, Timaeus' goal is not to make space within the causal nexus that determines our behaviour for an element of indeterminacy that would underpin a robust conception of moral responsibility, but on the contrary to dispassionately identify the various physiological and social causes of human badness, paving the way for a genuinely scientific approach that treats blame as a pedagogical tool whose use is restricted to the political sphere.</p></div>			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="1" xml:id="foot_0">For a fuller discussion of the relationship between the practice of cosmology and ethics in the Timaeus and its influence on the Stoics, see Betegh, "Cosmological Ethics in the Timaeus and Early Stoicism." Chad Jorgenson -9789004437081 Downloaded from Brill.com 03/04/2024 06:42:06PM via Open Access. This is an open access chapter distributed under the terms of the CC BY-NC-ND 4.0 license. https://creativecommons.org/licenses/by-nc-nd/4.0/</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="2" xml:id="foot_1">Taylor, A Commentary on Plato's Timaeus, 18-19. Against this interpretation, see the introduction to Cornford, Plato's Cosmology.</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="3" xml:id="foot_2">  3 Taylor, Commentary,[110][111][112][113][114]</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="4" xml:id="foot_3">. 4 Emphasis mine. All translations are my own. Chad Jorgenson -9789004437081 Downloaded from Brill.com 03/04/2024 06:42:06PM via Open Access. This is an open access chapter distributed under the terms of the CC BY-NC-ND 4.0 license. https://creativecommons.org/licenses/by-nc-nd/4.0/</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="5" xml:id="foot_4"> Cornford, Plato's Cosmology, while critical of Taylor's interpretation, does not explicitly address this contradiction. Commenting on 42d-e, Cornford claims "If [the soul] does not reduce to order the consequent turbulence in the bodily members, the fault will be her own. Her will is free to follow after righteousness and the created gods […]" Later, in relation to 86b-87b, while acknowledging the pervasive influence of bodily constitution and upbringing on character, he claims that there is nonetheless room for "moral purpose,"(Cornford, Plato's  Cosmology,(347)(348). His idea seems to be that the behaviour of the embodied soul is not completely determined by physiological and social causes, leaving room for an element of free choice in which resides our moral responsibility. Chad Jorgenson -9789004437081 Downloaded from Brill.com 03/04/2024 06:42:06PM via Open Access. This is an open access chapter distributed under the terms of the CC BY-NC-ND 4.0 license. https://creativecommons.org/licenses/by-nc-nd/4.0/</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="6" xml:id="foot_5"> Cornford, Plato's Cosmology, ad loc.Chad Jorgenson -9789004437081 Downloaded from Brill.com 03/04/2024 06:42:06PM via Open Access. This is an open access chapter distributed under the terms of the CC BY-NC-ND 4.0 license. https://creativecommons.org/licenses/by-nc-nd/4.0/</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" xml:id="foot_6">Chad Jorgenson -9789004437081 Downloaded from Brill.com 03/04/2024 06:42:06PM via Open Access. This is an open access chapter distributed under the terms of the CC BY-NC-ND 4.0 license. https://creativecommons.org/licenses/by-nc-nd/4.0/</note>
+		</body>
+		<back>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<monogr>
+		<title/>
+		<author>
+			<persName><forename type="first">Tim</forename></persName>
+		</author>
+		<imprint/>
+	</monogr>
+	<note>86d-e</note>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<monogr>
+		<title level="m" type="main">via Open Access</title>
+		<author>
+			<persName><surname>Downloaded</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Brill</surname></persName>
+		</author>
+		<idno>03/04/2024 06:42:06PM</idno>
+		<ptr target="https://creativecommons.org/licenses/by-nc-nd/4.0/18Tim.74e-75e" />
+		<imprint/>
+	</monogr>
+	<note>This is an open access chapter distributed under the terms of the CC BY-NC-ND 4.0 license</note>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<monogr>
+		<title/>
+		<author>
+			<persName><forename type="first">Tim</forename><surname>Tim</surname></persName>
+		</author>
+		<imprint>
+			<biblScope unit="page" from="52" to="53" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<monogr>
+		<title level="m" type="main">Note too that at 43a, the soul&apos;s circles are said to &quot;wander&quot; under the influence of bombardment of sense impressions</title>
+		<author>
+			<persName><forename type="first">Tim</forename></persName>
+		</author>
+		<imprint>
+			<biblScope unit="page">9789004437081</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">via Open Access. This is an open access chapter distributed under the terms of the CC BY-NC-ND 4.0 license</title>
+		<author>
+			<persName><surname>Downloaded</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Brill</surname></persName>
+		</author>
+		<idno>03/04/2024 06:42:06PM</idno>
+		<ptr target="https://creativecommons.org/licenses/by-nc-nd/4.0/Taylor" />
+	</analytic>
+	<monogr>
+		<title level="j">Commentary</title>
+		<imprint>
+			<biblScope unit="page">9789004437081</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<monogr>
+		<title level="m" type="main">via Open Access. This is an open access chapter distributed under the terms of the CC BY-NC-ND 4</title>
+		<author>
+			<persName><surname>Downloaded</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Brill</surname></persName>
+		</author>
+		<idno>03/04/2024 06:42:06PM</idno>
+		<ptr target="https://creativecommons.org/licenses/by-nc-nd/4.0/" />
+		<imprint>
+			<publisher>Macmillan</publisher>
+			<biblScope unit="page" from="1849" to="1910" />
+			<pubPlace>London</pubPlace>
+		</imprint>
+	</monogr>
+	<note>Works Cited Archer-Hind, R. D. The Timaeus of Plato</note>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">Cosmological Ethics in the Timaeus and Early Stoicism</title>
+		<author>
+			<persName><forename type="first">Gabor</forename><surname>Betegh</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Oxford Studies in Ancient Philosophy</title>
+		<imprint>
+			<biblScope unit="volume">24</biblScope>
+			<biblScope unit="page" from="273" to="302" />
+			<date type="published" when="2003">2003</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<monogr>
+		<author>
+			<persName><forename type="first">Luc</forename><surname>Brisson</surname></persName>
+		</author>
+		<title level="m">Le même et l&apos;autre dans la structure ontologique du Timée de Platon. 2éd</title>
+				<meeting><address><addrLine>Sankt Augustin</addrLine></address></meeting>
+		<imprint>
+			<publisher>Academia Verlag</publisher>
+			<date type="published" when="1994">1994</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<monogr>
+		<author>
+			<persName><forename type="first">Francis</forename><surname>Cornford</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Plato's Cosmology</surname></persName>
+		</author>
+		<author>
+			<persName><surname>London</surname></persName>
+		</author>
+		<title level="m">Routledge and Kegan and Paul, 1937. Frede, Dorothea. Platon, Philebos: Übersetzung und Kommentar</title>
+				<meeting><address><addrLine>Göttingen</addrLine></address></meeting>
+		<imprint>
+			<publisher>Vandenhoeck &amp; Ruprecht</publisher>
+			<date type="published" when="1997">1997</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">Michael</forename><surname>Frede</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Will</forename><surname>Free</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Origins of the Notion in Ancient Thought</title>
+		<imprint>
+			<date type="published" when="2011">2011</date>
+			<publisher>University of California Press</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">Anima e corpo: immortalità, organicismo e psico-fisilogia nel Timeo di Platone</title>
+		<author>
+			<persName><forename type="first">Francesco</forename><surname>Fronterotta</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Études platoniciennes II</title>
+		<imprint>
+			<biblScope unit="page" from="141" to="154" />
+			<date type="published" when="2006">2006</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">The Body&apos;s Fault? Plato&apos;s Timaeus on psychic illness</title>
+		<author>
+			<persName><forename type="first">Christopher</forename><surname>Gill</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Johansen, Thomas K. Plato&apos;s Natural Philosophy: A Study of the Timaeus-Critias</title>
+				<editor>
+			<persName><forename type="first">M</forename><forename type="middle">R</forename><surname>Wright</surname></persName>
+		</editor>
+		<editor>
+			<persName><surname>London</surname></persName>
+		</editor>
+		<editor>
+			<persName><surname>Duckworth</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Cambridge</addrLine></address></meeting>
+		<imprint>
+			<publisher>Cambridge University Press</publisher>
+			<date type="published" when="2000">2000. 2004</date>
+		</imprint>
+	</monogr>
+	<note>Reason and Necessity: Essays on Plato&apos;s Timaeus</note>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">What the Mortal Parts of the Soul Really Are</title>
+		<author>
+			<persName><forename type="first">Filip</forename><surname>Karfík</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Rhizai II</title>
+		<imprint>
+			<biblScope unit="volume">2</biblScope>
+			<biblScope unit="page" from="197" to="217" />
+			<date type="published" when="2005">2005</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<monogr>
+		<title level="m" type="main">A Commentary on Plato&apos;s Timaeus</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">E</forename><surname>Taylor</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="1928">1928</date>
+			<publisher>Clarendon Press</publisher>
+			<biblScope unit="page">9789004437081</biblScope>
+			<pubPlace>Oxford</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<monogr>
+		<title level="m" type="main">via Open Access</title>
+		<author>
+			<persName><surname>Downloaded</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Brill</surname></persName>
+		</author>
+		<idno>03/04/2024 06:42:06PM</idno>
+		<ptr target="https://creativecommons.org/licenses/by-nc-nd/4.0/" />
+		<imprint/>
+	</monogr>
+	<note>This is an open access chapter distributed under the terms of the CC BY-NC-ND 4.0 license</note>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

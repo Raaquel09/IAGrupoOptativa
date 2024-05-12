@@ -1,0 +1,565 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Optimal Toffoli-Depth Quantum Adder</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+				<date type="published" when="2024-05-03">3 May 2024</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Siyi</forename><surname>Wang</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Ankit</forename><surname>Mondal</surname></persName>
+						</author>
+						<author>
+							<affiliation key="aff0">
+								<orgName type="institution">Nanyang Technological University</orgName>
+								<address>
+									<country key="SG">Singapore</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<affiliation key="aff1">
+								<orgName type="institution" key="instit1">SUMAN DEB</orgName>
+								<orgName type="institution" key="instit2">Nanyang Technological University</orgName>
+								<address>
+									<country key="SG">Singapore</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<affiliation key="aff2">
+								<orgName type="institution">Indian Institute of Technology Delhi</orgName>
+								<address>
+									<country key="IN">India</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<affiliation key="aff3">
+								<orgName type="institution" key="instit1">ANUPAM CHATTOPADHYAY</orgName>
+								<orgName type="institution" key="instit2">Nanyang Technological University</orgName>
+								<address>
+									<country key="SG">Singapore</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Optimal Toffoli-Depth Quantum Adder</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date type="published" when="2024-05-03">3 May 2024</date>
+						</imprint>
+					</monogr>
+					<idno type="MD5">13DD4578D0BA7315013A555E0F44377C</idno>
+					<idno type="arXiv">arXiv:2405.02523v1[quant-ph]</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.2" ident="GROBID" when="2024-05-12T15:27+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>
+					<term>Quantum Computing</term>
+					<term>Quantum Arithmetic</term>
+					<term>T-depth Optimization</term>
+					<term>Carry-lookahead Adder</term>
+					<term>Sklansky Tree</term>
+				</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Efficient quantum arithmetic circuits are commonly found in numerous quantum algorithms of practical significance. Till date, the logarithmic-depth quantum adders includes a constant coefficient 𝑘 ≥ 2 while achieving the Toffoli-Depth of 𝑘 log 𝑛 + O (1). In this work, 160 alternative compositions of the carry-propagation structure are comprehensively explored to determine the optimal depth structure for a quantum adder. By extensively studying these structures, it is shown that an exact Toffoli-Depth of log 𝑛 + O (1) is achievable. This presents a reduction of Toffoli-Depth by almost 50% compared to the best known quantum adder circuits presented till date. We demonstrate a further possible design by incorporating a different expansion of propagate and generate forms, as well as an extension of the modular framework. Our paper elaborates on these designs, supported by detailed theoretical analyses and simulation-based studies, firmly substantiating our claims of optimality. The results also mirror similar improvements, recently reported in classical adder circuit complexity.</p><p>CCS Concepts: • Computer systems organization → Quantum computing.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1">INTRODUCTION</head><p>Quantum computers powered by quantum algorithms promise to offer problem-solving abilities that will far exceed the most powerful supercomputers of today. These quantum algorithms rely on efficient arithmetic circuits to harness their full potential. While the quantum computing space continues to bustle with diverse research activities, optimizing quantum circuits remains a fundamental necessity. Quantum adders stand out as one of the key circuits in any quantum computing system. For instance, Shor's algorithm <ref type="bibr" target="#b9">[10]</ref>, which can factorize large integers exponentially faster than a classical computer, relies on efficient quantum addition.</p><p>While adder circuits have been frequently explored in classical computing, they remain relatively less-chartered in the quantum computing paradigm. Arithmetic circuits have been extensively explored in classical computing. Interestingly, the Sklansky Tree <ref type="bibr" target="#b10">[11]</ref> is widely applied for its minimal depth among all the other parallel prefix structures. However, implementing this structure in the quantum world presents significant challenges, primarily due to qubit non-copyability.</p><p>Permission to make digital or hard copies of all or part of this work for personal or classroom use is granted without fee provided that copies are not made or distributed for profit or commercial advantage and that copies bear this notice and the full citation on the first page. Copyrights for components of this work owned by others than the author(s) must be honored. Abstracting with credit is permitted. To copy otherwise, or republish, to post on servers or to redistribute to lists, requires prior specific permission and/or a fee. Request permissions from permissions@acm.org. This paper proposes a novel quantum adder based on the Sklansky Tree, which is verified as the optimal depth structure among all the quantum adders. Throughout this research, we faced a series of challenges. Specifically, the inability to copy qubits presented a barrier to the direct application of the prefix tree adders in the quantum world. To address this issue, we developed a quantum repeat gate that helps to efficiently incorporate the different Prefix Tree structures such as Sklansky <ref type="bibr" target="#b10">[11]</ref> into the quantum world under specific constraints. The proposed repeat gate not only contributes to the establishment of an optimal-depth quantum adder but also effectively addresses the problems arising from qubit non-copyability in other specific quantum circuits.</p><p>Our primary contribution is the development of the optimal-depth quantum adder that achieves an remarkable Toffoli-Depth of log 𝑛 + O (1) for 𝑛 bit-sized additions. Obviously, it marks an important improvement over all the previous quantum carry-lookahead adders based on the Brent-Kung tree, which required a minimum of 2 log 𝑛 + O (1) Toffoli-Depth. By conducting a thorough assessment involving Toffoli-Depth, Qubit Count, and Toffoli-Count, this paper offers significant insights into the strengths and constraints of the quantum optimal-depth adder, enhancing the continuous development of quantum computing, which parallels the development of classical adder analysis <ref type="bibr" target="#b4">[5]</ref>. In brief, the main contributions include:</p><p>• Thoroughly investigate the prefix tree and explore computation forms using different propagation and generation techniques.</p><p>• Propose innovative designs for optimal Toffoli-Depth adders, optimal Toffoli-Depth Ling adder and optimal Toffoli-Depth modular adder, achieving the peak performance in quantum addition circuits.</p><p>The rest of this paper is organized as follows: Section 2 describes the relevant previous research. In Section 3, we introduce and compare the Sklansky Tree and other parallel prefix structures. Section 4 presents the overall design of the proposed optimal Toffoli-Depth quantum adder, Ling expansion and modular adder expansion. Additionally, Section 5 offers a detailed performance analysis, including a comparison with dominant quantum adder designs. We conclude the paper and discuss future research directions in Section 6.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2">RELATED WORK</head><p>We provide a comprehensive overview of the related literature in this section. In the quantum world, reducing the Toffoli gate is a prominent trend <ref type="bibr" target="#b6">[7]</ref>[18] due to its time-intensive property. Among all the different types of quantum adders, Carry-Lookahead Adders (CLAs) are specially designed to achieve reduced depth. In 2004, Draper et al. <ref type="bibr" target="#b2">[3]</ref> proposed a logarithmic-depth quantum carry-lookahead adder, reducing Toffoli-Depth from 𝑂 (𝑛) to 𝑂 (log 𝑛), resulting in notable efficiency improvements. Subsequently, there was an obvious increase in the development of quantum CLAs.</p><p>For example, Takahashi et al. further optimized Draper's work and designed some important quantum CLAs <ref type="bibr" target="#b11">[12,</ref><ref type="bibr" target="#b12">13]</ref>.</p><p>Furthermore, Wang et al. <ref type="bibr" target="#b15">[16]</ref> compared all the quantum CLAs and found Brent-Kung <ref type="bibr" target="#b0">[1]</ref> to be the top choice for implementing quantum adders.</p><p>However, it is interesting to note that, while majority of the quantum CLAs are based on the Brent-Kung structure, the Kogge-Stone <ref type="bibr" target="#b5">[6]</ref> and Slansky <ref type="bibr" target="#b10">[11]</ref> architectures continue to have the lowest depth among all the parallel prefix structures in theory. For example, compared to Brent-Kung's 2 log 𝑛 depth, the Kogge-Stone and Slansky structures achieve n-bit addition with only half the depth. However, research on the quantum prefix tree structure is currently limited. This is primarily due to the nature of the prefix tree structures which involve extensive bit-sharing operations.</p><p>In classical computing, multiple operations that share the same input bit are possible simultaneously. In the quantum domain, due to the non-copyability of qubits, operations sharing the same input must be executed in separate time slots. As a result, previous works have favored the use of the Brent-Kung tree in quantum computing, considering it a more convenient and cost-effective approach. Nonetheless, we have proposed a novel addition framework to solve this qubit-sharing challenge within specific constraints. Following a thorough comparison, we have found that the Sklansky Tree emerges as the optimal structure among all the quantum prefix tree adders.</p><p>In this paper, we propose an innovative quantum optimal-depth adder based on the Sklansky tree. Through systematic comparison with other existing designs, our adder demonstrates a Toffoli-Depth of log(𝑛) + O (1), which significantly outperforms the Toffoli-Depth of previous Brent-Kung-based adders. Consequently, our design has the potential to become a noteworthy candidate for constructing large-scale quantum circuits, mirroring an advancement similar to classical adder circuit design <ref type="bibr" target="#b4">[5]</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3">DESIGN CHOICES FOR DEPTH REDUCTION</head><p>In this section, we elaborate on the choices to be made with the primary objective of reducing Toffoli-Depth. As shown in Figure <ref type="figure" target="#fig_0">1</ref>, in this study, we explored a total of 160 design options. In Sections 3.1 and 3.  </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.1">Choice of Prefix Tree</head><p>As shown in Table <ref type="table" target="#tab_1">1</ref>, the classical Sklansky tree and Kogge-Stone tree stand out as the most efficient parallel prefix structures in terms of logical depth compared to other similar structures, such as the Brent-Kung tree and the Han-Carlson tree. Among state-of-the-art logarithmic-depth quantum adders, the common approach is to use the Brent-Kung tree <ref type="bibr" target="#b2">[3,</ref><ref type="bibr" target="#b15">16,</ref><ref type="bibr" target="#b16">17]</ref>. However, it is well known in the classical adder that the Kogge-Stone and Slansky prefix trees can achieve a significantly lower logical depth, i.e., log 𝑛, reducing depth of the Brent-Kung tree by half. Given this substantial difference in logical depth, it is surprising that these prefix trees were not studied earlier. One possible reason for the same is the prefix tree incurs an overhead due to copy operation, which is inherently prevented in quantum domain due to no-cloning theorem. However, this limitation can be bypassed through introduction of ancilla qubits with initialization states as |1⟩ or |0⟩ and proper application of CNOT gate as shown in Figure <ref type="figure" target="#fig_1">2</ref>.</p><p>Among the five prominent quantum prefix tree structures, Quantum Slansky (Figure <ref type="figure" target="#fig_1">2</ref>(b)) stands out as particularly advantageous. While it exhibits the lowest logical depth, Quantum Slansky also features significantly fewer CNOT operations compared to Quantum Koggle Stone, which has an equivalent logical depth.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.2">Choice of Propagate and Generate Computation</head><p>The efficiency of quantum carry-lookahead adder depends on the choice of propagate and Generate strategy. Here, two common approaches are described as follows:</p><p>• Conventional Propagation and Generation. The conventional method employs standard logical operations for carry propagation and generation as shown in formulas 1,2,3,4 and 5.</p><formula xml:id="formula_0">(𝐺 0:0 , 𝑃 0:0 ) = (𝑔 0 , 𝑝 0 )<label>(1)</label></formula><formula xml:id="formula_1">(𝐺 0:𝑖 , 𝑃 0:𝑖 ) = (𝑔 𝑖 , 𝑝 𝑖 ) • (𝐺 0:𝑖 −1 , 𝑃 0:𝑖 −1 )<label>(2)</label></formula><formula xml:id="formula_2">(𝑔 𝑥 , 𝑝 𝑥 ) • (𝑔 𝑦 , 𝑝 𝑦 ) = (𝑔 𝑥 + 𝑝 𝑥 • 𝑔 𝑦 , 𝑝 𝑥 • 𝑝 𝑦 ) = (𝑔 𝑥 ⊕ (𝑝 𝑥 • 𝑔 𝑦 ), 𝑝 𝑥 • 𝑝 𝑦 )<label>(3)</label></formula><formula xml:id="formula_3">𝑐 0 = 0 (<label>4</label></formula><formula xml:id="formula_4">)</formula><formula xml:id="formula_5">𝑐 𝑖+1 = 𝑔 𝑖 + 𝑝 𝑖 • 𝑐 𝑖 = 𝐺 0:𝑖<label>(5)</label></formula><p>It is widely used for its simplicity, providing a clear and straightforward construction of quantum carry-lookahead adders.</p><p>• Ling-Based Propagation and Generation. This method is represented by the Quantum Ling adder <ref type="bibr" target="#b16">[17]</ref>, which incorporates the Ling basis <ref type="bibr" target="#b7">[8]</ref> into the dominant Quantum Carry Look-Ahead Adders(CLA) which mainly based</p><formula xml:id="formula_6">c8 c7 c6 c5 c4 c3 c2 c1</formula><p>(a) Quantum Kogge-Stone.</p><p>(p8, g8) (p7, g7) (p6, g6) (p5, g5) (p4, g4) (p3, g3) (p2, g2) (p1, g1)</p><formula xml:id="formula_7">1 1 3 c8 c7 c6 c5 c4 c3 c2 c1 (b) Quantum Slansky. (p8, g8) (p7, g7) (p6, g6) (p5, g5) (p4, g4) (p3, g3) (p2, g2) (p1, g1) 1 1 c8 c7 c6 c5 c4 c3 c2 c1 (c) Quantum Han-Carlson. (p8, g8) (p7, g7) (p6, g6) (p5, g5) (p4, g4) (p3, g3) (p2, g2) (p1, g1) 1 c8 c7 c6 c5 c4 c3 c2 c1 (d) Quantum Ladner-Fischer. (p8, g8) (p7, g7) (p6, g6) (p5, g5) (p4, g4) (p3, g3) (p2, g2) (p1, g1) c8 c7 c6 c5 c4 c3 c2 c1</formula><p>(e) Quantum Brent-Kung. on Brent-Kung structure. The Ling-based propagation and generation structure introduces a more complex pre-calculation part, thereby incorporating an additional parallel calculation tree in the calculation process, resulting in a reduction in depth cost. Compared to the traditional approach, the complexity of Toffoli-Depth can be further reduced to 𝑂 (log 𝑛 2 ) from 𝑂 (log 𝑛) by integrating the Ling expansion and utilizing a slightly different pre-calculation structure.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4">THE DESIGN OF QUANTUM PREFIX TREE ADDER</head><p>In this section, a detailed description of our quantum prefix tree adders is provided.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.1">Evaluation Metrics</head><p>The metrics used in this work are outlined as follows:</p><p>• Toffoli-Depth. It represents the number of computational layers that include Toffoli gates, related to the overall time complexity. Toffoli-Depth can be converted to T-depth using specific decomposition methods, thereby allowing for the standardized evaluation.</p><p>• Toffoli-Count. It measures the total count of Toffoli gates within the circuit, providing an estimate of the gate complexity and quantum resource consumption. By using specific decomposition methods, it is convertible to T-count for standardized comparisons.</p><p>• Qubit-Count. It denotes the total number of qubits required, which correlates with the size of the quantum circuit.</p><p>These metrics enable a comprehensive evaluation of quantum circuit efficiency and practicality.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.2">Quantum Prefix Tree Adder</head><p>As shown in Figure <ref type="figure" target="#fig_6">8</ref>, we construct the Quantum prefix tree adder by combining the steps 1 to 4.</p><p>• Step 1. The initial propagation 𝑝 𝑖 and generation 𝑔 𝑖 are calculated using a single ancilla qubit and one Toffoli gate. Consequently, Toffoli-Depth is 1, Toffoli-Count is 𝑛, and Qubit-Count is (3𝑛 + 1).</p><formula xml:id="formula_8">|a i ⟩ • • |a i ⟩ |b i ⟩ • |p i ⟩ |0⟩ |g i ⟩</formula><formula xml:id="formula_9">𝑝 𝑖 = 𝑎 𝑖 ⊕ 𝑏 𝑖<label>(6)</label></formula><formula xml:id="formula_10">𝑔 𝑖 = 𝑎 𝑖 • 𝑏 𝑖<label>(7)</label></formula><p>• Step 2. We implement both 𝑃 propagation and 𝐺 propagation (Figure <ref type="figure">5</ref>) based on the corresponding quantum prefix tree structures as shown in Figure <ref type="figure">4</ref>.</p><p>The cost of this step depends on the prefix tree structure employed. Specifically, for the quantum Kogge-Stone adder, this step involves a Toffoli-Depth of (1 + log 𝑛), a Toffoli-Count of (𝑛 log 𝑛 − 3 2 𝑛 + 𝑛 log 𝑛 2 + 2), and an extra Qubit-Count of (3𝑛 log 𝑛 − 7 2 𝑛 + 5).  Besides, here is no extra qubit required.</p><formula xml:id="formula_11">|c i ⟩ |s i ⟩ |a i ⟩ • |a i ⟩ |p i ⟩ • |b i ⟩</formula><formula xml:id="formula_12">𝑠 𝑖 = 𝑝 𝑖 ⊕ 𝑐 𝑖 (<label>8</label></formula><formula xml:id="formula_13">)</formula><formula xml:id="formula_14">𝑠 𝑛+1 = 𝑐 𝑛+1<label>(9)</label></formula><p>• Additional Step. This step is exclusively designed for the quantum Kogge-Stone structure due to its intricate CNOT operations, necessitating an extra step to ensure the complete uncomputation of all ancillary qubits.</p><p>As illustrated in Figure <ref type="figure" target="#fig_5">7</ref>, this step involves uncomputing all the copied 𝑔 𝑖 using a Toffoli-Depth of 1 and a Toffoli-Count of (𝑛 − 2). Similar to Step 4, this step does not require any ancilla. The overall structures are depicted in Figure <ref type="figure" target="#fig_6">8</ref>, showcasing three distinct examples of 4-bit addition quantum circuits.</p><formula xml:id="formula_15">|a i ⟩ • |a i ⟩ |b i ⟩ • |b i ⟩ |g i ⟩ |0⟩</formula><p>Interestingly, the equivalence of quantum Brent-Kung, Han-Carlson, and Ladner-Fischer structures is evident within this proposed framework. The comprehensive cost analysis is provided in the subsequent section.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5">EXPERIMENTAL RESULTS AND DISCUSSION</head><p>In the previous section, we proposed the general framework and specific quantum implementations of several quantum prefix tree adders. In this section, we will provide all the details of the results and discussions. Our investigation focuses on the quantum out-of-place adder due to its direct reflection of the prefix tree's influence and its lower Toffoli-Depth compared to the quantum In-place adder. Conversely, while the In-place adder follows a similar workflow, it typically involves more intricate supplementary steps, resulting in a deeper Toffoli-Depth.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.1">Identifying the Optimal Depth Adder Among Quantum Prefix Tree Adders</head><p>First of all, we conducted a comprehensive analysis of the costs associated with all proposed quantum prefix tree adders to determine the optimal depth structure within the quantum realm. In this process, we introduced two distinct strategies.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.1.1">Strategy 1.</head><p>Under Strategy 1, we exclusively employ the Clifford+Toffoli gate set to describe and evaluate the entire quantum addition circuit. Remarkably, the Quantum Brent-Kung adder here is equivalent to the existing Draper out-of-place adder <ref type="bibr" target="#b2">[3]</ref>. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Adder</head><formula xml:id="formula_16">Toffoli-Count Toffoli-Depth Qubit-Count Brent-Kung 5𝑛 − 3𝜔 (𝑛) − 3 ⌊log 𝑛⌋ − 1 4 + ⌊log 𝑛⌋ + log 𝑛 3 4𝑛 + 1 − 𝜔 (𝑛) − ⌊log 𝑛⌋ Sklansky 3 2 𝑛 log 𝑛 + 2 ⌈log 𝑛⌉ − 𝑛 2 log 𝑛 + 1 𝑛 + 𝑛 log 𝑛 + ⌈log 𝑛⌉ + 2 Kogge-Stone 3𝑛 log 𝑛 + 𝑛 log 𝑛 2 − 3𝑛 + 5 2 log 𝑛 + 2 3𝑛 log 𝑛 − 𝑛 2 + 6 Han-Carlson 𝑛 + 3 2 𝑛 log 𝑛 − 2 𝑛 2 2 log 𝑛 + 3 3 2 𝑛 + 𝑛 log 𝑛 − 𝑛 2 + 3 Ladner-Fisher 13𝑛 4 + 3𝑛 log 𝑛 4 − 2 𝑛 2 − 3 2 log 𝑛 + 3 3𝑛 + 𝑛 log 𝑛 2 − 𝑛 2 + 1</formula><p>By applying strategy 1, the corresponding costs are detailed in Table <ref type="table" target="#tab_2">2</ref>. Unfortunately, it is obvious that compared with the quantum Brent-Kung Prefix Tree adder, the alternative prefix tree structures we proposed do not demonstrate significant advantages, especially concerning the Toffoli-Depth. In the third step, orange represents propagation uncomputation, and red represents the uncomputation of the initial propagation copy 𝑝 𝑖 . Next, pink represents the operations of the fourth step. In the final step of Kogge-Stone Adder, we perform uncomputation on all the initially copied 𝑔 𝑖 , represented in red.</p><formula xml:id="formula_17">|c 0 ⟩ |s 0 ⟩ |a 0 ⟩ • • • |a 0 ⟩ |b 0 ⟩ • • • • |b 0 ⟩ |0⟩ • |s 1 ⟩ |a 1 ⟩ • • • |a 1 ⟩ |b 1 ⟩ • • • • • |b 1 ⟩ |0⟩ • • |s 2 ⟩ |a 2 ⟩ • • • |a 2 ⟩ |b 2 ⟩ • • • • • |b 2 ⟩ |0⟩ • |s 3 ⟩ |a 3 ⟩ • • • |a 3 ⟩ |b 3 ⟩ • • • • • |b 3 ⟩ |0⟩ |s 4 ⟩ |0⟩ |0⟩ |0⟩ • |0⟩ (a) Brent-Kung Quantum Adder. |c0⟩ |s0⟩ |a0⟩ • • • |a0⟩ |b0⟩ • • • • |b0⟩ |0⟩ • |s1⟩ |a1⟩ • • • |a1⟩ |b1⟩ • • • • • |b1⟩ |0⟩ • • • |s2⟩ |a2⟩ • • • |a2⟩ |b2⟩ • • • • • |b2⟩ |0⟩ • |a3 |s3⟩ ⟩ • • • |a3⟩ |b3⟩ • • • • • • |0⟩ |0⟩ • • |0⟩ |0⟩ |0⟩ • |b3⟩ |s4⟩ |0⟩ |0⟩ |0⟩ |0⟩ (b) Slansky Quantum Adder. |c0⟩ |s0⟩ |a0⟩ • • • |a0⟩ |b0⟩ • • • • |b0⟩ |0⟩ • • |s1⟩ |a1⟩ • • • • |a1⟩ |b1⟩ • • • • • • • |b1⟩ |0⟩ • • |s2⟩ |a2⟩ • • • • |a2⟩ |b2⟩ • • • • • • • • |b2⟩ |0⟩ • |s3⟩ |a3⟩ • • • |a3⟩ |b3⟩ • • • • • |b3⟩ |0⟩ |s4⟩ |0⟩ • • |0⟩ |0⟩ • |0⟩ |0⟩ • • |0⟩ |0⟩ • |0⟩ |0⟩ |0⟩ |0⟩ • |0⟩ |0⟩ • |0⟩ • (c) Kogge-Stone Quantum Adder.</formula></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.1.2">Strategy 2.</head><p>In 2018, Gidney proposed a more cost-effective logical AND structure for implementing a pair of Toffoli gates <ref type="bibr" target="#b3">[4]</ref>. By utilizing this design, Strategy 2 aims to further optimize quantum adders based on Strategy 1.</p><p>Specifically, for the proposed quantum prefix tree adder framework, only the P propagation involves Toffoli pairs. Hence, we utilize the logical AND structure for all Toffoli gates in both the P computation and P uncomputation stages.</p><p>For other unpaired Toffoli gates, we still use Clifford+Toffoli gate set to describe them.</p><p>x Under Strategy 2, the respective costs can be found in Table <ref type="table" target="#tab_3">3</ref>. It is evident that all proposed designs significantly outperform the original Quantum Brent-Kung adder in terms of Toffoli-Depth. Particularly, the Quantum Slansky adder exhibits the quantum-optimal Toffoli-Depth, which is only 𝑙𝑜𝑔(𝑛) + 1. </p><formula xml:id="formula_18">• x • T † y • y = • T † xy |T ⟩ • T • H S (a) Computation x • x • y • y = Z xy H • (b) Uncomputation</formula><formula xml:id="formula_19">− 𝑛 2 + 1</formula><p>After comparing all the proposed designs, we confirm that the Quantum Slansky + Strategy 2 is the optimal depth design choice in this work. This is attributed to its minimal Toffoli-Depth and fewer CNOT operations involved, especially considering that Slansky only requires P-CNOT operations during CNOT operations, without the need for G-CNOT operations.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.2">Comparative Analysis: Optimal Depth Adder Vs. Existing Quantum adders</head><p>In this subsection, we assess our proposed Optimal Depth Adder against existing quantum adder designs, as detailed in Table <ref type="table" target="#tab_4">4</ref>.</p><p>The proposed optimal Toffoli-Depth adder achieves the lowest Toffoli-Depth in the quantum computing, with a harmonious balance in Toffoli Count and Qubit Count. Specifically, our optimal depth adder with strategy 2 significantly </p><formula xml:id="formula_20">VBE RCA [14] 1995 4𝑛 − 2 4𝑛 − 2 3𝑛 + 1 Cuccaro RCA [2] 2004 2𝑛 − 1 2𝑛 − 1 2𝑛 + 2 Draper In-place CLA [3] 2004 10𝑛 − 3𝜔 (𝑛) − 3𝜔 (𝑛 − 1) −3 ⌊log 𝑛⌋ − 3 ⌊log(𝑛 − 1)⌋ − 7 8 + ⌊log 𝑛⌋ + ⌊log(𝑛 − 1)⌋ + log 𝑛 3 + log 𝑛−1 3 4𝑛 − 𝜔 (𝑛) − ⌊log 𝑛⌋ Draper Out-of-place CLA [3] 2004 5𝑛 − 3𝜔 (𝑛) − 3 ⌊log 𝑛⌋ − 1 4 + ⌊log 𝑛⌋ + log 𝑛 3 4𝑛 + 1 − 𝜔 (𝑛) − ⌊log 𝑛⌋ Takahashi Adder [12] 2008 28𝑛 30 log 𝑛 2𝑛 + 3𝑛 log 𝑛 Takahashi RCA [13] 2009 2𝑛 − 1 2𝑛 − 1 2𝑛 + 1 Takahashi Combination [13] 2009 7𝑛 18 log 𝑛 2𝑛 + 3•𝑛 log 𝑛 Wang RCA[15] 2016 𝑛 𝑛 3𝑛 + 1 Gidney RCA[4] 2018 2𝑛 − 2 𝑛 3𝑛 − 1 Gayathri RCA[9] 2021 𝑛 𝑛 3𝑛 + 1 Higher Radix Adder [16] 2023 8𝑛 − 𝑛 𝑟 − (𝑛 − 1) (mod 𝑟 ) −3𝜔 ( 𝑛 𝑟 ) − 3 log 𝑛 + 3 log 𝑟 − 3 4 log 𝑛 + 3𝑟 − 2 log 𝑟 −2 log 3𝑟 + 2 log(𝑟 − 2) + 2 4𝑛 − log 𝑛 + 𝑛 𝑟 −𝜔 ( 𝑛 𝑟 ) + log 𝑟 − 1 Quantum Ling Adder [17] 2023 13𝑛 − 6𝜔 ( 𝑛 2 ) − 6⌊log 𝑛 2 ⌋ − 14 9 + 2⌊log 𝑛 2 ⌋ + 2⌊log 𝑛 6 ⌋ 12𝑛 − 6𝜔 ( 𝑛 2 ) − 6⌊log 𝑛 2 ⌋ − 10 Optimal Depth Adder+ Strategy 1 − 3 2 𝑛 log 𝑛 + 2 ⌈log 𝑛⌉ − 𝑛 2 log 𝑛 + 1 𝑛 + 𝑛 log 𝑛 + ⌈log 𝑛⌉ + 2 Optimal Depth Adder+ Strategy 2 − 𝑛 log 𝑛 2 log 𝑛 + 1 𝑛 + 𝑛 log 𝑛 + ⌈log 𝑛⌉ + 2</formula><p>reduces the computational time by halving the Toffoli-Depth to log 𝑛 + 1, a roughly 50% improvement over the best existing quantum adders. Following closely is our optimal adder with strategy 1, achieving a competitive Toffoli-Depth of 2 log 𝑛 + 1.</p><p>Interestingly, Figure <ref type="figure" target="#fig_9">10</ref> illustrates that the quantum adders with the lowest Toffoli-Depth prior to our work, specifically the Draper In-place and Out-of-place CLAs <ref type="bibr" target="#b2">[3]</ref> and the Quantum Ling adder <ref type="bibr" target="#b16">[17]</ref>, demonstrate a higher Toffoli-Depth compared to our designs. Nevertheless, despite these existing work have slightly lower Toffoli-Count and Qubit-Count compared to our adders, they do not compensate for the longer time cost associated with their higher Toffoli-Depth.</p><p>Overall, our designs substantially enhance Toffoli-Depth while wisely managing quantum resources, thereby representing a considerable enhancement in both the efficiency and practicality over current quantum adders.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.3">Extension 1: Ling-based Optimal Toffoli-Depth adder</head><p>Inspired by the innovative quantum Ling adder proposed by Wang et al. <ref type="bibr" target="#b16">[17]</ref>, we introduce a novel quantum Ling structure based on the prefix tree adders proposed in this paper. In Figure <ref type="figure" target="#fig_0">11</ref>  ( This design significantly reduces the Toffoli-Depth of the quantum Ling adder by half. However, this improvement is accompanied by an acceptable increase in Toffoli-Count and Qubit-Count. Specifically, the Toffoli-Depth of our Lingbased Kogge-Stone adder is 2 log 𝑛 2 + 8, reflecting innovative adaptations in generation and propagation computations, thereby significantly optimizing the depth of the initial quantum Ling adder <ref type="bibr" target="#b16">[17]</ref>. This proposed extension structure demonstrates commendable performance in enhancing the efficiency of Ling-based quantum adders, thereby confirming the flexibility and portability of the adders proposed in our paper. However, as shown in Table <ref type="table" target="#tab_6">5</ref> and Table <ref type="table" target="#tab_7">6</ref>, we also find that replacing traditional propagation and generation with Ling base is not beneficial for the prefix tree adders we propose. This is because the Ling structure introduces OR logic, requiring two Toffoli gates at each calculation node for propagation and generation. Overall, using Ling base almost doubles the Toffoli-Depth of the prefix tree adders.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.4">Extension 2: Optimal Toffoli-depth Modular Adder</head><p>In this extension, we utilized the VBE modular addition framework mentioned in the paper <ref type="bibr" target="#b13">[14]</ref>, which incorporates the quantum prefix tree adders proposed in this paper, as illustrated in Figure <ref type="figure" target="#fig_1">12</ref>.</p><formula xml:id="formula_21">|N ⟩ / n × × |N ⟩ |a⟩ / n QPA × QPS 0 QPA 0 × QPS QPA |a⟩ |b⟩ / n |S 0:n ⟩ |b h ⟩ / 1 • • |S n+1 ⟩ |t⟩ / 1 • • |t⟩</formula><p>Fig. <ref type="figure" target="#fig_1">12</ref>. Quantum VBE Modular Addition Framework <ref type="bibr" target="#b13">[14]</ref>. Besides, the 'Set 0' gate in the framework can be implemented using several CNOTs.</p><p>Our quantum modular addition framework primarily contains two important parts: the quantum prefix tree adder and the quantum prefix tree subtractor, with the latter being an altered version of the former. As illustrated in Figures <ref type="figure" target="#fig_10">13(a</ref> The implementation of the quantum subtractor is based on certain modifications to the quantum adder, as indicated by Equation <ref type="bibr" target="#b9">(10)</ref>. Specifically, we begin to take the bit-wise complement of 𝑎, then add 𝑏 to obtain the result 𝑎 ′ + 𝑏.</p><p>Finally, we take the two's complement of the qubits of 𝑎 and the output qubits. Remarkably, this process can be easily accomplished using a series of quantum NOT gates. Hence, the cost of the quantum prefix tree subtractor is very close to the cost of the corresponding adder.</p><formula xml:id="formula_22">𝐴 − 𝐵 = (𝐴 ′ + 𝐵) ′<label>(10)</label></formula><p>In Table <ref type="table" target="#tab_8">7</ref>, we demonstrate the performance of our designed modular adders compared to other existing quantum modular adders. Our designs exhibits superior Toffoli-Depth, particularly the Quantum Sklansky with Strategy 2 design achieving an optimal Toffoli-Depth of 5 log 𝑛 + 5. However, this achievement comes at the cost of a higher Qubit-Count and Toffoli-Count.</p><p>Above all, our design achieves optimal depth in the quantum world, maintaining an exceptionally low Toffoli-Depth.</p><p>This accomplishment provides a crucial foundation for efficient arithmetic in quantum computing, unlocking new possibilities for high-performance quantum algorithms and enhancing the overall scalability and practicality of quantum computing.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6">CONCLUSION</head><p>In conclusion, this paper has presented a novel architecture for enhancing the efficiency of quantum adders. By integrating the different prefix tree into the quantum domain, we have achieved a groundbreaking optimal Toffoli-Depth quantum adder, which marks a parallel to the development of classical adder analysis. Furthermore, our work includes a significant quantum Ling expansion, which substantially improves the quantum Ling adder's performance by using  In future, several research directions hold substantial promise. For instance, one of these directions is exploring the optimal adder structure on the real quantum computers. Moreover, Quantum Error Correction (QEC) also plays a crucial role in improving the adder's fault tolerance and reliability.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Fig. 1 .</head><label>1</label><figDesc>Fig. 1. Design Choices.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>Fig. 2 .</head><label>2</label><figDesc>Fig. 2. Quantum Prefix Tree. Gray nodes in the prefix trees represent CNOT operations, with numbers in circles indicating the times of CNOT operations.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head>Fig. 3 .</head><label>3</label><figDesc>Fig. 3. Quantum circuit for 𝑝 𝑖 and 𝑔 𝑖 calculation.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head>Fig. 4 . 4 -Fig. 5 .• Step 3 .</head><label>4453</label><figDesc>Fig. 4. 4-bit Quantum Prefix Tree. Interestingly, the 4-bit Brent-Kung Prefix Tree is equivalent to the Han-Carlson and Ladner-Fischer structures.|p x ⟩ • |g x ⟩ • |p y ⟩ • • |g y ⟩ |G x:y ⟩ |0⟩ |P x:y ⟩ Fig. 5.Step 2.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_4"><head>Fig. 6 .</head><label>6</label><figDesc>Fig. 6. Quantum circuit for computing s from p and c</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_5"><head>Fig. 7 .</head><label>7</label><figDesc>Fig. 7. Quantum circuit for Uncomputation (only for copied 𝑔 𝑖 )</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_6"><head>Fig. 8 .</head><label>8</label><figDesc>Fig.8. 4 bit Quantum Adder Examples. The dashed lines divide the entire circuit into five parts according to steps 1 to 4. In the first step, purple represents the calculation for initial propagation and generation. In the second step, red represents the copy operation, orange represents the first layer of propagation, and green and blue represent the first and the rest layers of generation, respectively. In the third step, orange represents propagation uncomputation, and red represents the uncomputation of the initial propagation copy 𝑝 𝑖 . Next, pink represents the operations of the fourth step. In the final step of Kogge-Stone Adder, we perform uncomputation on all the initially copied 𝑔 𝑖 , represented in red.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_7"><head>Fig. 9 .</head><label>9</label><figDesc>Fig. 9. Gidney's Logical-And structure.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_8"><head></head><label></label><figDesc>, a Ling-based adder using the quantum Kogge-Stone is presented as an example, which introduces two parallel prefix computation trees based on the quantum Kogge-Stone computation tree.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_9"><head>Fig. 10 .</head><label>10</label><figDesc>Fig. 10. Comparative Cost Analysis of Quantum Optimal Toffoli-Depth Adder and Other top 3 Prominent Quantum CLA Adders.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_10"><head>Fig. 13 .</head><label>13</label><figDesc>Fig.<ref type="bibr" target="#b12">13</ref>. Two important sub-modules of the proposed modular addition framework.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_11"><head>5 2 4 Ladner 2 our</head><label>542</label><figDesc>𝑛 + 𝑛 log 𝑛 − 𝑛 2 + innovative structure. Moreover, our work also incorporates a modular addition extension. The proposed quantum optimal depth adder achieves a Toffoli-Depth of log 𝑛 + O (1), which represents a significant improvement over all the previous quantum adders, which had a Toffoli-Depth of at least 2 log 𝑛 + O (1). Our work marks a significant advancement in the field of quantum computing, addressing the challenge of depth optimization in the area of quantum addition.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_0"><head>160 Design Choices Prefix Tree Propagation &amp; Generation Addition Strategy Uncomputation Toffoli Strategy Modular Choices Kogge-Stone Sklansky Brent-Kung Han-Carlson Ladner-Fisher Ling-based Regular Out-of-place In-place Without Uncomputation With Uncomputation Strategy 2 Toffoli + Logical-And Strategy 1 Toffoli Modular Regular</head><label></label><figDesc></figDesc><table><row><cell>2, we provided detailed</cell></row><row><cell>descriptions of the Prefix tree and the Propagation and Generation Computation methods, respectively. Regarding</cell></row><row><cell>addition strategies, there are two options: in-place addition and out-of-place addition, but this work primarily focuses</cell></row><row><cell>on the quantum out-of-place adder with lower Toffoli-Depth. In Section 4.2, we discuss the uncomputation strategy,</cell></row><row><cell>presenting a framework for an adder with uncomputation. Specifically, this framework is outlined by removing all</cell></row><row><cell>uncomputation steps, such as step 3, to obtain a version without uncomputation. In Section 5.1, two different Toffoli</cell></row><row><cell>strategies are proposed. Specifically, Strategy 1 involves only Toffoli gates, while Strategy 2 combines Toffoli gates with</cell></row><row><cell>logical-AND for further optimization of our circuits. For modular choices, we include both regular adders and modular</cell></row><row><cell>adders, with specific details discussed in Section 5.4.</cell></row><row><cell>5 x 2 x 2 x 2 x 2 x 2=160 Choices</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_1"><head>Table 1 .</head><label>1</label><figDesc>Comparison of dominant prefix trees for 𝑛-bit addition.</figDesc><table><row><cell cols="2">Prefix Tree Logical depth</cell><cell>Operation nodes</cell></row><row><cell>Brent-Kung</cell><cell>2 log 𝑛 − 2</cell><cell>2𝑛 − log 𝑛 − 2</cell></row><row><cell>Sklansky</cell><cell>log 𝑛</cell><cell>(𝑛/2)  *  log 𝑛</cell></row><row><cell>Kogge-Stone</cell><cell>log 𝑛</cell><cell>𝑛 log (𝑛/2) + 1</cell></row><row><cell>Han-Carlson</cell><cell>log 𝑛 + 1</cell><cell>(𝑛/2)  *  log 𝑛</cell></row><row><cell>Ladner-Fisher</cell><cell>log 𝑛 + 1</cell><cell></cell></row></table><note>3 4 𝑛 − 1 + (𝑛/4) * log 𝑛</note></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_2"><head>Table 2 .</head><label>2</label><figDesc>Performance analysis of different quantum adders utilizing Strategy 1.</figDesc><table /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_3"><head>Table 3 .</head><label>3</label><figDesc>Performance analysis of different quantum adders utilizing Strategy 2.</figDesc><table><row><cell>Adder</cell><cell>Extra T Count</cell><cell cols="3">Toffoli Count Extra T Depth Toffoli Depth</cell><cell>Qubit Count</cell></row><row><cell cols="2">Brent-Kung Sklansky Kogge-Stone Han-Carlson Ladner-Fisher 3𝑛 − 4 + 𝑛 log 𝑛 − 4 𝑛 8𝑛 − 4 log 𝑛 − 8 − 4 𝑛 2 2𝑛 log 𝑛 − 4𝑛 + 4 ⌈log 𝑛⌉) 8𝑛 log 𝑛 − 14𝑛 + 20 2𝑛 log 𝑛 − 4 𝑛 2 2</cell><cell>2𝑛 − log 𝑛 − 2 𝑛 log 𝑛 2 𝑛 log 𝑛 − 1 𝑛 log 𝑛 2 3𝑛 4 − 1 + 𝑛 log 𝑛 4</cell><cell>2 2 2 2 2</cell><cell>2 log 𝑛 − 1 log 𝑛 + 1 log 𝑛 + 2 log 𝑛 + 2 log 𝑛 + 2</cell><cell>4𝑛 + 1 − 𝜔 (𝑛) − ⌊log 𝑛⌋ 𝑛 + 𝑛 log 𝑛 + ⌈log 𝑛⌉ + 2 3𝑛 log 𝑛 − 𝑛 2 + 6 3 2 𝑛 + 𝑛 log 𝑛 − 𝑛 2 + 3 𝑛 log 𝑛 3𝑛 + 2</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_4"><head>Table 4 .</head><label>4</label><figDesc>Performance analysis of different quantum adders. The formula for 𝜔 (𝑛) is 𝜔 (𝑛) = 𝑛 − ∞ 𝑦 and 𝑟 represents the radix, with a range of 2 &lt; 𝑟 ≤ 𝑛.</figDesc><table><row><cell>𝑛</cell><cell></cell><cell></cell><cell></cell></row><row><cell>𝑦=1 2 Adder Year</cell><cell>Toffoli Count</cell><cell>Toffoli Depth</cell><cell>Qubit Count</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_5"><head></head><label></label><figDesc>p 8 , g 8 ) (p 7 , g 7 ) (p 6 , g 6 ) (p 5 , g 5 ) (p 4 , g 4 ) (p 3 , g 3 ) (p 2 , g 2 ) (p 1 , g 1 )</figDesc><table><row><cell>H 8</cell><cell>H 7</cell><cell>H 6</cell><cell>H 5</cell><cell>H 4</cell><cell>H 3</cell><cell>H 2</cell><cell>H 1</cell></row><row><cell></cell><cell></cell><cell cols="4">Fig. 11. Kogge-Stone Prefix Tree using Ling Expansion.</cell><cell></cell><cell></cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_6"><head>Table 5 .</head><label>5</label><figDesc>Performance analysis of Ling-based quantum Kogge-Stone adders utilizing Strategy 1.</figDesc><table><row><cell>Adder</cell><cell>Toffoli Count</cell><cell>Toffoli Depth</cell><cell>Qubit Count</cell></row><row><cell cols="4">Quantum Ling Adder [17] 13𝑛 − 6𝜔 ( 𝑛 2 ) − 6⌊log 𝑛 2 ⌋ − 14 9 + 2⌊log 𝑛 2 ⌋ + 2⌊log 𝑛 6 ⌋ 12𝑛 − 6𝜔 ( 𝑛 2 ) − 6⌊log 𝑛 2 ⌋ − 10 K-S 3𝑛 log 𝑛 + 𝑛 log 𝑛 2 − 3𝑛 + 5 2 log 𝑛 + 2 3𝑛 log 𝑛 − 𝑛 2 + 6 K-S+ Ling 3𝑛 log 𝑛 + 𝑛 4 log 𝑛 + 6 3𝑛 log 𝑛 + 2𝑛 log 𝑛 2 + 𝑛 2 + 3</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_7"><head>Table 6 .</head><label>6</label><figDesc>Performance analysis of Ling-based quantum Kogge-Stone adders utilizing Strategy 2.</figDesc><table><row><cell>Adder</cell><cell>Extra T Count</cell><cell cols="3">Toffoli Count Extra T Depth Toffoli Depth</cell><cell>Qubit Count</cell></row><row><cell>K-S K-S+Ling</cell><cell>8𝑛 log 𝑛 − 14𝑛 + 20 4𝑛 log 𝑛 − 8𝑛 + 8</cell><cell>𝑛 log 𝑛 − 1 2𝑛 log 𝑛 − 4𝑛 + 4</cell><cell>2 2</cell><cell>log 𝑛 + 2 2 log 𝑛 + 8</cell><cell>3𝑛 log 𝑛 − 𝑛 2 + 6 3𝑛 log 𝑛 + 2𝑛 log 𝑛 2 + 𝑛 2 + 3</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_8"><head>Table 7 .</head><label>7</label><figDesc>Performance analysis of different VBE-based quantum modular adders. The formula for 𝜔 (𝑛) is 𝜔 (𝑛) = 𝑛 − ∞ 𝑦=1 𝑛 2 𝑦 , where 𝑛 denotes the bit-width of the addend. 𝑛 log 𝑛 + 10 ⌈log 𝑛⌉ − 5𝑛 10 log 𝑛 + 5 2𝑛 + 𝑛 log 𝑛 + ⌈log 𝑛⌉ + 3</figDesc><table><row><cell>Modular Adder</cell><cell>Year</cell><cell></cell><cell cols="2">Toffoli Count</cell><cell>Toffoli Depth</cell><cell cols="3">Qubit Count</cell></row><row><cell>VBE[14]</cell><cell>1995</cell><cell></cell><cell cols="2">20𝑛 − 10</cell><cell>20𝑛 − 10</cell><cell></cell><cell cols="2">4𝑛 + 2</cell></row><row><cell>Cucarro [2]</cell><cell>2004</cell><cell></cell><cell cols="2">10𝑛 − 5</cell><cell>10𝑛 − 5</cell><cell></cell><cell cols="2">3𝑛 + 3</cell></row><row><cell>Draper In-place [3]</cell><cell>2004</cell><cell cols="3">50𝑛 − 15𝜔 (𝑛) − 15𝜔 (𝑛 − 1) −15 ⌊log 𝑛⌋ − 15 ⌊log(𝑛 − 1)⌋ − 35</cell><cell>40 + 5 ⌊log 𝑛⌋ + 5 ⌊log(𝑛 − 1)⌋ +5 log 𝑛 3 3 + 5 log 𝑛−1</cell><cell cols="3">5𝑛 − 𝜔 (𝑛) − ⌊log 𝑛⌋ + 1</cell></row><row><cell>Brent-Kung+Strategy 1</cell><cell>-</cell><cell cols="3">25𝑛 − 15𝜔 (𝑛) − 15 ⌊log 𝑛⌋ − 5</cell><cell>20 + 5 ⌊log 𝑛⌋ + 5 log 𝑛 3</cell><cell cols="3">5𝑛 + 2 − 𝜔 (𝑛) − ⌊log 𝑛⌋</cell></row><row><cell cols="5">Sklansky+Strategy 1 2 Kogge-Stone+Strategy 1 -15 -15𝑛 log 𝑛 + 5𝑛 log 𝑛 2 − 15𝑛 + 25</cell><cell>10 log 𝑛 + 10</cell><cell cols="3">3𝑛 log 𝑛 + 𝑛 2 + 7</cell></row><row><cell>Han-Carlson+Strategy 1</cell><cell>-</cell><cell cols="3">5𝑛 + 15 2 𝑛 log 𝑛 − 10 𝑛 2</cell><cell>10 log 𝑛 + 15</cell><cell cols="3">5 2 𝑛 + 𝑛 log 𝑛 − 𝑛 2 + 4</cell></row><row><cell>Ladner-Fisher+Strategy 1</cell><cell>-</cell><cell>65𝑛 4 +</cell><cell>15𝑛 log 𝑛 4</cell><cell>− 10 𝑛 2 − 15</cell><cell>10 log 𝑛 + 15</cell><cell>4𝑛 +</cell><cell>𝑛 log 𝑛 2</cell><cell>− 𝑛 2 + 2</cell></row><row><cell>Brent-Kung+Strategy 2</cell><cell>-</cell><cell cols="3">10𝑛 − 5 log 𝑛 − 10</cell><cell>10 log 𝑛 − 5</cell><cell cols="3">5𝑛 + 2 − 𝜔 (𝑛) − ⌊log 𝑛⌋</cell></row><row><cell>Sklansky+Strategy 2</cell><cell>-</cell><cell></cell><cell cols="2">5𝑛 log 𝑛 2</cell><cell>5 log 𝑛 + 5</cell><cell cols="3">2𝑛 + 𝑛 log 𝑛 + ⌈log 𝑛⌉ + 3</cell></row><row><cell>Kogge-Stone+Strategy 2</cell><cell>-</cell><cell></cell><cell cols="2">5𝑛 log 𝑛 − 5</cell><cell>5 log 𝑛 + 10</cell><cell cols="3">3𝑛 log 𝑛 + 𝑛 2 + 7</cell></row><row><cell>Han-Carlson +Strategy 2</cell><cell>-</cell><cell></cell><cell cols="2">5𝑛 log 𝑛 2</cell><cell>5 log 𝑛 + 10</cell><cell></cell><cell></cell><cell></cell></row></table></figure>
+		</body>
+		<back>
+
+			<div type="acknowledgement">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>ACKNOWLEDGMENTS</head><p>This research is supported by the National Research Foundation, Singapore under its Quantum Engineering Programme Initiative. Any opinions, findings and conclusions or recommendations expressed in this material are those of the authors and do not reflect the views of National Research Foundation, Singapore.</p></div>
+			</div>
+
+
+			<div type="availability">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>CODE AVAILABILITY</head><p>The relevant code will be available as a public repository online upon this paper's acceptance.</p></div>
+			</div>
+
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">A Regular Layout for Parallel Adders</title>
+		<author>
+			<persName><forename type="first">Richard</forename><surname>Brent</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Hsiang</forename><surname>Kung</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/TC.1982.1675982</idno>
+		<ptr target="https://doi.org/10.1109/TC.1982.1675982" />
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Trans. Comput</title>
+		<imprint>
+			<biblScope unit="volume">31</biblScope>
+			<biblScope unit="issue">06</biblScope>
+			<date type="published" when="2004">2004. 2004</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<monogr>
+		<author>
+			<persName><forename type="first">Steven</forename><forename type="middle">A</forename><surname>Cuccaro</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Thomas</forename><forename type="middle">G</forename><surname>Draper</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Samuel</forename><forename type="middle">A</forename><surname>Kutin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">David</forename><forename type="middle">Petrie</forename><surname>Moulton</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:quant-ph/0410184</idno>
+		<title level="m">A new quantum ripple-carry addition circuit</title>
+				<imprint>
+			<date type="published" when="2004">2004</date>
+		</imprint>
+	</monogr>
+	<note>quant-ph</note>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<monogr>
+		<title level="m" type="main">A logarithmic-depth quantum carry-lookahead adder. Quantum Information and Computation</title>
+		<author>
+			<persName><forename type="first">Thomas</forename><surname>Draper</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Samuel</forename><surname>Kutin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Eric</forename><surname>Rains</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Krysta</forename><surname>Svore</surname></persName>
+		</author>
+		<idno type="DOI">10.26421/QIC6.4-5-4</idno>
+		<ptr target="https://doi.org/10.26421/QIC6.4-5-4" />
+		<imprint>
+			<date type="published" when="2004">2004. 2004</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<monogr>
+		<title level="m" type="main">Halving the cost of quantum addition</title>
+		<author>
+			<persName><forename type="first">Craig</forename><surname>Gidney</surname></persName>
+		</author>
+		<idno type="DOI">10.22331/q-2018-06-18-74</idno>
+		<ptr target="https://doi.org/10.22331/q-2018-06-18-74" />
+		<imprint>
+			<date type="published" when="2018-06">2018. June 2018</date>
+			<biblScope unit="page">74</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">Binary Adder Circuits of Asymptotically Minimum Depth, Linear Size, and Fan-Out Two</title>
+		<author>
+			<persName><forename type="first">Stephan</forename><surname>Held</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sophie</forename><forename type="middle">Theresa</forename><surname>Spirkl</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/3147215</idno>
+		<ptr target="https://doi.org/10.1145/3147215" />
+	</analytic>
+	<monogr>
+		<title level="j">ACM Trans. Algorithms</title>
+		<imprint>
+			<biblScope unit="volume">14</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<date type="published" when="2017-12">2017. dec 2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">A Parallel Algorithm for the Efficient Solution of a General Class of Recurrence Equations</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Peter</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Harold</forename><forename type="middle">S</forename><surname>Kogge</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Stone</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/TC.1973.5009159</idno>
+		<ptr target="https://doi.org/10.1109/TC.1973.5009159" />
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Trans. Comput. C</title>
+		<imprint>
+			<biblScope unit="volume">22</biblScope>
+			<biblScope unit="page" from="786" to="793" />
+			<date type="published" when="1973">1973. 1973</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<monogr>
+		<title level="m" type="main">Optimized Quantum Circuit Implementation of Payoff Function</title>
+		<author>
+			<persName><forename type="first">Sejin</forename><surname>Lim</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Hyunjun</forename><surname>Kim</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Kyungbae</forename><surname>Jang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Siyi</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Anubhab</forename><surname>Baksi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Anupam</forename><surname>Chattopadhyay</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Hwajeong</forename><surname>Seo</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/VLSI-SoC57769.2023.10321843</idno>
+		<ptr target="https://doi.org/10.1109/VLSI-SoC57769.2023.10321843" />
+		<imprint>
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">High Speed Binary Parallel Adder</title>
+		<author>
+			<persName><forename type="first">Huei</forename><surname>Ling</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/PGEC.1966.264571</idno>
+		<ptr target="https://doi.org/10.1109/PGEC.1966.264571" />
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Electronic Computers EC</title>
+		<imprint>
+			<biblScope unit="volume">15</biblScope>
+			<biblScope unit="page" from="799" to="802" />
+			<date type="published" when="1966">1966. 1966</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">T-Count Optimized Wallace Tree Integer Multiplier for Quantum Computing</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Gayathri</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Kumar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Dhanalakshmi</forename><surname>Samiappan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Brajesh</forename><surname>Kumar Kaushik</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Majid</forename><surname>Haghparast</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/s10773-021-04864-3</idno>
+		<ptr target="https://doi.org/10.1007/s10773-021-04864-3" />
+	</analytic>
+	<monogr>
+		<title level="j">International Journal of Theoretical Physics</title>
+		<imprint>
+			<biblScope unit="volume">60</biblScope>
+			<biblScope unit="page" from="1" to="13" />
+			<date type="published" when="2021-08">2021. 08 2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">Algorithms for Quantum Computation: Discrete Logarithms and Factoring</title>
+		<author>
+			<persName><forename type="first">Peter</forename><surname>Shor</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/SFCS.1994.365700</idno>
+		<ptr target="https://doi.org/10.1109/SFCS.1994.365700" />
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of 35th Annual Symposium on Foundations of Computer Science</title>
+				<meeting>35th Annual Symposium on Foundations of Computer Science</meeting>
+		<imprint>
+			<date type="published" when="1996">1996. 1996</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">Conditional-Sum Addition Logic. Electronic Computers</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Sklansky</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/TEC.1960.5219822</idno>
+		<ptr target="https://doi.org/10.1109/TEC.1960.5219822" />
+	</analytic>
+	<monogr>
+		<title level="j">IRE Transactions on EC</title>
+		<imprint>
+			<biblScope unit="issue">9</biblScope>
+			<biblScope unit="page" from="226" to="231" />
+			<date type="published" when="1960-07">1960. 07 1960</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">A fast quantum circuit for addition with few qubits</title>
+		<author>
+			<persName><forename type="first">Yasuhiro</forename><surname>Takahashi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Noboru</forename><surname>Kunihiro</surname></persName>
+		</author>
+		<idno type="DOI">10.26421/QIC8.6-7-5</idno>
+		<ptr target="https://doi.org/10.26421/QIC8.6-7-5" />
+	</analytic>
+	<monogr>
+		<title level="j">Quantum Information and Computation</title>
+		<imprint>
+			<biblScope unit="volume">8</biblScope>
+			<biblScope unit="page" from="636" to="649" />
+			<date type="published" when="2008-07">2008. 07 2008</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">Quantum Addition Circuits and Unbounded Fan-Out</title>
+		<author>
+			<persName><forename type="first">Yasuhiro</forename><surname>Takahashi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Seiichiro</forename><surname>Tani</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Noboru</forename><surname>Kunihiro</surname></persName>
+		</author>
+		<idno type="DOI">10.26421/QIC10.9-10-12</idno>
+		<ptr target="https://doi.org/10.26421/QIC10.9-10-12" />
+	</analytic>
+	<monogr>
+		<title level="j">Quantum Information and Computation</title>
+		<imprint>
+			<biblScope unit="volume">10</biblScope>
+			<biblScope unit="issue">10</biblScope>
+			<date type="published" when="2009">2009. 2009</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">Quantum Networks for Elementary Arithmetic Operations</title>
+		<author>
+			<persName><forename type="first">Vlatko</forename><surname>Vedral</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Adriano</forename><surname>Barenco</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Artur</forename><surname>Ekert</surname></persName>
+		</author>
+		<idno type="DOI">10.1103/PhysRevA.54.147</idno>
+		<ptr target="https://doi.org/10.1103/PhysRevA.54.147" />
+	</analytic>
+	<monogr>
+		<title level="j">Physical Review A</title>
+		<imprint>
+			<biblScope unit="volume">54</biblScope>
+			<biblScope unit="issue">11</biblScope>
+			<date type="published" when="1995">1995. 1995</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">Improved quantum ripple-carry addition circuit</title>
+		<author>
+			<persName><forename type="first">Feng</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mingxing</forename><surname>Luo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Huiran</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Zhiguo</forename><surname>Qu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Xiaojun</forename><surname>Wang</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/s11432-015-5411-x</idno>
+		<ptr target="https://doi.org/10.1007/s11432-015-5411-x" />
+	</analytic>
+	<monogr>
+		<title level="j">Science China Information Sciences</title>
+		<imprint>
+			<biblScope unit="volume">59</biblScope>
+			<biblScope unit="issue">02</biblScope>
+			<date type="published" when="2016">2016. 2016</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<analytic>
+		<title level="a" type="main">A Higher Radix Architecture for Quantum Carry-lookahead Adder</title>
+		<author>
+			<persName><forename type="first">Siyi</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Anubhab</forename><surname>Baksi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Anupam</forename><surname>Chattopadhyay</surname></persName>
+		</author>
+		<idno type="DOI">10.1038/s41598-023-41122-4</idno>
+		<ptr target="https://doi.org/10.1038/s41598-023-41122-4" />
+	</analytic>
+	<monogr>
+		<title level="j">Scientific Reports</title>
+		<imprint>
+			<biblScope unit="volume">13</biblScope>
+			<date type="published" when="2023-09">2023. 09 2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<monogr>
+		<title level="m" type="main">Reducing Depth of Quantum Adder using Ling Structure</title>
+		<author>
+			<persName><forename type="first">Siyi</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Anupam</forename><surname>Chattopadhyay</surname></persName>
+		</author>
+		<editor>VLSI-SoC</editor>
+		<imprint>
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<monogr>
+		<author>
+			<persName><forename type="first">Siyi</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Eugene</forename><surname>Lim</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Anupam</forename><surname>Chattopadhyay</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:2403.01206</idno>
+		<title level="m">Boosting the Efficiency of Quantum Divider through Effective Design Space Exploration</title>
+				<imprint>
+			<date type="published" when="2024">2024</date>
+		</imprint>
+	</monogr>
+	<note>quant-ph</note>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

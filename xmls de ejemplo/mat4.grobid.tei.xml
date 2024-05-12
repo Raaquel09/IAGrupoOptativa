@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">A NOTE ON JACQUET MODULES OF GENERAL LINEAR GROUPS</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+				<date type="published" when="2024-05-09">9 May 2024</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Prem</forename><surname>Dagar</surname></persName>
+							<email>premd@ma.iitr.ac.in</email>
+						</author>
+						<author>
+							<persName><forename type="first">Mahendra</forename><surname>Kumar Verma</surname></persName>
+							<email>mahendraverma@ma.iitr.ac.in</email>
+						</author>
+						<author>
+							<affiliation key="aff0">
+								<orgName type="department">Department of Mathematics</orgName>
+								<orgName type="institution">Indian Institute of Technology Roorkee</orgName>
+								<address>
+									<postCode>247667</postCode>
+									<settlement>Uttarakhand</settlement>
+									<region>Bharat</region>
+									<country key="IN">India</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<affiliation key="aff1">
+								<orgName type="department">Department of Mathematics</orgName>
+								<orgName type="institution">Indian Institute of Technology Roorkee</orgName>
+								<address>
+									<postCode>247667</postCode>
+									<settlement>Uttarakhand</settlement>
+									<region>Bharat</region>
+									<country key="IN">India</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">A NOTE ON JACQUET MODULES OF GENERAL LINEAR GROUPS</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date type="published" when="2024-05-09">9 May 2024</date>
+						</imprint>
+					</monogr>
+					<idno type="MD5">B5BAFC7F2D45ED80C0BD4E17A4C9C9FD</idno>
+					<idno type="arXiv">arXiv:2405.05719v1[math.RT]</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.2" ident="GROBID" when="2024-05-12T15:27+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>
+					<term>Jacquet modules</term>
+					<term>multiplicity free representations</term>
+					<term>symplectic groups</term>
+				</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Let F be a non-Archimedean local field. Consider Gn := GLn(F) and let M := G l × G n−l be a maximal Levi subgroup of Gn. In this article, we compute the semisimplified Jacquet module of representations of Gn with respect to the maximal Levi subgroup M, belonging to a particular category of representations. Utilizing our results, we prove that the Jacquet module is multiplicity-free for a specific subcategory of representations. Our findings are based on the Zelevinsky classification.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.">Introduction</head><p>Let G n = GL n (F) be a general linear group over a non-Archimedean local field F. For a group G, let M(G n ) denote the category of all smooth and admissible complex representations of the finite length of G. A valuable tool for studying the representations of G n is the Jacquet module. Let P denote a parabolic subgroup of G n with a Levi decomposition P = M N, where M is a Levi subgroup and N is the corresponding unipotent subgroup. Let (π, V) be a smooth and admissible complex representation of the group G n . The Jacquet module of representation V with respect to N is</p><formula xml:id="formula_0">V N = V/Span{π(n)v − v; v ∈ V, n ∈ N}.</formula><p>It is the largest quotient of V on which N acts trivially. Here, the Levi subgroup M acts naturally on V N . So, the Jacquet module functor, or simply say, Jacquet functor, is a functor from the category M(G n ) of G n to the category M(M) of M. Let denote this functor by r Gn M . The Jacquet functor is an exact functor that is left adjoint to the induction functor, i.e., Hom G n (π, Ind Gn P (σ)) ∼ = Hom M (r Gn M (π), σ), for a smooth representation σ of the Levi subgroup M. Here, Ind Gn P (σ) denote the representation of G n , parabolically induced by σ from P. Note that if the semisimplification of r Gn M (π) is multiplicity free, i.e., any component appears as a quotient or as a subrepresentation at most one time in r Gn M (π) ss , then r Gn M (π) is also multiplicity free. So, we identify r Gn M (π) with its semisimplification. We consider normalized Jacquet and induction functors, i.e., they carry unitarizable representations to unitarizable ones. The Frobenius reciprocity indicates the importance of the knowledge of the Jacquet module of a representation. Much less is known about the Jacquet module of an arbitrary representation of G n . Within the framework of the Zelevinsky classification, we analyze the Jacquet module of some specific class of representations of the general linear group with respect to any maximal Levi subgroup. An important question arises here: when does the Jacquet module of a representation exhibit multiplicity-free characteristics. We may not fully resolve the question, but our analysis offers a partially qualified answer by giving a subcategory whose representations have a multiplicity-free Jacquet modules.</p><p>Definition 1.1. Let H and H ′ be two reductive groups over field F. We call a functor F : M(H) → M(H ′ ) a multiplicity free functor if for any irreducible admissible representation π ∈ M(H), the representation F(π) is multiplicity free representation, i.e., dim Hom H ′ (F(π), τ ) ≤ 1, for any irreducible representation τ ∈ M(H ′ ).</p><p>In this article, we prove that the Jacquet functor r Gn M is multiplicity-free for a subcategory of irreducible representations of G n . This problem's inspiration originates from the work of Aizenbud and Gourevitch <ref type="bibr" target="#b1">[AG12]</ref>. They proved that the Jacquet functor r Gn M : M(G n+k ) → M(G n × G k ) is multiplicity free for k = 1 or 2. Some more multiplicity-free problems can be found in [AP06,AG09, AGRS10,AGS09,Sha74,SZ12]. To familiarize themselves with key notations and the representations central to our discourse, readers are directed to Section 3.1. Zelevinsky <ref type="bibr" target="#b8">[Zel80]</ref> computed the Jacquet module of the representations of type Z(∆). Later, Kret and Lapid <ref type="bibr" target="#b5">[KL12]</ref> computed the Jacquet module of ladder representations. In this article, we compute the Jacquet module of any representations of type π</p><formula xml:id="formula_1">= Z(∆ 1 ) × • • • × Z(∆ r ) ∈ M(G n</formula><p>) and prove that if the functor r Gn M is restricted to M Irr (G n ) (see subsection 3.1.3 for notation), then it is multiplicity free. Consequently, with same notation r Gn M , we define the Jacquet functor r Gn M : M Irr (G n ) → M(M).</p><p>Theorem 1.1. The Jacquet functor r Gn M : M Irr (G n ) → M(M) is multiplicity free, i.e., dim C Hom M (r Gn M (π), ρ) ≤ 1, for π ∈ M Irr (G n ) and any irreducible representation ρ ∈ M(M).</p><p>1.1. Remark. This result is more or less an observation that the semi-simplified Jacquet module of any π ∈ M Irr (G n ) is multiplicity free. While broader classes of representations may yield similar results, our focus lies in establishing this property specifically for the class M Irr (G n ). Furthermore, while this method is applicable to other reductive groups, our investigation concentrates solely on the general linear group. 1.2. Organization. Section 2 gives the necessary preliminaries for the general linear group and introduces the notations we use throughout the article. In this section, we recall the geometric lemma. Section 3 introduces certain irreducible representations and discusses the irreducibility criteria for such representations. We conclude this section by computing the Jacquet module of some representations and proving Theorem 1.1.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.">Preliminaries.</head><p>This section introduces some basic notions and notations used throughout the article. 2.0.1. Given π ∈ M(G n ), we denote by JH 0 (π), the set of irreducible quotients of the Jordan-Holder series of π. Let Irr G n be the subcategory of M(G n ), consisting of equivalence classes of irreducible admissible representations of G n . 2.0.2. Let η : G n → G n be an inner automorphism, then define the functor</p><formula xml:id="formula_2">η : M(G n ) → M(G n ). If (ρ, V) ∈ M(G n ), then the representation (ηρ, V) ∈ M(G n ) is defined by (ηρ)(g)v = ρ(η −1 g)v for g ∈ G n , v ∈ V . 2.0.3. Let α = (n 1 , . . . , n r ) be a partition of n and G α be the subgroup G n 1 × • • • × G nr of G n ,</formula><p>embedded in G n as the subgroup of block-diagonal matrices. The sets of indices:</p><formula xml:id="formula_3">I 1 = {1, 2, . . . , n 1 }, I 2 = {n 1 + 1, . . . , n 1 + n 2 }, . . . I r = {n 1 + • • • + n r−1 + 1, . . . , n}</formula><p>are called as blocks of α. We say that partition β is a subpartition of α if each block of β is contained in some block of α. We denote this by β ≦ α. If β ≦ α, then G β is a standard subgroup of G α . Thus, we have the defined induction and Jacquet functors:</p><formula xml:id="formula_4">i α,β : M(G β ) → M(G α ) r β,α : M(G α ) → M(G β ).</formula></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>These functors have the following properties:</head><p>Theorem 2.1 ( [Zel80, Proposition 1.1]). If α, β and γ be the partitions of n, then</p><formula xml:id="formula_5">(1) The functor r β,α is left adjoint to i α,β . (2) If γ ≦ β ≦ α, then i α,β • i β,γ = i α,γ .</formula><p>2.0.4. If α = (n) and β = (l, n − l), then we can simply denote r β,α by r Gn M , where M := GL l × GL n−l is the maximal Levi subgroup of G n .</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.0.5.">Consider the functor of the tensor product</head><formula xml:id="formula_6">⊗ : M(G n 1 ) × • • • × M(G nr ) → M(G α ) defined by (ρ 1 , . . . , ρ r ) → ρ 1 ⊗ • • • ⊗ ρ r .</formula><p>The above functor induces a bijection</p><formula xml:id="formula_7">⊗ : Irr G n 1 × • • • × Irr G nr ∼ − → Irr G α .</formula><p>Let β ≦ α and (β 1 , . . . , β r ) be the partition of β, induced by the blocks of α. It is clear that</p><formula xml:id="formula_8">G β = G β 1 × • • • × G βr . Proposition 2.2 ( [Zel80, Proposition 1.5]). Let π i ∈ M(G n i ) and ρ i ∈ M(G β i ) with i = 1, . . . , r, then (1) r β,α (π 1 ⊗ • • • ⊗ π r ) = r β 1 ,(n 1 ) (π 1 ) ⊗ • • • ⊗ r βr,(nr) (π r ). (2) i α,β (ρ 1 ⊗ • • • ⊗ ρ r ) = i (n 1 ),β 1 (ρ 1 ) ⊗ • • • ⊗ i (nr),βr (ρ r ).</formula><p>2.0.6. Our results are based on the computation of the functor</p><formula xml:id="formula_9">F = r γ,(n) • i (n),β (ρ),</formula><p>where ρ ∈ M(G β ), which we summarize now, given by Zelevinsky <ref type="bibr" target="#b8">[Zel80]</ref>. Let I 1 , . . . , I r and J 1 , . . . , J s be the blocks of the partitions β and γ, respectively. Let W = W n be the group of all permutations of the set [1, n]. We can identify each element w ∈ W with matrix w = (δ i,w(j) ) ∈ G n . Therefore, W is a subgroup of G n , called the Weyl group. For any w ∈ W , we denote by the same symbol w the corresponding inner automorphism of G n , i.e., w(g) = wgw −1 . Set W β,γ = {w ∈ W : w(k) &lt; w(l) if k &lt; l and both k and l belongs to the same I i ; w −1 (k) &lt; w −1 (l) if k &lt; l and both k and l belongs to the same J j }.</p><p>Clearly all sets w(I i )∩J j are blocks for w ∈ W β,γ . They induce the subpartition γ ′ = γ∩w(β)) ≦ γ. Similarly, the sets</p><formula xml:id="formula_10">I i ∩ w −1 (J j ) are blocks of the partition β ′ = β ∩ w −1 (γ) ≦ β. It is clear that w(G β ′ ) = G γ ′ . For a given w ∈ W β,γ , define the functor F w : M(G β ) → M(G γ ), by F w = i γ,γ ′ • w • r β ′ ,β . Theorem 2.3 ( [Zel80, Theorem 1.2]). The functor F = r γ,(n) • i (n),β : M(G β ) → M(G γ )</formula><p>is glued together from the functors F w , where w ∈ W β,γ . </p><formula xml:id="formula_11">r β i ,(n i ) (ρ i ) have finite length, let JH 0 (r β i ,(n i ) (ρ i ) = {σ (1) i , σ<label>(2)</label></formula><p>i , . . . , σ</p><formula xml:id="formula_12">(t i ) i }, where σ (k) i = σ (k) i1 ⊗ • • • ⊗ σ (k) is ; (2.1) with σ (k) ij ∈ Irr G b ij and k ∈ [1, t i ] for i = 1, 2, . . . , r. For each k 1 , . . . , k r ; k i ∈ [1, t i ], put σ j = σ (k 1 ) 1j ⊗ • • • ⊗ σ (kr) rj ∈ Irr G γ j (2.2) and σ(k 1 , . . . , k r ) = i (m 1 ),γ 1 (σ 1 ) ⊗ i (m 2 ),γ 2 (σ 2 ) ⊗ • • • ⊗ i (ms),γs (σ s ) ∈ M(G γ ).</formula><p>(2.3) Proposition 2.4. F w (ρ) is glued together from the representations σ(k 1 , . . . , k r ).</p><p>According to the above mentioned theorem, when β γ, the Jacquet module of a representation induced by an irreducible supercuspidal representation can be expressed as follows.</p><p>Corollary 2.5. Let β = (n 1 , . . . , n r ) be a partition of n.</p><formula xml:id="formula_13">Let π = ρ 1 ⊗ • • • ⊗ ρ r be a representation of G β , where ρ i 's are the irreducible supercuspidal representations of G n i . Then r γ,(n) (i (n),β (π)) = 0 if β γ. Proof. If β γ, then r β i ,(n i ) (ρ i ) = 0 for some i ∈ [1, r]</formula><p>. This implies σ j = 0 (as in Equation <ref type="formula" target="#formula_11">2</ref>.2). Therefore, by Equation 2.3, σ(k 1 , . . . , k r ) = 0. So, by Proposition 2.4 and Theorem 2.3,</p><formula xml:id="formula_14">F(π) = r γ,(n) (i (n),β (π)) = 0.</formula><p>3. Representations of the general linear group.</p><p>3.1. In this section, our foremost objective is to comprehend the category of representations under discussion thoroughly. </p><formula xml:id="formula_15">ρ × ν a+1 ρ × • • • × ν b ρ. Definition 3.1. Let ∆ 1 = [ν a 1 ρ, ν b 1 ρ] and ∆ 2 = [ν a 2 ρ, ν b 2 ρ] be two segments in ℘. We say that ∆ 1 and ∆ 2 are linked if ∆ 1 ⊂ ∆ 2 , ∆ 2 ⊂ ∆ 1 and ∆ 1 ∪ ∆ 2 is also a segment. For the segment ∆ = [ν a ρ, ν b ρ], b − a + 1 is called length of segment ∆. Definition 3.2. If ∆ 1 = [ν a 1 ρ, ν b 1 ρ] and ∆ 2 = [ν a 2 ρ, ν b 2 ρ</formula><p>] are two segments. Then we say ∆ 1 precedes ∆ 2 if we can extract a subsequence from the sequence (ν a 1 ρ, . . . , ν b 1 ρ, . . . , ν b 2 ρ), which is a segment of length strictly greater than length of ∆ 1 and ∆ 2 .</p><p>We have a straightforward lemma regarding the non-linkedness of two smaller segments.</p><formula xml:id="formula_16">Lemma 3.1. Let ∆ 1 = [ν a 1 ρ, ν b 1 ρ] and ∆ 2 = [ν a 2 ρ, ν b 2 ρ] be two non-linked segments such that ∆ 1 ⊂ ∆ 2 and ∆ 2 ⊂ ∆ 1 . Then the segments [ν a 1 ρ, ν c 1 ρ] and [ν a 2 ρ, ν c 2 ρ] are also not linked for any a i ≤ c i ≤ b i , i = 1, 2. Also the segments [ν c 1 ρ, ν b 1 ρ] and [ν c 2 ρ, ν b 2 ρ] are not linked.</formula><p>Now, we recall a criterion for the irreducibility of the representation Z(∆ 1 ) × • • • × Z(∆ r ), given by Zelevinsky <ref type="bibr" target="#b8">[Zel80]</ref>.</p><p>Theorem 3.2. Let ∆ 1 , . . . , ∆ r be the segments in ℘. The following are equivalent:</p><formula xml:id="formula_17">(1) The representation Z(∆ 1 ) × • • • × Z(∆ r ) is irreducible.</formula><p>(2) The segments ∆ i and ∆ j are not linked for each i, j = 1, . . . , r, 3.1.2. The following theorem analyzes the isomorphism between two induced representations of type Z(∆ 1 ) × • • • × Z(∆ r ), given by Zelevinsky <ref type="bibr" target="#b8">[Zel80]</ref>.</p><p>Theorem 3.3. Let (∆ 1 , . . . , ∆ r ) and (∆ ′ 1 , . . . , ∆ ′ r ) be the ordered sequences of segments in ℘. If any of the following conditions holds:</p><p>(1) (∆ 1 , . . . , ∆ r ) differs from (∆ ′ 1 , . . . , ∆ ′ r ) only by a transposition of two neighbors which are not linked.</p><p>(2) Both (∆ 1 , . . . , ∆ r ) and (∆ ′ 1 , . . . , ∆ ′ r ) satisfy the condition: For each pair of indicies i, j such that i &lt; j, ∆ i does not precedes ∆ j (same for</p><formula xml:id="formula_18">∆ ′ i ). Then Z(∆ 1 ) × • • • × Z(∆ r ) ≃ Z(∆ ′ 1 ) × • • • × Z(∆ ′ r ). 3.1.3. Let M Irr (G n ) denote the subcategory of smooth irreducible representations of the form Z(∆ 1 ) × • • • × Z(∆ r</formula><p>) with ∆ i ⊂ ∆ j for i = j and i, j = 1, 2, . . . , r.</p><p>Since we aim to compute the Jacquet module of any</p><formula xml:id="formula_19">π = Z(∆ 1 ) × • • • × Z(∆ r ) ∈ M(G n )</formula><p>, we recall the Jacquet module of Z(∆), given by Zelevinsky <ref type="bibr" target="#b8">[Zel80]</ref>. Computation of the Jacquet module of representation Z(∆ 1 ) × • • • × Z(∆ r ) heavily depends on the following proposition. Therefore, we provide the proof also. </p><formula xml:id="formula_20">+ 1) = n. Then r (l,n−l),(n) (Z(∆)) =    Z([ν a ρ, ν p−1 ρ]) ⊗ Z([ν p ρ, ν b ρ]) if l = mp 0 if m ∤ l . Proof. Let π = ν a ρ × ν a+1 ρ × • • • × ν b ρ and β = (m, m, . . . , m) be a partition of n. The Corollary 2.5 implies r γ,(n) (π) = 0 if β γ.</formula><p>In particular r (l,n−l),(n) (π) = 0 if l is not divisible by m. This gives r (l,n−l),(n) (Z(∆)) = 0 for m ∤ l. Let l = mp and γ = (l, n − l) be a partition of n. It easily follows that r β,γ (σ) = 0 for each composition factor σ of r γ,(n) (Z(∆)). Since</p><formula xml:id="formula_21">r β,γ • r γ,(n) (Z(∆)) = r β,(n) (Z(∆)) = ν a ρ ⊗ ν a+1 ρ ⊗ • • • ⊗ ν b ρ is irreducible, r γ,(n) (Z(∆)) is irreducible. Therefore r γ,(n) (Z(∆)) = σ 1 ⊗ σ 2 ; σ 1 ∈ Irr G l , σ 2 ∈ Irr G n−l .</formula><p>Moreover,</p><formula xml:id="formula_22">r β,γ (σ 1 ⊗ σ 2 ) = r (m,...,m),(l) (σ 1 ) ⊗ r (m,...,m),(n−l) (σ 2 ).</formula><p>Hence,</p><formula xml:id="formula_23">r (m,...,m),(l) (σ 1 ) = ν a ρ ⊗ ν a+1 ρ ⊗ • • • ⊗ ν p−1 ρ and r (m,...,m),(n−l) (σ 2 ) = ν p ρ ⊗ • • • ⊗ ν b ρ. Note that r β,(n) (Z(∆)) = ν a ρ ⊗ • • • ⊗ ν b ρ. Consequently, σ 1 = Z([ν a ρ, ν p−1 ρ]), σ 2 = Z([ν p ρ, ν b ρ]).</formula><p>The proposition follows.</p><p>An immediate consequence of the above proposition can be established concerning the multiplicityfree Jacquet functor, providing insight into its behavior under certain conditions. Let P n be the subgroup of G n , consisting of the matrices having bottom row 0 0 • • • 0 1 . Now, we prove the multiplicity-free Jacquet functor for certain types of representations.</p><p>Theorem 3.5. If π is an irreducible representation of G n such that it is irreducible as P n -module, then the Jacquet module of π with respect to maximal Levi subgroup is multiplicity-free.</p><p>Proof. If π is any irreducible representation of G n such that it is irreducible as P n -module, then by [Zel80, Corollary 7.9], π = Z(∆) for some segment ∆ = [ν a ρ, ν b ρ], where ρ is an irreducible supercuspidal representation of G m and a ≤ b are integers such that m(b − a + 1) = n. Let M = G l × G n−l be a maximal Levi subgroup of G n . Then by Proposition 3.4,</p><formula xml:id="formula_24">r Gn M (Z(∆)) =    Z([ν a ρ, ν p−1 ρ]) ⊗ Z([ν p ρ, ν b ρ]) if l = mp 0 if m ∤ l .</formula><p>It is easy to see that all components of r Gn M (Z(∆)) are distinct. This implies that for any irreducible representations ρ 1 and ρ 2 of G l and G n−l , respectively,</p><formula xml:id="formula_25">dim C Hom M (r Gn M (Z(∆)), ρ 1 ⊗ ρ 2 ) ≤ 1.</formula><p>Hence, the result holds for π.</p><p>3.2. Jacquet module calculation. Let ∆ i = [ν a i ρ i , ν b i ρ i ] be the segments, where ρ i is an irreducible supercuspidal representation of G m i , for i = 1, 2, . . . , r.</p><formula xml:id="formula_26">Then Z(∆ i ) is an irreducible representation of G n i = G k i m i , where k i = b i − a i + 1 is length of segment [ν a i ρ i , ν b i ρ i ]. There- fore, Z(∆ 1 ) × • • • × Z(∆ r ) is a representation of G n . First, we compute the Jacquet module of the representation of the form Z(∆ 1 ) × • • • × Z(∆ r ), i.e., r (l,n−l),(n) (Z(∆ 1 ) × • • • × Z(∆ r )).</formula><p>Note that here β = (n 1 , n 2 , . . . , n r ) and γ = (l, n − l) are the the partitions of n. For w ∈ W β,γ , we compute the composition factors of</p><formula xml:id="formula_27">F w (Z(∆ 1 ) × • • • × Z(∆ r )) in terms of the matrix B(w) = (b ij ) ∈ M β,γ</formula><p>, where (b ij ) is the matrix of order r × 2 with entries (b i1 ) = l i and (b i2 ) = q i such that l i + q i = n i , r i=1 l i = l and r i=1 q i = n − l. By Proposition 3.4, JH 0 (r (l i ,q i ),(n i ) (Z(∆ i )) = 0 or σ (w) i , where</p><formula xml:id="formula_28">σ (w) i = Z([ν a i ρ i , ν p (w) i −1 ρ i ]) ⊗ Z([ν p (w) i ρ i , ν b i ρ i ])</formula><p>where</p><formula xml:id="formula_29">• a i − 1 ≤ p (w) i ≤ b i + 1 • l i = m i (p (w) i − a i ) • q i = m i (b i − p (w) i + 1) for i = 1, 2, . . . , r. Let σ (w) 1 = Z([ν a 1 ρ 1 , ν p (w) 1 −1 ρ 1 ]) ⊗ • • • ⊗ Z([ν ar ρ r , ν p (w) r −1 ρ r ]) and σ (w) 2 = Z([ν p (w) 1 ρ 1 , ν b 1 ρ 1 ]) ⊗ • • • ⊗ Z([ν p (w) r ρ r , ν br ρ r ]).</formula><p>Then, by Equation 2.3,</p><formula xml:id="formula_30">σ(w) = i (l),(l 1 ,...,lr) (σ (w) 1 ) ⊗ i (n−l),(q 1 ,...,qr) (σ<label>(w)</label></formula><p>2 ).</p><p>(3.1) Therefore, by Proposition 2.3,</p><formula xml:id="formula_31">r (l,n−l),(n) (Z(∆ 1 ) × • • • × Z(∆ r )) = B(w)∈M β,γ σ(w). (3.2)</formula><p>We computed the Jacquet module of any π</p><formula xml:id="formula_32">= Z(∆ 1 ) × • • • × Z(∆ r ) ∈ M(G n )</formula><p>. Now, we prove that if the Jacquet functor r Gn M is restricted to M Irr (G n ), then it is multiplicity free, i.e., the Jacquet functor r Gn M : M Irr (G n ) → M(M) is multiplicity free.</p><p>3.3. Proof of the Theorem 1.1. </p><formula xml:id="formula_33">Proof. Consider π = Z(∆ 1 ) × • • • × Z(∆ r ) ∈ M Irr (G n ) and</formula></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.">Declaration</head><p>Declaration for Research Article: We, the authors of the research article "A Note On Jacquet Modules of General Linear Groups", declare that this article represents original work and has not been published previously, nor is it under consideration for publication elsewhere. We take full responsibility for the content of this article and affirm that it does not contain any defamatory or unlawful material.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head></head><label></label><figDesc>2.0.7. Now, we explain the representation F w (ρ), where ρ = ρ 1 ⊗• • •⊗ρ r ∈ M(G β ) and ρ i ∈ Irr G n i . Fix the partitions β = (n 1 , . . . , n r ) and γ = (m 1 , . . . , m s ) of n. Let I 1 , . . . , I r and J 1 , . . . , J s be the blocks of β and γ, respectively. Therefore,n i = |I i | and m j = |J j |. To each w ∈ W β,γ ,there corresponds the rectangular r × s-matrix B(w) = (b ij ), where b ij = |I i ∩ w −1 (J j )|. It is clear that the correspondence w → B(w) is the bijection of W β,γ with the set M β,γ of matrices B = (b ij ) such that: • All b ij are non-negative integers. • s j=1 b ij = n i for any i = 1, . . . , r; r i=1 b ij = m j for any j = 1, . . . , s. We compute composition factors of F w (ρ) in terms of the matrix B(w) = (b ij ) ∈ M β,γ . Denote by β i , the partition (b i1 , . . . , b is ) of n i and by γ j , the partition (b 1j , . . . , b rj ) of m j . Since representations</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head></head><label></label><figDesc>3.1.1. Let ℘ be the set of equivalence classes of irreducible supercuspidal representations of the groups G n , n ∈ N. Let ν: ν(g) = |det(g)| denotes a character of G n . Call a segment in ℘, any subset of ℘ of the form ∆ = [ν a ρ, ν b ρ] = {ν a ρ, ν a+1 ρ, ν a+2 ρ, . . . , ν b ρ}, where a ≤ b are integers. To each segment ∆ = [ν a ρ, ν b ρ], we associate the irreducible representation Z(∆), which is defined as the unique irreducible subrepresentation of ν a</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head>Proposition 3. 4 .</head><label>4</label><figDesc>Let ρ be an irreducible supercuspidal representation of G m and ∆ = [ν a ρ, ν b ρ] be a segment in ℘, where a ≤ b are integers such that m(b − a</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head></head><label></label><figDesc>an irreducible representation ρ = τ 1 ⊗ τ 2 ∈ M(M), where τ 1 ∈ M Irr (G l ) and τ 2 ∈ M Irr (G n−l ). Keeping the notations of §3.2, by Theorem 3.2, all ∆ i 's are not linked as π is an irreducible representation. Hence, by Lemma 3.1, the segments [νa i ρ i , ν p (w) i −1 ρ i ] and [ν p (w) i ρ i , ρ b i i ] are also not linked. As a result, Z([ν a 1 ρ 1 , ν p (w) 1 −1 ρ 1 ]) × • • • × Z([ν ar ρ r , ν p (w) r −1 ρ r ]) = σ (w) ′ 1 (say)andZ([ν p (w) 1 ρ 1 , ν b 1 ρ 1 ]) × • • • × Z([ν p (w) r ρ r , ν br ρ r ]) = σ (w) ′ 2 (say)are irreducible representations of G l and G n−l , respectively. The representations σ (w) ′ i for i = 1, 2; depends on B(w) ∈ M β,γ and all matrices B(w) are distinct. This implies that all the factors in r (l,n−l),(n) (Z(∆ 1 ) × • • • × Z(∆ r )) are distinct and has no repetitions. So, by the Theorem 3.3, we havedim C Hom G l × G n−l B(w)∈M β,γ σ(w), τ 1 ⊗ τ 2 = B(w)∈M β,γ dim C Hom G l × G n−l σ(w), τ 1 ⊗ τ 2 ≤ 1.Therefore, the theorem follows.3.4. Acknowledgement:The first author gratefully acknowledges the Ministry of Human Resource Development (MHRD), Govt. of India, for providing the necessary funding and fellowship to pursue this research work.</figDesc></figure>
+		</body>
+		<back>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">Multiplicity one theorem for (GLn+1(R)</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Aizenbud</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Gourevitch</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/s00029-009-0544-7</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Sel. Math. New Ser</title>
+		<imprint>
+			<biblScope unit="volume">15</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="271" to="294" />
+			<date type="published" when="2009">2009</date>
+		</imprint>
+	</monogr>
+	<note>GLn(R))</note>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">Multiplicity free Jacquet modules</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Aizenbud</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Gourevitch</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Canad. Math. Bull</title>
+		<imprint>
+			<biblScope unit="volume">55</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="673" to="688" />
+			<date type="published" when="2012">2012</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">Multiplicity one theorems</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Aizenbud</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Gourevitch</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Rallis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Schiffmann</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Ann. of Math</title>
+		<imprint>
+			<biblScope unit="volume">172</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="1407" to="1434" />
+			<date type="published" when="2010">2010</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">Generalized harish-chandra descent, gelfand pairs, and an archimedean analog of jacquet-rallis&apos;s theorem</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Aizenbud</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Gourevitch</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Sayag</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Duke Math. J</title>
+		<imprint>
+			<biblScope unit="volume">149</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="509" to="567" />
+			<date type="published" when="2009">2009</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">On certain multiplicity one theorems</title>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">D</forename><surname>Adler</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Prasad</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/BF02771784</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Israel J. Math</title>
+		<imprint>
+			<biblScope unit="volume">153</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="221" to="245" />
+			<date type="published" when="2006">2006</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">Jacquet modules of ladder representations</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Kret</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Lapid</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.crma.2012.10.014</idno>
+	</analytic>
+	<monogr>
+		<title level="j">C. R. Math. Acad. Sci</title>
+		<imprint>
+			<biblScope unit="volume">350</biblScope>
+			<biblScope unit="issue">21-22</biblScope>
+			<biblScope unit="page" from="937" to="940" />
+			<date type="published" when="2012">2012</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">The multiplicity one theorem for GLn</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Shalika</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Ann. of Math</title>
+		<imprint>
+			<biblScope unit="volume">100</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="171" to="193" />
+			<date type="published" when="1974">1974</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">Multiplicity one theorems: the Archimedean case</title>
+		<author>
+			<persName><forename type="first">B</forename><surname>Sun</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">B</forename><surname>Zhu</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Ann. of Math</title>
+		<imprint>
+			<biblScope unit="volume">175</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="23" to="44" />
+			<date type="published" when="2012">2012</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">Induced representations of reductive p-adic groups. ii. on irreducible representations of GLn</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">V</forename><surname>Zelevinsky</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Annales scientifiques de l&apos; École Normale Supérieure</title>
+		<imprint>
+			<biblScope unit="volume">13</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="165" to="210" />
+			<date type="published" when="1980">1980</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

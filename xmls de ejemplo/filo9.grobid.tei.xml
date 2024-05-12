@@ -1,0 +1,633 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Does Plato Advance a Bundle Theory in the Timaeus?</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher>BRILL</publisher>
+				<availability status="unknown"><p>Copyright BRILL</p>
+				</availability>
+				<date type="published" when="2020-11-18">2020-11-18</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">George</forename><surname>Karamanolis</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Filip</forename><surname>Thein</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="middle">Phil</forename><surname>Karfik</surname></persName>
+						</author>
+						<author>
+							<persName><surname>Horky</surname></persName>
+						</author>
+						<title level="a" type="main">Does Plato Advance a Bundle Theory in the Timaeus?</title>
+					</analytic>
+					<monogr>
+						<title level="m">Plato’s &lt;i&gt;Timaeus&lt;/i&gt;</title>
+						<imprint>
+							<publisher>BRILL</publisher>
+							<biblScope unit="page" from="149" to="168"/>
+							<date type="published" when="2020-11-18" />
+						</imprint>
+					</monogr>
+					<idno type="MD5">5BC8EEF12443E781DAE0606742D192F5</idno>
+					<idno type="DOI">10.1163/9789004437081_009</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.2" ident="GROBID" when="2024-05-12T15:27+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>Plato -Timaeus -Plotinus -receptacle -properties -bundle theory -Formsmaterial objects -essence</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>In this paper my main aim is to argue that Plato in the Timaeus and especially in the section concerning the receptacle advances a theory according to which instances of properties or particular properties contribute to the constitution of material objects, but he does so without compromising his position, found in earlier dialogues, that sensible objects have essences due to immaterial Forms. I will conclude that Plato does not maintain a bundle theory of material objects there and that he is not a bundle theorist. I will try to back up this claim by exploring how Plotinus speaks of the constitution of material objects. Although Plotinus is not directly commenting on the Timaeus, he is inspired, I will suggest, mainly by this dialogue in his explanation of material objects. To the extent that this is the case, Plotinus can be seen as offering a confirmation of my interpretation of the ontology in the Timaeus that is presented in the section concerning the receptacle.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Introduction*</head><p>The main aim of this paper is to argue that Plato in the Timaeus, and especially in the section concerning the receptacle, advances a theory, according to which instances of properties or particular properties contribute to the constitution of sensible, material objects, but that he does so without compromising his essentialism, that is, basically the view that sensible objects have their essences due to immaterial Forms.1 The role of particular properties in the constitution of material objects is the development of a complex ontological theory that occurs in Timaeus 49ef., and can be seen as an ontological novelty when compared with earlier dialogues, but also with the first part of the Timaeus, namely the account running from 27c to 49e. In the first part of my paper, I will outline this ontological theory and explain how it should be understood and what its implications are. I will argue that Plato does not maintain a bundle theory of material objects there and that he is not a bundle theorist. I will try to back up this claim by exploring how Plotinus speaks of the constitution of material objects. Although Plotinus is not directly commenting on the Timaeus, he is inspired, I will suggest, mainly by this dialogue in his explanation of material objects, as both his claims and his vocabulary show. To the extent that this is the case, Plotinus can be seen as offering a certain confirmation of the ontology present in the Timaeus, as interpreted here. Plotinus' contribution will be discussed in the second part of my paper.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1">Receptacle, Forms, and Images of Forms</head><p>My starting point in this investigation is the fact that in the Timaeus, especially in the section concerning the receptacle (49e-50b), Plato distinguishes between Forms, images of Forms, and the receptacle that accommodates the latter. This passage is of course a battlefield of interpretations and is known in scholarship as "a much misread passage."2 I do not mean of course to take a position on all of the thorny issues raised in this passage. I will mainly set out to investigate what the role of the images of Forms is, that is, what these images themselves are, what their function is, and how they relate to the receptacle.</p><p>Angela Ulacco sent me her unpublished paper mentioned in the bibliography. I have also benefited from the critical remarks of Peter Larsen and Vasilis Politis. I would like to thank Anthony Kroytor and Chad Jorgenson for stylistic improvements. 1 My critique concerns especially the understanding of the ontology of the receptacle as a bundle theory, for instance, by Buckels, "Triangles, Tropes, and ta toiauta: A Platonic Trope Theory," and "Making Room for Particulars: Plato's Receptacle as Space not Substratum." 2 The literature on the passage is very rich. See Cherniss, "A much misread passage of the Timaeus (Timaeus 49C7-50B5)," Lee, "On the Metaphysics of the Image in Plato's Timaeus," and "On Plato's Timaeus 49D4-E7," Mohr, "Image, Space and Flux in Plato's Timaeus," Silverman, "Timaean Particulars," and The Dialectic of Essence, 246-284, Harte, "The Receptacle and the Primary Bodies: Something or Nothing," Broadie, Nature and Divinity in Plato's Timaeus, 183-185, and more recently Buckels, "Making Room," Ulacco, "Die präkosmische Bewegung in Platons Timaios: ἴχνη, χώρα und Ideen." Concerning the structure of the passage, see especially Lee, "Metaphysics of the Image," 348.</p><p>Let us first take a look at the context of the passage. At 48e Timaeus announces a new beginning (archē) in his cosmology, one which claims to advance a fuller classification, as he says.3 It becomes immediately clear what kind of classification is meant here: one of ontological classes. Up to this point, Timaeus had operated with a distinction between two ontological classes, namely being and becoming, corresponding to the intelligible entities on the one hand, namely God and the Forms, and the copies (mimēma, 48e6) of the Forms on the other, which make up the sensible entities. While being is eternal and unchanging, becoming (i.e. sensible entities) is subject to change. So far, Plato does not deviate from the ontology we are familiar with from the Republic and the Sophist. As in Republic V, he distinguishes being from becoming, intelligible entities from sensible ones, and confirms that the latter are radically different from, and ontologically dependent on, the former.4 And as in the Sophist, he not only makes a distinction between being and becoming, but also adds intellect to the class of being (nous, Soph. 249a), a class that includes the immovable beings (akinēta onta, 249b5), that is, the intelligible entities which are not subject to change.5 For when Timaeus refers to being (on) and distinguishes it from becoming (genesis) and the receptacle (49a1-2, 52d), he may well include in "being" the demiurgic intellect and the Forms.</p><p>The passage I will focus on here (48ef.) introduces a third class of entities (triton genos), containing only one member, the receptacle (chōra). The receptacle, we are told, is important in the process of coming into being (genesis). The idea that Timaeus advances here is that we cannot explain the coming into being of material entities, and thus of the material world as a whole, without introducing such an entity. Unlike previous cosmologists, Plato is not content with a general theory that explains the coming into being of the world as a whole by means of pointing to a certain principle that accounts for its orderly arrangement; rather, he wants to explain in detail how individual physical objects that occur in the world come about. We need, in particular, to understand their material constitution and their properties. And this is what Timaeus sets out to do in this account. In what follows, Timaeus sets out to explain the receptacle, its nature and its function. In this section, though, we also hear of another class of entities, which I have already mentioned. In addition to the Forms, there are also the images of Forms, which of course are distinct from the Forms. Let us examine his line of thinking.</p><p>It is important to note that in this passage Timaeus does not simply outline a new theory, but rather presents us with a puzzle, an aporia, which concerns material elements like fire and water, and the principles that govern their generation; a project, as he says, that nobody had so far undertaken.6 Let us see what the precise content of this aporia is. Here is the relevant section:</p><p>True, however, as this statement is, it needs to be put in clearer language; and that is hard, in particular because to that end it is necessary to raise a previous difficulty about fire and the things that rank with fire (προαπορηθῆναι περὶ πυρὸς καὶ τῶν μετὰ πυρὸς ἀναγκαῖον τούτου χάριν). It is hard to say with respect to any one of these, which we ought to call really water rather than fire or indeed which we should call by any given name rather than by all names together or by each severally, so as to use language in a sound and trustworthy way. The inquiry here concerns both fire and things that are necessarily linked to fire or that rank with fire, as Cornford translates, and similarly water and things that contain water. Before we come to investigate what this means, one thing is clear, namely that Plato, unlike earlier cosmologists, does not take the four elements to be primitive and ultimate, so to speak. And this I take to be precisely the gist of the aporia, namely that it is not at all clear which element can actually and legitimately be called fire or water.8 Timaeus rather thinks that these elements are neither primitive nor foundational, but that they are further analyzable into geometrical solids, as it turns out later. When considering fire and the things necessarily connected with fire, or water and things connected with water, it is hard to say with respect to any of these which we should call by this or that name, i.e. the name "fire" or "water." Things that contain fire in some form, such as a hot iron, and similarly watery and airy things, which contain water or air in some form, count as fiery, watery, or airy, insofar they are subject to the same transformations as their corresponding constitutive elements (fire, water, air). Not only can water turn into air, that is, into steam, but similar transformations are necessary features of watery things, as they are capable of becoming steamy or icy. In fact such transformations are evidence that these things are watery.9</p><p>If this is the case, however, then material elements such as fire, water, and air are not ultimately stuffs; they cannot count as basic, so to speak, or ultimate constituents, since they are subject to transformations, that is, material transformations. This is the reason why they will later be explained with reference to their constituent parts, when Timaeus sets out to explain their constitution with reference to geometrical shapes.10 The crucial (and much debated) point is that water, fire, air, and earth are rather suches (to toiouton, 49d5), and not this or that (touto, 49d6), since they render objects such and such and such, namely watery, fiery, airy, not this or that. To the extent that this is the case, these elements cannot ultimately be taken as principles of some kind; rather, Timaeus suggests, they are the result of principles;11 and in the geometrical section later on, he will show that they are composites of geometrical solids. Timaeus goes on to tell us in the following passage that: Whenever we observe a thing perpetually changing, fire for example, in every case we should speak of fire not as "this" but as "what is such and such", nor of water as "this" but always as "what is such and such"; nor must we speak of anything else as having some stability, among all the things we indicate by the expressions "this" and "that", imagining we are pointing out some definite thing. For they slip away and do not wait to be described as "that" or "this" or by any phrase that presents them as having permanent being. such as fire or water. But to return to the subject of the circle of transformation, Timaeus argues that the same is the case not only for the four elements, which had long been considered principles, but for everything that comes to be.12 As two examples of what comes to be, Timaeus mentions hot and white and their opposites, cold and black (θερμὸν ἢ λευκὸν ἢ καὶ ὁτιοῦν τῶν ἐναντίων, 50a2-3). We are now presented with a range of entities that belong to the same category: fire, water, hot, cold. We have been told that these entities are "a kind of such" rather than a "this," that is, they function as predicates of qualities or properties, such as, for instance, when we say "this wall is white," or "the iron is hot." By saying this, we generally attribute whiteness or heat to something. Yet on the other hand we need to distinguish between what is fiery or watery, that is, between what is predicated by fire or water and can change at some point, and what is always fire or water as such. As has been pointed out, the latter is actually neither a this nor a such, but a this-such, namely, an instance of a specific property that makes something such as it is, and should be translated accordingly.13 And the question arises: what is the ontological status of these entities?</p><p>To begin with, these are neither particular stuffs, nor particular objects, nor universal qualities. Timaeus makes this clear when he speaks of hot and white, referring to them as ὁποιονοῦν τι, θερμὸν ἢ λευκὸν ἢ καὶ ὁτιοῦν τῶν ἐναντίων (50a2-3). The passage reminds us of Aristotle's passage in the Categories, where he speaks of particular qualities, ἡ τὶς γραμματική, τὸ τὶ λευκόν . It may well be the case that Aristotle was originally inspired by this passage from the Timaeus when distinguishing between universal and particular qualities in the Categories, given the linguistic similarities between the two passages. But whatever the case may be, the crucial point for us here is that Plato speaks of particular properties or of instances of properties, that is of the existence or inherence of property F in a subject (ἐν ὑποκειμένῳ). The inherence of F-ness (whiteness) in a subject makes it F (white), and this instance of whiteness is, as I said, both a this and such. Instances of properties such as the hotness of this glass of water or the whiteness of that wall are also known as tropes. Such entities are marked by the general feature that they exist insofar as they inhere in a subject that they qualify. A particular whiteness or hotness is the whiteness or 12 καὶ δὴ καὶ πῦρ τὸ διὰ παντὸς τοιοῦτον, καὶ ἅπαν ὅσονπερ ἂν ἔχῃ γένεσιν (Tim. 49e7-8). See <ref type="bibr">Broadie,</ref><ref type="bibr">Nature and Divinity in Plato's Timaeus,</ref><ref type="bibr">[186]</ref><ref type="bibr">[187]</ref><ref type="bibr">[188]</ref> See Cherniss, "Misread Passage," Buckels, "Making Room." This is how tropes are traditionally understood and described; they are neither objects nor properties and they are nonrepeatable; they are often described as here-suches; see e.g. Bacon "Tropes," Schaffer "The Individuation of Tropes," 247.</p><p>the hotness of a particular object; the existence of white in an object is white as a trope or the trope of white.14 Plato, then, introduces an ontological class other than the receptacle in the section about the receptacle, particular properties or tropes,15 and in so doing foreshadows a distinction that Aristotle will spell out later, namely that between universal and particular properties. The important difference between the two, however, is that for Plato tropes are images of Forms (and on a certain interpretation of Forms, they are also images of universals), while for Aristotle this is clearly not the case. As Plato makes clear, the receptacle receives and accommodates not the Forms themselves but images of Forms, particular qualities or tropes.16 And the question of why the receptacle does not accommodate Forms themselves naturally arises. Let us examine the passage where Plato clearly states that the receptacle accommodates imitation of beings, that is, imitations or copies of Forms. Now the same thing must be said of that nature which receives all bodies. It must be called always the same; for it never departs at all from its own character; since it is always receiving all things, and never in any way whatsoever takes on any character that is like any of the things that enter it; by nature it is there as a matrix for everything, changed and diversified by the things that enter it, and on their account it appears to have different qualities at different times; while the things that pass in and out are to be called copies of the eternal things, impressions taken from them in a strange manner that is hard to express.</p><p>Tim. 50b6-c6; Cornford trans. This passage states that the receptacle hosts images of Forms, that is, instances of qualities or particular qualities. The receptacle functions as a place for the images of Forms precisely because the receptacle itself is absolutely bereft of qualities. We are told that it is amorphon, and that this characteristic feature 14</p><p>The literature on tropes is very rich; see, for instance, Simons, "Particulars in Particular Clothing: Three Trope Theories of Substance," Bacon, "Tropes," Schaffer, "Individuation of Tropes." Plato comes close to the idea of tropes also in the Theaetetus 156e, and he clearly rejects the idea (καὶ ἐγένετο οὐ λευκότης αὖ ἀλλὰ λευκόν). On this passage see also below. 15 <ref type="bibr">Buckels, "Trope Theory," and "Making Room," rightly</ref>  of the receptacle is causally connected with its ability to receive the images of Forms.17 This is actually the essential feature of the receptacle, to receive the images of Forms that give rise to the four elements. The receptacle is, of course, described both as space and as a material substrate; hence, one of the difficulties concerning it is how exactly we should understand it.18 The first analogy given by Plato compares the receptacle to gold, a material that a sculptor molds as he likes (50a4-b6), while the second analogy compares it with wax, upon which different impressions may be stamped.19 Both analogies suggest that the receptacle must be quality-less, that is, without its own properties, in order for it to allow the coming into being of different objects. For my purposes, this is all that matters-namely that the receptacle is without properties and therefore suitable for receiving images of Forms.</p><p>However, the question of why the receptacle receives images of Forms and not Forms themselves naturally arises. These images of Forms, it turns out, are Forms of geometrical solids, that is, geometrical Forms. When a Form is reflected in the receptacle, an imprint comes about.20 The receptacle accommodates that imprint, and this is crucial if we want to understand how exactly the receptacle contributes to the process of coming into being (genesis). After all, the receptacle has been introduced to explain genesis and the question regards the role played by Forms and their images.21 To be more precise, the question concerns how the coming into being of material entities should be explained now that we have completed our ontology. For we now have Forms, the receptacle, and the images of Forms, i.e. the geometrical Forms, which are accommodated on the receptacle. The coming into being of material entities ought then to be explained with reference to these three classes of entities, which is different from the account presented in the first part of the Timaeus, where the Forms played the main causal role in the constitution of the material world. This is the question I shall address in the next section: how exactly does this process takes place? </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2">The Constitution of Sensible Entities</head><p>When Timaeus speaks of the elements as instances of Forms and says that "we must not apply any of these words to this or that quality, hot or cold or any of the opposites, or to any combination of these opposites" (50a), the reader wonders what he is actually referring to when he says "combination." The Greek phrase πάνθ᾽ ὅσα ἐκ τούτων is, in this case, open to interpretation. Cornford22 suggests that it might refer to the elements themselves, which are composites of several qualities: fire, for instance, is a combination of hot and yellow, according to him. But it may also refer, he continues, to compound bodies, to mixtures of the four primary elements. The latter seems to me to be a much more plausible suggestion; what Timaeus says from now on concerns the entire sensible world.23 After all, his intention from the start was to explain the genesis of the physical world. In what follows, Timaeus speaks of three kinds of entities, the ungenerated and unchangeable, the sensible and changeable, and the receptacle (Tim. 52a). The sensible (and changeable) entities cannot be composed only of sensible qualities or conglomerations of them, at least not exclusively, but must also be composed of compound bodies, namely material objects. And the question is how these bodies, these material objects, are constituted.</p><p>There are at least two kinds of answers in the existing literature. The traditional one holds that material entities are mainly copies of Forms. Such an answer would be in line with the ontology presented in the Republic or the Phaedo. For in these works, as mentioned earlier, sensible entities are dependent on Forms, causally and ontologically.24 In a number of passages in these dialogues, Plato, as we know, speaks of particular things as resembling their Forms25 and he refers to the Form of F as what is F (ὅ ἐστιν). in the coming into being of sensible things? We appear now to have two kinds of Forms, the traditional Forms and the geometrical Forms, which make up the material elements and to some extent also the material objects. The alternative, more recent, answer is given by Christopher Buckels: sensible entities are not copies of Forms, as has been traditionally thought, and as Plato himself suggests in earlier dialogues, but rather aggregates of images of Forms, that is, of the geometrical Forms.27 According to his account, Plato revises his earlier account of the causal role of traditional Forms with regard to the material entities and adopts a different view, according to which everything in the sensible world, including sensible, material objects, is composed of the effects of Forms on the receptacle, that is, a compound of images or of tropes. And in this sense, sensible entities are bundles of properties. This is an interesting alternative.</p><p>I find both answers problematic, however. The problem with the first one is that in Plato's account in Timaeus 49-50 it is clear that images of Forms, geometrical Forms, have a causal role in the coming into being of sensible entities, since they enter the receptacle and become stable there, and we need to explain that role. Does this mean, though, that sensible entities-compound bodies-are just aggregates of tropes, as Buckels argues?</p><p>One central problem for his interpretation is the following: if material entities are merely collections of tropes, that is, bundles of qualities, how can we explain the fact that we do not perceive bundles of qualities but rather objects bearing certain qualities? The perception of objects x and z and the identification of their qualities as qualities of these objects could not be possible if objects x and z were merely bundles of qualities. The bundle theorist would probably say that the x and z objects you perceive are bundles of qualities. This is fine, but we still perceive qualities or properties as properties of a certain kind of thing, of a man or a horse. We speak of that property of a man, to walk, not simply of one property among many others, but as a property peculiar to man. This is at least what Plato does in the Theaetetus: he speaks of a man being such or of a certain quality.28 There must be something in which the properties adhere, and this cannot simply be a material substrate, because, as I have said, we perceive properties as properties of a man or of a horse. There must be something that accounts for a thing's being a man or a horse (and for its properties being of man or horse). And for Plato, I think, the answer is 27 Buckels, "Trope Theory." See also Silverman, Dialectic of Essence, ch. 7, who eventually rejects this interpretation. 28 ὅταν φῶμεν ἐμὲ τηλικόνδε ὄντα (Theaet. 155b7). The bundle theorist can still, however, remain unconvinced and explain perception in terms of bundle theory.</p><p>clear, it is the Form of the thing. It is the Forms that make something the kind of thing it is, an x or a z; the Forms account for the essences that things have. A more distant yet related question to the bundle theory in Plato is this: what is it that renders sensible entities relatively stable? Sensible entities are subject to change but have a certain identity by means of which we perceive them as such, as x or z. Their relative stability cannot be the result of the impact of images of Forms, since, as we have been told in the section on the receptacle, images of Forms are not stable at all but subject to a cycle of transformations. Actually, they account for the cycles of transformations. The receptacle does not provide stability either; rather it is a bearer of properties, enabling the effect of the inherence of properties.29 The relative stability of sensible objects is unlikely then to derive either from the images of Forms or from the receptacle. The Forms, on the other hand, are stable entities and make something the thing that it is.</p><p>My suggestion is that both the traditional Forms, the images of Forms or the geometrical Forms, and the receptacle contribute to the coming into being of material entities. Each makes a distinct contribution. Sensible entities have a certain identity, an essence, and they are recognized as such. Traditional Forms contribute precisely this. They are the essences of sensible entities. But these entities also have several other properties that pertain to their material constitutions. These are accounted for, I suggest, by the images of Forms. The latter are responsible, so to speak, for the properties of the sensible entities, especially the essential properties, those that pertain to a certain kind of entity, such as man or tree. Material entities of a kind have distinct properties pertaining to their material constitution that are appropriate to the kind of thing they are, that is, properties related to the essences they adhere to. It is important to recognize here that the properties pertaining to material constitution are also determined by Forms, namely geometrical Forms or images of Forms; these Forms account on the one hand for the constant elemental or material transformation and on the other for the relative intelligibility of that process. Finally, the receptacle contributes the space and the material substrate where images of Forms are instantiated and properties of material objects are generated.</p><p>If this is the case, then Plato builds on, revises, and expands his previous ontology, the ontology of the traditional Forms. In the Timaeus, these Forms play, without a doubt, a major role in accounting for the generation of the world, so it would be difficult to imagine that Plato would simply brush them aside when, in the section on the receptacle, he discusses the constitution of sensible entities. After all these Forms are bearers of the Demiurgic intelligence and craft, which make the world orderly and intelligible. Yet it is in the section on the receptacle that Plato develops his ontology further by adding two more ontological classes, namely the receptacle and the images of Forms, which are responsible in different ways for the properties of material objects, that is, objects generated in the receptacle. Plato realizes that entities in the sensible world differ from those in the intelligible world not only by virtue of their materiality, but also by having properties and not just essences.30 Nowhere did Plato speak explicitly and at length of such properties in his earlier work.31 We were rather left to believe that both essences and properties of sensible things were caused by the Forms. This now changes. Forms are essences, and images of Forms are qualities or properties pertaining to the specific material constitution of an object, and these properties are constantly subject to change. Sensible objects are, then, I suggest, neither constitutive of Forms alone nor bundles of properties either; rather, they have essences and also bear essence related properties.</p><p>We are now confronted with several open questions, one of which is the following: Plato does not speak of the instantiation of Forms in the receptacle, but only of the images of Forms. Besides, how are we to understand the compresence of Forms and images of Forms in material entities? Such a question involves investigating the division of causal labor between the intelligence of the Demiurge and the necessity of the receptacle. Plato does not enlighten us about such questions. He does not clarify how his account of traditional Forms relates to the account of images of Forms or geometrical Forms in the section on the receptacle. There is, however, a source of enlightenment in this regard, and this is Plotinus. Plotinus of course does not comment directly on Plato, but he means to expound Plato, that is to show how Plato's philosophy should be understood. Plato scholars do not usually resort to Plotinus for exegetical purposes. I do not want to plead for a universal answer here to the thorny question of how Plotinus helps us understand Plato. Yet it does seem to me that Plotinus shows us how we should understand Plato's ontology of the Timaeus; his remarks are, in my view, very illuminating in this regard. One lesson that Plotinus teaches us, I shall suggest, is that Plato is by no means a bundle or a trope theorist. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3">The Constitution of Sensible Entities in Plotinus</head><p>My aim in this section is to look at the accounts given by Plotinus of the constitution of sensible entities, in order, first, to show that these support the above interpretation of Plato's ontology, namely that both the traditional Forms and the property instances play a role in the coming into being and the constitution of sensible entities, and, second, to see what Plotinus has to say about their respective causal roles in the constitution of material entities. It is of course true that Plotinus often works out his own distinct positions as an answer to questions asked or positions advanced by Peripatetics and Hellenistic philosophers, but he nevertheless very often reconstructs a position from the various parts of Plato's works that can be considered as a possible position of Plato himself, at least in a dialectical sense. And this I believe is the case with Plotinus' view on the constitution of sensible entities. His vocabulary in several relevant passages points in this direction, at least. Let me start with an emblematic passage of Plotinus, namely Enn. VI 3.8.20 ff., where he claims that sensible objects are conglomerations of qualities and matter.</p><p>For this sensible [substance] (aisthētē ousia) is not simply being, but is perceived by sense, being this whole world of ours; since we maintained that its apparent existence (dokousan hypostasin) was a congress of perceptibles (synodos tōn pros aisthēsin) and the guarantee of their being comes from sense-perception. But if the composition has no limits, one should divide according to the species-forms (eidē) of living things, the bodily species (eidos) of man, for instance. For this, a species-form of this kind, is a quality of body and is not out of place to divide by qualities.</p><p>Enn. VI 3.10.14-20; trans. Armstrong</p><p>The passage appears to suggest that sensible objects do not qualify as beings, since they are nothing but a conglomeration of qualities, that is, qualities that we perceive with our senses. This passage would appear then to suggest that sensible objects are bundles of qualities. But this would be a superficial reading of the passage and a misunderstanding of Plotinus' view.32 This is because the conglomeration of which Plotinus speaks, is an ordered one and because he speaks of Forms that make something the kind of thing it is, for instance, a man. There must be a principle, then, that accounts for the arrangement of qualities, which is such that it makes up a specific kind of thing. Plotinus tells us, for instance, that every kind of ordering requires the effect of some soul, which is a principle of order (Enn. IV 7.2.22-25).33 And in a number of passages Plotinus makes clear that there is a formative principle, a logos or an eidos, that accounts for the orderly arrangement of qualities that make up a sensible object the kind of object it is. Quite revealing is the following passage:</p><p>If then this is what a body is, that which is composed of all the qualities plus matter, this is what corporeity (sōmatotēs) would be. And if a logos is what by its coming [to matter] makes the body, it is clear that the logos comprises all the qualities. But this logos, assuming that it is not simply a definition which states the nature of the thing, but a formative principle (logos) that makes up the thing cannot include matter, must be a principle enveloping matter which by coming into matter makes up the body. And the body must be matter and a formative principle (logos) present in it; while the formative principle itself, since it is a form without matter, must be contemplated bare, even if it is itself as inseparable as it can be from matter. For the separable form is different, the one in intellect.</p><p>Enn. <ref type="bibr">Armstrong trans.34</ref> This passage makes several crucial points. First, Plotinus distinguishes at the end of the passage between the logos in the intellect and the logos in the object. Second, he tells us that the former is present in the object and inseparable from it, although it can be considered apart from matter in thought, while the latter exists separately in the intellect. Finally, Plotinus suggests that the immanent logos, as I shall call it, the logos in matter, includes within it all the qualities of the object in question (ἔχει τὰς ποιότητας ἅπασας) and makes up that body (ποιῶν πρᾶγμα, ἀποτελεῖν τὸ σῶμα). Plotinus distinguishes, then, here between five entities: a) immaterial Form/logos, b) immanent Form/logos, c) matter, d) qualities, e) the body, that is, the sensible object, the compound of Form and matter. These entities are part of an account of the constitution of sensible objects. According to that account, sensible objects are not merely bundles of qualities; rather, Plotinus claims, it is the immanent logos that comprises these qualities, brings them to matter and makes up the sensible object. In this sense, the immanent Form/logos functions as the principle which accounts for the orderly arrangement of the qualities of the sensible object in matter.</p><p>Plotinus also repeats this theory in other parts of his work. In his treatise On Matter (Enn. II.4), for instance, we find a particularly interesting passage concerning the constitution of sensible objects.</p><p>The Form comes on it [matter] bringing everything with it. Every Form has volume and everything that goes along with or is caused by the logos. Therefore, in every kind the quantity of matter is determined together with Form, that is, it is different in man, different in birds and different again in every species of birds. Is it more astonishing that something else imposes on matter how much it should be than of what quality it should be? And it is not true that only the quality is logos while the quantity not, since this is Form and measure and number.</p><p>Enn. II 4.8.23-30; Armstrong trans.</p><p>Here Plotinus again clearly states that the Form is the principle accounting for the orderly arrangement of qualities in matter and thus accounting for the constitution of sensible objects, including animate ones, such as men and birds. It is the Form, Plotinus says here, that brings with it all the necessary qualities but also determines the quantity of matter that is appropriate for each kind and each species of a kind. It is the Form that is the measure of what is coming to be. Once again, the Form is presented as the formative principle of sensible objects that is responsible for the arrangement of all their qualities, including the necessary amount of matter. The immanent Form is clearly different from the qualities that it brings, which are determined and arranged by it. For Plotinus, then, the immanent Form is the formative principle accounting for the identity of a sensible object, for it being the thing it is, and as such only certain qualities can inhere in it.</p><p>Plotinus makes clear that the immanent Form determines the identity of a sensible object also in the following passage from Ennead VI 3: This so-called substance is the compound of many and is not a "something" (ti) but a "quale" (poion). And the logos of fire, for instance, designates rather the "something," while the shape it produces is rather a quale. And the logos of man is the being "something," whereas its product in the bodily nature, being an image of the logos, is rather a sort of quale. It is as if, the visible Socrates being a man, his painted picture, being colors and painter's stuff, was called Socrates. In the same way, therefore, since there is a logos according to which Socrates is, the perceptible Socrates should not rightly be said to be Socrates, but rather colors and shapes which are imitations (mimēmata) of those in the logos. <ref type="bibr">Armstrong trans.35</ref> This passage comes from the treatise in which Plotinus allegedly argues that sensible objects are bundles of qualities. Here he carefully qualifies his view.36 The logos accounts for the identity of a thing, the τί, whereas all other qualities that make up its shape endow it with qualities, which are like the colors of a painter. If we take a painting, such as that of a figure, we can distinguish between the concrete figure and its various features, such as its colors. It is the figure that determines the features of the painting, and not the other way round. This is, I think, what Plotinus means when he says that colors and shapes are mimēmata of the logos; such features do not imitate the logos, the forming principle of a painting, but they are determined by the logos, and in this sense the logos dictates what these features should be. Plotinus' vocabulary here echoes that of Timaeus 48e5-6.</p><p>Plotinus makes a similar point when he speaks of the nature in Ennead III 8. In this treatise Plotinus sets out to show that nature should not be taken as the main causal agent of the sensible world, but as an intermediary one, since in Plotinus' view nature acquires from the soul the logoi which then it transmits to matter. Plotinus describes nature both as a form (eidos) and as a formative principle (logos). Nature, he says, brings with it the logos which is unchangeable (akinētos, III 8.2.18) and imposes it on matter, which thus becomes informed (logōtheisa; III 8.2.25). Plotinus explains this further, arguing that nature brings with it the logoi of animals when they are generated. In this short passage Plotinus distinguishes three kinds of logoi: a) nature as logos, b) the logoi born from it and carried with it, c) the logos in matter, which is dead (nekros), as he says, as it cannot generate anything more.37 Before I move forward, one possible worry must be addressed here. Plotinus uses the term logos in several contexts and with different senses. Logos refers to the Form (eidos) and also to the qualities that it carries as the result of a certain form or identity, such as weight, shape, or color. It also refers to the qualities that result from its instantiation in matter, the perceptible qualities, the imprints on the receptacle. In the passage from Ennead III.8 discussed above, this becomes particularly clear. It is for this reason that this passage is instructive; for we learn from it that Plotinus can use logos both for the formative principle and for the qualities that come into being as the result of its application or instantiation in matter. The term logos, however, both as formative principle and as quality suggests that we are dealing with a rational structure that can be logically apprehended and communicated by linguistic means.</p><p>All of the above passages show clearly, in my view, that Plotinus assigns the role of the formative principle of sensible objects to intelligible Forms, which means that Forms account for imposing and arranging the qualities that feature in a certain sensible object. Such objects are not, then, for Plotinus mere bundles of qualities; in his view, an object results rather from the presence of an intelligible Form in it. And this presence has a causal efficacy that involves the arrangement of qualities in the sensible objects. These qualities arranged by Forms are essential qualities, not accidental qualities, for as we have seen they are the result of the presence of a Form, which makes up the identity of sensible objects. This is made especially clear in the passage from Ennead II 4 cited above, where we hear that qualities of different kinds and different species depend on the formative principle, the Form. This Form is, of course, not an essence for Plotinus, since for him essences strictly speaking exist only in the intelligible realm.38 Yet, the Form is responsible for the identity or the essence of a sensible object, the "this" (ti), as he says.</p><p>Plotinus, then, accounts for the constitution of the sensible objects by means of intelligible or traditional Forms, qualities deriving from them, matter, and ultimately soul and intellect. Of course, he does not give us a straightforward interpretation of the ontology in the section on the receptacle in the Timaeus, but his own explanation of the constitution of material objects shows that he takes the ontology in that part of the Timaeus as complementary to the traditional Platonic one, which underlines the role of the traditional Forms. For Plotinus material objects are not at all bundles of qualities or tropes. Apparently, he understands Plato as rejecting tropes (in Timaeus and in Theaetetus 156-157). After all, Plotinus understands the receptacle as matter, where inhere the logoi, the qualities, that make an object such and such, namely of a certain material constitution. This view immediately precludes a bundle theory of material objects, because on such a theory particular properties, tropes, are the fundamental entities that make up an object. For a bundle theorist, objects are derived from or made up of tropes.39 And this is clearly not how Plotinus understands Plato.</p><p>There is something else in Plotinus' position that is important as a reading of Plato's ontology in the Timaeus. Material objects are subject to change, but their identities remain stable. Neither matter nor the identity of the object changes; what does change are the properties that make it up. The section on the receptacle teaches us that material particulars and more precisely their geometrical configurations are subject to change and transformation. But this is a feature of bodies that Timaeus makes clear from the beginning of his speech, namely that they are always changing.40 To the extent that a material body is made up of elements which may be analyzed into geometrical Forms, it is subject to change exactly to the extent that is made up of them, since these Forms can be divided and recomposed (Tim. 56c-57c).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4">Conclusion</head><p>I have tried to show that, in the Timaeus, Plato does, in fact, revise and modify his ontology concerning the coming into being of material objects, but that this revision complements rather than replaces his earlier accounts, including the first part of the Timaeus, in which intelligible Forms play an essential causal role in the coming into being of material entities. In the section on the receptacle, Plato aims to give an account of the emergence of properties in material objects, an account that was missing from his earlier ontology, which he now deems indispensable, given that he is engaged with explaining the genesis of the material world. According to that account, material objects, to the extent that they are material, have certain properties pertaining to their specific material constitution. These properties, he tells us, are the result of the instantiation and the inherence of images of forms or geometrical Forms in the receptacle. To the extent that this is the case, material objects are subject to change, since geometrical Forms are also subject to change. Yet material objects are not merely bundles or aggregates of such properties; rather, they are constituted by the traditional Forms, which now appear to have a richer causal role. They not only account for the identity of a material body, but they also account for the arrangement and order of the geometrical Forms in the receptacle and thus for the properties pertaining to the specific material constitution of a certain object. It is the traditional Forms that guide setting up of the geometrical Forms to the extent that the latter account for properties pertaining to the material constitution of a body, yet such a body is of a certain kind (man or tree, for instance), and its specific material constitution is determined by its identity, that is, the traditional, essential Form. The human body, for instance, has the constellation of properties dictated by the Form of man, and similar is the case with any other material object, animate or inanimate; the Form is responsible for the properties associated with the specific material constitution that pertains to a certain thing.41 On that scenario, the role of intelligence remains prior and ontologically superior to that of necessity. This, I suggest, is confirmed by Plotinus' own theory of the constitution of material objects.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head></head><label></label><figDesc>.com 03/04/2024 06:40:30PM via Open Access. This is an open access chapter distributed under the terms of the CC BY-NC-ND 4.0 license. https://creativecommons.org/licenses/by-nc-nd/4.0/</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_4"><head></head><label></label><figDesc>The couch, for instance, is a copy of what is a couch, namely the Form of couch.26 But what about the images of Forms introduced in the Timaeus? What role do they play Dialectic of Essence, 258: "Although the specific concern of Timaeus' remarks is the four traditional elements, earth, air, fire, and water, his closing words indicate that the lesson applies to the whole of the physical world (50a1-4)." 24 Denyer, "Plato's Theory of Stuffs," belongs to this category; he argues against the view that Forms are universals and in support of the view that they are similar to modern chemical elements; in that paper he does not consider the section on the receptacle in the Timaeus but limits himself to the Phaedo and the Republic.</figDesc><table><row><cell>22</cell><cell>Cornford, Plato's Cosmology, 180.</cell></row><row><cell>23</cell><cell>Thus also Silverman,</cell></row></table><note>25 Phaedo 74e, adding in the same context that the thing resembling the Form is by comparison deficient (endeesteron, phauloteron, 75b). 26 Τί δὲ ὁ κλινοποιός; οὐκ ἄρτι μέντοι ἔλεγες ὅτι οὐ τὸ εἶδος ποιεῖ, ὃ δή φαμεν εἶναι ὃ ἔστι κλίνη, ἀλλὰ κλίνην τινά; (Rep. 597a1-2). George Karamanolis -9789004437081 Downloaded from Brill.com 03/04/2024 06:40:30PM via Open Access. This is an open access chapter distributed under the terms of the CC BY-NC-ND 4.0 license. https://creativecommons.org/licenses/by-nc-nd/4.0/</note></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_7"><head></head><label></label><figDesc>George Karamanolis -9789004437081 Downloaded from Brill.com 03/04/2024 06:40:30PM via Open Access. This is an open access chapter distributed under the terms of the CC BY-NC-ND 4.0 license. https://creativecommons.org/licenses/by-nc-nd/4.0/</figDesc><table /><note>37Similar is Plotinus' suggestion in Enn. I 8.8.13-16, καὶ τὰ ἐν τῇ ὕλῃ εἴδη οὐ ταὐτά ἐστιν, ἅπερ ἧν, εἰ ἐφ᾽ αὑτῶν ὑπῆρχεν, ἀλλὰ λόγοι ἔνυλοι φθαρέντες ἐν ὕλῃ καὶ τῆς φύσεως τῆς ἐκείνης ἀναπλησθέντες. 38 See Enn. II 6.1.6-8 and Karamanolis, "Plotinus on Quality and Immanent Form."</note></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" xml:id="foot_0">* The paper has been developed over a period of four years and it has benefited from discussions I have had with many friends. First of all, I would like to acknowledge the input of the critical questions pressed on me when I presented a version of this paper at the conference on the Timaeus in Prague. I mention especially those of Gábor Betegh, Chad Jorgenson, Karel</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" xml:id="foot_1">George Karamanolis -9789004437081 Downloaded from Brill.com 03/04/2024 06:40:30PM via Open Access. This is an open access chapter distributed under the terms of the CC BY-NC-ND 4.0 license. https://creativecommons.org/licenses/by-nc-nd/4.0/</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="3" xml:id="foot_2">Ἡ δ᾽ οὖν αὖθις ἀρχὴ περὶ τοῦ παντὸς ἔστω μειζόνως τῆς πρόσθεν διῃρημένη. (Tim.</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="48" xml:id="foot_3">48e2-3). 4 Cf. Rep. 478d. 5 For the ontology of the Sophist and the question of the role of the Forms in it, see Silverman Dialectic of Essence, ch. 5 and 6, and Politis, "The argument for the reality of change and changelessness in Plato's Sophist (248e7-249d5)." George Karamanolis -9789004437081 Downloaded from Brill.com 03/04/2024 06:40:30PM via Open Access. This is an open access chapter distributed under the terms of the CC BY-NC-ND 4.0 license. https://creativecommons.org/licenses/by-nc-nd/4.0/</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="6" xml:id="foot_4">οὐδεὶς πω αὐτῶν γένεσιν μεμήνυκεν (Tim. 48b5-6). On the structure and the content of this aporia, seeSilverman, Dialectic of Essence,[258][259][260] </note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="7" xml:id="foot_5">I am aware of the fact that Cornford's translation like any other is subject to dispute, because any translation of this passage carries with it interpretative implications. Buckels, "Making Room," 303-305 comments on the implications of Cornford's translation.</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="8" xml:id="foot_6">On the content and the aim of this aporia, see Silverman, Dialectic of Essence, and Johansen, Plato's Natural Philosophy, 119. George Karamanolis -9789004437081 Downloaded from Brill.com 03/04/2024 06:40:30PM via Open Access. This is an open access chapter distributed under the terms of the CC BY-NC-ND 4.0 license. https://creativecommons.org/licenses/by-nc-nd/4.0/</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" xml:id="foot_7">Does Plato Advance a Bundle Theory in the Timaeus?</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" xml:id="foot_8">See Silverman, Dialectic of Essence, 271. George Karamanolis -9789004437081 Downloaded from Brill.com 03/04/2024 06:40:30PM via Open Access. This is an open access chapter distributed under the terms of the CC BY-NC-ND 4.0 license. https://creativecommons.org/licenses/by-nc-nd/4.0/</note>
+		</body>
+		<back>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">The Structure of Appearances: Plotinus on the Constitution of Sensible Objects</title>
+	</analytic>
+	<monogr>
+		<title level="m">Plotinus on Sensible Particulars and Individual Essences</title>
+				<imprint>
+			<publisher>George Karamanolis -9789004437081</publisher>
+		</imprint>
+	</monogr>
+	<note>This and related passages are discussed by Chiaradonna</note>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<monogr>
+		<title level="m" type="main">via Open Access</title>
+		<author>
+			<persName><surname>Downloaded</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Brill</surname></persName>
+		</author>
+		<idno>03/04/2024 06:40:30PM</idno>
+		<ptr target="https://creativecommons.org/licenses/by-nc-nd/4.0/" />
+		<imprint/>
+	</monogr>
+	<note>This is an open access chapter distributed under the terms of the CC BY-NC-ND 4.0 license</note>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<monogr>
+		<title level="m" type="main">Structure of Appearances</title>
+		<author>
+			<persName><forename type="first">See</forename><surname>Kalligas</surname></persName>
+		</author>
+		<imprint>
+			<biblScope unit="page" from="763" to="765" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<monogr>
+		<title level="m" type="main">Εἰ μὲν οὖν τοῦτό ἐστι τὸ σῶμα τὸ ἐκ πασῶν τῶν ποιοτήτων σὺν ὕλῃ, τοῦτο ἄν εἴη ἡ σωματότης. καὶ εἰ λόγος δὲ εἴη ὃς προσελθὼν ποιεῖ τὸ σῶμα, δηλονότι ὁ λόγος ἐμπεριλαβὼν ἔχει τὰς ποιότητας ἁπάσας. δεῖ δὲ τὸν λόγον τοῦτον, εἰ μή ἐστιν ἄλλως ὥσπερ ὁρισμὸς δηλωτικὸς τοῦ τί ἐστι τὸ πρᾶγμα, ἀλλὰ λόγος ποιῶν πρᾶγμα, μὴ τὴν ὕλην συμπεριειληφέναι, ἀλλὰ περὶ ὕλην λόγον εἶναι καὶ ἐγγενόμενον ἀποτελεῖν τὸ σῶμα, καὶ εἶναι μὲν τὸ σῶμα ὕλην καὶ λόγον ἐνόντα, αὐτὸν δὲ εἶδος ὄντα ἄνευ ὕλης ψιλὸν θεωρεῖσθαι, κἂν ὅτι μάλιστα ἀχώριστος αὐτὸς ᾖ. ὁ γὰρ χωριστὸς ἄλλος, ὁ ἐν νῷ</title>
+		<imprint/>
+	</monogr>
+	<note>II 7.3.3-14; cf. Timaeus 52a</note>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<monogr>
+		<title level="m" type="main">via Open Access</title>
+		<author>
+			<persName><surname>Downloaded</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Brill</surname></persName>
+		</author>
+		<idno>03/04/2024 06:40:30PM</idno>
+		<ptr target="https://creativecommons.org/licenses/by-nc-nd/4.0/" />
+		<imprint/>
+	</monogr>
+	<note>This is an open access chapter distributed under the terms of the CC BY-NC-ND 4.0 license</note>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<monogr>
+		<title level="m" type="main">Individuation of Tropes</title>
+		<author>
+			<persName><forename type="first">See</forename><surname>Schaffer</surname></persName>
+		</author>
+		<imprint>
+			<biblScope unit="page" from="247" to="249" />
+		</imprint>
+	</monogr>
+	<note>40 gignomenon, gignomena, Tim. 28a3-4, 28c1. George Karamanolis -9789004437081</note>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">via Open Access. This is an open access chapter distributed under the terms of the CC BY-NC-ND 4</title>
+		<author>
+			<persName><surname>Downloaded</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Brill</surname></persName>
+		</author>
+		<idno>03/04/2024 06:40:30PM</idno>
+		<ptr target="https://creativecommons.org/licenses/by-nc-nd/4.0/" />
+	</analytic>
+	<monogr>
+		<title level="m">The Stanford Encyclopedia of Philosophy</title>
+				<editor>
+			<persName><forename type="first">Edward</forename><surname>Zalta</surname></persName>
+		</editor>
+		<imprint>
+			<date type="published" when="1997">1997. 2011</date>
+		</imprint>
+	</monogr>
+	<note>Tropes. Revised edition Winter</note>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">Making Room for Particulars: Plato&apos;s Receptacle as Space not Substratum</title>
+		<author>
+			<persName><forename type="first">Sarah</forename><forename type="middle">;</forename><surname>Broadie</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Christopher</forename><surname>Buckels</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Apeiron</title>
+		<imprint>
+			<biblScope unit="volume">49</biblScope>
+			<biblScope unit="page" from="303" to="328" />
+			<date type="published" when="2012">2012. 2016</date>
+		</imprint>
+	</monogr>
+	<note>Nature and Divinity in Plato&apos;s Timaeus</note>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">Triangles, Tropes, and ta toiauta: A Platonic Trope Theory</title>
+		<author>
+			<persName><forename type="first">Christopher</forename><surname>Buckels</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Plato Journal</title>
+		<imprint>
+			<biblScope unit="volume">18</biblScope>
+			<biblScope unit="page" from="9" to="24" />
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<monogr>
+		<title level="m" type="main">The Theaetetus of Plato. Translation by</title>
+		<author>
+			<persName><forename type="first">Myles</forename><surname>Burnyeat</surname></persName>
+		</author>
+		<editor>M. J. Levett</editor>
+		<imprint>
+			<date type="published" when="1990">1990</date>
+			<pubPlace>Indianapolis</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">A much misread passage of the Timaeus (Timaeus 49C7-50B5)</title>
+		<author>
+			<persName><forename type="first">Harold</forename><surname>Cherniss</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">The American Journal of Philology</title>
+		<imprint>
+			<biblScope unit="volume">75</biblScope>
+			<biblScope unit="page" from="113" to="130" />
+			<date type="published" when="1954">1954</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">Timaeus 38A8-B5</title>
+		<author>
+			<persName><forename type="first">Harold</forename><surname>Cherniss</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">The Journal of Hellenic Studies</title>
+		<imprint>
+			<biblScope unit="volume">77</biblScope>
+			<biblScope unit="page" from="17" to="23" />
+			<date type="published" when="1957">1957</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<monogr>
+		<title level="m" type="main">It remains unclear whether other properties attend governing Forms, such as the property of being grammatical attending the Form of man. Plato focuses only on the properties pertaining to the material constitution of material objects here. I would like to thank Philip Horky for raising this issue</title>
+		<imprint>
+			<publisher>George Karamanolis</publisher>
+			<biblScope unit="page">9789004437081</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">via Open Access. This is an open access chapter distributed under the terms of the CC BY-NC-ND 4.0 license</title>
+		<author>
+			<persName><surname>Downloaded</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Brill</surname></persName>
+		</author>
+		<idno>03/04/2024 06:40:30PM</idno>
+		<ptr target="https://creativecommons.org/licenses/by-nc-nd/4.0/Chiaradonna" />
+	</analytic>
+	<monogr>
+		<title level="m">Individuality in Late Antiquity</title>
+				<editor>
+			<persName><forename type="first">Alexis</forename><surname>Torrance</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">Johannes</forename><surname>Zachuber</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Farnham</addrLine></address></meeting>
+		<imprint>
+			<publisher>Ashgate</publisher>
+			<date type="published" when="2014">2014</date>
+			<biblScope unit="page" from="47" to="61" />
+		</imprint>
+	</monogr>
+	<note>Plotinus on Sensible Particulars and Individual Essences</note>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">Plato&apos;s Theory of Stuffs</title>
+		<author>
+			<persName><forename type="first">Francis</forename><surname>Cornford</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Plato's Cosmology</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">The Timaeus of Plato. Indianapolis: Hackett, 1957. Denyer, Nicholas</title>
+				<imprint>
+			<date type="published" when="1983">1983</date>
+			<biblScope unit="volume">58</biblScope>
+			<biblScope unit="page" from="315" to="327" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<analytic>
+		<title level="a" type="main">The Receptacle and the Primary Bodies: Something or Nothing</title>
+		<author>
+			<persName><forename type="first">Verity</forename><surname>Harte</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">One Book, The Whole Universe: Plato&apos;s Timaeus Today</title>
+				<editor>
+			<persName><forename type="first">Richard</forename><surname>Mohr</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">Barbara</forename><surname>Sattler</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Las Vegas</addrLine></address></meeting>
+		<imprint>
+			<publisher>Parmenides Publishing</publisher>
+			<date type="published" when="2010">2010</date>
+			<biblScope unit="page" from="131" to="140" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<monogr>
+		<title level="m" type="main">Plato&apos;s Natural Philosophy</title>
+		<author>
+			<persName><forename type="first">Thomas</forename><surname>Johansen</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2004">2004</date>
+			<publisher>Cambridge University Press</publisher>
+			<pubPlace>Cambridge</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<analytic>
+		<title level="a" type="main">The Structure of Appearances: Plotinus on the Constitution of Sensible Objects</title>
+		<author>
+			<persName><forename type="first">Paul</forename><surname>Kalligas</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">The Philosophical Quarterly</title>
+		<imprint>
+			<biblScope unit="volume">61</biblScope>
+			<biblScope unit="page" from="762" to="782" />
+			<date type="published" when="2011">2011</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<monogr>
+		<title level="m" type="main">In Physics and Philosophy of Nature in Greek Neoplatonism</title>
+		<author>
+			<persName><forename type="first">George</forename><surname>Karamanolis</surname></persName>
+		</author>
+		<editor>Riccardo Chiaradonna</editor>
+		<imprint>
+			<date type="published" when="2009">2009</date>
+			<publisher>Brill</publisher>
+			<biblScope unit="page" from="79" to="100" />
+			<pubPlace>Leiden</pubPlace>
+		</imprint>
+	</monogr>
+	<note>Plotinus on Quality and Immanent Form</note>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<analytic>
+		<title level="a" type="main">On the Metaphysics of the Image in Plato&apos;s Timaeus</title>
+		<author>
+			<persName><forename type="first">Edward</forename><forename type="middle">N</forename><surname>Lee</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">The Monist</title>
+		<imprint>
+			<biblScope unit="volume">50</biblScope>
+			<biblScope unit="page" from="341" to="368" />
+			<date type="published" when="1966">1966</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<analytic>
+		<title level="a" type="main">On Plato&apos;s Timaeus 49D4-E7</title>
+		<author>
+			<persName><forename type="first">Edward</forename><forename type="middle">N</forename><surname>Lee</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">The American Journal of Philology</title>
+		<imprint>
+			<biblScope unit="volume">88</biblScope>
+			<biblScope unit="page" from="1" to="28" />
+			<date type="published" when="1967">1967</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<analytic>
+		<title level="a" type="main">Image, Space and Flux in Plato&apos;s Timaeus</title>
+		<author>
+			<persName><forename type="first">Dana</forename><forename type="middle">;</forename><surname>Miller</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Richard</forename><surname>Mohr</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">The Third Kind in Plato&apos;s Timaeus</title>
+				<imprint>
+			<date type="published" when="1980">2003. 1980</date>
+			<biblScope unit="volume">34</biblScope>
+			<biblScope unit="page" from="138" to="152" />
+		</imprint>
+	</monogr>
+	<note>Göttingen: Vandenhoeck &amp; Ruprecht</note>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<analytic>
+		<title level="a" type="main">The argument for the reality of change and changelessness in Plato&apos;s Sophist (248e7-249d5)</title>
+		<author>
+			<persName><forename type="first">Vasilis</forename><surname>Politis</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">New Essays on Plato</title>
+				<editor>
+			<persName><forename type="first">Fritz-Gregor</forename><surname>Hermann</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Swansea</addrLine></address></meeting>
+		<imprint>
+			<publisher>Classical Press of Wales</publisher>
+			<date type="published" when="2006">2006</date>
+			<biblScope unit="page" from="149" to="175" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b23">
+	<analytic>
+		<title level="a" type="main">The Individuation of Tropes</title>
+		<author>
+			<persName><forename type="first">Jonathan</forename><surname>Schaffer</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Australasian Journal of Philosophy</title>
+		<imprint>
+			<biblScope unit="volume">79</biblScope>
+			<biblScope unit="page" from="247" to="257" />
+			<date type="published" when="2001">2001</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b24">
+	<analytic>
+		<title level="a" type="main">Timaean Particulars</title>
+		<author>
+			<persName><forename type="first">Allan</forename><surname>Silverman</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">The Classical Quarterly</title>
+		<imprint>
+			<biblScope unit="volume">42</biblScope>
+			<biblScope unit="page" from="87" to="113" />
+			<date type="published" when="1992">1992</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b25">
+	<monogr>
+		<title level="m" type="main">The Dialectic of Essence</title>
+		<author>
+			<persName><forename type="first">Allan</forename><surname>Silverman</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2002">2002</date>
+			<publisher>Princeton University Press</publisher>
+			<pubPlace>Princeton</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b26">
+	<analytic>
+		<title level="a" type="main">Particulars in Particular Clothing: Three Trope Theories of Substance</title>
+		<author>
+			<persName><forename type="first">Peter</forename><surname>Simons</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Philosophy and Phaenomenological Research</title>
+		<imprint>
+			<biblScope unit="volume">54</biblScope>
+			<biblScope unit="page" from="553" to="575" />
+			<date type="published" when="1994">1994</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b27">
+	<analytic>
+		<title level="a" type="main">Die präkosmische Bewegung in Platons Timaios: ἴχνη, χώρα und Ideen</title>
+		<author>
+			<persName><forename type="first">Angela</forename><surname>Ulacco</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Platon und die Physis</title>
+				<editor>
+			<persName><forename type="first">Dietmar</forename><surname>Koch</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">Irmgard</forename><surname>Männlein-Robert</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">Neils</forename><surname>Weidmann</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Tübingen</addrLine></address></meeting>
+		<imprint>
+			<publisher>Mohr Sieback</publisher>
+			<date type="published" when="2019">2019</date>
+			<biblScope unit="page" from="185" to="202" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b28">
+	<analytic>
+		<title level="a" type="main">Plato and Talk of a World in Flux: Timaeus 49a6-50b5</title>
+		<author>
+			<persName><forename type="first">Donald</forename><surname>Zeyl</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Harvard Studies in Classical Philology</title>
+		<imprint>
+			<biblScope unit="volume">79</biblScope>
+			<biblScope unit="page" from="125" to="148" />
+			<date type="published" when="1975">1975</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b29">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">Donald</forename><surname>Zeyl</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Plato</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Timaeus. Indianapolis: Hackett</title>
+		<imprint>
+			<biblScope unit="page">9789004437081</biblScope>
+			<date type="published" when="2000">2000</date>
+			<publisher>George Karamanolis</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b30">
+	<monogr>
+		<title level="m" type="main">via Open Access</title>
+		<author>
+			<persName><surname>Downloaded</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Brill</surname></persName>
+		</author>
+		<idno>03/04/2024 06:40:30PM</idno>
+		<ptr target="https://creativecommons.org/licenses/by-nc-nd/4.0/" />
+		<imprint/>
+	</monogr>
+	<note>This is an open access chapter distributed under the terms of the CC BY-NC-ND 4.0 license</note>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

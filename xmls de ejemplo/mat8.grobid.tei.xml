@@ -1,0 +1,489 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">THE IWASAWA µ-INVARIANT OF CERTAIN ELLIPTIC CURVES OF ANALYTIC RANK ZERO</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+				<date type="published" when="2024-05-09">9 May 2024</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Adithya</forename><surname>Chakravarthy</surname></persName>
+						</author>
+						<title level="a" type="main">THE IWASAWA µ-INVARIANT OF CERTAIN ELLIPTIC CURVES OF ANALYTIC RANK ZERO</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date type="published" when="2024-05-09">9 May 2024</date>
+						</imprint>
+					</monogr>
+					<idno type="MD5">13355AD55873237E2ADF2D78DA9CBA28</idno>
+					<idno type="arXiv">arXiv:2405.05871v1[math.NT]</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.2" ident="GROBID" when="2024-05-12T15:27+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>This paper is about the Iwasawa theory of elliptic curves over the cyclotomic Zpextension Qcyc of Q. We discuss a deep conjecture of Greenberg that if E/Q is an elliptic curve with good ordinary reduction at p, and E[p] is irreducible as a Galois module, then the Selmer group of E over Qcyc has µ-invariant zero. We prove new cases of Greenberg's conjecture for some elliptic curves of analytic rank 0. The proof involves studying the p-adic L-function of E. The crucial input is a new technique using the Rankin-Selberg method.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.">Introduction</head><p>We begin with a fundamental theorem of Iwasawa, which serves as the starting point of Iwasawa theory. Let K be a number field and let K ∞ /K be a Z p -extension: a Galois extension with Galois group isomorphic to the additive group Z p of p-adic integers. For each integer n &gt; 0 there is a unique subfield K n of K ∞ of degree p n over K. Iwasawa proved the following now famous theorem about the growth of class numbers in such towers.</p><p>Theorem (Iwasawa). Let K be a number field and let K ∞ /K be a Z p extension with layers K n . Suppose that p en is the exact power of p dividing the class number of K n . Then there exist integers µ, λ, ν such that e n = µp n + λn + ν for all sufficiently large values of n.</p><p>The most important example of a Z p -extension of K is the so-called cyclotomic Z p -extension of K, denoted K cyc /K. It is defined by letting K cyc be the appropriate subfield of ∪ n≥1 K(ζ p n ). Iwasawa has conjectured the following about the cyclotomic Z p -extension.</p><p>Conjecture 1.1 (Iwasawa's µ = 0 Conjecture). Let K be a number field and let K cyc be the cyclotomic Z p extension of K. Then µ = 0. This conjecture is probably the deepest open problem from classical Iwasawa theory. The only progress towards this comes from a paper of Ferrero and Washington <ref type="bibr" target="#b4">[FW79]</ref>, where they prove the conjecture in the case when K/Q is abelian. Other than this, the conjecture remains wide open and it seems intractable at present.</p><p>This paper is about a generalization of Iwasawa's µ = 0 conjecture to the Iwasawa theory of elliptic curves. We now briefly outline the main aspects of the Iwasawa theory of elliptic curves and then state the analogue of Iwasawa's µ = 0 conjecture in this context. In a landmark paper <ref type="bibr" target="#b11">[Maz72]</ref>, Mazur observed that many features of classical Iwasawa theory could be used to study elliptic curves. This initiated the study of what we now call the Iwasawa theory of elliptic curves. If E is an elliptic curve over a number field K, let X(E/K)[p ∞ ] denote the p-primary part of the Tate-Shafarevich group of E over K. We then have the following analogue [Gre99, Theorem 1.10] of Iwasawa's theorem.</p><p>Theorem. Let Q cyc = ∪Q n denote the cyclotomic Z p extension of Q. Let E/Q be an elliptic curve, and let p be a prime of good ordinary reduction. Assume that X(E/Q n )[p ∞ ] is finite for all n and let p en be the exact power of</p><formula xml:id="formula_0">p dividing |X(E/Q n )[p ∞ ]|.</formula><p>Then there exist integers µ, λ, ν such that e n = µp n + λn + ν for all sufficiently large values of n.</p><p>The quantity µ p (E) in the above formula is called the µ-invariant of E over Q cyc . (See Section 2 for a more abstract definition of µ p (E).) In analogy with Iwasawa's µ = 0 conjecture for class groups, one might expect that µ p (E) always vanishes. This turns out to be false. Indeed, Mazur <ref type="bibr" target="#b11">[Maz72]</ref> discovered that the elliptic curve X 0 (11) has a nonzero µ-invariant at the prime p = 5. However, in a beautiful paper [Gre99, Conjecture 1.11], Greenberg conjectures that one can rescue Iwasawa's conjecture in the following sense: Conjecture 1.2. Let E/Q be an elliptic curve, let p be an odd prime of good ordinary reduction. Then there is a</p><formula xml:id="formula_1">Q-isogenous curve E ′ such that µ p (E ′ ) = 0.</formula><p>That is, Greenberg predicts that µ can be made zero after perhaps shifting by an isogeny. In particular, the above conjecture implies: Conjecture 1.3 (Greenberg's µ = 0 Conjecture). Let E/Q be an elliptic curve, and let p be an odd prime of good ordinary reduction. If E[p] is irreducible as a Galois module, then µ p (E) = 0.</p><p>Remark 1.4. It is known by the work of Drinen <ref type="bibr" target="#b2">[Dri03]</ref> that this conjecture is false over general number fields. So it applies particularly for curves E over Q.</p><p>Remark 1.5. Schneider has given a simple formula for the effect of an isogeny on the µ-invariant of E for odd p (see [Sch87, Isogeny Formula, Second Form]). Thus, Greenberg's conjecture effectively predicts the µ-invariant of any elliptic curve over Q.</p><p>Greenberg's conjecture bifurcates into two cases, one of which seems to be much harder than the other. First, there is the case where E[p] is reducible as a Galois module (the "reducible case") and second, there is the case where E[p] is irreducible as a Galois module (the "irreducible case"). Most of the progress to date has been in the reducible case, where we have the following theorem [GV00, Theorem 1.3] of Greenberg and Vatsal: if E[p] has a Gal(Q/Q)-submodule which is either ramified at p and even, or unramified at p and odd, then µ p (E) = 0. This theorem follows from a bootstrapping of the Ferrero-Washington Theorem. This result was furthered by Trifkovic <ref type="bibr" target="#b22">[Tri05]</ref>, who showed that Greenberg's conjecture was true for infinitely many curves E with E[p] reducible, for p = 3 or 5. The core strategy in Trifkovic's paper was an explicit evaluation of the global duality pairing for finite flat group schemes over rings of integers.</p><p>There has also been progress in proving that "µ = 0" can be propagated in families of modular forms. In a beautiful paper, Emerton-Pollack-Weston <ref type="bibr" target="#b3">[EPW06]</ref>, showed that "µ = 0" is invariant in Hida families. That is, if f is a modular form with µ = 0, then that implies that every form in the Hida family passing through f also has µ = 0. On another front, Ray recently <ref type="bibr" target="#b16">[Ray24]</ref> showed the following result for p = 5: there is a positive proportion of elliptic curves E/Q for which µ 5 (E) = λ 5 (E) = 0. Ray uses results of Bhargava-Shankar <ref type="bibr" target="#b1">[BS13]</ref> on average ranks of Selmer groups. In another paper, Ray <ref type="bibr" target="#b15">[Ray23]</ref> also showed that if E[p] is irreducible, if the classical Iwasawa µ-invariant vanishes for the splitting field Q(E[p]), and a purely Galois theoretic condition on E[p] holds, Greenberg's conjecture should hold.</p><p>The irreducible case of Greenberg's conjecture, however, remains unsolved in general. In this paper, we prove new results about the irreducible case of Greenberg's Conjecture, specifically for some elliptic curves with analytic rank 0: Theorem 1.6. Let E/Q be an elliptic curve of conductor N . Let p be a prime of good ordinary reduction. Assume:</p><p>(1) L(E/K, 1) = 0, where K = Q( √ −N ) and L(E/K, s) denotes the Hasse-Weil L-series of E over K, (2) p &gt; 100 √ N (log N + 5)m E , where m E denotes the modular degree of E, (3) p does not divide the the Manin constant of E, (4) p is not anomalous for E, i.e: p does not divide #E(F p ), (5) N is a prime congruent to 3 modulo 4.</p><p>Then µ p (E) = 0 and λ p (E) = 0.</p><p>The following are well-known consequences:</p><p>Corollary 1.7. Keep the notations and assumptions as above. Let Q cyc denote the cyclotomic Z p -extension of Q and let Q n denote the n-th layer of Q cyc . Then:</p><p>(1) the Mordell-Weil rank of E(Q n ) is zero for all n ≥ 1, and (2) the p-primary part of X(E/Q) vanishes.</p><p>1.1. Examples. Let E 1 = 11a1 be the elliptic curve of conductor 11. We show in the final section of the paper that L(E 1 /Q( √ −11), 1) = 0. Theorem 1.6 says that if p &gt; 100 √ N (log N + 5) m E ≈ 2453.604 . . . is a good ordinary prime, then µ p (E 1 ) = λ(E 1 ) = 0. Furthermore, we have X(E/Q)[p ∞ ] = 0 and the rank of E over Q n is zero for all n ≥ 1.</p><p>As another example, let E 2 = 67a1 be the elliptic curve of conductor 67. We show in the final section of the paper that</p><formula xml:id="formula_2">L(E 2 /Q( √ −67), 1) = 0. If p &gt; 100 √ N (log N + 5)m E ≈ 37671.828 . . . is a good ordinary prime which is not anomalous for E 2 , then µ p (E 2 ) = λ p (E 2 ) = 0. Furthermore, we have X(E 2 /Q)[p ∞ ] = 0 and the rank of E 2 over Q n is zero for all n ≥ 1.</formula><p>However, some lower bound on p is necessary. Indeed, consider the elliptic curve E 3 = 24691a1 and p = 5. From the LMFDB <ref type="bibr" target="#b10">[LMF24]</ref>, the analytic order of X(E 3 /Q) is 25. So the conclusion of Corollary 1.7 is false in this case. That being said, it should definitely be possible to improve the bound p ≥ 100 √ N (log N + 5) m E in Theorem 1.6, but we have not attempted to do so here.</p><p>1.2. Strategy. Using results of Kato on the Iwasawa main conjecture, it is known that in order to prove that µ p (E) = λ p (E) = 0, it suffices to show that the p-adic L-function of E is a unit. One knows that if p is not anomalous and that p does not divide L(E, 1)/Ω E , then the p-adic L-function is a unit. So as long as one avoids the finitely many prime divisors of L(E, 1)/Ω E (and the anomalous primes), then we have µ p (E) = 0 and λ p (E) = 0. But a priori, one has no idea what primes divide L(E, 1)/Ω E . The main point of this paper is to give an explicit upper bound for which primes divide L(E, 1)/Ω E . This is roughly the statement of Theorem 2.2. We prove Theorem 2.2 using the Rankin-Selberg method.</p><p>Remark 1.8. In proving Theorem 1.6, we actually show Greenberg's Conjecture both for E and the quadratic twist E (−N ) by −N .</p><p>1.3. Outline. In the first section, we explain the Iwasawa main conjecture. We then reduce Theorem 1.6 to Theorem 2.2, which is purely a statement about L-values of modular forms. In the next section, we explain the Rankin-Selberg method. In the section after that, we prove Theorem 2.2. Finally in the last section, we give numerical examples that use the Rankin-Selberg method to calculate Iwasawa invariants.</p><p>1.4. Acknowledgements. I would like to thank Kumar Murty and members of the GANITA lab for their constant support. I would also like to thank Debanjana Kundu for teaching me Iwasawa theory, for suggesting this problem to me, and for her mentorship. I would also like to thank Antonio Lei and Robert Pollack for providing helpful comments on a preliminary draft of this paper and for suggesting further applications.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.">Preliminaries</head><p>In this section, p will denote an odd prime and E/Q will be an elliptic curve with good ordinary reduction at p. Let Q cyc denote the cyclotomic Z p extension of Q.</p><p>To fix notation, we briefly summarize some facts about the Iwasawa main conjecture for elliptic curves. We will first summarize the objects on the algebraic side of the main conjecture, then summarize the objects on the analytic side, and then state the Iwasawa main conjecture which bridges these two worlds.</p><p>The algebraic side. For any algebraic extension K/Q, the Selmer group of E over K is a certain subgroup of H 1 (G K , E(Q) tors ), where G K = Gal(K/K). The Selmer group fits into the fundamental exact sequence</p><formula xml:id="formula_3">0 → E(K) ⊗ Q/Z → Sel(E/K) → X(E/K) → 0</formula><p>where X(E/K) denotes the Tate-Shafarevich group of E over K. Let K = Q cyc . Then we can consider the Selmer group Sel(E/Q cyc ), and this has an action of Γ = Gal(Q cyc /Q). Its p-primary subgroup Sel(E/Q cyc ) p can be regarded as a Λ-module, where Λ = Z p T . This ring Λ is called the Iwasawa algebra. It is now known from the deep work of Kato <ref type="bibr" target="#b8">[Kat04]</ref> that the Pontryagin dual</p><formula xml:id="formula_4">X(E/Q cyc ) = Sel(E/Q cyc ) ∨</formula><p>p is a finitely generated torsion Λ-module. Therefore the structure theorem of finitely generated Λ-modules (see for example [Was97, Theorem 13.12]) says that one has a pseudo-isomorphism</p><formula xml:id="formula_5">X(E/Q cyc ) ∼ ⊕ n i=1 Λ/(f i (T ) ai ) ⊕ ⊕ m j=1 Λ/(p µj ) ,</formula><p>where the f i (T )'s are irreducible distinguished polynomials 1 in Λ. One can then define the algebraic Iwasawa invariants by</p><formula xml:id="formula_6">λ alg E = n i=1 a i deg(f i (T )),<label>and</label></formula><formula xml:id="formula_7">µ alg p (E) = m j=0 µ j .</formula><p>The characteristic ideal of X(E/Q cyc ) is the ideal of Λ generated by p µ f 1 (T ) a1 . . . f n (T ) an .</p><p>1 A polynomial f (T ) is distinguished if when you reduce f modulo p, only the highest degree term remains.</p><p>The analytic side. For an elliptic curve E/Q with good ordinary reduction at a prime p and χ an even Dirichlet character, denote by L(E, χ, s) the Hasse Weil L-function of E twisted by χ.</p><p>Let H 1 (E(C), Z) ± be the eigenspaces under complex conjugation, and let Λ ± E be the respective generators of these spaces over Z. The periods Ω + E and Ω − E are defined by</p><formula xml:id="formula_8">Ω ± E = Λ ± E ω E ,</formula><p>where ω E is the invariant differential of E. We may assume that Ω + E and iΩ − E are real positive. It is known by the work of Shimura that L(E, χ, 1)/Ω </p><formula xml:id="formula_9">L p (E/Q, 0) = 1 − 1 α 2 • L(E, 1) Ω + E .</formula><p>Let χ be an even Dirichlet character of conductor p n and p-power order. Then,</p><formula xml:id="formula_10">L p (E/Q, χ(1 + p) − 1) = 1 α n+1 • p n+1 g(χ −1 ) L(E, χ −1 , 1) Ω + E .</formula><p>Using the Weierstrauss preparation theorem [Was97, Theorem 7.3], we can define the analytic invariants µ an p (E) and λ an E by writing:</p><formula xml:id="formula_11">L p (E/Q, T ) = p µ an p (E) • u(T ) • f (T )</formula><p>where f (T ) is a distinguished polynomial of degree λ an E and u(T ) is a unit in Λ. It is known (see [SW13, Proposition 3.7]) that if E/Q has good ordinary reduction at an odd prime p, and that E[p] is irreducible as a Galois module, then µ an p (E) ≥ 0. In other words, L p (E/Q, T ) ∈ Λ.</p><p>Iwasawa Main Conjecture. The Iwasawa main conjecture relates the Selmer group on the algebraic side to the p-adic L-function on the analytic side. Precisely, suppose that E/Q is an elliptic curve with good ordinary reduction at an odd prime p, and that E[p] is irreducible as a Galois module. Then on the algebraic side, we can look at the characteristic ideal of the p-primary Selmer group X(E/Q cyc ); this is an ideal in Λ. On the analytic side, we can attach to E a p-adic L-function</p><formula xml:id="formula_12">L p (E/Q, T ) ∈ Λ.</formula><p>The main conjecture asserts that the characteristic ideal of the p-primary Selmer group</p><formula xml:id="formula_13">X(E/Q cyc ) is generated by L p (E/Q, T ) in Λ.</formula><p>In particular, it implies that µ alg E = µ an E and λ alg E = λ an E . Kato <ref type="bibr" target="#b8">[Kat04]</ref> has proven a deep result on one divisibility of the main conjecture, which is the starting point of our proof.</p><p>Theorem 2.1 <ref type="bibr">(Kato)</ref>. Let E/Q be an elliptic curve, and let p ≥ 5 be a prime of good ordinary reduction. Suppose that the mod p Galois representation ρ E,p : G Q → GL 2 (F p ) is surjective. Then the characteristic ideal of X(E/Q cyc ) divides the ideal generated by L p (E/Q, T ) in Λ. In particular, µ alg E ≤ µ an E and λ alg E ≤ λ an E .</p><p>2.1. Modular Forms. For the rest of the paper, fix an embedding Q ֒→ Q p . Kato's Theorem shows that to prove µ alg p (E) = λ alg p (E) = 0, it suffices to show that µ an p (E) = λ an p (E) = 0. This is equivalent to showing that the constant term of L p (E/Q, T ) is nonzero mod p; by (1), this means</p><formula xml:id="formula_14">1 − 1 α 2 • L(E, 1) Ω + E ≡ 0 mod p.</formula><p>(Note that we are viewing L(E, 1)/Ω + E as an element of Q p via our fixed emebedding Q ֒→ Q p .) This is really a problem about modular forms, not elliptic curves. To see this, let f ∈ S 2 (Γ 0 (N )) be the newform associated to E by modularity. Then we have an equality of L-functions: L(E, s) = L(f, s). Define the Petersson norm of f as follows:</p><formula xml:id="formula_15">f, f = Γ0(N )\H |f | 2 dx dy. An elliptic curve E/Q is optimal if the map H 1 (X 0 (N )(C), Z) → H 1 (E(C), Z) is surjective. (See [Ste89]</formula><p>). We will derive Theorem 1.6 from: Theorem 2.2. Let N be a prime and let f ∈ S 2 (Γ 0 (N )) be a weight 2 newform with rational Fourier coefficients. Let p be an odd prime. Assume that (1) N is congruent to 3 modulo 4, (2) L(f, 1)L(f, χ, 1) = 0, where χ is the unique quadratic character mod N , and (3) p &gt; 100 √ N (log N + 5) deg π E , where E is an optimal elliptic curve in the isogeny class corresponding to f . Then p does not divide</p><formula xml:id="formula_16">L(f, 1) L(f, χ, 1) π 2 f, f g(χ) i .</formula><p>Proof of Theorem 2.2 =⇒ Theorem 1.6. Let E/Q be an elliptic curve of conductor N as in Theorem 1.6. There exists a modular parametrization π E : X 0 (N ) → E that is a surjective morphism over Q. Let c E be the Manin constant of E, that is, the number such that</p><formula xml:id="formula_17">π * E (ω E ) = c E • 2πif (z)dz,</formula><p>where ω E is the invariant differential on E and f ∈ S 2 (Γ 0 (N )) is the modular form attached to E.</p><p>Let m E = deg π E denote the modular degree of E. We have</p><formula xml:id="formula_18">(2) Ω + E Ω − E = E(C) ω E ∧ ω E = 4π 2 c 2 E m E f, f ,</formula><p>where Ω ± E are the real and imaginary Neron periods of E. Recall that we have assumed in Theorem 1.6 that p does not divide m E or c E , and that p &gt; 100 √ N (log N + 5)m E . Therefore, the assumptions of Theorem 2.2 are satisfied. We conclude that p does not divide</p><formula xml:id="formula_19">L(E, 1) Ω + E • L(E, χ, 1) Ω − E g(χ) i .</formula><p>It follows that p does not divide L(E, 1)/Ω + E . By the interpolation property (1) of the p-adic Lfunction of E, if p is not anomalous for E, we conclude that the constant term of L p (E, T ) is a p-adic unit and hence the analytic µ and λ-invariants of E vanish. Kato's Theorem implies that the algebraic µ and λ-invariants of E vanish as well. This proves Theorem 1.6.</p><p>Remark 2.3. Theorem 2.2 works equally well in the supersingular case and the ordinary case. In the supersingular case, Kurihara <ref type="bibr" target="#b9">[Kur02]</ref> has proven an explicit growth formula for the Tate Shafarevich group in the cyclotomic tower, assuming that p does not divide L(E, 1)/Ω E . Theorem 2.2 gives an explicit upper bound for which primes divide L(E, 1)/Ω E , which in turn gives an upper bound for primes p for which where Kurihara's theorem applies. (We thank Robert Pollack for pointing out this application to us.)</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.">Rankin-Selberg Method</head><p>The rest of the paper is devoted to proving Theorem 2.2. The proof of Theorem 2.2 was catalyzed by reading Shimura's <ref type="bibr" target="#b18">[Shi76]</ref> paper on the Rankin-Selberg method, which we now explain.</p><p>Let N ≥ 1 be an integer and let ω be an odd Dirichlet character modulo N . Put</p><formula xml:id="formula_20">G ω (τ, s) = N −4πig(ω) (m,n)∈Z 2 \(0,0) ω(n) (mN τ + n)|mN τ + n| 2s ,</formula><p>where g(ω) is the Gauss sum. This function has a meromorphic continuation to all s ∈ C (see <ref type="bibr" target="#b18">[Shi76,</ref><ref type="bibr"></ref> Page 788] and the references therein) and it is holomorphic at s = 0. Thus we can set</p><formula xml:id="formula_21">G ω (τ ) := G ω (τ, 0). By [Shi76, Page 788], the function G ω (τ ) belongs to M 1 (Γ 0 (N ), ω). If ω is primitive, by [Shi76, Equation (3.4)], we have the Fourier expansion 2 (3) G ω (τ ) = L(0, ω) 2 + ∞ n=1   d|n ω(d)   q n .</formula><p>Let us now fix an element f ∈ S 2 (Γ 0 (N )) and an element g ∈ M 1 (Γ 0 (N ), ω), where ω is a Dirichlet character modulo N . Suppose that they have Fourier expansions</p><formula xml:id="formula_22">f (τ ) = ∞ n=1 a n q n , g(τ ) = ∞ n=0 b n q n .</formula><p>Then we put</p><formula xml:id="formula_23">L(s, f × g) := L(2s − 1, ω) ∞ n=1 a n b n n s ,</formula><p>where L(s, ω) is the usual Dirichlet L-function attached to ω. The L-function L(s, f × g) is called the Rankin-Selberg convolution L-function<ref type="foot" target="#foot_1">3</ref> of f and g. For an integer M ≥ 1 and modular forms g ∈ S k (Γ 0 (M )) and h ∈ M k (Γ 0 (M )), define the Petersson inner product as</p><formula xml:id="formula_24">g, h := Γ0(M)\H g(τ )h(τ )y k−2 dx dy.</formula><p>Then by [Shi76, Equation (2.4)], we have</p><formula xml:id="formula_25">(4) f, g • G ω = L(1, f × g) g(ω) 8π 2 i ,</formula><p>where g(ω) is the Gauss sum. To determine the form g, we need the following Proposition 3.1. Let χ, ψ be primitive Dirichlet characters modulo M 1 and M 2 , respectively, such that χψ(−1) = −1. There exists an element G χ,ψ = ∞ n=0 a n q n ∈ E 1 (Γ 0 (M 1 M 2 ), χψ)(= space of weight 1 Eisenstein series for Γ 0 (M 1 M 2 ) and nebentypus χψ) such that</p><formula xml:id="formula_26">a n = d|n χ(d)ψ(n/d), n ≥ 1 and a 0 =    0 if both χ, ψ are non-trivial, L(0, χψ) 2 otherwise. Proof. See for example [Miy06, Theorem 4.7.1]. Now suppose that f ∈ S 2 (Γ 0 (N )) is a newform. Let χ, ψ be Dirichlet characters such that χψ(−1) = −1. By [Shi76, Equation (4.3)], we have (5) L(1, f × G χ,ψ ) = L(f, χ, 1)L(f, ψ, 1),</formula><p>where G χ,ψ is the function from Proposition 3.1 above. Combining (4) and ( <ref type="formula">5</ref>) and dividing through by f, f , we obtain the main result of this section:</p><p>Proposition 3.2. Let N ≥ 1 be an integer and let f ∈ S 2 (Γ 0 (N )) be a newform. Let χ, ψ be primitive Dirichlet characters such that χψ(−1) = −1. Then:</p><formula xml:id="formula_27">f, G χ,ψ • G χψ f, f = L(f, χ, 1)L(f, ψ, 1) f, f • g(χψ) 8π 2 i ,</formula><p>where g(χψ) denotes the Gauss sum.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.">Proof of Theorem 2.2</head><p>We first need two preliminary results.</p><p>Proposition 4.1. Let N be an odd integer. Let χ be an odd primitive quadratic character of conductor N . Then</p><formula xml:id="formula_28">L(0, χ) ≤ √ N 2π (log N + 5).</formula><p>Proof. In [Ram01, Corollary 2], Ramaré proves the following bound for odd primitive characters χ modulo odd N :</p><formula xml:id="formula_29">(6) |(1 − χ(2)/2)L(1, χ)| ≤ 1 4 (log N + 5).</formula><p>(Note that Ramaré does not require χ to be quadratic.) The functional equation for L(s, χ) gives</p><formula xml:id="formula_30">L(0, χ) = g(χ) iπ L(1, χ). Since |g(χ)| = √ N for χ quadratic, (6) gives us L(0, χ) ≤ √ N 2π (log N + 5 − 2 log(3/2)) ≤ √ N 2π (log N + 5),</formula><p>which completes the proof.</p><p>Next we show that algebraic L-values have bounded denominators. An elliptic curve</p><formula xml:id="formula_31">E/Q is optimal if the map H 1 (X 0 (N )(C), Z) → H 1 (E(C), Z) is surjective.</formula><p>Proposition 4.2. Let N be a prime which is 3 mod 4. Let f ∈ S 2 (Γ 0 (N )) be a newform and let χ be an odd quadratic character mod N . Assume that L(f, 1) L(f, χ, 1) = 0. Then the rational number</p><formula xml:id="formula_32">(7) L(f, 1) L(f, χ, 1) π 2 f j , f j g(χ) i has denominator ≤ 576m E</formula><p>, where E is an optimal curve in the isogeny class of f and m E denotes the modular degree of E.</p><p>The proof of Proposition 4.2 has a distinct thread from the rest of the proof so we prove it in the next section.</p><p>We are now ready to prove Theorem 2.2. Let N be a prime which is 3 mod 4. Let χ be the unique quadratic character mod N . Since N ≡ 3 mod 4, the character χ is odd. From Proposition 3.2, we have the identity:</p><formula xml:id="formula_33">(8) G 1,χ • G χ = cE + j L(f j , 1) L(f j , χ, 1) π 2 f j , f j g(χ) i f j ,</formula><p>where the sum runs over all newforms f j ∈ S 2 (Γ 0 (N )) and</p><formula xml:id="formula_34">E = N − 1 12 + q + • • • ∈ E 2 (Γ 0 (N ))</formula><p>is the unique normalized Eisenstein series and c ∈ C is a constant. Looking at the first Fourier coefficient (i.e: the coefficient of q) on each side, we obtain:</p><formula xml:id="formula_35">L(0, χ) = c + j L(f j , 1) L(f j , χ, 1) π 2 f j , f j g(χ) i .</formula><p>It is classical that g(χ) = i √ N . Dividing both sides by g(χ)/i = √ N and rearranging, we obtain:</p><formula xml:id="formula_36">(9) L(0, χ) − c √ N = j L(f j , 1) L(f j , χ, 1) π 2 f j , f j .</formula><p>From (8) we deduce that</p><formula xml:id="formula_37">c = constant term of G 2 1,χ constant term of E = L(0, χ) 2 /4 (N − 1)/12 &gt; 0.</formula><p>Combining this with the estimate L(0, χ) &lt; √ N 2π (log N + 5) from Proposition 4.1, we find that (10)</p><formula xml:id="formula_38">L(0, χ) − c √ N &lt; L(0, χ) √ N &lt; 1 2π (log N + 5).</formula><p>Now comes the key step: we appeal to a deep theorem of Guo <ref type="bibr" target="#b6">[Guo96]</ref> about non-negativity of L-values.</p><p>Theorem 4.3 <ref type="bibr">(Guo)</ref>. Let N ≥ 1 be an integer and let f ∈ S 2 (Γ 0 (N )) be an eigenform. Let χ be a quadratic character. Then L(f, 1) ≥ 0 and L(f, χ, 1) ≥ 0.</p><p>Theorem 4.3 implies that for each newform f j ∈ S 2 (Γ 0 (N )), we have</p><formula xml:id="formula_39">L(f j , 1) L(f j , χ, 1) π 2 f j , f j ≤ j L(f j , 1) L(f j , χ, 1) π 2 f j , f j .</formula><p>Combining this with (10) and (9), we conclude that</p><formula xml:id="formula_40">L(f j , 1) L(f j , χ, 1) π 2 f j , f j &lt; 1 2π (log N + 5)</formula><p>for each newform f j ∈ S 2 (Γ 0 (N )). Multiplying through by g(χ)/i = √ N , we obtain:</p><p>(11) L(f j , 1) L(f j , χ, 1)</p><formula xml:id="formula_41">π 2 f j , f j g(χ) i &lt; √ N 2π (log N + 5).</formula><p>Now suppose that f = f j has rational Fourier coefficients. By Proposition 4.2, the LHS of ( <ref type="formula">11</ref>) is a rational number with denominator ≤ 576m E , where m E is the modular degree of E. By assumption, we have L(f, 1) L(f, χ, 1) = 0. So we can write the LHS of (11) in the form a/n for some a &gt; 0, where n ≤ 576m E . Since a/n &lt; √ N 2π (log N +5) by ( <ref type="formula">11</ref>), we conclude that a &lt; 576</p><formula xml:id="formula_42">√ N 2π (log N +5)m E . So if p is a prime such that p ≥ 100 √ N (log N + 5)m E &gt; 576 • √ N 2π (log N + 5)m E , then p cannot divide a. This implies that p | L(f, 1) L(f, χ, 1) π 2 f, f g(χ) i ,</formula><p>completing the proof of Theorem 2.2, and thus Theorem 1.6.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.">Proof of Proposition 4.2</head><p>In this section, we follow closely the template of a paper by Wiersema and Wuthrich <ref type="bibr" target="#b24">[WW20]</ref>. Let E/Q be an elliptic curve of conductor N . Let f be the newform associated to E. For r ∈ Q, define</p><formula xml:id="formula_43">(12) λ(r) = 2πi r i∞ f (z) dz = 1 c E γ(r) ω E ,</formula><p>where γ(r) is the image in E(C) of the vertical line in the upper half plane from i∞ to r, and c E is the Manin constant of E. Let Λ E be the Neron lattice of E, i.e. the set of all values γ ω E as γ runs through closed loops in E(C). Let c ∞ be the number of connected components of E(R).</p><p>Then we have (see [WW20, Section 2]):</p><formula xml:id="formula_44">(13) {Re(z) : z ∈ Λ E } = 1 2 Ω + E Z and (14) {Im(z)i : z ∈ Λ E } = 1 2 c ∞ Ω − E Z ⊆ 1 2 Ω − E Z.</formula><p>We now define the standard modular symbols .</p><p>Proof of Proposition 4.2. Let π E : X 0 (N ) → E denote the modular parametrization of E. Since N is prime, the elliptic curve E is semistable. Therefore, one can show that for all r ∈ Q, the point P r = π E (r) is a torsion point defined over Q (see [Ste12, Theorem 1.3.1]). By Mazur's theorem on torsion <ref type="bibr" target="#b12">[Maz77]</ref>, the point P r must have order dividing 1, . . . , 10, or 12. Hence the path γ in the definition of λ(r) ends at a point in E[m] for some m = 1, . . . , 10, 12. So λ(r) ∈ 1 m Λ. Now by ( <ref type="formula">13</ref>) and ( <ref type="formula">14</ref>) we obtain [r] ± ∈ 1 2m Z. By (15), it follows that for all Dirichlet characters χ, the value 2m • L(E,χ,1)g(χ) Ω χ(−1) E is an algebraic integer for some m = 1, . . . , 10, 12. (The m does not depend on χ.) By (2), we have ( <ref type="formula">16</ref>)</p><formula xml:id="formula_45">L(f, 1)L(f, χ, 1) π 2 f, f g(χ) i = 4c 2 E deg π E L(E, 1) Ω + E L(E, χ, 1) Ω − E g(χ) i .</formula><p>Since E is a optimal curve, there is a conjecture that the Manin constant c E is equal to 1. And this conjecture is known to be true if E is semistable by <ref type="bibr" target="#b0">[ARS06]</ref>, so c E = 1. It follows that the denominator of (16) divides 4m 2 deg π E for some m = 1, . . . , 10, 12. Since m ≤ 12, the denominator of ( <ref type="formula">16</ref>) is ≤ 4 • 12 2 deg π E = 576 deg π E .</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6.">Examples</head><p>The Rankin-Selberg method allows us to compute the algebraic parts of L-values, which in turn allows us to calculate Iwasawa invariants. We demonstrate this in two examples.</p><p>Example 1. Let N = 11 and let χ be the unique (odd) quadratic character of conductor 11. The Eisenstein series G 1,χ is the unique eigenform (normalized so that a 1 = 1) in the space E 1 (Γ 0 (11), χ): G 1,χ = 1 2 + q + 2q 3 + q 4 + 2q 5 + . . . .</p><p>The space M 2 (Γ 0 (11)) is spanned by an Eisenstein series and a cuspidal newform whose q-expansions are: E = 5 12 + q + 3q 2 + 4q 3 + 7q 4 + 6q 5 + . . . , f = q − 2q 2 − q 3 + 2q 4 + q 5 + . . . .</p><p>By examining these q-expansions, we find that</p><formula xml:id="formula_46">G 2 1,χ = 3 5 E + 2 5 f.</formula><p>Proposition 3.2 then says that</p><formula xml:id="formula_47">L(f, 1)L(f, χ, 1) f, f • g(χ) 8π 2 i = f, G 2 1,χ f, f = 2 5 .</formula><p>Let E = X 0 (11) be the elliptic curve corresponding to f . Let p = 2, 5 be a prime of good ordinary reduction which is not anomalous for E. Then 2/5 is a p-adic unit so µ p (E) = λ p (E) = 0 for all such primes p.</p><p>Example 2. Let N = 67 and let χ be the unique (odd) quadratic character of conductor 67. The Eisenstein series G 1,χ has q-expansion G 1,χ = 1 2 + q + q 2 + q 4 + 2q 5 + . . .</p><p>The space M 2 (Γ 0 (67)) is spanned by an Eisenstein series and five newforms f 1 , f 2 , f c 2 , f 3 , f c 3 , where f c i denotes the Galois conjugate of f i : E = 11 4 + q + 3q 2 + 4q 3 + 7q 4 + 6q 5 + . . . , f 1 = q + 2q 2 − 2q 3 + 2q 4 + 2q 5 + . . . . f 2 = q + (−β − 1)q 2 + (β − 2)q 3 + 3βq 4 − 3q 5 + . . . . f 3 = q − βq 2 + (−β + 1)q 3 + (β − 1)q 4 + (2β + 1)q 5 + . . . , where β = 1 2 (1 + √ 5). We have </p><formula xml:id="formula_48">G</formula><formula xml:id="formula_49">L(f 1 , 1)L(f 1 , χ, 1) f 1 , f 1 • g(χ) 8π 2 i = f 1 , G 2 1,χ f 1 , f 1 = 2 5 .</formula><p>Let E be the elliptic curve of conductor 67 corresponding to f 1 . Let p = 2, 5 be a prime which is not anomalous for E. Then 2/5 is a p-adic unit so µ p (E) = λ p (E) = 0 for all such primes p.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>,</head><label></label><figDesc>a priori a transcendental number, is in fact an algebraic number. Mazur and Swinnterton-Dyer have attached to E a p-adic Lfunction L p (E/Q, T ) ∈ Λ ⊗ Q p satisfying the following interpolation properties. If we write a p = (p + 1) − #E(F p ), consider the Hecke polynomial X 2 − a p X + p. Let α ∈ Z × p denote this unique p-adic unit root of the Hecke polynomial. Then, (1)</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>E</head><label></label><figDesc>for any r ∈ Q. For any Dirichlet character χ mod m,</figDesc></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="2" xml:id="foot_0">Shimura expresses the constant term of Gω(τ ) in terms of the value L(1, ω), whereas we have applied the functional equation for L(s, ω) to express the constant term in terms of the value L(0, ω).</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="3" xml:id="foot_1">Shimura uses the notation D(s, f, g) instead of the now more standard L(s, f × g).</note>
+		</body>
+		<back>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">Amod</forename><surname>Agashe</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Kenneth</forename><surname>Ribet</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">William</forename><forename type="middle">A</forename><surname>Stein</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">The Manin constant, Pure and Applied Mathematics Quarterly</title>
+		<imprint>
+			<biblScope unit="volume">2</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="617" to="636" />
+			<date type="published" when="2006">2006</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<monogr>
+		<title level="m" type="main">The average size of the 5-Selmer group of elliptic curves is 6, and the average rank is less than 1</title>
+		<author>
+			<persName><forename type="first">Manjul</forename><surname>Bhargava</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Arul</forename><surname>Shankar</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:1312.7859</idno>
+		<imprint>
+			<date type="published" when="2013">2013</date>
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">Iwasawa µ-invariants of elliptic curves and their symmetric powers</title>
+		<author>
+			<persName><surname>Michael J Drinen</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Number Theory</title>
+		<imprint>
+			<biblScope unit="volume">102</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="191" to="213" />
+			<date type="published" when="2003">2003</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">Variation of Iwasawa invariants in Hida families</title>
+		<author>
+			<persName><forename type="first">Matthew</forename><surname>Emerton</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Robert</forename><surname>Pollack</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Tom</forename><surname>Weston</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Invent. Math</title>
+		<imprint>
+			<biblScope unit="volume">163</biblScope>
+			<biblScope unit="page" from="523" to="580" />
+			<date type="published" when="2006">2006</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<author>
+			<persName><forename type="first">Bruce</forename><surname>Ferrero</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Lawrence</forename><forename type="middle">C</forename><surname>Washington</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">The Iwasawa invariant µp vanishes for abelian number fields</title>
+				<imprint>
+			<date type="published" when="1979">1979</date>
+			<biblScope unit="page" from="377" to="395" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">Iwasawa theory for elliptic curves, Arithmetic theory of elliptic curves (Cetraro, 1997)</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Greenberg</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="s">Lecture Notes in Math.</title>
+		<imprint>
+			<biblScope unit="volume">1716</biblScope>
+			<biblScope unit="page" from="51" to="144" />
+			<date type="published" when="1999">1999</date>
+			<publisher>Springer</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">On the positivity of the central critical values of automorphic L-functions for GL(2), Duke Math</title>
+		<author>
+			<persName><forename type="first">Jiandong</forename><surname>Guo</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">J</title>
+		<imprint>
+			<biblScope unit="volume">83</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<date type="published" when="1996">1996</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">On the Iwasawa invariants of elliptic curves</title>
+		<author>
+			<persName><forename type="first">Ralph</forename><surname>Greenberg</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Vinayak</forename><surname>Vatsal</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Inventiones Mathematicae</title>
+		<imprint>
+			<date type="published" when="2000">2000</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">Hodge theory and values of zeta functions of modular forms</title>
+		<author>
+			<persName><forename type="first">Kazuya</forename><surname>Kato</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Astérisque</title>
+		<imprint>
+			<biblScope unit="volume">295</biblScope>
+			<biblScope unit="page" from="117" to="290" />
+			<date type="published" when="2004">2004</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">On the Tate Shafarevich groups over cyclotomic fields of an elliptic curve with supersingular reduction I</title>
+		<author>
+			<persName><forename type="first">Masato</forename><surname>Kurihara</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Inventiones mathematicae</title>
+		<imprint>
+			<biblScope unit="volume">149</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="195" to="224" />
+			<date type="published" when="2002">2002</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<monogr>
+		<author>
+			<persName><surname>The Lmfdb Collaboration</surname></persName>
+		</author>
+		<ptr target="https://www.lmfdb.org" />
+		<title level="m">The L-functions and modular forms database</title>
+				<imprint>
+			<date type="published" when="2024-04-22">2024. 22 April 2024</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<monogr>
+		<author>
+			<persName><forename type="first">Barry</forename><surname>Mazur</surname></persName>
+		</author>
+		<title level="m">Rational points of abelian varieties with values in towers of number fields, Inventiones mathematicae</title>
+				<imprint>
+			<date type="published" when="1972">1972</date>
+			<biblScope unit="volume">18</biblScope>
+			<biblScope unit="page" from="183" to="266" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">Modular curves and the Eisenstein Ideal</title>
+	</analytic>
+	<monogr>
+		<title level="j">Publications Mathématiques de l&apos;Institut des Hautes Études Scientifiques</title>
+		<imprint>
+			<biblScope unit="volume">47</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="33" to="186" />
+			<date type="published" when="1977">1977</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<monogr>
+		<author>
+			<persName><forename type="first">Toshitsune</forename><surname>Miyake</surname></persName>
+		</author>
+		<title level="m">Modular Forms</title>
+				<imprint>
+			<publisher>Springer Science &amp; Business Media</publisher>
+			<date type="published" when="2006">2006</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">Approximate formulae for L(1, χ)</title>
+		<author>
+			<persName><forename type="first">Olivier</forename><surname>Ramaré</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Acta Arithmetica</title>
+		<imprint>
+			<biblScope unit="volume">100</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="245" to="266" />
+			<date type="published" when="2001">2001</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<monogr>
+		<title level="m" type="main">Remarks on Greenberg&apos;s conjecture for Galois representations associated to elliptic curves</title>
+		<author>
+			<persName><forename type="first">Anwesh</forename><surname>Ray</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:2308.06673</idno>
+		<imprint>
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<monogr>
+		<title level="m" type="main">Statistics for Iwasawa invariants of elliptic curves</title>
+		<idno type="arXiv">arXiv:2404.09009</idno>
+		<imprint>
+			<biblScope unit="volume">III</biblScope>
+			<biblScope unit="page">2024</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<analytic>
+		<title level="a" type="main">The µ-invariant of isogenies</title>
+		<author>
+			<persName><forename type="first">Peter</forename><surname>Schneider</surname></persName>
+		</author>
+		<idno>MR 989235</idno>
+	</analytic>
+	<monogr>
+		<title level="j">J. Indian Math. Soc. (N.S.)</title>
+		<imprint>
+			<biblScope unit="volume">52</biblScope>
+			<biblScope unit="page" from="159" to="170" />
+			<date type="published" when="1987">1987. 1988</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<analytic>
+		<title level="a" type="main">The Special Values of the Zeta Functions associated with Cusp Forms</title>
+		<author>
+			<persName><forename type="first">Goro</forename><surname>Shimura</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Communications on Pure and Applied Mathematics</title>
+		<imprint>
+			<biblScope unit="volume">29</biblScope>
+			<biblScope unit="issue">6</biblScope>
+			<biblScope unit="page" from="783" to="804" />
+			<date type="published" when="1976">1976</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<analytic>
+		<title level="a" type="main">Stickelberger elements and modular parametrizations of elliptic curves</title>
+		<author>
+			<persName><forename type="first">Glenn</forename><surname>Stevens</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Inventiones mathematicae</title>
+		<imprint>
+			<biblScope unit="volume">98</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="75" to="106" />
+			<date type="published" when="1989">1989</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<monogr>
+		<title level="m" type="main">Arithmetic on modular curves</title>
+		<imprint>
+			<date type="published" when="2012">2012</date>
+			<publisher>Springer Science &amp; Business Media</publisher>
+			<biblScope unit="volume">20</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<analytic>
+		<title level="a" type="main">Algorithms for the arithmetic of elliptic curves using Iwasawa theory</title>
+		<author>
+			<persName><forename type="first">William</forename><surname>Stein</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Christian</forename><surname>Wuthrich</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Mathematics of Computation</title>
+		<imprint>
+			<biblScope unit="volume">82</biblScope>
+			<biblScope unit="issue">283</biblScope>
+			<biblScope unit="page" from="1757" to="1792" />
+			<date type="published" when="2013">2013</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<analytic>
+		<title level="a" type="main">On the vanishing of µ-invariants of elliptic curves over Q</title>
+		<author>
+			<persName><forename type="first">Mak</forename><surname>Trifković</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Canadian Journal of Mathematics</title>
+		<imprint>
+			<biblScope unit="volume">57</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="812" to="843" />
+			<date type="published" when="2005">2005</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b23">
+	<monogr>
+		<author>
+			<persName><surname>Lawrence C Washington</surname></persName>
+		</author>
+		<title level="m">Introduction to cyclotomic fields</title>
+				<imprint>
+			<publisher>Springer Science &amp; Business Media</publisher>
+			<date type="published" when="1997">1997</date>
+			<biblScope unit="volume">83</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b24">
+	<monogr>
+		<author>
+			<persName><forename type="first">Hanneke</forename><surname>Wiersema</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Christian</forename><surname>Wuthrich</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:2004.05492</idno>
+		<title level="m">Integrality of twisted L-values of elliptic curves</title>
+				<imprint>
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

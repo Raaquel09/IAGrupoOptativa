@@ -1,0 +1,755 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">What Is Aristotle’s Metaphysics About?</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher>Brill</publisher>
+				<availability status="unknown"><p>Copyright Brill</p>
+				</availability>
+				<date type="published" when="2023-05-11">2023-05-11</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author role="corresp">
+							<persName><forename type="first">Lindsay</forename><surname>Judson</surname></persName>
+							<email>lindsay.judson@philosophy.ox.ac.uk</email>
+							<idno type="ORCID">0000-0002-1741-5734</idno>
+							<affiliation key="aff0">
+								<orgName type="institution">University of Oxford</orgName>
+								<address>
+									<country key="GB">UK</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Christ</forename><surname>Church</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="institution">University of Oxford</orgName>
+								<address>
+									<country key="GB">UK</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">What Is Aristotle’s Metaphysics About?</title>
+					</analytic>
+					<monogr>
+						<title level="j" type="main">Phronesis</title>
+						<title level="j" type="abbrev">Phronesis</title>
+						<idno type="ISSN">0031-8868</idno>
+						<idno type="eISSN">1568-5284</idno>
+						<imprint>
+							<publisher>Brill</publisher>
+							<biblScope unit="volume">68</biblScope>
+							<biblScope unit="issue">3</biblScope>
+							<biblScope unit="page" from="269" to="292"/>
+							<date type="published" when="2023-05-11" />
+						</imprint>
+					</monogr>
+					<idno type="MD5">CE2F6895148FD9EB457C3D98264633D6</idno>
+					<idno type="DOI">10.1163/15685284-bja10074</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.2" ident="GROBID" when="2024-05-12T15:27+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>Aristotle -central books -first philosophy -metaphysics -principles -substance</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>This paper argues that the discussion in which Aristotle engages in Metaphysics ΖΗ has the same starting-point as natural science: the principles of changing substances. These inquiries are nonetheless distinct because natural science uses these principles in its detailed investigations into natural substances, whereas ΖΗ reflect on the principles themselves. ΖΗ are an integral part of Aristotle's inquiry into the principles of all substances, changing and unchanging: they are not merely preliminary to an inquiry into the latter kind. They are also an integral part of Aristotle's 'first philosophy' , alongside theology's study of the nature and activity of unchanging substances.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1">Introduction</head><p>'Metaphysics' in my title is to be understood in lower case-as 'metaphysics' . My question, 'what is Aristotle's metaphysics about?' , is not about the book, Aristotle's Metaphysics (Met.). Nor-or at least not in the first instance-is it quite about Aristotle's 'first philosophy'; indeed, as a question, it is meant to be entirely non-committal on the relationship of its subject to Aristotelian first philosophy. It is, rather, about the investigation which Aristotle takes himself to be pursuing in Metaphysics ΖΗ-and Θ, for that matter. These books are for most scholars the locus classicus for Aristotelian metaphysics with a lower case 'm' . In posing this question three themes will emerge which will run through this paper: I shall call them 'disappearing first philosophy' , 'parts and wholes' , and 'his dark materials' .1 What does Aristotle take the investigation in ΖΗ to be about? This question might seem to be all too easy: at Η.1 1042a4-22 Aristotle gives us a list of some of the topics he has discussed in Ζ:</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>[T1]</head><p>We have said that the object of our inquiry is the causes, principles, and elements of substances. Some substances are agreed by all, while some have been put forward by some people only … But in another way substances arise from the arguments, the what it was to be and what underlies. Further, in another way 〈it is argued that〉 the genus is more a substance than its forms, and the universal more than the particulars. Closely connected with the universal and the genus are the Forms; for it is for the same reason that they are thought to be substances. And since what it was to be is a substance, and the definition is an account of this, for this reason we discussed definition and 〈something's〉 being in its own right. Since a definition is an account and an account has parts, it was necessary to consider parts-which parts are parts of the substance and which are not, and whether the same parts are parts of the definition. Further, then, neither the universal nor the genus is a substance.2</p><p>There are at least three considerations which might suggest that my question is harder than this to answer-that it is, in fact, the question 'what does Aristotle take the investigation of these topics to be about?' The first consideration is that Ζ's beginning and end both invoke the question 'what is substance?'3 This is 1 An expression penned by John Milton: 'Into this wild Abyss / The womb of Nature, and perhaps her grave, / Of neither Sea, nor Shore, nor Air, nor Fire, / But all these in their pregnant causes mixed / Confusedly, and which thus must ever fight, / Unless the Almighty Maker them ordain / His dark materials to create more worlds' (Paradise Lost, Book 2, 910-16). Philip Pullman's trilogy of novels is of course named from this. 2 εἴρηται δὴ ὅτι τῶν οὐσιῶν ζητεῖται τὰ αἴτια καὶ αἱ ἀρχαὶ καὶ τὰ στοιχεῖα. οὐσίαι δὲ αἱ μὲν ὁμολογούμεναί εἰσιν ὑπὸ πάντων, περὶ δὲ ἐνίων ἰδίᾳ τινὲς ἀπεφήναντο … ἄλλας δὲ δὴ συμβαίνει ἐκ τῶν λόγων οὐσίας εἶναι, τὸ τί ἦν εἶναι καὶ τὸ ὑποκείμενον• ἔτι ἄλλως τὸ γένος μᾶλλον τῶν εἰδῶν καὶ τὸ καθόλου τῶν καθ' ἕκαστα• τῷ δὲ καθόλου καὶ τῷ γένει καὶ αἱ ἰδέαι συνάπτουσιν (κατὰ τὸν αὐτὸν γὰρ λόγον οὐσίαι δοκοῦσιν εἶναι). ἐπεὶ δὲ τὸ τί ἦν εἶναι οὐσία, τούτου δὲ λόγος ὁ ὁρισμός, διὰ τοῦτο περὶ ὁρισμοῦ καὶ περὶ τοῦ καθ' αὑτὸ διώρισται• ἐπεὶ δὲ ὁ ὁρισμὸς λόγος, ὁ δὲ λόγος μέρη ἔχει, ἀναγκαῖον καὶ περὶ μέρους ἦν ἰδεῖν, ποῖα τῆς οὐσίας μέρη καὶ ποῖα οὔ, καὶ εἰ ταῦτα καὶ τοῦ ὁρισμοῦ. ἔτι τοίνυν οὔτε τὸ καθόλου οὐσία οὔτε τὸ γένος. Cf. Ζ.11 1037a21-b7. All translations of Ζ and Η follow <ref type="bibr">Bostock 1994, with modifications</ref>; except where noted, other translations are my own. 3 Ζ.1 1028b3, Ζ.17 1041a6.</p><p>not, on the face of it, the same question as Η.1's claim that 'we have said that the object of our inquiry is the causes, principles, and elements of substances <ref type="bibr">' .4</ref> This is an issue which deserves a whole paper to itself. I think, however, that it is best to interpret Ζ's initial question in the light of the idea that what is really at issue in this book is the principles of natural substances. This is much easier than trying to understand Η.1's summary in terms of an independently understood 'what is substance?' question; and it makes very good sense of what actually happens in Ζ (though to be sure, this takes us into controversial issues which I cannot pursue here)5. It also brings Ζ and Η into line with how Books Α and Λ approach their investigations.</p><p>The second consideration which makes my question hard is the pair of remarks in Ζ which might suggest that Aristotle had a different goal in view:</p><p>[T2] Whether there is any other 〈matter〉 than the matter of substances of this kind, and whether we should seek some other kind of substance, for instance numbers or something of this kind, must be considered later. For it is for the sake of this6 that we are attempting to analyse perceptible substances too, since the study of perceptible substances is in a way the task of natural science, i.e. second philosophy (Ζ.11 1037a10-16).7 [T3] Let us now make a fresh start again and say what, and what kind of thing, substance must be said to be. For from these, things will perhaps also be clear about that substance which is separate from the perceptible substances (Ζ.17 1041a6-9).8</p><p>These two passages appear to pick up the list of possible substances in Ζ.2, which includes (candidates for) unchanging substances as well as (candidates for) perceptible ones, and the questions about non-perceptible substances slated for inquiry at the end of the chapter (1028b27-32). These passages are at the heart of the 'parts and wholes' theme: I shall return to them more than once.</p><p>The third consideration is that in Ζ and Η we are investigating the principles of natural substances-most notably substantial matter and substantial form. This is made explicit in a number of places, such as at Η.1 1042a24-6:</p><p>[T4] But now we must proceed to the substances which are agreed; and these are the perceptible ones; and all perceptible substances have matter.</p><p>But this, it might seem, should be a task for physics, or natural science. Indeed, it is exactly what Aristotle does investigate in Physics (Phys.) I, explicitly in these terms: he seeks 'the principles of the things that are by nature' ,9 and he characterises his investigation as a piece of natural science, quite distinct from whatever science it is which considers, for example, the homonymy of being:</p><p>[T5] To investigate, then, whether what is is one and unchangeable does not belong to the investigation of nature. Just as the geometer no longer has anything to say to the one who does away with the principles 〈of geometry〉-but it is either for another science, or for one which is common to all-neither does the one who is inquiring into principles.10</p><p>The principles of natural substances-substantial form and matter-are Aristotle's 'dark materials': they are, or so it seems, the materials from which two quite separate worlds-his natural science and his metaphysics-are made. How can this be? Solving this problem is central to this paper. I shall explore five possible responses which we could make to it, and I shall argue that only the last of these responses is plausible.  <ref type="bibr">1936, 461;</ref><ref type="bibr">Irwin 1988, 67;</ref><ref type="bibr">Bolton 1991, 14-15;</ref><ref type="bibr">Falcon 2005, 28;</ref><ref type="bibr">Clarke 2018, 63-4;</ref><ref type="bibr">Judson 2019b, 187 n. 39</ref>. What matters for present purposes is the characterisation of the Phys. I investigation, to which the discussion of Eleatic monism is said not to belong, as the 'investigation of nature' . </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>2</head><p>A Sensible Question?</p><p>But first, I want to defend the claim that the question 'what does Aristotle take this investigation, ΖΗ, to be about?' is a sensible question to ask. Elsewhere I have compared our book the Metaphysics as we have it to a complex archaeological site.11 Until you have a good grasp of what is going on in the various parts of the site, you have to approach each part both on its own and in relation to other parts. Why, though, should we treat Ζ and Η as a unit, for these purposes, such that we can ask about 'this investigation'? One answer-perhaps the most non-committal or least question-begging answer-is that (Ζ.7-9 apart)12 Aristotle quite self-consciously presents Ζ and Η as a unit of some sort, in a variety of ways. We can see this in the summary quoted above ([T1]) and in the earlier summary at Ζ.11 1037a21-b7, and there are also various other structural pointers;13 for the most part, at least, the structure of content and argument across the two books is very closely knit; and even those, like me, who think that chs. 7-9 of Ζ are an addition think that they are an addition by Aristotle. So it reasonable to take these books as comprising a significant and unified investigation, whatever their relation to other parts of the Metaphysics.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3">Five Responses</head><p>And so to the problem posed by Ζ and Η's focus on the principles of natural substance. The first of the five possible responses that I shall consider is that we should simply take these books to be in fact a piece of natural science. This response has the obvious merit of simplifying the relationship between these books and the inquiry in Phys. I, and for that reason should be taken seriously. It might also seem to be supported by the remark in Ζ.11 which I quoted above ([T2]):</p><p>For it is for the sake of this that we are attempting to analyse perceptible substances too, since the study of perceptible substances is in a way the task of natural science, i.e. second philosophy. (ii) What was/were the editor(s) of the Metaphysics, whether Aristotle or others, thinking of in assembling our Metaphysics? Or the editor(s) of the Physics, for that matter? Whatever the truth about the later editing of the works of Aristotle,18 this problem cannot be consigned to the murky dealings involving the books hidden in the tunnels of Scepsis: Eudemus' Physics seems to have followed the general plan of Aristotle's Physics as we have it.19</p><p>(iii) There are a number of cross-references to the works on nature (ἐν τοῖς περὶ φύσεως or ἐν τοῖς φυσικοῖς) in Met. Α.3-10,20 and one at the end of Η.1: (iv) For all its somewhat episodic or at least compressed character, Phys. II develops the point that natural substances are matter-form compounds in an entirely different direction from the one taken by the central books of the Metaphysics, one which puts at the forefront the function and aims of the natural scientist: to understand in detail the nature, parts, and activities of natural substances. The central books, by contrast-though they take up the point (or at least a point) about the snub which is floated but hardly developed in Phys. II-pay no explicit attention to the needs of the natural scientist.23 The two discussions seem to be of quite different sorts and to have quite different aims. I shall return to this point later.</p><p>(v) There are clear signs in our book the Metaphysics that the discussion of the principles of natural substances which in various parts it engages in is intended as an integral part of a larger project. This is clear in the case of the project outlined in Α.1-2; we already noted the two remarks in Ζ.11 and 17 in [T2] and [T3]; and recall the start of Η in [T1] (Η.1 1042a4-6): 'We have said that the object of our inquiry is the causes, principles, and elements of substances' . Note that he does not say 'of natural substances' .24 To my mind, the clearest case is Λ, in which the investigation of the principles of natural substances in chs. 2-5 is explicitly presented as a part of a wider inquiry into the 21 τίς μὲν οὖν διαφορὰ τοῦ ἁπλῶς γίγνεσθαι καὶ μὴ ἁπλῶς, ἐν τοῖς φυσικοῖς εἴρηται (1042b7-8).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>22</head><p>Λ.8 1073a31-2, Μ.1 1076a8-10, Μ.9 1086a21-4. 23</p><p>But that is not to say that it is not concerned at all with facts about natural substances: see the end of this section.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>24</head><p>As I noted above, Ζ.2 likewise envisages that the inquiry will include non-perceptible substances if there are any. principles of all substances.25 Nor should we regard Λ as an isolated oddity: it has manifestly close connections with ΖΗΘ, as well as with Β and ΜΝ.26</p><p>What then should we make of the remark in [T2], 'For it is for the sake of this that we are attempting to analyse perceptible substances too, since the study of perceptible substances is in a way the task of natural science, i.e. second philosophy'? For all the reasons given, we should not take Aristotle to be saying that the inquiry in Ζ is a piece of natural science, but rather that an inquiry into the principles of natural substances which was not for the sake of the study of unchanging ones would be the task of natural science. It would be, in fact, the sort of inquiry which we find in Phys. I.27 We shall see how it is possible for these two inquiries to be distinct, and how they differ, in due course.</p><p>So much for the first possible response. The second is to accept Michael Frede's account of the nature of Aristotelian first philosophy, and in particular his reading of [T2] and [T3]. <ref type="bibr">28</ref> Frede understands these remarks in a quite radical way: the central books' investigations get us into a position to investigate divine, immaterial substance (and we would then be most definitely engaging in first philosophy), but once we embark properly on that we will see that it is the grasp of the form and actuality of divine substance which provides the material for understanding those of natural substances, and not the other way round. So the earlier investigation should be thrown away like Wittgenstein's famous ladder.29</p><p>What ΖΗΘ are really about, on this view, is something quite distinct from their surface subject matter; and the question 'are these books a part of first philosophy or a part of second philosophy?' might seem to evaporate. Like the first response, Frede's account faces the 'havoc' problem of 'disappearing first philosophy': all or almost all that we have in our Metaphysics, on this view, is preparatory material due to be replaced by the true, but never-arrived-at, first philosophy: even the second half of Λ is not really first philosophy, on Frede's Ludwig Wittgenstein, Tractatus Logico-Philosophicus 6.54: 'My propositions serve as elucidations in the following way: anyone who understands me eventually recognizes them as nonsensical, when he has used them-as steps-to climb up beyond them. (He must, so to speak, throw away the ladder after he has climbed up it.)</p><p>He must transcend these propositions, and then he will see the world aright.' The third possible response is to make a developmental move of some sort: to say that Aristotle changed his view about which science should investigate the principles of natural substances, or changed his view about the relationship of the metaphysics of the central books to the theology of Ε.1 and Λ.6-10 (and then added [T2] and [T3] accordingly).31 This would be in the spirit in which some scholars have held that the project outlined in Γ is a quite distinct project from that pursued in the central books, or indeed that pursued in Λ. Who can deny that Aristotle changed his mind, revised texts, and did things differently at different times? But solving problems as large as the present one by appealing to a developmental hypothesis should be a last resort. In that sense I am a 'modest unitarian': I prefer to suppose-and I think that the texts provide good evidence for-a general uniformity of project and approach in our book the Metaphysics while allowing for and acknowledging local and smaller-scale differences. Thus I think that there are differences between Α's project, say, and Λ's, and between Λ and the central books; and that the terms in which Γ's project is expressed find almost no echo in other texts.32 But the various projects described or carried out in these different parts of the Metaphysics seem to me to be, nonetheless, essentially the same.</p><p>The fourth response is advanced by Myles Burnyeat, who denies that Phys. I and the central books are in fact concerned with the same thing:</p><p>[T]here is a first-philosophical way of studying sensible substantial beings as well as a second-philosophical way. Z 11 [he is referring to [T2]] is proof of that … Nowhere does Jaeger grasp the idea that first philosophy and second could both study sensible substantial being, each from a different perspective and focussing on different aspects of the same subject-matter. … The way to read the early chapters of Λ is as a first-philosophical use of the factors invoked in Physics I to explain change (matter, form and privation). These now reappear as the principles that explain the substantial being of sensible, hence changeable, substantial beings (Burnyeat 2001, 129 and note 6, and 133; my italics). I think that there is more than a grain of truth in Burnyeat's idea, as we shall see when we consider the fifth and final response to our problem. There is a difference between how natural science considers the principles of natural substances and how first philosophy-and metaphysics as I am using that term-considers them. But this does not entail or involve any difference in the principles themselves, or between distinct aspects of those principles: they are the very same principles, they are the principles of the very same things, and they explain the very same aspects of those things, in both cases. It is in fact hard to know just what Burnyeat means when he contrasts a second-philosophical way of studying 'the factors invoked in Phys. I to explain change' and a first-philosophical use of them as 'principles that explain the substantial being of sensible, hence changeable, substantial beings' . It seems that he thinks that the principles of changing substances are (intensionally) distinct from the principles of the being of changing substances, or that the two involve distinct aspects; but it is quite unclear what that means or how this distinction can be upheld, and it seems rather that the former just are the latter. For instance, we can see Λ.2 rehearsing exactly the same considerations as Phys. I about the termini of changes and the need for 'something which remains' , in order to arrive at its three principles of substance-matter, form, and privation. It is not that Burnyeat accepts the (implausible) view that what Phys. I is concerned with are the principles of change itself, rather than those of changing substance. Phys. I.7 190b17-18 makes the subject of this investigation clear:</p><p>[T7] It is evident that if there are indeed causes and principles of things which are by nature …33</p><p>Perhaps Burnyeat is thinking of Γ's claim that first philosophy34 investigates beings as beings: from this it might seem to follow that its study of changing substances is somehow more abstract, more rarified, than the study which belongs to natural science. But, as I have argued elsewhere,35 I think that this too would be a mistake. It is of course true that Γ.1 distinguishes first philosophy from the other sciences because of its level of generality. If we accept the widespread view that this means investigating the features of beings which they have in virtue of being beings,36 Γ's project turns out to be utterly different from that of ΖΗ. What natural substances have (or are) in virtue of being substantial beings will be only what they have in common with other substances-actuality and essence (and perhaps form). Ζ and H are engaged in a very general inquiry into substances, but they not restricted to the features that all substances have in common. It is better to understand Γ's inquiry as the most general inquiry into each kind of being that there is, and principally as the most general inquiry into each kind of substance (namely the two overarching kinds distinguished in Ζ (as in Λ), natural and unchanging). This kind of investigation is clearly compatible with, and arguably the same as, the project of the central books.</p><p>The final reason for doubting Burnyeat's distinction between two ways of regarding natural substances-the second-philosophical one focusing on their changeability, and the first-philosophical one abstracting from change-is that the central books repeatedly invoke teleology (Ζ.17 and Η.4), change (Η.1), generation, efficient causes, potentiality, bile, phlegm, sleep, and, in Ζ.7-9, the generation of natural substances and artefacts, efficient causes, and the problem posed by the fact that mules do not generate mules. If we include Θ, we can add consideration of the role of potentiality in natural generation, and the nature of the heavenly bodies.</p><p>The fifth and final response is to accept that things are how they appear, but not to find that problematic. This is the view I shall defend, by considering my three themes in turn.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4">His Dark Materials</head><p>One thing that seems to be common to the first four approaches is an assumption that, for Aristotle, the same material cannot play a role in two different sciences. If we accept that Phys. I's inquiry into principles is the same as the <ref type="bibr">35 Judson 2018b, 244-55. 36</ref> See <ref type="bibr">Ross 1924, I, 251;</ref><ref type="bibr">Irwin 1977-78, 223;</ref><ref type="bibr">Lear 1988, 245;</ref><ref type="bibr">Code 1997, 362;</ref><ref type="bibr" target="#b10">Duarte 2007;</ref><ref type="bibr">Shields 2012, 360;</ref><ref type="bibr" target="#b35">Wedin 2009</ref>. Γ's claim that in some way we are to do this by investigating substances is then naturally taken to mean either that we are to investigate the features of substances which they have in virtue of being beings, or that we are to investigate the features they have in virtue of being substances. As regards question (i), I have argued elsewhere that if the Posterior Analytics (An. Post.) does contain such a principle, it is a plain fact that Aristotle's scientific practice simply does not conform to it: Aristotle habitually and deliberately ignores any such ban.38 I shall give just two examples here, both from work which is unquestionably first philosophy if anything in Aristotle's corpus is. One is the discussion in Λ.8 of how many immaterial, unchanging substances there are. Aristotle approaches this on the basis of considerations from empirical cosmology, natural science more generally, and astronomy, a science which he explicitly characterises there as a branch of mathematics.39 The other is Λ.9, in which the discussion of divine activity makes reference to the account of human thought and perception given in the De Anima (De An.), a piece of natural science,40 and which, difficult as it is, would not even begin to be intelligible without an understanding of that account.</p><p>I shall say more about question (ii), how the first philosophical and second-philosophical inquiries differ if their starting-points are the same. With 37 An. Post. A.7, 75a38-b6: 'Thus it is not possible to prove something by crossing from another genus-for example something geometrical by way of arithmetic. For there are three things involved in demonstrations: one is what is demonstrated, namely the conclusion (and this is what holds of some genus in itself); another is the axioms (and the axioms are those things from which the demonstration comes about); and the third is the underlying kind whose properties and in-itself attributes the demonstration makes clear. So the things from which the demonstration comes about can be the same; but when the genus is different, as in the case of arithmetic and geometry, it is not possible to make an arithmetical demonstration apply to the attributes of magnitudes, unless the magnitudes are numbers. How this can be done, in certain cases, however, will be described later' (trans. <ref type="bibr" target="#b4">Barnes 1994)</ref>. 38</p><p>See Judson 2019b. 39 1073b3-5: 'But as for the number of the motions, this is already something which must be considered on the basis of the mathematical science which is most akin to philosophy, astronomy' (τὸ δὲ πλῆθος ἤδη τῶν φορῶν ἐκ τῆς οἰκειοτάτης φιλοσοφίᾳ τῶν μαθηματικῶν ἐπιστημῶν δεῖ σκοπεῖν, ἐκ τῆς ἀστρολογίας). 40</p><p>See De An. I.1 402a1-7: 'We count cognition among the fine and honourable things, and suppose that one kind of cognition is finer and more honourable than another owing to its precision or because of its having better and more marvellous objects; and for both these reasons we may reasonably place an inquiry into the soul into the premier class of study. It also seems that research into the soul contributes greatly to truth in general, and most especially to truth about nature. For the soul is a sort of first principle of animals' (trans. Shields 2016). the identification of substantial form and matter in place, one could imagine going in either of two quite different directions. One direction would involve a focus on the natural scientist and would ask: what is the relevance of the hylomorphic analysis of natural substances to how natural science should proceed? How do matter and form relate to a substance's nature, to the explanation of the development, features, and behaviour of natural substances, and to the other forms of causation or explanation which seem to be required in the study of nature (namely efficient and final causation)? If the natural scientist needs to appeal to both matter and form in her explanations and in her wider theory, how are these appeals related? does one have priority over the other? and, if so, which and in what way? These are exactly the questions which arise, directly or indirectly, in Phys. II. With an account in place of nature (or as I would say, of something more like its nominal essence), Phys. II asks whether the matter or the form of a natural substance is more its nature.41 The natural scientist is said to need to know more about the form, but also to need to know about the matter up to a point:</p><p>[T8] But if craft imitates nature, and it is for the same body of knowledge to know the form and, up to a point, the matter (for example, it is for the doctor to know about health and about bile and phlegm, in which health is to be found; and similarly it is for the builder to know both the form of the house and the matter-that it is bricks and timbers-and in the same way too in the case of the other crafts), then it would be for natural science to know both natures.42</p><p>Given the identification of form and telos, these questions are taken up again in PA I.1-5, and they structure the whole of the explanatory project of Parts of Animals and Generation of Animals. The relationship of form and matter to the various kinds of causation and explanation is of course also taken up later in Phys. II. In this way, the principles are used in the pursuit of the detailed understanding of natural substances which is the primary goal of the natural scientist.</p><p>The other direction an inquiry could take would be to reflect on these principles themselves: to investigate the nature of substantial form and matter and what we might call their structure or economy.43 What is their ontological status? Are they themselves substances? How are they related? Which, if either, is prior and in what way(s)? In what way(s) are they prior to form-matter compounds? Do they have parts and/or definitions? How are form and its structure related to the structure of definition? What (if anything) makes a form a unity? What (if anything) makes a matter-form compound a unity? And this, of course, is exactly the direction taken by the central books.44 What is distinctly different about the two inquiries, I am suggesting, is not a difference in subject matter, but the subsequent way in which natural science and metaphysics go on to deal with the very same materials-the very same principles. We should not insist that there must be a difference in these materials according to whether they figure in physics or in metaphysics: rather we should take Aristotle's deployment of them in both contexts to reveal them as common to both.45</p><p>For these reasons I do not think that the London group is right when it says:</p><p>Are we to think, then, that the present discussion in fact is no different from (the more general part of) physics except in its having the further aim of passing on to questions encompassing immaterial substances (numbers, God, etc.)? On the whole, we thought so. [Met.] E1 says that physics is primary if there is no ἑτέρα οὐσία, but here we seem to be assured that it is secondary just so long as we can pursue it with a view to the question whether there is a ἑτέρα οὐσία.46</p><p>The inquiry in the central books is different from 'the general part of physics' , if we understand that de re, as exemplified by Phys. I-II. Aristotle's claim in Ε.1 is that, if there were no immaterial substances, an inquiry along the lines of the central books would belong to physics, not because it is of the same kind as what we find in the Physics already, but because Aristotle takes such an inquiry to be a part of whichever science is the highest one, and if there were no immaterial substances the highest one would be natural science.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5">The Ingredients of First and Second Philosophy</head><p>There are a number of ways in which first and second philosophy might be demarcated, and in which claims of the form 'X is first (or: second) philosophy' could be understood, and some clarification is needed here of how Aristotle approaches these questions.</p><p>Here is what he says in Met. Ε.1:</p><p>[T9] For natural science is concerned with things which are separate but not unchangeable, while certain parts of mathematics are concerned with things which are unchangeable but which are, perhaps, not separable, but as in matter; the first science is also concerned with things which are both separate and unchangeable … Hence there are three theoretical philosophies: mathematics, natural science, and theology … For someone might raise a difficulty as to whether first philosophy is universal or is concerned with some kind and some one nature. For neither is this the same for all branches of mathematics: geometry and astronomy are concerned with one nature, while universal mathematics is common to all. If there is no other substance beyond those constituted by nature, natural science would be first philosophy; but if there an unchanging substance, 〈the science of〉 this must be prior 〈to natural science〉 and must be first philosophy, and This suggests that Aristotle takes it as given that there is a distinct science of each of the most fundamental kinds of substances: changing and (if any) unchanging. Each of these sciences establishes the principles and causes of the substances in question, and examines in detail the nature, activities, and so on, of these substances. These sciences are distinguished by their core subject matter. It is, in other words, a given for Aristotle that, if there are unchanging as well as changing substances, there is a science of each kind, as follows:</p><p>Theology (theological science) inquires into the nature, activities, etc., of unchanging substances; its inquiry into the principles and causes of these substances is done with an eye to this. This science will be first philosophy if there are such substances (but, as we shall see), theology may not be the whole of first philosophy.</p><p>Natural science inquires into the nature, activities, parts, generation (if any), etc., of changing (perceptible) substances; its inquiry into the principles and causes of these substances is done with an eye to this. This science will be first philosophy if there are no unchanging substances and second philosophy if there are. This approach does not mean that having unchanging substances as part of X's subject matter is a sufficient condition of X's being theology, nor that having changing substances as part of X's subject matter is a sufficient condition of X's being natural science: the prime unmoved mover appears in a thoroughly embedded way in the Physics, and, as we shall see, changing substances appear in theology. By the same token, the 'of' in 'a distinct science of each' is not extensional: not every kind of inquiry into substances of a given kind is eo ipso the work of the science of that kind. This is a familiar idea from the point that 47 1026a13-32, with two omissions: ἡ μὲν γὰρ φυσικὴ περὶ χωριστὰ μὲν ἀλλ' οὐκ ἀκίνητα, τῆς δὲ μαθηματικῆς ἔνια περὶ ἀκίνητα μὲν οὐ χωριστὰ δὲ ἴσως ἀλλ' ὡς ἐν ὕλῃ• ἡ δὲ πρώτη καὶ περὶ χωριστὰ καὶ ἀκίνητα … ὥστε τρεῖς ἂν εἶεν φιλοσοφίαι θεωρητικαί, μαθηματική, φυσική, θεολογική … ἀπορήσειε γὰρ ἄν τις πότερόν ποθ' ἡ πρώτη φιλοσοφία καθόλου ἐστὶν ἢ περί τι γένος καὶ φύσιν τινὰ μίαν (οὐ γὰρ ὁ αὐτὸς τρόπος οὐδ' ἐν ταῖς μαθηματικαῖς, ἀλλ' ἡ μὲν γεωμετρία καὶ ἀστρολογία περί τινα φύσιν εἰσίν, ἡ δὲ καθόλου πασῶν κοινή)• εἰ μὲν οὖν μὴ ἔστι τις ἑτέρα οὐσία παρὰ τὰς φύσει συνεστηκυίας, ἡ φυσικὴ ἂν εἴη πρώτη ἐπιστήμη• εἰ δ' ἔστι τις οὐσία ἀκίνητος, αὕτη προτέρα καὶ φιλοσοφία πρώτη, καὶ καθόλου οὕτως ὅτι πρώτη• καὶ περὶ τοῦ ὄντος ᾗ ὂν ταύτης ἂν εἴη θεωρῆσαι, καὶ τί ἐστι καὶ τὰ ὑπάρχοντα ᾗ ὄν. otherwise mathematics would not be a science distinct from natural science; but the idea will also come into play in connection with metaphysics.</p><p>It is helpful to bear in mind that, as practised by Aristotle, natural science is not what we might call formalistic. That is, it does not only proceed tree-wise from the most general questions about the principles of changing substance-what they are, how they are related to scientific knowledge and explanation-to the nature and activities of specific natural substances (that is, groups of species and of other kinds, and members of species considered collectively). It also considers matters which are clearly connected to changing substance, but along a different axis: change itself, infinity, time, place, void, body, continuity, and the need for there to be a prime unmoved mover. This is in addition to discussions of things which are not features of substances, but of things which can perhaps be thought of as analogous to or somehow derivative in various ways from natural substances: inorganic compounds, comets, earthquakes, rainbows, etc.</p><p>On this approach, metaphysics, as I have been using the term, has distinct goals from those mentioned so far. It considers the principles and causes of all things (principally, of all substances) with a view not only to identifying them but also to the detailed study of what these principles are, their nature, and questions relating to their economy: how they are related, whether they have parts and if so how they are unities, how they cause unity in other things, and so on. It will, derivatively, be its business to consider the common things (sameness, difference, the principle of non-contradiction, and so on). In other words, it reflects on the principles which natural science or theology use in their pursuit of understanding the nature and activities of the substances in question. Metaphysics understood in this way could in theory be a distinct science, but Ε.1 1026a23-32 shows that Aristotle thinks that it-or its analogue in other parts of the Metaphysics, such as Γ's science of being as being-is part of first philosophy, which includes theology if there is such a thing, and natural science if there is not. No relationship of subordination is intended here by 'part' . The claim that theology (understood as a departmental science) is first philosophy is thus not that these two are identical, but that theology is a part of first philosophy. Whether or not there are unchanging substances, the sort of inquiry engaged in in the central books will, de dicto, be part of first philosophy-or better, 'first philosophy' is the name for the science which combines a 'departmental' inquiry into the nature and activity of one fundamental sort of substances (the highest sort) with the inquiry into the principles of all substances, their nature and their economy. Why should this latter inquiry be a part of one of these departmental sciences rather than a distinct science? Why should it belong to the higher one? I do not think that the answer Ζ1-16 are preliminary to Ζ17-Η … ΖΗ make a unified treatise which expects Θ as its sequel … Even Θ does no more than prepare us for Aristotle's own positive account of non-sensible substantial being.51 I have already said that this sort of approach seems highly unsatisfactory: it relegates the central books-and much of the rest of the Metaphysics as well-to a peripheral or preliminary status, and leaves all too little of it, or in some cases none of it, as first philosophy proper.52 Clearly what is needed is an account on which the investigation of the principles of natural substances (of the kind undertaken in the central books) constitutes an integral and genuine part of first philosophy. There is more than one way in which this could be the case, as I shall explain in the next section.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>7</head><p>Wholes and Parts There are at least three possible ways in which the central books' investigation of the principles of natural substances could be a part of the wider whole of first philosophy. In sketching these I am going to assume that we should include Θ along with Ζ and Η as part of this investigation. Possibility (A) is that the investigations into the principles of natural substances and into those of immaterial substances proceed quite separately. First philosophy has thus an essentially stepwise structure: it first inquires into the principles of one sort of substance and then into those of the other sort. On this understanding it is possible, and perhaps even natural, to suppose that what first philosophy is is the investigation of the principles of all substances, natural and immaterial, and nothing more. This possibility may seem to gain support from the way in which Book Λ is structured. Aristotle implies in Λ.1 that he is indeed engaged in an inquiry into the principles of all substances; he divides substances into perceptible and unchanging, and focuses on each of these in turn, in chapters 2-5 and 6-9. I do not think that what happens in Λ is in fact a stepwise inquiry into the principles of these two kinds of substance, since the chapters on immaterial substance do not-or at least do not mainly-focus on their principles at all.53 But this does not mean that Aristotle could not have intended the central books to have been part of a merely stepwise or sequential structure.</p><p>Possibility (B) is that the central books' investigation, whatever else it might achieve, contributes to the understanding of the principles of immaterial substances but does not by itself provide all that is needed to grasp these principles (a possible rough analogue might be the way in which mastery of piano-playing technique provides a part but only part of the mastery of organ-playing technique, and vice versa). On this view, the discussion of substantial matter and form, definition, unity, actuality and potentiality, and so on are not only a part of first philosophy in their own right (as they are on possibility (A)), but help us in some way in the investigation of the principles of immaterial substances as well. On this understanding, first philosophy might, once again, be the investigation of the principles of all substances and nothing more; but it is also compatible with it doing something else in addition.</p><p>Possibility (C) is that the investigation of the principles of natural substances provides all that is needed to grasp the principles of immaterial substances as well. How can it then be only a part of first philosophy? On this understanding, first philosophy must do something further. It might, for instance, demonstrate that there are such substances, and/or reflect on their principles as those of immaterial substances, in the way in which the central books reflect on the principles as those of natural substances,54 and/or investigate the nature and activity of these substances (that is, engage in departmental theology).55 I think that Λ pretty clearly engages in the first and third of these, with the occasional passing hint of an interest in the second. The second half of Λ uses the notions of essence, matter and actuality, which were developed in the first half, in a such way as to point implicitly to the principles of immaterial substances; but the main focus of this part of the book is on their particular nature, activity, and number, as well as on their relation to the natural world.</p><p>Of course we do not have the continuation of the central books, and I suppose that it was never written. To return to my archaeological metaphor: this part of the complex was simply never built. This means that the question of how much we can infer about the detailed intentions of the author of the central books from the further special particularities of Λ-Λ's interest in the number of immaterial substances, the character of divine thinking, and so on-is an open one. However that may be, these three possibilities are all ones in which, in principle, the metaphysics of ΖΗΘ could be a genuine part of Aristotelian first philosophy, and not merely a preliminary inquiry of uncertain status. As we shall see, however, we have some reason to reject possibility (A) in favour of the other two.</p><p>We do have some hints about how Aristotle envisaged the continuation of the central books from the programmatic remarks in Ζ. One such hint is in [T3]:</p><p>Let us now make a fresh start again and say what, and what kind of thing, substance must be said to be. For from these, things will perhaps also be clear about that substance which is separate from the perceptible substances (Ζ.17 1041a6-9). This seems to suggest the idea that the investigation of the principles of natural substances does provide an understanding of the principles of immaterial substances-my possibility (C). But this suggestion can be resisted, and one might think that [T3] is also consistent with possibility (B). It seems much harder to square it with (A): if the inquiry into the principles of the two kinds of substance simply proceeds stepwise, it is not at all clear how 'from these, things will perhaps also be clear about that substance …' .</p><p>Another hint is in [T2]:</p><p>Whether there is any other matter than that of substances of this kind, and whether we should seek some other kind of substance, for instance numbers or something of this kind, must be considered later. For it is for the sake of this that we are attempting to analyse perceptible substances too (Ζ.11 1037a10-14).</p><p>As I have said, Frede's view is that the inquiry in the central books is for the sake of the investigation of immaterial substance in the sense that it is entirely preparatory or propaedeutic: it has no value in itself. Burnyeat takes a similar view, perhaps, when he glosses the Z.11 passage: '[t]he reason why we are studying sensible substantial beings is of course to equip ourselves to answer Z2's question about non-sensible being(s) <ref type="bibr">' .56</ref> This reading is not obligatory, and I think that we should not accept it unless we are persuaded on other grounds of Frede's or Burnyeat's account of the nature of first philosophy and of its results.57</p><p>It is a familiar fact that the claim that we do X for the sake of Y can be true in a variety of ways. One is that X is only of instrumental value: this is how Frede and Burnyeat take it here. But other ways of being for the sake of Y allow, and may even require, that X is valuable in its own right: things we choose for their own sake and for the sake of eudaimonia are like this. More complex, perhaps, is the case of Aristotle's claim that ethical understanding is for the sake of political understanding because the former is in some sense subordinate to the latter58; yet the pursuit of ethical understanding has a value which is quite independent of its role in political understanding (or it would be pointless to pursue it if one had no political aspirations, especially as Aristotle conceives of those). These ways of thinking would be applicable to the central books on possibilities (B) and (C): since the investigation of the principles of natural substances contributes to the understanding of these higher substances, and that understanding is more valuable, the former can be said to be for the sake of the latter. That is quite compatible with the former having value or significance in its own right. Once again these ways of thinking are hard to square with possibility (A).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="8">Conclusion</head><p>I think that we have no reason to deny, and many reasons to affirm, that the central books are indeed about the principles of natural substances and also that they are, as such, a genuine part of Aristotelian first philosophy. His 'dark materials'-substantial form and matter, and actuality and potentiality-are at the heart of Aristotle's natural science and of his first philosophy.59 An earlier version of this paper was given at an online workshop on Aristotle's Metaphysics Ζ and Η organised by the University of Toronto. I am grateful to the participants at that talk, and to David Charles, the Phronesis Editors, and an anonymous referee for their very helpful comments on subsequent versions. </p></div><figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_7"><head></head><label></label><figDesc>view. I shall return to how Frede understands [T2] and [T3] when we come to 'wholes and parts' later.30</figDesc><table /><note>Downloaded from Brill.com 03/04/2024 06:31:35PM via Open Access. This is an open access article distributed under the terms of the CC BY 4.0 license. https://creativecommons.org/licenses/by/4.0/</note></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_9"><head>33</head><label></label><figDesc>There is a similar expression later in ch. 7 at 191a3-4 (αἱ ἀρχαὶ τῶν περὶ γένεσιν φυσικῶν). Ross thinks that περὶ γένεσιν is unidiomatic and suggests deleting it(1936, 494); this does not affect my point, which in any case focuses on τῶν φυσικῶν. Further confirmation of the point, if it were needed, is provided by the discussion in Phys.</figDesc><table><row><cell></cell><cell>I.5: see Judson 2018a,</cell></row><row><cell></cell><cell>134-41. The contrary view is assumed in Bostock 1982, 179-80.</cell></row><row><cell>34</cell><cell>Aristotle does not actually use the term 'first philosophy' in Γ.1-3, except at 1004a1-9 (a</cell></row><row><cell></cell><cell>controversial passage), but prefers the term 'philosophy' (see e.g. 1004a9-10, a31, b1-4,</cell></row></table><note>b6-8, 1005a19-21). Nonetheless it is clear that the subject of Aristotle's discussion in Γ is the science which has primacy over all other sciences, including many that Aristotle would normally call φιλοσοφία (see e.g. Parts of Animals (PA) 1.1 641a35-6, II.7 653a9-10, Met. Ε.1 1026a18-19). Met. Ε.1 1026a23-32 (to be discussed below) confirms this. Downloaded from Brill.com 03/04/2024 06:31:35PM via Open Access. This is an open access article distributed under the terms of the CC BY 4.0 license. https://creativecommons.org/licenses/by/4.0/ Phronesis 68 (2023) 269-292</note></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_10"><head></head><label></label><figDesc>JudsonPhronesis 68 (2023) 269-292 inquiry in Λ.2, and (more to the present point) is exactly what is presupposed by Ζ and Η, two questions arise. (i) Does this conflict with Aristotle's famous ban on kind-crossing in the Posterior Analytics?37 (ii) How do the two inquiries nonetheless differ in such a way that one belongs to natural science and the other to metaphysics or first philosophy?</figDesc><table /><note>Downloaded from Brill.com 03/04/2024 06:31:35PM via Open Access. This is an open access article distributed under the terms of the CC BY 4.0 license. https://creativecommons.org/licenses/by/4.0/</note></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_13"><head></head><label></label><figDesc>as 'what are the principles and causes of substance, and what is their structure?' yields a much more plausible reading of Ζ as a whole. The way in which the discussions of essence, definition, and the parts and unity of forms are presented gives every sign of their being introduced and pursued because they are important problems in their own right and not as subordinate to the 'causal-explanatory substance question' of Ζ.17 (which is, moreover, introduced at 1041a6-7 as making 'another fresh start' [πάλιν ἄλλην οἷον ἀρχὴν ποιησάμενοι]: seeBurnyeat  2001, 56-7). This is confirmed, I think, by the way in which these discussions are listed in the summary in Η.1 (quoted in [T1] above) as arising because 'the object of our inquiry is the causes, principles, and elements of substances.' 45Meister has a quite different view of the relationship between Phys.</figDesc><table /><note>43I am indebted to David Charles for suggesting the terminology of 'use' and 'reflect on' .  44   The Ε.1 passage is quoted below, [T9]. I am unpersuaded by Meister's argument that the whole of Ζ is geared towards the question 'what is the first ontological cause of being of perceptible substance?' (2023, 79-80, 84-5, and sections 3-4): '[a]ll of Ζ builds up to the response in Ζ.17 to the causal-explanatory substance question from Ζ1' (2023, 99). I think that understanding 'what is substance?' in Ζ.1 I-II and Ζ: he thinks that the latter gives a fuller, more detailed account of the very same question as that addressed by the former (2023, 102-3). Downloaded from Brill.com 03/04/2024 06:31:35PM via Open Access. This is an open access article distributed under the terms of the CC BY 4.0 license. https://creativecommons.org/licenses/by/4.0/</note></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_14"><head></head><label></label><figDesc>is〉 universal in this way, because it is first. And it will belong to this to investigate being as being-both what it is and the things which belong to it as being.47</figDesc><table /><note>Judson Phronesis 68 (2023) 269-292 〈it</note></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_16"><head></head><label></label><figDesc>Downloaded from Brill.com 03/04/2024 06:31:35PM via Open Access. This is an open access article distributed under the terms of the CC BY 4.0 license. https://creativecommons.org/licenses/by/4.0/</figDesc><table><row><cell>Phronesis 68 (2023) 269-292</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_18"><head></head><label></label><figDesc>53See Judson 2018b, section 3. It is unclear how Meister 2023 conceives of the integration of Ζ's inquiry, as he understands it, with the rest of first philosophy (understood as 'theology'). What he says on pp. 110-13 suggests that he accepts this sequential account, perhaps with the addition of a via negativa element (p. 104). (Note, however, that it will not do to claim asMeister does (2023, 104-5, 108-9) that what primarily makes Ζ and 'theology' parts of the same inquiry is that they divide the labour of arriving at the principles of perceptible substances, with Ζ finding their ontological first principle, and theology finding the first cause of their generation and hence their first existential principle: the heavenly bodies are natural substances which are ungenerated (see Met. Λ.1), and it is therefore not obvious that they have an existential principle at all.) More generally, Meister sees the problem of Ζ's relevance to 'theology' quite differently, and his solution is correspondingly different: see 2023, section 6.</figDesc><table /><note>54 It might, for example, ask: are these substances forms? Are they, or do they rather have, essences? How are they individuated if they lack matter? Are there priority relations among them? 55Nothing rules out one or more of these investigations being a part of first philosophy on possibility (B) as well. Downloaded from Brill.com 03/04/2024 06:31:35PM via Open Access. This is an open access article distributed under the terms of the CC BY 4.0 license. https://creativecommons.org/licenses/by/4.0/</note></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_19"><head></head><label></label><figDesc>Downloaded from Brill.com 03/04/2024 06:31:35PM via Open Access. This is an open access article distributed under the terms of the CC BY 4.0 license. https://creativecommons.org/licenses/by/4.0/</figDesc><table><row><cell>Judson</cell></row><row><cell>Phronesis 68 (2023) 269-292</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_21"><head></head><label></label><figDesc>Downloaded from Brill.com 03/04/2024 06:31:35PM via Open Access. This is an open access article distributed under the terms of the CC BY 4.0 license. https://creativecommons.org/licenses/by/4.0/</figDesc><table /></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" xml:id="foot_0">What Is Aristotle ' s Metaphysics About?Phronesis 68 (2023) 269-292</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="4" xml:id="foot_1">The 'London group' thinks that the reference cannot be to Ζ.1, but rather to Γ.1-2 or (better) to Λ.1-2 (Burnyeat et al. 1984, 1). Given that the Η.1 passage summarises Ζ, this seems highly implausible.</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="5" xml:id="foot_2">For some discussion of the purpose of Ζ see<ref type="bibr" target="#b34">Wedin 2000;</ref><ref type="bibr" target="#b8">Burnyeat 2001;</ref><ref type="bibr" target="#b28">Menn 2011</ref> and forthcoming; Lewis 2013. Bostock characteristically detects confusion on Aristotle's part here(1994, 248). Meister 2023 is the most recent discussion: he reaches some conclusions which are congenial to those of my paper (e.g. that Ζ's metaphysics is an integral part of Aristotle's first philosophy), but by a very different route. I shall register some points of agreement and disagreement below. One disagreement is over how to understand Ζ.1's 'what is substance?' question: see n. 44.</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="6" xml:id="foot_3">In common with many commentators, I take the reference of 'this' at a13 to be the 'other kind of substance' . It could in principle be 'this inquiry' . (I owe this point to David Charles.)</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="7" xml:id="foot_4">πότερον δὲ ἔστι παρὰ τὴν ὕλην τῶν τοιούτων οὐσιῶν τις ἄλλη, καὶ δεῖ ζητεῖν οὐσίαν ἑτέραν τινὰ οἷον ἀριθμοὺς ἤ τι τοιοῦτον, σκεπτέον ὕστερον. τούτου γὰρ χάριν καὶ περὶ τῶν αἰσθητῶν οὐσιῶν πειρώμεθα διορίζειν, ἐπεὶ τρόπον τινὰ τῆς φυσικῆς καὶ δευτέρας φιλοσοφίας ἔργον ἡ περὶ τὰς αἰσθητὰς οὐσίας θεωρία.</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="8" xml:id="foot_5">8 τί δὲ χρὴ λέγειν καὶ ὁποῖόν τι τὴν οὐσίαν, πάλιν ἄλλην οἷον ἀρχὴν ποιησάμενοι λέγωμεν• ἴσως γὰρ ἐκ τούτων ἔσται δῆλον καὶ περὶ ἐκείνης τῆς οὐσίας ἥτις ἐστὶ κεχωρισμένη τῶν αἰσθητῶν οὐσιῶν. Downloaded from Brill.com 03/04/2024 06:31:35PM via Open Access. This is an open access article distributed under the terms of the CC BY 4.0 license. https://creativecommons.org/licenses/by/4.0/</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" xml:id="foot_6">JudsonPhronesis 68 (2023) 269-292</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" xml:id="foot_7">Downloaded from Brill.com 03/04/2024 06:31:35PM via Open Access. This is an open access article distributed under the terms of the CC BY 4.0 license. https://creativecommons.org/licenses/by/4.0/</note>
+		</body>
+		<back>
+			<div type="annex">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Judson</head><p>Phronesis 68 (2023) 269-292 comes from general criteria for the sameness and difference of sciences: part of its subject matter overlaps with that of theology, and part with that of natural science; some (but not all) of its questions overlap with those of these sciences as well. For these reasons, it has a claim to be part of either one.48 Its universality suggests, however, that it should be part of the higher science, as does the fact that theology examines an entity which in a quite different way is the principle of all things. I have argued elsewhere for the stronger position that in fact theology and metaphysics (understood in this way) require each other for their completion; but that is a separate, and separable, claim.49 With all this in place, Aristotle can readily call the inquiry in the central books 'first philosophy'-once again not meaning that these two are identical, but that the former is a part of the latter.</p><p>The main trajectory of the Metaphysics, with its focus on wisdom conceived of as the proper grasp of the highest principles and cause of all things, might suggest that one could, equally, start from the idea that metaphysics (wisdom in this sense) is first philosophy (once again, 'wisdom' would be reference-fixing in this claim), and then show how the departmental study of the highest kind of substances was a part of first philosophy too. But that is not how Aristotle proceeds in Ε; and the rest of the Metaphysics, starting with Α, may quite consistently be assuming the approach expressed in Ε. I shall say more about how-since there are other substances-metaphysics belongs to the science which considers their nature when I come to 'parts and wholes' .</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6">Disappearing First Philosophy</head><p>It is very striking that a number of scholars in recent times embrace some form or other of the 'disappearing first philosophy' view of the central books: they think that some or all of ΖΗΘ are not really first philosophy at all <ref type="bibr" target="#b13">(Frede 1987)</ref> </p></div>			</div>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">Frede and Patzig 1988, I, 21-5 and 31-3; Gill</title>
+	</analytic>
+	<monogr>
+		<title level="j">Ferejohn</title>
+		<imprint>
+			<biblScope unit="volume">111</biblScope>
+			<biblScope unit="page" from="34" to="36" />
+			<date type="published" when="1989">1989. 1994. 1994. 2000. 2001</date>
+		</imprint>
+	</monogr>
+	<note>For discussion see. 136 n. 59 (cf. Gill 1990, 604</note>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">via Open Access</title>
+		<idno>03/04/2024 06:31:35PM</idno>
+		<ptr target="https://creativecommons.org/licenses/by/4.0/" />
+	</analytic>
+	<monogr>
+		<title level="j">Judson Phronesis</title>
+		<imprint>
+			<biblScope unit="volume">41</biblScope>
+			<biblScope unit="issue">51</biblScope>
+			<biblScope unit="page" from="269" to="292" />
+			<date type="published" when="2001">2001. 2023</date>
+		</imprint>
+	</monogr>
+	<note>13 1039a19-20 is a reference back to Ζ.4-5. See Burnyeat. This is an open access article distributed under the terms of the CC BY 4.0 license</note>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<monogr>
+		<title level="m" type="main">But this does not square with what Aristotle says in [T8]: &apos;But if craft imitates nature, and it is for the same body of knowledge to know the form and, up to a point, the matter … then it would be for natural science to know both natures</title>
+		<imprint/>
+	</monogr>
+	<note>Aristotle&apos;s remark at 193b6-7 that the form is &apos;more a nature than the matter&apos; (καὶ μᾶλλον αὕτη φύσις τῆς ὕλης) is sometimes taken to mean &apos;form rather than matter is (a) nature. Nor does it square with Aristotle&apos;s appeals to things&apos; natures in the biological works, which are at least as often to the thing&apos;s matter as to its form</note>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<monogr>
+		<title level="m" type="main">εἰ δὲ ἡ τέχνη μιμεῖται τὴν φύσιν, τῆς δὲ αὐτῆς ἐπιστήμης εἰδέναι τὸ εἶδος καὶ τὴν ὕλην μέχρι του (οἷον ἰατροῦ ὑγίειαν καὶ χολὴν καὶ φλέγμα, ἐν οἷς ἡ ὑγίεια, ὁμοίως δὲ καὶ οἰκοδόμου τό τε εἶδος τῆς οἰκίας καὶ τὴν ὕλην, ὅτι πλίνθοι καὶ ξύλα• ὡσαύτως δὲ καὶ ἐπὶ τῶν ἄλλων), καὶ τῆς φυσικῆς ἂν εἴη τὸ γνωρίζειν ἀμφοτέρας τὰς φύσεις</title>
+		<author>
+			<persName><forename type="first">I</forename><forename type="middle">I</forename><surname>Phys</surname></persName>
+		</author>
+		<ptr target="https://creativecommons.org/licenses/by/4.0/References" />
+		<imprint>
+			<biblScope unit="volume">2</biblScope>
+			<biblScope unit="page" from="194" to="215" />
+		</imprint>
+	</monogr>
+	<note>Downloaded from Brill.com 03/04/2024 06:31:35PM via Open Access. This is an open access article distributed under the terms of the CC BY 4.0 license</note>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<monogr>
+		<title level="m" type="main">Aristotle&apos;s Posterior Analytics: Translated with a Commentary</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Barnes</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="1994">1994</date>
+			<pubPlace>Oxford</pubPlace>
+		</imprint>
+	</monogr>
+	<note>Second edition</note>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">Roman Aristotle</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Barnes</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Philosophia Togata II: Plato and Aristotle at Rome</title>
+				<editor>
+			<persName><forename type="first">J</forename><surname>Barnes</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">M</forename><surname>Griffin</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Oxford</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="1997">1997</date>
+			<biblScope unit="page" from="1" to="69" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<monogr>
+		<title level="m" type="main">Aristotle&apos;s Method in Natural Science: Physics I</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Bolton</surname></persName>
+		</author>
+		<editor>Judson, L., ed.</editor>
+		<imprint>
+			<date type="published" when="1991">1991</date>
+			<biblScope unit="page" from="1" to="29" />
+			<pubPlace>Oxford</pubPlace>
+		</imprint>
+	</monogr>
+	<note>Aristotle&apos;s Physics: A Collection of Essays</note>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">Aristotle on the Principles of Change in Physics I</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Bostock</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Language and Logos: Studies in Ancient Philosophy Presented to G.E.L</title>
+				<editor>
+			<persName><forename type="first">M</forename><surname>Schofield</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">M</forename><surname>Nussbaum</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Owen, Cambridge</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="1982">1982</date>
+			<biblScope unit="page" from="179" to="196" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">Notes On Books Eta and Theta of Aristotle&apos;s Metaphysics</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Bostock</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Oxford</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Burnyeat</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Pittsburgh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Burnyeat</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Aristotle: Metaphysics Books Ζ and Η</title>
+		<title level="s">Clarendon Aristotle Series</title>
+		<editor>
+			<persName><surname>Oxford</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">T</forename><surname>Clarke</surname></persName>
+		</editor>
+		<imprint>
+			<publisher>Quarantotto</publisher>
+			<date type="published" when="1979">1994. 2001. 1979. 1984. 2018. 2018</date>
+			<biblScope unit="volume">2</biblScope>
+			<biblScope unit="page" from="60" to="81" />
+		</imprint>
+	</monogr>
+	<note>Clarendon Aristotle Series</note>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">Aristotle&apos;s Metaphysics as a Science of Principles</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Code</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Revue Internationale de Philosophie</title>
+		<imprint>
+			<biblScope unit="volume">51</biblScope>
+			<biblScope unit="page" from="356" to="378" />
+			<date type="published" when="1997">1997</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">Aristotle&apos;s Theology and its Relation to the Science of Being qua Being</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Duarte</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Apeiron</title>
+		<imprint>
+			<biblScope unit="volume">40</biblScope>
+			<biblScope unit="page" from="267" to="298" />
+			<date type="published" when="2007">2007</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<monogr>
+		<title level="m" type="main">Aristotle and the Science of Nature: Unity without Uniformity</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Falcon</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2005">2005</date>
+			<publisher>Cambridge and New York</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">The Definition of Generated Composites in Aristotle&apos;s Metaphysics</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Ferejohn</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Unity, Identity, and Explanation in Aristotle&apos;s Metaphysics</title>
+				<editor>
+			<persName><forename type="first">T</forename><surname>Scaltsas</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">D</forename><surname>Charles</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">M</forename><forename type="middle">L</forename><surname>Gill</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Oxford</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="1994">1994</date>
+			<biblScope unit="page" from="291" to="318" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">The Unity of General and Special Metaphysics: Aristotle&apos;s Conception of Metaphysics</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Frede</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Essays in Ancient Philosophy</title>
+		<editor>Frede, M.</editor>
+		<imprint>
+			<biblScope unit="page" from="81" to="95" />
+			<date type="published" when="1987">1987</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<monogr>
+		<author>
+			<persName><forename type="first">M</forename><surname>Frede</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Patzig</surname></persName>
+		</author>
+		<title level="m">Aristoteles Metaphysik Ζ: Text, Übersetzung, Kommentar, 2 vols</title>
+				<meeting><address><addrLine>Munich</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="1988">1988</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<analytic>
+		<title level="a" type="main">Aristotle on Substance: The Paradox of Unity</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">L</forename><surname>Gill</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Aristoteles Metaphysik Ζ. Journal of the History of Philosophy</title>
+		<editor>Princeton. Gill, M.L.</editor>
+		<imprint>
+			<biblScope unit="volume">28</biblScope>
+			<biblScope unit="page" from="602" to="605" />
+			<date type="published" when="1989">1989. 1990</date>
+		</imprint>
+	</monogr>
+	<note>Review of Frede and Patzig</note>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<analytic>
+		<title level="a" type="main">The Texts of Plato and Aristotle in the First Century BC</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Hatzimichali</surname></persName>
+		</author>
+		<idno>03/04/2024 06:31</idno>
+		<ptr target="https://creativecommons.org/licenses/by/4.0/JudsonPhronesis68" />
+	</analytic>
+	<monogr>
+		<title level="m">Pythagoras in the First Century BC</title>
+				<editor>
+			<persName><forename type="first">M</forename><surname>Schofield</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">Aristotle</forename><surname>Plato</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Cambridge</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2013">2013. 2023</date>
+			<biblScope unit="page" from="269" to="292" />
+		</imprint>
+	</monogr>
+	<note>35PM via Open Access. This is an open access article distributed under the terms of the CC BY 4.0 license</note>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<analytic>
+		<title level="a" type="main">Aristotle&apos;s Discovery of Metaphysics</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Irwin</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Review of Metaphysics</title>
+		<imprint>
+			<biblScope unit="volume">31</biblScope>
+			<biblScope unit="page" from="210" to="229" />
+			<date type="published" when="1977">1977-78</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<monogr>
+		<title level="m" type="main">Aristotle&apos;s First Principles</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Irwin</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="1988">1988</date>
+			<pubPlace>Oxford</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<monogr>
+		<title level="m" type="main">Aristotle: Fundamentals of the History of his Development</title>
+		<author>
+			<persName><forename type="first">W</forename><surname>Jaeger</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="1948">1948</date>
+			<pubPlace>Robinson, R., trans; Oxford</pubPlace>
+		</imprint>
+	</monogr>
+	<note>Second edition</note>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<monogr>
+		<author>
+			<persName><forename type="first">L</forename><surname>Judson</surname></persName>
+		</author>
+		<title level="m">Aristotle&apos;s Metaphysics Λ (The Proceedings of the Fourteenth Symposium Aristotelicum)</title>
+				<editor>
+			<persName><forename type="first">D</forename><surname>Charles</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">M</forename><surname>Frede</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Oxford</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2000">2000</date>
+			<biblScope unit="page" from="111" to="135" />
+		</imprint>
+	</monogr>
+	<note>Formlessness and the Priority of Form: Metaphysics Ζ.</note>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<monogr>
+		<author>
+			<persName><forename type="first">L</forename><surname>Judson</surname></persName>
+		</author>
+		<title level="m">Physics I.5. In: Quarantotto</title>
+				<imprint>
+			<date type="published" when="2018">2018a</date>
+			<biblScope unit="page" from="130" to="153" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<monogr>
+		<title level="m" type="main">First Philosophy in Metaphysics Λ. Oxford Studies in Ancient Philosophy</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Judson</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2018">2018b</date>
+			<biblScope unit="volume">54</biblScope>
+			<biblScope unit="page" from="227" to="277" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b23">
+	<analytic>
+		<author>
+			<persName><forename type="first">L</forename><surname>Judson</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Aristotle, Metaphysics Book Λ: Translated with Introduction and Commentary</title>
+		<title level="s">Clarendon Aristotle Series</title>
+		<meeting><address><addrLine>Oxford</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2019">2019a</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b24">
+	<analytic>
+		<title level="a" type="main">Aristotle and Crossing the Boundaries between the Sciences</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Judson</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Archiv für Geschichte der Philosophie</title>
+		<imprint>
+			<biblScope unit="volume">101</biblScope>
+			<biblScope unit="page" from="177" to="204" />
+			<date type="published" when="2019">2019b</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b25">
+	<analytic>
+		<title level="a" type="main">How Aristotle gets by in Metaphysics Zeta</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Lear</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Cambridge. Lewis, F</title>
+		<imprint>
+			<date type="published" when="1988">1988. 2013</date>
+		</imprint>
+	</monogr>
+	<note>Aristotle: The Desire to Understand</note>
+</biblStruct>
+
+<biblStruct xml:id="b26">
+	<analytic>
+		<title level="a" type="main">Aristotle&apos;s Metaphysics Z as First Philosophy</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Meister</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Phronesis</title>
+		<imprint>
+			<biblScope unit="volume">68</biblScope>
+			<biblScope unit="page" from="78" to="116" />
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b27">
+	<analytic>
+		<title level="a" type="main">The Editors of the Metaphysics</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Menn</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Phronesis</title>
+		<imprint>
+			<biblScope unit="volume">40</biblScope>
+			<biblScope unit="page" from="202" to="208" />
+			<date type="published" when="1995">1995</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b28">
+	<analytic>
+		<title level="a" type="main">On Myles Burnyeat&apos;s Map of Metaphysics Zeta</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Menn</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Ancient Philosophy</title>
+		<imprint>
+			<biblScope unit="volume">31</biblScope>
+			<biblScope unit="page" from="161" to="202" />
+			<date type="published" when="2011">2011</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b29">
+	<monogr>
+		<title level="m" type="main">The Aim and the Argument of Aristotle&apos;s Metaphysics: draft</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Menn</surname></persName>
+		</author>
+		<ptr target="https://www.philosophie.hu-berlin.de/de/lehrbereiche/antike/mitarbeiter/menn/contents" />
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b30">
+	<monogr>
+		<author>
+			<persName><forename type="first">M</forename><surname>Peramatzis</surname></persName>
+		</author>
+		<title level="m">Priority in Aristotle&apos;s Metaphysics</title>
+				<meeting><address><addrLine>Oxford</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2011">2011</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b31">
+	<analytic>
+		<title level="a" type="main">Aristotle&apos;s Physics: A Revised Text with Introduction and Commentary</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Quarantotto</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Oxford. Sharples, R</title>
+		<editor>Bodnár, I. and Fortenbaugh, W.W.</editor>
+		<imprint>
+			<biblScope unit="page" from="107" to="126" />
+			<date type="published" when="1924">2018. 1924. 1936. 2002</date>
+			<publisher>Eudemus of Rhodes</publisher>
+		</imprint>
+	</monogr>
+	<note>Eudemus&apos; Physics: Change, Place and Time</note>
+</biblStruct>
+
+<biblStruct xml:id="b32">
+	<monogr>
+		<title level="m" type="main">The Oxford Handbook of Aristotle</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Shields</surname></persName>
+		</author>
+		<editor>Shields, C., ed.</editor>
+		<imprint>
+			<date type="published" when="2012">2012</date>
+			<biblScope unit="page" from="343" to="371" />
+			<pubPlace>Oxford</pubPlace>
+		</imprint>
+	</monogr>
+	<note>Being qua Being</note>
+</biblStruct>
+
+<biblStruct xml:id="b33">
+	<analytic>
+		<author>
+			<persName><forename type="first">C</forename><surname>Shields</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Aristotle, De Anima: Translated with Introduction and Commentary</title>
+		<title level="s">Clarendon Aristotle Series</title>
+		<meeting><address><addrLine>Oxford</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2016">2016</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b34">
+	<monogr>
+		<title level="m" type="main">Aristotle&apos;s Theory of Substance: The Categories and Metaphysics Zeta</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">V</forename><surname>Wedin</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2000">2000</date>
+			<pubPlace>Oxford</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b35">
+	<analytic>
+		<title level="a" type="main">The Science and Axioms of Being</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">V</forename><surname>Wedin</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">A Companion to Aristotle</title>
+				<editor>
+			<persName><forename type="first">G</forename><surname>Anagnostopoulos</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Oxford</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2009">2009</date>
+			<biblScope unit="page" from="123" to="143" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b36">
+	<monogr>
+		<title level="m" type="main">via Open Access</title>
+		<author>
+			<persName><surname>Downloaded</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Brill</surname></persName>
+		</author>
+		<idno>03/04/2024 06:31:35PM</idno>
+		<ptr target="https://creativecommons.org/licenses/by/4.0/" />
+		<imprint/>
+	</monogr>
+	<note>This is an open access article distributed under the terms of the CC BY 4.0 license</note>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

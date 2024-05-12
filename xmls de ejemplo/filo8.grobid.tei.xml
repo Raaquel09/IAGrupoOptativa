@@ -1,0 +1,444 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">What is Perceptible in Plato’s Timaeus?</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher>BRILL</publisher>
+				<availability status="unknown"><p>Copyright BRILL</p>
+				</availability>
+				<date type="published" when="2020-11-18">2020-11-18</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Filip</forename><surname>Karfík</surname></persName>
+						</author>
+						<title level="a" type="main">What is Perceptible in Plato’s Timaeus?</title>
+					</analytic>
+					<monogr>
+						<title level="m">Plato’s &lt;i&gt;Timaeus&lt;/i&gt;</title>
+						<imprint>
+							<publisher>BRILL</publisher>
+							<biblScope unit="page" from="213" to="227"/>
+							<date type="published" when="2020-11-18" />
+						</imprint>
+					</monogr>
+					<idno type="MD5">F24BCA27489EC19B17FA459E90D95303</idno>
+					<idno type="DOI">10.1163/9789004437081_012</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.2" ident="GROBID" when="2024-05-12T15:27+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>Plato -Timaeus -sense-perception -sensation -qualia -Forms</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Plato's Timaeus offers an elaborate theory of sense-perception. It is defined in terms of an opinion accompanied by irrational sensation. In humans, sensation is a physiological process occurring in the ensouled body through the agency of the mortal kind of soul whereas opinion is a judgement passed on this process by the rational kind of soul. The sensation itself is a result of the clash between different bodies defined in terms of masses of minuscule regular solids of fire, air, water, and earth, themselves composed of two kinds of triangles. Clashes between bodies cause dissolution and reconfiguration of these solids. These processes can be described mathematically but, to the human soul, they appear as different qualia. Perceptible qualia are not subjectindependent properties. Nevertheless, there must be intelligible Forms of them on which true judgements about them are based.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1">Introduction</head><p>Sense-perception is an important topic in Plato's Timaeus. After all, the main object of Timaeus' speech is to give an account of the "visible and tangible world,"1 as he puts it at the outset, or of the "perceptible god,"2 as he prefers to call this world at the end of his contribution to the feast of speeches given in reward of Socrates' account of the best form of society.3 This task involves an explanation of the perceptible characteristics of the world, on the one hand, and of cognition grasping them, on the other. A theory of sense-perception giving an account both of what is perceptible and of what is perceiving, constitutes an essential part of Timaeus' discourse on "the nature of the universe"4 and is by no means a mere appendix to it. If we take a look at the disposition of the whole of Timaeus' speech, we realise the importance of this topic. Not only is it present from the beginning until the end, but each of its two main parts are, in a way, structured around it. In the first part, dealing with the making of the world by the Demiurge, the construction of the body of the universe aims at making this body "visible and tangible"5 while the constitution of the world soul is designed to put this soul into contact with both what is "perceptible"6 and what is "rational."7 The second part of Timaeus' speech, which deals with the making of mortal living beings by the aids of the Demiurge, pays even more attention to sense-perception. As a matter of fact, the whole fabric of the human body aims at making different kinds of sense-perception possible. Moreover, an elaborated account of the nature of bodies in general (47e3-61c2) interrupts the description of the sensory organs of the human body in order to provide the foundations for the explanation of the nature and mechanism of sense-perception. This explanation itself then encompasses a detailed theory of perceptible characteristics of bodies (61c3-68d7) and a corresponding theory of the psychological and physiological conditions of different kinds of sense-perception by human beings, animals, and, to some degree, also plants (69c5-77c5).</p><p>Surprisingly, sense-perception as a topic of its own has not attracted much attention in recent scholarship on the Timaeus,8 except for a comprehensive and highly accurate account published by Luc Brisson in 19999 and several articles about particular senses.10 There is indeed little that can be added to, or emended in, Brisson's brilliant account. A puzzling question, however, is worth to be dwelt upon that may occur to our mind once we have understood how Plato's theory of sense-perception in the Timaeus works and what it means. This question is: What is the nature of perceptible characteristics and how it is that we have a kind of knowledge of them? </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2">A Caveat</head><p>Let me begin with a terminological observation. A perceptible characteristic is what is called aisthēton.11 A cognitive act relating to it bears a somewhat mysterious complex name doxa met' aisthēseōs alogou:12 "opinion accompanied by irrational sensation." Since the cognitive act relating to perceptible characteristics is called doxa, "opinion,"13 the "perceptible," aisthēton, may also be termed doxaston, "opinable."14 It is important to note and to keep in mind the distinction between opinion and sensation: the cognitive act that grasps a perceptible characteristic is not called aisthēsis, sensation, but doxa, opinion. It involves sensation but sensation is "irrational," i.e. it is not a cognitive act. We should therefore be very careful in translating these terms. If by senseperception we mean the cognitive grasp of a perceptible characteristic, then Plato's term for it in the Timaeus is not "sensation" but "opinion accompanied by irrational sensation." Consequently, in what follows, I will always render aisthēsis with "sensation" while, in speaking about "sense-perception," I will refer to what, in Timaeus' terms, is an opinion involving sensation.15</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3">Bodies and Souls</head><p>Perceptible characteristics, Timaeus tells his listeners initially, such as "visible" (horaton) and "tangible" (hapton) go along with body (sōma Cognition of perceptible characteristics, on the other hand, is something which Timaeus ascribes to the soul. There is no cognition of this sort where there is no impact of bodies on a soul, as we will learn from him later in his account. <ref type="bibr">19</ref> There are, however, according to Timaeus, different kinds of soul: (1) the universal soul or world soul,20 (2) particular souls of humans and animals21 and (3) a mortal kind of soul present in bodies of humans, animals and plants. <ref type="bibr">22</ref> The world soul and particular souls of humans and animals are immortal23 and they are by nature rational,24 though they animate mortal bodies25 and, for this very reason, become temporarily irrational, i.e. unable to perform, or to perform properly, the act of reasoning.26 On the other hand, the mortal kind of the soul is not only itself perishable like the body it is fastened into27 but in addition to this it is in itself irrational, i.e. by nature unable to reason.</p><p>To which of these kinds of the soul, we may ask, does Timaeus ascribe the cognition of perceptible characteristics? No doubt he attributes such cognition to the immortal and rational world soul which brings forth "opinions and beliefs" (doxai kai pisteis) concerning "the perceptible" (to aisthēton).28 As for humans, animals and plants, the matter seems to be more complex. In principle, to bring forth an "opinion" is always an act of a rational soul. Hence, only humans and animals will be able to form opinions about perceptible characteristics while plants, which have "no share in opinion, reasoning and intellection," will not.29 Still, even plants, being endowed with a kind of mortal soul, namely the appetitive part (to epithymētikon),30 will experience some "sensation" (aisthēsis).31 On the other hand, humans and animals will be able to form On the academic doctrine of the coordination between senses and elements see Baltes, "Die Zuordnung der Elemente zu den Sinnen bei Poseidonios und ihre Herkunft aus der alten Akademie." 19 Tim. 64a6-c7. 20</p><p>Tim. 34b3-37c5. 21</p><p>Tim. 41b6-44d2, 69c5-6, 73c6-d2. 22</p><p>Tim. 69c7-72b5 (for humans), 77a3-c5 (for plants), 91e4-6 (for animals). 23 <ref type="bibr">41d1,</ref><ref type="bibr">44d3. 25 Tim. 69c2,</ref> This is why the mortal kind of the soul is fabricated by lesser gods, not by the Demiurge himself, cf. 41c2-d3, 42e5-43a6 and 69c3-8. 28</p><p>Tim. 37b6-8. 29</p><p>Tim. 77b5: ᾧ δόξης μὲν λογισμοῦ τε καὶ νοῦ μέτεστιν τὸ μηδέν. 30</p><p>Tim. 69e5-70a2, 70d7 and 77b3-4. 31</p><p>Tim. 77b5-6.</p><p>Filip Karfík -9789004437081 Downloaded from Brill.com 03/04/2024 06:41:53PM via Open Access. This is an open access chapter distributed under the terms of the CC BY-NC-ND 4.0 license. https://creativecommons.org/licenses/by-nc-nd/4.0/ opinions on perceptible characteristics only due "sensations" (aisthēseis)32 that are somehow dependent on the presence of a mortal kind of the soul in their body and are in themselves irrational. Thus, cognition of perceptible characteristics defined as "opinion accompanied by irrational sensation" will only be ascribable to particular rational souls insofar as they are linked with the mortal kind of soul in a mortal body.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4">Corpuscles and Masses</head><p>Let me for the sake of brevity leave aside the world soul's cognitive powers, as well as the question of the function of the mortal parts of the soul, and focus on how Timaeus describes the perceptible characteristics in relation to human cognition. I have said that they relate to four kinds of bodies. I must now qualify this statement. Bodies, on Timaeus' theory, are geometrically shaped structures each of which, taken separately, is so minuscule as to be invisible for us.33 Fire is a pyramid, earth is a cube, water is an icosahedron, and air an octahedron.</p><p>Each of these minuscule regular solids is itself composed of a number of elementary triangles into which it can be dissolved. Three of them, fire, water, and air, are compounded of and can be dissolved into a single kind of triangle, the equilateral, and can thus transmute into one another, while earth, being compounded of another kind of triangle, the isosceles, if it is dissolved, can only form earth.34 Both kinds of triangles exist in different sizes35 but all of them are so minuscule that none of the particular corpuscles of fire, earth, water, and air, despite differences in size between them, is perceptible for us. The only thing we can perceive-or "see" as Timaeus puts it per metonymyare "masses" (onkoi) of many such corpuscles put together.36 These masses can be of very different types since there is great variety of mixtures between innumerable corpuscles of four different kinds in different sizes.37 Thus what we perceive are not characteristics of particular corpuscles, such as the number of their vertices, the size of their surfaces, the nature of the angles between  What is this something? On this issue, Timaeus is most explicit and the answer he gives is a complex one.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5">Movements</head><p>Masses of elementary bodies, i.e. corpuscles of four elements, are not stable but in motion.38 Their movement is caused by their reciprocal contact and the differences between them. Whenever bodies that are not equal one to another come into contact, Timaeus tells us, they move.39 This movement will be not a simple locomotion of corpuscles and their masses from one place to another. It will affect the very consistence of the elementary bodies, by dissolving them into their triangular constituents and by regrouping these constituents, such that the masses that clash in this way one with another will transform their structure and become different from what they were before the clash. These transformations will occur in accordance with the mathematical properties of elementary bodies involved in the clashing masses, depending on their kinds, sizes and numbers. Let me quote Timaeus' description of such processes:</p><p>When one of the other kinds is enveloped in fire and cut up by the sharpness of its angles and edges, then, if it is recombined into the shape of fire, there is an end to the cutting up; for no kind which is homogeneous and identical can effect any change in (metabolēn empoiēsai), or suffer any change from (pathein), that which is in the same condition as itself. But so long as, passing into some other kind, a weaker body is contending (machētai) with a stronger, the resolution does not come to an end. And, on the other hand, when a few smaller particles are enveloped in a large number of bigger ones and are being shattered and quenched, then, if they consent to combine into the figure of the prevailing kind, the quenching process comes to an end: from fire comes air, from air, water. But if they (the smaller particles) are on their way to these (air or water), and one of the other kinds meets them and comes into conflict, the process of their resolution does not stop until either they are wholly dissolved by the thrusting and escape to their kindred, or they are 38 Tim. 57d7-c4. 39</p><p>Ibid.</p><p>Filip Karfík -9789004437081 Downloaded from Brill.com 03/04/2024 06:41:53PM via Open Access. This is an open access chapter distributed under the terms of the CC BY-NC-ND 4.0 license. https://creativecommons.org/licenses/by-nc-nd/4.0/ overcome and a number of them form a single body uniform with the victorious body and take up their abode with it.40 transl. Cornford Sense-perception relates to masses of elementary corpuscles undergoing such transformations. This means that what it grasps is not a stable thing or structure. It is a movement, a change, a process that occurs between different factors entering into it and being transformed through it.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>6</head><p>Mathematical Formulas</p><p>These processes-which are depicted in terms of a battle between masses of elemental corpuscles-can be captured by mathematical formulas. A number of corpuscles of a particular kind are transformed into a number of corpuscles of a different kind or even of the same kind. In principle, it must be possible, for every process, to establish an equation with a status quo ante bellum on the one side and a status quo post bellum on the other, as Timaeus himself suggests:</p><p>When water is divided into parts by fire, or again by air, it is possible for one particle of fire and two of air to arise by combination.41 transl. Cornford</p><p>Let us put it this way: 20water = 4fire + (2 × 8air), if we count the surfaces of the icosahedron, tetrahedron and two octahedral, or this way: 120water = 24fire + (2 × 48air), if we count the elementary triangles of which these surfaces are compounded.</p><p>And the fragments of air, from a single particle that is dissolved, can become two particles of fire.42 transl. Cornford</p><p>Let us put it this way: 8air = 2 × 4fire or this way correspondingly: 48air = 2 × 24fire. Even if more complex formulas would be needed for transformations of mixed masses into one another, such formulas can be established. They do not really grasp the process as such but they fix the status quo ante and the status 40 Tim. 56e8-57b7. 41</p><p>Tim. 56d5-e1. 42</p><p>Tim. 56e1-2.</p><p>Filip Karfík -9789004437081 Downloaded from Brill.com 03/04/2024 06:41:53PM via Open Access. This is an open access chapter distributed under the terms of the CC BY-NC-ND 4.0 license. https://creativecommons.org/licenses/by-nc-nd/4.0/ quo post of it while determining the process itself as a relation of equality between these two states. If nothing else, this is enough to make such processes accessible to reason. In this way, these processes are calculable. This is something the Demiurge needs in order to make them follow his designs.43 Human beings, however, do not calculate mathematical formulas. Instead, they perceive characteristics of a quite different nature.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="7">Pathēmata</head><p>Transformations of bodily masses that can be fixed by means of mathematical equations are nevertheless processes in which these masses act one upon another. Depending on whether the corpuscles they are compounded from "win" or "lose" the battle, i.e. whether they persist or are dissolved, they play the part of an active or of a passive factor. Either they "effect a change" (metabolēn empoiēsai) or they "undergo"' it (pathein).44 Accordingly, they are described either as "that which acts" (to drōn,45 to poioun46) or as "that which is acted upon" (to pathon)47 while the process occurring between them is termed pathos48 or pathēma. <ref type="bibr" target="#b5">49</ref> The latter term, in particular, is used to describe the process itself.</p><p>It is worth paying attention to the different ways in which Timaeus uses this term.</p><p>(1) It can be used in the general sense of any process of transformation occurring between different bodily masses, independently of whether it is or not perceived by somebody, i.e. by a soul. <ref type="bibr" target="#b6">50</ref> (2) Most frequently, however, it is used to name those processes of this kind that eventually enter into the perceptual field of a human being.51 These are processes of transformation that affect an ensouled human body. These pathēmata, Timaeus tells us, are nothing other than movements (kinēseis) produced in a human body by various bodily masses hitting its various parts.52 These movements run through the human body in ways Timaeus specifies later in his account. If they reach the circular movements of the rational soul performing in the brain, we call them-precisely because they reach the soul, as Timaeus stresses-sensations (aisthēseis).53 Sensations are thus movements (kinēseis) in the sense of processes of transformation of elementary corpuscles (pathēmata) if they occur between a bodily mass and a human body and if they reach a rational soul. (Qualifications or modifications of this definition of sensation will be needed for animals and plants.) In order to distinguish these pathēmata from pathēmata in the general sense (1) Timaeus also terms them "those pathēmata that provide sensation" (τὰ παθήματα ὅσα αἰσθητικά).54</p><p>(3) The term pathēma, along with its cognate pathos, is used also to designate what human beings perceive, i.e. the perceptible characteristics as they appear to us.55 In listing them, Timaeus distributes them into three groups: (i) those that are common to the whole body, (ii) those that are particular to specific parts of the body, and (iii) those that occur together with both aforementioned kinds (i) and (ii).56 He first treats the common ones (61d5-64a1), then those occurring together with both the common and particular ones (64a2-65b6) and finally those occurring only in particular parts of our body (65b6-68d7). Here is the list of these pathēmata or aisthēseis:57 (i) sensations common to the whole body: hot/cold, hard/soft, heavy/light, smooth/rough58 (ii) sensations accompanying the common, as well as the particular sensations: pleasurable/painful59 (iii) sensations occurring in parts of the body:</p><p>-affecting the tongue: astringent/harsh, acrid/saline,60 pungent, acid, sweet61 -affecting the nostrils: nameless diversity of pleasurable/painful62 scents 53 -concerning hearing: high/low, smooth/harsh, loud/soft63 -concerning sight: white/black, bright/red64 and their mixtures: golden, purple, dark violet, tawny, grey, white yellow, dark blue, blue green, green65 In this sense, pathēmata or pathē are what we "perceive" in discerning characteristics that appear to us and in attributing to most of them (except for scents) different names. In other words, they are what constitute the object of sense-perception defined as "opinion accompanied by irrational sensation." "Irrational sensation" is a given pathēma while "opinion" is a judgement that a rational soul passes on it, once this pathēma has reached the soul's revolutions in one's brain.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="8">What Happens and What Appears</head><p>Let us now reflect for a while on what happens in an act of sense-perception explained in this way. A pathēma that becomes an aisthēsis in reaching the rational soul through the intermediary of sentient tissues of a living body is a movement or process consisting in transformations of corpuscles of elements due to clashes between masses of them. As such it is something that occurs between different terms. We have seen that, due to the mathematical properties of the corpuscles, such a process is describable by the means of mathematical equations. As such, it is conceived of as a sort of complex relation. A quantity of corpuscles of specific kinds acting upon another quantity of corpuscles of different specific kinds produces as a result a different configuration, both in amounts and in kinds, of corpuscles. If this happens between an external bodily mass and a part of a sentient body, the process which allows for a mathematical formula will appear to us as a specific perceptible characteristic, e.g. as hot to our flesh, as harsh to our tongue, or as white to our sight.66 Note that in the case of these three characteristics Timaeus expressly establishes the following equation: hot: flesh = harsh: tongue = white: sight happens. Such a grasp is an act of reasoning and the pattern grasped in this way, the mathematical formula, is an intelligible object. As satisfactory as such a cognitive act may be in terms of knowledge of what happens, there is something in the nature of the process that escapes the grasp of such a cognitive act. If there was not, there would be an entirely intelligible object in front of us. It is not easy to say what this something is, but we may guess that it will be the passage itself between the two sides of the equation expressing the change of one bodily mass into another. The mathematical formula fixes this passage as a relation of equality. But equality is a relationship between the status quo ante and the status quo post whereas the passage between them-the battle itself-is of another nature, that of change, of becoming different rather than of being equal. Reasoning lays hold of the relation of equality, but the process of becoming different escapes its grasp.</p><p>If processes of transformation affecting bodily masses ought to be apprehended in what distinguishes them from intelligible patterns that make them accessible to reason, they must present themselves in another garb to another kind of cognition. This is why they appear to opinion as perceptible qualia instead of being thought by reason in terms of mathematical objects. Or to put it the other way around: in becoming processes of change that occur in particular places, mathematical formulas must change their nature and become something less definite than numbers and geometrical figures, though still specific enough to be distinguishable and nameable. This is why they do not present themselves to the soul as mathematical formulas, but as perceptible qualia.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>10</head><p>Forms of Perceptible Qualia?</p><p>Another question is this: How it is that we identify and name perceptible qualia that appear to us? Let me sketch three possible answers to this question.</p><p>(1) The first one is that we grasp the mathematical formula of every perceptible quale that occurs to us, i.e. we make the calculus of processes affecting our body and assign to different formulas thus uncovered the corresponding names. This, however, does not seem to be Timaeus' theory since he suggests that such a calculus, though it may constitute a pleasurable pastime,69 should it be applied to the whole range of perceptible qualia, would surpass human capacity being something which is only in the power of the Demiurge.70 (2) Another possible answer is to suppose that there are intelligible Forms of perceptible qualia which make it possible for rational soul to recognize them and to assign to them the right names. This explanation of the cognition of perceptible characteristics is supported by the fact that, according to Timaeus' descriptions of sense-perception by the world soul and by human beings, the whole of the rational soul, including the Circle of the Same which is responsible for the cognition of intelligibles, is involved in every act of true opinion (doxa alēthēs) concerning sensations (aisthēseis).71 This hypothesis (a hypothesis it must remain because Timaeus is by no means explicit on this issue) may, however, turn out to be a source of further puzzlement. Let me state some of the difficulties to which it gives rise. First, we would have to assume that there are Forms of all of the perceptible qualia listed above, including colours, pleasures and pains and tactile sensations. Second, there would be Forms of processes occurring between active and passive factors. Third, mathematical formulas that capture these processes would not be identical with these Forms but would constitute the means by which the Demiurge makes the clashing bodily masses resemble the intelligible models of such clashes.</p><p>(3) If we shrink away from the latter hypothesis, having rejected the first possible answer to our question, the only remaining basis for attributing names to the perceptible qualia would be some sort of convention, like in Parmenides' account of the opinions of ignorant mortals.72 As a matter of fact, there would be no criterion enabling us to form a true opinion. This is evidently not Timaeus' theory since he allows for the difference between a true and a false opinion concerning sensations. <ref type="bibr" target="#b12">73</ref> Shall we, then, go for the second option, notwithstanding the puzzling questions mentioned? Interestingly, in the philosophical passage of the Seventh Letter, regardless of whether it is authentic or not, there is a list of different kinds of true beings which, as they are in themselves, are to be distinguished from their respective names, definitions, images and kinds of cognition. Among these objects the author of the letter quotes also "colour" (chroa) and "all acting and being acted upon" (poiēmata kai pathēmata sympanta).74 Whoever the author was, he or she chose this option. And so can we. Are Perceptible Qualia Subject-Independent?</p><p>Finally, in light of everything that has been said in the previous pages, we may ask whether perceptible qualia, according to the theory put forward in Plato's Timaeus, are objective, i.e. subject-independent properties of the things perceived. We must answer this question in the negative. As we have seen, what is perceived are processes of change that occur between particular masses of elemental corpuscles on the one hand and sentient tissues of human or animal body on the other. There is no perceptible quale unless there is such a process of change and unless this process affects a rational soul.75 Thus, the redness of a rose, for instance, is characteristic not of this particular rose in itself, but of the impact this kind of rose has upon the eye of a human being. The same kind of rose may have a different impact on the eye of an animal different from human beings, as it has also a different impact on an human eye which does not function properly due to a deficiency in its physiology. Thus the colour red comes about only in typical processes of interaction between bodily masses of a specific kind with sentient tissues of a specific kind. Perceptible qualia are phenomena dependent on the encounter between things perceived and beings perceiving these things. Consequently, unlike geometrical characteristics of the things perceived, they do not constitute intrinsic properties of these things. In this respect, Plato's account of what is perceptible is in agreement with that of Democritus rather than with that of Aristotle. This does not preclude, however, that, in addition to the possibility of capturing the processes that underlie the occurence of perceptible qualia through mathematical formulas, there exist intelligible Forms that provide a basis for naming these qualia correctly.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Filip</head><label></label><figDesc>Karfík -9789004437081 Downloaded from Brill.com 03/04/2024 06:41:53PM via Open Access. This is an open access chapter distributed under the terms of the CC BY-NC-ND 4.0 license. https://creativecommons.org/licenses/by-nc-nd/4.0/their edges and their sides but something related to various masses of such corpuscles.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>69</head><label></label><figDesc> Tim. 62d2-7. Filip Karfík -9789004437081 Downloaded from Brill.com 03/04/2024 06:41:53PM via Open Access. This is an open access chapter distributed under the terms of the CC BY-NC-ND 4.0 license. https://creativecommons.org/licenses/by-nc-nd/4.0/</figDesc></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="1" xml:id="foot_0"> Tim.  </note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="28" xml:id="foot_1">28b3-7: kosmos […] horatos […] haptos te. 2 Tim. 92c7: theos aisthētos. 3 Cf. Tim. 17a-20d. Filip Karfík -9789004437081 Downloaded from Brill.com 03/04/2024 06:41:53PM via Open Access. This is an open access chapter distributed under the terms of the CC BY-NC-ND 4.0 license. https://creativecommons.org/licenses/by-nc-nd/4.0/</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" xml:id="foot_2">What is Perceptible in Plato ' s Timaeus?</note>
+		</body>
+		<back>
+			<div type="annex">
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>This does not mean that the same bodily mass of a given structure will produce different effects in acting upon different senses of our body, though this may also be true. Rather it means that whenever the same ratio occurs between the structure of a given external bodily mass and that of a given sense organ of our body, it will produce effects that are analogous. But the fact remains that they will appear to us as different characteristics for which we will use different names in identifying them.</p><p>Let us also into account the following feature of Timaeus' account. In the case of scents, what is acting upon our nostrils are intermediary states of masses of water changing into air or masses of air changing into water, i.e. the status quo ante of this process is itself a process half a way of a transformation. What acts upon our nostrils is strictly speaking neither air nor water nor any other element but a certain quantity of elementary triangles into which a mass of air or water is dissolved in the process of regrouping into a mass of the other of these two elements respectively.67</p><p>What I want to stress by these examples are three points concerning the characteristics appearing to us: (1) what these characteristics reveal to us are not properties of particular bodies but relations between different bodily masses; (2) these relations, though they may be fixed by mathematical formulas, are not static structures but processes of change; (3) these processes of change appear to us not as such relations and processes but as characteristics for which the term qualia would be most fitting though Timaeus does not use it.68 These qualia do not appear as something stable, either. On the contrary, they turn, melt, merge, and verge one into another. Nevertheless, they possess enough of stability and determinacy to be discerned one from another and recognized as specific kinds, e.g. the colour red, a low sound, or a sweet taste.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="9">Pattern and Change</head><p>This reflection raises several questions. One of them is the following: Why it is that, apparently, something else happens (namely a transformation of different bodily masses due to their clashing) and something else appears to us (a perceptible quale)? Let me try to give a tentative answer to this question. What happens when perceptible qualia appear to us is a process that allows for mathematical description. This description does not, however, grasp it insofar as it is a process but rather insofar as it is static. </p></div>			</div>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<monogr>
+		<title/>
+		<author>
+			<persName><surname>Cf</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Tim</surname></persName>
+		</author>
+		<imprint>
+			<biblScope unit="page" from="68" to="70" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<monogr>
+		<title level="m" type="main">Tim. 62b6, 64e5, 65b5, 65b7, 65d6. For the pair paschon-drōn see also 33d1</title>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<monogr>
+		<title/>
+		<author>
+			<persName><forename type="first">Tim</forename></persName>
+		</author>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<monogr>
+		<title/>
+		<author>
+			<persName><forename type="first">Tim</forename></persName>
+		</author>
+		<imprint>
+			<biblScope unit="page" from="65" to="66" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<monogr>
+		<title/>
+		<author>
+			<persName><forename type="first">Tim</forename></persName>
+		</author>
+		<imprint>
+			<biblScope unit="page" from="62" to="65" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<monogr>
+		<title/>
+		<author>
+			<persName><surname>Cf</surname></persName>
+		</author>
+		<imprint>
+			<biblScope unit="volume">57</biblScope>
+			<biblScope unit="page" from="53" to="55" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<monogr>
+		<title/>
+		<author>
+			<persName><forename type="first">Tim</forename></persName>
+		</author>
+		<imprint>
+			<biblScope unit="page" from="64" to="66" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<monogr>
+		<title/>
+		<author>
+			<persName><forename type="first">Tim</forename></persName>
+		</author>
+		<imprint>
+			<biblScope unit="volume">43</biblScope>
+			<biblScope unit="page" from="61" to="65" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<monogr>
+		<title/>
+		<author>
+			<persName><forename type="first">Tim</forename></persName>
+		</author>
+		<imprint>
+			<biblScope unit="page" from="43" to="45" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<monogr>
+		<title level="m" type="main">This is an open access chapter distributed under the terms of the CC BY-NC-ND 4.0 license</title>
+		<author>
+			<persName><surname>Downloaded</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Brill</surname></persName>
+		</author>
+		<idno>03/04/2024 06:41:53PM</idno>
+		<ptr target="https://creativecommons.org/licenses/by-nc-nd/4.0/63(ἀκοή)ὀξεῖα/βαρυτέρα,ὁμαλήτεκαὶλεῖα/τραχεῖα,πολλή/σμικρά.64λευκόν/μελάν" />
+		<imprint>
+			<biblScope unit="page" from="67" to="69" />
+		</imprint>
+	</monogr>
+	<note>via Open Access. λαμπρόν τε καὶ) στίλβον/ἐρυθρόν. 65 ξανθόν, ἁλουργόν, ὄρφνινον, πυρρόν, φαιόν, ὠχρόν, κυανοῦν, γλαυκόν, πράσιον. 66 Tim</note>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<monogr>
+		<title level="m" type="main">via Open Access. This is an open access chapter distributed under the terms of the CC BY-NC-ND 4.0 license</title>
+		<author>
+			<persName><surname>Downloaded</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Brill</surname></persName>
+		</author>
+		<idno>03/04/2024 06:41:53PM</idno>
+		<ptr target="https://creativecommons.org/licenses/by-nc-nd/4.0/71Tim.37a6-c5and43c7-44c4" />
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<monogr>
+		<author>
+			<persName><surname>Cf</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Parmenides</surname></persName>
+		</author>
+		<title level="m">Diels-Kranz (= D 8.55-66 Laks-Most)</title>
+				<imprint>
+			<biblScope unit="volume">8</biblScope>
+			<biblScope unit="page" from="50" to="61" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<monogr>
+		<title/>
+		<author>
+			<persName><surname>Cf</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Tim</surname></persName>
+		</author>
+		<imprint>
+			<biblScope unit="page" from="43" to="45" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<monogr>
+		<title level="m">Ep. VII 342d4 and d8. Filip Karfík -9789004437081</title>
+				<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">Die Zuordnung der Elemente zu den Sinnen bei Poseidonios und ihre Herkunft aus der alten Akademie</title>
+		<author>
+			<persName><surname>Downloaded</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Brill</surname></persName>
+		</author>
+		<idno>03/04/2024 06:41:53PM</idno>
+		<ptr target="https://creativecommons.org/licenses/by-nc-nd/4.0/" />
+	</analytic>
+	<monogr>
+		<title level="m">ΔIANOHMATA. Kleine Schriften zu Platon und zum Platonismus</title>
+				<editor>
+			<persName><forename type="first">B</forename><forename type="middle">G</forename><surname>Teubner</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Stuttgart</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="1978">1978. 1999</date>
+			<biblScope unit="volume">122</biblScope>
+			<biblScope unit="page" from="33" to="50" />
+		</imprint>
+	</monogr>
+	<note>This is an open access chapter distributed under the terms of the CC BY-NC-ND 4.0 license. Reprint in id</note>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<analytic>
+		<title level="a" type="main">Matter or Size, Texture, and Resilience: The Variety of Elemental Forms in Plato&apos;s Timaeus</title>
+		<author>
+			<persName><forename type="first">Istvan</forename><surname>Bodnár</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Rhizai V</title>
+		<imprint>
+			<biblScope unit="volume">1</biblScope>
+			<biblScope unit="page" from="9" to="34" />
+			<date type="published" when="2008">2008</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<monogr>
+		<title level="m" type="main">Note that animals too, as well as human children, possess rational souls, though more or less dysfunctional, cf. Tim. 43a-44a (for children) and</title>
+		<imprint>
+			<biblScope unit="page" from="91" to="92" />
+		</imprint>
+	</monogr>
+	<note>for animals</note>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<analytic>
+		<title level="a" type="main">This is an open access chapter distributed under the terms of the CC BY-NC-ND 4.0 license</title>
+		<author>
+			<persName><surname>Downloaded</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Brill</surname></persName>
+		</author>
+		<idno>03/04/2024 06:41:53PM</idno>
+		<ptr target="https://creativecommons.org/licenses/by-nc-nd/4.0/Brisson" />
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the Boston Area Colloquium in Ancient Philosophy</title>
+				<editor>
+			<persName><forename type="first">John</forename><surname>Cleary</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">Gary</forename><surname>Gurtler</surname></persName>
+		</editor>
+		<meeting>the Boston Area Colloquium in Ancient Philosophy<address><addrLine>Luc; Leiden</addrLine></address></meeting>
+		<imprint>
+			<publisher>Brill</publisher>
+			<date type="published" when="1997">1997. 1999</date>
+			<biblScope unit="volume">XIII</biblScope>
+			<biblScope unit="page" from="177" to="185" />
+		</imprint>
+	</monogr>
+	<note>With &quot;Commentary on Brisson</note>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<monogr>
+		<author>
+			<persName><forename type="first">Sarah</forename><surname>Broadie</surname></persName>
+		</author>
+		<title level="m">Nature and Divinity in Plato&apos;s Timaeus</title>
+				<meeting><address><addrLine>Cambridge</addrLine></address></meeting>
+		<imprint>
+			<publisher>Cambridge University Press</publisher>
+			<date type="published" when="2012">2012</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<monogr>
+		<title level="m" type="main">Plato&apos;s Natural Philosophy: A Study of the Timaeus-Critias</title>
+		<author>
+			<persName><forename type="first">Thomas</forename><forename type="middle">K</forename><surname>Johansen</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2004">2004</date>
+			<publisher>Cambridge University Press</publisher>
+			<pubPlace>Cambridge</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<analytic>
+		<title level="a" type="main">Plato&apos;s Theory of Colours in the Timaeus</title>
+		<author>
+			<persName><forename type="first">Katerina</forename><surname>Ierodiakonou</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Rhizai II</title>
+		<imprint>
+			<biblScope unit="volume">2</biblScope>
+			<biblScope unit="page" from="219" to="233" />
+			<date type="published" when="2005">2005</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<analytic>
+		<title level="a" type="main">The Timaeus on Sounds and Hearing with some Implications for Plato&apos;s General Account of Sense-Perception</title>
+		<author>
+			<persName><forename type="first">Péter</forename><surname>Lautner</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Rhizai II</title>
+		<imprint>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="235" to="253" />
+			<date type="published" when="2005">2005</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<monogr>
+		<title level="m" type="main">Reprinted with a new introduction by Luc Brisson</title>
+		<author>
+			<persName><forename type="first">Gregory</forename><forename type="middle">Platonic</forename><surname>Vlastos</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Studies</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="1975">1981. 1975. 2005</date>
+			<publisher>Parmenides Publishers</publisher>
+			<biblScope unit="page">9789004437081</biblScope>
+			<pubPlace>Princeton; Las Vegas</pubPlace>
+		</imprint>
+		<respStmt>
+			<orgName>Gregory. Plato&apos;s Universe. Seattle: University of Washington Press</orgName>
+		</respStmt>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b23">
+	<monogr>
+		<title level="m" type="main">via Open Access</title>
+		<author>
+			<persName><surname>Downloaded</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Brill</surname></persName>
+		</author>
+		<idno>03/04/2024 06:41:53PM</idno>
+		<ptr target="https://creativecommons.org/licenses/by-nc-nd/4.0/" />
+		<imprint/>
+	</monogr>
+	<note>This is an open access chapter distributed under the terms of the CC BY-NC-ND 4.0 license</note>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

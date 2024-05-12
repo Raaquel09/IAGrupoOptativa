@@ -1,0 +1,561 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Convergence Rates of Online Critic Value Function Approximation in Native Spaces</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+				<date type="published" when="2024-05-09">9 May 2024</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Shengyuan</forename><surname>Niu</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Ali</forename><surname>Bouland</surname></persName>
+							<email>bouland@vt.edu</email>
+						</author>
+						<author>
+							<persName><forename type="first">Haoran</forename><surname>Wang</surname></persName>
+							<email>haoran9@vt.edu</email>
+						</author>
+						<author>
+							<persName><forename type="first">Filippos</forename><surname>Fotiadis</surname></persName>
+							<email>ffotiadis@gatech.edu</email>
+						</author>
+						<author>
+							<persName><forename type="first">Andrew</forename><surname>Kurdila</surname></persName>
+							<email>kurdila@vt.edu</email>
+						</author>
+						<author>
+							<persName><forename type="first">Andrea</forename><surname>L'afflitto</surname></persName>
+							<email>a.lafflitto@vt.edu</email>
+						</author>
+						<author>
+							<persName><forename type="first">Sai</forename><forename type="middle">Tej</forename><surname>Paruchuri</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Kyriakos</forename><forename type="middle">G</forename><surname>Vamvoudakis</surname></persName>
+							<email>kyriakos@gatech.edu</email>
+						</author>
+						<author>
+							<affiliation key="aff0">
+								<orgName type="department">Department of Mechanical Engineering</orgName>
+								<orgName type="institution">Virginia Tech</orgName>
+								<address>
+									<settlement>Blacksburg</settlement>
+									<region>VA</region>
+									<country key="US">USA</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<affiliation key="aff1">
+								<orgName type="institution" key="instit1">The Daniel Guggenheim School of Aerospace Engineering</orgName>
+								<orgName type="institution" key="instit2">Georgia Institute of Technology</orgName>
+								<address>
+									<settlement>Atlanta</settlement>
+									<region>GA</region>
+									<country key="US">USA</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<affiliation key="aff2">
+								<orgName type="department">Grado Department of Industrial and Systems Engineering</orgName>
+								<orgName type="institution">Virginia Tech</orgName>
+								<address>
+									<settlement>Blacksburg</settlement>
+									<region>VA</region>
+									<country key="US">USA</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<affiliation key="aff3">
+								<orgName type="department">Department of Mechanical Engineer-ing and Mechanics</orgName>
+								<orgName type="institution">Lehigh University</orgName>
+								<address>
+									<settlement>Bethlehem</settlement>
+									<region>PA</region>
+									<country key="US">USA</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Convergence Rates of Online Critic Value Function Approximation in Native Spaces</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date type="published" when="2024-05-09">9 May 2024</date>
+						</imprint>
+					</monogr>
+					<idno type="MD5">E35F7E37C33D2C48480B85650FCBC2BD</idno>
+					<idno type="arXiv">arXiv:2405.05887v1[math.OC]</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.2" ident="GROBID" when="2024-05-12T15:27+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>In this paper, the evolution equation that defines the online critic for the approximation of the optimal value function is cast in a general class of reproducing kernel Hilbert spaces (RKHSs). Exploiting some core tools of RKHS theory, this formulation allows deriving explicit bounds on the performance of the critic in terms of the kernel and definition of the RKHS, the number of basis functions, and the location of centers used to define scattered bases. The performance of the critic is precisely measured in terms of the power function of the scattered basis used in approximations, and it can be used either in an a priori evaluation of potential bases or in an a posteriori assessments of value function error for basis enrichment or pruning. The most concise bounds in the paper describe explicitly how the critic performance depends on the placement of centers, as measured by their fill distance in a subset that contains the trajectory of the critic.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>I. INTRODUCTION</head><p>Optimal control has become one of the core methodologies in modern control theory for efficient decision-making and policy design. One of its main advantages lies in its ability to yield control laws that achieve a compromise between the control effort expended in the closed loop and the time needed to attain regulation. At the heart of nonlinear optimal control design is the Hamilton-Jacobi-Bellman (HJB) equation <ref type="bibr" target="#b0">[1]</ref>, a partial differential equation (PDE) that is notoriously difficult to solve analytically, but whose solution directly yields the optimal control policy for the system. Numerous studies describe methods to approximate the solution of the HJB equation <ref type="bibr" target="#b1">[2]</ref>, with one of the most popular such tools being policy iteration (PI). This process iteratively evaluates the cost function for a given controller, and, subsequently, improves that controller from measurements. Nevertheless, one issue with PI is its need to employ a neural network (NN) for the policy evaluation step, called "critic," which inherently leads to approximation errors that degrade performance or lead to failure of convergence of the PI process.</p><p>To study approximation errors and their influence on performance in the context of PI, the use of Galerkin approximations in a recursive implementation has a long history. Notable early efforts include <ref type="bibr" target="#b2">[3]</ref>, <ref type="bibr" target="#b3">[4]</ref>. The authors in <ref type="bibr" target="#b4">[5]</ref> build on earlier work on Galerkin approximations to handle saturating actuators. This latter paper derives some basic convergence behavior of recursive methods but does not discuss how approximation errors quantitatively affect critic or closed-loop control performance. Subsequent papers <ref type="bibr" target="#b5">[6]</ref>, <ref type="bibr" target="#b6">[7]</ref> use some of the theory in <ref type="bibr" target="#b2">[3]</ref>- <ref type="bibr" target="#b4">[5]</ref> to study various online implementations based on learning theory. Some basic guarantees of the convergence of the critic are derived in <ref type="bibr" target="#b5">[6]</ref> in the style of <ref type="bibr" target="#b4">[5]</ref>, but the role of basis selection and resulting approximation error on the system's performance are not studied. To the authors' knowledge, the overall question of how basis selection and approximation errors affect the controller performance for either offline or online versions of these methods remains largely an open question. The works referenced in <ref type="bibr" target="#b7">[8]</ref> and <ref type="bibr" target="#b8">[9]</ref>, for example, provide comprehensive insights into the modern theory underlying many recent online and offline methods. Yet, these results do not derive explicit descriptions of how performance is related quantitatively to rates of convergence of value function approximations generated by a critic. On the other hand, some very recent efforts in <ref type="bibr" target="#b9">[10]</ref>- <ref type="bibr" target="#b11">[12]</ref> emphasize the importance of examining the impact of the approximation error on the performance of reinforcement learning methods.</p><p>This work extends the effort started in <ref type="bibr" target="#b12">[13]</ref> that rigorously frames the optimal control problem in a reproducing kernel Hilbert space (RKHS), and further fills this gap in the literature on basis selection, approximation error, and performance of PI. Specifically, we address the basic question of how the basis functions of the critic NN ought to be selected in the RKHS setting. The strongest results of this paper are geometric since we describe how the fill distance of the centers used to define the bases for approximation dictates the performance of the critic. In a few different instances, we relate the rate of convergence in the RKHS directly and explicitly to the performance of the critic.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>II. PROBLEM STATEMENT</head><p>Consider the continuous-time nonlinear system</p><formula xml:id="formula_0">ẋ(t) = f (x(t)) + g(x(t))u(x(t)), x(0) = x 0 , t ≥ 0, (1)</formula><p>where x(t) ∈ R n represents the state of the system, and f : R n → R n , g : R n → R n×m , and u : R n → R m represent the drift dynamics, the input dynamics, and the control input, respectively. This work is motivated by NN methods used to approximately solve the infinite-horizon optimal control problem. The problem is to find the continuous control input t → u(t) that minimizes the cost functional</p><formula xml:id="formula_1">J(x 0 , u) = ∞ 0 Q(x(t)) + u T (t)Ru(t) r(x(t),u(t)) dt (<label>2</label></formula><formula xml:id="formula_2">)</formula><p>where Q : x → Q(x) ≥ 0, and R ≻ 0. One of the main issues with this optimization is that one needs to solve a challenging nonlinear HJB equation. A minimizer u ⋆ of ( <ref type="formula" target="#formula_1">2</ref>) is called an optimal control, and V ⋆ (•) = J(•, u ⋆ ) defines the optimal value function. Then, to find u ⋆ and V ⋆ , in principle, one needs to find the positive-definite solution V ⋆ of the HJB equation</p><formula xml:id="formula_3">∇V ⋆T (x)f (x) − 1 4 ∇V ⋆T (x)g(x)R −1 g T (x)∇V ⋆ (x) + Q(x) = 0, V ⋆ (0) = 0, ∀x ∈ Ω,<label>(3)</label></formula><p>and then calculate <ref type="formula" target="#formula_3">3</ref>) is generally difficult, if not impossible, to solve analytically for V ⋆ . For this reason, PI <ref type="bibr" target="#b2">[3]</ref>, <ref type="bibr" target="#b4">[5]</ref>, a process that iteratively evaluates the cost of a stabilizing controller, and then improves that controller, is usually employed as a means to at least solve (3) approximately.</p><formula xml:id="formula_4">u ⋆ (x) = − 1 2 R −1 g T (x)∇V ⋆ (x) [1]. Nev- ertheless, (</formula><p>The most crucial and computationally demanding step of PI is that of policy evaluation. Given a continuous feedback gain µ : R n → R m that stabilizes (1) on a set Ω ⊆ R n , policy evaluation seeks to find the value function V µ (•) J(•, µ) associated with that controller. Provided that this function is continuously differentiable, it follows from <ref type="bibr" target="#b0">[1]</ref> that it satisfies</p><formula xml:id="formula_5">H µ (x) H µ (V µ (x)) = ∇V T µ (x)(f (x) + g(x)µ(x)) + Q(x) + µ T (x)Rµ(x) = 0, V µ (0) = 0,<label>(4)</label></formula><p>where H µ (V µ ) is known as the Hamiltonian associated with µ and V µ . While an analytical solution to (4) is also difficult to obtain, its linearity with respect to V µ -a property not present in (3) -enables the use of the so-called critic NN as a means to approximately solve it over a compact set Ω ⊂ R n .</p><p>To that end, note that since V µ is continuous, it can be uniformly approximated on Ω as V µ (x) = W T φ(x) + ǫ N (x), ∀x ∈ Ω, where φ : R n → R N is a suitable vector of N basis functions, W ∈ R N denote the "ideal weights" for that basis, and ǫ N : R n → R denotes the approximation error. The critic NN then uses an estimate Ŵ (t) ∈ R N of W , and provides an estimate of vN (t, •) of V µ according to the formula vN (t, x) = Ŵ T (t)φ(x). The purpose of policy evaluation is, thus, to properly train the critic weights Ŵ (t) so that the parameter error W (t) W − Ŵ (t) becomes as small as possible. In <ref type="bibr" target="#b5">[6]</ref>, the online policy evaluation law</p><formula xml:id="formula_6">Ẇ (t) = −a σ(t) (σ T (t)σ(t)+1) 2 σ T (t) Ŵ (t)+r(x(t), µ(x(t)))<label>(5)</label></formula><p>was proposed, where σ(t) σ(x(t)) = ∇φ(x(t))(f (x(t)) + g(x(t))µ(x(t)), and a &gt; 0 denotes the learning rate. Interestingly, it was proved that, under a persistency of excitation condition, the parameter estimation error W (t) under ( <ref type="formula" target="#formula_6">5</ref>) indeed converges exponentially fast to a neighborhood of the origin, the size of which scales with the size of the approximation error ǫ N over Ω. Nevertheless, the size of ǫ N is rarely known beforehand and, to our knowledge, no existing general strategy yet has been able to precisely quantify how the choice of basis influences the performance of the critic. This paper lifts the analysis of the parameter error W (t) Ŵ (t) − W R N to instead generate estimates of the error</p><formula xml:id="formula_7">of the value function v N (t, •) − V µ H(Ω)</formula><p>in a way that makes explicit the contribution of approximation errors in a wide variety of choices of the space H(Ω). Our goal is to ultimately use this analysis to quantitatively relate the choice of the basis function φ of the critic NN to the error</p><formula xml:id="formula_8">vN (t, •) − V µ H(Ω) in online critic estimates v N (t, •) of the value function V µ .</formula><p>A further potential goal of the paper is to reduce trial-and-error in realistic implications of the critic for adaptive nonlinear optimal control.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>III. NOTATION AND PRELIMINARIES</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>A. Elements of RKHS Theory</head><p>We denote by H(Ω) an RKHS over the set Ω ⊆ R n that is constructed using a Mercer reproducing kernel</p><formula xml:id="formula_9">K(•, •) : Ω × Ω → R. A Mercer kernel K(•, •) is continuous, symmetric,</formula><p>and of positive type. Being of positive type means that, for any N -point subset Ξ N ⊂ Ω, the corresponding Grammian matrix K N [K(ξ i , ξ j )] ∈ R N ×N is positive semidefinite. The native space H(Ω) itself is then determined as the closure of the linear span of the kernel sections</p><formula xml:id="formula_10">K x (•) K(x, •), that is, H(Ω) span{K x (•) | x ∈ Ω},</formula><p>where the closure is taken with respect to the candidate inner product (K x , K y ) K(x, y) for all x, y ∈ Ω.</p><p>Approximations in this paper are constructed using the finite-dimensional subspace</p><formula xml:id="formula_11">H N span{K ξi (•) | ξ i ∈ Ξ N , 1 ≤ i ≤ N }, where Ξ N ⊂ Ω is a collection of N "centers of approximation" contained in Ω. We denote by Π N : H(Ω) → H N the H(Ω)-orthogonal projection of H(Ω) onto H N .</formula><p>Many of the new results in this paper follow from some standard properties of the evaluation functional E x : H(Ω) → R over an RKHS. By definition, for each x ∈ Ω and every f ∈ H(Ω), it holds that E x f f (x), and this property defines a bounded linear mapping H(Ω) → R. The reproducing property, which is satisfied for any RKHS, implies that</p><formula xml:id="formula_12">E x f = f (x) = (f, K x ) H for any f ∈ H(Ω)</formula><p>and x ∈ Ω. Furthermore, as E x is a bounded linear operator between Hilbert spaces, its adjoint operator E *</p><p>x (E x ) * : R → H(Ω) is a bounded linear operator. This adjoint operator is expressed as</p><formula xml:id="formula_13">E * x α K x α for all α ∈ R, x ∈ Ω. That is, E *</formula><p>x can be understood as a multiplication operator since it multiplies any real number by the function K x .</p><p>If the kernel K(•, •) is bounded on the diagonal, then per definition, there exists a positive constant K such that, K(x, x) ≤ K2 for every x ∈ Ω. This condition guarantees that every function within the space H(Ω) is continuous and bounded. Furthermore, it ensures boundedness of the operator norm, that is,</p><formula xml:id="formula_14">E x = E * x ≤ K.</formula><p>It is worth noting that many commonly used kernels satisfy this criterion, including the inverse multiquadric, Sobolev-Matérn, Wendland, and exponential kernels <ref type="bibr" target="#b13">[14]</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>B. Differential Operator A on Native Spaces</head><p>We begin by introducing the differential operator A that is defined pointwise as (Av)(x) (f (x) + g(x)µ(x))</p><p>T ∇v(x) for all x ∈ Ω, whenever v is sufficiently smooth. Note that (4) then corresponds to the operator equation Av = b with b = −r, r defined in terms of the kernel r of the cost function in <ref type="bibr" target="#b1">(2)</ref>, and v = V µ .</p><p>Theorem 1: Let the kernel K : Ω×Ω → R that defines the native space H(Ω) be a C 2m (Ω, Ω) function with m ≥ 1, and suppose that µ and f i , g i for 1 ≤ i ≤ d are multipliers for C(Ω) and H(Ω). Then, 1) The operator A : H(Ω) → C(Ω), as well as the operator A : H(Ω) → L 2 (Ω), is bounded, linear, and compact.</p><p>2) The adjoint operator A * : L 2 (Ω) → H(Ω) has the representation</p><formula xml:id="formula_15">A * = Ω (∇ x K(x, y)) T (f (x) + g(x)µ(x)) h(x)dx Ω ℓ * (y, x)h(x)dx</formula><p>for any y ∈ Ω and h(•) ∈ L 2 (Ω). 3) Considered as a mapping A * : L 2 (Ω) → H(Ω), or as a mapping A * : L 2 (Ω) → L 2 (Ω), the operator A * is compact. Proof: The proof of this theorem can be found in <ref type="bibr" target="#b12">[13]</ref>, which uses Theorem 1 of <ref type="bibr" target="#b14">[15]</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>C. The DPS Learning Law and Its Approximation</head><p>For developing the online learning laws, we introduce the time-varying functional</p><formula xml:id="formula_16">J (t, ṽ) 1 2 |E x(t) Aṽ| 2 = 1 2 A * E * x(t) E x(t) Aṽ, ṽ H ,</formula><p>which is defined for all ṽ ∈ H(Ω) that satisfy the additional regularity condition ṽ ∈ {f ∈ H(Ω) | Aṽ ∈ H(Ω)}. The analysis in the remainder of this paper always assumes that this regularity condition holds. An elementary calculation shows that the Frechet derivative of J (t, ṽ) is simply DJ A * E * x(t) E x(t) A. For a fixed time t, let v(t, •) ∈ H(Ω) be a time-varying approximation of the minimizer v of J (t, v). An ideal gradient learning law designs the error ṽ(t, •) v − v(t, •) so that it evolves in the local direction of steepest descent, which is defined in terms of the Frechet differential in</p><formula xml:id="formula_17">∂ ∂t ṽ(t, •) = −aA * E * x(t) (y(t) − E x(t) Av(t, •)) ∈ H(Ω),</formula><p>where y(t) = E x(t) Av, and a &gt; 0. This ideal gradient law evolves in H(Ω), and it defines a distributed parameter system. In the usual way, we define the ideal evolution law for the estimate v(t, •) as</p><formula xml:id="formula_18">∂ ∂t v(t, •) = −aA * E * x(t) E x(t) Av(t, •)+aA * E * x(t) y(t) ∈ H(Ω).</formula><p>Note that in contrast to <ref type="bibr" target="#b5">[6]</ref>, the critic state evolves in a function space: it can be understood as a PDE. Finite-dimensional approximations are obtained by choosing vN (t, •)</p><formula xml:id="formula_19">N j=1 Ŵj (t)K ξj (•) and seeking a solution of d dt vN (t, •) = −aΠ N A * E * x(t) E x(t) AΠ N vN (t, •) + aΠ N A * E * x(t) y(t).<label>(6)</label></formula><p>These finite-dimensional equations evolve in H N , and they are equivalent to a system of ODEs.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>D. Online Coordinate Realizations</head><p>The critical step in deriving coordinate realizations of the finite-dimensional equations above must examine representations of the operator</p><formula xml:id="formula_20">Π N A * E * x E x AΠ N . The finite- dimensional approximation Π N A * E *</formula><p>x E x AΠ N can be deduced by considering g = K ξj and h = K ξi to obtain</p><formula xml:id="formula_21">[A N (x)] i,j ((Π N A * E * x E x AΠ N )K ξj , K ξi ) H , = Φ T (x, Ξ N )ψ(x)ψ(x) T Φ(x, Ξ N ) i,j .</formula><p>After taking the inner product of ( <ref type="formula" target="#formula_19">6</ref>) with an arbitrary K ξi ∈ H N , we therefore obtain the system of ODEs</p><formula xml:id="formula_22">K N Ẇ (t) = −aA N (x(t)) Ŵ (t) + aY (t),</formula><p>where Ŵ Ŵ1 (t) . . . ŴN (t) , the output</p><formula xml:id="formula_23">y(t) = E x(t) Av = b(x(t)), Y i (t) = (A * E * x(t) y(t), K ξi ) H(Ω) and Y (t) = {Y 1 , . . . , Y N (t)} T .</formula><p>Observation 1: It is well-known that in practice, the gradient learning law in (6) must use a robust modification whenever external noise, numerical noise, or approximation error appears in Y (t). Below we discuss a dead zone robust modification for this purpose. Observation 2: Interestingly, this expression for Y (•) is essentially the same as the expression for the right-most term in <ref type="bibr" target="#b4">(5)</ref>, with a slight difference being that the normalization with (σ T σ+1) 2 in ( <ref type="formula" target="#formula_6">5</ref>) is not introduced here. We will show that the dead zone robust modification suffices as an alternative to the usual normalization in the reinforcement learning literature.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>E. Rates of Convergence and Online Performance Bounds</head><p>In our first error analysis of online algorithms, we employ the gradient learning law in <ref type="bibr" target="#b5">(6)</ref>. The analysis is based on modifying the approach in the paper <ref type="bibr" target="#b5">[6]</ref> and carefully tracking the dependence of expressions on the number of bases N and the approximation error. The theorem below develops an ultimate bound on vN Π N ṽN = Π N (v − vN ).</p><p>Theorem 2: Suppose that the kernel K(•, •) that defines the RKHS H(Ω) is bounded on the diagonal by a constant K2 . In addition assume that the family of subspaces {H N } N ∈N and trajectory t → x(t) are PE in the sense that there are constants ∆(N ), γ 1 (N ) depending on N and γ 2 &gt; 0 such that</p><formula xml:id="formula_24">γ 1 (N )I HN ≤ t+∆(N ) t Π N A * E * x(τ ) E x(τ ) AΠ N dτ SN (t)</formula><p>≤ γ 2 I HN for each N ∈ N where S N (t) : H N → H N . Then we have the error bound</p><formula xml:id="formula_25">vN (t, •) H(Ω) Π N v − vN (t, •) H(Ω) ≤ γ 2 ∆(N ) γ 1 (N ) ( ȲN,max + δγ 2 a( ȲN,max + ǫ N,max )). (<label>7</label></formula><formula xml:id="formula_26">)</formula><p>where ȲN,max is defined in (8) and ǫ N,max is given in <ref type="bibr" target="#b8">(9)</ref>. Proof: The consistent approximation of the gradient law can be written as</p><formula xml:id="formula_27">d dt vN (t, •) = − aΠ N A * E * x(t) E x(t) A(v(•) − vN (t, •)) = − aΠ N A * E * x(t) E x(t) Av N (t, •) − aΠ N A * E * x(t) E x(t) A(I − Π N )v.</formula><p>Following the proof of Technical Lemma 2, part b in <ref type="bibr" target="#b5">[6]</ref>, we rewrite this equation as the system</p><formula xml:id="formula_28">ẊN (t) = B N (t)U N (t), Y N (t) = C * N (t)X N (t), where B N (t) −aΠ N A * E * x(t) , C * N (t) E x(t) AΠ N , X N (t) vN (t, •), ǫ N (t) E x(t) A(I − Π N )v, and U N (t) −Y N (t) + ǫ N (t).</formula><p>Carefully note that each of the operators B N (t) and C N (t) are bounded linear operators, and the bounds can be chosen independently of N . This holds owing to the assumption that the kernel K is bounded on the diagonal, so E x(t) = E * x(t) ≤ K. Also we have X N (t) ∈ H N and Y N (t) ∈ R. The proof of Technical Lemma 2 part b in <ref type="bibr" target="#b5">[6]</ref> is carried out for states, controls, and observations in Euclidean spaces, like R d or R. Since all the operators above are bounded, each step in the proof of Equation (A.9) in Technical Lemma 2 part b in <ref type="bibr" target="#b5">[6]</ref> can also be applied without change in the current setting. We have</p><formula xml:id="formula_29">X (t) HN ≤ γ 2 ∆(N ) γ 1 (N ) ȲN,max + δγ 2 γ 1 (N ) t+∆(N ) t B N (τ ) • U N (τ ) dτ</formula><p>for a constant δ of order one where</p><formula xml:id="formula_30">ȲN,max = sup τ ∈[t,t+∆(N )] |E x(τ ) AΠ N vN (t, •)|.<label>(8)</label></formula><p>But we also have B N (t) ≤ a A * K and U N (t) ≤ ȲN,max + |ǫ N (t)|. We conclude that the rate in (7) holds where</p><formula xml:id="formula_31">ǫ N,max sup τ ǫ N (τ ) ≤ sup τ ≥0 E x(τ ) A(I − Π N )v. (<label>9</label></formula><formula xml:id="formula_32">)</formula><p>The next theorem bounds the ultimate output error ỹN (t) y(t) − ŷN (t), where y(t) = E x(t) Av and ŷN (t) E x(t) Av N (t, •), in terms of the approximation error ǫ N,max in the case when we use a hard dead-zone version of the learning law with a properly designed dead-zone size. We emphasize that the result below does not require a PE condition, and the error bound on performance is more readily tied to just the approximation error ǫ N,max as described in the next Section IV. On the other hand, in principle an oracle must define a deadzone that is a tight bound for the approximation error. In practice this requires iteration.</p><p>Theorem 3: Employ the hard dead zone learning law that uses the gradient law in (6) whenever ỹN (t) : y(t) − ŷN (t) E x(t) Aṽ N (t, •) ≥ ǭ ≥ ǫ N,max , and otherwise use vN (t, •) = 0 inside the deadzone. Then for any arbitrarily small constant η &gt; 0 there is a time T T (η) such that</p><formula xml:id="formula_33">|E x(t) (H µ − ĤN (t, •))| ≡ |ỹ N (t)| ≤ 1+η</formula><p>a ǭ for all t ≥ T (η) &gt; 0, where the Hamiltonian H µ is defined in (4) and the approximate Hamiltonian is ĤN (t, x)</p><p>Av N (t, x) + r(x) for all x ∈ Ω. If we choose ǭ M (N )ǫ N,max for some (small) integer M (N ), and T O &gt; 0 is the time that the measurement error ỹN (t) spends outside the deadzone, we obtain an ultimate bound on the decrease of the value function error ṽN (t,</p><formula xml:id="formula_34">•) 2 H(Ω) ≤ ṽN (t 0 , •) 2 H(Ω) −2aT O (1+ M (N ))M (N )ǫ 2</formula><p>N,max for all t ≥ 0 large enough. Proof: In this proof we choose the Lyapunov function V(ṽ N ) 1  2 (ṽ N , ṽN ) H(Ω) . When |ỹ N (t)| ≥ ǭ, the derivative of the Lyapunov function along trajectories of the learning law satisfy</p><formula xml:id="formula_35">d dt V(ṽ N (t, •)) = −a Π N A * E * x(t) E x(t) Aṽ N (t, •), ṽN (t, •) H(Ω) = −a E x(t) Aṽ N (t, •), E x(t) Aṽ N (t, •) R + a E x(t) Aṽ N (t, •), −E x(t) A(I − Π N )ṽ N (t) R = −a (ỹ N (t), ỹN (t)) R + a (ỹ N (t), −ǫ N,max ) R ≤ −a|ỹ N (t)| (|ỹ N (t)| − ǫ N,max ) . Because |ỹ N (t)| ≥ ǭ ≥ ǫ N,max , we have d dt V(ṽ N (t, •)) ≤ −a|ỹ N (t)| (|ỹ N (t)| − ǫ N,max ) , ≤ −aǭ (ǭ − ǫ N,max ) &lt; 0,</formula><p>while the trajectory is outside the deadzone. Following standard telescoping sum arguments, as in Chapters 4 or 6 of <ref type="bibr" target="#b15">[16]</ref>, we conclude that the time spent outside the deadzone is finite, and thus, the norm of the output ỹ(t) is ultimately bounded by the deadzone. The bound on the value function error ṽ(t, •) H(Ω ) is likewise derived using a telescoping sum of the Lyapunov function defined in terms of the times that the observations ỹ(t) repeatedly enters and leaves the deadzone, as described in Chapter 6 of <ref type="bibr" target="#b15">[16]</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>IV. EXPLICIT ERROR BOUNDS AND FILL DISTANCES</head><p>In this section, we describe how some techniques used to describe rates of convergence of approximations in a native space can be applied to the above bounds on the online critic.</p><p>Note that a bit more can be said about the errors ǫ N (t) and ǫ N,max that appear in the theorems above. We have</p><formula xml:id="formula_36">ǫ N (t) |E x(t) A(I − Π N )v| = |(ℓ(•, x(t)), (I − Π N )v) H(Ω) | ≤ sup ξ∈Ω ℓ(•, ξ) H(Ω) (I − Π N )v H(Ω) ≤ ℓ max (I − Π N )v H(Ω)</formula><p>where ℓ(x, y) = ℓ * (y, x) and ℓ * (y, x) is defined in Theorem 1.</p><p>The remainder of this section describes how (I − Π N )v H(Ω) can be bounded explicitly in terms of the placement of centers in Ξ N . Recall that the power function P N <ref type="bibr" target="#b13">[14]</ref>, <ref type="bibr" target="#b16">[17]</ref> of the subspace H N in the RKHS H(Ω) is given by P</p><formula xml:id="formula_37">N (x) K(x, x) − K N (x, x), with K N the reproducing kernel of the subspace H N . It is easy to show that K N (x, y) K ΞN (x) T K −1 N K ΞN (y) where K Ξ (x) = {K ξ1 (x), . . . , K ξN (x)} T ∈ R N ×1</formula><p>is the column vector of N basis functions defined in terms of the set of centers Ξ N ⊂ Ω. It is well-known that the power function is useful for generating pointwise bounds on the projection error, and we have</p><formula xml:id="formula_38">|E x (I − Π N )v| ≤ P N (x) (I − Π N )v H(Ω) for all</formula><p>x ∈ Ω and v ∈ H(Ω). <ref type="bibr" target="#b13">[14]</ref>, <ref type="bibr" target="#b16">[17]</ref> This identity holds for any native space whatsoever.</p><p>We use this well-known identity to bound the error (I − Π N )v H(Ω) that appears in the ultimate bound of the critic.</p><p>Theorem 4 (Modification of Theorem 11.23 in <ref type="bibr" target="#b13">[14]</ref>): Suppose that v satisfies the regularity condition v = Lu where L : L 2 (Ω) → H(Ω) is the bounded, linear, compact operator (Lu)(x)</p><p>Ω K(x, y)u(y)dy. Then there is a constant C &gt; 0 such that we have the error bound</p><formula xml:id="formula_39">(I − Π N )v H(Ω) ≤ C sup ξ∈Ω |P N (ξ)| L −1 v L 2 (Ω) .</formula><p>Proof: This proof is based on that of Theorem 11.23 of <ref type="bibr" target="#b13">[14]</ref>, and for completeness we summarize the simple modifications here. First note that</p><formula xml:id="formula_40">(w, Lu) H(Ω) = (w, Ω K(•, y)u(y)dy) H(Ω) = Ω (w, K y ) H(Ω) u(y)dy = Ω w(y)u(y)dy = (w, u) L 2 (Ω) .</formula></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Now we can write</head><formula xml:id="formula_41">(I − Π N )v 2 H(Ω) = ((I − Π N )v, (I − Π N )v) H(Ω) , = ((I − Π N )v, v) H(Ω) , = ((I − Π N )v, Lu) H(Ω) , = (I − Π N )v, u) L 2 (Ω) , ≤ (I − Π N )v L 2 (Ω) u L 2 (Ω) .</formula><p>But we also have</p><formula xml:id="formula_42">(I − Π N )v 2 L 2 (Ω) = Ω |E x (I − Π N )v| 2 dx ≤ |Ω|| sup ξ∈Ω P N (ξ)| 2 (I − Π N )v 2 H(Ω)</formula><p>Substituting this bound above completes the proof of the theorem.</p><p>Since the centers Ξ N , kernel K, and power function P N is known, the above theorem can be used, in either a priori or a posteriori estimation of the value function estimate error that results from using a collection of centers Ξ.</p><p>The geometric nature of the bound above is often emphasized by relating the power function to the fill distance h ΞN ,Ω of the centers Ξ N in the set Ω. Define h ΞN ,Ω sup y∈Ω min ξi∈ΞN y − ξ i 2 . References such as <ref type="bibr" target="#b13">[14]</ref> and <ref type="bibr" target="#b16">[17]</ref> summarize upper bounds for the power function P N (x) for a variety of common kernels. These bounds have the form P N (x) N (h ΞN ,Ω ) for a function N : R + → R + . In this inequality, the function N may depend on the dimension n, the set Ω, and the kernel K, but not on the samples Ξ N . The tables in <ref type="bibr" target="#b13">[14]</ref>, <ref type="bibr" target="#b16">[17]</ref> describe many families of kernels that can provide alternatives for the ultimate bounds on the performance of the critic methods in this paper. Here, in the following lemma, we just summarize three common examples.</p><p>Lemma 1:</p><formula xml:id="formula_43">Suppose that v is contained in the uncertainty class C L,R {g = Lu ∈ H(Ω) | u L 2 (Ω) ≤ R} ⊆ H(Ω)</formula><p>, and that the hypotheses of Theorem 3 holds with the minimum size deadzone ǭ ≈ ǫ N,max . If we choose the Sobolev-Matérn kernel for a high enough smoothness k in Table <ref type="table" target="#tab_0">I</ref>, then there is a time T &gt; 0 such that for all t ≥ T we have the ultimate performance bound</p><formula xml:id="formula_44">|E x(t) (H µ − ĤN (t, •))| ≡ |y(t) − ŷN (t)| ≈ O(h k−n/2 ΞN ,Ω ).</formula><p>If we select the Wendland compactly supported kernel η n,k the right-hand side above is O(h k+1/2 ΞN ,Ω ), while if we choose the exponential kernel the right-hand side is O √ e −α|hΞ,Ω|/hΞ N ,Ω for a constant α that depends on the hyperparameters of the exponential kernel.</p><p>Proof: This result follows from Theorems 3 and 4.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>V. NUMERICAL RESULTS</head><p>In this section, we carry out numerical validation studies for the system of the form (1) studied in <ref type="bibr" target="#b5">[6]</ref>, with</p><formula xml:id="formula_45">f (x) = −x 1 + x 2 −0.5x 1 − 0.5x 2 1 − (cos (2x 1 ) + 2) 2 g(x) = 0 cos (2x 1 ) + 2</formula><p>The cost function for this problem sets R = 1 and Q = I 2 , with I 2 the identity matrix in R 2×2 . The optimal value function is V ⋆ (x) = 0.5x 2 1 + x 2 2 , which generates the optimal feedback controller u ⋆ (x) = −(cos(2x 1 ) + 2)x 2 . The numerical validation studies in <ref type="bibr" target="#b5">[6]</ref> are based on a very low dimensional system of polynomial bases whose span contains the exact optimal value function.</p><p>Figure <ref type="figure" target="#fig_0">1</ref> depicts the error norm V ⋆ − vN (t, •) L ∞ (Ω) for two Matérn kernels and an exponential kernel. Since we have  <ref type="bibr" target="#b13">[14]</ref>.</p><formula xml:id="formula_46">E x ≤ K, it follows that |E x ṽN (t, •)| ≤ K ṽN (t, •) H(Ω) and ṽN (t, •) L ∞ (Ω) ≤ K ṽN (t, •) H(Ω) , so Lemma 1 im- plies the corresponding convergence in the norm of L ∞ (Ω). Type Kernel N (•) Gaussian e −αr 2 , α &gt; 0 e −a| log h|/h Multiquadric (−1) ⌈β⌉ (c 2 + r 2 ) β , β &gt; 0,β ∈ N e −a/h Inverse multiquadric (c 2 + r 2 ) β , β &lt; 0 e −a/h Compactly supported functions η d,k h 2k+1 Sobolev-Matérn 2π d/2 Γ(k) K k−d/2 (r/2) k−d/2 , d, k ∈ N h 2k−d</formula><p>The ultimate approximate value function vN (t, •) closely matches the analytical expression for the optimal value function V ⋆ as the dimension N → ∞. Note that Theorem 1 only guarantees that vN (t, •) converges to V µ , not V ⋆ , so in fact this plot is a more stringent empirical test of the performance of the critic. Figure <ref type="figure" target="#fig_0">1</ref> illustrates that the online critic estimates vN (t, •) for the Sobolev-Matérn kernels converge at a rate that is theoretically determined by the fill distance as described in the paper in Lemma 1.</p><p>In fact, a bit more can be deduced about the value function error in L ∞ (Ω) when the regularity condition in Lemma 1 holds. This is referred to as the "doubling trick" in the literature on approximations in RKHS, see Theorem 11.23 of <ref type="bibr" target="#b13">[14]</ref> that enables the conclusion |E x (I − Π N )f | ≤ O((sup ξ∈Ω P N (ξ)) 2 ). A line having this slope for the Sobolev-Matérn kernel with k = 2.5 is labeled in Figure <ref type="figure" target="#fig_0">1</ref> as the "theoretical upper bound."</p><p>Often, in implementations, it is of vital concern to establish the rates of convergence of the error µ− μN where μN is the control approximation based on vN (t, •) of the ideal control u ⋆ . We can proceed exactly as in the proof of Theorem 3 of <ref type="bibr" target="#b17">[18]</ref> in the case at hand to conclude that</p><formula xml:id="formula_47">u ⋆ − ûN (t, •) C(Ω) ≤ C V ⋆ − vN (t, •) H(Ω) ≤ C V ⋆ − V µ H(Ω) + ṽN (t, •) H(Ω</formula><p>for some fixed constant C &gt; 0. Thus, if V * − V µ H(Ω) is sufficiently small, say of O(ǫ N,max ), then we expect the same rate of convergence for the control convergence in C(Ω) as in Lemma 1 for ṽN (t, •) H(Ω) .</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>VI. CONCLUSIONS</head><p>This paper has formulated the online critic for the estimation of the optimal value function in terms of evolution laws for a wide variety of RKHSs. Essentially, the approach in the paper can be viewed as a strategy to lift conventional approaches, which focus on studies of the convergence of parameter errors W − Ŵ (t) R N in R N , to instead focus on the norms of the value function error V ⋆ − v(t, •) H(Ω) when the critic evolves in some appropriate RKHS H(Ω). A wide variety of results are derived in the paper that hold over a large family of RKHSs. Performance bounds are derived that are explicit in the number N of basis functions, the choice of the kernel K that defines the RKHS, and the placement of centers Ξ N in a subset Ω of interest that define    the scattered bases. The final form of the performance bounds is given in terms of the power function of the scattered</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Fig. 1 .</head><label>1</label><figDesc>Fig.1. The L ∞ (Ω) error norm of the online critic estimates of the value function V ⋆ using the deadzone rule described in Lemma 1. The steady-state value function approximations using Sobolev-Matérn kernels of smoothness k = 1.5, 2.5 and exponential kernels are plotted above. Note that the rates of convergence for the Sobolev-Matérn kernels closely follow the theoretical bounds derived in Lemma 1.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head>Fig. 2 .</head><label>2</label><figDesc>Fig.2. The L ∞ (Ω) error norm of the online critic estimates of the control input u ⋆ with Sobolev-Matérn kernels of smoothness k = 2.5. Note that the rates of convergence for the Sobolev-Matérn kernels closely follow the theoretical bounds derived in Theorem 3 of<ref type="bibr" target="#b17">[18]</ref>.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head>Fig. 3 .</head><label>3</label><figDesc>Fig. 3. Feedback control u by learned Ŵ with Sobolev-Matérn kernels of smoothness k = 2.5.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_0"><head>TABLE I FUNCTIONS</head><label>I</label><figDesc>N (•) THAT BOUND THE POWER FUNCTION AS P N (x) N (h Ξ N ,Ω ) FOR x ∈ Ω. IN THIS TABLE h h Ξ N ,Ω . THE CONSTANT a IS A GENERIC CONSTANT THAT VARIES WITH THE KERNEL CHOICE. THE SYMBOL Kν IS THE MODIFIED BESSEL FUNCTION OF THE 3 rd KIND OF ORDER ν, WHILE THE SYMBOL η d,k DENOTES THE COMPACTLY SUPPORTED WENDLAND KERNEL OF DIMENSION d AND SMOOTHNESS k GIVEN IN</figDesc><table /></figure>
+		</body>
+		<back>
+
+			<div type="acknowledgement">
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>basis, which is subsequently refined to obtain performance guarantees on the critic in terms of the fill distance of the centers in the subset of interest Ω.</p></div>
+			</div>
+
+
+			<div type="funding">
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>This work was supported in part, by NSF under grants No. CAREER CPS-1851588, CPS-2227185, S&amp;AS-1849198, and 2137159, and the US Army Research Lab under Grant No. W 911QX2320001.</p></div>
+			</div>
+
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<monogr>
+		<title/>
+		<author>
+			<persName><forename type="first">F</forename><forename type="middle">L</forename><surname>Lewis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Vrabie</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><forename type="middle">L</forename><surname>Syrmos</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2012">2012</date>
+			<publisher>John Wiley &amp; Sons</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">Optimal and autonomous control using reinforcement learning: A survey</title>
+		<author>
+			<persName><forename type="first">B</forename><surname>Kiumarsi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">G</forename><surname>Vamvoudakis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Modares</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><forename type="middle">L</forename><surname>Lewis</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Trans. Neural Netw. Learn. Syst</title>
+		<imprint>
+			<biblScope unit="volume">29</biblScope>
+			<biblScope unit="issue">6</biblScope>
+			<biblScope unit="page" from="2042" to="2062" />
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">Successive galerkin approximation algorithms for nonlinear optimal and robust control</title>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">W</forename><surname>Bea</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Int. J. Control</title>
+		<imprint>
+			<biblScope unit="volume">71</biblScope>
+			<biblScope unit="issue">5</biblScope>
+			<biblScope unit="page" from="717" to="743" />
+			<date type="published" when="1998">1998</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">Galerkin approximations of the generalized hamilton-jacobi-bellman equation</title>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">W</forename><surname>Beard</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><forename type="middle">N</forename><surname>Saridis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">T</forename><surname>Wen</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Automatica</title>
+		<imprint>
+			<biblScope unit="volume">33</biblScope>
+			<biblScope unit="issue">12</biblScope>
+			<biblScope unit="page" from="2159" to="2177" />
+			<date type="published" when="1997">1997</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">Nearly optimal control laws for nonlinear systems with saturating actuators using a neural network hjb approach</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Abu-Khalaf</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><forename type="middle">L</forename><surname>Lewis</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Automatica</title>
+		<imprint>
+			<biblScope unit="volume">41</biblScope>
+			<biblScope unit="issue">5</biblScope>
+			<biblScope unit="page" from="779" to="791" />
+			<date type="published" when="2005">2005</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">Online actor-critic algorithm to solve the continuous-time infinite horizon optimal control problem</title>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">G</forename><surname>Vamvoudakis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><forename type="middle">L</forename><surname>Lewis</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Automatica</title>
+		<imprint>
+			<biblScope unit="volume">46</biblScope>
+			<biblScope unit="issue">5</biblScope>
+			<biblScope unit="page" from="878" to="888" />
+			<date type="published" when="2010">2010</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">A novel actor-critic-identifier architecture for approximate optimal control of uncertain nonlinear systems</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Bhasin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Kamalapurkar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Johnson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">G</forename><surname>Vamvoudakis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><forename type="middle">L</forename><surname>Lewis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><forename type="middle">E</forename><surname>Dixon</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Automatica</title>
+		<imprint>
+			<biblScope unit="volume">49</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="82" to="92" />
+			<date type="published" when="2013">2013</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<monogr>
+		<title level="m" type="main">Reinforcement learning and approximate dynamic programming for feedback control</title>
+		<author>
+			<persName><forename type="first">F</forename><forename type="middle">L</forename><surname>Lewis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Liu</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2013">2013</date>
+			<publisher>John Wiley &amp; Sons</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<monogr>
+		<title level="m" type="main">Reinforcement learning for optimal feedback control</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Kamalapurkar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Walters</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Rosenfeld</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Dixon</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2018">2018</date>
+			<publisher>Springer</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">Reinforcement learning and adaptive optimal control for continuous-time nonlinear systems: A value iteration approach</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Bian</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z.-P</forename><surname>Jiang</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Trans. Neural Netw. Learn. Syst</title>
+		<imprint>
+			<biblScope unit="volume">33</biblScope>
+			<biblScope unit="issue">7</biblScope>
+			<biblScope unit="page" from="2781" to="2790" />
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">Robust feedback control of nonlinear pdes by numerical approximation of high-dimensional hamilton-jacobi-isaacs equations</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Kalise</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Kundu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Kunisch</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">SIAM J. Appl. Dyn. Syst</title>
+		<imprint>
+			<biblScope unit="volume">19</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="1496" to="1524" />
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">Hamiltonian-driven adaptive dynamic programming with approximation errors</title>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Yang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Modares</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">G</forename><surname>Vamvoudakis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>He</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C.-Z</forename><surname>Xu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">C</forename><surname>Wunsch</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Trans. Cybern</title>
+		<imprint>
+			<biblScope unit="volume">52</biblScope>
+			<biblScope unit="issue">12</biblScope>
+			<biblScope unit="page" from="13" to="762" />
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">Rates of convergence in a class of native spaces for reinforcement learning and control</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Bouland</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Niu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">T</forename><surname>Paruchuri</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Kurdila</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Burns</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Schuster</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Control Syst. Lett</title>
+		<imprint>
+			<biblScope unit="volume">8</biblScope>
+			<biblScope unit="page" from="55" to="60" />
+			<date type="published" when="2024">2024</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<monogr>
+		<title level="m" type="main">Scattered data approximation</title>
+		<author>
+			<persName><forename type="first">H</forename><surname>Wendland</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2004">2004</date>
+			<publisher>Cambridge university press</publisher>
+			<biblScope unit="volume">17</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">Derivative reproducing properties for kernel methods in learning theory</title>
+		<author>
+			<persName><forename type="first">D.-X</forename><surname>Zhou</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">J. Comput. Appl. Math</title>
+		<imprint>
+			<biblScope unit="volume">220</biblScope>
+			<biblScope unit="issue">1-2</biblScope>
+			<biblScope unit="page" from="456" to="463" />
+			<date type="published" when="2008">2008</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<monogr>
+		<title level="m" type="main">Adaptive approximation based control: unifying neural, fuzzy and traditional adaptive approximation approaches</title>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">A</forename><surname>Farrell</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">M</forename><surname>Polycarpou</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2006">2006</date>
+			<publisher>John Wiley &amp; Sons</publisher>
+			<biblScope unit="volume">48</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<analytic>
+		<title level="a" type="main">Error estimates and condition numbers for radial basis function interpolation</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Schaback</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Adv. Comput. Math</title>
+		<imprint>
+			<biblScope unit="volume">3</biblScope>
+			<biblScope unit="page" from="251" to="264" />
+			<date type="published" when="1994">1994</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<monogr>
+		<title level="m" type="main">Rates of convergence in certain native spaces of approximations used in reinforcement learning</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Bouland</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Niu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">T</forename><surname>Paruchuri</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Kurdila</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Burns</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Schuster</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:2309.07383</idno>
+		<imprint>
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

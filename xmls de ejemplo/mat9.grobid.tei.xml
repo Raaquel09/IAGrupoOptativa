@@ -1,0 +1,827 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">H 2 optimal model reduction of linear systems with multiple quadratic outputs</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+				<date type="published" when="2024-05-09">9 May 2024</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Sean</forename><surname>Reiter</surname></persName>
+							<email>seanr7@vt.edu</email>
+							<affiliation key="aff0">
+								<orgName type="department">Department of Mathematics</orgName>
+								<orgName type="institution">Virginia Tech</orgName>
+								<address>
+									<postCode>24061</postCode>
+									<settlement>Blacksburg</settlement>
+									<region>VA</region>
+									<country key="US">USA</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Igor</forename><surname>Pontes</surname></persName>
+							<email>pontes@mpi-magdeburg.mpg.de</email>
+							<affiliation key="aff1">
+								<orgName type="department">Max Planck Institute for Dynamics of Complex Technical Systems</orgName>
+								<address>
+									<addrLine>Sandtorstr. 1</addrLine>
+									<postCode>39106</postCode>
+									<settlement>Magdeburg</settlement>
+									<country key="DE">Germany</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Duff</forename><forename type="middle">⋆</forename><surname>Ion</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Victor</forename><surname>Gosea</surname></persName>
+							<email>gosea@mpi-magdeburg.mpg.de</email>
+							<affiliation key="aff2">
+								<orgName type="department">Max Planck Institute for Dynamics of Complex Technical Systems</orgName>
+								<address>
+									<addrLine>Sandtorstr. 1</addrLine>
+									<postCode>39106</postCode>
+									<settlement>Magdeburg</settlement>
+									<country key="DE">Germany</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Serkan</forename><surname>Gugercin</surname></persName>
+							<email>gugercin@vt.edu</email>
+							<affiliation key="aff3">
+								<orgName type="department">Department of Mathematics and Division of Computational Modeling and Data Analytics</orgName>
+								<orgName type="institution" key="instit1">Academy of Data Science</orgName>
+								<orgName type="institution" key="instit2">Virginia Tech</orgName>
+								<address>
+									<postCode>24061</postCode>
+									<settlement>Blacksburg</settlement>
+									<region>VA</region>
+									<country key="US">USA</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">H 2 optimal model reduction of linear systems with multiple quadratic outputs</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date type="published" when="2024-05-09">9 May 2024</date>
+						</imprint>
+					</monogr>
+					<idno type="MD5">007FB18A84BE5A529C3AC535C0E5057F</idno>
+					<idno type="arXiv">arXiv:2405.05951v1[math.NA]</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.2" ident="GROBID" when="2024-05-12T15:27+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>
+					<term>linear quadratic output systems</term>
+					<term>H 2 optimal</term>
+					<term>model-order reduction</term>
+					<term>Gramians</term>
+					<term>two-sided iteration</term>
+					<term>optimality conditions</term>
+					<term>gradients Mathematics subject classification: 15A24</term>
+					<term>46N10</term>
+					<term>49K15</term>
+					<term>93A15 93C10</term>
+					<term>93C80</term>
+				</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>In this work, we consider the H 2 optimal model reduction of dynamical systems that are linear in the state equation and up to quadratic nonlinearity in the output equation. As our primary theoretical contributions, we derive gradients of the squared H 2 system error with respect to the reduced model quantities and, from the stationary points of these gradients, introduce Gramian-based first-order necessary conditions for the H 2 optimal approximation of a linear quadratic output (LQO) system. The resulting H 2 optimality framework neatly generalizes the analogous Gramian-based optimality framework for purely linear systems. Computationally, we show how to enforce the necessary optimality conditions using Petrov-Galerkin projection; the corresponding projection matrices are obtained from a pair of Sylvester equations. Based on this result, we propose an iteratively corrected algorithm for the H 2 model reduction of LQO systems, which we refer to as LQO-TSIA (linear quadratic output two-sided iteration algorithm). Numerical examples are included to illustrate the effectiveness of the proposed computational method against other existing approaches.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1">Introduction</head><p>The focus of this work is a class of weakly nonlinear dynamical systems; those that are linear time-invariant in the state equation with up to quadratic terms in the output equation. We refer to these systems as linear quadratic output (LQO) systems. Dynamical systems with quadratic output functions arise naturally whenever one's interests lie in observing quantities computed as the product of time or frequency domain components of the state <ref type="bibr" target="#b26">[27]</ref>. Examples include applications where energy or power are considered; e.g., the internal energy functional of a system <ref type="bibr" target="#b17">[18,</ref><ref type="bibr" target="#b20">21]</ref>, or the objective cost function in optimal quadratic control problems <ref type="bibr" target="#b12">[13]</ref>. Other examples include observables that capture the variance or deviation of the state coordinates from a point of reference; for instance, the root mean squared displacement of several spatial coordinates about a point of excitation <ref type="bibr" target="#b3">[4,</ref><ref type="bibr" target="#b23">24,</ref><ref type="bibr" target="#b26">27]</ref>, or the variance of a random variable in stochastic modeling <ref type="bibr" target="#b21">[22]</ref>.</p><p>The accurate modeling of complex physical phenomena often requires dynamical systems having a very large statespace dimension, e.g., on the order of 10 6 or even greater.</p><p>In this large-scale setting, direct calculations involving the full-order model (FOM) are prohibitively costly, and system approximation becomes desirable. Model order reduction (MOR) is the procedure by which one approximates a large-scale dynamical system with a comparatively loworder surrogate model. The resultant reduced-order model (ROM) should capture the significant input-to-output response characteristics of the original system in an appropriate sense, and can thus be used as a computationally efficient and faithful proxy for the FOM in applications of, e.g., prediction and simulation, or control.</p><p>In the purely linear setting (that is, both the internal dynamics and output equation depend only linearly on the state coordinates) there are a variety of model reduction techniques at one's disposal; we refer the reader to <ref type="bibr" target="#b0">[1,</ref><ref type="bibr" target="#b1">2,</ref><ref type="bibr" target="#b8">9,</ref><ref type="bibr" target="#b9">10]</ref> and to the collection of references therein for an overview of approximation methods for linear dynamical systems. In recent years, there has been an increased amount of study dedicated towards the model reduction of LQO systems; cf., <ref type="bibr" target="#b6">[7,</ref><ref type="bibr" target="#b12">13,</ref><ref type="bibr" target="#b14">15,</ref><ref type="bibr" target="#b15">16,</ref><ref type="bibr" target="#b19">[20]</ref><ref type="bibr" target="#b20">[21]</ref><ref type="bibr" target="#b21">[22]</ref><ref type="bibr" target="#b23">[24]</ref><ref type="bibr" target="#b24">[25]</ref><ref type="bibr" target="#b25">[26]</ref><ref type="bibr" target="#b26">[27]</ref>. Some of these works tackle the LQO-MOR problem by rewriting the governing equations of a multi-input, single-output LQO system as a wholly linear multi-input, multi-output system that emulates the quadratic quantity of interest via multiple linear outputs <ref type="bibr" target="#b25">[26,</ref><ref type="bibr" target="#b26">27]</ref>. Any of the well-known model reduction techniques available for linear systems can then be applied to the intermediate model in order to determine suitable projection subspaces. However, a drawback of this approach is that it will produce an intermediate model with a very large number of outputs; this is undesirable in the design of reduced models since systems with large input/output dimensions tend to have slowly decaying Hankel singular values, and are thus more difficult to approximate <ref type="bibr" target="#b2">[3]</ref>.</p><p>Other works <ref type="bibr" target="#b6">[7,</ref><ref type="bibr" target="#b12">13,</ref><ref type="bibr" target="#b14">15,</ref><ref type="bibr" target="#b15">16,</ref><ref type="bibr" target="#b19">20,</ref><ref type="bibr" target="#b20">21,</ref><ref type="bibr" target="#b24">25]</ref> devise approaches that leverage the quadratic output structure directly (that is, without any intermediate lifting or linearization) in order to determine suitable approximation subspaces for order reduction. Notably, the work <ref type="bibr" target="#b6">[7]</ref> introduces a so-called quadratic output system Gramian based upon the nonlinear state-to-output kernels of an LQO system, and related H 2 system norm. These authors propose a balanced truncation model reduction algorithm that balances the linear reachability and quadratic output observability Gramians; the approach guarantees asymptotic stability and provides an a posteriori H 2 error bound. Extensions of this methodology to handle systems of differential-algebraic equations and frequency or time-limited model reduction were proposed in <ref type="bibr" target="#b19">[20]</ref> and <ref type="bibr" target="#b24">[25]</ref>, respectively. The works <ref type="bibr" target="#b12">[13,</ref><ref type="bibr" target="#b14">15,</ref><ref type="bibr" target="#b15">16,</ref><ref type="bibr" target="#b23">24]</ref> all consider model reduction based on the rational interpolation of transfer functions in the frequency domain.</p><p>The focus of this paper is the H 2 optimal model reduction problem for LQO systems. Our interest in the H 2 model reduction problem is motivated by the fact that the H 2 system error provides an upper bound on the L ∞ output error <ref type="bibr" target="#b6">[7,</ref><ref type="bibr">Theorem 3.4]</ref>. So, if the design objective in order reduction is ensuring that the 'worst case' error in the approximate output is uniformly small over all inputs, then one should aim to make the H 2 system error as small as possible. Outside of <ref type="bibr" target="#b6">[7]</ref>, use of the H 2 norm as a direct performance measure in LQO-MOR has not been considered in the current literature. For fully linear systems, the H 2 model reduction problem is well studied; cf., <ref type="bibr" target="#b1">[2,</ref><ref type="bibr" target="#b16">17,</ref><ref type="bibr" target="#b18">19,</ref><ref type="bibr" target="#b27">[28]</ref><ref type="bibr" target="#b28">[29]</ref><ref type="bibr" target="#b29">[30]</ref>, and the references therein. H 2 model reduction has also been considered for other classes of weakly nonlinear dynamical systems; see, e.g., <ref type="bibr" target="#b4">[5,</ref><ref type="bibr" target="#b5">6,</ref><ref type="bibr" target="#b13">14,</ref><ref type="bibr" target="#b31">32]</ref>. The work <ref type="bibr" target="#b14">[15]</ref> proposes an algorithm heuristically motivated by linear H 2 optimal model reduction, but without an explicit connection to the H 2 optimal model reduction of LQO systems. Even in the linear setting, finding a global minimizer of the H 2 error is a non-convex optimization problem. As a consequence, the most common practice in the H 2 landscape typically relies on the identification of ROMs that satisfy first-order necessary conditions (FONCs) for local H 2 optimality. The two most well-known optimality frameworks for H 2 model reduction of fully linear systems are derived from the interpolation-based FONCs of Meier and Leunberger <ref type="bibr" target="#b16">[17,</ref><ref type="bibr" target="#b18">19]</ref>, and the Gramian-based FONCs of Wilson <ref type="bibr" target="#b27">[28,</ref><ref type="bibr" target="#b28">29]</ref>. The major theoretical result of our work is the establishment of Gramian-based FONCs for the H 2 optimal model reduction of LQO systems. Namely, our significant contributions are:</p><p>1. Theorem 3.1, which derives gradients of the squared H 2 system error with respect to the system matrices of the LQO-ROM as parameters. The stationary points of these gradients directly yield Gramianbased FONCs for H 2 optimality, which are presented in Theorem 3.2. These results generalize the analogous Gramian-based FONCs for linear H 2 optimal model <ref type="bibr" target="#b27">[28,</ref><ref type="bibr" target="#b28">29]</ref> to the LQO setting.</p><p>2. Also in Theorem 3.2, we show that a H 2 optimal LQO-ROM is necessarily defined by Petrov-Galerkin projection. The relevant projection matrices are obtainable as solutions to a pair of Sylvester equations. 2 Background and preliminaries</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.1">Linear systems with quadratic outputs</head><p>Throughout this work, we consider multi-input, multi-output (MIMO) dynamical systems that are linear in the state equation with a quadratic output (QO) term. In its state-space formulation, such a system is described by the following equations S :</p><formula xml:id="formula_0">                   ẋ(t) = Ax(t) + Bu(t), x(0) = 0, y(t) = Cx(t) :=y 1(t) +     x(t) T M 1 x(t) . . . x(t) T M p x(t)     :=y 2(t) ,<label>(1)</label></formula><p>where A, M 1 , . . . , M p ∈ Ê n×n , B ∈ Ê n×m , and C ∈ Ê p×n . In <ref type="bibr" target="#b0">(1)</ref> x : [0, ∞) → Ê n contains the state coordinates; u : [0, ∞) → Ê m and y : [0, ∞) → Ê p are the inputs and outputs of the system, respectively. We assume henceforth that S is asymptotically stable, i.e., the eigenvalues of A denoted λ(A) lie in the open left half of the complex plane, and without loss of generality that M k = M T k for all k = 1, . . . , p. We refer to a system of the form (1) as a linear quadratic output (LQO) system; we represent such a system using the notation (A, B, C, M 1 , . . . , M p ). The quadratic output term y 2 (t) in ( <ref type="formula" target="#formula_0">1</ref>) can be re-written via a Kronecker product of the state</p><formula xml:id="formula_1">y 2 (t) = M (x(t) ⊗ x(t)) , M =    vec (M 1 ) T . . . vec (M p ) T    ∈ Ê p×n 2 ,<label>(2)</label></formula><p>where vec : Ê n×n → Ê n 2 denotes the vectorization operator. For compactness and ease of theoretical development, we switch freely between these representations as necessary. Depending on the application of interest, in (1) we allow for C = 0 p×n , the p × n zero matrix, in which case the output equation is purely quadratic. In this instance, we denote the LQO system in (1) by S 2 since only y 2 appears in the output y. On the other hand, if M k = 0 n×n for all k = 1, . . . , p, the system (1) reduces to a standard linear time-invariant (LTI) system. We denote the system (1) by S 1 in this instance.</p><p>Remark 2.1. We illustrate why we may assume without loss of generality that M k is symmetric for each k = 1, . . . , p. For an arbitrary (not necessarily symmetric) matrix M k ∈ Ê n×n , the associated quadratic output in (1) can always be expressed as</p><formula xml:id="formula_2">x(t) T M k x(t) = x(t) T 1 2 M k + M T k x(t).</formula><p>In other words, M k can always be replaced by its symmetric part</p><formula xml:id="formula_3">1 2 M k + M T k .</formula><p>In practical applications, the state dimension n of the system in (1) may be large enough so that any repeated computation involving the full-order model is prohibitively expensive. Model order reduction (MOR) seeks to replace the original large-scale model with a lower dimensional reducedorder model (ROM) that can be used as a cheap-to-evaluate surrogate in numerical simulation, devising control laws, solving optimization tasks, etc. In this work, we consider the construction of reduced models that retain the LQO structure, i.e., S r :</p><formula xml:id="formula_4">             ẋr (t) = A r x r (t) + B r u(t), y r (t) = C r x r (t) +     x(t) T M 1,r x(t) . . . x(t) T M p,r x(t)     ,<label>(3)</label></formula><p>where the matrices A r , M 1,r , . . . , M p,r ∈ Ê r×r , B r ∈ Ê r×m , and C r ∈ Ê p×r are of a significantly reduced dimension 1 ≤ r ≪ n; x r : [0, ∞) → Ê r is the reduced state vector, and y r : [0, ∞) → Ê p is the approximate output. We would like the surrogate model (3) to be a good approximation in the sense that it accurately recreates the input-to-output response of the original full-order system in <ref type="bibr" target="#b0">(1)</ref>. In other words, the reduced output y r should be a faithful replication of y in the sense that y−y r is small in an appropriate norm • over a range of admissible inputs u.</p><p>The general framework we consider is that of model reduction using projection. Consider a linear quadratic output system as in <ref type="bibr" target="#b0">(1)</ref>. In projection-based model reduction, the problem resolves to choosing left and right reduction bases W r ∈ Ê n×r and V r ∈ Ê n×r so that: x ≈ V r x r , the matrix W T r V r is nonsingular, and the Petrov-Galerkin condition</p><formula xml:id="formula_5">W r T (V r ẋr (t) − AV r x r (t) − Bu(t)) = 0,</formula><p>is satisfied. The resulting order-r LQO reduced model of the form (3) is determined by the reduced order matrices</p><formula xml:id="formula_6">A r = W T r V r −1 W T r AV r ∈ Ê r×r , B r = W T r V r −1 W T r B ∈ Ê r×m , C r = CV r ∈ Ê p×r ,</formula><p>and</p><formula xml:id="formula_7">M k,r = V T r M k V r ∈ Ê r×r .<label>(4)</label></formula><p>The approximation quality of the reduced model hinges upon the underlying projection subspaces span(W r ) and span(V r ), not the particular bases W r and V r used in (4). So, W r and V r are typically replaced by orthonormal matrices to avoid ill-conditioning and singularities in the reduced model. Following Remark 2.1, we also assume that M k,r is symmetric for each k going forward.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.2">The H 2 system norm</head><p>The nonlinearity in (1) is entirely captured by the quadratic term in the output equation; the state equations evolve linearly in x. So, the time-domain input-to-output map modeled by the LQO system in (1) is entirely characterized by two Volterra kernels. For any input function u and t ≥ 0, the corresponding output y of (1) can be written as</p><formula xml:id="formula_8">y(t) = t 0 h 1 (τ )u(t − τ ) dτ + t 0 t 0 h 2 (τ 1 , τ 2 ) (u(t − τ 1 ) ⊗ u(t − τ 2 )) dτ 1 dτ 2 .</formula><p>(</p><formula xml:id="formula_9">)<label>5</label></formula><p>The Volterra kernels</p><formula xml:id="formula_10">h 1 : [0, ∞) → Ê p×m and h 2 : [0, ∞) × [0, ∞) → Ê p×m 2 are defined as h 1 (t) = Ce At B, h 2 (t 1 , t 2 ) = M e At1 B ⊗ e At2 B ,<label>(6)</label></formula><p>where M ∈ Ê p×n 2 is given according to <ref type="bibr" target="#b1">(2)</ref>. Here, the univariate kernel h 1 (t) and convolution in <ref type="bibr" target="#b4">(5)</ref>  </p><formula xml:id="formula_11">S, S r H2 := ∞ 0 tr h 1 (τ )h 1,r (τ ) T dτ + ∞ 0 ∞ 0 tr h 2 (τ 1 , τ 2 )h 2,r (τ 1 , τ 2 ) T dτ 1 dτ 2 ,<label>(7)</label></formula><p>where tr (•) denotes the trace of a matrix. Moreover, if S = S r , the expression in <ref type="bibr" target="#b6">(7)</ref> defines the H 2 norm of S:</p><formula xml:id="formula_12">S 2 H2 := ∞ 0 h 1 (τ ) 2 F dτ + ∞ 0 ∞ 0 h 2 (τ 1 , τ 2 ) 2 F dτ 1 dτ 2 ,<label>(8)</label></formula><p>where • F denotes the matrix Frobenius norm.</p><p>If M k , for k = 1, . . . , p, in (2) are identically zero, then S = S 1 is purely an LTI system with h 2 = 0 p×m 2 , and so <ref type="bibr" target="#b6">(7)</ref> and ( <ref type="formula" target="#formula_12">8</ref>) agree with the usual H 2 inner product and norm defined for linear dynamical systems; cf. [1, Section 5.1]. Lastly, it follows from Definition 2.1 that the H 2 norm of an asymptotically stable LQO system is finite.</p><p>Next, we consider an alternative and more computationally tractable characterization of the H 2 system norm in Definition 2.1 based on the Gramians of an LQO system. These formulations will be paramount in deriving gradients of the squared H 2 system error and associated H 2 optimality conditions in Section 3.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.2.1">The quadratic output observability Gramian</head><p>Because the nonlinearity in (1) is limited to the output equation, the input-to-state map is identical to that of the related LTI system S 1 having the same state, input, and linear output matrices, A ∈ Ê n×n , B ∈ Ê n , and C ∈ Ê p×n , with M k = 0 n×n for all k. Thus, the reachability Gramian P ∈ Ê n×n of the LQO system S in (1) is the same as the classical reachability Gramian defined for purely LTI systems [1, Section 4.3], i.e.</p><formula xml:id="formula_13">P = ∞ 0 e Aτ B e Aτ B T dτ.<label>(9)</label></formula><p>Under the assumption that S is asymptotically stable, P is unique [1, Prop. 6.2], and can be computed as the solution of the Lyapunov equation</p><formula xml:id="formula_14">AP + PA T + BB T = 0.<label>(10)</label></formula><p>A quadratic output observability Gramian based on the nonlinear state-to-output map of an LQO system was introduced in <ref type="bibr" target="#b6">[7]</ref>. In a sense, the QO observability Gramian generalizes the classical observability Gramian of an LTI system [1, Section 4.3]. Consider an LQO system S as in ( <ref type="formula" target="#formula_0">1</ref>) and define the intermediate matrices</p><formula xml:id="formula_15">Q 1 ∈ Ê n×n and Q (k) 2 ∈ Ê n×n by Q 1 := ∞ 0 e A T τ C T e A T τ C T T dτ,<label>(11)</label></formula><formula xml:id="formula_16">Q (k) 2 := ∞ 0 ∞ 0 e A T τ1 M k e Aτ2 B× e A T τ1 M k e Aτ2 B T dτ 1 dτ 2 ,<label>(12)</label></formula><p>for each k = 1, . . . p. (Note that Q 1 ∈ Ê n×n is just the classical observability Gramian of the linear system S 1 .)</p><p>Then the QO observability Gramian Q ∈ Ê n×n of S is defined as</p><formula xml:id="formula_17">Q := Q 1 + p k=1 Q (k) 2 .<label>(13)</label></formula><p>Akin to the linear system Gramians, if S is asymptotically stable, then Q is the unique solution to the following Lyapunov equation [7, Section 4.1]</p><formula xml:id="formula_18">A T Q + QA + C T C + p k=1 M k PM k = 0, (<label>14</label></formula><formula xml:id="formula_19">)</formula><p>where P is the reachability Gramian of S according to <ref type="bibr" target="#b8">(9)</ref>. See [7, Section 4.1] for a more detailed derivation of Q. A balanced truncation model reduction algorithm based upon the balancing of energy functionals defined by the Gramians in ( <ref type="formula" target="#formula_13">9</ref>) and ( <ref type="formula" target="#formula_17">13</ref>) was proposed in <ref type="bibr" target="#b6">[7]</ref>.</p><p>It was proven in <ref type="bibr" target="#b6">[7,</ref><ref type="bibr">Proposition 3.3</ref>] that the QO observability Gramian Q in ( <ref type="formula" target="#formula_17">13</ref>) can be used to compute the H 2 norm (8) of an LQO system. The H 2 inner product of two LQO systems <ref type="bibr" target="#b6">(7)</ref> can similarly be computed using the solution to a Sylvester equation. Next, we provide a proof of this result for LQO systems with multiple quadratic outputs and also show that the H 2 inner product and norm for linear quadratic output systems in Definition 2.1 can be calculated from the reachability Gramian P in ( <ref type="formula" target="#formula_13">9</ref>) and quadratic output matrices M k . The result <ref type="bibr" target="#b6">[7,</ref><ref type="bibr">Prop. 3.3]</ref> proves the formulae ( <ref type="formula" target="#formula_23">17</ref>) and ( <ref type="formula">19</ref>) in Theorem 2.1 for the special case of a single quadratic output with C = 0 p×n . A related formula was independently proven in the recent work <ref type="bibr" target="#b19">[20,</ref><ref type="bibr">Lemma 5.2]</ref> for systems of differential-algebraic equations with quadratic output functions.</p><p>Theorem 2.1. Let S and S r be asymptotically stable LQO systems as in (1) and (3), respectively. Let X ∈ Ê n×r and Z ∈ Ê n×r denote the unique solutions to the following Sylvester equations</p><formula xml:id="formula_20">AX + XA T r + BB T r = 0, (<label>15</label></formula><formula xml:id="formula_21">)</formula><p>and</p><formula xml:id="formula_22">A T Z + ZA r − p k=1 M k XM k,r − C T C r = 0. (16)</formula><p>Then, the H 2 inner product of S and S r is given by</p><formula xml:id="formula_23">S, S r H2 = − tr B T ZB r<label>(17)</label></formula><formula xml:id="formula_24">= tr CXC T r + p k=1 tr X T M k XM k,r . (<label>18</label></formula><formula xml:id="formula_25">)</formula><p>Moreover, if instead S = S r , then X = P ∈ Ê n×n and Z = Q ∈ Ê n×n according to <ref type="bibr" target="#b8">(9)</ref> and <ref type="bibr" target="#b12">(13)</ref>, and the H 2 norm of S is given by</p><formula xml:id="formula_26">S 2 H2 = tr B T Q 1 B + p k=1 tr B T Q (k) 2 B = tr B T QB (19) = tr CPC T + p k=1 tr (PM k PM k ) . (<label>20</label></formula><formula xml:id="formula_27">)</formula><p>Proof. Throughout this proof, take h 1 (t), h 2 (t 1 , t 2 ) and h 1,r (t), h 2,r (t 1 , t 2 ) to denote the Volterra kernels of S and S r respectively according to <ref type="bibr" target="#b5">(6)</ref>. Consider the Sylvester equation</p><formula xml:id="formula_28">A T Z 1 + Z 1 A r − C T C r = 0.<label>(21)</label></formula><p>Because S and S r are asymptotically stable, the spectra of A and −A r are disjoint. Thus, the Sylvester equations <ref type="bibr" target="#b14">(15)</ref> and ( <ref type="formula" target="#formula_28">21</ref>) have unique solutions <ref type="bibr" target="#b0">[1,</ref><ref type="bibr">Prop. 6.2]</ref>. These solutions can be explicitly written as</p><formula xml:id="formula_29">X = ∞ 0 e Aτ B e Ar τ B r T dτ, Z 1 = − ∞ 0 e A T τ C T e A T r τ C T r T dτ.</formula><p>By the same argument, for each k = 1, . . . , p, the Sylvester equation</p><formula xml:id="formula_30">A T Z k + Z k A r − M k XM k,r = 0 (22)</formula><p>has a unique solution of the form</p><formula xml:id="formula_31">Z (k) 2 = − ∞ 0 e A T τ M k X e A T r τ M k,r T dτ.</formula><p>Summing up the equations ( <ref type="formula" target="#formula_28">21</ref>) and ( <ref type="formula">22</ref>) over all k yields <ref type="bibr" target="#b15">(16)</ref>.</p><p>By uniqueness, the solution Z ∈ Ê n×r to ( <ref type="formula">16</ref>) is such that</p><formula xml:id="formula_32">Z = Z 1 + p k=1 Z (k) 2 .</formula><p>Plugging the integral form of X into</p><formula xml:id="formula_33">Z (k) 2</formula><p>for each k and moving terms inside the integrand, Z can be expressed as</p><formula xml:id="formula_34">Z = − ∞ 0 e A T τ C T e A T r τ C T r T dτ − p k=1 ∞ 0 ∞ 0 e A T τ1 M k e Aτ2 B × e A T r τ1 M k,r e Arτ2 B r T dτ 2 dτ 1 .</formula><p>Then, by the invariance of the trace under cyclic permutation we have</p><formula xml:id="formula_35">tr B T ZB r = − ∞ 0 tr Ce Aτ B C r e Arτ B r T dτ − p k=1 ∞ 0 ∞ 0 tr B T e A T τ1 M k e Aτ2 B× B T r e A T r τ1 M k,r e Arτ2 B r T dτ 2 dτ 1 .</formula><p>Note that the first term in the expression above is precisely the first term in the H 2 inner product <ref type="bibr" target="#b6">(7)</ref>. It remains to be shown that the remaining terms in the summand over k equate to the second term in the expression for the inner product <ref type="bibr" target="#b6">(7)</ref>. To show this, we observe that by construction of M in (2) and properties of the Kronecker product <ref type="bibr" target="#b10">[11]</ref>, the bivariate kernel h 2 (t 1 , t 2 ) = M e At1 B ⊗ e At2 B can be expressed as</p><formula xml:id="formula_36">h 2 (t 1 , t 2 ) =    vec(B T e A T t1 M 1 e At2 B) T . . . vec(B T e A T t1 M p e At2 B) T    ,</formula><p>and likewise for h 2,r (t 1 , t 2 ). As a consequence</p><formula xml:id="formula_37">tr h 2 (t 1 , t 2 )h 2,r (t 1 , t 2 ) T = p k=1 tr B T e A T t1 M k e At2 B B T r e A T r t1 M k,r e Art2 B r T ,</formula><p>because the trace inner product of two matrices equates to the p = 2 vector inner product of their vectorized forms.</p><p>Integrating both sides of the above equality yields</p><formula xml:id="formula_38">∞ 0 ∞ 0 tr h 2 (τ 1 , τ 2 )h 2,r (τ 1 ,τ 2 ) T dτ 1 dτ 2 = − p k=1 ∞ 0 ∞ 0 tr B T e A T τ1 M k e Aτ2 B× B r e A T r τ1 M k,r e Arτ2 B r T dτ 2 dτ 1 ,</formula><p>proving that S, S r H2 = − tr B T ZB r , as claimed. The formula for the H 2 norm in <ref type="bibr" target="#b18">(19)</ref> follows directly by replacing S with S r .</p><p>The proof of (18) now follows straightforwardly from <ref type="bibr" target="#b16">(17)</ref>. First note that the matrix equations ( <ref type="formula" target="#formula_20">15</ref>) and ( <ref type="formula">16</ref>) can be reformulated as equivalent linear systems</p><formula xml:id="formula_39">(I n ⊗ A + A r ⊗ I r ) vec(X) = − vec(BB T r ), I n ⊗ A T + A T r ⊗ I r vec(Z) = vec(C T C r ) + p k=1 (M ⊗ M r ) vec(X).</formula><p>Using the characterization of S, S r H2 in <ref type="bibr" target="#b16">(17)</ref> as well as properties of the trace and Kronecker product, it follows that</p><formula xml:id="formula_40">S, S r H2 = − tr B T ZB r = − vec BB T r T vec (Z) = vec (X) T (I n ⊗ A T + A T r ⊗ I r ) vec (Z) = vec (X) T vec(C T C r ) + p k=1 (M ⊗ M r ) vec (X) = tr CXC T r + p k=1 tr X T M k XM k,r .</formula><p>This proves <ref type="bibr" target="#b17">(18)</ref>; the analogous formula for the norm <ref type="bibr" target="#b19">(20)</ref> follows from replacing S r with S.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>2.2.2</head><p>Relating the H 2 system error and L ∞ output error</p><p>We take a moment here to motivate the choice of the H 2 norm as a performance metric in the model reduction of linear quadratic output systems. Consider the full and reduced-order systems S and S r in ( <ref type="formula" target="#formula_0">1</ref>) and (3), respectively.</p><p>Recall that an effective surrogate model should replicate the full quantity of interest y r ≈ y for a variety of external inputs u. Suppose that one desires a reduced model so that the error due to the approximate output is uniformly small over all values t &gt; 0. In other words, the L ∞ error</p><formula xml:id="formula_41">y − y r L p ∞ = sup t≥0 y(t) − y r (t) ∞</formula><p>should be small for admissible u, e.g. u ∈ L 2 [0, ∞). Following ( <ref type="formula" target="#formula_9">5</ref>), the error in the output at any time t &gt; 0 may be expressed as</p><formula xml:id="formula_42">y(t) − y r (t) = t 0 (h 1 (τ ) − h 1,r (τ )) u(t − τ )dτ + t 0 t 0 (h 2 (τ 1 , τ 2 ) − h 2,r (τ 1 , τ 2 )) × (u(t − τ 1 ) ⊗ u(t − τ 2 )) dτ 1 dτ 2 .</formula><p>Applying the vector norm • ∞ : Ê p → Ê to both sides of this equality, and using the equivalence of • ∞ and • 2 as well as the Cauchy-Schwarz inequality, the output error at any time t &gt; 0 satisfies the inequality</p><formula xml:id="formula_43">y(t) − y r (t) 2 ∞ ≤ h 1 − h 1,r 2 L p×m 2 + h 2 − h 2,r 2 L p×m 2 2 = S−Sr 2 H 2 × u 2 L m 2 + u ⊗ u 2 L m 2 2 .</formula><p>Because t &gt; 0 is arbitrarily specified, taking the supremum over all time reveals that the L ∞ output error is bounded above by the H 2 linear quadratic output system error</p><formula xml:id="formula_44">y − y r 2 L p ∞ ≤ S − S r 2 H2 u 2 L m 2 + u ⊗ u 2 L m 2 2 .<label>(23)</label></formula><p>This upper bound ( <ref type="formula" target="#formula_44">23</ref>) from <ref type="bibr" target="#b6">[7,</ref><ref type="bibr">Theorem 3.4]</ref> shows that for an admissible input u, a small H 2 error guarantees that the reduced model output y r is a high-fidelity L ∞ approximation to the original output y.</p><p>The bound in ( <ref type="formula" target="#formula_44">23</ref>) is a powerful motivator for using the H 2 error as a performance measure in LQO-MOR. Indeed, if one wants the 'worst case' error in the output, y − y r L∞ to be small, then one should seek a reduced model S r so that the H 2 error S − S r H2 appearing in <ref type="bibr" target="#b22">(23)</ref> is as small as possible. Motivated by this, we consider the following H 2 optimal model reduction problem for linear quadratic output systems: Given the full order asymptotically stable LQO system S in (1), we seek a reduced-order, and also asymptotically stable, LQO reduced model S r represented in <ref type="bibr" target="#b2">(3)</ref> such that the H 2 norm of the error system is minimized :</p><formula xml:id="formula_45">S r = arg min Sr stable dim( Sr)=r J ( S r ), J ( S r ) := S − S r 2 H2 .<label>(24)</label></formula><p>(The squared H 2 error in ( <ref type="formula" target="#formula_45">24</ref>) is used solely for the sake of ease in calculating gradients of J in Section 3.) By the asymptotic stability assumption imposed on the full and reduced-order models, the corresponding H 2 error is guaranteed to be finite. Nonetheless, the minimization problem in ( <ref type="formula" target="#formula_45">24</ref>) is in general non-convex, and the characterization of global minimizers is elusive. Instead, we wish to identify local minimizers of the H 2 error in <ref type="bibr" target="#b23">(24)</ref> which satisfy first-order necessary conditions (FONCs) for H 2 optimality.</p><p>Before presenting our major theoretical results in the next section, we establish notation pertaining to gradients of functions defined over normed vector spaces; our presentation follows that of <ref type="bibr" target="#b11">[12]</ref>. Consider a Fréchet differentiable</p><formula xml:id="formula_46">function f : U → Ê defined on an open subset U of a Hilbert space X endowed with the inner product •, • X : X × X → Ê. For any x 0 ∈ U , the gradient of f at x 0 is the unique element ∇f (x 0 ) ∈ X so that f (x 0 + h) = f (x 0 ) + ∇f (x 0 ), h X + O( h 2 X ),<label>(25)</label></formula><p>for all h in a neighborhood of zero. We write g</p><formula xml:id="formula_47">(x) = O( h 2 X ) if lim h→0 g(h) h X = 0. If ∇f (x 0 ) = 0, we call x 0 ∈ X a critical point of f . If f has a local extremum at a point x 0 , then necessarily x 0 is a critical point [12, Cor. 2.5]. For a multivariate function f : X 1 × . . . × X ℓ → Ê, partial gra- dients ∇ xi f (x 1 , . . . , x ℓ ) are defined analogously.</formula><p>3 Optimal H 2 model reduction This section contains the main theoretical results of the paper. Theorem 3.1 presents gradients of the squared H 2 LQO system error in <ref type="bibr" target="#b23">(24)</ref> with respect to the reduced-order matrices of the LQO-ROM in (3) as parameters. The stationary points of these gradients automatically yield Gramian-based FONCs for the H 2 optimal model reduction of LQO systems, which we present in Theorem 3.2. To set the stage for these results and make comparisons later on, we first review the Gramian-based H 2 optimality conditions for linear model reduction due to Wilson <ref type="bibr" target="#b28">[29]</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.1">Optimal H 2 model reduction of purely linear systems</head><p>For the discussion in this subsection, we restrict our attention to purely LTI dynamical systems. Consider</p><formula xml:id="formula_48">S 1 : ẋ(t) = Ax(t) + Bu(t), x(0) = 0, y 1 (t) = Cx(t).<label>(26)</label></formula><p>The state, input, and output dimensions are the same as in <ref type="bibr" target="#b0">(1)</ref>. Analogous to the LQO model reduction problem, we seek a linear reduced model of the form</p><formula xml:id="formula_49">S 1,r : ẋr (t) = A r x r (t) + B r u(t), x r (0) = 0, y 1,r (t) = C r x r (t),<label>(27)</label></formula><p>It will be fruitful to view the LTI system in <ref type="bibr" target="#b25">(26)</ref>  Ê n×n in <ref type="bibr" target="#b10">(11)</ref>, since Q 2,k = 0 n×n for all k. The Lyapunov equation ( <ref type="formula" target="#formula_18">14</ref>) reduces to</p><formula xml:id="formula_50">A T Q 1 + Q 1 A + C T C = 0.<label>(28)</label></formula><p>(When discussing the observability Gramian of a purely linear system, we keep the subscript to clearly differentiate from the general QO observability Gramian in <ref type="bibr" target="#b12">(13)</ref>.)</p><p>The reachability Gramian P in (9) is unchanged. A similar bound to (23) can be derived, i.e.,</p><formula xml:id="formula_51">y 1 − y 1,r L p ∞ ≤ S 1 − S 1,r H2 u L m 2 .</formula><p>The Gramian-based framework for linear H 2 optimal model reduction is attributed to Wilson <ref type="bibr" target="#b28">[29]</ref> for multi-input, multioutput systems. (These results were later shown to be equivalent to interpolation-based optimality conditions <ref type="bibr" target="#b16">[17,</ref><ref type="bibr" target="#b18">19,</ref><ref type="bibr" target="#b27">28]</ref>.) The starting point for deriving the Gramian-based optimality conditions in <ref type="bibr" target="#b27">[28,</ref><ref type="bibr" target="#b28">29]</ref> is expressing the H 2 norm as a function of the error system S 1 − S 1,r , which is itself an order-(n + r) linear system of the form <ref type="bibr" target="#b25">(26)</ref>. A statespace realization of S 1 −S 1,r is given by (A e , B e , C e ), where A e ∈ Ê (n+r)×(n+r) , B e ∈ Ê (n+r)×m , and C e ∈ Ê p× (n+r)   are given by</p><formula xml:id="formula_52">A e = A A r , B e = B B r , C e = C −C r . (<label>29</label></formula><formula xml:id="formula_53">)</formula><p>The internal state and output of the error system are given by x e = x x r and y 1 − y 1,r . Take P e , Q 1,e ∈ Ê (n+r)×(n+r)</p><p>to denote the reachability and observability Gramians of (29) which solve the Lyapunov equations ( <ref type="formula" target="#formula_14">10</ref>) and <ref type="bibr" target="#b27">(28)</ref>. These are expressed in 2 × 2 block form as</p><formula xml:id="formula_54">P e = P X X T P r and Q 1,e = Q 1 Z 1 Z T 1 Q 1,r ,<label>(30)</label></formula><p>where P, Q 1 ∈ Ê n×n and P r , Q 1,r ∈ Ê r×r are the reachability, observability Gramians of the full-order and reducedorder linear models in ( <ref type="formula" target="#formula_48">26</ref>) and ( <ref type="formula" target="#formula_49">27</ref>), respectively, while X ∈ Ê n×r and Z 1 ∈ Ê n×r solve the matrix equations</p><formula xml:id="formula_55">AX + XA T r + BB T r = 0, and A T Z 1 + Z 1 A r − C T C r = 0. (<label>31</label></formula><formula xml:id="formula_56">)</formula><p>These equalities (31) can be deduced by solving for X and Z 1 directly from equations ( <ref type="formula" target="#formula_14">10</ref>) and ( <ref type="formula" target="#formula_50">28</ref>) applied to the error system. Evidently, the H 2 norm of the error system ( <ref type="formula" target="#formula_52">29</ref>) is precisely the approximation error induced by S 1,r . Applying Theorem 2.1 to S 1 − S 1,r , the squared H 2 system error can be written as</p><formula xml:id="formula_57">J (S 1,r ) = S 1 − S 1,r<label>2</label></formula><formula xml:id="formula_58">H2 = tr B T e Q 1,e B e = tr C e P e C T e .</formula><p>From this expression, [28, Theorem 3.3], <ref type="bibr" target="#b28">[29]</ref> show that gradients of J with respect to A r , B r , and C r are given by</p><formula xml:id="formula_59">∇ Ar J = 2(P r Q r + X T Z 1 ), ∇ Br J = 2(Q r B r + Z T 1 B), ∇ Cr J = 2(C r P r − CX).<label>(32)</label></formula><p>(We drop the dependence of J on S 1,r for convenience of notation.) The matrices X ∈ Ê n×r and Z 1 ∈ Ê n×r appear- ing in <ref type="bibr" target="#b31">(32)</ref> are those that satisfy <ref type="bibr" target="#b30">(31)</ref>. If the reduced LTI system S 1,r in ( <ref type="formula" target="#formula_49">27</ref>) is a local minimizer of the H 2 error, then the gradients in <ref type="bibr" target="#b31">(32)</ref> are identically zero, and the reduced order matrices (A r , B r , C r ) satisfy the following identities</p><formula xml:id="formula_60">0 = P r Q r + X T Z 1 , 0 = Q 1,r B r + Z T 1 B, 0 = C r P r − CX. (<label>33</label></formula><formula xml:id="formula_61">)</formula><p>These are the Gramian-based or, Wilson conditions for the H 2 optimal model reduction of LTI systems. Under the assumption that P r and Q 1,r are nonsingular, if S 1,r is H 2 optimal then it is realized in a Petrov-Galerkin framework <ref type="bibr" target="#b28">[29]</ref>, <ref type="bibr" target="#b27">[28,</ref><ref type="bibr">Theorem 3.4]</ref>, where the projection matrices in (4) are given by V r = XP −1 r and W r = −Z 1 Q −1 1,r . Evidently, V r and W r depend explicitly upon the H 2 optimal reduced model S 1,r , which of course is not known a priori. To handle this issue, the two-sided iteration algorithm (TSIA) based on iterative projection using the solutions to the pair of Sylvester equations in <ref type="bibr" target="#b30">(31)</ref> was proposed in <ref type="bibr" target="#b29">[30]</ref>, yielding a ROM that satisfies (33).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.2">Optimal H 2 model reduction of linear quadratic output systems</head><p>We now return our attention to the H 2 optimal model reduction problem for LQO systems described in Section 2.2.</p><p>Recall the minimization problem in <ref type="bibr" target="#b23">(24)</ref> as well as the associated cost function</p><formula xml:id="formula_62">J (S r ) = J (A r , B r , C r , M 1,r , . . . , M k,r ) = S − S r<label>2</label></formula><formula xml:id="formula_63">H2</formula><p>.</p><p>We view the objective function J : (Ê r×r × Ê r×m × Ê p×n × • • • × Ê r×r ) → Ê as taking the reduced-order matrices that determine S r in (3) as arguments. That is, J is a multivariate function defined over a real-valued Hilbert space of matrices in each variable. Per [12, Cor. 2.5], if the reduced LQO system S r in (3) having the realization</p><formula xml:id="formula_64">(A r , B r , C r , M 1,r , . . . , M k,r</formula><p>) is a local minimizer of the H 2 error, then the partial gradients of J with respect to the reduced-order matrices A r , B r , C r , and M k,r are necessarily zero. So, computing gradients of J in <ref type="bibr" target="#b23">(24)</ref> and setting them to zero paves the way for developing the Wilson optimality conditions for the LQO setting.</p><p>Following suit with the linear problem, our starting point for computing gradients of J is expressing the objective function in terms of the error system S − S r . The matrices (A e , B e , C e , M 1,e , . . . , M p,e ), where A e ∈ Ê (n+r)×(n+r) , B e ∈ Ê (n+r)×m , C e ∈ Ê p×(n+r) and M k,e ∈ Ê (n+r)×(n+r) are defined as</p><formula xml:id="formula_65">A e = A A r , B e = B B r , C e = C −C r M k,e = M k −M k,r , for each k = 1, . . . p,<label>(34)</label></formula><p>constitute a state-space realization as in (1) of the LQO error system. The reachability and quadratic output observability Gramians P e , Q e ∈ Ê (n+r)×(n+r) of the error system uniquely satisfy the Lyapunov equations ( <ref type="formula" target="#formula_14">10</ref>) and ( <ref type="formula" target="#formula_18">14</ref>) for the representation in (34): </p><formula xml:id="formula_66">A T Q e + Q e A e + C T e C e +</formula><p>The Gramians P e and Q e have the particular structure</p><formula xml:id="formula_68">P e = P X X T P r and Q e = Q Z Z T Q r ,<label>(36)</label></formula><p>where P, Q ∈ Ê n×n are the full-order system Gramians, and the submatrices P r , Q r ∈ Ê r×r and X, Z ∈ Ê n×r are the unique solutions to the matrix equations</p><formula xml:id="formula_69">A r P r + P r A T r + B r B T r = 0,<label>(37a)</label></formula><formula xml:id="formula_70">A T r Q r + Q r A r + p k=1 M k,r P r M k,r + C T r C r = 0,<label>(37b)</label></formula><p>AX + XA T r + BB T r = 0, (37c)</p><formula xml:id="formula_71">A T Z + ZA r − p k=1 M k XM k,r − C T C r = 0. (37d)</formula><p>Note that the matrices P r and Q r are symmetric since they are the reachability and quadratic output observability Gramians of the reduced model S r . In addition to the constraints in (37a) -(37d), it will be useful to recall that</p><formula xml:id="formula_72">Z 1 ∈ Ê n×r and Q 1,r ∈ Ê r×r in (30) satisfy A T r Q 1,r + Q 1,r A r + C T r C r = 0,<label>(38a)</label></formula><formula xml:id="formula_73">A T Z 1 + Z 1 A r − C T C r = 0.<label>(38b)</label></formula><p>Equations (38a) and (38b) simplify to (37b) and (37d) when M k = 0 n×n for all k, as in the LTI setting. Applying the result of Theorem 2.1 to the realization in (34), the squared H 2 error in LQO-MOR can be expressed as </p><formula xml:id="formula_74">J (S r ) = tr B T e Q e B</formula><p>Basic algebraic manipulations of the trace in (39) reveal that the squared H 2 error can be re-written as</p><formula xml:id="formula_76">J (S r ) = tr B T QB + 2B T ZB r + B T r Q r B r ,<label>(40)</label></formula><p>or equivalently</p><formula xml:id="formula_77">J (S r ) = tr CPC T − 2CXC T r + C r P r C T r + p k=1 tr PM k PM k − 2X T M k XM k,r + P r M k,r P r M k,r ,<label>(41)</label></formula><p>where P r , Q r , Q 1,r ∈ Ê r×r and X, Z, Z 1 ∈ Ê n×r satisfy the constraints in (37a) -(38b).</p><p>This brings us to our first major result, which we present in Theorem 3.1. We leverage the formulations in (40) and (41) in order to establish partial gradients of the squared H 2 error J (S r ) = S − S r 2 H2 in LQO-MOR with respect to the reduced-order matrices A r , B r , C r , and M k,r for all k = 1, . . . p. The stationary points of the gradients in turn yield FONCs for the H 2 optimal model reduction of LQO systems. To simplify the proof of Theorem 3.1, we recall the following result that we will invoke repeatedly. Lemma 3.1 ([31, Lemma A.1]). Let A ∈ Ê n×n , A r ∈ Ê r×r and D, F ∈ Ê n×r be such that the matrices Y, W ∈ Ê n×r solve the Sylvester equations</p><formula xml:id="formula_78">AY + YA T r + D = 0 and A T W + WA r + F = 0, then, tr D T W = tr F T Y .</formula><p>From Lemma 3.1, we also have, e.g., tr W T D = tr Y T F . In the subsequent result, we take for granted any identities that arise from cyclic permutations or transposes applied to the result of Lemma 3.1. When it is helpful for simplifying notation, we drop the dependence of J on S r . Theorem 3.1. Let S and S r be asymptotically stable LQO systems as in (1) and (3), respectively. Then the gradients ∇ Ar J , ∇ Br J , ∇ Cr J , ∇ M k,r J , k = 1, . . . , p of the squared H 2 error J (S r ) = S − S r 2 H2 are given explicitly as</p><formula xml:id="formula_79">∇ Ar J = 2 (2Q r − Q 1,r )P r + (2Z T − Z T 1 )X (42a) ∇ Br J = 2 (2Q r − Q 1,r )B r + (2Z T − Z T 1 )B (42b) ∇ Cr J = 2 (C r P r − CX) (42c) ∇ M k,r J = 2 P r M k,r P r − X T M k X , k = 1, . . . , p,<label>(42d)</label></formula><p>where X, Z ∈ Ê n×r and P r , Q r ∈ Ê r×r satisfy the constraint equations (37a) -(37d), and Z 1 ∈ Ê n×r , Q 1 ∈ Ê r×r satisfy (38a) and (38b), respectively.</p><p>Proof. Note that S is fixed; we begin with the gradients with respect to the quadratic output matrices (42d). For any k = 1, . . . , p, consider an arbitrary perturbation ∆ M k,r ∈ Ê r×r about zero. By <ref type="bibr" target="#b24">(25)</ref>, it suffices to show the claimed form of the gradient ∇ M k,r J in (42d) satisfies</p><formula xml:id="formula_80">J (S r + ∆ Sr ) = J (S r ) + ∇ M k,r J , ∆ M k,r F + O( ∆ M k,r<label>2</label></formula><formula xml:id="formula_81">F )</formula><p>where ∆ Sr denotes the perturbation in the reduced model S r due to ∆ M k,r . The first-order perturbation in M k,r in turn induces perturbations ∆ Z ∈ Ê n×r and ∆ Qr ∈ Ê r×r in the solutions to (37d) and (37b). Expanding upon the perturbed equations (37d) and (37b) reveal that ∆ Z and ∆ Qr satisfy</p><formula xml:id="formula_82">A T ∆ Z + ∆ Z A r − M k X∆ T M k,r = 0 (43a) and A T r ∆ Qr + ∆ Qr A r + M k,r P r ∆ T M k,r + ∆ M k,r P r M k,r + ∆ M k,r P r ∆ T M k,r = 0. (43b) Note that the term ∆ M k,r P r ∆ T M k,r is O( ∆ M k,r<label>2</label></formula><formula xml:id="formula_83">F</formula><p>) in the sense of <ref type="bibr" target="#b24">(25)</ref>. From (40), J (S r + ∆ Sr ) can be expressed as</p><formula xml:id="formula_84">J (S r + ∆ Sr ) = J (S r ) + 2 tr(B T ∆ Z B r ) + tr(B T r ∆ Qr B r ).</formula><p>By applying Lemma 3.1 to Sylvester equations (37c) and (43a), as well as using the properties of the trace, the terms in the first-order expansion above can be re-written as</p><formula xml:id="formula_85">tr B T ∆ Z B r = tr B r B T ∆ Z = tr −M k X∆ T M k,r X T = tr −X T M k X∆ M k,r .</formula><p>Lemma 3.1 can be applied to equations (37a) and (43b) in a similar way to show that</p><formula xml:id="formula_86">tr B T r ∆ Qr B r = 2 tr P r M k,r P r ∆ M k,r + O( ∆ M k,r<label>2</label></formula><formula xml:id="formula_87">F ).</formula><p>Plugging these into the expression for J (S + ∆ Sr ), we get</p><formula xml:id="formula_88">J (S r + ∆ Sr ) = J (S r ) + 2 tr −X T M k X∆ M k,r + 2 tr P r M k,r P r ∆ M k,r + O( ∆ M k,r<label>2</label></formula><formula xml:id="formula_89">F ) = J (S r )+ 2(P r M k,r P r − X T M k X), ∆ M k,r F + O( ∆ M k,r<label>2</label></formula><formula xml:id="formula_90">F ).</formula><p>So, the gradients with respect to M k,r satisfy ∇ M k,r J = 2(P r M k,r P r − X T M k X) for each k as claimed in (42d).</p><p>Next we compute the gradient ∇ Cr J in (42c). Consider an arbitrary perturbation ∆ Cr ∈ Ê p×r about zero to C r ; let ∆ Sr be the perturbation to S r corresponding to ∆ Cr . From (41), the first-order expansion of J (S + ∆ Sr ) can be expressed as</p><formula xml:id="formula_91">J (S r + ∆ Sr ) = J (S r ) − tr 2CX∆ T Cr + tr 2C r P r ∆ T Cr + O( ∆ Cr 2 F ) = J (S r )+ 2(C r P r − CX), ∆ Cr F + O( ∆ Cr 2 F ). So ∇ Cr J = 2(C r P r − CX) as claimed in (42c).</formula><p>We show the formula for ∇ Br J in (42b). Consider an arbitrary perturbation ∆ Br ∈ Ê r about zero to B r , which induces perturbations ∆ X ∈ Ê n×r and ∆ Pr ∈ Ê n×r in the solutions of (37c) and (37a). The resulting perturbations satisfy</p><formula xml:id="formula_92">A∆ X + ∆ X A T r + B∆ T Br = 0,<label>(44a)</label></formula><p>and</p><formula xml:id="formula_93">A r ∆ Pr + ∆ Pr A T r + ∆ Br B T r + B r ∆ T Br + O( ∆ Br 2 F ) = 0. (<label>44b</label></formula><formula xml:id="formula_94">)</formula><p>The solutions to (37b) and (37d) depend linearly upon X and P r , so the perturbations ∆ X and ∆ Pr induce further perturbations ∆ Z ∈ Ê n×r and ∆ Qr ∈ Ê n×r in the solutions to (37d) and (37b). These perturbations satisfy</p><formula xml:id="formula_95">A T ∆ Z + ∆ Z A r − p k=1 M k ∆ X M k,r = 0,<label>(45a)</label></formula><p>and</p><formula xml:id="formula_96">A T r ∆ Qr + ∆ Qr A r + p k=1 M k,r ∆ Pr M k,r = 0. (45b)</formula><p>From ( <ref type="formula" target="#formula_76">40</ref>) we may expand J (S r + ∆ Sr ) as</p><formula xml:id="formula_97">J (S r + ∆ Sr ) = J (S r ) + 2 tr B T Z∆ Br + B r B T ∆ Z + tr 2B T r Q r ∆ Br + B r B T r ∆ Qr + O( ∆ Br 2 F ).</formula><p>We handle the terms in this expansion individually. First, tr B T Z∆ Br + B r B T ∆ Z splits into the individual terms tr B T Z∆ Br and tr B r B T ∆ Z . Using properties of the trace, and applying Lemma 3.1 to equations (37c) and (45a), we see that tr B r B T ∆ Z can be written</p><formula xml:id="formula_98">tr B r B T ∆ Z = tr − p k=1 M k,r ∆ T X M k X = tr −∆ X p k=1 M k,r X T M k = tr −(Z T A + Z T A T r )∆ X + tr ∆ X C T r C = tr −Z T (A∆ X + ∆ X A T r ) + tr ∆ X C T r C = tr Z T B∆ T Br + tr ∆ X C T r C = tr B T Z∆ Br + tr ∆ X C T r C .</formula><p>Applying Lemma 3.1 to equations (38b) and (44a), it follows that</p><formula xml:id="formula_99">tr ∆ X C r C T = tr C r C T ∆ X = tr −∆ Br B T Z 1 = tr −B T Z 1 ∆ Br .</formula><p>So the term 2 tr(B T Z∆ Br + B r B T ∆ Z ) in the expression of J (S r + ∆ Sr ) becomes</p><formula xml:id="formula_100">2 tr B T Z∆ Br + B r B T ∆ Z = tr 4B T Z∆ Br − tr 2B T Z 1 ∆ Br .</formula><p>The term tr 2B T r Q r ∆ Br + B r B T r ∆ Qr in J (S + ∆ Sr ) can be dealt with using similar ideas to be written as</p><formula xml:id="formula_101">tr 2B T r Q r ∆ Br + B r B T r ∆ Qr = tr 4B T r Q r ∆ Br − tr 2B T r Q 1,r ∆ Br ) + O( ∆ Br<label>2</label></formula><formula xml:id="formula_102">F ).</formula><p>The expression for J (S r + ∆ Sr ) in this case becomes</p><formula xml:id="formula_103">J (S r + ∆ Sr ) = J (S r ) + tr 4B T Z∆ Br − tr 2B T Z 1 ∆ Br + tr 4B T r Q r ∆ Br ) − tr 2B T r Q 1,r ∆ Br + O( ∆ Br 2 F ) = J (S r ) + 2 (2Q r − Q 1,r )B r + (2Z T − Z T 1 )B , ∆ Br F + O( ∆ Br 2 F ). So, ∇ Br J = 2 (2Q r − Q 1,r )B r + (2Z T − Z T 1 )B as claimed.</formula><p>Lastly, we compute ∇ Ar J in (42a). Consider an arbitrary perturbation ∆ Ar ∈ Ê r×r about zero to A r . As was the case for the gradient with respect to B r , this first-order perturbation induces perturbations ∆ X , ∆ Z ∈ Ê n×r , and ∆ Pr , ∆ Qr ∈ Ê r×r in the solutions to (37a) -(37d). These satisfy</p><formula xml:id="formula_104">A∆ X + ∆ X A T r + X∆ T Ar + O( ∆ Ar<label>2</label></formula><formula xml:id="formula_105">F ) = 0, (46a) A r ∆ Pr + ∆ Pr A T r + ∆ Ar P r + P r ∆ T Ar + O( ∆ Ar<label>2</label></formula><formula xml:id="formula_106">F ) = 0,<label>(46b)</label></formula><formula xml:id="formula_107">A T ∆ Z + ∆ Z A r + Z∆ Ar − p k=1 M k ∆ X M k,r + O( ∆ Ar<label>2</label></formula><formula xml:id="formula_108">F ) = 0,<label>(46c)</label></formula><p>and</p><formula xml:id="formula_109">A T r ∆ Qr + ∆ Qr A r + ∆ T Ar Q r + Q r ∆ Ar + p k=1 M k,r ∆ Pr M k,r + O( ∆ Ar 2 F ) = 0.<label>(46d)</label></formula><p>By (40), the error J (S r + ∆ Sr ) may be expanded as</p><formula xml:id="formula_110">J (S r + ∆ Sr ) = J (S r ) + 2 tr B r B T ∆ Z + tr B r B T r ∆ Qr .</formula><p>We deal with the terms in the above expansion individually as follows. Applying Lemma 3.1 to equations (37c) and (46c), tr B r B T ∆ Z can be re-written as</p><formula xml:id="formula_111">tr B r B T ∆ Z = tr − p k=1 M k,r ∆ T X M k − ∆ T Ar Z T X + o( ∆ Ar F ) = tr X T Z∆ Ar − tr p k=1 M k,r X T M k ∆ X + O( ∆ Ar 2 F ).</formula><p>Preprint. <ref type="bibr">May 10, 2024</ref> From (37d) and (46a), observe that</p><formula xml:id="formula_112">tr p k=1 M k,r X T M k ∆ X = tr (Z T A + A T r Z T )∆ X − tr C T r C∆ X = tr Z T (A∆ X + ∆ X A T r ) − tr C T r C∆ X = − tr Z T X∆ T Ar − tr C T r C∆ X + O( ∆ Ar 2 F ).</formula><p>Applying Lemma 3.1 to (38b) and (46a) reveals</p><formula xml:id="formula_113">tr p k=1 M k,r X T M k ∆ X = − tr ∆ Ar X T Z − tr X T Z 1 ∆ Ar + O( ∆ Ar 2 F ).</formula><p>In aggregate, the term tr B r B T ∆ Z in the expansion of</p><formula xml:id="formula_114">J (S r + ∆ Sr ) becomes tr B r B T ∆ Z = tr 2X T Z∆ Ar − tr X T Z 1 ∆ Ar + O( ∆ Ar 2 F ).</formula><p>Using a similar line of reasoning, the term tr B r B T r ∆ Qr can be re-written as</p><formula xml:id="formula_115">tr B r B T r ∆ Qr = tr (4P r Q r ∆ Ar ) − tr (2P r Q 1,r ∆ Ar ) + O( ∆ Ar 2 F ).</formula><p>So, the expansion J (S r + ∆ Sr ) simplifies to</p><formula xml:id="formula_116">J (S r + ∆ Sr ) = J (S r ) + tr 4X T Z∆ Ar − tr 2X T Z 1 ∆ Ar + tr((4P r Q r ∆ Ar ) − tr (2P r Q 1,r ∆ Ar ) + O( ∆ Ar 2 F ) = J (S r )+ 2 (2Z T − Z T 1 )X + (2Q r − Q 1,r )P r , ∆ Ar F + O( ∆ Ar 2 F ).</formula><p>And ∇ Ar J = 2 (2Z T − Z T 1 )X + (2Q r − Q 1,r )P r . This completes the proof. Theorem 3.1 now yields Theorem 3.2, which contains our second significant theoretical contribution: The stationary points of the gradients of J in Theorem 3.1 characterize FONCs for the H 2 optimal approximation of LQO systems, and a H 2 optimal LQO-ROM is necessarily determined by Petrov-Galerkin projection (4). This result generalizes that of <ref type="bibr" target="#b27">[28,</ref><ref type="bibr">Theorem 3.4]</ref> to the LQO problem setting. Theorem 3.2. Let S and S r be asymptotically stable LQO systems as in (1) and (3), respectively. Let S r be a local minimizer of the squared H 2 error J (S r ) = S − S r 2 H2 .</p><p>Then, S r satisfies the first-order optimality conditions</p><formula xml:id="formula_117">0 = (2Q r − Q 1,r )P r + (2Z T − Z T 1 )X (47a) 0 = (2Q r − Q 1,r )B r + (2Z T − Z T 1 )B (47b) 0 = C r P r − CX, and<label>(47c)</label></formula><formula xml:id="formula_118">0 = P r M k,r P r − X T M k X, k = 1, . . . , p,<label>(47d)</label></formula><p>where X, Z ∈ Ê n×r , P r , Q r ∈ Ê r×r satisfy (37a) -(37d), and Z 1 ∈ Ê n×r , Q 1,r ∈ Ê r×r satisfy (38a) and (38b).</p><p>Further, if P r and 2Q r − Q 1,r are nonsingular, then the H 2 optimal reduced model can be obtained via a Petrov-Galerkin projection as in <ref type="bibr" target="#b3">(4)</ref> where the model reduction matrices V r , W r ∈ Ê n×r are given by</p><formula xml:id="formula_119">V r = XP −1 r and W r = −(2Z − Z 1 )(2Q r − Q 1,r ) −1 ,</formula><p>and satisfy W T r V r = I r .</p><p>Proof. The FONCs in (47a) -(47d) follow as a direct result of Theorem 3.1 along with the assumption that S r locally minimizes the H 2 error. Indeed, if S r is a local minimum of the function J (S r ) = S − S r 2 H2 , then the gradients of J are identically zero at S r .</p><p>What is left to prove that the optimal reduced model is obtained via a Petrov-Galerkin projection. Since P r ∈ Ê r×r and 2Q r − Q 1,r ∈ Ê r×r are assumed to be nonsingular, define the matrices</p><formula xml:id="formula_120">V r = XP −1 r ∈ Ê n×r and W r = −(2Z − Z 1 )(2Q r − Q 1,r ) −1 ∈ Ê n×r . Then, the con- dition (47a) implies −(2Q r − Q 1,r )P r = (2Z T − Z T 1 )X =⇒ I r = −(2Q r − Q 1,r ) −1 (2Z T − Z T 1 )XP −1 r = W T r V r . Then, V r = XP −1</formula><p>r and the FONCs (47c) and (47d) imply</p><formula xml:id="formula_121">0 = P r C T r − X T C T =⇒ C r = CXP −1 r = CV r , 0 = P r M k,r P r − X T M k X =⇒ M k,r = (P −1 r X T )M k (XP −1 r ) = V T r M k V r , for each k = 1, . . . , p. W r = −(2Z − Z 1 )(2Q r − Q 1,r ) −1 .</formula><p>And the condition (47b) jointly imply</p><formula xml:id="formula_122">0 = (2Q r − Q 1,r )B r + (2Z T − Z T 1 )B =⇒ B r = −(2Q r − Q 1,r ) −1 (2Z T − Z T 1 )B = W T r B. Lastly, V r = XP −1</formula><p>r implies X = V r P r . This identity, and multiplying (37c) by W T r yields</p><formula xml:id="formula_123">W T r A(V r P r ) + W T r (V r =Ir P r )A T r + (W T r B =Br )B T r = 0 =⇒ (W T r AV r )P r + P r A T r + B r B T r = 0,</formula><p>which, by comparison with (37a), yields the remaining identity A r = W T r AV r since P r is nonsingular. This completes the proof. Two remarks are in order. in Theorem 3.1 and the Gramian-based FONCs for H 2 optimality in Theorem 3.2 generalize the analogous results in the LTI setting to LQO systems, i.e., they establish the Wilson framework for H 2 optimal model reduction for LQO systems. Indeed, in the particular instance where M k = 0 n×n , and so, M k,r = 0 r×r as well, for each output k and S = S 1 is an LTI system as in <ref type="bibr" target="#b25">(26)</ref>, the reduced-order QO ob- <ref type="bibr" target="#b10">(11)</ref> and Z = Z 1 ∈ Ê n×r solving (38b), respectively. If we apply Theorem 3.1 in this case, the gradients with respect to A r and B r then become</p><formula xml:id="formula_124">servability Gramian Q r ∈ Ê r×r and solution Z ∈ Ê n×r to (37d) reduce to Q r = Q 1,r ∈ Ê r×r in</formula><formula xml:id="formula_125">∇ Ar J = 2 Q 1,r P r + Z T 1 X and ∇ Br J = 2 Q 1,r B r + Z T 1 B</formula><p>which are precisely those in <ref type="bibr" target="#b31">(32)</ref>; the gradient with respect to C r is unchanged. The Gramian-based FONCs in Theorem 3.2 reduce in an obviously similar way. Thus Theorem 3.1 and Theorem 3.2 contain (32) and (33) as a special case.</p><p>Remark 3.2. In some applications, there is no linear component in the output, i.e., C = 0 p×n , so the observation term y = y 2 of (1) is purely quadratic. In such instances,</p><formula xml:id="formula_126">Q 1 ∈ Ê n×n , Q 1,</formula><p>r ∈ Ê r×r and Z 1 ∈ Ê r×r are all zero. The gradients of J in Theorem 3.1 then become</p><formula xml:id="formula_127">∇ Ar J = 4 Q r P r + Z T X ∇ Br J = 4 Q r B r + Z T B ∇ M k,r J = 2 P r M k,r P r − X T M k X , k = 1 . . . , p,</formula><p>where Q r ∈ Ê r×r , Z ∈ Ê n×r solve (37b) and (37d) respectively, with C and C r equal to zero.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4">A two-sided iteration algorithm for LQO model reduction</head><p>Theorem 3.2 states that any local minimizer (3) of the H 2 error in ( <ref type="formula" target="#formula_45">24</ref>) is necessarily defined by a Petrov-Galerkin framework (4) where the optimal reduction matrices are given as</p><formula xml:id="formula_128">V r = XP −1 r ∈ Ê n×r and W r = −(2Z−Z 1 )(2Q r − Q 1,r ) −1 ∈ Ê n×r . It follows directly that the H 2 optimal</formula><p>LQO-ROM in question has an equivalent state-space realization given by</p><formula xml:id="formula_129">A r = (2Z T − Z T 1 )X −1 2Z T − Z T 1 AX B r = (2Z T − Z T 1 )X −1 2Z T − Z T 1 B C r = CX M k,r = X T M k X, k = 1 . . . , p,</formula><p>under the change of coordinate transformation T = P r ∈ Ê r×r (and with T −1 = −(2Q r − Q 1,r ) ∈ Ê r×r ). In other words, a H 2 optimal LQO-ROM is defined by the projection framework (4) along with the matrices V r = X ∈ Ê n×r and W r = 2Z − Z 1 ∈ Ê n×r , where W T r V r = (2Z T − Z T 1 )X is invertible due to the identity from (47a)</p><formula xml:id="formula_130">(2Z T − Z T 1 )X = −(2Q r − Q 1,r )P r ,</formula><p>and the assumption that 2Q r − Q 1,r and P r are nonsingular. The right projection matrix V r = X satisfies the Sylvester equation (37c) corresponding to the H 2 optimal LQO-ROM. Because Z ∈ Ê n×r and Z 1 ∈ Ê n×r are the solutions to (37d) and (38b), the left projection matrix W r = Z := 2Z − Z 1 satisfies a linear combination of (37d) and (38b), i.e.</p><formula xml:id="formula_131">A T Z + ZA r − 2 p k=1 M k XM k,r − C T C r = 0</formula><p>where X ∈ Ê n×r satisfies AX + XA T r + BB T r = 0.</p><p>(48)</p><p>Note that the Sylvester equations in (48) depend explicitly upon the H 2 optimal reduced model. So, if we wanted to project down the full-order matrices using the optimal choice of V r = X and W r = Z, this would require a priori knowledge of the optimal reduced-order quantities A r , B r , C r , and M k,r , which is of course unavailable.</p><p>Based on these observations, we propose a computationally efficient algorithm that uses iterated projection with the solutions to the Sylvester equations (48) in Algorithm 1. This leads to a fixed point iteration where at every step, the equations (48) are solved to project the full-order LQO system to obtain a new reduced model. This procedure is repeated until some stopping criterion is satisfied. The idea of using fixed-point algorithms in H 2 optimal model reduction is not new; indeed, ours is inspired by a similar approach for linear H 2 optimal model reduction introduced in <ref type="bibr" target="#b29">[30]</ref>. The computational procedure proposed in <ref type="bibr" target="#b29">[30]</ref> is called the two-sided iteration algorithm, which performs iterative projection on the linear full-order model using the solutions to (37c) and (38b). Practical improvements that make TSIA more computationally efficient were considered in <ref type="bibr" target="#b7">[8]</ref>. Because of this, we call Algorithm 1 the linear quadratic output two-sided iteration algorithm (LQO-TSIA). </p><formula xml:id="formula_132">(0) r ) ⊂ − , M k , M<label>(0)</label></formula><p>k,r symmetric for all k, and convergence tolerance ǫ &gt; 0.</p><p>1: while error &gt; ǫ do 2: Solve the Sylvester equations (48) for X, Z ∈ Ê n×r :</p><formula xml:id="formula_133">AX + XA (j) r T + BB (j) r T = 0, A T Z + ZA (j) r − 2 p k=1 M k XM (j) k,r − C T C (j) r = 0.</formula><p>3: Perform orthogonalization on the solution matrices:</p><p>V r = orth(X), W r = orth( Z).</p><p>4: Compute reduced-order matrices:</p><formula xml:id="formula_134">A (j+1) r = (W T r V r ) −1 W T r AV r , B (j+1) r = (W T r V r ) −1 W T r B, C (j+1) r = CV r , M (j+1) k,r = V T r M k V r , k = 1, . . . , p.</formula><p>5: end while.</p><p>Output: Order-r LQO-ROM specified by the reduced order matrices S r = (A r , B r , C r , M 1,r , . . . , M p,r ).</p><p>The main computational cost at each step lies in solving the Sylvester equations in Step 2 of Algorithm 1. However, because the solution matrices X, Z ∈ Ê n×r are tall and skinny, they can be obtained efficiently, e.g., by computing a Schur decomposition of the reduced matrix A r , and solving for their columns via shifted linear solves. Often, the full-order coefficient matrix A has some structured sparsity which can also be exploited <ref type="bibr" target="#b7">[8,</ref><ref type="bibr">Sec. 3]</ref>. The iteration in Algorithm 1 repeats until either some preset number of steps is reached, or the algorithm converges within the inputted tolerance based on some pre-determined stopping criterion. As is the case with any optimization problem, there exist a variety of possible choices for measuring convergence. Because we are seeking to minimize the squared H 2 error J in <ref type="bibr" target="#b23">(24)</ref>, for simplicity we use the change in the (relative) squared H 2 error between consecutive iterates to monitor convergence. By (40), the square of the relative error due to S (j) r at step j of the iteration is given by</p><formula xml:id="formula_135">η (j) := S − S (j) r 2 H2 S 2 H2 = S 2 H2 + S (j) r<label>2</label></formula><p>H2 + 2 tr(BZB</p><formula xml:id="formula_136">(j) r T ) S 2 H2 ,<label>(49)</label></formula><p>where Z ∈ Ê n×r satisfies (37d) for S (j) r . Then, Algorithm 1 is deemed to have converged if |η (j) − η (j−1) |/η (1) ≤ ǫ for ǫ &gt; 0. The H 2 norm of the FOM in (49) can be pre-computed at the start of the iteration. Another natural option is to monitor changes in the gradients ∇ Ar J , ∇ Br J , ∇ Cr J and ∇ M k,r J of the error function J , and terminate when they are sufficiently small. The information required to compute these quantities is readily available from the iteration itself. However, for a relative metric that uses scaled gradients (as is usually done in practice) this would require computing the Hessian of J , which is not directly available from already computed quantities. So, we do not consider this convergence criterion further. Upon convergence of Algorithm 1, the optimality conditions in Theorem 3.2 are satisfied. As is the case for the linear TSIA <ref type="bibr" target="#b29">[30]</ref> (and IRKA <ref type="bibr" target="#b16">[17]</ref> for the interpolatory formulation of the linear H 2 optimality framework) convergence of Algorithm 1 is not guaranteed in general since it is a fixed-point iteration. However, similar to TSIA and IRKA, in practice the algorithm performs well. We include a study of the convergence of Algorithm 1 in practice in Section 5.</p><p>For guaranteed convergence, one may consider developing a descent-based algorithm based on the explicit gradient formulae (42) we derived. We leave those computational considerations to a future work. Remark 4.1. For large-scale problems, computing the H 2 norm of the FOM entails the solution of the large-scale Lyapunov equation in <ref type="bibr" target="#b13">(14)</ref>, which may not be feasible in practice. The examples we consider in Section 5 have a modest state-space dimension, and so the H 2 norm of the full-order system S can be computed without issue. However, note that in the error formula (49), the only part that varies in each iteration is the 'tail', that is</p><formula xml:id="formula_137">τ (j) := S (j) r 2 H2 + 2 tr(BZB (j) r T )<label>(50)</label></formula><p>Therefore, if computing the true (or an approximate) H 2 norm of the FOM is not feasible, one may monitor the tail τ (j) and terminate the algorithm when the change in the tails fall below the inputted convergence tolerance. We investigate this choice in Section 5.</p><p>We conclude this section with a comment regarding the recent work <ref type="bibr" target="#b14">[15,</ref><ref type="bibr">Algorithm 1]</ref> where a two-sided iteration, similar to Algorithm 1, was proposed. The algorithm in <ref type="bibr" target="#b14">[15]</ref> was proposed without making explicit reference to H 2 optimality conditions; it was developed heuristically based on the corresponding two-sided iteration for linear systems in <ref type="bibr" target="#b29">[30]</ref>. As a result, despite the structural similarities, the method of <ref type="bibr" target="#b14">[15]</ref> solves a different Sylvester equation to compute Z and thus, unlike Algorithm 1, the resulting ROM does not satisfy the H 2 optimality conditions in Theorem 3.2 upon convergence.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5">Numerical Results</head><p>We test the effectiveness of the approach in Algorithm 1 on a numerical example. We compare our method to the structure-preserving balanced truncation algorithm for LQO systems from <ref type="bibr" target="#b6">[7]</ref>. We refer to this approach by LQO-BT. We consider the example of a 1D Advection-diffusion equation from [13, Section 4.1]. We briefly overview the relevant details of the example. The governing equations are</p><formula xml:id="formula_138">∂ ∂t v(t, x) − α ∂ 2 ∂x 2 v(t, x) + β ∂ ∂x v(t, x) = 0, v(t, 0) = u 0 (t), α ∂ ∂x v(t, 1) = u 1 (t), v(0, x) = 0,<label>(51)</label></formula><p>for x ∈ (0, 1) and t ∈ (0, T ) and inputs u 0 , u 1 ∈ L 2 (0, T ); the diffusion and advection coefficients are α &gt; 0 and β ≥ 0, respectively. The quantity of interest that we consider is</p><formula xml:id="formula_139">1 2 1 0 |v(t, x) − 1| 2 dx,<label>(52)</label></formula><p>Such an observable may arise from, e.g., the objective function in a quadratic optimal control problem. Discretizing the equations in (51) using n + 1 equidistant spatial points yields an order-n state-space model of the form (1) with m = 2 inputs and p = 1 output y. Let x(t) ∈ Ê n denote the spatial discretization of v(t, x), h := 1/n, and 1 ∈ Ê n the vector consisting of all ones. Then, the discretization pro-vides an approximation to the quadratic cost function (52)</p><formula xml:id="formula_140">h 2 x(t) − 1 2 2 = −h1 T x(t) =y1(t) + h 2 x(t) T x(t) =y2(t) + h 2 1 2 2 = y(t) + h 2 1 2 2 .</formula><p>To fit (1), we consider the single output of the discretized system to be given by y(t) = cx(t) + x(t) T Mx(t) where c := −h1 T ∈ Ê 1×n and M := h 2 I n ∈ Ê n×n is the n × n identity matrix. The approximation to the cost is recovered from the output y(t)</p><formula xml:id="formula_141">via h 2 x(t) − 1 2 2 = y(t) + h 2 1 2 2 .</formula><p>We perform a discretization of (51) using n = 300 spatial grid points to obtain an LQO system in state-space form (1); the advection and diffusion parameters are selected as α = 0.01 and β = 1. Reduced-order models of order r = 30 are computed using the LQO-TSIA and LQO-BT approaches. The LQO-TSIA is run with an overtly strict tolerance of ǫ = 10 −14 to investigate the two convergence criteria discussed in Section 4 (in practice one would choose a lower stopping criterion). The change in the relative squared H 2 error functional at each step (49) is used to determine convergence. As an initialization, A </p><p>r ∈ Ê r×r is the r × r identity matrix. We test the performance of the two reduced-order models in reproducing the output of the full-order system using two choices for the input u 1 ; in either case, we enforce the Neumann boundary condition of u 0 (t) = 0. We first simulate the full and reduced-order dynamics influenced by the sinusoidal input u 1 (t) = 0.5 cos(πt) + 1 and then by the exponentially damped quadratic input u 1 (t) = t 2 e −t/5 . To capture the full spread of the output dynamics in each experiment, the first simulation occurs over T = 10 seconds, and the second over T = 30 seconds. We plot the output response of the full and reduced-order systems due to the sinusoidal and exponentially damped inputs and the associated relative pointwise error in Figure <ref type="figure" target="#fig_3">1</ref> and Figure <ref type="figure" target="#fig_6">2</ref>, respectively. As evidenced by the error plots, both LQO-TSIA and LQO-BT are successful in replicating the full-order output for both inputs, while the approximation due to LQO-TSIA performs slightly better on average. (After we numerically investigate different convergence criteria of LQO-TSIA next, we will provide a more detailed comparison to LQO-BT with respect to the H 2 error.)</p><p>To numerically investigate the behavior of the two different convergence criteria for LQO-TSIA discussed in Section 4, we track the following two quantities during the iteration for the previously discussed r = 30 case: (1) The relative change in the (relative) squared H 2 error, |η (j) − η (j−1) |/|η (1) | for η (j) in (49), and (2) The relative change in the variable tails of the error, |τ (j) − τ (j−1) |/|τ (1) | for τ (j)  in (50) mentioned in Remark 4.1. The magnitude of these quantities throughout the iteration is plotted in Figure <ref type="figure">3</ref>. The relative changes in the H 2 errors |η (j) − η (j−1) |/η (1)  between consecutive iterates level off around the iterates j = 75 to j = 80. At this point, a local minima of the squared H 2 error has been found, and the algorithm converges shortly after. Evidently, |τ (j) − τ (j−1) |/|τ (1) tracks |η (j) − η (j−1) |/η (1) very well until convergence. At the point at which the H 2 error begins to stagnate, the change in tails continues to decay. So, this convergence criterion may cause Algorithm 1 to continue to iterate past the point at which relative the H 2 error has stagnated. However, these two measures start to stagnate around a relative measure of 10 −10 , a tolerance much tighter than one would usually employ in practice. Therefore, even though we conclude that monitoring changes in the relative squared H 2 error (49) to be a more reliable convergence metric, monitoring changes in the tails according to (50) prove to be a robust alternative if computing the H 2 norm of S is intractable.</p><p>Finally, to better compare the performance of LQO-TSIA and LQO-BT, we compute a hierarchy of reduced models for orders r = 2, 4, . . . , 30 using both LQO-TSIA and LQO- iteration count j |η (j) − η (j−1) |/η (1)  |τ (j) − τ (j−1) |/|τ (1) | Figure <ref type="figure">3</ref>: Convergence of the LQO-TSIA algorithm for r = 30. The relative changes in η (j) and τ (j) according to (49) and (50) are measured throughout the iteration.</p><p>BT. The same initialization and convergence criterion from before are used for LQO-TSIA. For each order, the squared relative H 2 error due to the order-r LQO-TSIA and LQO-BT reduced models are computed using formula <ref type="bibr" target="#b18">(19)</ref>. The results are plotted in Figure <ref type="figure" target="#fig_7">4</ref>. As the order-r increases, the relative H 2 error due to the LQO-TSIA and LQO-BT ROMs decrease as well; the LQO-TSIA models exhibit a slightly smaller error for all orders of reduction.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6">Conclusions</head><p>In this work, we have presented a novel H 2 optimality framework for the model reduction of LQO dynamical systems. The novel contributions are the computation of gradients of the squared H 2 error for such systems in Theorem 3.1, and the generalization the well-known Gramian-based H 2 optimality framework for linear dynamical systems to the model reduction of LQO systems in Theorem 3.2. Finally, a linear quadratic-output two-sided iteration algorithm, LQO-TSIA, is proposed in Algorithm 1 for the efficient H 2 model reduction of LQO systems. We illustrate the effectiveness of LQO-TSIA on a numerical example resulting from an optimal control problem. In the future, we will consider alternative H 2 optimality frameworks for LQO system using the concept on rational function interpolation.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>M</head><label></label><figDesc>e P e M e = 0, A e P e + P e A T e + B e B T e = 0.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head></head><label></label><figDesc>e , = tr C e P e C T e + p k=1 tr (P e M k,e P e M k,e ) .</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head>Remark 3 . 1 .</head><label>31</label><figDesc>Both the gradients of J (S r ) = S − S r 2 H2</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head>Algorithm 1</head><label>1</label><figDesc>Linear quadratic output two-sided iteration algorithm (LQO-TSIA) for H 2 optimal LQO-MOR Input: LQO order-n model S = (A, B, C, M 1 , . . . , M k ), 1 ≤ r &lt; n, and initial order-r LQO-ROM S ) with λ(A), λ(A</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_4"><head></head><label></label><figDesc>r ∈ Ê r×r is taken as a diagonal matrix with r = 30 logarithmically spaced points chosen in the interval from −10 0 and −10 4 , while B (0) r ∈ Ê r×m is the leading m columns of the r × r identity matrix, C (0) r ∈ Ê p×r is the leading p rows of the r × r identity matrix, and M</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_5"><head>Figure 1 :</head><label>1</label><figDesc>Figure 1: Output response of the FOM and order r = 30 ROMs computed by LQO-TSIA and LQO-BT driven by the inputs u 0 (t) = 0 and u 1 (t) = .5 cos(πt) + 1.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_6"><head>Figure 2 :</head><label>2</label><figDesc>Figure 2: Output response of the FOM and order r = 30 ROMs computed by LQO-TSIA and LQO-BT driven by the inputs u 0 (t) = 0 and u 1 (t) = t 2 e −t/5 .</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_7"><head>Figure 4 :</head><label>4</label><figDesc>Figure 4: Relative H 2 errors for hierarchy of LQO-TSIA and LQO-BT reduced models for orders of reduction r = 2, 4, . . . , 30.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_0"><head></head><label></label><figDesc>The particular organization of the manuscript is as follows: In Section 2, we review the necessary systems theory background of linear systems with quadratic output functions and introduce several different characterizations of the H 2 system norm. These characterizations are central to the theoretical results developed in Section 3, where we present the main theoretical contributions of this work. These are the derivation of gradients of the squared H 2 system error and resulting Gramian-based FONCs for H 2 optimal LQO-MOR. Section 4 presents LQO-TSIA, an iterative computational algorithm for LQO-MOR based on the previously established H 2 optimality framework. The algorithm requires the solutions to a pair of Sylvester equations. To validate the proposed approach, in Section 5 we test our method on an example where a quadratic output naturally occurs from the discretization of a quadratic cost function. Section 6 concludes the work and looks toward future research endeavors.</figDesc><table /><note>3. Based on this theoretical optimality framework, wepropose an iteratively corrected algorithm for H 2 optimal LQO-MOR in Algorithm 1; we call this the linear quadratic output two-sided iteration algorithm (LQO-TSIA). The algorithm produces (upon convergence) LQO-ROMs that satisfy the Gramian-based FONCs from Theorem 3.2.</note></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_1"><head></head><label></label><figDesc>describe the purely linear term in the output; that is, y 1 (t) = Cx(t).</figDesc><table><row><cell>The bivariate kernel h 2 (t 1 , t 2 ) and convolution in (5) de-</cell></row><row><cell>scribe the purely quadratic term in the output; i.e., y 2 (t) =</cell></row><row><cell>M (x(t) ⊗ x(t)). This description of S can be directly ob-</cell></row><row><cell>tained from the governing equations (1); see [7, Section 4]</cell></row><row><cell>for a derivation. From the Volterra kernels in (5), an H 2</cell></row><row><cell>inner product and the corresponding norm for LQO systems</cell></row><row><cell>can be defined [7, Definifiton 3.1].</cell></row><row><cell>Definition 2.1. Let S and S r be asymptotically stable LQO</cell></row><row><cell>systems as in (1) and (3) having the kernels h 1 (t), h 1,r (t)</cell></row><row><cell>and h 2 (t 1 , t 2 ), h 2,r (t 1 , t 2 ) defined according to (6), respec-</cell></row><row><cell>tively. The H 2 inner product of S and S r is</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_2"><head></head><label></label><figDesc>as a 'special case' of the LQO system class (26) having the realization (A, B, C, 0 n×n , . . . , 0 n×n ). With this perspective, much of the systems theory introduced in Section 2 neatly reduces to the analogous linear systems theory. The input-to-output map of the LTI system S</figDesc><table /><note>1 in (26) is fully realized by the onedimensional kernel h 1 (t) = Ce At B; the two-dimensional kernel h 2 (t 1 , t 2 ) is identically zero in this context. As a consequence, the H 2 norm of S 1 as given in Definition 2.1 agrees with the linear H 2 system norm; cf. [1, Section 5.1]. The QO observability Gramian of S 1 becomes the classical observability Gramian of a linear system, which is Q 1 ∈</note></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_3"><head></head><label></label><figDesc>All experiments were performed on a MacBook Air with 8 gigabytes of RAM and an Apple M2 processor running macOS Ventura version 13.4 with MATLAB 23.2.0.2515942 (R2023b) Update 7. The source codes for recreating the numerical experiments and the computed results are available at<ref type="bibr" target="#b22">[23]</ref>.</figDesc><table /></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" xml:id="foot_0">Preprint.May 10, 2024</note>
+		</body>
+		<back>
+
+			<div type="acknowledgement">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Acknowledgments</head><p>The work of Gugercin and Reiter is based upon work supported by the National Science Foundation under Grant No. AMPS-1923221. We thank Alejandro Diaz and Matthias Heinkenschloss for providing the code for creating the test examples in Section 5.</p></div>
+			</div>
+
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">Approximation of large-scale dynamical systems</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">C</forename><surname>Antoulas</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">SIAM</title>
+		<imprint>
+			<date type="published" when="2005">2005</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">Interpolatory Methods for Model Reduction</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">C</forename><surname>Antoulas</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">A</forename><surname>Beattie</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Gugercin</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Computational Science &amp; Engineering. SIAM</title>
+		<imprint>
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">On the decay rate of Hankel singular values and related issues</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">C</forename><surname>Antoulas</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">C</forename><surname>Sorensen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Zhou</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Systems &amp; Control Letters</title>
+		<imprint>
+			<biblScope unit="volume">46</biblScope>
+			<biblScope unit="issue">5</biblScope>
+			<biblScope unit="page" from="323" to="342" />
+			<date type="published" when="2002">2002</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">Structured model order reduction for vibro-acoustic problems using interpolation and balancing methods</title>
+		<author>
+			<persName><forename type="first">Q</forename><surname>Aumann</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">W R</forename><surname>Werner</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">J. Sound Vib</title>
+		<imprint>
+			<biblScope unit="volume">543</biblScope>
+			<biblScope unit="page">117363</biblScope>
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">Interpolation-based H 2 -model reduction of bilinear control systems</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Benner</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Breiten</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">SIAM Journal on Matrix Analysis and Applications</title>
+		<imprint>
+			<biblScope unit="volume">33</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="859" to="885" />
+			<date type="published" when="2012">2012</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">H 2 -quasi-optimal model order reduction for quadratic-bilinear control systems</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Benner</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Goyal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Gugercin</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">SIAM Journal on Matrix Analysis and Applications</title>
+		<imprint>
+			<biblScope unit="volume">39</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="983" to="1032" />
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">Gramians, energy functionals, and balanced truncation for linear dynamical systems with quadratic outputs</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Benner</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Goyal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Pontes Duff</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Automatic Control</title>
+		<imprint>
+			<biblScope unit="volume">67</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="886" to="893" />
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<monogr>
+		<title level="m" type="main">Sparse-dense Sylvester equations in H 2 -model order reduction. Preprint MPIMD/11-11</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Benner</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Köhler</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Saak</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2011">2011</date>
+			<publisher>Max Planck Institute Magdeburg</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<monogr>
+		<title level="m" type="main">Dimension reduction of large-scale systems</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Benner</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Mehrmann</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">C</forename><surname>Sorensen</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2005">2005</date>
+			<publisher>Springer</publisher>
+			<biblScope unit="volume">45</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<monogr>
+		<title level="m" type="main">Model reduction and approximation: theory and algorithms</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Benner</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Ohlberger</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Cohen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Willcox</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2017">2017</date>
+			<pubPlace>SIAM, Philadelphia, PA</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">Kronecker products and matrix calculus in system theory</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Brewer</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on circuits and systems</title>
+		<imprint>
+			<biblScope unit="volume">25</biblScope>
+			<biblScope unit="issue">9</biblScope>
+			<biblScope unit="page" from="772" to="781" />
+			<date type="published" when="1978">1978</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<monogr>
+		<title level="m" type="main">Calculus on normed vector spaces</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Coleman</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2012">2012</date>
+			<publisher>Springer Science &amp; Business Media</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">Interpolatory model reduction of quadraticbilinear dynamical systems with quadratic-bilinear outputs</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">N</forename><surname>Diaz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Heinkenschloss</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><forename type="middle">V</forename><surname>Gosea</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">C</forename><surname>Antoulas</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Advances in Computational Mathematics</title>
+		<imprint>
+			<biblScope unit="volume">49</biblScope>
+			<biblScope unit="issue">6</biblScope>
+			<biblScope unit="page" from="1" to="28" />
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">Multipoint Volterra series interpolation and H 2 optimal model reduction of bilinear systems</title>
+		<author>
+			<persName><forename type="first">G</forename><surname>Flagg</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Gugercin</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">SIAM Journal on Matrix Analysis and Applications</title>
+		<imprint>
+			<biblScope unit="volume">36</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="549" to="579" />
+			<date type="published" when="2015">2015</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">A two-sided iterative framework for model reduction of linear systems with quadratic output</title>
+		<author>
+			<persName><forename type="first">I</forename><forename type="middle">V</forename><surname>Gosea</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">C</forename><surname>Antoulas</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">IEEE 58th Conference on Decision and Control (CDC)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2019">2019. 2019</date>
+			<biblScope unit="page" from="7812" to="7817" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<analytic>
+		<title level="a" type="main">Data-driven modeling of linear dynamical systems with quadratic output in the AAA framework</title>
+		<author>
+			<persName><forename type="first">I</forename><forename type="middle">V</forename><surname>Gosea</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Gugercin</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Scientific Computing</title>
+		<imprint>
+			<biblScope unit="volume">91</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page">16</biblScope>
+			<date type="published" when="2022">2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<analytic>
+		<title level="a" type="main">H 2 model reduction for large-scale linear dynamical systems</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Gugercin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">C</forename><surname>Antoulas</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Beattie</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">SIAM Journal on Matrix Analysis and Applications</title>
+		<imprint>
+			<biblScope unit="volume">30</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="609" to="638" />
+			<date type="published" when="2008">2008</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<monogr>
+		<title level="m" type="main">Energy matching in reduced passive and port-Hamiltonian systems</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Holicki</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Nicodemus</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Schwerdtner</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Unger</surname></persName>
+		</author>
+		<ptr target="https://arxiv.org/abs/2309.05778" />
+		<imprint>
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+	<note>e-prints 2309.05778, arXiv</note>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<analytic>
+		<title level="a" type="main">Approximation of linear constant systems</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Meier</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Luenberger</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Automatic Control</title>
+		<imprint>
+			<biblScope unit="volume">12</biblScope>
+			<biblScope unit="issue">5</biblScope>
+			<biblScope unit="page" from="585" to="588" />
+			<date type="published" when="1967">1967</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<monogr>
+		<title level="m" type="main">Balanced truncation of descriptor systems with a quadratic output</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Przybilla</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Pontes Duff</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Goyal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Benner</surname></persName>
+		</author>
+		<ptr target="https://arxiv.org/abs/2402.14716" />
+		<imprint>
+			<date type="published" when="2024">2024</date>
+		</imprint>
+	</monogr>
+	<note>e-prints 2402.14716, arXiv</note>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<analytic>
+		<title level="a" type="main">Energy-based model order reduction for linear stochastic Galerkin systems of second order</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Pulch</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">PAMM</title>
+		<imprint>
+			<biblScope unit="volume">23</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page">e202300038</biblScope>
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<analytic>
+		<title level="a" type="main">Balanced truncation for model order reduction of linear dynamical systems with quadratic outputs</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Pulch</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Narayan</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">SIAM Journal on Scientific Computing</title>
+		<imprint>
+			<biblScope unit="volume">41</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="A2270" to="A2295" />
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<monogr>
+		<title level="m" type="main">Code, data, and results for numerical experiments in &quot;H 2 optimal model reduction of linear systems with multiple quadratic outputs</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Reiter</surname></persName>
+		</author>
+		<idno type="DOI">10.5281/zenodo.11104814</idno>
+		<imprint>
+			<date type="published" when="2024">2024</date>
+			<biblScope unit="volume">1</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b23">
+	<monogr>
+		<title level="m" type="main">Interpolatory model order reduction of large-scale dynamical systems with root mean squared error measures</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Reiter</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">W R</forename><surname>Werner</surname></persName>
+		</author>
+		<ptr target="https://arxiv.org/abs/2403.08894" />
+		<imprint>
+			<date type="published" when="2024">2024</date>
+		</imprint>
+	</monogr>
+	<note>e-prints 2403.08894, arXiv</note>
+</biblStruct>
+
+<biblStruct xml:id="b24">
+	<monogr>
+		<title level="m" type="main">Balanced truncation of linear systems with quadratic outputs in limited time and frequency intervals</title>
+		<author>
+			<persName><forename type="first">Q</forename><forename type="middle">Y</forename><surname>Song</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">U</forename><surname>Zulfiqar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><forename type="middle">H</forename><surname>Xiao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">M</forename><surname>Uddin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Sreeram</surname></persName>
+		</author>
+		<ptr target="https://arxiv.org/abs/2402.11445" />
+		<imprint>
+			<date type="published" when="2024">2024</date>
+		</imprint>
+	</monogr>
+	<note>e-prints 2402.11445, arXiv</note>
+</biblStruct>
+
+<biblStruct xml:id="b25">
+	<analytic>
+		<title level="a" type="main">Model reduction by balanced truncation of linear systems with a quadratic output</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Van Beeumen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Meerbergen</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">AIP Conference Proceedings</title>
+		<imprint>
+			<biblScope unit="volume">1281</biblScope>
+			<biblScope unit="page" from="2033" to="2036" />
+			<date type="published" when="2010">2010</date>
+			<publisher>American Institute of Physics</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b26">
+	<analytic>
+		<title level="a" type="main">Model reduction for dynamical systems with quadratic output</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Van Beeumen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Van Nimmen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Lombaert</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Meerbergen</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">International Journal for Numerical Methods in Engineering</title>
+		<imprint>
+			<biblScope unit="volume">91</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="229" to="248" />
+			<date type="published" when="2012">2012</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b27">
+	<analytic>
+		<title level="a" type="main">H 2 -optimal model reduction of MIMO systems</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Van Dooren</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">A</forename><surname>Gallivan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">A</forename><surname>Absil</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Applied Mathematics Letters</title>
+		<imprint>
+			<biblScope unit="volume">21</biblScope>
+			<biblScope unit="issue">12</biblScope>
+			<biblScope unit="page" from="1267" to="1273" />
+			<date type="published" when="2008">2008</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b28">
+	<analytic>
+		<title level="a" type="main">Optimum solution of model-reduction problem</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Wilson</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the Institution of Electrical Engineers</title>
+				<meeting>the Institution of Electrical Engineers</meeting>
+		<imprint>
+			<date type="published" when="1970">1970</date>
+			<biblScope unit="volume">117</biblScope>
+			<biblScope unit="page" from="1161" to="1165" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b29">
+	<analytic>
+		<title level="a" type="main">Optimal H 2 model reduction for large scale MIMO systems via tangential interpolation</title>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Xu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Zeng</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Int. J. Numer. Anal. Model</title>
+		<imprint>
+			<biblScope unit="volume">8</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="174" to="188" />
+			<date type="published" when="2011">2011</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b30">
+	<analytic>
+		<title level="a" type="main">An approximate approach to H 2 optimal model reduction</title>
+		<author>
+			<persName><forename type="first">W</forename><forename type="middle">Y</forename><surname>Yan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Lam</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Automatic Control</title>
+		<imprint>
+			<biblScope unit="volume">44</biblScope>
+			<biblScope unit="issue">7</biblScope>
+			<biblScope unit="page" from="1341" to="1358" />
+			<date type="published" when="1999">1999</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b31">
+	<analytic>
+		<title level="a" type="main">On H 2 model reduction of bilinear systems</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Lam</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Automatica</title>
+		<imprint>
+			<biblScope unit="volume">38</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="205" to="216" />
+			<date type="published" when="2002">2002</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

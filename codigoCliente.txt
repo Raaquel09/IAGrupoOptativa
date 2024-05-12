@@ -1,0 +1,7 @@
+from grobid_client.grobid_client import GrobidClient
+
+client = GrobidClient(config_path="./config.json")
+client.process("processFulltextDocument", "C:\\Users\\Admin\\Desktop\\PracticaIndividual", n=20)
+
+
+(La ruta que se ve en la última línea hay que cambiarla por la ruta del directorio en el que esté el proyecto.)

@@ -1,0 +1,551 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Performance Analysis of Underwater Acoustic Channel Amid Jamming by Random Jammers</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+				<date type="published" when="2024-05-05">5 May 2024</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Waqas</forename><surname>Aman</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Saif</forename><surname>Al-Kuwari</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Marwa</forename><surname>Qaraqe</surname></persName>
+						</author>
+						<title level="a" type="main">Performance Analysis of Underwater Acoustic Channel Amid Jamming by Random Jammers</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date type="published" when="2024-05-05">5 May 2024</date>
+						</imprint>
+					</monogr>
+					<idno type="MD5">8AA5B205EF6C372A118A41373951CBD4</idno>
+					<idno type="arXiv">arXiv:2405.02885v1[eess.SP]</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.2" ident="GROBID" when="2024-05-12T15:27+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>
+					<term>jamming</term>
+					<term>attacks</term>
+					<term>availability</term>
+					<term>stochastic geometry</term>
+					<term>Poisson point process</term>
+					<term>coverage</term>
+					<term>energy efficiency</term>
+					<term>average rate</term>
+					<term>underwater acoustic communication</term>
+				</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Underwater communication networks are increasingly popularized by various important maritime applications. However, this also leads to an increased threat landscape. This letter presents the first study that considers jamming attacks by random jammers present in the surroundings of legitimate transceivers in underwater acoustic communication systems. We investigate the impact of jamming attacks on various performance parameters of the legitimate underwater acoustic communication link. In particular, we investigate the legitimate link using stochastic geometry for important performance parameters, namely coverage probability, average rate, and energy efficiency of the link between two legitimate nodes, i.e., underwater and surface nodes. We then derive and present tractable expressions for these performance parameters. Finally, we performed a Monte Carlo simulation to validate our analysis. We plot the performance metrics against the transmit power, and jamming power for different intensities of the jammers in shallow, mid, and deep water scenarios. Results reveal that on average, jamming in deep water has a relatively high impact on the performance of legitimate link than in shallow water.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>I. INTRODUCTION</head><p>Recently, a considerable amount of research has been conducted to explore innovative approaches, from design to signal processing, on underwater acoustic communication <ref type="bibr" target="#b0">[1,</ref><ref type="bibr" target="#b1">2]</ref>. However, the broadcast nature of underwater acoustic communication makes it vulnerable to many types of malicious attacks <ref type="bibr" target="#b2">[3]</ref>. One of the prominent attacks is the jamming attack, which can lead to denial of services or high error rate in ongoing communication. In fact, as underwater acoustic communication systems operate in a limited frequency band due to the harsh environment, jamming can aggressively consume the available bandwidth, making it difficult for legitimate communication signals to pass through. On the other hand, resisting the jamming attack in the typical underwater environment is often difficult as it is increasingly challenging to physically access such hostile environments. This consequently makes it difficult to locate and remove jamming devices there. Therefore, investigating the potential impact of jamming in these environments is of utmost importance.</p><p>The authors in <ref type="bibr" target="#b3">[4]</ref> consider a jamming attack scenario in the underwater acoustic communication network, and propose a detection scheme that detects jamming by observing abnormalities in the received data. Specifically, jamming is detected by measuring any abnormality in terms of packet transmission ratio or the amount of energy consumption. Once a jamming Authors gratefully acknowledge the G5828 grant by NATO's Science for Peace and Security Programme. All the authors are with the Division of Information and Computing Technology, College of Science and Engineering, Hamad Bin Khalifa University, Qatar Foundation, Doha, Qatar. Emails: {waman, smalkuwari, mqaraqe}@hbku.edu.qa attack has been identified, the node sends a high-priority packet to its neighbors and increases sleeping time to save energy. Meanwhile, it also maps a jammed area to prevent data transmission from occurring, which mitigates the jamming effect. Similarly, the authors in <ref type="bibr" target="#b4">[5]</ref> propose a deep Q-network-based resource allocation mechanism that utilizes the transmit power of the legitimate transmitter node and the location of the receiver node to mitigate the jamming effect by enhancing the signal-tojamming power ratio. More recently, the authors in <ref type="bibr" target="#b5">[6]</ref> utilize a double deep Q network (D2QN) to propose a mechanism that jointly optimizes the transmit power and receiver node' trajectory to maximize the achievable end-to-end throughput amid jamming.</p><p>Alternatively, game theory<ref type="foot" target="#foot_0">1</ref> has been utilized to detect and mitigate jamming in underwater acoustic communication systems <ref type="bibr" target="#b6">[7]</ref><ref type="bibr" target="#b7">[8]</ref><ref type="bibr" target="#b8">[9]</ref><ref type="bibr" target="#b9">[10]</ref><ref type="bibr" target="#b10">[11]</ref>. Game theory and reinforcement learning are jointly used to detect jamming attacks by formulating the interactions between underwater nodes and attackers (i.e., players) as an underwater jamming game in <ref type="bibr" target="#b6">[7]</ref>. The players choose their transmit power levels to maximize their individual utilities based on the SINR of the normal signals and transmission costs. Nash equilibrium of a static jamming game is presented in a closedform expression for the jamming scenario with known acoustic channel gains. For unknown dynamic underwater environments, a Q-learning-based antijamming method is proposed where each node chooses its transmit power with no information on the channel gain of the jamming attackers available. In addition, other work uses the game theory approach for various resource allocation problems during jamming <ref type="bibr" target="#b7">[8]</ref><ref type="bibr" target="#b8">[9]</ref><ref type="bibr" target="#b9">[10]</ref><ref type="bibr" target="#b10">[11]</ref>.</p><p>To the best of our knowledge, the impact of random jammers on the performance of the legitimate node has not been studied in underwater acoustic communication networks. Earlier work <ref type="bibr" target="#b3">[4]</ref><ref type="bibr" target="#b4">[5]</ref><ref type="bibr" target="#b5">[6]</ref><ref type="bibr" target="#b6">[7]</ref><ref type="bibr" target="#b7">[8]</ref><ref type="bibr" target="#b8">[9]</ref><ref type="bibr" target="#b9">[10]</ref><ref type="bibr" target="#b10">[11]</ref> considered mainly three node-setups (Alice, Bob, and a Jammer) or fixed geometry for jammers and proposed their techniques to counter jamming via resource allocation schemes through game theory or other optimization techniques. In this work, instead, we consider a more realistic scenario where we assume multi-random jammers in the surrounding area of the legitimate nodes, and whose continuous jamming in the operating frequency range affects the ongoing communication between legitimate nodes. We investigate (using stochastic geometry) how randomly distributed jammers in the seabed can impact the coverage, average rate (AR), and energy efficiency (EE) of the legitimate communication link.</p><p>Despite being the first work of its kind in the literature, this work is important from two different aspects. Firstly, it tackles a realistic scenario where the precise number and locations of jammers are unknown, introducing a nuanced perspective to the existing literature. Secondly, it underscores the crucial Fig. <ref type="figure">1</ref>. System Model need for understanding system behavior in dynamic, stochastic environments, empowering design engineers to optimize system parameters effectively to achieve predefined performance metrics such as coverage probability, spectral efficiency, and energy efficiency in a jamming environment.</p><p>The rest of this letter is organized as follows: Section II presents the system and signal model, and Section III presents the performance analysis. We evaluate our proposals using simulation and present the results in Section IV. Finally, the paper concludes in Section V with a few concluding remarks and future directions.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>II. SYSTEM &amp; SIGNAL MODEL</head><p>We consider an underwater acoustic communication system as depicted in Fig. <ref type="figure">1</ref> where we have a legitimate underwater transmitting node/submarine at a certain location that transmits signals at power P t , and a surface receiver node/ship to receive and decode information. Furthermore, we consider random jammers at the seabed with a certain depth ρ which are distributed according to a homogeneous Poisson point process (PPP) with intensity λ J . All jammer nodes emit continuous jamming signals with power P J in the operating frequency band, effectively blocking or interfering with legitimate communication. Therefore, we are interested in finding how these random jammers, on average, affect the performance of legitimate communication.</p><p>The clean received signal y in the frequency domain of the legitimate transmitter on the surface ship is given as</p><formula xml:id="formula_0">y(f ) = √ P t PL(f ) H(f )x + N (f ),<label>(1)</label></formula><p>where P t is the transmit power, PL is pathloss, x is the transmitted symbol, H(f ) is the channel transfer function, and N (f ) is PSD of the acoustic noise, can be expressed in dB as N (f ) dB ≈ N 1 − τ 10 log(f ), where N 1 and τ are the experimental constants. The path-loss PL in dB of underwater acoustic (UWA) channel between a node pair having distance d separation is given as <ref type="bibr" target="#b11">[12]</ref> PL</p><formula xml:id="formula_1">dB (f, d) = ν10 log d + dα(f ) dB .<label>(2)</label></formula><p>Eventually, the path-loss of UWA channel is the summation of spreading loss (ν10 log d) and absorption loss (dα(f ) dB ) in dB scale, where ν is the spreading factor, while the absorption coefficient α(f ) dB is given as α(f ) dB = 0.11f 2 1+f 2 + 44f 2 4100+f 2 +2.75× 10 −4 f 2 + 0.003 <ref type="bibr" target="#b11">[12]</ref>.</p><p>According to the statistical behavior of the channel transfer function <ref type="bibr" target="#b12">[13]</ref>, it can be expressed as</p><formula xml:id="formula_2">H(f ) ∼ CN (∑ L l=1 c l E{h l }, σ 2 L ∑ L l=1 |c l |)</formula><p>where c l = e −j2πf ξ l with ξ l is the l-path delay, and σ L = σ l ∀l and L is the total number of paths. Next, |H(f )| is distributed as Rician with shape parameter</p><formula xml:id="formula_3">K = | ∑ L l=1 c l E{h l }| 2 σ 2 L ∑ L l=1 |c l | = | ∑ L l=1 c l E{h l }| 2 σ 2 L L</formula><p>. Equivalently,</p><formula xml:id="formula_4">|H(f )| ∼ Rice( √ 2 L | ∑ L l=1 c l E{h l } |, σ L ).</formula><p>Assuming unit variance of path's distribution (i.e σ 2 l = 1), and omitting f for the sake of brevity, |H| 2 is distributed as non-central chisquared with two degrees-of-freedom and non-centrality param-</p><formula xml:id="formula_5">eter ψ = ( √ 2 L | ∑ L l=1 c l E{h l } |) 2</formula><p>. At this stage, assuming a narrow-band system <ref type="bibr" target="#b12">[13]</ref>, we can write the signal-to-jamming and noise ratio (SJNR) as</p><formula xml:id="formula_6">SJNR = ζ J + σ 2 , (<label>3</label></formula><formula xml:id="formula_7">)</formula><p>where ζ = pt PL |H| 2 is the received signal power from the legitimate transmitter, J = P J ∑ j∈Φj 1 PLj |H j | 2 is the aggregated jamming power with P J the jamming power, PL j is the path loss and H j is the channel transfer function of j-th jammer and σ 2 = ∆f N (f ) is the total noise power in the operating band ∆f .</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>III. PERFORMANCE ANALYSIS</head><p>We analyzed our system in terms of three metrics: coverage probability, AR, and EE. We derive Laplace transforms of received and jamming signals, which contribute to the three metrics. We discuss each of them in detail below.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>A. Coverage Probability</head><p>By definition, the conditional (i.e., conditioned on the distance of legitimate transmitter to surface node) coverage probability in the case of jamming can be expressed as</p><formula xml:id="formula_8">P C | (D = d) = P[SJNR | (D = d) ≥ τ ] = P[ Pt|H| 2 PL(d) J + σ 2 ≥ τ ] (4) = P[|H| 2 ≥ PL(d) P t τ (J + σ 2 )],</formula><p>where D denotes an R.V. for the distance between legitimate underwater and surface nodes, τ is the threshold or target SJNR.</p><p>To find this probability, we invoke the Gill-Paliez inversion theorem <ref type="bibr" target="#b13">[14]</ref>, accordingly the above equation can be written as</p><formula xml:id="formula_9">P C | (D = d) = (5) 0.5 − 2λ J ∫ ∞ 0 Img[L |H| 2 (−is Pt PL(d)τ )F J (is)] s d s ,</formula><p>where Img [.] represents the imaginary part of a complex value function,</p><formula xml:id="formula_10">F J (is) = ∫ ∞ 0 y exp (iys σ 2 P J ) exp (−πλ J y 2 γ(isy))dy with γ(isy) = E[ 1 F 1 (−2, −1, is P J PLj (y) |H j | 2 )</formula><p>] where 1 F 1 (., ., .) is confluent hyper-geometric function of the first kind. The above probability is conditioned on distance d, now, the overall coverage probability P C can be computed by computing the expectation of Eq. 5 w.r.t. to distance D, the final expression is presented in Eq. 6, where d max is the maximum value of R.V. D (distance of the legitimate node). We consider R.V. D as uniform R.V. distributed as D ∼ U(0, d max ). Thus, it implies,</p><formula xml:id="formula_11">f D (d) = 1 dmax P C = ∫ dmax 0 (0.5 − 2λ J ∫ ∞ 0 Img[L |H| 2 (−is Pt PL(d)τ )F J (is)] s d s )f D (d)d d ,<label>(6)</label></formula><formula xml:id="formula_12">L J (s) = exp (−2πλ J ∫ ∞ 0 (1 − exp ( −ψsP j 1 PLj (r) 1 + 2sP j 1 PLj (r) )(1 + 2sP j 1 PL j (r) ) −1 )rd r )<label>(7)</label></formula><formula xml:id="formula_13">AR = ∫ dmax 0 ∫ ∞ 0 (1−exp ( − ψ(d)s 1+2s )) (1+2s) exp (−2πλ J ∫ ∞ 0 (1 − exp ( − ψ(d)sPj 1 PL j (r) 1+2sPj 1 PL j (r) )(1 + 2sP j 1 PLj (r) ) −1 )rd r ) s exp (−σ 2 s)d s f D (d)d d ,<label>(8)</label></formula><p>B. Average Rate AR provides a more realistic assessment of a wireless communication system's performance in a time-varying and fading channel. Instead of looking at the instantaneous rate, which can fluctuate greatly, it considers the average rate over a long time period, which is more relevant for practical applications. By definition, it can be expressed as</p><formula xml:id="formula_14">AR = E [log 2 (1 + ζ J + σ 2 )] bps,<label>(9)</label></formula><p>where the expectation is joint w.r.t. ζ and J. We invoke Hamdi's lemma to find the conditional AR, given as <ref type="bibr" target="#b14">[15]</ref> AR</p><formula xml:id="formula_15">| (D = d) = ∫ ∞ 0 L J (s) − L ζ(d) (s)L J (s) s exp (−σ 2 s)d s ,<label>(10)</label></formula><p>By putting Eqs. 7 &amp; 12 into Eq. 10, we get the final expression for AR which is presented in Eq. 8.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>C. Energy Efficiency</head><p>Energy efficiency (EE) is an important consideration in underwater wireless communication. Due to the remote and harsh environment of underwater wireless communication, energy becomes a precious resource of the system due to expensive energy source replacement mechanisms. By reducing the energy consumption during communication, the operational costs associated with battery replacement and maintenance can be minimized. When a jamming attack occurs, the device may need to increase its transmit power to overcome the interference <ref type="bibr" target="#b15">[16]</ref>. Energy-efficient communication can help ensure that the device's battery lasts longer, allowing it to continue functioning even in the presence of jamming. The EE can be computed as:</p><formula xml:id="formula_16">EE = ∫ dmax 0 ∫ ∞ 0 L J (s)−L ζ(d) (s)L J (s) s exp (−σ 2 s)d s d d S p + P t ,<label>(11)</label></formula><p>where S p is the static power consumption.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>D. Laplace Transforms</head><p>The Laplace transform (LT) of the received signal can be expressed as:</p><formula xml:id="formula_17">L ζ (s) = E [exp (−sζ)]<label>(12)</label></formula><formula xml:id="formula_18">L ζ (s) = exp ( − ψs 1 + 2s )(1 + 2s) −1 , where ψ = ( √ 2PL PtL | ∑ L l=1 c l E{h l } |) 2</formula><p>is the non-central parameter of non-central Chi-squared R.V. ζ. Note that the LT of |H| 2 is the same as Eq. 12 but with a different non-central parameter ψ. Similarly, the LT of jamming can be computed as:</p><formula xml:id="formula_19">L J (s) = E [exp (−sJ)] (<label>13</label></formula><formula xml:id="formula_20">) (a) = E Φ,{|Hj | 2 } ⎡ ⎢ ⎢ ⎢ ⎢ ⎣ exp (−sP j ∑ j∈Φj 1 PL j (Φ) |H j | 2 ) ⎤ ⎥ ⎥ ⎥ ⎥ ⎦ (b) = E Φ , E {|Hj | 2 } ⎡ ⎢ ⎢ ⎢ ⎣ ∏ j exp (−sP j 1 PL j (Φ) |H j | 2 ) ⎤ ⎥ ⎥ ⎥ ⎦ (c) = E Φ ⎡ ⎢ ⎢ ⎢ ⎢ ⎣ ∏ j exp ( −ψsP j 1 PLj (Φ) 1 + 2sP j 1 PLj (Φ) )(1 + 2sP j 1 PL j (Φ) ) −1 ⎤ ⎥ ⎥ ⎥ ⎥ ⎦</formula><p>Eq. 13 (a) expresses the main random variable into its full form. Eq. 13 (b) is obtained by using the exponential function property and the fact that the fading gains |H j | 2 and the point process are independent, and Eq. 13 (c) is due to i.i.d of H j ∀j. Finally, using probability generating functional (PGFL) for the PPP, the final expression for the LT of jamming is presented in Eq. 7, where PL j (r</p><formula xml:id="formula_21">)(f )[dB] = ν10 log( √ r 2 + ρ 2 ) + √ r 2 + ρ 2 α(f ) dB .</formula><p>is the path loss in dB of j-th jammer to the surface node, r is the random 2D distance and ρ is the distance/depth from the surface to the seabed.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>IV. SIMULATION RESULTS</head><p>We use Matlab to develop the simulations presented in this section. The simulation parameters are taken from commercially available Popoto acoustic modems <ref type="bibr" target="#b16">[17]</ref>. Unless specified otherwise, we set static power consumption to S p = 1.5 Watts, transmit power P t = 20 Watts, jamming power P J = 20 Watts, and 2km for shallow, mid and deep water respectively <ref type="bibr" target="#b17">[18]</ref>, d max = √ 10 2 + ρ 2 km, and τ = 2. Furthermore, to validate the analysis, Monte Carlo results are also plotted where 10 6 total number of node's deployment is taken for computing the performance metrics. We use an acoustic channel simulator for underwater communication to generate channel gains for Monte Carlo results <ref type="bibr" target="#b11">[12]</ref>. Fig. <ref type="figure">2</ref> shows the performance of overall coverage probability against jamming power. In this figure, we chose two values for the average number of jammers, λ j = 0.01 (ten jammers per km) and λ j = 0.03 (thirty jammers per km). We observe that overall coverage probability decreases significantly when an increase occurs in the average number of jammers. This is obvious, more jammers mean more jamming power and hence enhanced interference from the jammers into legitimate communication, thus reducing overall coverage probability. We also observe that overall coverage probability is relatively higher in shallow water than in mid and deep water. This is because on average the legitimate node in mid and deep-water cases is farther away from the surface node and thus has a relatively more degraded channel. We also plot the Monte Carlo results and observe a perfect match with analytical results. Fig. <ref type="figure">3</ref> shows the overall coverage probability against the transmit power of a legitimate node for two values (2 &amp; 4) of target SJNR τ . We observe an increase in the probability with the increase in the transmit power. Here, one can tell about the percentage of time one can get a target SJNR value, for example, we observe that for shallow water almost 98% of the time one will meet the τ = 2 for λ J = 0.03. Further, a similar trend for shallow, mid, and deep water to Fig. <ref type="figure">2</ref> is observed. In Fig. <ref type="figure">4</ref>, we keep the jamming power of all the jammers fixed to the maximum value (i.e., 20 Watts) according to the commercially available modems, and assume a scenario where the legitimate transmitter is cable of varying its transmit power over a range 5 to 100 Watts. We observe that increasing transmit power increases the average rate, and shallow water has a higher average rate than mid and deep-water scenarios. In Fig. <ref type="figure">5</ref>, we plot energy efficiency against transmit power for the same configuration as Fig. <ref type="figure">4</ref>. We observe that on the one hand in Fig. <ref type="figure">4</ref>, the transmit power enhances the average rate but on the other side it reduces the energy efficiency of the system as shown in Fig. <ref type="figure">5</ref>. So, this implies there is a tradeoff between the two, one needs to comprise one for the other. The important thing to note here is that increasing transmit power increases the average rate but with a low slope while the descending in the EE plot is relatively high, thus making transmit power a vital system parameter to be considered. We also plot the Monte Carlo results, their perfect match with analytical results validate the analysis. Next, we assume a scenario where the legitimate node is transmitting at a fixed power and the jammers are capable of varying their jamming powers over a range 5 to 100 Watts. We can see that in both Figs. 6 &amp; 7, the trend of AR and EE is decreasing against the increase in jamming power. This is due to the fact that more jamming power means more interference and thus low average rate and EE. This means that increasing jamming power does not go in favor of either of both.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>V. CONCLUSION</head><p>In this letter, we investigated jamming attacks by random jammers in an underwater acoustic communication system. We utilized stochastic geometry to evaluate the performance of legitimate communications in terms of overall coverage probability, average rate, and energy efficiency. We provided tractable expressions for all three aforementioned performance metrics. To validate the analysis the analytical results are compared against Monte Carlo results.</p><p>This work is an initial attempt to averagely evaluate a legitimate underwater acoustic link that is under the influence of jamming by randomly located jammers. Looking forward, a multitude of avenues beckon for further exploration. One promising trajectory involves delving into optimal resource allocation strategies aimed at enhancing coverage, average rate, and energy efficiency. Additionally, considering the ever-present challenge posed by random blockages such as aquatic life or submarines, future investigations could delve into the implications of these obstructions on system performance, thereby enriching our understanding of real-world operational dynamics.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Fig. 2 . 4 Fig. 3 .</head><label>243</label><figDesc>Fig. 2. Coverage probability against jamming power of jammers</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>Fig. 4 .Fig. 5 .Fig. 6 .</head><label>456</label><figDesc>Fig. 4. Average rate (AR) in bps against transmit power of legitimate node</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head>Fig. 7 .</head><label>7</label><figDesc>Fig. 7. Energy efficiency (EE) in bps/Joule against jamming power</figDesc></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="1" xml:id="foot_0">Game theory is a branch of mathematics that studies how entities (referred to as "players") make strategic decisions in situations where the outcome of their choice depends not only on their actions but also on the actions of others.</note>
+		</body>
+		<back>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">A survey on underwater wireless sensor networks: Requirements, taxonomy, recent advances, and open research challenges</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Fattah</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Gani</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Ahmedy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">Y I</forename><surname>Idris</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><forename type="middle">A</forename><surname>Targio</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Hashem</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Sensors</title>
+		<imprint>
+			<biblScope unit="volume">20</biblScope>
+			<biblScope unit="issue">18</biblScope>
+			<biblScope unit="page">5393</biblScope>
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">An integrated waveform design method for underwater acoustic detection and communication</title>
+		<author>
+			<persName><forename type="first">X</forename><surname>Cui</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Cai</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Jiang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Liu</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Internet Technology Letters</title>
+		<imprint>
+			<biblScope unit="page">e522</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">Security of underwater and air-water wireless communication: State-of-the-art, challenges and outlook</title>
+		<author>
+			<persName><forename type="first">W</forename><surname>Aman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Al-Kuwari</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Muzzammil</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">M U</forename><surname>Rahman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Kumar</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Ad Hoc Networks</title>
+		<imprint>
+			<biblScope unit="volume">142</biblScope>
+			<biblScope unit="page">103114</biblScope>
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">Jamming in underwater sensor networks: detection and mitigation</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Misra</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Dash</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Khatua</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">V</forename><surname>Vasilakos</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">S</forename><surname>Obaidat</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IET communications</title>
+		<imprint>
+			<biblScope unit="volume">6</biblScope>
+			<biblScope unit="issue">14</biblScope>
+			<biblScope unit="page" from="2178" to="2188" />
+			<date type="published" when="2012">2012</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">Anti-jamming underwater transmission with mobility and learning</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Xiao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X</forename><surname>Wan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Su</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Tang</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Communications Letters</title>
+		<imprint>
+			<biblScope unit="volume">22</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="542" to="545" />
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">Throughput maximization for usv-enabled underwater wireless networks under jamming attack</title>
+		<author>
+			<persName><forename type="first">H</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Wu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Zhi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Yang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X</forename><surname>Cao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Li</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Sensors Journal</title>
+		<imprint>
+			<biblScope unit="page" from="1" to="1" />
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">Jamming games in underwater sensor networks with reinforcement learning</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Xiao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Q</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Chen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Cheng</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Dai</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">2015 IEEE Global Communications Conference (GLOBECOM)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2015">2015</date>
+			<biblScope unit="page" from="1" to="6" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">Underwater jamming attacks as incomplete information games</title>
+		<author>
+			<persName><forename type="first">F</forename><surname>Chiariotti</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Signori</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Campagnaro</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Zorzi</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">IEEE INFOCOM 2020-IEEE Conference on Computer Communications Workshops (INFOCOM WKSHPS)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2020">2020</date>
+			<biblScope unit="page" from="1033" to="1038" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">A game-theoretic and experimental analysis of energy-depleting underwater jamming attacks</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Signori</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Chiariotti</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Campagnaro</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Zorzi</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Internet of Things Journal</title>
+		<imprint>
+			<biblScope unit="volume">7</biblScope>
+			<biblScope unit="issue">10</biblScope>
+			<biblScope unit="page" from="9793" to="9804" />
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">A geometry-based game theoretical model of blind and reactive underwater jamming</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Signori</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Chiariotti</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Campagnaro</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Petroccia</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Pelekanakis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Paglierani</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Alves</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Zorzi</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Wireless Communications</title>
+		<imprint>
+			<biblScope unit="volume">21</biblScope>
+			<biblScope unit="issue">6</biblScope>
+			<biblScope unit="page" from="3737" to="3751" />
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">Jamming games in underwater sensor networks with hierarchical learning</title>
+		<author>
+			<persName><forename type="first">H</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Huang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X</forename><surname>Zeng</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">2022 8th International Conference on Big Data Computing and Communications (BigCom)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2022">2022</date>
+			<biblScope unit="page" from="428" to="434" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">Statistical characterization and computationally efficient modeling of a class of underwater acoustic communication channels</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Qarabaqi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Stojanovic</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Journal of Oceanic Engineering</title>
+		<imprint>
+			<biblScope unit="volume">38</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="701" to="717" />
+			<date type="published" when="2013">2013</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">On the relationship between capacity and distance in an underwater acoustic communication channel</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Stojanovic</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">ACM SIGMOBILE Mobile Computing and Communications Review</title>
+		<imprint>
+			<biblScope unit="volume">11</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="34" to="43" />
+			<date type="published" when="2007">2007</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">Stochastic geometry modeling of coverage and rate of cellular networks using the gil-pelaez inversion theorem</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Di Renzo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Guan</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Communications Letters</title>
+		<imprint>
+			<biblScope unit="volume">18</biblScope>
+			<biblScope unit="issue">9</biblScope>
+			<biblScope unit="page" from="1575" to="1578" />
+			<date type="published" when="2014">2014</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">A useful lemma for capacity analysis of fading interference channels</title>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">A</forename><surname>Hamdi</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Communications</title>
+		<imprint>
+			<biblScope unit="volume">58</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="411" to="416" />
+			<date type="published" when="2010">2010</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<analytic>
+		<title level="a" type="main">Energy-efficient dos attack against remote state estimation</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Gan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Xiao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Yang</surname></persName>
+		</author>
+		<idno type="DOI">10.1002/itl2.370</idno>
+		<idno>e370 ITL-21-0190.R1</idno>
+		<ptr target="https://onlinelibrary.wiley.com/doi/abs/10.1002/itl2.370" />
+	</analytic>
+	<monogr>
+		<title level="j">Internet Technology Letters</title>
+		<imprint>
+			<biblScope unit="volume">5</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page">e370</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<monogr>
+		<title level="m" type="main">Popoto Modem</title>
+		<ptr target="https://www.popotomodem.com/" />
+		<imprint>
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<monogr>
+		<title level="m" type="main">Shallow, mid to ultra deepwater definitions</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Lavis</surname></persName>
+		</author>
+		<ptr target="https://drillers.com/shallow-mid-to-ultra-deepwater-definitions/" />
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

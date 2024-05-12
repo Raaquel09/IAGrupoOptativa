@@ -1,0 +1,488 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">How to Make a Soul in the Timaeus</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher>BRILL</publisher>
+				<availability status="unknown"><p>Copyright BRILL</p>
+				</availability>
+				<date type="published" when="2020-11-18">2020-11-18</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Luc</forename><surname>Brisson</surname></persName>
+						</author>
+						<title level="a" type="main">How to Make a Soul in the Timaeus</title>
+					</analytic>
+					<monogr>
+						<title level="m">Plato’s &lt;i&gt;Timaeus&lt;/i&gt;</title>
+						<imprint>
+							<publisher>BRILL</publisher>
+							<biblScope unit="page" from="70" to="91"/>
+							<date type="published" when="2020-11-18" />
+						</imprint>
+					</monogr>
+					<idno type="MD5">089F99A0E01C720148DB94113EDA33E7</idno>
+					<idno type="DOI">10.1163/9789004437081_005</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.2" ident="GROBID" when="2024-05-12T15:27+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>Plato -Timaeus -soul -world -celestial bodies -gods -mankind -plants</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>In the Timaeus, various kinds of soul are mentioned: the soul of the world, of the gods, of mankind (and of animals), and even the soul of plants. All these other kinds have as their principle the soul of the world fashioned by the Demiurge. The immortal soul of the gods-including the world soul and the stars-is fastened to a body which is indestructible, not in itself, but because the Demiurge does not want to undo his work. The human soul is fashioned by the Demiurge out of the same mixture as the world soul and the souls of the gods, but less pure. Subsequently, the Demiurge's assistants go on to implant into a mortal body this immortal soul, which is the principle of all psychic and physical motions. A human soul is immortal in its totality, even if at death the previous experiences of its spirit (thymos) and of its desire (epithymia) are forgotten; only the excellence of its intellectual life is taken into account in the process of reincarnation.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>figures, for it exhibits the greatest symmetry), which are interrelated mathematically with one another, and explains all motions in the world, whether psychic or physical.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>1.1</head><p>Composition In the Timaeus, the description of the making of the world soul is limited to illustrating two things: on the one hand, its ontological dependence on the intelligible, and on the other, its status as an intermediary reality between the intelligible Forms and the world of sensible particulars. The higher genera of Plato's ontology are used as components: Being, the Same, and the Different, as evoked in the Sophist (254d-259b). This is what Timaeus seems to mean when he describes the two mixtures (Figure <ref type="figure">1</ref>) carried out by the Demiurge to fashion the world soul:</p><p>The composition from which he made the soul and the way in which he made it were as follows. In between the Being that is indivisible and always changeless, and the one that is divisible and comes to be in the corporeal realm, he mixed a third, intermediate form of being derived from the other two. Similarly, he made a mixture of the Same, and then one of the Different, in between their indivisible and their corporeal, divisible counterparts. And he took the three mixtures and mixed them together to make a uniform mixture, forcing the Different, which was hard to mix, into conformity with the Same. Now when he had mixed these two together with Being, and from the three had made a single mixture, he re-divided the whole mixture into as many parts as his task required, each part remaining a mixture of the Same, the Different, and of Being.</p><p>As an intermediate entity, soul represents the origin of all orderly motion in the sensible world (see Phaedrus 245c9), the circular movements of the heavenly bodies, and from them the rectilinear movements of sublunary realities (Laws X 893b-895a); and as such it maintains some order in the sensible world.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>1.2</head><p>Motor Function In order to account for the permanence and the regularity of the movement of the celestial bodies, Plato formulates two postulates: 1) The movements of the heavenly bodies follow a circular trajectory, so that their motion is permanent; 2) These motions obey laws defined by three types of mathematical relations known at the time, so that their movement is regular, despite appearances to the contrary.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>1.2.1</head><p>Circularity After carrying out the basic mixture that serves to fashion the world soul, the Demiurge laminates this mass like a blacksmith, in order to transform it into a plate, into which he introduces several divisions. He begins by cutting it lengthwise, in order to obtain two bands, which he calls the band of the "Same" and the band of the "Different" (although each of these bands is still constituted by a mixture of Being, Same, and Different). The Demiurge continues his work, this time cutting the band of the "Different" into seven pieces, following a geometrical progression of base 2 and 3: 1, 2, 3, 4, 8, 9, 27.</p><p>That is, 1, 2, 3, 4 (2×2), 9 (3×3), 8 (2×2×2), 27 (3×3×3). (Figure <ref type="figure">2</ref>) This initial mechanical operation does not suffice. It has enabled the construction of two bands, the second of which is cut into seven pieces, but these two bands must be curved, in order to provide the circles along which the heavenly bodies will move. Two other operations are necessary: one to account for the ecliptic, and the other to produce circles. These operations are steps toward fashioning the circles along which the celestial bodies will move, their permanence being ensured by the circle's perfect symmetry in two-dimensional space:</p><p>Next, he sliced this entire compound in two along its length, joined the two halves together center to center like a chi (see Figure <ref type="figure">3</ref>), and bent them back in a circle, attaching each half to itself end to end and to the ends of the other half at the point opposite to the one where they had been joined together (see Figure <ref type="figure">4</ref>). The radii of these circles, on the circumference of which the celestial bodies move, will therefore also obey a geometrical progression, starting out from the earth. Thus, the Timaeus presents the constitution of the world soul as if it were the construction of an armillary sphere, that is, a globe made up of rings or circles, representing the movement of the heavens and the stars (mentioned at Tim. 40d2-3). We must bear this image in mind in order to understand what follows. The technical operations subsequently carried out by the Demiurge account metaphorically for the distinction observed between the fixed stars and the planets: Saturn, Jupiter, Mars, Venus, Mercury, Sun and Moon, with Earth in the middle (see Figure <ref type="figure" target="#fig_1">5</ref>).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>1.2.2</head><p>Harmony By bringing in mathematical relations <ref type="bibr">(geometrical, arithmetical, and harmonic)</ref>, which are also used in music, at the level of the world soul (see Figure <ref type="figure">6</ref>), Plato is merely trying to account for the regularities that had been observed since earliest antiquity in the heavenly bodies.</p><p>The introduction of means that engender musical intervals into the world soul seems disconcerting at first glance, but it pertains to analogical reasoning. Plato seems to have extrapolated from the discovery of musical harmony, thus making harmonics serve astronomy (Figure <ref type="figure">7</ref>).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Circle of the Same</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Circles of</head><p>From the centre: Earth Moon Sun Mercury Venus Mars Jupiter Saturn  By applying the same mathematical proportions to material objects, in this case strings of different lengths, one can produce sounds, always the same ones, that constitute a harmony which, for its part, has nothing material about it. In other words, with the help of mathematical proportions, which pertain exclusively to reason, one can explain musical sounds, and even produce them in the sensible world. Why, then, would the same not be true in astronomy, especially since the motions of the heavenly bodies, in their regularity and permanence, have astonished human beings, since earliest antiquity, to the point that they were assimilated to gods: material, to be sure, but gods nevertheless. That said, in the Timaeus (38c-39e), Plato proposes an astronomical system of astonishing simplicity. This astronomical explanation brings only the following two elements into play: the circular movement of the celestial bodies, a hypothesis which was accepted until Kepler (the law of orbits, formulated in 1609), and three types of mathematical relations-geometrical, arithmetical, and harmonic. The extraordinary complexity of the movements which seem to affect the celestial bodies is thus reduced to two elements of a mathematical nature: circles and means. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>1.3</head><p>Cognitive Function However, the circles of the Same and the Different do not merely have a motor function; they also have a cognitive function, as is natural in a living being such as the world:</p><p>Because the soul is a mixture of the Same, the Different and Being, because it was divided up and bound together in various proportions, and because it circles round upon itself, then, whenever it comes into contact with something whose being is scatterable or else with something whose being is indivisible, it is stirred throughout its whole self. It then declares what exactly that thing is the same as or what it is different from, and in what respect and in what manner, as well as when, it turns out that they are the same or different and are characterized as such. This applies both to the things that come to be, and to those that are always changeless. And when this contact gives rise to an account that is equally true whether it is about what is different or about what is the same, and is borne along without utterance or sound within the self-moving thing, then, whenever the account concerns anything that is perceptible, the circle of the Different goes straight and proclaims it throughout its whole soul. This is how firm and true opinions and beliefs sure and certain come about. Whenever, on the other hand, the account concerns any object of reasoning and the circle of the Same runs well and reveals it, the necessary result is understanding and science. And if anyone should ever call that in which these two arise, not soul but something else, what he says will be anything but true.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>37a2-c5</head><p>The cognitive abilities of the world soul are associated with the physical motions of its circles; the mention of "without utterance or sound" contains a criticism of the Pythagoreans.3 Through the circle of the Different, the soul of the world is informed of what takes place within it, whereas through the circle of the Same, it grasps the intelligible, and can thus make the sensible conform to it. A question then arises: how can the world soul know the sensible without sense organs?4 No answer is given to this question, but it is probably this lack of organs that explains why, by means of the circle of the Different, "opinions and beliefs, firm and true, are formed." This could never be said of human opinion,5 which is no more than likely. The definition of truth is the one presented in the Sophist.6</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>2</head><p>The Human Soul</p><p>In his address to the gods he has just fashioned, the Demiurge explains why, even they are not immortal nor indissoluble, they will not be dissolved or die.7 He then goes on to say that if the world is to be perfect, mortal creatures of three kinds have to be brought into being (41b7-c2): those that live in the air, on earth and in water (91d-92b). Their bodies will be dissolved, even if they are moved by an immortal soul migrating from one body to another (human or animal).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.1">Made by the Demiurge</head><p>The human soul is fashioned by the Demiurge out of the same mixture as the world soul and the souls of the gods. The immortal soul of the gods-including the world soul and the stars-is fastened to a body8 which is indestructible, not in itself, but because the Demiurge does not want to undo his handiwork:</p><p>When he had finished this speech,9 he turned again to the mixing bowl he had used before, the one in which he had blended and mixed the soul of the world. He began to pour into it what remained of the previous ingredients and to mix them in somewhat the same way, though these were no longer invariably and constantly pure, but of a second and third grade of purity. And when he had compounded it all, he divided the mixture into a number of souls equal to the number of the stars and assigned each soul to a star.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>41d4-e1</head><p>Having sown these souls into the celestial bodies,10 which is a sign of the importance of astrology in this context, the Demiurge hands them to the newly 5</p><p>Lafrance, La théorie platonicienne de la doxa. 6</p><p>Soph. 262d-264c. 7</p><p>Brisson, Luc, "Le corps des dieux." 8 "[…] a god is an immortal living being which has a body and a soul, and that there are bound together by nature for all time." (Phaedr. 246d1-2). 9</p><p>To the gods. 10</p><p>That is why <ref type="bibr">Karfík,</ref><ref type="bibr">Beseelung,</ref><ref type="bibr">[114]</ref><ref type="bibr">[115]</ref><ref type="bibr">[116]</ref><ref type="bibr">[117]</ref><ref type="bibr">thinks</ref>  </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>2.2</head><p>Weaving Immortal to Mortal Subsequently, the Demiurge's assistants go on to implant into a mortal body this immortal soul, which is the principle of all psychic and physical motion.</p><p>So, once the souls were of necessity (ex anankēs) implanted in bodies, and these bodies had things coming to them and leaving them,11 there must necessarily be first sensation (aisthēsis) the same for all, arising naturally from violent sensations, and second desire (erōs) blended with pleasure and pain, and beside these fear and spiritedness (thymos), plus whatever goes with having these affections, as well as all their natural opposites. And if they could master these affections (pathēmata), their lives would be just, whereas if they were mastered by them, they would be unjust.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>42a3-b2</head><p>Because it is implanted in a body, the soul has to deal with corporeal affections that have an impact on the immortal soul. This is why affections should be mastered, a further proof that ethics cannot be dissociated from knowledge. This passage anticipates the following one which is more explicit: They12 imitated the Demiurge: having taken the immortal principle that is the soul (archēn psychēs athanaton),13 they proceeded next to turn14 for it a mortal body and to give it the entire body as its vehicle. And within the body they housed (prosōikodomoun)15 another kind of soul (allo te eidos psychēs) as well, the mortal kind (to thnēton), which contains within it those dreadful but necessary affections (pathēmata), first of all, pleasure (hēdonēn) evil's most powerful lure; then pains (lypas),16 that make us run away from what is good, besides these, boldness (tharros) also and fear (phobon), foolish counselors both; then also the spirit of anger (thymon) hard to assuage, and expectation (elpida) easily led astray. These affections (pathēmata) they mixed (sunkerasamenoi) with unreasoning sense perception (aisthēsei alogōi) and all-venturing desire (epicheιrētēi pantos erōti), and so, as was necessary, they composed the mortal type of soul.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>69c5-d6</head><p>This passage is not easy to translate and to interpret. In order to understand it, one should take the central myth of the Phaedrus (245c-246b) into account. In this myth, soul appears as a totality, even if it is described as being by nature a composite power (symphytē dynamis). Plato does not give a description of the structure of the soul; he limits himself to comparing the soul to a chariot drawn by two horses that are led by a charioteer. If one refers to other dialogues, the charioteer can be identified with intellect (nous), and the two horses with spirit (thymos) and desire (epithymia). Intellection (noēsis) is the highest faculty of the soul, and Intellect (nous) has the Forms as its objects. Hence, the soul is a totality consisting of three parts, that are not pieces, but functional activities.</p><p>As such, soul is a totality. Several arguments tend in this direction: 1) As we have seen, the world soul and the human soul result from the same mixture. 2) In the central myth of the Phaedrus, the soul of the gods contains these three parts: intellect (nous), spirit (thymos) and desire (epithymia).17 But because their body is indestructible, they do not need to activate these parts, which are not pieces but resources; human beings must do so, because they need to protect their body and provide it with subsistence. 3) Everywhere else in Plato, the soul exhibits a unity that implies the association of these three parts. 4) The process of retribution through metensōmatōsis implies that the soul, which moves from one body to another, remains the same.18</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>2.2.1</head><p>Housing the Soul in a Body Having received the soul, which is immortal, the assistants of the Demiurge do not fashion a new kind of soul, but must weave the immortal soul they have received with the mortal body it moves. They must first establish relations between external bodies and the human body.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>2.2.1.1</head><p>The They link affections, sensation and desire, which are corporeal processes, to the soul fashioned by the Demiurge. a. The mortal type of the soul is the place where pathēmata are to be found. The pathēmata are not characteristics or qualities, for example "hot" or "cold," which reside in an object independently of its effect upon a sensible percipient. This claim founders on Plato's repeated qualification19 that the pathēmata have to do with the human body, whether with the human body taken as a whole, or at least with what is specified as "flesh" or with "individual parts" of the body.20 Moreover, the pathēmata are not themselves quite the same as the sensibilia of the Theaetetus (156a3-157c2, 182a3 sq.), qualities of "white" which exist only when, and for as long as they are being perceived. b. The pathēmata are simply the effects, as movements, which one body has upon another one and which, if the body affected is sufficiently receptive, will be transmitted, through the blood,21 to the phronimon (64b2-6)22 and will thereby be recognized as sensations23 leading to intellection.24 19 Tim. 61c3-68d7. 20</p><p>Tim. 61d7, 62a6-7, 62b6-7, 64a2-3, 64a4-5, 65c2-3, 66d1-2, 67a7-c3, 67c4-68d7, 67e6-68b1. 21</p><p>According to Karfík, "Mortal Parts," 205, n.45, it should be blood. I do not agree, even if the suggestion is very interesting. Blood is red because fire is predominant in it .</p><p>But one finds fire everywhere in the body, just not as forwarding information. 22</p><p>Two arguments may provide evidence to support our interpretation. A textual argument: it appears that Plato uses the word phronimon to allude to the rational part of the soul, as in the Republic (VI 530c1, IX 586d7, X 604e2) and in the Laws (VIII 837c7, X 897b8). And a technical argument: if the pathēmata were not able to reach the rational part of the soul, how could the circuits of the immortal soul in the head suffer violent motions when assailed by sensations (Tim. 43a6-44c7)? 23</p><p>On sense perception, see Brisson, "Plato's Theory of Sense Perception in the Timaeus.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>How it Works and What it Means." 24</head><p>Such an interpretation of the meaning of phronimon is not usual, because it brings forward what is considered as Plato's metaphysical (or mythological) epistemology. In fact, even if this passage does not explicitly allude to anamnēsis, that is the remembrance of the Forms seen by the soul before its incarnation, one need no longer think that it remains the most probable solution. Why not? Because when the pathēmata have reached the rational part of the soul and have reported the quality of the agent, we are able not only to say "I feel hot," but by a transference of terms we also say that "the fire is called hot"; and by a further transference of terms we say that "the fire heats and melts metal."</p><p>The persistence of this feature in the Timaeus proves that it is not accidental. Denis O'Brien has counted 29 occurrences in the Timaeus: 58d2, d3, e7, 59a6-8, b5, c5, d5-6, e5, 60a1, a2-3, a4, b2-3, b5, d2, 62a4-5, b5-6, 63a6, c4, d3, 31, 66a1-2, b, c7, 67a1-3, e2, e5, 68a2, a6-b1, b4-5, cf. O'Brien, Theories of Weight in the Ancient World: Four Essays on To refer to the pathēmata involves reference to sensation, and reference to sensation involves referring to flesh and things associated with flesh and to the mortal parts of the soul. But the reverse is also true: an account of the mortal soul, and of flesh and things associated with flesh requires an account of sensation and therefore an account of pathēmata. c. Moreover, the pathēmata can be triggered by erōs:</p><p>And this [the birth of women] explains why at that time the gods fashioned the desire for sexual union (synousias erōta), by constructing one living being (zōion) in us as well as an ensouled being (empsychon) in women.25 This is how they made them in each case.</p><p>There is [in a man] a conduit by which fluids exit from the body, where it receives the liquid that has passed between the lungs down into the kidneys and on into the bladder and expels it under pressure of air. From this conduit, they26 bored a connecting one into the compacted mar-row27 that runs from the head along the neck through the spine. This is in fact the marrow that we have previously called "sperm."28 Now because it has soul breathed by it,29 this marrow instilled a life-giving desire for emission right at the place of breathing, and so produced the love of procreation. This is why of course, the male genitals are unruly and selfwilled, like an animal that will not be subject to reason30 and, goaded by the sting31 of its passionate desires, seeks to overpower everything else.32</p><p>Democritus, Plato and Aristotle, vol. 2: Plato: Weight and Sensation. The Two Theories of the "Timaeus", <ref type="bibr">147-149. 25</ref> See also Tim. 91c1-2. The sexual organs are described as living beings, because they seem to move independently of our own will. But it is one and the same human soul which is involved in the sexual organs. 26</p><p>The Demiurge's assistants. 27 See Tim.73b1-c6. 28 See supra <ref type="bibr">Tim.74a4,</ref> The formula labōn anapnoēn is similar to anapnoēn labousa in Phaedrus 251e4. This passage in Aristotle seems to be relevant: "The same objection lies against the view expressed in the 'Orphic' poems: there it is said that the soul comes in from the whole when breathing takes place, being borne in upon the winds (τὴν ψυχὴν ἐκ τοῦ ὅλου εἰσιέναι ἀναπνεόντων, φερομένην ὑπὸ τῶν ἀνέμων)." (De anima, I 5, 410b28-30 = Kern, fr. 27 = 421 F Bernabé). We must acknowledge that this connection poses a number of problems, since it assimilates the soul, which is incorporeal to a material entity. 30</p><p>As is made by "all-venturing desire" (epicheirētēi pantos erōti, Tim.69d4).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>31</head><p>For the metaphor of the sting, see Phaedr. 240d1, Rep. IX 577e2, and Laws VI 782e3. 32</p><p>These references to sensation and erōs, make this sentence clear: "These affections (pathēmata) they mixed with unreasoning sense perception (aisthēsei alogōi) and The very same causes operate in women. A woman's womb or uterus,33 as it is called, is a living being (zōion) within her with a desire for childbearing. Now when this remains unfruitful for an unseasonably long period of time, it is extremely frustrated and travels everywhere up and down her body. It blocks up her respiration passages, and by not allowing her to breathe it throws her into extreme emergencies, and visits all sorts of other illnesses upon her until finally the desire that is the passionate de-sire34 bring the man and the woman together, and, like plucking the fruit from a tree,35 they sow the seed into the ploughed fields of her womb, living beings too small to be visible and still without form. And when they have again given them distinct form, they nourish these living beings so that they can mature inside the womb. Afterwards, they bring them to birth, introducing them into the light of the day.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>91a1-d5</head><p>In the formula hē epithymia kai ho erōs, the kai is epexegetic. Here, as at Timaeus 42a3-b2, these words refer to the desire for food and sexual inter course, which are problematic. The influx of food at birth, but also afterwards, disturbs the process of knowledge, which has consequences on an ethical level.36 And when the sperm in the marrow is overabundant, a man becomes mad and vicious.37</p><p>Thus we get the three parts of the soul: intellect (nous or the phronimon), the spirit (thymos) and desire (epithymia) like in the Phaedrus. The mortal parts of the soul are not an autonomous entity, separated from an immortal part, but the center of a communication network between the soul in its totality which is immortal and the mortal body it moves, and which is under the influence of desire, and in contact with external objects through sense perception. In other words, the assistants of the Demiurge establish an interface up between soul and body.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>2.2.1.1.2</head><p>The Soul in a Body</p><p>The younger gods fasten the different kinds (genē) of soul into one and the same corporeal tissue, the marrow. The soul as such is sown in the brain, whose all-venturing lust (epicheirētēi pantos erōti), and so, as was necessary, they composed the mortal type of soul." (69d4-5) 33</p><p>In Ancient Greek: mētrai te kai hysterai. extension is the spinal marrow and finally the sperm. As a safeguard against external aggression, the brain is enclosed in the skull, which is spherical like the body of the world, and the spinal marrow in the vertebrae, which are elongated, both being made of bone. Thus, the immortal principle that is soul is anchored in the same tissue, marrow, protected by bones.</p><p>The divine (to theion)38 element, that is, the intellect (nous or phronimon), is established in the head, separated from the rest of the body by means of the neck which is compared to an isthmus. The mortal part (to thnēton) which is dual, is located in the thorax; and the diaphragm introduces a new division, between the heart, where spirit (thymos) which is better (ameinon) is situated, and the region of the liver, where one finds desire (epithymia) which is worse (cheiron) as in the Phaedrus.39</p><p>Spirit occupies an intermediary position between intellect and desire, transmitting the intellect's orders to desire, and information on the dangers incurred by desire to the intellect. Desire, for its part, deals with the needs relative to nutrition and reproduction: "What in the soul has appetites (epithymētikon) for food and drink and whatever else it feels a need for, given the body's nature […]"40 (Timaeus 70d7-8). This bodily location may, as in the Republic, be placed in relation to the functional tripartition of the city, but I will not discuss this point here.</p><p>But, even if it is anchored in the marrow, one and the same tissue, the three parts-that is activities-of the soul are located in three different places in the body. The head seems to be the seat of the phronimon or the nous, and the heart the seat of the thymos, while the epithymia is situated in the lower abdomen: the neck keeps apart the mortal and the immortal parts of the soul, and the midriff the thymos and epithymia.</p><p>These kinds are not isolated, because there is a constant connection between them. The divine part, intellect is separated, from the other kinds only by an isthmus, the neck; spirit in the area of the heart, is nearer to the head and under the direct influence of the intellect, because it is obedient to the orders coming from it;41 that said, the intellect has to use, as a go-between, the liver which plays the role of a screen to prevent the epithymia misbehaving.42 38</p><p>In the Timaeus (41c7, 69d6, 72d4, 73c7, 90a8, c4, 8), theion refers obviously to the intellect. And because that part of the soul is also referred to as athanaton, just like the soul as a whole, confusion arises. 39</p><p>Phaedr Weaving the Mortal to the Immortal The soul framed by the Demiurge is implanted in a body by his assistants. Because the soul is implanted in a body, it must take into account corporeal affections that have an impact on the soul.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>2.2.2.1</head><p>The Phronimon or the Nous Having received the immortal principle of the soul from the Demiurge, his assistants encase it inside the head, which is spherical as an image of the world's body, and then house (prosōikodomoun) within the body the mortal kind of the soul.43 The main activity of the human soul whose constitution is very similar to the world soul is cognition.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.2.2.1.1">Geometrical and Mathematical Structure</head><p>The immortal principle that is the human soul contains the same two circles as the world soul, which possess the same mathematical structure. This can be seen by reading this description of the soul's disturbances at the moment of birth:</p><p>They (sensations) cooperated with the continually flowing channel to stir and violently shake the orbits of the soul. They completely bound that of the Same by flowing against it in the opposite direction, and held it fast just as it was beginning to go its way. And they further shook the orbit of the Different right through, with the result that they twisted every which way the three intervals of the double and the three of the triple, as well as the middle terms of the ratios of 3:2, 4:3, and 9:8 that connect them. These agitations did not undo them, however, because they cannot be completely undone except by the one who had bound them together […] and though they remained in motion, they moved without rhyme or reason, sometimes in the opposite direction, sometime sideways and sometimes upside down.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>43c7-e8</head><p>As in the case of the world soul, the revolution of these circles is linked to a cognitive ability. By the circle of the Different, the human soul is informed of what takes place within and around it in the sensible world, whereas by the circle of the Same, it grasps the intelligible.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.2.2.1.2">Cognitive Ability</head><p>But human cognitive ability, which, as in the case of the world soul, is associated with the proper functioning of these circles, is disturbed at birth by the influx of food and sensations. It is this very thing-and others like it-that have such a dramatic effect upon the revolutions of the soul.44</p><p>Whenever they encounter something outside of them characterizable as same or different, they will speak of it as "the same as" something, or as "different from" something else when the truth is just the opposite, so proving themselves to be misled and unintelligent. Also, at this stage souls do not have a ruling orbit taking the lead. And so when certain sensations come in from outside and attack them, they sweep the soul's entire vessel along with them. It is then that these revolutions, however much in control they seem to be, are actually under their control. All these disturbances are no doubt the reason why even today and not only at the beginning, whenever a soul is bound within a mortal body, it at first lacks intelligence. But as the stream that brings growth and nourishment diminishes and the soul's orbits regain their composure, resume their proper courses and establish themselves more and more with the passage of time, their revolutions are set straight, to conform to the configuration each of the circles takes in its natural course. They then correctly identify what is the same and what is different, and render intelligent the persons who possess them. And to be sure, if such a person also gets proper nurture to supplement his education, he'll turn out perfectly whole and healthy, and will have escaped the most grievous of illnesses.</p><p>But if he neglects this, he'll limp his way through life and return to Hades uninitiated,45 that is unintelligent.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>44a1-c4</head><p>This passage is highly interesting, for it shows the influence exerted by the body on the soul; it also shows that these troubles are a consequence of interference between movements, the revolutions of the soul, and the other movements46 coming from the external objects. But these troubles in the revolutions of the soul leave traces the skull47 and even explain why the heads of quadrupeds After a specific period of time, the soul in question rejoins a body. Its lower functions then adapt themselves to this new body and remain in relation with it until they are separated from it. This soul's identity or individuality is thus attached to this series of particular existences. This identity or individuality persists for a certain stretch of time, but not for eternity, since it is linked to the history of a soul for a cycle of ten periods of one thousand years.50 At the end of this cycle, we can imagine that this soul loses its identity before it starts once again its ascent toward the intelligible with the gods, and that it acquires, for a new period, a new individuality which will then be called into question once again. In other words, it is soul in its totality that is immortal, not an individual soul.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>2.4</head><p>Metensōmatōsis These specifications are necessary in order to understand the description of the post-mortem destiny of those souls that are not souls of gods, during one of the ten periods of the cycles they must undertake periodically, according to Plato's doctrine of metempsychosis (or reincarnation).</p><p>During the first period following the death of the physical organism,51 the soul is separated from all mortal bodies, whereas during the nine others,52 it passes from body to body as a function of the moral value of its previous existence, which is determined by the quality of the exercise of its reason.</p><p>Like those of human beings, whether men or women, the souls of animals, even of shellfish, are endowed with a rational part, and this is true even though animals are what they are because they make little or no use of their intellect. In any case, nothing prevents an animal, whatever it may be, from climbing back up the ladder to become a human being. This way of looking at things implies an absolute respect for life, not only within human society, but also in the animal kingdom. How, in this case, can the survival of human beings, who need to feed themselves, be ensured, without automatically making cannibals of them? By giving them as food a kind of living being that is not endowed with intellect: vegetables.</p><p>After mentioning the four types of living beings that populate the universe, the gods, associated with fire; human beings, both men and women; the birds that inhabit the air; the animals that walk or crawl on the earth; and the aquatic beasts, Timaeus, in a particularly difficult passage, briefly mentions the origin of vegetables, which he associates with the third, or desiring kind of soul.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>50</head><p>In Ancient Greek, we read chilias, which means a thousand or a very large number. 51</p><p>Phaedr. 245d-248c. 52</p><p>Phaedr. 248c-e. it is completely passive, and its formation has not entrusted it with a natural ability to discern and reflect upon any of its own characteristics, by revolving within and about itself,64 repelling movement from without and exercising its own inherent movement. Hence it is alive, to be sure, and unmistakably a living thing, but it stays put, standing fixed, and rooted, since it lacks self-motion.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>76e7-77c5</head><p>To help human beings to survive, the assistants of the Demiurge will fashion plants, which are a new type of living being, endowed with a body and a soul. What is the nature of this soul? It is the result of a mixture, like the soul of the world (35a1-b1) and the souls of human beings and animals (41d4-7). Yet this mixture is no longer carried out by the Demiurge, but by his assistants who combine the third type of soul with other features and other sensations.</p><p>The plant is a living being, insofar as it is endowed with spontaneous motion, whose principle can only be a soul.65 However, this spontaneous motion features two essential differences with regard to the motion of animals: 1) The soul in question feels only sensations of pleasure and pain associated with appetites, which makes it akin to the third part of the human soul. It is completely bereft of any form of intelligence and opinion, which means that the affections on their body coming from external things do not reach the rational part of the soul. 2) In addition, it lacks any local motion. We can therefore understand how the plant, as a living being, is both similar to and different from human beings and animals. But it is impossible to know where this inferior species of soul comes from and how it is related to the world soul and to the human soul. The assistants of the Demiurge, as it seems, grow " a nature congenial to our human nature, though mixed with other features and other sensations."</p><p>This new species of living being is plants, which are at the service of mankind. When cultivated, they are to serve as our food, thus eliminating any need for us to intervene in the process of transmigration set in place by the gods. Insofar as the living being that will result from the implantation of this soul in a body is to serve as food for mankind, this soul must be akin to the soul of human beings, by virtue of the fact that only like can be known by or act upon like.66</p><p>If a human being were to eat a living being endowed with an intellect, even if that living being no longer made use of that higher ability, he would be 64</p><p>The verbs trephō is equivalent to the Latin verb versari: to reside in, be limited to. 65</p><p>This soul could the soul of the earth, see Karfík, "Mortal Parts," 215. 66</p><p>Brisson, "La réminiscence dans le Ménon (81c5-d5)."</p><p>Luc Brisson -9789004437081 Downloaded from Brill.com 03/04/2024 06:40:55PM via Open Access. This is an open access chapter distributed under the terms of the CC BY-NC-ND 4.0 license. https://creativecommons.org/licenses/by-nc-nd/4.0/ committing an act of cannibalism. This is no longer the case for plants, which possess a soul, but lack an intellect. As a result, the following problem is solved: how can man eat without being a cannibal? The decomposition of plants within the human body enables the constitution of blood, which nourishes all the other tissues. The plants thus enable the human body, which unlike the body of the world may be destroyed by the external aggressions of fire and air, to reconstitute itself without consuming living beings endowed with an intellect. In short, Plato "invents" plants67 to be able to maintain his scale of living beings.</p><p>In conclusion, the systematic association of the human soul with a body that illustrates its quality leads us to consider the world of living beings as a vast system of signs, and to wonder about the place and role of mankind in this whole. The human soul is immortal as a soul, but not as an individual, because it loses its personality at the end of each cycle. That said, a human soul is immortal in its totality, even if at death the previous experiences of its spirit (thymos) and of its desire (epithymia) are forgotten; only the excellence of its intellectual life is taken into account in the process of reincarnation.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Works Cited</head></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head></head><label></label><figDesc>Figure 3</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>Figure 5</head><label>5</label><figDesc>Figure 5</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head></head><label></label><figDesc>the newly born gods could be the celestial bodies. Cf. Karfik, "What the Mortal Parts of the Soul Really are." Luc Brisson -9789004437081 Downloaded from Brill.com 03/04/2024 06:40:55PM via Open Access. This is an open access chapter distributed under the terms of the CC BY-NC-ND 4.0 license. https://creativecommons.org/licenses/by-nc-nd/4.0/ born gods, and asks them to fashion living beings (humans and animals) by weaving together in them what is mortal to what is immortal.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head></head><label></label><figDesc>.com 03/04/2024 06:40:55PM via Open Access. This is an open access chapter distributed under the terms of the CC BY-NC-ND 4.0 license. https://creativecommons.org/licenses/by-nc-nd/4.0/</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_5"><head></head><label></label><figDesc>Mortal Part of the Soul The gods made by the Demiurge are getting their job done, namely to weave what is mortal to what is immortal.</figDesc><table><row><cell></cell><cell>Brisson</cell></row><row><cell>2.2.1.1.1</cell><cell>The Components of the Mortal Part of the Soul</cell></row></table><note>17"The gods have horses and charioteers that are themselves all good and come from good stock besides, while everyone has a mixture." (Phaedr. 246a7-b3). 18 Brisson, "Le corps animal comme signe de la valeur d'une âme chez Platon." Luc Brisson -9789004437081 Downloaded from Brill.com 03/04/2024 06:40:55PM via Open Access. This is an open access chapter distributed under the terms of the CC BY-NC-ND 4.0 license. https://creativecommons.org/licenses/by-nc-nd/4.0/</note></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" xml:id="foot_0">Brisson</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="3" xml:id="foot_1"> Brisson, "Platon, Pythagore et les Pythagoriciens."   </note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="4" xml:id="foot_2">Tim.33b-d. Luc Brisson -9789004437081 Downloaded from Brill.com 03/04/2024 06:40:55PM via Open Access. This is an open access chapter distributed under the terms of the CC BY-NC-ND 4.0 license. https://creativecommons.org/licenses/by-nc-nd/4.0/</note>
+		</body>
+		<back>
+			<div type="annex">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Brisson</head><p>are elongated.48 The influx of food and sensation at birth, but also afterwards, disturbs the acquisition of knowledge, which has consequences on an ethical level. Since the true and the good are deeply intertwined in Plato, the current way of life of a given human being will have consequences for the soul's postmortem destiny.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>2.3</head><p>What Does "Mortal" Mean? If we consider the soul's incarnation within a human body, what can we infer from this doctrine?49 When the soul is in a body, it remains in contact, through one of its activities, viz. the intellect (nous), with the intelligible, which in fact allows the quality of the soul in question to be defined. Yet this soul also has activities that must enable it to take care of the body to which it is attached. It must ensure the survival of this body through the ingestion of food and drink, and ensure its reproduction (thanks to epithymia). It must also defend this body against aggression coming from without, or even from within (thanks to thymos). This is why spirit and desire are required. Yet what happens when this soul is separated from its body? Its higher activity remains what it is, and it retains the memory of its object, the intelligible, simply because this object is immutable. However, this contemplative activity is qualified by the fact that when the soul was within a body, it paid more or less attention to the sensible, hence the application of a retributive system. One can from this see why ethics is linked to knowledge.</p><p>By contrast, when the soul is detached from the body of which it had taken care, the activities it had in this area cease, and it loses the memory of the objects and events associated with these activities. It is in this sense that one can, it seems to me, declare the functions represented by spirit (thymos) and desire (epithymia) to be "mortal." Insofar as they are the activities of a soul, these functions share this soul's immortality. And the fact that they subsist in the gods, without being exercised, is a good indication, in my view, of the fact that we must consider the soul to be naturally composite. Qua capacities of acting and undergoing, however, these functions cease to be exercised as a result of the soul's separation from its body, and since no memory of what they have done in the past subsists, they can be qualified as "mortal." From this perspective, the "death" that affects these functions of the human soul represented by spirit and desire may be defined as forgetting the management of the body, consecutive upon the soul's separation from this body. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>3</head><p>The Soul of Plants</p><p>It should be noted, moreover, that the Demiurge's assistants, who are his offspring, do not fashion the soul, but receive it from the Demiurge to weave it with the body. Things are different with the soul of the plants,53 which results from a mixture made by the Demiurge's assistants: So all the parts, all the limbs54 of the mortal living thing55 came to constitute a natural whole.56 Of necessity, however, it came about that he lived his life surrounded by fire and air, which cause him to waste away and57 be depleted, and so to perish. The gods,58 therefore, devised something to protect him. They caused another nature to grow, one congenial to our human nature, though mixed with other features and other sensations,59 so as to be a different living thing.60 These are now cultivated trees, plants and seeds, taught by the art of agriculture to be domesticated for our use. But at first the only kinds there were wild ones, older than our cultivated kinds. We may call these plants "living things" on the grounds that anything that partakes of life has an incontestable right to be called a "living thing."61 And in fact, what we are talking about now partakes of the third type of soul, the type that our account has situated between the midriff and the navel.62 This type is totally devoid of opinion, reasoning or understanding, though it does share in sensation, pleasant or painful, and desires.63 For throughout its existence </p></div>			</div>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<monogr>
+		<title level="m" type="main">via Open Access. This is an open access chapter distributed under the terms of the CC BY-NC-ND 4.0 license</title>
+		<author>
+			<persName><surname>Downloaded</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Brill</surname></persName>
+		</author>
+		<idno>03/04/2024 06:40:55PM</idno>
+		<ptr target="https://creativecommons.org/licenses/by-nc-nd/4.0" />
+		<imprint/>
+	</monogr>
+	<note>/ 44 Those of the Same and the Different</note>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">For a parallel, see Gorg. 493b3-7. The vocabulary of the Mysteries is often used in Plato to describe the philosophical experience</title>
+	</analytic>
+	<monogr>
+		<title level="m">Symp. 210a ff. and Phaedr. 250c)</title>
+				<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<monogr>
+		<title level="m" type="main">Becoming like God&apos; in the Timaeus and Aristotle</title>
+		<author>
+			<persName><forename type="first">Tim</forename></persName>
+		</author>
+		<imprint>
+			<biblScope unit="page" from="76" to="76" />
+		</imprint>
+	</monogr>
+	<note>Luc Brisson -9789004437081</note>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">via Open Access. This is an open access chapter distributed under the terms of the CC BY-NC-ND 4</title>
+		<author>
+			<persName><surname>Downloaded</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Brill</surname></persName>
+		</author>
+		<idno>03/04/2024 06:40:55PM</idno>
+		<ptr target="https://creativecommons.org/licenses/by-nc-nd/4.0/Brisson" />
+	</analytic>
+	<monogr>
+		<title level="m">Divination et rationalité, Recherches anthropologiques</title>
+				<editor>
+			<persName><forename type="first">Remo</forename><surname>Guidieri</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Luc; Paris</addrLine></address></meeting>
+		<imprint>
+			<publisher>Seuil</publisher>
+			<date type="published" when="1974">1974</date>
+			<biblScope unit="page" from="220" to="248" />
+		</imprint>
+	</monogr>
+	<note>Du bon usage du dérèglement</note>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">Plato&apos;s Theory of Sense Perception in the Timaeus. How it Works and What it Means</title>
+		<author>
+			<persName><forename type="first">Luc</forename><surname>Brisson</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Proceedings of the Colloquium in Ancient Philosophy</title>
+		<editor>John Cleary and Gary Gurtler</editor>
+		<imprint>
+			<biblScope unit="volume">13</biblScope>
+			<biblScope unit="page" from="147" to="176" />
+			<date type="published" when="1999">1999</date>
+			<publisher>University Press of America</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">Le corps animal comme signe de la valeur d&apos;une âme chez Platon</title>
+		<author>
+			<persName><forename type="first">Luc</forename><surname>Brisson</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">In L&apos; Animal dans l&apos; Antiquité</title>
+		<editor>Barbara Cassin, Jean-Louis Labarrière and Gilbert Romeyer Dherbey</editor>
+		<imprint>
+			<biblScope unit="page" from="227" to="245" />
+			<date type="published" when="1997">1997</date>
+			<publisher>Vrin</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">Actes du Colloque international organisé à l</title>
+		<author>
+			<persName><forename type="first">Luc</forename><surname>Brisson</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Les dieux de Platon</title>
+				<editor>
+			<persName><forename type="first">Jérôme</forename><surname>Laurent</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Caen</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2002">25 et 26 janvier 2002. 2003</date>
+			<biblScope unit="volume">24</biblScope>
+			<biblScope unit="page" from="11" to="23" />
+		</imprint>
+		<respStmt>
+			<orgName>Université de Caen Basse-Normandie ; Presses Universitaires de Caen</orgName>
+		</respStmt>
+	</monogr>
+	<note>Le corps des dieux</note>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">Platon, Pythagore et les Pythagoriciens</title>
+		<author>
+			<persName><forename type="first">Luc</forename><surname>Brisson</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Platon, source des Présocratiques. Exploration</title>
+				<editor>
+			<persName><forename type="first">Monique</forename><surname>Dixsaut</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">Aldo</forename><surname>Brancacci</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Paris</addrLine></address></meeting>
+		<imprint>
+			<publisher>Vrin</publisher>
+			<date type="published" when="2003">2003</date>
+			<biblScope unit="page" from="21" to="46" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<monogr>
+		<author>
+			<persName><forename type="first">Luc</forename><surname>Brisson</surname></persName>
+		</author>
+		<title level="m">Gorgias-Menon: Selected Papers from the Seventh Symposium Platonicum</title>
+				<editor>
+			<persName><forename type="first">Michael</forename><surname>Erler</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">Luc</forename><surname>Brisson</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Sankt Augustin</addrLine></address></meeting>
+		<imprint>
+			<publisher>Academia Verlag</publisher>
+			<date type="published" when="2007">2007</date>
+			<biblScope unit="page" from="199" to="203" />
+		</imprint>
+	</monogr>
+	<note>La réminiscence dans le Ménon</note>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<monogr>
+		<title level="m" type="main">Note the admirable image: man himself is considered as a plant, and his head, in which the intellect which makes him akin to the divinity is located, is its root</title>
+		<imprint>
+			<biblScope unit="page">9789004437081</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">This is an open access chapter distributed under the terms of the CC BY-NC-ND 4.0 license</title>
+		<author>
+			<persName><surname>Downloaded</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Brill</surname></persName>
+		</author>
+		<idno>03/04/2024 06:40:55PM</idno>
+		<ptr target="https://creativecommons.org/licenses/by-nc-nd/4.0/Brisson" />
+	</analytic>
+	<monogr>
+		<title level="m">Inner Life and Soul: Psyche in Plato</title>
+				<editor>
+			<persName><forename type="first">Migliori</forename><surname>Maurizio</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">Linda</forename><forename type="middle">Napolitano</forename><surname>Valditara</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">Arianna</forename><surname>Fermani</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Luc; Sankt Augustin</addrLine></address></meeting>
+		<imprint>
+			<publisher>Academia Verlag</publisher>
+			<date type="published" when="2011">2011</date>
+			<biblScope unit="page" from="63" to="70" />
+		</imprint>
+	</monogr>
+	<note>The mortal parts of the soul, or death forgetting the body</note>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">Le Timée de Platon et le traité hippocratique Du régime, sur le mécanisme de la sensation</title>
+		<author>
+			<persName><forename type="first">Luc</forename><surname>Brisson</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Études Platoniciennes</title>
+		<imprint>
+			<biblScope unit="volume">10</biblScope>
+			<date type="published" when="2013">2013</date>
+		</imprint>
+	</monogr>
+	<note>Open access</note>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<monogr>
+		<title level="m">Complete Works</title>
+				<editor>
+			<persName><forename type="first">John</forename><forename type="middle">M</forename><surname>Cooper</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">David</forename><forename type="middle">S</forename><surname>Hutchinson</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Indianapolis</addrLine></address></meeting>
+		<imprint>
+			<publisher>Hackett Publishing Company</publisher>
+			<date type="published" when="1997">1997</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">La théorie de la sensation, de la pensée et de l&apos;âme dans le traité hippocratique Du régime: ses rapports avec Empédocle et le Timée de Platon</title>
+		<author>
+			<persName><forename type="first">Jacques</forename><surname>Jouanna</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Aion (filol)</title>
+		<imprint>
+			<biblScope unit="volume">29</biblScope>
+			<biblScope unit="page" from="8" to="38" />
+			<date type="published" when="2007">2007</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<monogr>
+		<author>
+			<persName><forename type="first">Filip</forename><surname>Karfík</surname></persName>
+		</author>
+		<title level="m">Die Beseelung des Kosmos: Untersuchungen zur Kosmologie, Seelenlehre und Theologie in Platons Phaidon und Timaios</title>
+				<meeting><address><addrLine>Munich</addrLine></address></meeting>
+		<imprint>
+			<publisher>Saur</publisher>
+			<date type="published" when="2004">2004</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<analytic>
+		<title level="a" type="main">What the Mortal Parts of the Soul Really are</title>
+		<author>
+			<persName><forename type="first">Filip</forename><surname>Karfik</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Rhizai</title>
+		<imprint>
+			<biblScope unit="volume">II</biblScope>
+			<biblScope unit="page" from="197" to="217" />
+			<date type="published" when="2005">2005</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<monogr>
+		<title level="m" type="main">La théorie platonicienne de la doxa</title>
+		<author>
+			<persName><forename type="first">Yvon</forename><surname>Lafrance</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="1981">1981. 2015</date>
+			<publisher>Les Belles Lettres</publisher>
+			<pubPlace>Paris</pubPlace>
+		</imprint>
+	</monogr>
+	<note>Reprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<analytic>
+		<title level="a" type="main">Plato: Weight and Sensation. The Two Theories of the &quot;Timaeus</title>
+		<author>
+			<persName><forename type="first">Denis</forename><surname>O'brien</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Theories of Weight in the Ancient World: Four Essays on Democritus, Plato and Aristotle</title>
+				<meeting><address><addrLine>Leiden</addrLine></address></meeting>
+		<imprint>
+			<publisher>Brill</publisher>
+			<date type="published" when="1984">1984</date>
+			<biblScope unit="volume">2</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<analytic>
+		<title level="a" type="main">Uomini capovolti: le piante nel pensiero dei Greci. Roma: Laterza</title>
+		<author>
+			<persName><forename type="first">Luciana</forename><surname>Repici</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the Symposium Platonicum</title>
+				<editor>
+			<persName><forename type="first">Tomas</forename><surname>Calvo</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">Luc</forename><surname>Brisson</surname></persName>
+		</editor>
+		<meeting>the Symposium Platonicum<address><addrLine>Sedley, David; Sankt Augustin</addrLine></address></meeting>
+		<imprint>
+			<publisher>Academia Verlag</publisher>
+			<date type="published" when="1997">2000. 1997</date>
+			<biblScope unit="volume">4</biblScope>
+			<biblScope unit="page" from="263" to="374" />
+		</imprint>
+	</monogr>
+	<note>Becoming like God̕ &apos; in the Timaeus and Aristotle</note>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<monogr>
+		<title level="m" type="main">Luc Brisson -9789004437081</title>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<monogr>
+		<title level="m" type="main">via Open Access</title>
+		<author>
+			<persName><surname>Downloaded</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Brill</surname></persName>
+		</author>
+		<idno>03/04/2024 06:40:55PM</idno>
+		<ptr target="https://creativecommons.org/licenses/by-nc-nd/4.0/" />
+		<imprint/>
+	</monogr>
+	<note>This is an open access chapter distributed under the terms of the CC BY-NC-ND 4.0 license</note>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

@@ -1,0 +1,644 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Exploration of Novel Neuromorphic Methodologies for Materials Applications</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+				<date type="published" when="2024-05-07">7 May 2024</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Derek</forename><surname>Gobin</surname></persName>
+							<email>dgobin@gmu.edu</email>
+							<affiliation key="aff0">
+								<orgName type="institution">George Mason University Fairfax</orgName>
+								<address>
+									<region>VA</region>
+									<country key="US">USA</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Shay</forename><surname>Snyder</surname></persName>
+							<email>ssnyde9@gmu.edu</email>
+							<affiliation key="aff1">
+								<orgName type="institution">George Mason University Fairfax</orgName>
+								<address>
+									<region>VA</region>
+									<country key="US">USA</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Guojing</forename><surname>Cong</surname></persName>
+							<email>congg@ornl.gov</email>
+							<affiliation key="aff2">
+								<orgName type="institution">Oak Ridge National Laboratory Oak Ridge</orgName>
+								<address>
+									<region>TN</region>
+									<country key="US">USA</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Shruti</forename><forename type="middle">R</forename><surname>Kulkarni</surname></persName>
+							<email>kulkarnisr@ornl.gov</email>
+							<affiliation key="aff3">
+								<orgName type="institution">Oak Ridge National Laboratory Oak Ridge</orgName>
+								<address>
+									<region>TN</region>
+									<country key="US">USA</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Catherine</forename><surname>Schuman</surname></persName>
+							<email>cschuman@utk.edu</email>
+							<affiliation key="aff4">
+								<orgName type="institution">University of Tennessee -Knoxville Knoxville</orgName>
+								<address>
+									<region>TN</region>
+									<country key="US">USA</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Maryam</forename><surname>Parsa</surname></persName>
+							<email>mparsa@gmu.edu</email>
+							<affiliation key="aff5">
+								<orgName type="institution">George Mason University Fairfax</orgName>
+								<address>
+									<region>VA</region>
+									<country key="US">USA</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Exploration of Novel Neuromorphic Methodologies for Materials Applications</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date type="published" when="2024-05-07">7 May 2024</date>
+						</imprint>
+					</monogr>
+					<idno type="MD5">8C1620E2AACD0F87D5FB27DEDB9F026C</idno>
+					<idno type="arXiv">arXiv:2405.04478v1[cs.ET]</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.2" ident="GROBID" when="2024-05-12T15:27+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Many of today's most interesting questions involve understanding and interpreting complex relationships within graph-based structures. For instance, in materials science, predicting material properties often relies on analyzing the intricate network of atomic interactions. Graph neural networks (GNNs) have emerged as a popular approach for these tasks; however, they suffer from limitations such as inefficient hardware utilization and over-smoothing. Recent advancements in neuromorphic computing offer promising solutions to these challenges. In this work, we evaluate two such neuromorphic strategies known as reservoir computing and hyperdimensional computing. We compare the performance of both approaches for bandgap classification and regression using a subset of the Materials Project dataset. Our results indicate recent advances in hyperdimensional computing can be applied effectively to better represent molecular graphs.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>I. INTRODUCTION</head><p>Graph Neural Networks (GNNs) are a popular strategy wherever data can be expressed as a graph. The materials science domain is no exception, where atomic structures naturally lend themselves to graphical representations. This success is due to GNNs' ability to utilize the information and structure of graphs to generate feature embeddings. Their state-of-the-art performance is demonstrated across various tasks within the Materials Project dataset <ref type="bibr" target="#b0">[1]</ref>, <ref type="bibr" target="#b1">[2]</ref>.</p><p>Despite these impressive results and the research attention they have brought, GNNs still suffer from a number of challenges. Like all traditional deep learning strategies, they rely heavily on the quantity and quality of data. This is particularly significant in the materials domain, where obtaining highquality data for less common material structures can be expensive and time-consuming <ref type="bibr" target="#b2">[3]</ref>. Another issue is that graphs tend to be sparse with some nodes more heavily connected than others <ref type="bibr" target="#b3">[4]</ref>. These attributes make them inefficient on today's standard computational hardware that relies primarily on parallel processing. Finally, one of the most significant challenges faced by today's GNN researchers is over-smoothing, which can limit the expressiveness and representative power of GNN architectures. These challenges have led to GNNs being surpassed in some tasks by more standard feed-forward strategies that require handcrafted feature selection and careful design <ref type="bibr" target="#b2">[3]</ref>.</p><p>In recent years, neuromorphic computing has emerged as a popular area of research due to its efficiency and potential to mimic biological learning processes. Neuromorphic hardware, inherently asynchronous and optimized for handling sparse data, is particularly well-suited for the graph domain. Furthermore, promising learning strategies have developed for generating feature representations. Reservoirs, for example, have shown to be effective feature extractors across various modalities through the use of a large untrained layer of neurons <ref type="bibr" target="#b4">[5]</ref>, <ref type="bibr" target="#b5">[6]</ref>. Alternatively, hyperdimensional computing builds symbolic representations of data through projection to high dimensional spaces. These methodologies are less data intensive and computationally expensive than their deep learning counterparts, requiring much less resources to train and capable of running natively on neuromorphic hardware. To examine these recent advances for application to the materials domain, we apply reservoir and hyperdimensional computing strategies to a small subset of the Materials Project dataset <ref type="bibr" target="#b0">[1]</ref> for bandgap classification and regression tasks.</p><p>Our key contributions are as follows:</p><p>• We perform an initial exploration and comparison of recent reservoir and hyperdimensional computing strategies for the representation of molecular graph structures. • We introduce a novel strategy, called SSP-GrapHD, for representing molecular structures and provide preliminary results.</p><p>• Our results show that SSP-GrapHD reduces the mean absolute error when compared to the state-of-the-art ALIGNN approach <ref type="bibr" target="#b6">[7]</ref> on our data subset.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>II. RELATED WORK</head><p>Graph Neural Networks (GNNs) operate through a message passing paradigm, where nodes receive information from their connected neighbors. This information encodes the features of the neighboring node and the edge connecting them. Through this process, GNNs construct node embeddings that capture both the structure and the data of the graph. While theoretically, these layers could continue to generate embeddings that capture the entire network of connections within the graph, in practice, GNNs are limited to one or two layers before over-smoothing becomes a problem. Over-smoothing refers to the process where connected nodes receive similar information across the graph, leading to homogeneous representations and a loss of information <ref type="bibr" target="#b7">[8]</ref>. For materials discovery, GNN techniques often rely on constructing line graphs to augment the atomic structure graph and utilize careful feature selection in addition to graph design <ref type="bibr" target="#b6">[7]</ref>, <ref type="bibr" target="#b8">[9]</ref>. Neuromorphic applications to complex graph problems have mainly focused on the text domain and citation networks <ref type="bibr" target="#b9">[10]</ref>, <ref type="bibr" target="#b10">[11]</ref>, <ref type="bibr" target="#b11">[12]</ref>. These strategies exploit specific characteristics of these domains, which are not directly applicable to the material science domain. However, the inherent efficiency and lowpower nature of neuromorphic computing holds promise for overcoming limitations in processing large material science graphs.</p><p>Reservoir computing, a neuromorphic strategy, utilizes a large recurrent network of untrained neurons (called a reservoir) to generate high-dimensional feature representations. These representations are then fed into a separate (usually linear) read-out layer trained for the specific classification or regression task. Reservoirs can be built with standard neurons (called echo state networks) or biologically inspired spiking neurons (called liquid state machines). In <ref type="bibr" target="#b4">[5]</ref>, the authors explore using an echo state network for graph classification on a small subset of the MUTAG molecular dataset. This work primarily focuses on examining the hardware implementation of a reservoir, achieving comparable results to their GNN baselines, but with limited comparison to the state-of-the-art methods.</p><p>Hyperdimensional computing is a relatively new approach to computation inspired by how the brain represents information across a large number of synapses at any given moment. Data is represented through projection to a high dimensional space, where it can be manipulated via algebraic operations (e.g. binding, bundling, permutation). The specific operations used depend on the chosen type of hypervector, which can range from binary vectors to more complex tensor representations <ref type="bibr" target="#b12">[13]</ref>. In this work, we evaluate the performance of reservoir and hyperdimensional learning algorithms within neuromorphic GNNs applied to materials science problems. We compare their performance for bandgap classification and regression tasks using the Materials Project dataset.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>III. METHODOLOGY</head><p>To explore our selected strategies, two tasks were identified for bandgap prediction: a simple binary classification problem (zero vs. non-zero bandgap) and a more challenging regression problem (estimating the actual bandgap value). The data used for this evaluation consisted of a selection of 54 data points from the Materials Project dataset <ref type="bibr" target="#b0">[1]</ref>, <ref type="bibr" target="#b1">[2]</ref>. This selection allows for an efficient evaluation of the performance of reservoir and hyperdimensional computing for these tasks while enabling further exploration with larger datasets in future work.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>A. Reservoir Computing</head><p>For the reservoir computing architecture, we explored a liquid state machine (LSM) due to its use of biologically plausible spiking neurons.These spiking neurons are well-suited for processing the sparse graph representations and offer potential for further efficiency gains by leveraging specialized neuromorphic hardware. The architecture of the LSM is relatively simple, consisting of an input layer, a large hidden layer (the reservoir), and a readout layer.</p><p>While spiking neurons have certain advantages, they come with the challenge of encoding graphical data into a set of spikes. In the case of atomic structures, a weighted undirected graph is used, with edge weights determined by the distance between the connected atoms. To encode this information, we generate a spike vector for each edge in the graph. Each node and distance value has a corresponding index in the vector. This index is set to 1 when the specific node or distance is involved in the edge, and 0 otherwise. As an illustrative example shown in Figure <ref type="figure" target="#fig_0">1</ref>, consider the structure of PbB2 where each atom is connected to the other to form a triangle. The lead atom (Pb) is connected to each boron (B) atom equidistantly at a distance of d1, and the boron (B) atoms are connected at a distance of d2. Therefore, the encoding would be three spike vectors:</p><p>• A vector with a spike at node 1 (the lead atom), node 2 (one of the boron atoms), and d1 • A vector with a spike at node 1, node 3 (the second boron atom), and d1 • A vector with a spike at node 2, node 3, and d2</p><p>After examining the dataset, we determined that a spike vector length of 165 would be sufficient. This vector encodes both node position (140 potential spikes) and distances between atoms (25 potential spikes, rounded to the nearest quarter angstrom from 0 to 6 angstroms). Due to the sparsity and size of this representation and contrary to standard GNN practice, we only utilize the initial unit cell of the atomic structure, rather than including periodic neighbor structures. This is also in line with <ref type="bibr" target="#b4">[5]</ref> where non-periodic molecular structures were examined.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>B. Hyperdimensional Computing</head><p>This section explores two approaches to study material science graph data: 1. Adapting GraphHD: We evaluate the applicability of the GraphHD methodology <ref type="bibr" target="#b12">[13]</ref> for encoding material science graphs within the hyperdimensional computing (HDC) framework. 2. SSP-GrapHD: We further enhance the first approach by incorporating a recent strategy called Spatial Semantic Points (SSPs) to create 3D representations of the molecular structures. 1. Adapting GraphHD: In GraphHD, the authors propose the following strategy:</p><p>• Symbolic Representaion: A random symbolic hypervector (denoted by H) is assigned to each potential node value, along with a separate vector (denoted by V) representing connected edges. Here, Multiply, Add, Permute (MAP) vectors with a value range of {-1,1} are chosen for both H and V. • Node Memory Construction: A "node memory" (NM) is constructed for each node, based on its connected neighbors and their corresponding edge weights:</p><formula xml:id="formula_0">NM i = j V wij * H j (1)</formula><p>Here, V is the edge hypervector that has been permuted based on the weight value W between the two nodes (effectively incorporating the weight information into the message passing process) and H is the connected neighbor node's hypervector. This operation is analogous to the message passing operation in GNNs. • Node Embedding and Graph Representation: Each node representation (H) is then bound to its corresponding memory vector (NM) to create a final node embedding. All node embeddings are bundled together to form a representation of the entire graph:</p><formula xml:id="formula_1">G = 1 2 n i=1 H i * NM i<label>(2)</label></formula><p>To adapt this method to the materials science domain, we randomly initialize 118 hyperdimensional vectors, corresponding to the elements of the periodic table. We normalize the distance between atoms to values between 0 and 1 to align with the edge construction strategy presented in <ref type="bibr" target="#b12">[13]</ref>. With these adjustments, the molecular structure graphs can be readily applied to the GrapHD methodology to construct hyperdimensional graph representations. Similar to the reservoir computing approach described earlier, we only consider the atomic unit cell structure.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.">SSP-GrapHD:</head><p>To further explore the hyperdimensional computing space, we integrated another strategy called Spatial Semantic Pointers (SSP) <ref type="bibr" target="#b13">[14]</ref>. SSPs offer a novel approach for representing continuous values, particularly spatial information. SSPs encode a point in space (s = [x, y]) using two hyperdimensional vectors, one for the x-axis (X) and one for the y-axis (Y). These vectors are unitary, meaning each vector has a magnitude of 1. Fig. <ref type="figure">2</ref>. A simplified visualization of encoding (A) parent node A into (B) an object hyperdimensional vector that incorporates neighbor nodes and a spatial hyperdimensional vector that represents position. This process would be repeated for each node in the graph.</p><p>The encoding process involves fractional binding of the axis vectors through a mathematical operation called circular convolution (denoted by ⊗). In simpler terms, this can be thought of as element-wise multiplication with a specific shift for each element. The resulting hypervector (S) represents the specific point in space:</p><formula xml:id="formula_2">S = X x ⊗ Y y . (<label>3</label></formula><formula xml:id="formula_3">)</formula><p>An object, represented by a separate hyperdimensional vector (OBJ), can then be linked to its spatial location through binding. Furthermore, a "spatial memory" (SM) can be constructed by bundling the object vectors with their corresponding spatial encodings (S):</p><formula xml:id="formula_4">SM = m i=1 OBJ i ⊗ S i<label>(4)</label></formula><p>Here, OBJ i represents the i th object and S i is its corresponding spatial location. Therefore, we propose a novel approach called SSP-GrapHD that leverages the strengths of both methods to create a 3D spatial representation of our molecular structure, extending beyond a simple 2D graph. This approach combines the SSP equation for spatial encoding with a modified GraphHD equation:</p><formula xml:id="formula_5">G = 1 2 m i=1 OBJ i ⊗ S i<label>(5)</label></formula><p>Here, S is a spatial location, represented as above but with a third unitary vector to represent the Z axis. A diagram of this encoding process is highlighted within Figure <ref type="figure">2</ref>. OBJ i now is a binding of an element representation with its corresponding memory vector N M i from the adapted GrapHD. However, SSP-GrapHD utilizes only an unweighted graph representation for node memory (NM)</p><formula xml:id="formula_6">NM i = j H j .<label>(6)</label></formula><p>This is because our objects are tied to 3D locations in space, which inherently captures the distance information between them.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>IV. RESULTS</head><p>For the reservoir approach, we initialized the weights across a random normal distribution, with a probability of connection between neurons based on their distance. The excitatory to inhibitory neuron ratio was 4:1. We explored reservoir sizes of 400, 1650, and 10,000. These reservoir sizes were selected based on existing literature on liquid state machines, while also considering the need to enforce sparsity in the network <ref type="bibr" target="#b5">[6]</ref>. The classification layer used a linear stochastic gradient descent classifier and a linear regressor was used for the regression task. Data was split 70% for training and 30% for testing. To account for the inherent randomness in reservoir computing, we averaged results over 25 independent runs. Our proposed approach, SSP-GrapHD, along with GrapHD, were evaluated using a hyperdimensional vector dimension size of 10,000 based on common practices in the literature. Both approaches utilized a stochastic gradient descent classifier and a linear regressor with a 70/30 train-test split. However, inspired by findings in <ref type="bibr" target="#b13">[14]</ref> suggesting neural networks' effectiveness with hyperdimensional representations, we also explored neural networks for the regression task.</p><p>For SSP-GrapHD, a single hidden layer network with a size of only 10 neurons achieved the best results. In contrast, a two-hidden layer network performed best for GrapHD.</p><p>We implemented both the reservoir and the SSP-GrapHD in Nengo <ref type="bibr" target="#b14">[15]</ref> and GraphHD in torchHD <ref type="bibr" target="#b15">[16]</ref>.</p><p>Table <ref type="table" target="#tab_0">I</ref> summarizes the performance of all approaches on both the classification (accuracy) and regression (mean absolute error -MAE) tasks. The GNN strategy ALIGNN <ref type="bibr" target="#b6">[7]</ref> serves as the baseline. ALIGNN is known for its effectiveness on various Materials Project tasks, including bandgap prediction. It was trained and tested on the same data subset using hyperparameters recommended by the developers for small datasets. For hyperdimensional strategies, neural network results for regression are reported with the linear regression results given in parenthesis. As can be seen in Table <ref type="table" target="#tab_0">I</ref>, SSP-GrapHD achieves the best results by far for the data subset explored. Notably, SSP-GrapHD achieves a classification accuracy of 82.35% and a mean absolute error (MAE) of 0.5181 on the regression task, outperforming all other approaches. Even without the neural network, a simple linear regressor approaches ALIGNN's performance. These results indicate that the hyperdimensional computing strategies are capturing graph information very effectively, without any special deep learning architectures or feature engineering. The SSP-GrapHD results may also indicate that this strategy is very capable of generalizing, marking a potential area of interest for future efforts.</p><p>The reservoir strategy, on the other hand, does not fair so well. Interestingly, while increasing the size of the reservoir does not help with classification, it appears to improve the regression task. Continuing to increase the reservoir size could lead to better representations; however, computational overhead begins to become an issue. Additionally, the reservoir's black box nature makes it difficult to tune, understand, and implement.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>V. CONCLUSION AND FUTURE WORK</head><p>Hyperdimensional vectors have demonstrated several desirable qualities in this study: (1) they are largely transparent, (2) they are constructed through a series of simple algebraic operations, and (3) achieve good results. Further, their potential implementation on neuromorphic hardware makes them computationally attractive. The results presented here, particularly the success of our proposed SSP-GrapHD approach, strongly indicate that hyperdimensional computing merits further exploration for material property prediction tasks.</p><p>The immediate next step is to evaluate the performance of hyperdimensional strategies on the full Materials Project dataset. This will provide a more comprehensive understanding of their effectiveness. Beyond the dataset size, several potential improvements can be explored. The current approach for node initialization could benefit from incorporating atomic properties more explicitly. Similar considerations apply to bond information. Further, GraphHD currently only considers neighbors directly connected to a node for node memory. Like GNNs, it could potentially benefit from building node memory from neighbors further away. There are also other tasks beyond bandgap regression that could be examined in more detail.</p><p>Interest in hyperdimensional vectors extends beyond the materials application as well. Future efforts will seek to compare hyperdimensional vectors more directly to traditional embedding strategies to better understand how well they incorporate information at a fundamental level. Exploration of using hyperdimensional vectors for representing other data types is also in progress, specifically for physics and imagebased understanding.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>VI. ACKNOWLEDGMENT</head><p>The research was funded in part by National Science Foundation through award CCF2319619.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Fig. 1 .</head><label>1</label><figDesc>Fig. 1. Encoding the structure of (A) PbB2 molecule into (B) three spike vectors.</figDesc><graphic coords="2,321.84,50.54,231.32,83.28" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_0"><head>TABLE I RESULTS</head><label>I</label><figDesc>ON THE MATERIALS PROJECT DATA<ref type="bibr" target="#b0">[1]</ref> SUBSET</figDesc><table><row><cell>Method</cell><cell>MAE</cell><cell>Class. Acc.</cell></row><row><cell>ALIGNN</cell><cell>1.0688</cell><cell>-</cell></row><row><cell>Reservoir-400</cell><cell>2.311</cell><cell>0.5330</cell></row><row><cell>Reservoir-1650</cell><cell>1.7096</cell><cell>0.5084</cell></row><row><cell>Reservoir-10k</cell><cell>1.2035</cell><cell>0.5319</cell></row><row><cell>GrapHD</cell><cell>0.7025 (1.2270)</cell><cell>0.7647</cell></row><row><cell>SSP-GrapHD</cell><cell>0.5181 (1.095)</cell><cell>0.8235</cell></row></table></figure>
+		</body>
+		<back>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">Commentary: The Materials Project: A materials genome approach to accelerating materials innovation</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Jain</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">P</forename><surname>Ong</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Hautier</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Chen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><forename type="middle">D</forename><surname>Richards</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Dacek</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Cholia</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Gunter</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Skinner</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Ceder</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">A</forename><surname>Persson</surname></persName>
+		</author>
+		<idno type="DOI">10.1063/1.4812323</idno>
+		<ptr target="https://doi.org/10.1063/1.4812323" />
+	</analytic>
+	<monogr>
+		<title level="j">APL Materials</title>
+		<imprint>
+			<biblScope unit="volume">1</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page">7</biblScope>
+			<date type="published" when="2013">2013</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">Benchmarking materials property prediction methods: the matbench test set and automatminer reference algorithm</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Dunn</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Q</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Ganose</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Dopp</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Jain</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Computational Materials</title>
+		<imprint>
+			<biblScope unit="volume">6</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page">138</biblScope>
+			<date type="published" when="2020-09">Sep. 2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">Materials property prediction for limited datasets enabled by feature selection and joint learning with MODNet</title>
+		<author>
+			<persName><forename type="first">P.-P</forename><surname>De Breuck</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Hautier</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G.-M</forename><surname>Rignanese</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Computational Materials</title>
+		<imprint>
+			<biblScope unit="volume">7</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page">83</biblScope>
+			<date type="published" when="2021-06">Jun. 2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">Hyperparameter optimization and feature inclusion in graph neural networks for spiking implementation</title>
+		<author>
+			<persName><forename type="first">G</forename><surname>Cong</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Kulkarni</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Lim</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Date</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Snyder</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Parsa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Kennedy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Schuman</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">2023 International Conference on Machine Learning and Applications (ICMLA)</title>
+				<imprint>
+			<date type="published" when="2023">2023</date>
+			<biblScope unit="page" from="1541" to="1546" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">Echo state graph neural networks with analogue random resistive memory arrays</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X</forename><surname>Chen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Dong</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Lin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Gallicchio</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X</forename><surname>Xu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Q</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K.-T</forename><surname>Cheng</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Shang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Liu</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Nature Machine Intelligence</title>
+		<imprint>
+			<biblScope unit="volume">5</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="104" to="113" />
+			<date type="published" when="2023-02">Feb. 2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">Extended liquid state machines for speech recognition</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Deckers</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><forename type="middle">J</forename><surname>Tsang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Van Leekwijck</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Latré</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Frontiers in Neuroscience</title>
+		<imprint>
+			<biblScope unit="volume">16</biblScope>
+			<date type="published" when="2022">2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">Atomistic line graph neural network for improved materials property predictions</title>
+		<author>
+			<persName><forename type="first">K</forename><surname>Choudhary</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Decost</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Computational Materials</title>
+		<imprint>
+			<biblScope unit="volume">7</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page">185</biblScope>
+			<date type="published" when="2021-11">Nov. 2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<monogr>
+		<title level="m" type="main">A survey on oversmoothing in graph neural networks</title>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">K</forename><surname>Rusch</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">M</forename><surname>Bronstein</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Mishra</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">Connectivity optimized nested line graph networks for crystal structures</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Ruff</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Reiser</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Stühmer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Friederich</surname></persName>
+		</author>
+		<idno type="DOI">10.1039/D4DD00018H</idno>
+		<ptr target="http://dx.doi.org/10.1039/D4DD00018H" />
+	</analytic>
+	<monogr>
+		<title level="j">Digital Discovery</title>
+		<imprint>
+			<biblScope unit="volume">3</biblScope>
+			<biblScope unit="page" from="594" to="601" />
+			<date type="published" when="2024">2024</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">Semi-supervised graph structure learning on neuromorphic computers</title>
+		<author>
+			<persName><forename type="first">G</forename><surname>Cong</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S.-H</forename><surname>Lim</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Kulkarni</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Date</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Potok</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Snyder</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Parsa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Schuman</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/3546790.3546821</idno>
+		<ptr target="https://doi.org/10.1145/3546790.3546821" />
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the International Conference on Neuromorphic Systems 2022, ser. ICONS &apos;22</title>
+				<meeting>the International Conference on Neuromorphic Systems 2022, ser. ICONS &apos;22<address><addrLine>New York, NY, USA</addrLine></address></meeting>
+		<imprint>
+			<publisher>Association for Computing Machinery</publisher>
+			<date type="published" when="2022">2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">Spike: spike-based embeddings for multirelational graph data</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Dold</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">S</forename><surname>Garrido</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">2021 International Joint Conference on Neural Networks (IJCNN)</title>
+				<imprint>
+			<date type="published" when="2021">2021</date>
+			<biblScope unit="page" from="1" to="8" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">Learning through structure: Towards deep neuromorphic knowledge graph embeddings</title>
+		<author>
+			<persName><forename type="first">V</forename><forename type="middle">C</forename><surname>Chian</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Hildebrandt</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Runkler</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Dold</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/ICNC52316.2021.9607968</idno>
+		<ptr target="http://dx.doi.org/10.1109/ICNC52316.2021.9607968" />
+	</analytic>
+	<monogr>
+		<title level="m">2021 International Conference on Neuromorphic Computing (ICNC)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2021-10">Oct. 2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">Graphd: Graph-based hyperdimensional memorization for brain-like cognitive learning</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Poduval</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Alimohamadi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Zakeri</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Imani</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">H</forename><surname>Najafi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Givargis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Imani</surname></persName>
+		</author>
+		<ptr target="https://par.nsf.gov/biblio/10338293" />
+	</analytic>
+	<monogr>
+		<title level="j">Frontiers in Neuroscience</title>
+		<imprint>
+			<biblScope unit="volume">16</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">A neural representation of continuous space using fractional binding</title>
+		<author>
+			<persName><forename type="first">B</forename><surname>Komer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">C</forename><surname>Stewart</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Voelker</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Eliasmith</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">CogSci</title>
+				<imprint>
+			<date type="published" when="2019">2019</date>
+			<biblScope unit="page" from="2038" to="2043" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">Nengo: a python tool for building large-scale functional brain models</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Bekolay</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Bergstra</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Hunsberger</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Dewolf</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">C</forename><surname>Stewart</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Rasmussen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X</forename><surname>Choo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">R</forename><surname>Voelker</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Eliasmith</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Frontiers in neuroinformatics</title>
+		<imprint>
+			<biblScope unit="volume">7</biblScope>
+			<biblScope unit="page">48</biblScope>
+			<date type="published" when="2014">2014</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<monogr>
+		<title level="m" type="main">Torchhd: An open-source python library to support hyperdimensional computing research</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Heddes</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Nunes</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Vergés</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Desai</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Givargis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Nicolau</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:2205.09208</idno>
+		<imprint>
+			<date type="published" when="2022">2022</date>
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

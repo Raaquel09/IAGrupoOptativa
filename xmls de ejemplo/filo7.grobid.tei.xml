@@ -1,0 +1,1049 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Plato on Illness in the Phaedo, the Republic, and the Timaeus</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher>BRILL</publisher>
+				<availability status="unknown"><p>Copyright BRILL</p>
+				</availability>
+				<date type="published" when="2020-11-18">2020-11-18</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Gábor</forename><surname>Betegh</surname></persName>
+						</author>
+						<title level="a" type="main">Plato on Illness in the Phaedo, the Republic, and the Timaeus</title>
+					</analytic>
+					<monogr>
+						<title level="m">Plato’s &lt;i&gt;Timaeus&lt;/i&gt;</title>
+						<imprint>
+							<publisher>BRILL</publisher>
+							<biblScope unit="page" from="228" to="258"/>
+							<date type="published" when="2020-11-18" />
+						</imprint>
+					</monogr>
+					<idno type="MD5">47D04C3A6CED9472172D49219C6B5F9F</idno>
+					<idno type="DOI">10.1163/9789004437081_013</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.2" ident="GROBID" when="2024-05-12T15:27+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>Plato -Phaedo -Republic -Timaeus -illness -health -Asclepius -cosmos -world soul -world body -metabolism -body -soul</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>As we learn from Phaedo, Plato could not be present at the important philosophical conversation that took place on Socrates' last day, because he was ill, just as the unnamed fourth guest missed Timaeus' great speech because he was unwell. Starting from these two cases, and then by bringing in Plato's remarks on illness in the Republic, the paper argues that for Plato illness is bad because it reduces the person's agency in such a way that she cannot perform her key functions and tasks, and carry on with her long-or short-term projects. How can such disruptions be prevented and cured? In the Timaeus, the cosmos provides an example of an embodied living being who never gets ill, and whose body never disrupts the cognitive activities of its soul. The cosmos is eternally healthy because it constitutes a self-sustaining homeostatic system, in which the motions of the soul also guarantee the incessant well-balanced, metabolism of its body. This is unavailable to human beings, not only because we are not closed systems, but also because the motions of our rational soul do not directly regulate our metabolism. However, studying the cyclical physical processes in the cosmos, and their counterparts in the human organism, we can learn how to emulate, as far as possible, the regulated metabolism of the cosmos, and thereby become our own doctors.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>1</head><p>Plato informs us about only two events from his life in his dialogues.1 First, that he was present at the trial of Socrates (Apol. 34a1; and 38b6), and second that he was not present in the prison on Socrates' final day. When Echecrates asks Phaedo who was there, Phaedo lists seven Athenians by name, mentions some other locals,2 and finally adds: "But Plato was ill, I think" (Πλάτων δὲ οἶμαι ἠσθένει, 59b10). Commentators, ancient and modern, have come up with various suggestions as to why Plato wanted to remind his readers of his absence. The most popular explanation is that in this way Plato declined responsibility for the exactness of the description of the event and the discussion, pointing out that he was not a witness himself.3</p><p>Be that as it may, Plato indicates the cause of his absence as well: he was ill, or at least so Phaedo believes. There has been some discussion as to whether Plato was indeed suffering from a bout of ill health or whether it was just an excuse.4 This is one of the many historical questions that, I think, we will never be in a position to answer conclusively. Yet, there is a further notable point, which, to the best of my knowledge has not received much, if any, attention. Plato's illness, no matter whether historically true or false, is a powerful illustration for one of the central topics of the dialogue.5 Socrates' central claim that triggers the entire discussion is that the body is a constant nuisance and hindrance for anyone who is truly dedicated to philosophy. As Socrates states at a later point of the discussion:</p><p>[…] ἕως ἂν τὸ σῶμα ἔχωμεν καὶ συμπεφυρμένη ᾖ ἡμῶν ἡ ψυχὴ μετὰ τοιούτου κακοῦ, οὐ μή ποτε κτησώμεθα ἱκανῶς οὗ ἐπιθυμοῦμεν· φαμὲν δὲ τοῦτο εἶναι τὸ ἀληθές. μυρίας μὲν γὰρ ἡμῖν ἀσχολίας παρέχει τὸ σῶμα διὰ τὴν ἀναγκαίαν τροφήν· ἔτι δέ, ἄν τινες νόσοι προσπέσωσιν, ἐμποδίζουσιν ἡμῶν τὴν τοῦ ὄντος particularly grateful to István Bodnár, Victor Caston, Yahei Kanayama, Filip Karfík, David Sedley, and an anonymous referee for their feedback. 2 Cf. Most, "A Cock for Asclepius," 106, on the possible importance of the specific way in which the list of attendees is constructed. 3 E.g. <ref type="bibr">Burnet, Phaedo, ix; Gallop, Phaedo, ad loc.</ref> This basic agreement notwithstanding, they can still disagree about whether Phaedo's report has anything to do with historical reality or is simply Plato's own literary creation (e.g. <ref type="bibr">Burnet, Phaedo, ix)</ref>. To this, I would add that his presence would have put Plato, as the writer of the Phaedo, in quite a quandary. On the one hand, his chosen methodology would have barred him from speaking in his own voice as a participant in the dialogue. On the other hand, it would have been equally awkward to make himself a silent character, who had nothing to contribute to these key questions, and who was not addressed by Socrates in some special way. 4 For a sceptical view, see e.g. Guthrie, A History of Greek Philosophy: Volume 3, the Fifth Century Enlightenment, 489 n. 2; contra e.g. Wilamowitz, Platon2, 325 n. 1 and Most, "A Cock for Asclepius." 5 Interestingly, there is no trace of a Neoplatonic discussion of Plato's illness apart from Proclus' mention of it in his commentary on the Timaeus, In : Gertz, Death and Immortality in Late Neoplatonism, 24.</p><p>Gábor Betegh -9789004437081 Downloaded from Brill.com 03/04/2024 06:41:24PM via Open Access. This is an open access chapter distributed under the terms of the CC BY-NC-ND 4.0 license. https://creativecommons.org/licenses/by-nc-nd/4.0/ Betegh θήραν. ἐρώτων δὲ καὶ ἐπιθυμιῶν καὶ φόβων καὶ εἰδώλων παντοδαπῶν καὶ φλυαρίας ἐμπίμπλησιν ἡμᾶς πολλῆς, ὥστε τὸ λεγόμενον ὡς ἀληθῶς τῷ ὄντι ὑπ' αὐτοῦ οὐδὲ φρονῆσαι ἡμῖν ἐγγίγνεται οὐδέποτε οὐδέν.</p><p>[…] as long as we have the body and our soul is fused with bodily evil, we'll never properly acquire what we desire, namely, as we would say, the truth. For the body detains us in countless ways because of the sustenance it needs. Besides, should certain diseases attack it, they impede our hunt for reality. The body fills us up with loves, desires, fears and fantasies of every kind, and a great deal of nonsense, with the result that it really and truly, as the saying goes, makes it impossible for us even to think about anything at any moment.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>66b5-c5, my emphasis6</head><p>Plato's illness is a case in point. Because he was ill, Plato was not only bereft of the opportunity to say farewell to his beloved teacher, but also missed an important philosophical discussion. What Socrates' arguments in the Phaedo show is precisely that Plato's illness is, at least temporarily, the cause of the greatest bad for him, in so far as it deprives him of the greatest good: it prevents him, at least temporarily, from doing philosophy or at least to participate at an important philosophical conversation. Conversely, Plato's illness is a very concrete and powerful reminder of the fact that Socrates is right: the body can effectively obstruct the soul in pursuing its most important project.</p><p>But Plato was apparently not the only one who missed a fascinating philosophical discussion because of falling ill. Remember the opening words of the Timaeus (17a1-5): ΣΩ. Εἷς, δύο, τρεῖς· ὁ δὲ δὴ τέταρτος ἡμῖν, ὦ φίλε Τίμαιε, ποῦ τῶν χθὲς μὲν δαιτυμόνων, τὰ νῦν δὲ ἑστιατόρων; ΤΙ. ᾿Ασθένειά τις αὐτῷ συνέπεσεν, ὦ Σώκρατες· οὐ γὰρ ἂν ἑκὼν τῆσδε ἀπελείπετο τῆς συνουσίας.</p><p>Socr. One, two, three … Where's number four, Timaeus? The four of you were my guests yesterday and today I'm to be yours. Tim. He came down with some illness, Socrates. He would not have missed our meeting willingly.7</p><p>Here, the last sentence clearly indicates that the bodily condition of the unnamed guest is an impediment for him: it prevented him from doing something he planned to do and found important.</p><p>I would like to suggest that the similarity between the predicament of these two characters is not accidental.8 As scholars have noted, and as I have argued elsewhere,9 there are strong thematic links that connect the Phaedo and the Timaeus. One of these shared topics is precisely the soul-body relationship. As has often been pointed out, the Timaeus expounds a novel, less austere conception of the body, and, closely related to this, of the possibilities and limitations of embodied existence.10 I will try to argue that this has important ramifications for the way in which we think about illness. To begin with, in the framework of the Timaeus, illness will not be simply a powerful demonstration of the troubles caused by embodiment. More importantly, it will present a pressing philosophical problem: if the body is indeed teleologically created for us by divine beings, why does it still get ill? But as I shall also show, the Timaeus brings a number of other novel elements into the picture, not least because of its cosmological framework, and its conception of the cosmos as an embodied, intelligent, divine being.</p><p>All in all, what I would like to show is that in these two dialogues we start out with characters falling ill, and unable to attend a philosophical discussion. But, at the end, these two texts invite us to think in somewhat different ways about the nature of the bad that illness brings to us, and, connectedly, what the proper attitude towards illness is. In the rest of this paper, I would like to explore what these differences consist in. I shall speak more briefly about the problems raised by the Phaedo, and touch upon the discussion of illness in the Republic, before turning to a more detailed analysis of certain aspects of the conceptualisation of illness and health, in the Timaeus.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>8</head><p>Not surprisingly, the identity of this unnamed character has been the subject of some speculation. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>2</head><p>The first thing worthy of note is that Plato, in all of his dialogues, agrees with the common conception that illness is something bad and inherently undesirable. Plato is of course entirely capable of coming up with strongly revisionary accounts of evaluative concepts. The Phaedo itself offers a number of examples of such revisionary moves. Most notoriously, it turns out that from the philosopher's perspective, and for the philosopher, death is not at all a bad thing, whereas bodily pleasures turn out to be hardly, if at all, better than pain.11 Elsewhere, we also learn that punishment can be a good thing (e.g. Gorg. 478a; Rep. 591b). Illness however is apparently not subjected to any such reevaluation. Plato agrees with the many that illness is inherently bad.12 Perhaps the best you can say about illness is that it is one of the things in the face of which you can display courage-as Socrates says in the Laches (191d-e). But, surely, this does not make it good in itself, just as it does not make a precarious military situation or a ravaging storm at sea good or desirable, just because one can behave courageously in relation to them.13</p><p>It is however not quite so obvious why exactly illness is bad. An immediate answer could come from the fact that illness is the privation of health, which, other things being equal, is a good thing. Yet, as the predicament of Plato and the unnamed character in the Timaeus reminds us, illness is bad not only in general and in abstract terms as the privation of health, but also in its very concrete, immediate effects. Illness is bad in so far as it is a debilitating condition that reduces our agency. Plato and the unnamed character of the Timaeus wanted to be there, but they could not because of their medical condition. In fact, Plato makes clear in a number of dialogues that illness has the power to thwart our most important projects, and can make our life miserable, to such an extent that it can render life quite simply not worth living. As Socrates points out in the Gorgias, the ship's captain can actually harm a person by 11</p><p>The distinction between pure and impure pleasures is less emphatic in the Phaedo than in the Republic and the Philebus. Nonetheless, at 64d Socrates notes that bodily pleasures are "so-called" pleasures, and at 83c he remarks that violent pleasures are intense but are not true. Finally, at 114c he distinguishes the pleasures of learning from other types of pleasure, and gives approval to it. 12 <ref type="bibr">Gorg. 478b;</ref><ref type="bibr">Alc. I 108. 13</ref> The only possible exception I found is Laws V 728d-e, where the Athenian says that the legislator will consider that "the body to value [is] not the one which is beautiful, or strong, or swift, or large, or even healthy-though that is the answer many people would expect. Nor again is it their opposites" (trans. Griffith). saving him from drowning, if that person is afflicted with some grave and incurable physical illness.14 For such a person, it is better to go to a watery grave than to continue living. This is also why Socrates in Book 3 of the Republic argues that doctors ought to take Asclepius as their role model, in so far as the healing god never aimed at the prolongation of biological life for its own sake, and provided treatment only to people who had a reasonable chance of living a full, meaningful, useful life, in which they could carry on their life projects.</p><p>But one might want to pursue this issue further, and ask in what way illness has this power over us? In what way can it dash our projects temporarily, as in the case of Plato and (we hope) of the unnamed character of the Timaeus, or permanently and fatally, as in the case of those whom doctors and ship captains should rather let die?</p><p>On the basis of this set of examples, we might start formulating an answer along the following lines. Illness is bad because it is a temporary or permanent disruption of the normal condition of the organism, so that the person cannot perform his or her key functions and tasks, and carry on with his or her longor short-term projects. Importantly, this conception of illness as a malfunction is obviously parasitic on the notion of proper functioning. Now, fully in line with the strict distribution of erga, tasks, and functions, Plato, at least in the Republic, appears to maintain a non-generalisable conception of illness as a malfunction. Malfunction is always relative to the specific function of the subject. A person might be considered ill in so far as he is unable to perform his function in society due to a bodily condition. But the same bodily condition might not count as a malfunction, and hence an illness, if it does not hinder another person fulfilling his specific function.15 It will turn out, then, that although Plato agrees with the common evaluation of illness as something bad, he bases his evaluation on a revisionary conception of what really counts as illness for the individual.16</p><p>As Socrates says in the Republic, Asclepius "knew that in a well-run society each citizen has his own appointed function that he must perform, and that no one can afford to spend his whole life being ill and being treated by doctors" (εἰδὼς ὅτι πᾶσι τοῖς εὐνομουμένοις ἔργον τι ἑκάστῳ ἐν τῇ πόλει προστέτακται, ὃ ἀναγκαῖον ἐργάζεσθαι, καὶ οὐδενὶ σχολὴ διὰ βίου κάμνειν ἰατρευομένῳ, 406c3-5, trans. Griffith, modified). This is what Asclepius himself was well aware of, but 14</p><p>Gorg. 511e-512a; cf. also Crito 47c-48a. 15</p><p>This is thus a more restricted notion of function than the one that figures in Boorsean conceptions of illness, which focus on species-specific functions falling below the population mean (Boorse, "Health as a theoretical concept," and "A Rebuttal on Health"). 16</p><p>This is a revision of what counts as illness, and not whether or not illness, so understood, is bad.</p><p>subsequent generations of doctors, even in the school of Asclepius, have ignored. Socrates then continues with the example of the carpenter who only cares to be treated by a doctor if there is a reasonable chance that the cure will enable him "to become healthy and get on with his life and do his own work" (ὑγιὴς γενόμενος ζῇ τὰ ἑαυτοῦ πράττων, 406e2). Our carpenter has a laudable attitude towards his medical condition, Socrates explains, because "[h]e had a certain function to perform […] and his life was worth nothing to him if he couldn't perform it" (τι αὐτῷ ἔργον, ὃ εἰ μὴ πράττοι, οὐκ ἐλυσιτέλει ζῆν, 407a1-2).17 This contrasts with the mistaken and harmful attitude of Herodicus who had to give up his job as an athletic coach because he became an invalid, but instead of giving up his life, he became the originator of the bad type of medicine which prioritizes the conservation of life for its own sake.18 A serious hand injury can thus render the carpenter temporarily unable to fulfil his tasks, while losing an arm can permanently incapacitate him, so that, if he has the correct attitude, he prefers to die. Note, however, that the very same medical condition might not hinder someone with a different ergon from carrying on doing his job. For instance, a paidagogos could still accompany the child in his care to school, or the left-handed scribe could continue copying his scrolls with his right hand temporarily or permanently affected. Even more to the point, the philosopher could continue a contemplative life even if he was injured or lost a limb. Indeed, Epictetus' crippled leg made him unfit for certain tasks and functions, but did not prevent him from being a philosopher. And, as we know from the Republic, Theages had a bodily illness (τοῦ σώματος νοσοτροφία, 496c2) that prevented him from becoming a politician, but that still allowed him to carry on doing philosophy. 17</p><p>Plato would thus agree with Havi Carel when she writes that "illness is not just an impairment of a certain organ or physiological function. Rather, it affects the entire person and her relationship with both physical and social environment." On the other hand, he would emphatically reply in the negative to Carel's question: "when seriously constrained by ill health, be that of chronic illness, terminal illness or disability, can one still be happy?' " <ref type="bibr">(Carel,</ref>  The most obvious answer is intense pain. The carpenter might find it extremely difficult to concentrate on the half-ready couch in his workshop when he is having a migraine attack, and the finished product might well show signs of his reduced level of attention. But he can, even if with serious efforts, finish the job. Just as the paidagogos suffering from a bad toothache is likely to find a rowdy child even more irritating, and probably lose his temper more easily-but it would still not prevent him from finding the way to school and then ushering the boy back home. Intense pain on the other hand makes it well-nigh impossible for the philosopher to accomplish his ergon. It seems that in contrast to other occupations, a bodily condition is debilitating for the philosopher primarily because, and in so far as, it causes acute pain.19 I would like to suggest that this is precisely why there is strikingly little on illness itself in the Phaedo, and the little we do get shows a somewhat ambiguous attitude. As we have seen, disease is on Socrates' list in his grand tirade against the body (Phd. 66b5-c5), and as I have argued, the reference to Plato's illness is a good illustration of the way in which the body can (temporarily) hinder someone to do philosophy and attend important philosophical discussions. But then Socrates does not elaborate on the deleterious effects of medical conditions, whereas he explains in considerable detail why perception, pleasure and pain can hinder or even block our quest for the truth. Indeed, the whole discussion starts with Socrates' musing remarks on the relationship between pleasure and pain, as the fetters are removed from his ankle and wrist, about which he even goes on to compose a little myth in the manner of Aesop (60b-c).20 In contrast with the focus on pleasure and pain, Socrates never gives an account in the Phaedo of the way in which illness can affect the soul's proper functioning, conceived as the search for truth through the contemplation of transcendent Forms.21 It is never made explicit in the text, and therefore I can only tentatively suggest that in the framework of the Phaedo, illness has the power of "impeding our hunt for reality" (ἐμποδίζουσιν ἡμῶν τὴν 19 I found the most instructive treatment of pain in Plato in Evans, "Plato and the Meaning of Pain." Obviously, other unpleasant aspects of illnesses can prevent a philosopher to attend social gatherings where interesting philosophical discussions take place; but in these cases, he is prevented to attend the event not qua philosopher. 20</p><p>On "Aesop'" myth, see Betegh, "Tale, Theology, and Teleology." Remarkably, Socrates appears to say here that pleasure and pain are opposites, whereas in the Gorgias (495e-497a) he says that they cannot be opposites. 21</p><p>On how pleasures and pains affect negatively the soul's proper activity, see Ebrey, "The Asceticism of the Phaedo: Pleasure, Purification, and the Soul's Proper Activity."</p><p>Gábor Betegh -9789004437081 Downloaded from Brill.com 03/04/2024 06:41:24PM via Open Access. This is an open access chapter distributed under the terms of the CC BY-NC-ND 4.0 license. https://creativecommons.org/licenses/by-nc-nd/4.0/ τοῦ ὄντος θήραν, 66c1-2) primarily in so far as it causes pain. It is through the experience of intense pain that illness misleads us into thinking that the body is something really real. As most of us unfortunately know from experience, the feeling of intense pain has a particularly pressing immediacy. It evinces with singular sharpness that we have a body, and throws into relief the power our bodies can have over us, what we can, and what we cannot do. Pain, just like bodily pleasure, draws our attention to our own body, and thereby "rivets and pins" the soul to the body.22</p><p>These considerations might also have some bearing on the recent debate on the ascetic vs. evaluative interpretation of the Phaedo. Very briefly, on the ascetic reading, favoured most recently by Travis <ref type="bibr">Butler and David Ebrey,</ref><ref type="bibr">23</ref> Socrates recommends that we ought to do whatever is in our power to avoid pain and pleasure. By contrast, on the evaluative reading, defended by Raphael Woolf and Daniel Russell, what Socrates advocates is not to change our behaviour, but rather to change our attitude: instead of actively seeking and practicing austere abstinence, we ought to have the correct evaluative attitude towards corporeal pleasures and pains, by not attaching any importance to them.24 Now as Raphael Woolf's nuanced analysis shows, I think, conclusively, the Phaedo offers textual clues for both readings. On the whole, the Phaedo does suggest that the fewer and lesser bodily pleasures and pains we experience the better off we are, and therefore we should try to avoid situations and activities in which we encounter them. This is so because, no matter what, bodily pleasures and pains do have a power over us, and do "rivet and nail" the soul to the body. On the other hand-and this is where I rather agree with the evaluative reading-the active avoidance of pleasure and pain ought not become a programme and goal in itself. If we concentrate too much on how to steer clear of pleasures and pains, we might end up focusing once again on the body in this roundabout, negative way, instead of doing philosophy. In any case, we will encounter some pleasures and pains, so we'd better also develop the correct attitude towards them in order to minimise their effect on us.</p><p>Be that as it may, illness in its relation to pain might well create a problem for the ascetic view. It is, I think, not by chance that asceticism in general, and 22</p><p>The comparison with Carel, "Ill and Happy," 100, is once again helpful: "Whereas it is normally taken for granted that the body is a healthy functioning element contributing silently to the execution of projects (with the body perceived as transparent and inconspicuous), in illness the body comes to the fore and its pain and incapacity directly affect the agency of the person." <ref type="formula">23</ref>Butler, "A Riveting Argument in Favor of Asceticism in the Phaedo"; Ebrey, "Asceticism of the Phaedo." <ref type="formula">24</ref>Woolf, "The Practice of a Philosopher"; Russell, Plato on Pleasure and the Good Life, ch. 3.</p><p>Gábor Betegh -9789004437081 Downloaded from Brill.com 03/04/2024 06:41:24PM via Open Access. This is an open access chapter distributed under the terms of the CC BY-NC-ND 4.0 license. https://creativecommons.org/licenses/by-nc-nd/4.0/ ascetic readings of the Phaedo in particular, concentrate primarily on the active avoidance of pleasure. It is relatively easy to see how one can actively avoid pleasure: one does not accept invitations to lavish feasts, leads an abstemious life, does not engage in sex, or only for the sake of securing heirs, and so forth. It is considerably less obvious how one can actively avoid pain without paying at least some attention to the body. Avoiding lavish feasts and leading an abstemious life will not do in itself. To maintain health and to prevent the onset of illness, eating and drinking less, and less pleasurably, can help, but is not enough. At the very least, the restrained diet should also be a fairly balanced one, and to make it balanced will require some attention. Similarly, a modicum of exercise, and therefore some time and attention paid to the body, will be needed. So while I agree that the ascetic reading of the Phaedo has a strong appeal, I think it is far from obvious how to reconcile the project of strictly leaving the body behind as far as possible with the active avoidance of pain and, relatedly, the active prevention of illness.</p><p>Small surprise, then, that immediately before he turns to the correct attitude towards health and medicine, Socrates in the Republic does spend some time setting down the guidelines for the correct, balanced diet and regimen for the guardians. And in this discussion maintaining bodily health and strength does have a role.25 This appears to be a recognition that if one wants to avoid illness and the consequent debilitating pain, it will not suffice to say that one must avoid pleasurable meals and drinks.</p><p>Note also, that Socrates in the Republic contrasts injuries and seasonal diseases with such medical conditions as are caused by idleness, lack of moderation in food and drink, or a licentious life style.26 Clearly, we cannot be held responsible for medical conditions inflicted on us by such external causes as injuries and illnesses caused by extreme weather conditions.27 25</p><p>Rep. III 402e-405a. 26</p><p>Rep. III 405c8-d4: "And don't you think it's a disgrace," I asked, "to need medical attention, not as a result of injuries or the onset of some seasonal illness, but because our inactivity, and a routine such as we have described, have filled us up with gas and ooze, like a marsh, and compelled those clever doctors of the school of Asclepius to invent names like "wind" and "flux" for our diseases?" (Τὸ δὲ ἰατρικῆς, ἦν δ' ἐγώ, δεῖσθαι ὅτι μὴ τραυμάτων ἕνεκα ἤ τινων ἐπετείων νοσημάτων ἐπιπεσόντων, ἀλλὰ δι' ἀργίαν τε καὶ δίαιταν οἵαν διήλθομεν, ῥευμάτων τε καὶ πνευμάτων ὥσπερ λίμνας ἐμπιμπλαμένους φύσας τε καὶ κατάρρους νοσήμασιν ὀνόματα τίθεσθαι ἀναγκάζειν τοὺς κομψοὺς ᾿Ασκληπιάδας, οὐκ αἰσχρὸν δοκεῖ;) 27</p><p>In the final myth of the Phaedo, when he describes the vastly superior conditions on the real surface of earth and comparing it to our condition, Socrates says the following: "Their seasons are temperate in such a way that they are free of illness and live for a much longer time than the people here." (τὰς δὲ ὥρας αὐτοῖς κρᾶσιν ἔχειν τοιαύτην ὥστε ἐκείνους ἀνόσους</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Betegh</head><p>Moreover, Socrates in the Republic also recommends that the guardians should be exposed to "hardship, pain, and trial," as well as pleasure and other temptations (413d-414a; cf. 503a). This, however, should only serve as a test of the steadfastness of their character. As far as I can see, it is never suggested that they should be made to experience some measure of pleasure and pain, and especially not illness, in order to immunise them.</p><p>Let me close this cursory treatment of the Phaedo and its relation to the Republic with a brief remark on Asclepius. Before ending his earthly life, Socrates famously reminded his friends not to forget to sacrifice a cockerel they owe to Asclepius (῏Ω Κρίτων, ἔφη, τῷ ᾿Ασκληπιῷ ὀφείλομεν ἀλεκτρυόνα, Phd. 118a7-8). This enigmatic, but surely significant utterance, has provoked a great deal of speculation ever since antiquity. As opposed to the most widespread view according to which Socrates refers to his own imminent recovery from embodiment conceived as an illness, Glenn Most and, more recently, Yahei Kanayama have suggested that through Socrates' remark, Plato refers to his own recuperation from the medical condition which prevented him from being present at that very occasion.28 It seems to me that no matter whether the reference is to Socrates or to Plato, the essential point is that Asclepius is thanked here not simply for a successful recovery, but more specifically, because he has performed exactly that role for which he is hailed in the Republic. His intervention made it possible for a person to continue the project which has defined that person's life, and in which the person has been hindered by his bodily condition.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>3</head><p>It is time to turn to the Timaeus. As stated at the outset, I will attempt to explore the ways in which Timaeus' account of illness differs from what we have seen in the Phaedo and the Republic. I will argue that the account of illness in the Timaeus is more immediately linked to an account of bodily health and, in particular, to an examination of the conditions and maintenance of bodily health. Moreover, I will try to show that Timaeus, true to Plato's characteristic method, proceeds by setting out a divine paradigm, which in this case is a continuously healthy embodied divine organism-the cosmos itself. Timaeus describes why the cosmos is able to retain its health unfailingly, why the good health of the divine organism is inherently unattainable for us, and why and how the health of the cosmic god can still serve for us as a normative ideal that we ought to emulate. The passage in which Timaeus formulates the ideal of "becoming like god" towards the very end of the dialogue (90a-c) has been discussed extensively by scholars in recent years.29 However, these discussions have almost exclusively focused on the way in which our rational souls ought to emulate their divine cosmic counterpart to achieve the best human life. Ultimately, I will try to show that even though the relationship between the cosmic and the human souls is without doubt the centrally important aspect of the goal of human life, Timaeus conceives the maintenance of bodily health as a lower form of homoiōsis theōi-or, more precisely, as an ancillary part of the more comprehensive normative programme of becoming like god. Just as our souls should emulate the cosmic soul, our bodies should also emulate the cosmic body. Just as madness, irrationality, and other forms of psychic dysfunctions can be described as diverging from the cosmic divine model, so also is illness a deviation from a state in which the functioning of our bodies matches, as far as possible, the functioning of the cosmic body. As must be evident already from this prefatory summary, I will attempt to show that while Timaeus' account of health and illness builds on familiar Platonic themes and patterns, it departs in important ways from the picture of illness, and the correct attitude towards it, that we get from the Phaedo and the Republic.</p><p>Let us start with some uncontroversial points. As a number of recent studies have argued, the Timaeus evinces a markedly different approach towards the body. Among others, Thomas Johansen, Sarah Broadie and Gabriela Roxana Carone have offered illuminating analyses of the fact that in Timaeus' account both the basic structure of the corporeal realm-the geometrical construction of the four elementary bodies-and the anatomy and physiology of the human organism are the results of divine creation aiming at the best, the most orderly, and the most beautiful.30 In particular, the body of human beings is constructed by the auxiliaries of the Demiurge in order to be of service to the rational soul. However, from our present perspective, the fact remains-and Timaeus fully acknowledges it-that despite all the divine care and attention devoted to the construction of the human body, we still do get ill. Timaeus ultimately agrees with the Socrates of the Phaedo that even if the human body was constructed with a view to the interest of the rational soul, it keeps causing problems for the soul and can hinder it in pursuing its projects and carrying out its proper activity. Just think of what happened to our unnamed guest.</p><p>Given the overarching teleological framework, and the consequent attention paid to the functioning of the human body, the causes of illness have to be explained in order to fit the failings of our body into the theodicy of the Timaeus. It should not come as a surprise, then, that the Timaeus contains Plato's most detailed account of diseases . This formerly neglected part of the dialogue has recently been subject to valuable discussions, which have made clearer Plato's relationship to the medical tradition, and have tried to come to grips with Timaeus' striking claims about the physiological origins of psychological illnesses and alleged moral vices.31 As it will be clear from my own discussion, I have greatly benefited from these studies. I would however like to approach the issue from a somewhat different angle, as I outlined in my introductory paragraph to this section.</p><p>What is particularly striking in Timaeus' account is that it shows that embodied life as such is not necessarily a curse. Indeed, Timaeus describes in great detail a corporeal organism which lives a fully happy, contemplative life. As he explains, the cosmos is a divine living being, which starts its life when its body becomes animated by its soul: ᾿Επεὶ δὲ κατὰ νοῦν τῷ συνιστάντι πᾶσα ἡ τῆς ψυχῆς σύστασις ἐγεγένητο, μετὰ τοῦτο πᾶν τὸ σωματοειδὲς ἐντὸς αὐτῆς ἐτεκταίνετο καὶ μέσον μέσῃ συναγαγὼν προσήρμοττεν· ἡ δ' ἐκ μέσου πρὸς τὸν ἔσχατον οὐρανὸν πάντῃ διαπλακεῖσα κύκλῳ τε αὐτὸν ἔξωθεν περικαλύψασα, αὐτὴ ἐν αὑτῇ στρεφομένη, θείαν ἀρχὴν ἤρξατο ἀπαύστου καὶ ἔμφρονος βίου πρὸς τὸν σύμπαντα χρόνον.</p><p>When the whole fabric of the soul had been finished to its maker's mind, he next began to fashion within the soul all that is bodily, and brought the two together, fitting them centre to centre. And the soul, being everywhere interwoven from the centre to the outermost heaven and enveloping the heaven all round on the outside, revolving within its own limit, made a divine beginning of ceaseless and intelligent life for all time. Due to the Demiurge's providential planning and manufacturing (to which we shall shortly return), the life of the cosmos is eternal. Yet, as we have learnt from the Republic, longevity is not an aim in itself. What matters is that throughout its eternal embodied life, the soul of the cosmos is able to engage in the highest form of cognitive activity and live an intelligent life (emphrōn bios), apparently without being disrupted or hindered by its body. Indeed, immediately after this statement about the beginning of the intelligent life of the cosmos, Timaeus also describes in detail the cognitive activities of the cosmic soul, and explains that the soul of the cosmos formulates unfailingly true opinions and convictions about objects that come to be, and knowledge and understanding about intelligible eternal objects (ὅταν μὲν περὶ τὸ αἰσθητὸν γίγνηται καὶ ὁ τοῦ θατέρου κύκλος ὀρθὸς ἰὼν εἰς πᾶσαν αὐτοῦ τὴν ψυχὴν διαγγείλῃ, δόξαι καὶ πίστεις γίγνονται βέβαιοι καὶ ἀληθεῖς, ὅταν δὲ αὖ περὶ τὸ λογιστικὸν ᾖ καὶ ὁ τοῦ ταὐτοῦ κύκλος εὔτροχος ὢν αὐτὰ μηνύσῃ, νοῦς ἐπιστήμη τε ἐξ ἀνάγκης ἀποτελεῖται, 37b6-c4). What is more, the cosmos is not the only divine compound of body and soul. For Timaeus maintains that the stars and planets, and even the earth we tread on, are corporeal gods, who live their divinely happy, contemplative life forever.32 If so, we are literally surrounded by such embodied living beings, who are immersed in their thoughts, apparently undisturbed by their bodies, and formulate true logoi, opinions and convictions, as well as understanding and knowledge. So even though they are eternally tied to their bodies, the souls of the cosmos, and these other cosmic gods, are thus able to perform undisturbed and uninterrupted what, according to the Phaedo, the proper activity and ergon of the soul is.33</p><p>That it is possible for an embodied being to lead such a life was not, I think, considered seriously by the Socrates of the Phaedo.34 As Socrates complained, "as long as we have the body and our soul is fused with bodily evil, we'll never properly acquire what we desire, namely, as we would say, the truth" (66b). So how can the soul of the cosmos remain undisturbed by its body, avoid that its body constantly interrupts and hassles it, so that it can continue its cognitive activity at the highest level, and "acquire the truth"? If we want to get closer to the truth during our incarnate existence, our primary concern should be to try to approximate with our own rational souls the state of the cosmic soul, the celestial counterpart of our rational souls (90a-c). However, this is surely not enough, because we should also try to protect the rational soul from the deleterious influences of the body-the ones the Socrates of the Phaedo railed at. We therefore ought to examine how the body of the world functions so that it manages not to pester its soul, and we should also try to approximate, as far as possible, the state of the body of the cosmos, so that our bodies disturb and hassle, as little as possible, our own rational souls.</p><p>How can the cosmos be free from bodily ills? First of all, the Demiurge made sure that the cosmos is not vulnerable to ageing35 and illness (agērōn kai anoson) by using up all the elements in its construction: Τῶν δὲ δὴ τεττάρων ἓν ὅλον ἕκαστον εἴληφεν ἡ τοῦ κόσμου σύστασις. ἐκ γὰρ πυρὸς παντὸς ὕδατός τε καὶ ἀέρος καὶ γῆς συνέστησεν αὐτὸν ὁ συνιστάς, μέρος οὐδὲν οὐδενὸς οὐδὲ δύναμιν ἔξωθεν ὑπολιπών, τάδε διανοηθείς, πρῶτον μὲν ἵνα ὅλον ὅτι μάλιστα ζῷον τέλεον ἐκ τελέων τῶν μερῶν εἴη, πρὸς δὲ τούτοις ἕν, ἅτε οὐχ ὑπολελειμμένων ἐξ ὧν ἄλλο τοιοῦτον γένοιτ' ἄν, ἔτι δὲ ἵν' ἀγήρων καὶ ἄνοσον ᾖ, κατανοῶν ὡς συστάτῳ σώματι θερμὰ καὶ ψυχρὰ καὶ πάνθ' ὅσα δυνάμεις ἰσχυρὰς ἔχει περιιστάμενα ἔξωθεν καὶ προσπίπτοντα ἀκαίρως λύει καὶ νόσους γῆράς τε ἐπάγοντα φθίνειν ποιεῖ. Now the frame of the world took up the whole of each of these four [viz. the four elements]; he who put it together made it consist of all the fire and water and air and earth, leaving no part or power of anyone of them outside. This was his intent: first, that it might be in the fullest measure <ref type="bibr">35</ref> The reference to aging is remarkable. As we shall see below, Timaeus thinks that it is possible to lead a human life without falling ill, and, what is more, one can reach a natural death without being ill (81b-e, see also below). Just as important, there is no suggestion in Plato that elderly people would be less apt to do philosophy-if anything, quite the opposite. So why is this "ageist" remark by Timaeus? I would tentatively suggest an answer along the following lines. Aging, even if the person remains completely healthy, is marked by a shift in the physiological characteristics of the body; for instance, by a shift in the dry-wet axis. Such a combination of a dynamic equilibrium of the opposites, combined with a gradual shift in the proportion of one or more pairs of opposites is conceivable at the cosmic level as well. For instance, although according to Anaximander's fragment DK B 1 there is a dynamic equilibrium between pairs of opposites, according to some testimonies the cosmos is gradually becoming hotter and dryer (e.g., Aristotle, Meteor. 353b6 ff. and DK A 27; cf. Fredeudenthal, "The Theory of the Opposites and an Ordered Universe: Physics and Metaphysics in Anaximander," 217-225). By saying that the cosmos is "unageing", Timaeus might indicate that there is no such shift in the dynamic equilibrium which characterizes the physiology of the cosmos (on which see more below).</p><p>Gábor Betegh -9789004437081 Downloaded from Brill.com 03/04/2024 06:41:24PM via Open Access. This is an open access chapter distributed under the terms of the CC BY-NC-ND 4.0 license. https://creativecommons.org/licenses/by-nc-nd/4.0/ a living being whole and complete, of complete parts; next, that it might be single, nothing being left over, out of which such another might come into being; and moreover that it might be free from age and sickness. For he perceived that, if a body be composite, when hot things and cold and all things that have strong powers beset that body and attack it from without, they bring it to untimely dissolution and cause it to waste away by bringing upon it sickness and age. For this reason and so considering, he fashioned it as a single whole consisting of all these wholes, complete and free from age and sickness.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>32c5-33a6</head><p>By leaving none of the corporeal elements outside of the cosmos, the Demiurge has ensured that no external harm will afflict it. So no wounds or injuries endanger the well-being of the cosmic organism. Moreover, it will not be subject to the harmful effects of the opposites, such as the hot and the cold. So no "seasonal illnesses," due to extreme weather conditions.</p><p>How do we fare in that respect? The younger gods who designed and fabricated our bodies did their best to protect us from the type of external effects that the cosmos is entirely free from. This is why they covered the marrow with hard bones, and wrapped the bones in flesh, in order to protect us from injuries and the effects of excessive heat and cold (74b7-c5). Given that flesh would be too thick a covering for the head, the gods resourcefully enveloped it in skin and hair, once again in order to protect it from injuries and extreme weather conditions, as far as possible, but without hindering cognition (75e-76d). But all these efforts can only mitigate our vulnerability to external effects, and Timaeus ultimately agrees with the Socrates of the Republic that whatever we do, we can still be victims of injuries and seasonal illnesses. But this is the type of physical ill that can happen to us, but for which neither the auxiliaries of the Demiurge, nor we can be held responsible.</p><p>However, the fact that there is nothing left outside the cosmos has further momentous consequences of a positive nature. Timaeus continues by pointing out, quite reasonably, that the cosmos can dispense with sense organs because there is nothing external to it to see or hear. So, no injuries and seasonal illnesses, and, moreover, no hassle with perception. By using up all of the elements, and thus making the cosmos complete, the Demiurge killed two birds with one stone. There is however a third bird: πνεῦμά τε οὐκ ἦν περιεστὸς δεόμενον ἀναπνοῆς, οὐδ' αὖ τινος ἐπιδεὲς ἦν ὀργάνου σχεῖν ᾧ τὴν μὲν εἰς ἑαυτὸ τροφὴν δέξοιτο, τὴν δὲ πρότερον ἐξικμασμένην ἀποπέμψοι πάλιν. ἀπῄει τε γὰρ οὐδὲν οὐδὲ προσῄειν αὐτῷ ποθεν-οὐδὲ γὰρ ἦν-αὐτὸ γὰρ ἑαυτῷ τροφὴν τὴν ἑαυτοῦ φθίσιν παρέχον καὶ πάντα ἐν ἑαυτῷ καὶ ὑφ' ἑαυτοῦ πάσχον καὶ δρῶν ἐκ τέχνης γέγονεν· ἡγήσατο γὰρ αὐτὸ ὁ συνθεὶς αὔταρκες ὂν ἄμεινον ἔσεσθαι μᾶλλον ἢ προσδεὲς ἄλλων.</p><p>There was no surrounding air (pneuma) to require breathing, nor yet was it in need of any organ by which to receive food into itself or to discharge it again when drained of its juices. For nothing went out or came into it from anywhere, since there was nothing: it was designed to feed itself on its own waste and to act and be acted upon entirely by itself and within itself; because its creator thought that it would be better self-sufficient, rather than dependent upon anything else.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>33c3-d3</head><p>Negatively, the cosmos is thus not vulnerable to harmful external influences. Positively, the cosmos is self-sufficient (autarkes). Importantly, this autarkeia is not described as a static state, but the cyclical process of the intertransformation and relocation of elements. Moreover, it is not simply a cyclical process, but it is described in terms of an internal activity of nourishment and excretion; in a word, the metabolism of the cosmos as a living organism. As we shall shortly see-barring injuries and seasonal illnesses-all morbid states of the human organism are derivable from a disruption of the balance of metabolism. And, as we shall also see, this is precisely the single most important cause of illness that we can also do something about.</p><p>But how does the cosmos maintain the complete, uninterrupted regularity of its metabolism? For if we could understand that, and apply it to our own bodies, we could also, so far as it is possible for us, prevent ourselves from falling ill. Most commentators assume that the autarkeia of the cosmos means that the Demiurge created the body of the world in such a way that it can recycle its waste into its nourishment, such that the body of the cosmos constitutes a self-sustaining homeostatic system. What renders this reading prima facie attractive is that it exempts the soul of the world from any care for its body: physical processes constituting the metabolism of the cosmos, on this view, run on their own, without any attention required from the soul of the cosmos. On this reading, the soul of the cosmos can be completely immersed in contemplation, because its body is designed in such a way that it does not need any care or maintenance.</p><p>It seems to me however that what Timaeus wants to say is that the selfsustaining homeostatic system is not the body of the world taken in itself, but rather the cosmic organism as a whole, conceived as a compound of body and soul. Timaeus in this respect agrees with speakers of other Platonic dialogues, Gábor Betegh -9789004437081 Downloaded from Brill.com 03/04/2024 06:41:24PM via Open Access. This is an open access chapter distributed under the terms of the CC BY-NC-ND 4.0 license. https://creativecommons.org/licenses/by-nc-nd/4.0/ such as the Gorgias and the Statesman: if the body is left to its own devices, it will gradually fall into disarray, no matter how well it was organised at the beginning.36 So, if the body of the cosmos does not constitute a self-regulating system in and of itself, how is the incessant, cyclical, well-balanced, metabolism of the cosmic god maintained? First of all, it is ultimately due to the periodos, the circular motion of the circles of the world soul,37 that the body of the world does not reach either a static state of complete homogeneity, or a similarly static state in which the four elements would be arranged in four homogeneous concentric circles. The circular motion of the world soul, enveloping the body of the cosmos from the outside, presses the elementary particles together by the centripetal force of its rotation. Because of this pressure, there are no empty spaces between the particles. Moreover, due to this pressure, the sharp-edged fire particles cut up the other types of particles, opening up a pass-way for the other elements as well. This process ensures that all four elements, and all the differently sized varieties of the four elements, reach their proper places, without however letting them reach a homogeneous static state (58a4-c4). As Timaeus summarises the outcome: ἡ δὴ τῆς πιλήσεως σύνοδος τὰ σμικρὰ εἰς τὰ τῶν μεγάλων διάκενα συνωθεῖ. σμικρῶν οὖν παρὰ μεγάλα τιθεμένων καὶ τῶν ἐλαττόνων τὰ μείζονα διακρινόντων, τῶν δὲ μειζόνων ἐκεῖνα συγκρινόντων, πάντ' ἄνω κάτω μεταφέρεται πρὸς τοὺς ἑαυτῶν τόπους· μεταβάλλον γὰρ τὸ μέγεθος ἕκαστον καὶ τὴν τόπων μεταβάλλει στάσιν. οὕτω δὴ διὰ ταῦτά τε ἡ τῆς ἀνωμαλότητος διασῳζομένη γένεσις ἀεὶ τὴν ἀεὶ κίνησιν τούτων οὖσαν ἐσομένην τε ἐνδελεχῶς παρέχεται.</p><p>So the coming-together involved in the condensing process thrusts the small bodies together into the interstices between the large ones. Accordingly, when the small are set alongside the large, and the lesser disintegrate the larger, while the larger cause the lesser to combine, all are changing the direction of their movement, this way and that, towards their own regions; for each, in changing its size, changes also the situation of its region. In this way, then, and by these means there is a perpetual Betegh safeguard for the occurrence of that heterogeneity which provides that the perpetual motion of these bodies is and shall be without cessation.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>58b4-c4</head><p>Moreover, to the regular rotation of the whole cosmos caused by the Circle of the Same, we should add the more complex movements of the planets riding on the circles of the Different. Most important among these are the Sun, the Moon, and the Earth, conceived as the primary "organs" of time. The Sun in particular is responsible for the seasons, whereas the Earth is hailed not only as our nurse or nourisher (trophos) but also as "the guardian and demiurgos of night and day" (φύλακα καὶ δημιουργὸν νυκτός τε καὶ ἡμέρας, 40b9-10). It is by ensuring the regularity of seasons, that the celestial gods can fulfil the task assigned to them by the Demiurge "to bring mortal living beings to birth, feed them, and cause them to grow" (ἀπεργάζεσθε ζῷα καὶ γεννᾶτε τροφήν τε διδόντες αὐξάνετε καὶ φθίνοντα πάλιν δέχεσθε, 41d2-3). So in addition to the elemental processes guaranteed by the Circle of the Same, the planets on the Circle of the Different, together with the Earth, are responsible for the regularity of the daily and seasonal cycles, and consequently for the dynamic, cyclical balance between the hot and the cold, the wet and the dry. The movements of the circles of the Same and the Different, in conjunction with the Earth, jointly guarantee that the metabolism of the world's body remain constant and well-balanced.38</p><p>The real importance of this description from our present perspective becomes clear only at a later point of the dialogue, when Timaeus turns to offer his detailed explanation and classification of human illnesses. The physical and physiological explanations are complex, and a number of specific details are obscure. The general outlines are, however, clear, and are fully sufficient for our present purposes. Here is Timaeus' first general characterisation of illness:39 Τὸ δὲ τῶν νόσων ὅθεν συνίσταται, δῆλόν που καὶ παντί. τεττάρων γὰρ ὄντων γενῶν ἐξ ὧν συμπέπηγεν τὸ σῶμα, γῆς πυρὸς ὕδατός τε καὶ ἀέρος, τούτων 38</p><p>All this is of course quite reminiscent of those passages in which Aristotle speaks about the Sun and the heavens as the maintainers of the perpetual cosmic motion and cyclical inter-transformation of the elements, counter-acting the elements natural tendency to go to their respective natural places <ref type="bibr">(De gen. et corr. 336a14-18;</ref><ref type="bibr">cf. also Phys. 194a13;</ref><ref type="bibr">Met. 1071a11-17)</ref>. 39</p><p>On Timaeus' description and categorisation of illnesses, see in particular Miller, "The Aetiology of Disease in Plato's Timaeus," and Grams, "Medical Theory in Plato's Timaeus." I have been persuaded by the arguments of Prince, "The Metaphysics of Bodily Health and Disease in Plato's Timaeus," that the three categories of illness are not at the same level, but the first category described at 82a1-b7 is the general genus of which the second and third categories, described at 82b8-84c7 and 84d2-86a8 respectively, are species.</p><p>ἡ παρὰ φύσιν πλεονεξία καὶ ἔνδεια καὶ τῆς χώρας μετάστασις ἐξ οἰκείας ἐπ' ἀλλοτρίαν γιγνομένη, πυρός τε αὖ καὶ τῶν ἑτέρων ἐπειδὴ γένη πλείονα ἑνὸς ὄντα τυγχάνει, τὸ μὴ προσῆκον ἕκαστον ἑαυτῷ προσλαμβάνειν, καὶ πάνθ' ὅσα τοιαῦτα, στάσεις καὶ νόσους παρέχει· παρὰ φύσιν γὰρ ἑκάστου γιγνομένου καὶ μεθισταμένου θερμαίνεται μὲν ὅσα ἂν πρότερον ψύχηται, ξηρὰ δὲ ὄντα εἰς ὕστερον γίγνεται νοτερά, καὶ κοῦφα δὴ καὶ βαρέα, καὶ πάσας πάντῃ μεταβολὰς δέχεται. μόνως γὰρ δή, φαμέν, ταὐτὸν ταὐτῷ κατὰ ταὐτὸν καὶ ὡσαύτως καὶ ἀνὰ λόγον προσγιγνόμενον καὶ ἀπογιγνόμενον ἐάσει ταὐτὸν ὂν αὑτῷ σῶν καὶ ὑγιὲς μένειν· ὃ δ' ἂν πλημμελήσῃ τι τούτων ἐκτὸς ἀπιὸν ἢ προσιόν, ἀλλοιότητας παμποικίλας καὶ νόσους φθοράς τε ἀπείρους παρέξεται.</p><p>The origin of diseases is no doubt evident to all. Since there are four kinds which compose the body, earth, fire, water, and air, disorders and diseases arise from the unnatural prevalence or deficiency of these, or from their migration from their own proper place to an alien one; or again, since there are several varieties of fire and the rest, from any bodily part's taking in an unsuitable variety, and from all other causes of this kind. For when anyone of the kinds is formed or shifts its place contrary to nature, parts that were formerly cold are heated, the dry become moist, and so also with the light and the heavy, and they undergo changes of every kind. The only way, as we hold, in which any part can be left unchanged and sound and healthy is that the same thing should be coming to it and departing from it with constant observance of uniformity and due proportion; any element that trespasses beyond these limits in its in-coming or passing out will give rise to a great variety of alterations and to diseases and corruptions without number.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>82a1-b7</head><p>The ultimate cause of illness is thus the breakdown of precisely that kind of constant, but well-regulated motion, interchange, and inter-transformation of elements, and their various kinds, as well as the balanced distribution of hot and cold and wet and dry, that is guaranteed at the cosmic level by the motions of the world soul. At the other extreme, what characterises the physiology of the new-born baby is precisely the complete imbalance of all these elementary motions (42e-44d). This chaotic imbalance of metabolism, characterised by particles aggressively entering and leaving the body, also disrupts the regular motions of the rational soul of the baby-so much so that its two circles become completely distorted, almost broken up. The circle of the different starts to revolve in the opposite direction, whereas the circle of the same stops moving altogether. If this state of the infant is not properly taken care of, Gábor Betegh -9789004437081 Downloaded from Brill.com 03/04/2024 06:41:24PM via Open Access. This is an open access chapter distributed under the terms of the CC BY-NC-ND 4.0 license. https://creativecommons.org/licenses/by-nc-nd/4.0/ it can lead to amathia, stupidity, what Timaeus describes as the greatest illness (tēn megistēn […] noson, 44c1). This description confirms once again that a well-ordered metabolism is the key to maintaining or regaining health, whereas a serious imbalance of metabolism is a pathological state which can lead to the most serious cognitive impairment and psychological problems.</p><p>Now, as we have seen, metabolism at the cosmic level is regulated by the movements of the world soul. But doesn't this mean that the world soul does after all need to busy itself with maintaining the physical-physiological processes in its body, and thereby gets distracted in its cognitive activity? I think not. What is so special about the world soul is that its regular revolutions both constitute its cognitive activity and guarantee the health of the world's body. It is by the same motions that the soul fulfils its proper ergon of cognising and formulating knowledge and understanding about eternal, indivisible, always self-same forms, and true opinions about divisible corporeal beings, and that it keeps the body of the world in good condition. By performing what it most desires to do in and of itself, the world soul also takes care of the health of its body. No extra attention to the body is needed.</p><p>The crucial point is that by thinking its eternal thoughts, the world soul at the same time, and by the same movements, also keeps its body perfectly fit. Unfortunately, we human beings are constitutionally, or rather anatomically, incapable of performing this feat. Our rational soul is not such that it would be able to regulate the physiological processes of our body simply by contemplation.</p><p>So if it is not by the movements of our rational soul, how is our metabolism regulated and maintained? But, even before that, why is the human body not self-sustaining and autarkes? For, from the mere fact that there are things external to the human body, it does not immediately follow that the human organism could not be a self-sustaining, closed system. I see no reason in principle why the elements within the body could not simply transform into one another, in a cyclical fashion, as they do it in the cosmic body. In other words, why do we need to have nourishment from the outside, and why do we in turn excrete matter? Timeaus' answer is that it is so because the body is constantly being bombarded by particles from the outside. These particles, primarily of fire and air, dissolve parts of the tissues of the organism, and thereby create a constant depletion and wasting-away (ὑπὸ τούτων τηκόμενον κενούμενόν τ' ἔφθινεν, βοήθειαν αὐτῷ θεοὶ μηχανῶνται, 77a2-3) that needs to be replenished by sustenance from the outside.40 The process is described in considerable detail, but I will now skip over many subtleties and niceties. The gods designed the gastrointestinal tract in order that it processes the food and drink entering the body. By the force of fire in the belly, the nourishment is melted and broken down into particles that are appropriate to replenish the depleted tissues. These particles are then transported to their respective destinations by the blood flow. This is how healthy, balanced metabolism works. If it could be maintained, we could retain our health even if not quite in the way the cosmos does.</p><p>But we still don't know what regulates metabolism in the human organism. This whole complex I described in the previous paragraph is likened to an irrigation system and, as Timaeus explains, this system needs a pump. This is why we breathe. We breathe in order to keep this whole elaborate process of the digestion of nourishment and the transportation of the elements to their proper places in operation (for a summary, see 78e4-79a4). We understand then that, in the final account, breathing is the process that maintains and regulates metabolism.</p><p>However, breathing is neither caused nor operated by the rational soul. The motions of the circles of our rational soul, and our concomitant cognitive activities, have nothing to do with respiration, and thereby have no immediate role in maintaining and regulating our metabolism.41 Even more interestingly, breathing is not regulated by the lower, mortal soul parts either. Indeed, it is striking how little we learn about the function and functioning of the lowest part of the soul. It is introduced as the soul the desires of which are directed at food and drink and other bodily needs (τὸ δὲ δὴ σίτων τε καὶ ποτῶν ἐπιθυμητικὸν τῆς ψυχῆς καὶ ὅσων ἔνδειαν διὰ τὴν τοῦ σώματος ἴσχει φύσιν, 70d7-8), but then we learn next to nothing about how this desire contributes to our nourishment and metabolism. Timaeus describes the anatomical location of this soul, and launches into an elaborate discussion of the quasi-cognitive function of this soul-via the liver-in receiving dream and divinatory images (71a-72c), as well as commands, in the form of mirror images, from the rational soul.</p><p>If not the lowest soul, what part of the organism is responsible for regulating breathing and metabolism? In order to explain the driving force that keeps us breathing, Timaeus introduces what I take to be the most eccentric feature of his entire anatomical and physiological theory: an invisible respiratory organ, composed of air and fire, which to the best of my knowledge, is entirely Plato's invention, with no parallel in the medical tradition. This organ is likened in a complex and far from pellucid analogy to a kyrtos, which is some sort of basket used to catch fish. This fishing instrument consists of a cavity (kytos) delimited by a plaited structure (plegma), on which there are two entrances (enkyrtia) so that the fish can enter through the entrances, but are then get trapped in the cavity.42 The entrances of this device are likened to the nose and the mouth, the cavity of it to the lungs and the stomach, and the mesh to a body composed of air and fire (78b4). More precisely, the rays (78e2, aktines), of fire are analogous to the plait (see esp. 79d4: ἐκ πυρὸς πεπλέχθαι πᾶν) and their interstices are filled with air. This mesh-like body is of a tubular shape and wraps the hollow organs of the lungs and stomach.43 Now, just as the mesh of the kyrtos entraps the fish, but lets water through, the walls of this organ in the human body traps food and drink, but is permeable for the more fine-grained fire and air particles.</p><p>Timaeus moreover explains that air enters and exits the body not only through the nose and the mouth, but also through pores on the skin (78d1-e2).44 Given the absence of vacuum, the particles of air push the ones in front of them, whereas their places have to be filled by those that are after them. I inhale not because my lungs expand, but because there are particles of air coming out of the pores of my body, which thrust the air around my nose, and push the particles of air into the entrance of the kyrtos-like organ. But as these particles enter the internal cavity, my chest expands, while the air which surrounds my chest sinks into my body through the pores. Now the place previously occupied by the particles of air surrounding my body cannot be left empty, so it gets filled by the air which is inside, and which can now exit my body through the nostrils. This is why I breathe out, and not because my muscles compress my lungs.</p><p>At this point the interpretation of the passage becomes particularly unclear and vexed.45 What seems relatively uncontroversial is that the regular alternation of the influx and egress of air moves with it the internal mesh composed of the rays of fire, so that the internal fiery part also keeps expanding and contracting. The fire thus set in motion breaks down and dissolves the nourishment entrapped in the stomach, and pushes the processed particles into the flow of blood, which then transports them to the appropriate parts of the body to replenish their tissues (78e6-80d7). This is how the oscillation of air in the respiratory organ keeps our metabolism in operation.</p><p>Without going into further details, let me highlight three points.46 First, the functioning of the respiratory organ is based on two physical principles. One, on the movement of particles in the absence of vacuum, which is called periōsis by Timaeus. Two, that the air becoming hot and fiery inside the body wants to go outside to rejoin its cosmic like (79c7-e3).47 Now, as we have seen, both the absence of void, and the overall tendency of elements towards their own places-and in particular the motion of fire within the cosmos-are ultimately due to the motions of the world soul. (Note, that the connection between the physical effects of the motions of the world soul and physiological processes is far from being so clear-cut in other cases.) This means that the process of respiration is closely dependent on the physical corollaries of the motions of the world soul. Although it is not directly observable, the motions of the world soul not only regulate the metabolism of the world's body, but also contribute to human metabolism.</p><p>My second point is that, remarkably, Timaeus makes it very explicit that in designing the digestive apparatus the younger gods aimed at imitating the motions of the elements in the cosmos: ὁ δὲ τρόπος τῆς πληρώσεως ἀποχωρήσεώς τε γίγνεται καθάπερ ἐν τῷ παντὶ παντὸς ἡ φορὰ γέγονεν, ἣν τὸ συγγενὲς πᾶν φέρεται πρὸς ἑαυτό. τὰ μὲν γὰρ δὴ περιεστῶτα ἐκτὸς ἡμᾶς τήκει τε ἀεὶ καὶ διανέμει πρὸς ἕκαστον εἶδος τὸ ὁμόφυλον ἀποπέμποντα, τὰ δὲ ἔναιμα αὖ, κερματισθέντα ἐντὸς παρ' ἡμῖν καὶ περιειλημμένα ὥσπερ ὑπ' οὐρανοῦ συνεστῶτος ἑκάστου τοῦ ζῴου, τὴν τοῦ παντὸς ἀναγκάζεται μιμεῖσθαι φοράν· πρὸς τὸ συγγενὲς οὖν φερόμενον ἕκαστον τῶν ἐντὸς μερισθέντων τὸ κενωθὲν τότε πάλιν ἀνεπλήρωσεν. ὅταν μὲν δὴ πλέον τοῦ ἐπιρρέοντος ἀπίῃ, φθίνει πᾶν, ὅταν δὲ ἔλαττον, αὐξάνεται.</p><p>The manner of this replenishment and wasting is like that movement of all things in the universe which carries each thing towards its own kind […] the substances in the blood, when they are broken up small within us and find themselves comprehended by the individual living creature, framed like a heaven to include them are constrained to reproduce the movement of the universe. Thus each substance within us that is reduced to fragments replenishes at once the part that has just been depleted, by moving towards its own kind.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>81a2-81b6</head><p>Human metabolism is thus an imitation of cosmic metabolism. This is in a way exactly what we have expected. Just as the motions of the human rational soul ought to emulate the perfectly orderly motions of the world soul in order to get closer to the truth, the human body must imitate the internal processes of the cosmic body in order to be, and remain, healthy, and thereby let the rational soul perform its proper activity as far as possible undisturbed.</p><p>My third, connected point is that, as Filip Karfík has convincingly suggested, the respiratory organ shows faint but intriguing resemblance to the world soul. Most importantly, Timaeus likens the motion of the air and the fire of the respiratory organ to the motion of a wheel. However, this wheel does not go in full circles, but swings back and forth (κύκλον οὕτω σαλευόμενον ἔνθα καὶ ἔνθα, 79e7-8; cf. 79c1). The swinging of this roughly spherical organ is a faint echo of the circular motion of the soul; but the image also suggests that this pendulum-like motion will necessarily come to an end, whereas proper circular motion is eternal.</p><p>Be that as it may, the two completely unified activities and functions of the world soul-i.e. its cognitive activities on the one hand and its regulation of the metabolism of its body on the other-come to be distributed between two distinct parts of us: our rational souls created by the Demiurge from the residues of the same stuff and according to the same ratios as the world soul, and the respiratory organ created by the lesser gods, made out of fire and air. Strange as it might seem, I think that at the end of the day the key difference between the functioning of the divine cosmic and the mortal human organism is that in human beings cognitive activity and the maintenance of metabolism cease to be unified, and get split between these two organs. Now the respiratory organ is not an intelligent soul. It imitates the movements of the cosmos not by reason, but by necessitation (τὴν τοῦ παντὸς ἀναγκάζεται μιμεῖσθαι φοράν, 81b1-2). Moreover, it cannot in and of itself counteract what, according to Timaeus' general description of illness, the ultimate cause of the breakdown of the balance of metabolism is: the unnatural pleonexia and deficiency of the four elements (τούτων ἡ παρὰ φύσιν πλεονεξία καὶ ἔνδεια, 82a2-3).48 And this is where we ultimately have arrived back also to 48</p><p>Let me only signal that despite the deflationary translations and interpretations adopted by most translators and commentators, I am certain that pleonexia is a normatively highly pleasure and pain. For as Timaeus famously claims, the illnesses of the soul are dependent on, and caused by, bodily conditions (86b2-4).49 The greatest of these, he explains, are excessive pleasures and pains, which in turn are the origins of both madness and ignorance (86b5-c4). Lack of moderation in sex and food themselves are also caused by bodily conditions (and not a malfunctioning of the lowest soul part), and in turn aggravate the imbalance in our metabolism, and exacerbate the illness. At the end of the day, all the ills of the body and the soul are thus derivable from the breakdown of our metabolism. Alas, this is not something that we could regulate simply by making the revolutions of our rational soul more regular. Contemplation in and of itself will not make us healthier. This is why, in order to remain healthy, or to regain our health, and thereby to allow our rational soul to perform its proper cognitive activity, we occasionally have to stop contemplating. In view of all the above, it does not come as a surprise that Timaeus offers fairly detailed advice about how to keep the body in good health, and how to restore health in cases of bouts of illness. And just as we have expected, the key to prevention and cure is to imitate the cosmic body as far as possible: "the individual parts also should be cared for on the same principle, in imitation of the frame of the universe" (κατὰ δὲ ταὐτὰ ταῦτα καὶ τὰ μέρη θεραπευτέον, τὸ τοῦ παντὸς ἀπομιμούμενον εἶδος, 88c7-d1). And this we can achieve by emulating the motions of the cosmos: τοῦ γὰρ σώματος ὑπὸ τῶν εἰσιόντων καομένου τε ἐντὸς καὶ ψυχομένου, καὶ πάλιν ὑπὸ τῶν ἔξωθεν ξηραινομένου καὶ ὑγραινομένου καὶ τὰ τούτοις ἀκόλουθα πάσχοντος ὑπ' ἀμφοτέρων τῶν κινήσεων, ὅταν μέν τις ἡσυχίαν ἄγον τὸ σῶμα παραδιδῷ ταῖς κινήσεσι, κρατηθὲν διώλετο, ἐὰν δὲ ἥν τε τροφὸν καὶ τιθήνην τοῦ παντὸς προσείπομεν μιμῆταί τις, καὶ τὸ σῶμα μάλιστα μὲν μηδέποτε ἡσυχίαν ἄγειν ἐᾷ, κινῇ δὲ καὶ σεισμοὺς ἀεί τινας ἐμποιῶν αὐτῷ διὰ παντὸς τὰς ἐντὸς καὶ ἐκτὸς ἀμύνηται κατὰ φύσιν κινήσεις, καὶ μετρίως σείων τά τε περὶ τὸ σῶμα πλανώμενα παθήματα καὶ μέρη κατὰ συγγενείας εἰς τάξιν κατακοσμῇ πρὸς ἄλληλα, κατὰ τὸν πρόσθεν λόγον ὃν περὶ τοῦ παντὸς ἐλέγομεν, οὐκ ἐχθρὸν παρ' Betegh ἐχθρὸν τιθέμενον ἐάσει πολέμους ἐντίκτειν τῷ σώματι καὶ νόσους, ἀλλὰ φίλον παρὰ φίλον τεθὲν ὑγίειαν ἀπεργαζόμενον παρέξει.</p><p>For our body is heated and cooled within by the things that enter it, and again is dried and moistened by what is outside, and suffers affections consequent upon disturbances of both these kinds, if a man surrenders his body to these motions in a state of rest, it is overpowered and ruined. But if it will imitate what we have called the foster-mother and nurse of the universe and never, if possible, allow the body to rest in topor; if he will keep in motion and, by perpetually giving it a shake, constantly holding in check the internal and external motions in a natural balance; if by thus shaking it in moderation, he will bring into orderly arrangement, one with another such as we described in speaking of the universe, those affections and particles that wander according to their affinities about the body; then he will not be leaving foe ranged by foe to engender warfare and disease in his body, but will have friend ranged by the side of friend for the production of health.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>88d1-89a1</head><p>And finally we learn that: τῶν δ' αὖ κινήσεων ἡ ἐν ἑαυτῷ ὑφ' αὑτοῦ ἀρίστη κίνησις-μάλιστα γὰρ τῇ διανοητικῇ καὶ τῇ τοῦ παντὸς κινήσει συγγενής-ἡ δὲ ὑπ' ἄλλου χείρων <ref type="bibr">[…]</ref> Of motions, again, the best is that motion which is produced in oneself by oneself, since it is most akin to the movement of thought and of the universe <ref type="bibr">[…]</ref> 89a1-2</p><p>The outcome is that we don't need to be helpless victims passively waiting for the onset of bodily illnesses. We do have the means to prevent, and if we don't succeed, treat ailments. But for this, we ought to study and understand the movements and processes of the body of the cosmos, and how a non-static equilibrium is maintained in that. We ought to study cosmology and physics in order to keep our bodies fit, just as we ought to study mathematical astronomy and the cognitive function of the world soul to bring our rational souls to a good condition. All in all, by studying cosmology, physics, and astronomy, we can become our own Asclepius. Timaeus and his friends have to make sure that the fourth, unnamed guest learns about all this so that he can regain his good health again, and can make sure, as far as possible, not to miss such fascinating discussions in the future. The study of physics and cosmology turns out to have Gábor Betegh -9789004437081 Downloaded from Brill.com 03/04/2024 06:41:24PM via Open Access. This is an open access chapter distributed under the terms of the CC BY-NC-ND 4.0 license. https://creativecommons.org/licenses/by-nc-nd/4.0/ immediate practical ramifications not only for our intellectual advancement, but also for our bodily well-being. This is something that readers of the Phaedo and the Republic could hardly have expected.</p><p>It's time to conclude. I have argued that Timaeus fully agrees with the Socrates of the Phaedo and the Republic that bodily illness can be the source of major bad for us in so far as it can hinder us from pursuing philosophy, and indeed is the source of all kinds of psychic dysfunction. On the other hand, in contrast to these earlier dialogues, the Timaeus presents us with the image of a well-functioning body, that of the cosmos, which does not fall ill, and does not create an obstacle for an intelligent, contemplative life. Timaeus, however, makes it clear that retaining health requires attention and care for the body. The bodily, in and of itself, is disorderly, and has an inherent tendency to lose any ordering imposed on it-just as we see in the myth of the Statesman. This is why we should also take care of our own bodies, trying to imitate, as far as possible, the way in which the world soul takes care of its own body and maintains its metabolism. Timaeus even mentions the possibility that a human being can reach death without falling ill, simply because after a while the triangles which build up the elementary particles of the marrow wear out. But this is a painless, natural death: πᾶν γὰρ τὸ μὲν παρὰ φύσιν ἀλγεινόν, τὸ δ' ᾗ πέφυκεν γιγνόμενον ἡδύ. καὶ θάνατος δὴ κατὰ ταὐτὰ ὁ μὲν κατὰ νόσους καὶ ὑπὸ τραυμάτων γιγνόμενος ἀλγεινὸς καὶ βίαιος, ὁ δὲ μετὰ γήρως ἰὼν ἐπὶ τέλος κατὰ φύσιν ἀπονώτατος τῶν θανάτων καὶ μᾶλλον μεθ' ἡδονῆς γιγνόμενος ἢ λύπης.</p><p>For whereas all that is against nature is painful, what takes place in the natural way is pleasant. So death itself, on this principle, is painful and contrary to nature when it results from disease or wounds, but when it comes to close the natural course of old age, it is, of all death, the least distressing and is accompanied rather by pleasure than by pain.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>81e1-5</head><p>This passage, I would suggest, offers no less than a further important supplement to the Phaedo: a description of the bodily, physiological conditions of a good death.</p><p>Whether or not one finds Timaeus' story about the cosmic organism and its metabolism compelling, or even remotely plausible, I think we would all agree that his attempt at understanding and philosophically domesticating illness leads him to recommending a regimen that results in a healthier life, in which, on balance, our soul is less likely to be distracted, and our most important projects thwarted, by illness and pain. </p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head></head><label></label><figDesc>.com 03/04/2024 06:41:24PM via Open Access. This is an open access chapter distributed under the terms of the CC BY-NC-ND 4.0 license. https://creativecommons.org/licenses/by-nc-nd/4.0/</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head></head><label></label><figDesc>.com 03/04/2024 06:41:24PM via Open Access. This is an open access chapter distributed under the terms of the CC BY-NC-ND 4.0 license. https://creativecommons.org/licenses/by-nc-nd/4.0/</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_2"><head></head><label></label><figDesc>If it is not injuring or losing a limb, or becoming crippled, that prevents the philosopher from doing his specific ergon, what is it?</figDesc><table><row><cell></cell><cell>"Can I Be Ill and Happy?" 96). For a charitable reading of the Republic pas-</cell></row><row><cell></cell><cell>sage see esp. Reeve, Philosopher-Kings: The Argument of Plato's Republic, 213-215; Ferrari,</cell></row><row><cell></cell><cell>ed., The Cambridge Companion to Plato's Republic, 173-4; cf. also Levin, Plato's Rivalry with</cell></row><row><cell></cell><cell>Medicine: A Struggle and its Dissolution, 119.</cell></row><row><cell>18</cell><cell>The recommendation voiced by Socrates thus differs from the more widespread practice</cell></row><row><cell></cell><cell>according to which those patients who were considered hopeless were not treated fur-</cell></row><row><cell></cell><cell>ther, but were left to the care of the family. As we can see from the case of Herodicus, this</cell></row><row><cell></cell><cell>practice still allows giving treatment to patients whose lives can be saved, and who can</cell></row><row><cell></cell><cell>continue to live a relatively active life, but who would be left with a permanent impair-</cell></row><row><cell></cell><cell>ment which would hinder them to continue to fulfil what, on Socrates' account, is their</cell></row><row><cell></cell><cell>natural proper function in society.</cell></row><row><cell></cell><cell>Gábor Betegh -9789004437081</cell></row><row><cell></cell><cell>Downloaded from Brill.com 03/04/2024 06:41:24PM</cell></row><row><cell></cell><cell>via Open Access. This is an open access chapter distributed under the terms</cell></row><row><cell></cell><cell>of the CC BY-NC-ND 4.0 license.</cell></row><row><cell></cell><cell>https://creativecommons.org/licenses/by-nc-nd/4.0/</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_5"><head></head><label></label><figDesc>32For the cognitive activity of the heavenly bodies, cf. 40a7-b2: κινήσεις δὲ δύο προσῆψεν ἑκάστῳ, τὴν μὲν ἐν ταὐτῷ κατὰ ταὐτά, περὶ τῶν αὐτῶν ἀεὶ τὰ αὐτὰ ἑαυτῷ διανοουμένῳ, τὴν δὲ εἰς τὸ πρόσθεν, ὑπὸ τῆς ταὐτοῦ καὶ ὁμοίου περιφορᾶς κρατουμένῳ. On the metaphysics of corporeal gods of the Timaeus, see now Broadie, "Corporeal Gods, with Reference to Plato</figDesc><table /><note>and Aristotle." In the Phaedrus (246c5-d2) Socrates expresses strong scepticism about the possibility of such immortal divine beings who are compounds of body and soul. 33 On the proper activity of the soul in the Phaedo, see Ebrey, "Asceticism of the Phaedo." 34 With the possible exception of the "aether dwellers." Gábor Betegh -9789004437081 Downloaded from Brill.com 03/04/2024 06:41:24PM via Open Access. This is an open access chapter distributed under the terms of the CC BY-NC-ND 4.0 license. https://creativecommons.org/licenses/by-nc-nd/4.0/</note></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="1" xml:id="foot_0">I had the opportunity to present different versions of this paper in Prague, Chicago, Budapest, London, Edinburgh, and St Andrews. I thank my audiences for helpful comments. I am</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" xml:id="foot_1">Plato on Illness in the Phaedo, the Republic, and the Timaeus</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="6" xml:id="foot_2">All Greek texts are from the OCT. Translations from the Phaedo are from Sedley and Long, eds., Plato: Meno and Phaedo, with occasional modifications.</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="7" xml:id="foot_3">Translations from the Timaeus are from Cornford with occasional modifications. Gábor Betegh -9789004437081 Downloaded from Brill.com 03/04/2024 06:41:24PM via Open Access. This is an open access chapter distributed under the terms of the CC BY-NC-ND 4.0 license. https://creativecommons.org/licenses/by-nc-nd/4.0/</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" xml:id="foot_4">Betegh</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" xml:id="foot_5">Gábor Betegh -9789004437081 Downloaded from Brill.com 03/04/2024 06:41:24PM via Open Access. This is an open access chapter distributed under the terms of the CC BY-NC-ND 4.0 license. https://creativecommons.org/licenses/by-nc-nd/4.0/</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" xml:id="foot_6">See in particular the seminal paper by Sedley, "The Ideal of Godlikeness."</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" xml:id="foot_7">Johansen, Plato's Natural Philosophy; Broadie, Nature and Divinity in Plato's Timaeus; Carone, Plato's Cosmology and its Ethical Dimension. Gábor Betegh -9789004437081 Downloaded from Brill.com 03/04/2024 06:41:24PM via Open Access. This is an open access chapter distributed under the terms of the CC BY-NC-ND 4.0 license. https://creativecommons.org/licenses/by-nc-nd/4.0/</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" xml:id="foot_8">Cf. Miller, "Aetiology of Disease," 177 and Karfík, "The Constitution of the Human Body in Plato's Timaeus," 170. Gábor Betegh -9789004437081 Downloaded from Brill.com 03/04/2024 06:41:24PM via Open Access. This is an open access chapter distributed under the terms of the CC BY-NC-ND 4.0 license. https://creativecommons.org/licenses/by-nc-nd/4.0/</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" xml:id="foot_9">Remarkably, at this point Timaeus is just a step away from the view that by focusing on our breathing, and by making it regular, we can positively influence our overall bodily state. Gábor Betegh -9789004437081 Downloaded from Brill.com 03/04/2024 06:41:24PM via Open Access. This is an open access chapter distributed under the terms of the CC BY-NC-ND 4.0 license. https://creativecommons.org/licenses/by-nc-nd/4.0/</note>
+		</body>
+		<back>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<monogr>
+		<title level="m" type="main">In particular, Pelavski warns us from unduly pressing the analogy between the form and structure of the kyrtos and the anatomy of the respiratory organ, instead of focusing on the functional aspect of the analogy. See also Karfík</title>
+		<author>
+			<persName><forename type="first">Tim</forename></persName>
+		</author>
+		<imprint>
+			<biblScope unit="page" from="78" to="80" />
+		</imprint>
+	</monogr>
+	<note>43 I have been persuaded by Pelavski that at least this part of the respiratory-digestive organ is entirely inside the trunk. and does not need to pass through the body and envelope the trunk from the outside as Cornford has maintained</note>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">I agree with the majority of interpreters that the air entering through the pores reaches the air in the kyrtos against Pelavski&apos;s suggestion that the pores lead to cul-de-sacs (Pelavski</title>
+	</analytic>
+	<monogr>
+		<title level="j">Physiology</title>
+		<imprint>
+			<biblScope unit="issue">69</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<monogr>
+		<title level="m" type="main">For the main interpretative options, see Cornford, Plato&apos;s Cosmology</title>
+		<imprint>
+			<biblScope unit="page" from="308" to="313" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<monogr>
+		<author>
+			<persName><surname>Joubaud</surname></persName>
+		</author>
+		<title level="m">Le corps humain dans la philosophie platonicienne: étude à partir du Timée</title>
+				<imprint>
+			<biblScope unit="page" from="67" to="71" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title/>
+		<author>
+			<persName><surname>Pelavski</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Physiology</title>
+		<imprint>
+			<biblScope unit="page" from="68" to="73" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<monogr>
+		<title level="m" type="main">via Open Access. This is an open access chapter distributed under the terms of the CC BY-NC-ND 4</title>
+		<author>
+			<persName><surname>Downloaded</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Brill</surname></persName>
+		</author>
+		<idno>03/04/2024 06:41:24PM</idno>
+		<ptr target="https://creativecommons.org/licenses/by-nc-nd/4.0/" />
+		<imprint>
+			<biblScope unit="page">178</biblScope>
+		</imprint>
+	</monogr>
+	<note>Human Body</note>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title/>
+		<author>
+			<persName><surname>Cf</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Pelavski</surname></persName>
+		</author>
+		<idno>71. Gábor Betegh -9789004437081</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Physiology</title>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">of the term. The political and ethical connotations and ramifications of this expression, as well as those of Timeaus&apos; language in the subsequent description of illnesses</title>
+		<author>
+			<persName><surname>Downloaded</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Brill</surname></persName>
+		</author>
+		<idno>03/04/2024 06:41</idno>
+		<ptr target="https://creativecommons.org/licenses/by-nc-nd/4.0/chargedconcepthere" />
+	</analytic>
+	<monogr>
+		<title level="m">24PM via Open Access</title>
+				<imprint>
+			<biblScope unit="page" from="154" to="158" />
+		</imprint>
+	</monogr>
+	<note>This is an open access chapter distributed under the terms of the CC BY-NC-ND 4.0 license. Cornford: &quot;prevalence&quot;; Zeyl: &quot;increase&quot;; Miller: &quot;excess&quot;; Brisson: &quot;excès&quot;; Fronterotta: &quot;in quantità troppo grande,&quot; etc., cannot quite capture the connotations. are brought out well by Lloyd, Grip of Disease</note>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">On the point that the crucial sentence at 86b2-4 should mean that all psychic illnesses are derivable from bodily states, see most recently Lautner</title>
+	</analytic>
+	<monogr>
+		<title level="j">Gábor Betegh</title>
+		<imprint>
+			<biblScope unit="page">9789004437081</biblScope>
+		</imprint>
+	</monogr>
+	<note>Diseases of the Soul. Sassi, &quot;Mental Illness,&quot; and Jorgenson in this volume</note>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">This is an open access chapter distributed under the terms of the CC BY-NC-ND 4.0 license</title>
+		<author>
+			<persName><surname>Downloaded</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Brill</surname></persName>
+		</author>
+		<idno>03/04/2024 06:41</idno>
+		<ptr target="https://creativecommons.org/licenses/by-nc-nd/4.0/" />
+	</analytic>
+	<monogr>
+		<title level="m">24PM via Open Access</title>
+				<imprint>
+			<date type="published" when="1957">1957</date>
+			<biblScope unit="volume">14</biblScope>
+			<biblScope unit="page" from="94" to="118" />
+		</imprint>
+	</monogr>
+	<note>Plato und die Medizin seiner Zeit</note>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">Est-il vraiment question d&apos;art médical dans le Timée?</title>
+		<author>
+			<persName><forename type="first">Laurent</forename><surname>Ayache</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">In Interpreting the Timaeus-Critias</title>
+				<editor>
+			<persName><forename type="first">Tommaso</forename><surname>Calvo</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">Luc</forename><surname>Brisson</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Sankt Augustin</addrLine></address></meeting>
+		<imprint>
+			<publisher>Academia Verlag</publisher>
+			<date type="published" when="1997">1997</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<monogr>
+		<title level="m" type="main">Tale, theology, and teleology in the Phaedo</title>
+		<author>
+			<persName><forename type="first">Gábor</forename><surname>Betegh</surname></persName>
+		</author>
+		<editor>Catalin Partenie. Cambridge</editor>
+		<imprint>
+			<date type="published" when="2009">2009</date>
+			<publisher>Cambridge University Press</publisher>
+			<biblScope unit="page" from="77" to="100" />
+		</imprint>
+	</monogr>
+	<note>In Plato&apos;s Myths</note>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">Cosmic and Human Cognition in the Timaeus</title>
+		<author>
+			<persName><forename type="first">Gábor</forename><surname>Betegh</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Philosophy of Mind in Antiquity: The History of the Philosophy of Mind</title>
+				<editor>
+			<persName><forename type="first">John</forename><surname>Sisko</surname></persName>
+		</editor>
+		<editor>
+			<persName><surname>London</surname></persName>
+		</editor>
+		<imprint>
+			<publisher>Routledge</publisher>
+			<biblScope unit="volume">1</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">Health as a Theoretical Concept</title>
+		<author>
+			<persName><forename type="first">Christopher</forename><surname>Boorse</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Philosophy of Science</title>
+		<imprint>
+			<biblScope unit="volume">44</biblScope>
+			<biblScope unit="page" from="542" to="573" />
+			<date type="published" when="1977">1977</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">A Rebuttal on Health</title>
+		<author>
+			<persName><forename type="first">Christopher</forename><surname>Boorse</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">What is Disease</title>
+				<editor>
+			<persName><forename type="first">James</forename><forename type="middle">M</forename><surname>Humber</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">Robert</forename><forename type="middle">F</forename><surname>Almeder</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Totowa NJ</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="1997">1997</date>
+			<biblScope unit="page" from="1" to="134" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<monogr>
+		<author>
+			<persName><forename type="first">Luc</forename><surname>Brisson</surname></persName>
+		</author>
+		<title level="m">Broadie, Sarah. Nature and Divinity in Plato&apos;s Timaeus</title>
+				<meeting><address><addrLine>Paris; Cambridge</addrLine></address></meeting>
+		<imprint>
+			<publisher>Cambridge University Press</publisher>
+			<date type="published" when="1999">1999. 2011</date>
+		</imprint>
+	</monogr>
+	<note>Platon: Timée/Critias</note>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<analytic>
+		<title level="a" type="main">In ΣΩΜΑ. Körperkonzepte und körperliche Existenz in der antiken Philosophie und Literatur</title>
+		<author>
+			<persName><forename type="first">Sarah</forename><surname>Broadie</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Archiv für Begriffsgeschichte Sonderheft</title>
+		<editor>F. Meiner</editor>
+		<imprint>
+			<biblScope unit="volume">13</biblScope>
+			<biblScope unit="page" from="159" to="182" />
+			<date type="published" when="2016">2016</date>
+		</imprint>
+	</monogr>
+	<note>Corporeal Gods, with Reference to Plato and Aristotle</note>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<monogr>
+		<title/>
+		<author>
+			<persName><forename type="first">John</forename><forename type="middle">Plato</forename><surname>Burnet</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Phaedo</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="1979">1979</date>
+			<publisher>Oxford University Press</publisher>
+			<pubPlace>Oxford</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<analytic>
+		<title level="a" type="main">A Riveting Argument in Favor of Asceticism in the Phaedo</title>
+		<author>
+			<persName><forename type="first">Travis</forename><surname>Butler</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">History of Philosophy Quarterly</title>
+		<imprint>
+			<biblScope unit="volume">29</biblScope>
+			<biblScope unit="page" from="103" to="123" />
+			<date type="published" when="2012">2012</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<analytic>
+		<title level="a" type="main">Can I be ill and happy?</title>
+		<author>
+			<persName><forename type="first">Havi</forename><surname>Carel</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Philosophia</title>
+		<imprint>
+			<biblScope unit="volume">35</biblScope>
+			<biblScope unit="page" from="95" to="110" />
+			<date type="published" when="2007">2007</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<monogr>
+		<title level="m" type="main">Plato&apos;s Cosmology and Its Ethical Dimensions</title>
+		<author>
+			<persName><forename type="first">Gabriela</forename><surname>Carone</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Roxana</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2005">2005</date>
+			<publisher>Cambridge University Press</publisher>
+			<pubPlace>Cambridge</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<monogr>
+		<title level="m" type="main">Plato&apos;s Cosmology: The Timaeus of Plato</title>
+		<author>
+			<persName><forename type="first">Francis</forename><surname>Cornford</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Macdonald</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2010">2010</date>
+			<publisher>Routledge</publisher>
+			<pubPlace>London</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<analytic>
+		<title level="a" type="main">The Asceticism of the Phaedo: Pleasure, Purification, and the Soul&apos;s Proper Activity</title>
+		<author>
+			<persName><forename type="first">David</forename><surname>Ebrey</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Archiv für Geschichte der Philosophie</title>
+		<imprint>
+			<biblScope unit="volume">99</biblScope>
+			<biblScope unit="page" from="1" to="30" />
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b23">
+	<analytic>
+		<title level="a" type="main">Plato and the Meaning of Pain</title>
+		<author>
+			<persName><forename type="first">Matthew</forename><surname>Evans</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Apeiron</title>
+		<imprint>
+			<biblScope unit="volume">40</biblScope>
+			<biblScope unit="page" from="71" to="93" />
+			<date type="published" when="2007">2007</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b24">
+	<analytic>
+		<title level="a" type="main">The Theory of the Opposites and an Ordered Universe: Physics and Metaphysics in Anaximander</title>
+		<author>
+			<persName><forename type="first">Gad</forename><surname>Freudenthal</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Phronesis</title>
+		<imprint>
+			<biblScope unit="volume">31</biblScope>
+			<biblScope unit="page" from="197" to="228" />
+			<date type="published" when="1986">1986</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b25">
+	<monogr>
+		<author>
+			<persName><forename type="first">Francesco</forename><surname>Fronterotta</surname></persName>
+		</author>
+		<title level="m">The Cambridge Companion to Plato&apos;s Republic</title>
+				<editor>
+			<persName><forename type="first">G</forename><forename type="middle">R F</forename><surname>Ferrari</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Cambridge</addrLine></address></meeting>
+		<imprint>
+			<publisher>Gábor Betegh</publisher>
+			<date type="published" when="2003">2003. 2007</date>
+			<biblScope unit="page">9789004437081</biblScope>
+		</imprint>
+	</monogr>
+	<note>Platone: Timeo. Milano: BUR</note>
+</biblStruct>
+
+<biblStruct xml:id="b26">
+	<analytic>
+		<title level="a" type="main">Death and Immortality in Late Neoplatonism: Studies on the Ancient Commentaries on Plato&apos;s Phaedo. Ancient Mediterranean and Medieval Texts and Contexts</title>
+		<author>
+			<persName><surname>Downloaded</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Brill</surname></persName>
+		</author>
+		<idno>03/04/2024 06:41</idno>
+		<ptr target="https://creativecommons.org/licenses/by-nc-nd/4.0/Gallop" />
+	</analytic>
+	<monogr>
+		<title level="m">Studies in Platonism, Neoplatonism, and the Platonic tradition</title>
+				<meeting><address><addrLine>David. Plato; Oxford; Gertz, Sebastian Ramon Philipp; Leiden</addrLine></address></meeting>
+		<imprint>
+			<publisher>Brill</publisher>
+			<date type="published" when="1993">1993. 2011</date>
+			<biblScope unit="volume">12</biblScope>
+		</imprint>
+	</monogr>
+	<note>24PM via Open Access</note>
+</biblStruct>
+
+<biblStruct xml:id="b27">
+	<analytic>
+		<title level="a" type="main">The Body&apos;s Fault? Plato&apos;s Timaeus on Psychic Illness</title>
+		<author>
+			<persName><forename type="first">Christopher</forename><surname>Gill</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Reason and Necessity: Essays on Plato&apos;s Timaeus</title>
+				<editor>
+			<persName><forename type="first">M</forename><forename type="middle">R</forename><surname>Wright</surname></persName>
+		</editor>
+		<meeting><address><addrLine>London</addrLine></address></meeting>
+		<imprint>
+			<publisher>Duckworth</publisher>
+			<date type="published" when="2000">2000</date>
+			<biblScope unit="page" from="59" to="84" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b28">
+	<analytic>
+		<title level="a" type="main">Plato&apos;s Unfinished Trilogy: Timaeus-Critias-Hermocrates</title>
+		<author>
+			<persName><forename type="first">Mary</forename><surname>Gill</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Louise</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Styles and Characters</title>
+				<editor>
+			<persName><forename type="first">Gabriele</forename><surname>Cornelli</surname></persName>
+		</editor>
+		<editor>
+			<persName><surname>Berlin</surname></persName>
+		</editor>
+		<imprint>
+			<publisher>De Gruyter</publisher>
+			<date type="published" when="2015">2015</date>
+			<biblScope unit="page" from="33" to="45" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b29">
+	<analytic>
+		<title level="a" type="main">Medical Theory in Plato&apos;s Timaeus</title>
+		<author>
+			<persName><forename type="first">Laura</forename><surname>Grams</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Rhizai</title>
+		<imprint>
+			<biblScope unit="volume">6</biblScope>
+			<biblScope unit="page" from="161" to="192" />
+			<date type="published" when="2009">2009</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b30">
+	<analytic>
+		<title level="a" type="main">A History of Greek Philosophy</title>
+		<author>
+			<persName><forename type="first">W</forename><forename type="middle">K C</forename><surname>Guthrie</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">The Fifth Century Enlightenment</title>
+				<meeting><address><addrLine>Cambridge</addrLine></address></meeting>
+		<imprint>
+			<publisher>Cambridge University Press</publisher>
+			<date type="published" when="1969">1969</date>
+			<biblScope unit="volume">3</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b31">
+	<monogr>
+		<title level="m" type="main">Plato&apos;s Natural Philosophy: A Study of the Timaeus-Critias</title>
+		<author>
+			<persName><forename type="first">Thomas</forename><forename type="middle">K</forename><surname>Johansen</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2004">2004</date>
+			<publisher>Cambridge University Press</publisher>
+			<pubPlace>Cambridge</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b32">
+	<monogr>
+		<title level="m" type="main">The Embodied Soul in Plato&apos;s Later Thought</title>
+		<author>
+			<persName><forename type="first">Chad</forename><surname>Jorgenson</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2018">2018</date>
+			<publisher>Cambridge University Press</publisher>
+			<pubPlace>Cambridge</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b33">
+	<monogr>
+		<author>
+			<persName><forename type="first">Catherine</forename><surname>Joubaud</surname></persName>
+		</author>
+		<title level="m">Le corps humain dans la philosophie platonicienne: étude à partir du Timée</title>
+				<meeting><address><addrLine>Paris</addrLine></address></meeting>
+		<imprint>
+			<publisher>Vrin</publisher>
+			<date type="published" when="1991">1991</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b34">
+	<monogr>
+		<title level="m" type="main">Socrates&apos; Last Words</title>
+		<author>
+			<persName><forename type="first">Yahei</forename><surname>Kanayama</surname></persName>
+		</author>
+		<ptr target="https://nuss.nagoya-u.ac.jp/index.php/s/kZZwdP4tpqKcSX7#pdfviewer" />
+		<imprint/>
+	</monogr>
+	<note>unpublished). Online version</note>
+</biblStruct>
+
+<biblStruct xml:id="b35">
+	<monogr>
+		<author>
+			<persName><forename type="first">Filip</forename><surname>Karfík</surname></persName>
+		</author>
+		<title level="m">Die Beseelung des Kosmos. Untersuchungen zur Seelenlehre, Kosmologie und Theologie in Platons Phaidon und Timaios</title>
+				<meeting><address><addrLine>München/Leipzig</addrLine></address></meeting>
+		<imprint>
+			<publisher>De Gruyter</publisher>
+			<date type="published" when="2004">2004</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b36">
+	<analytic>
+		<title level="a" type="main">The Constitution of the Human Body in Plato&apos;s Timaeus</title>
+		<author>
+			<persName><forename type="first">Filip</forename><surname>Karfík</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Croatian Journal of Philosophy</title>
+		<imprint>
+			<biblScope unit="volume">12</biblScope>
+			<biblScope unit="page" from="167" to="181" />
+			<date type="published" when="2012">2012</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b37">
+	<analytic>
+		<title level="a" type="main">Plato&apos;s Account of the Diseases of the Soul in Timaeus 86B1-87B9</title>
+		<author>
+			<persName><forename type="first">Péter</forename><surname>Lautner</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Apeiron</title>
+		<imprint>
+			<biblScope unit="volume">44</biblScope>
+			<biblScope unit="page" from="22" to="39" />
+			<date type="published" when="2011">2011</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b38">
+	<monogr>
+		<title level="m" type="main">Plato&apos;s Rivalry with Medicine: A Struggle and its Dissolution</title>
+		<author>
+			<persName><forename type="first">Susan</forename><forename type="middle">B</forename><surname>Levin</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2014">2014</date>
+			<publisher>Oxford University Press</publisher>
+			<pubPlace>Oxford</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b39">
+	<monogr>
+		<title level="m" type="main">In the Grip of Disease: Studies in the Greek Imagination</title>
+		<author>
+			<persName><forename type="first">G</forename><forename type="middle">E R</forename><surname>Lloyd</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2003">2003</date>
+			<publisher>Oxford University Press</publisher>
+			<pubPlace>Oxford</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b40">
+	<analytic>
+		<title level="a" type="main">The Aetiology of Disease in Plato&apos;s Timaeus</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">M</forename><surname>Mackenzie</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">;</forename><surname>Plato On Punishment</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Harold</forename><forename type="middle">W</forename><surname>Miller</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Transactions and Proceedings of the American Philological Association</title>
+		<imprint>
+			<biblScope unit="volume">93</biblScope>
+			<biblScope unit="page" from="175" to="187" />
+			<date type="published" when="1962">1981. 1962</date>
+			<publisher>University of California Press</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b41">
+	<analytic>
+		<title level="a" type="main">A Cock for Asclepius</title>
+		<author>
+			<persName><forename type="first">Glenn</forename><forename type="middle">W</forename><surname>Most</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Classical Quarterly</title>
+		<imprint>
+			<biblScope unit="volume">43</biblScope>
+			<biblScope unit="page" from="96" to="111" />
+			<date type="published" when="1993">1993</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b42">
+	<analytic>
+		<title level="a" type="main">Physiology in Plato&apos;s Timaeus: Irrigation, Digestion and Respiration</title>
+		<author>
+			<persName><forename type="first">Andrès</forename><surname>Pelavski</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Cambridge Classical Journal</title>
+		<imprint>
+			<biblScope unit="volume">60</biblScope>
+			<biblScope unit="page" from="61" to="74" />
+			<date type="published" when="2014">2014</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b43">
+	<analytic>
+		<title level="a" type="main">The Metaphysics of Bodily Health and Disease in Plato&apos;s Timaeus</title>
+		<author>
+			<persName><forename type="first">Brian</forename><forename type="middle">D</forename><surname>Prince</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">British Journal for the History of Philosophy</title>
+		<imprint>
+			<biblScope unit="volume">22</biblScope>
+			<biblScope unit="page" from="908" to="928" />
+			<date type="published" when="2014">2014</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b44">
+	<monogr>
+		<title level="m" type="main">via Open Access. This is an open access chapter distributed under the terms of the CC BY-NC-ND 4</title>
+		<author>
+			<persName><surname>Downloaded</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Brill</surname></persName>
+		</author>
+		<idno>03/04/2024 06:41:24PM</idno>
+		<ptr target="https://creativecommons.org/licenses/by-nc-nd/4.0/" />
+		<imprint>
+			<date type="published" when="1988">1988</date>
+			<publisher>Hackett</publisher>
+			<pubPlace>Indianapolis</pubPlace>
+		</imprint>
+	</monogr>
+	<note>Betegh Reeve, C. D. C. Philosopher-Kings: The Argument of Plato&apos;s Republic</note>
+</biblStruct>
+
+<biblStruct xml:id="b45">
+	<monogr>
+		<author>
+			<persName><forename type="first">Daniel</forename><forename type="middle">C</forename><surname>Russell</surname></persName>
+		</author>
+		<title level="m">Plato on Pleasure and the Good Life</title>
+				<meeting><address><addrLine>Oxford</addrLine></address></meeting>
+		<imprint>
+			<publisher>Oxford University Press</publisher>
+			<date type="published" when="2005">2005</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b46">
+	<monogr>
+		<title/>
+		<author>
+			<persName><forename type="first">Malcolm</forename><surname>Schofield</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ed</forename></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Tom</forename><surname>Griffith</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2016">2016</date>
+			<publisher>Cambridge University Press</publisher>
+			<pubPlace>trans. Plato, Laws. Cambridge</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b47">
+	<analytic>
+		<title level="a" type="main">Mental Illness, Moral Error, and Responsibility in the Late Plato</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Sassi</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Classical World</title>
+		<editor>W. V Harris</editor>
+		<imprint>
+			<biblScope unit="page" from="413" to="426" />
+			<date type="published" when="2013">2013</date>
+			<publisher>Brill</publisher>
+		</imprint>
+	</monogr>
+	<note>In Mental Disorders in the</note>
+</biblStruct>
+
+<biblStruct xml:id="b48">
+	<analytic>
+		<title level="a" type="main">The Ideal of Godlikeness</title>
+		<author>
+			<persName><forename type="first">David</forename><surname>Sedley</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Plato 2: Ethics, Politics, Religion, and the Soul</title>
+				<editor>
+			<persName><forename type="first">Gail</forename><surname>Fine</surname></persName>
+		</editor>
+		<editor>
+			<persName><surname>Oxford</surname></persName>
+		</editor>
+		<imprint>
+			<publisher>Oxford University Press</publisher>
+			<date type="published" when="1999">1999</date>
+			<biblScope unit="page" from="309" to="328" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b49">
+	<analytic>
+		<title level="a" type="main">Timaeus as Vehicle for Platonic Doctrine</title>
+		<author>
+			<persName><forename type="first">David</forename><surname>Sedley</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Oxford Studies in Ancient Philosophy</title>
+		<imprint>
+			<biblScope unit="volume">56</biblScope>
+			<biblScope unit="page" from="45" to="71" />
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b50">
+	<monogr>
+		<title level="m">Plato: Meno and Phaedo</title>
+				<editor>
+			<persName><forename type="first">David</forename><surname>Sedley</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">Alex</forename><surname>Long</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Cambridge</addrLine></address></meeting>
+		<imprint>
+			<publisher>Cambridge University Press</publisher>
+			<date type="published" when="2014">2014</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b51">
+	<analytic>
+		<title level="a" type="main">Vegetti, Mario. La Medicina in Platone. Venice: Cardo, 1995. Wilamowitz-Moellendorff, Ulrich von. Platon2</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">E</forename><surname>Taylor</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Plato</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Timaeus and Critias</title>
+				<meeting><address><addrLine>London; Berlin</addrLine></address></meeting>
+		<imprint>
+			<publisher>Weidmann</publisher>
+			<date type="published" when="1920">2012. 1920</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b52">
+	<analytic>
+		<title level="a" type="main">The Practice of a Philosopher</title>
+		<author>
+			<persName><forename type="first">Raphael</forename><surname>Woolf</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Oxford Studies in Ancient Philosophy</title>
+		<imprint>
+			<biblScope unit="volume">26</biblScope>
+			<biblScope unit="page" from="97" to="129" />
+			<date type="published" when="2004">2004</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b53">
+	<analytic>
+		<title level="a" type="main">Indianapolis: Hackett</title>
+		<author>
+			<persName><forename type="first">Donald</forename><forename type="middle">J</forename><surname>Zeyl</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Timaeus</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Gábor Betegh -9789004437081</title>
+				<imprint>
+			<date type="published" when="2000">2000</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b54">
+	<monogr>
+		<author>
+			<persName><surname>Downloaded</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Brill</surname></persName>
+		</author>
+		<idno>03/04/2024 06:41</idno>
+		<ptr target="https://creativecommons.org/licenses/by-nc-nd/4.0/" />
+		<title level="m">24PM via Open Access</title>
+				<imprint/>
+	</monogr>
+	<note>This is an open access chapter distributed under the terms of the CC BY-NC-ND 4.0 license</note>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

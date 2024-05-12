@@ -1,0 +1,556 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Small-Scale Testbed for Evaluating C-V2X Applications on 5G Cellular Networks</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+				<date type="published" when="2024-05-09">9 May 2024</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Kaj</forename><forename type="middle">Munhoz</forename><surname>Arfvidsson</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department">Division of Decision and Control Systems</orgName>
+								<orgName type="institution">EECS</orgName>
+							</affiliation>
+							<affiliation key="aff1">
+								<orgName type="institution">KTH Royal Institute of Technology</orgName>
+								<address>
+									<addrLine>Malvinas väg 10</addrLine>
+									<postCode>10044</postCode>
+									<settlement>Stockholm</settlement>
+									<country key="SE">Sweden</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Kleio</forename><surname>Fragkedaki</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department">Division of Decision and Control Systems</orgName>
+								<orgName type="institution">EECS</orgName>
+							</affiliation>
+							<affiliation key="aff1">
+								<orgName type="institution">KTH Royal Institute of Technology</orgName>
+								<address>
+									<addrLine>Malvinas väg 10</addrLine>
+									<postCode>10044</postCode>
+									<settlement>Stockholm</settlement>
+									<country key="SE">Sweden</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Frank</forename><forename type="middle">J</forename><surname>Jiang</surname></persName>
+							<email>frankji@kth.se.</email>
+							<affiliation key="aff0">
+								<orgName type="department">Division of Decision and Control Systems</orgName>
+								<orgName type="institution">EECS</orgName>
+							</affiliation>
+							<affiliation key="aff1">
+								<orgName type="institution">KTH Royal Institute of Technology</orgName>
+								<address>
+									<addrLine>Malvinas väg 10</addrLine>
+									<postCode>10044</postCode>
+									<settlement>Stockholm</settlement>
+									<country key="SE">Sweden</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Vandana</forename><surname>Narri</surname></persName>
+							<email>narri@kth.se.</email>
+							<affiliation key="aff0">
+								<orgName type="department">Division of Decision and Control Systems</orgName>
+								<orgName type="institution">EECS</orgName>
+							</affiliation>
+							<affiliation key="aff1">
+								<orgName type="institution">KTH Royal Institute of Technology</orgName>
+								<address>
+									<addrLine>Malvinas väg 10</addrLine>
+									<postCode>10044</postCode>
+									<settlement>Stockholm</settlement>
+									<country key="SE">Sweden</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff2">
+								<orgName type="department">is with Research and Development</orgName>
+								<address>
+									<postCode>151 87</postCode>
+									<settlement>Södertälje</settlement>
+									<region>Scania CV AB</region>
+									<country key="SE">Sweden</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Hans-Cristian</forename><surname>Lindh</surname></persName>
+							<affiliation key="aff3">
+								<orgName type="department">is a Project Manager with Standards and Technology</orgName>
+								<orgName type="institution">Erics-son AB</orgName>
+								<address>
+									<addrLine>Torshamnsgatan 21, Stockholms län</addrLine>
+									<postCode>164 40</postCode>
+									<settlement>Kista</settlement>
+									<country key="SE">Sweden</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Karl</forename><forename type="middle">H</forename><surname>Johansson</surname></persName>
+							<email>kallej@kth.se.</email>
+							<affiliation key="aff0">
+								<orgName type="department">Division of Decision and Control Systems</orgName>
+								<orgName type="institution">EECS</orgName>
+							</affiliation>
+							<affiliation key="aff1">
+								<orgName type="institution">KTH Royal Institute of Technology</orgName>
+								<address>
+									<addrLine>Malvinas väg 10</addrLine>
+									<postCode>10044</postCode>
+									<settlement>Stockholm</settlement>
+									<country key="SE">Sweden</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Jonas</forename><surname>Mårtensson</surname></persName>
+							<email>jonas1@kth.se.</email>
+							<affiliation key="aff0">
+								<orgName type="department">Division of Decision and Control Systems</orgName>
+								<orgName type="institution">EECS</orgName>
+							</affiliation>
+							<affiliation key="aff1">
+								<orgName type="institution">KTH Royal Institute of Technology</orgName>
+								<address>
+									<addrLine>Malvinas väg 10</addrLine>
+									<postCode>10044</postCode>
+									<settlement>Stockholm</settlement>
+									<country key="SE">Sweden</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Small-Scale Testbed for Evaluating C-V2X Applications on 5G Cellular Networks</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date type="published" when="2024-05-09">9 May 2024</date>
+						</imprint>
+					</monogr>
+					<idno type="MD5">D5457EE6E6DFDA87903A1B4E06148D29</idno>
+					<idno type="arXiv">arXiv:2405.05911v1[eess.SY]</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.2" ident="GROBID" when="2024-05-12T15:27+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>In this work, we present a small-scale testbed for evaluating the real-life performance of cellular V2X (C-V2X) applications on 5G cellular networks. Despite the growing interest and rapid technology development for V2X applications, researchers still struggle to prototype V2X applications with real wireless networks, hardware, and software in the loop in a controlled environment. To help alleviate this challenge, we present a testbed designed to accelerate development and evaluation of C-V2X applications on 5G cellular networks. By including a small-scale vehicle platform into the testbed design, we significantly reduce the time and effort required to test new C-V2X applications on 5G cellular networks. With a focus around the integration of small-scale vehicle platforms, we detail the design decisions behind the full software and hardware setup of commonly needed intelligent transport system agents (e.g. sensors, servers, vehicles). Moreover, to showcase the testbed's capability to produce industrially-relevant, real world performance evaluations, we present an evaluation of a simple test case inspired from shared situational awareness. Finally, we discuss the upcoming use of the testbed for evaluating 5G cellular network-based shared situational awareness and other C-V2X applications.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>I. INTRODUCTION</head><p>Over the recent years, the interest in exploring the use of vehicle-to-everything (V2X) communication has grown immensely. Due to factors like unprotected road-users and occlusions, there are complex traffic scenarios that are difficult for automated vehicles to resolve individually. To safely and efficiently handle these scenarios, automated vehicles need to communicate with each other, infrastructure, and central servers. This has led to the development of various Intelligent Transport Systems (ITS) that utilize wireless technologies including different varieties of dedicated short-range, direct communication, 4G, and 5G for V2X communication to enhance traffic safety and improve road hans-christian.xh.lindh@ericsson.com. throughput <ref type="bibr" target="#b0">[1]</ref>. Vehicles that utilize V2X communication to enhance their automation are referred to as connected and automated vehicles (CAV). Moreover, throughout this work, we refer to the collection of ITS services that leverage V2X communication as V2X applications.</p><p>Already today, there are a variety of V2X applications that have been developed using various wireless technologies. These V2X applications are typically add-on services to the core functionality of CAVs that leverage communicated data to implement functionalities like beyond line-of-sight collision warnings, intersection movement assistance, or left turn assistance <ref type="bibr" target="#b1">[2]</ref>, <ref type="bibr" target="#b2">[3]</ref>. V2X applications are developed to further enhance safety and efficiency in scenarios where the sensor suite onboard the CAV is unable to perceive critically important information. One example of this is shared situational awareness, where sensors, servers, and vehicles share their perception data with each other using V2X direct communication to enhance each other's situational awareness <ref type="bibr" target="#b3">[4]</ref>. V2X applications are predominantly developed around one of two main V2X communication standards: ITS-G5 <ref type="bibr" target="#b4">[5]</ref> and C-V2X <ref type="bibr" target="#b5">[6]</ref>. ITS-G5 is based on Wi-Fi communication on the 5.9 GHz band. C-V2X is an umbrella technology which encapsulates all 3GPP V2X technologies, including both direct communication and cellular network communications <ref type="bibr" target="#b6">[7]</ref>. While there are some preliminary studies performed in <ref type="bibr" target="#b7">[8]</ref> on C-V2X using 5G cellular networks, many of the studies conducted so far are developed around using 4G. We attribute this to the current difficulty around prototyping advanced C-V2X applications in a controlled environment with a real 5G network, hardware, and software in the loop.</p><p>To help alleviate this difficulty, we design and develop a testbed specifically for evaluating the real-life performance of advanced C-V2X applications on 5G cellular networks. More specifically, we design a testbed to enable low-cost experimentation on advanced C-V2X applications with the ability to precisely evaluate the 5G cellular network, hardware, and software's performance. To make experimentation cheaper, we build the testbed around the use of a 1/10th-scale CAV platform. Although 1/10th-scale CAVs do not capture the full dynamics of full-scale CAVs, they do provide the ability to cheaply evaluate V2X applications with real network, hardware, and software in the loop <ref type="bibr" target="#b8">[9]</ref>. Additionally, 1/10thscale CAVs offer the ability to do preliminary studies with motion, providing some initial insight into how the results translate to full-scale CAVs.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>A. Contribution</head><p>In summary, the main contribution of this paper is the design of a testbed for rapidly evaluating the real-life performance of C-V2X applications on 5G cellular networks. Explicitly, our contributions are three-fold:</p><p>1) we overview the design choices behind the network configuration, software, and hardware for supporting small-scale evaluations of the real-life performance of C-V2X applications on 5G cellular networks, 2) we showcase the testbed's capability to measure the real-life performance of a simple, situational awareness-inspired, test case under the realistic conditions of: clock synchronization error, network traffic overloading, and base station handovers, 3) we discuss the implications from the test case on the future evaluation of 5G-based C-V2X applications. Additionally, the software used for sending C-V2X data over the 5G cellular network is available publicly. <ref type="foot" target="#foot_0">1</ref></p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>II. MOTIVATION</head><p>In this section, we elaborate on the motivation for developing the testbed presented in this paper. Despite the significant effort and work that has previously been put into proposing V2X solutions, researchers still struggle to develop and evaluate the end-to-end performance of V2X applications with a real hardware in the loop. Given the relatively recent introduction of 5G cellular networks, this difficulty is especially apparent. To this end, the motivating challenges we address in this work are the following:</p><p>1) how do we develop a modular testbed where 5G cellular network-based C-V2X applications can be implemented with less lead time for testing and evaluation? 2) what developments are necessary to replicate scenarios with 1/10th-scale vehicles under realistic conditions?</p><p>To address the first challenge, we go through the design decisions that make it easier to develop and test C-V2X applications on 5G cellular networks. These design decisions are carefully made while considering the trade-offs between development speed and resultant performance. Throughout the work, we note the trade-offs of our design decisions and mention alternatives that could improve performance with the trade-off of increasing implementation difficulty.</p><p>To address the second challenge, we implement a simplified test case inspired by the requirements of shared situational awareness. In this test case, we adapt the architecture in <ref type="bibr" target="#b3">[4]</ref> to better suit 5G cellular networks and implement a generic version of the messaging required to support these types of applications. We test this adapted architecture under the realistic conditions of clock synchronization error, network traffic overloading, and base station hand-over events. While we draw inspiration from the implementations done in <ref type="bibr" target="#b3">[4]</ref>, we have chosen not to implement the full shared situational awareness application so we can obtain results that are more relatable to other C-V2X applications. Moreover, since the implementation is done with 1/10th-scale vehicles, the available software and hardware that can be integrated greatly differs from full-scale vehicles. At 1/10thscale, we need to work with hardware and software more typical in robotics and mobile device development.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>III. TESTBED DESIGN</head><p>In this section, we present our testbed (illustrated in Fig. <ref type="figure" target="#fig_1">2</ref>) for 5G-cellular network-based C-V2X applications and how it can evaluate end-to-end performance. In particular, we detail the important design decisions behind the dedicated 5G standalone test network, ITS agent implementations, messaging system, and clock synchronization software in our testbed. For simplicity, we refer to 5G-cellular network-based C-V2X as "5G C-V2X" for the remainder of the paper.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>A. Dedicated 5G Standalone Test Network</head><p>To fully evaluate a 5G C-V2X application, it is necessary to recreate real-life conditions that impact the cellular network. Central to our testbed is a dedicated 5G standalone test network that allows for custom network configuration. With it, we can precisely modify background load and enable features that protect traffic, ensuring a realistic setting for experiments. It is important to investigate the trade-offs related to network performance as it is not only influenced by the traffic volume but also by the number of users, the direction of the traffic, and the configuration of the network. Our testbed's network has a 20 MHz bandwidth and uses a Time Division Duplex (TDD) pattern DDDSU, where D represents a downlink slot, U represents an uplink slot, and S represents a special slot with 10 downlink symbols and 2 uplink symbols. Furthermore, a radio cell, in this network, has maximum capacity of ca. 40 Mbps. Lastly, in the context of our scenario, we utilize a specific QoS mechanism in the 5G radio access network called absolute priority scheduling. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>B. ITS Agents</head><p>For quick and low-cost evaluation of 5G C-V2X, the three agents (sensor, edge server, CAV/SVEA) shown in Fig. <ref type="figure" target="#fig_1">2</ref> are actualized with small-scale platforms. They implement their 5G C-V2X applications using the Robot Operating System (ROS) <ref type="bibr" target="#b9">[10]</ref>. The use of ROS yields significant development benefits, as it provides wide, open-source support for most of the sensor and message types that are required in C-V2X applications. For example, in <ref type="bibr" target="#b10">[11]</ref>, authors contribute an open-source package containing ROS support for ETSI ITS messages for V2X communication. However, since ROS is a best-effort implementation, it is not the most suitable middleware for external communication between agents on the 5G cellular network. Thus, we only use ROS on the local networks of each ITS agent. External communication can instead be facilitated by messaging systems such as MQTT <ref type="bibr" target="#b11">[12]</ref>, NATS <ref type="bibr" target="#b12">[13]</ref> or Zenoh <ref type="bibr" target="#b13">[14]</ref>. These have a direct impact on the overall 5G C-V2X performance, and the choice often depends on various design aspects like application compatibility and preferred implementation language. In line with the objectives of this platform, to accelerate development and evaluation of 5G C-V2X applications, we use the Transmission Control Protocol (TCP)-based messaging system NATS with the NATS broker sitting on the edge server in Fig. <ref type="figure" target="#fig_1">2</ref>. Since NATS supports distributed brokers, it enables highperforming implementations of edge architectures for V2X applications.</p><p>1) Sensor: The sensor in our 5G C-V2X testbed is designed to be application-agnostic. It represents any device that produces data within the network but does not consume it. This can characterize a wide range of different applications and concepts, such as local infrastructure sensors or bystander CAVs. For external communication, it is reasonable to assume that an infrastructure sensor has a wired connec-tion. However, in certain use cases or scenarios, a sensor may require the flexibility of a wireless connection. For this reason, in this work, the sensor is communicating with the other agents through the cellular 5G network. Ultimately, this leads to easier, more agile setups for outdoor experiments. However, if latency and reliability need to be minimized, a wired connection can be used instead.</p><p>2) Edge Server: The edge server has the role of a centralized computing unit that aggregates and processes information and may also engage in decision-making processes. In our testbed, it acts as a proxy between the infrastructure sensor and the CAVs. Any computation that should be done on the server can be emulated by delaying messages. Depending on the scenario and application, the server can be located locally or more centrally. By being physically close to its users, the server can deliver benefits such as reduced latency and higher bandwidth. This is enabled by the 5G network's ability to deploy applications near the "edge" of an access network. However, it may be tolerable in some applications to instead deploy in far-away data centers, which can be more convenient or provide access to more computational hardware. Since we are prioritizing latency and bandwidth in our applications, we deploy the server on the edge in our testbed setup.</p><p>3) 1/10th-scale CAV (SVEA): The vehicle has been developed as a stand-alone platform for evaluating 5G C-V2X use cases. Introduced in <ref type="bibr" target="#b8">[9]</ref>, the SVEA is a 1/10th-scale automated vehicle that consists of the necessary components, both in hardware and software, to build an autonomous system. This enables the platform to evaluate a wide range of scaled-down traffic scenarios. Moreover, the platform can be used to collect and log vehicle state data, such as velocity and GPS position, even when driving manually. This makes the platform ideal for network-centric experiments that do not require any autonomy, but where mobility still plays an important role. In contrast to the sensor, in the test case we set up, the SVEA represents a user in the network that only consumes data.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>C. Messaging</head><p>In our testbed, communication between the agents occurs in both uplink and downlink channels. As illustrated in Fig. <ref type="figure" target="#fig_1">2</ref>, the infrastructure sensor sends messages to the edge server, which then distributes those messages to the vehicle. We name the connections after the primary direction of the application-critical traffic. That is, UL for uplink from sensor to server and DL for downlink from server to vehicle. However, due to TCP, which requires acknowledgments to be sent in the opposite direction, there also exist downlink traffic from UL and uplink from DL.</p><p>The traffic is characterized by the transmitted messages. A message contains data of a certain size, and is sent at a certain rate. The contained data can be in any format, however, a message must include the timestamps, clock offsets, a sequence number, and a checksum to verify the message was sent correctly. This information will also later be used to determine latency. Before the sensor sends a message, it sets the T 1 timestamp from the system clock time. Once the message is received by the edge server, it updates the messages with a corresponding timestamp T 2 . In the same way, when the edge server sends the message, and a vehicle receives it, then T 3 and T 4 are updated as depicted in Fig. <ref type="figure" target="#fig_1">2</ref>.</p><p>The performance of 5G C-V2X applications can be evaluated with metrics such as latency, jitter, signal-to-noise ratio, packet drops and packet error rates. While the primary benefit of NATS is effortless deployment of edge architectures, since it is built on TCP, many of these performance metrics aggregates to latency due to TCP's order guarantees, error checks and retransmission algorithms. This simplifies the evaluation such that we can focus on measuring latency. For applications that need further latency minimization, technologies like MQTT can be used with UDP, which introduces the need to explicitly measure packet drops and packet error rates. However, by using MQTT with UDP, the implementation of edge architectures becomes more difficult since MQTT brokers cannot be directly distributed without additional implementations. As previously described, messages are sent in both UL and DL traffic. Therefore, we can also distinguish between L UL and L DL latencies. If all agents were perfectly synchronized, the latency would simply be the difference between the respective timestamps, e.g., L UL = T 2 − T 1 .</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>D. Network Time Protocol for Synchronization</head><p>Measuring latency between different agents is difficult due to synchronization errors. Consider T 1 and T 2 which are measured on different clocks. This becomes a major source of errors when considering how computer clocks can drift non-deterministically depending on voltage fluctuations, temperature changes, system load, and production quality. Consequently, taking the time difference T 2 − T 1 would not only measure the communication latency, but also include any synchronization error between the clocks.</p><p>In our testbed all agents use Network Time Protocol (NTP) <ref type="bibr" target="#b14">[15]</ref> to both correct their system clock and periodically query the NTP server for synchronization errors. By querying the NTP server during a test, we can correct for synchronization error in the latency measurement. As such, when setting timestamps in the messages, we also set a corresponding clock offset value. To account for the synchronization error, the latency becomes</p><formula xml:id="formula_0">L UL = (T 2 + E 2 ) − (T 1 + E 1 ).</formula><p>While alternative methods like GPS Clocks or Precision Time Protocol (PTP) <ref type="bibr" target="#b15">[16]</ref> can be utilized for more precise time synchronization, we have excluded them from our design due to hardware restrictions. Specifically, since server implementations are typically installed indoors, there is not always infrastructure available to provide servers access to a GPS receiver. Furthermore, we do not always have access to network infrastructures with hardware that has PTP support throughout. In the case of software-based PTP, the benefit over NTP is not as apparent when in a wireless network due to PTP being more sensitive to delay variations. Therefore, we choose to use the NTP client chrony<ref type="foot" target="#foot_1">2</ref> for clock synchronization due to it being readily available on most operating systems.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>IV. TESTBED EVALUATION</head><p>In this section, we develop and evaluate a simple test case to assess the testbed's ability to support 5G C-V2X applications under various conditions. Specifically, we present the test case's latency under three distinct conditions that could impact the overall efficiency or reliability of 5G C-V2X applications. Our primary objective in this section is to show how the testbed can be used to evaluate the real-life performance of a 5G C-V2X application. To this end, we start by contextualizing our evaluation in a previously developed V2X application and use that application to determine a relevant architecture for us to test.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>A. Test Case Context: Shared Situational Awareness</head><p>For our test case, we are inspired by <ref type="bibr" target="#b3">[4]</ref>, where the authors have implemented a shared situational awareness framework, with an objective to improve situational awareness of the ego-vehicle using V2X communication. In this cited paper, a simple urban scenario is considered, where the field-ofview of the ego-vehicle has an occlusion created by a parked vehicle. But this occluded region is visible for two other connected V2X units in the near surrounding. The connected V2X unit shares their perception data with the ego-vehicle.</p><p>The authors utilize the standardized Collaborative Perception Message (CPM) <ref type="bibr" target="#b16">[17]</ref>. In this standard, a general message structure consists of Management Container (MC), Station Data Container (SDC), Sensor Information Container (SIC), Perceived Object Container (POC), and Free Space Addendum (FSA). In <ref type="bibr" target="#b3">[4]</ref>, the communication of CPMs is carried out over an ITS-G5 access layer with a 10 MHz bandwidth. Each message is sent and received at a frequency of 10 Hz. The total payload of each message was 156 bytes and each message consists of MC, SIC, and POC. In each message, there were five POCs, which had a payload of 78 bytes. According to IEEE 802.11 standards, the ITS-G5 network has a limitation to send each message with a maximum payload of 1500 bytes. This means that if messages need to be sent with payloads more than 1500 bytes, the messages need to be sent in separate parts. Based on these values, we are able to determine some of the relevant message sizes and frequencies to include in our test case.</p><p>In this work, we evaluate our testbed with a simple test case that evaluates the messaging capabilities within the 5G cellular network to develop a preliminary understanding of how a 5G C-V2X shared situational awareness system could be designed. Since 5G networks have different bandwidth alternatives and different features for prioritizing sessions in the network, we set up a test case where we evaluate the testbed's performance with varying network loads, message sizes, and message frequencies. Moreover, since safetycritical data is being communicated, it's of great interest to understand the effects of network traffic overloading and handovers on the messaging between agents. As the focus of the developed testbed is the facilitation of development and evaluation of advanced 5G C-V2X applications, we will not focus on comparing the performance of 5G C-V2X with ITS-G5-based V2X. Instead, through our test, we are interested in understanding how shared situational awareness would look as a 5G C-V2X application.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>B. Test Case Setup</head><p>Our testbed is in the Kista Innovation Park (KIP), an arena that provides a controlled environment for conducting research and development of C-V2X applications on a dedicated 5G standalone test network. As illustrated in Fig. <ref type="figure" target="#fig_1">2</ref>, KIP is equipped with two radio stations, allowing for the study of handover events in a controlled manner. This, combined with the ability to freely configure its net-   work, positions KIP as a suitable arena to explore realworld complexities, yet under controlled and manageable circumstances.</p><p>Based on the urban scenario introduced for shared situational awareness, for our test case, we employ an infrastructure sensor, an edge server, and a 1/10th-scale CAV as the primary agents. By setting up this type of test case, we can measure the latency of safety critical perception data when sent from a sensor to a CAV through an edge server over a 5G cellular network, as shown in Fig. <ref type="figure" target="#fig_1">2</ref>. We can also compare the effect of different network configurations. In this work, we show this capability using a QoS mechanism in the 5G network named absolute priority scheduling that aims to protect our safety-critical traffic. We compare the absolute priority (AP) configuration with a baseline (BL) that uses default scheduling.</p><p>In our implementation, we send messages containing dummy data instead of real perception messages to more easily control certain traffic characteristics such as message size and frequency. The different combinations of network settings, background loads, message sizes, and frequencies applied in our experiments are summarized in Table <ref type="table" target="#tab_0">I</ref>. With these, we show how flexible our testbed is in terms of how quickly one can develop V2X scenarios and start testing different designs of 5G C-V2X applications. By exposing these options, we can create test cases relatable to existing ITS-G5 based standards, i.e. 1 kB messages at 10 Hz, then continue to investigate other test cases that take better advantage of the features in 5G networks. We note that these test cases are not exhaustive and in the future it'd be interesting to continue to test shared situational awareness under other scenarios. Next, we describe the specific network conditions we considered in this work.</p><p>1) Nominal Conditions: In the nominal conditions, we consider a static 1/10th-scale CAV that is receiving messages of a particular size and at a particular frequency. At the same time, there is background load in the network generated by regular User Equipment (UE) using iPerf <ref type="bibr" target="#b18">[18]</ref>, and this load is carried over User Datagram Protocol (UDP). Although the application data is carried over TCP through NATS, the background load has to flood the network, making UDP a more suitable transport protocol. For the 5G network, that has 20 MHz bandwidth, we consider 1 UE loading 5 Mbps in the uplink direction and 1 UE loading 110 Mbps in the downlink direction to be within nominal conditions with respect to the network's capacity.</p><p>2) Overload Conditions: In the overload conditions, we are also analyzing conditions when there is background load exceeding the network's capacity, which we refer to as overloading conditions. Since networks are typically not configured for symmetric resource allocation in uplink and downlink traffic, it can be further valuable to test background load in each direction separately. To assess the potential benefits of prioritized network traffic on 5G C-V2X performance, we test the network configurations AP and BL when there is asymmetric background load.</p><p>3) Mobility Conditions: In the mobility conditions, due to the motion of the vehicle, handover events are triggered when the vehicle transitions between the two radio cells, as illustrated in Fig. <ref type="figure" target="#fig_1">2</ref>. These events can increase latency, which is why they are an important aspect to consider during mobility conditions.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>C. Test Case under Nominal Conditions</head><p>Under nominal conditions, in a static vehicle agent setting, we examine our test case with varying message types, background load, and network configurations, as detailed in Fig. <ref type="figure">4</ref>. Latency of individual packets under background load. This test was conducted with message size and frequency of 1 kB at 10 Hz, in BL network configuration, while there was 1 UEs x 5 Mbps uplink and 1 UEs x 110 Mbps downlink load. In red, we see the synchronization error between sensor-server and server-vehicle, respectively. Table <ref type="table" target="#tab_0">I</ref>. Using Cumulative Distribution Functions (CDFs) of latency, we can compare the impact of different traffic and network attributes with respect to the given requirements of a 5G C-V2X application. For example, a requirement could be that 95% of the latency distribution must be less than 40 ms. Fig. <ref type="figure" target="#fig_3">3</ref> shows such CDFs for the test cases under nominal conditions. As expected, there is no significant difference between BL and AP network configurations, since the benefit of absolute priority scheduling is not apparent with such low load and just one background UE in the cell.</p><p>In addition to Fig. <ref type="figure" target="#fig_3">3</ref>, it can also be useful to view the latencies of individual packets. Since our testbed logs each message, it is possible to perform such analyses, as depicted in Fig. <ref type="figure">4</ref>. It is worth noting that this particular test was affected by synchronization errors due to drifting system clocks. Depending on what is being tested, this might not be a significant problem. However, this issue demonstrates the importance of careful consideration of, and planning for, time synchronization.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>D. Test Case under Overload Conditions</head><p>Overload conditions, as the name conveys, describe the case when there is background traffic exceeding the network's capacity. In Fig. <ref type="figure" target="#fig_4">5</ref>, we present the 99%, 95%, and mean latency values of the UL traffic when there is extreme background load only in the uplink direction. Through these measurements, we see that the network was able to protect the UL traffic under overload conditions with the help of the enabled 5G features in AP.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>E. Test Case under Mobility Conditions</head><p>Evaluating network behavior in the context of a moving vehicle is particularly interesting due to the handover events that can occur. The network configuration, message size, and message frequency of this experiment are described in Table I, while no additional features were added to help lower the handover latency. Fig. <ref type="figure" target="#fig_5">6</ref> displays the GPS coordinates and packet latency following the handover route in Fig. <ref type="figure" target="#fig_1">2</ref>. Specifically, this allows us to know where and when these handovers occur, along with the latency at these times. By following this route in a controlled environment, we can repeat handover events to evaluate their consistency and the 5G C-V2X application performance when these transitions occur.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>V. DISCUSSION</head><p>The performed tests, inspired from shared situational awareness, show that the presented testbed implementation stands as a fast and effective development platform. Moreover, it indicates that small-scale testbeds are suitable for evaluating advanced 5G C-V2X applications. For example, from the test cases under nominal conditions, we are able to track individual messages and measure the latency when they are of varying sizes and frequencies. From the test cases under overload conditions, we are able to observe the testbed's ability to stress test an implemented 5G C-V2X application when there are additional users in the same network. Finally, from the test cases under mobility conditions, we are able to see the effects of handovers, providing us a controlled way to evaluate these events in relation to the 5G C-V2X application. For future work, we are implementing the full 5G C-V2X shared situational awareness application along with an intelligent intersection application, similar to <ref type="bibr" target="#b19">[19]</ref>, and will evaluate both of their real-life performances. In parallel to this implementation, we will also continue to investigate and implement new features, such as features limiting handover interruption time, that are being specified in 3GPP to enhance the network's ability to support 5G C-V2X applications</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Fig. 1 .</head><label>1</label><figDesc>Fig. 1. A snapshot of the 1/10th-scale SVEA platform driving in the presented 5G-based C-V2X testbed in the Kista Innovation Park. More details about the SVEA platform at [https://svea.eecs.kth.se]</figDesc><graphic coords="1,313.91,176.70,239.90,179.93" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>Fig. 2 .</head><label>2</label><figDesc>Fig.2. Architecture and Spatial Distribution of our 5G C-V2X Testbed System. There are three types of ITS agents: infrastructure sensor, edge server and CAVs (SVEA). To communicate, the sensor and CAVs have a wireless connection using a 5G cellular network with 20 MHz bandwidth. Each radio cell has ca. 40 Mbps capacity. T1, T2, T3, T4 are the transmission time stamps of the messages used in our evaluation. All agents rely on an NTP server for clock synchronization. The NTP server is reached using the same wired or wireless connection as is used for their main communication.</figDesc><graphic coords="3,57.30,50.08,493.92,196.76" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head>Fig. 3 .</head><label>3</label><figDesc>Fig. 3. Cumulative Distribution Functions (CDFs) of latency for all the different combinations under nominal conditions.</figDesc><graphic coords="5,335.94,50.09,195.84,352.51" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_4"><head>Fig. 5 .</head><label>5</label><figDesc>Fig. 5. Comparison between different cases under overload conditions. The figure depicts 99%, 95%, and mean latency when overloading the network in uplink traffic.</figDesc><graphic coords="6,323.70,50.08,220.32,202.06" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_5"><head>Fig. 6 .</head><label>6</label><figDesc>Fig. 6. Vehicle traveling along the handover route. The vehicle starts near Antenna 2 (yellow) and drives towards Antenna 1 (orange). During this route, DL traffic (server-vehicle) is logged and shown in the respective color. UL traffic (sensor-server), which always goes through Antenna 1, is also shown before (light orange) and after (dark orange) handover. Packets affected by the handover are shown in green.</figDesc><graphic coords="7,61.86,215.44,232.56,85.92" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_0"><head>TABLE I COMBINATIONS</head><label>I</label><figDesc>OF NETWORK CONFIGURATIONS, BACKGROUND LOAD, MESSAGE SIZES, AND FREQUENCIES IN THE PRESENTED TEST CASE.</figDesc><table /></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="1" xml:id="foot_0">https://github.com/KTH-SML/cv2x-testbed</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="2" xml:id="foot_1">https://chrony-project.org/</note>
+		</body>
+		<back>
+
+			<div type="acknowledgement">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>ACKNOWLEDGMENT</head><p>The authors would like to thank Mustafa Al-Janabi for software contributions to the messaging system used in this work.</p></div>
+			</div>
+
+
+			<div type="funding">
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>* Indicates equal contribution This work was partially supported by the Swedish Innovation agency (Vinnova), under grant 2021-02555 Future 5G Ride, within the Strategic Vehicle Research and Innovation program (FFI); the Wallenberg Artificial Intelligence, Autonomous Systems, and Software Program (WASP) funded by the Knut and Alice Wallenberg Foundation; the Swedish Research Council Distinguished Professor Grant 2017-01078; and the Knut and Alice Wallenberg Foundation Wallenberg Scholar Grant.</p></div>
+			</div>
+
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">A survey on road safety and traffic efficiency vehicular applications based on C-V2X technologies</title>
+		<author>
+			<persName><forename type="first">I</forename><surname>Soto</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Calderon</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">O</forename><surname>Amador</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Urueña</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Vehicular Communications</title>
+		<imprint>
+			<biblScope unit="volume">33</biblScope>
+			<biblScope unit="page">100428</biblScope>
+			<date type="published" when="2022">2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">Low Latency V2X Applications and Network Requirements: Performance Evaluation</title>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Amjad</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Sikora</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Hilt</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J.-P</forename><surname>Lauffenburger</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">2018 IEEE Intelligent Vehicles Symposium (IV)</title>
+				<imprint>
+			<biblScope unit="page" from="220" to="225" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">V2X Applications Using Collaborative Perception</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Miucic</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Sheikh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Medenica</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Kunde</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">2018 IEEE 88th Vehicular Technology Conference (VTC-Fall)</title>
+				<imprint>
+			<biblScope unit="page" from="1" to="6" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<monogr>
+		<title level="m" type="main">Shared Situational Awareness with V2X Communication and Set-membership Estimation</title>
+		<author>
+			<persName><forename type="first">V</forename><surname>Narri</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Alanwar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Mårtensson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Norén</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">H</forename><surname>Johansson</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:2302.05224</idno>
+		<ptr target="http://arxiv.org/abs/2302.05224" />
+		<imprint>
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<monogr>
+		<title level="m" type="main">Intelligent Transport Systems (ITS); ITS-G5 Access layer specification for Intelligent Transport Systems operating in the 5∼GHz frequency band</title>
+		<ptr target="https://www.etsi.org/" />
+		<imprint>
+			<publisher>European Telecommunications Standards Institute</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">The 3rd generation partnership project</title>
+		<ptr target="https://www.3gpp.org" />
+	</analytic>
+	<monogr>
+		<title level="j">3GPP</title>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">C-V2X explained</title>
+		<ptr target="https://5gaa.org/c-v2x-explained/" />
+	</analytic>
+	<monogr>
+		<title level="m">5G Automative Association (5GAA)</title>
+				<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">Vehicular Networking: ITS-G5 vs 5G Performance Evaluation using Road Weather Information</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">N</forename><surname>Tahir</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Sukuvaara</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Katz</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">2020 International Conference on Software, Telecommunications and Computer Networks (SoftCOM)</title>
+				<imprint>
+			<biblScope unit="page" from="1" to="6" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">SVEA: an experimental testbed for evaluating V2X use-cases</title>
+		<author>
+			<persName><forename type="first">F</forename><forename type="middle">J</forename><surname>Jiang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Al-Janabi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Bolin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">H</forename><surname>Johansson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Mårtensson</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">2022 IEEE 25th International Conference on Intelligent Transportation Systems (ITSC)</title>
+				<meeting><address><addrLine>Macau; China</addrLine></address></meeting>
+		<imprint>
+			<publisher>IEEE</publisher>
+			<biblScope unit="page" from="3484" to="3489" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<monogr>
+		<title level="m" type="main">Robotic operating system</title>
+		<author>
+			<persName><forename type="first">Stanford</forename><surname>Artificial</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Intelligence</forename><surname>Laboratory</surname></persName>
+		</author>
+		<ptr target="https://www.ros.org" />
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<monogr>
+		<title level="m" type="main">V2aix: A multi-modal real-world dataset of etsi its v2x messages in public road traffic</title>
+		<author>
+			<persName><forename type="first">G</forename><surname>Kueppers</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J.-P</forename><surname>Busch</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Reiher</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Eckstein</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:2403.10221</idno>
+		<imprint>
+			<date type="published" when="2024">2024</date>
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">MQTT Version 3.1.1 Protocol Specification</title>
+		<ptr target="http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html" />
+	</analytic>
+	<monogr>
+		<title level="j">OASIS, Tech. Rep</title>
+		<imprint>
+			<date type="published" when="2014">2014</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<monogr>
+		<title level="m" type="main">Cloud Native Computing Foundation and Synadia</title>
+		<ptr target="https://nats.io" />
+		<imprint/>
+	</monogr>
+	<note>NATS</note>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<monogr>
+		<title/>
+		<author>
+			<persName><forename type="first">Zettascale</forename><surname>Technology</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Zenoh</surname></persName>
+		</author>
+		<ptr target="https://zenoh.io" />
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">Network Time Protocol Version 4: Protocol and Algorithms Specification</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Martin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Burbank</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Kasch</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">D L</forename><surname>Mills</surname></persName>
+		</author>
+		<ptr target="https://www.rfc-editor.org/info/rfc5905" />
+	</analytic>
+	<monogr>
+		<title level="j">RFC</title>
+		<imprint>
+			<biblScope unit="volume">5905</biblScope>
+			<date type="published" when="2010-06">Jun. 2010</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<analytic>
+		<title level="a" type="main">IEEE Standard for a Precision Clock Synchronization Protocol for Networked Measurement and Control Systems</title>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Std</title>
+		<imprint>
+			<biblScope unit="page" from="1" to="499" />
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+	<note>Revision of IEEE</note>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<monogr>
+		<title level="m">ETSI, Intelligent Transport Systems (ITS)</title>
+				<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<monogr>
+		<title level="m" type="main">Basic Set of Applications; Analysis of the Collective Perception Service (CPS); Release 2, etsi tr 103 562 v2.1.1 (2019-12) ed. The European Telecommunications Standards Institute</title>
+		<imprint>
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+	<note>Vehicular Communications</note>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<monogr>
+		<title level="m" type="main">iperf3</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Esnet</surname></persName>
+		</author>
+		<ptr target="http://software.es.net/iperf/" />
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<analytic>
+		<title level="a" type="main">Ensuring Safety at Intelligent Intersections: Temporal Logic Meets Reachability Analysis</title>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">M</forename><surname>Arfvidsson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><forename type="middle">J</forename><surname>Jiang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">H</forename><surname>Johansson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Mårtensson</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">2024 IEEE Intelligent Vehicles Symposium (IV)</title>
+				<imprint/>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

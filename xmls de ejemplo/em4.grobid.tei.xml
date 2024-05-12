@@ -1,0 +1,962 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Leveraging AES Padding: dBs for Nothing and FEC for Free in IoT Systems</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+				<date type="published" when="2024-05-08">8 May 2024</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><roleName>Graduate Student Member, IEEE</roleName><forename type="first">Jongchan</forename><surname>Woo</surname></persName>
+							<email>jcwoo@mit.edu</email>
+							<affiliation key="aff0">
+								<orgName type="department">Department of Electrical Engineering and Computer Science</orgName>
+								<orgName type="institution">Mas-sachusetts Institute of Technology</orgName>
+								<address>
+									<postCode>02139</postCode>
+									<settlement>Cambridge</settlement>
+									<region>MA</region>
+									<country key="US">USA</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><roleName>Member, IEEE</roleName><forename type="first">Vipindev</forename><forename type="middle">Adat</forename><surname>Vasudevan</surname></persName>
+							<email>vipindev@mit.edu</email>
+							<affiliation key="aff0">
+								<orgName type="department">Department of Electrical Engineering and Computer Science</orgName>
+								<orgName type="institution">Mas-sachusetts Institute of Technology</orgName>
+								<address>
+									<postCode>02139</postCode>
+									<settlement>Cambridge</settlement>
+									<region>MA</region>
+									<country key="US">USA</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><roleName>Student Member, IEEE</roleName><forename type="first">Benjamin</forename><forename type="middle">D</forename><surname>Kim</surname></persName>
+							<email>bdkim4@illinois.edu</email>
+							<affiliation key="aff0">
+								<orgName type="department">Department of Electrical Engineering and Computer Science</orgName>
+								<orgName type="institution">Mas-sachusetts Institute of Technology</orgName>
+								<address>
+									<postCode>02139</postCode>
+									<settlement>Cambridge</settlement>
+									<region>MA</region>
+									<country key="US">USA</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff1">
+								<orgName type="department">Department of Electrical and Computer Engineering</orgName>
+								<orgName type="institution">University of Illinois Urbana-Champaign</orgName>
+								<address>
+									<postCode>61820</postCode>
+									<settlement>Champaign</settlement>
+									<region>IL</region>
+									<country key="US">USA</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><roleName>Member, IEEE</roleName><forename type="first">Rafael</forename><forename type="middle">G L</forename><surname>D'oliveira</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department">Department of Electrical Engineering and Computer Science</orgName>
+								<orgName type="institution">Mas-sachusetts Institute of Technology</orgName>
+								<address>
+									<postCode>02139</postCode>
+									<settlement>Cambridge</settlement>
+									<region>MA</region>
+									<country key="US">USA</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff2">
+								<orgName type="department">School of Mathematical and Sta-tistical Sciences</orgName>
+								<orgName type="institution">Clemson University</orgName>
+								<address>
+									<postCode>29631</postCode>
+									<settlement>Clemson</settlement>
+									<region>SC</region>
+									<country key="US">USA</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><roleName>Member, IEEE</roleName><forename type="first">Alejandro</forename><surname>Cohen</surname></persName>
+							<email>aleco-hen@technion.ac.il</email>
+							<affiliation key="aff0">
+								<orgName type="department">Department of Electrical Engineering and Computer Science</orgName>
+								<orgName type="institution">Mas-sachusetts Institute of Technology</orgName>
+								<address>
+									<postCode>02139</postCode>
+									<settlement>Cambridge</settlement>
+									<region>MA</region>
+									<country key="US">USA</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff3">
+								<orgName type="department">Technion Faculty of Electrical Engineering</orgName>
+								<orgName type="institution">Technion Israel Institute of Technology</orgName>
+								<address>
+									<postCode>32000</postCode>
+									<settlement>Haifa</settlement>
+									<country key="IL">Israel</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Thomas</forename><surname>Stahlbuhk</surname></persName>
+							<email>thomas.stahlbuhk@ll.mit.edu</email>
+							<affiliation key="aff0">
+								<orgName type="department">Department of Electrical Engineering and Computer Science</orgName>
+								<orgName type="institution">Mas-sachusetts Institute of Technology</orgName>
+								<address>
+									<postCode>02139</postCode>
+									<settlement>Cambridge</settlement>
+									<region>MA</region>
+									<country key="US">USA</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff4">
+								<orgName type="institution">MIT Lincoln Laboratory</orgName>
+								<address>
+									<postCode>02421</postCode>
+									<settlement>Lexington</settlement>
+									<region>MA</region>
+									<country key="US">USA</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><roleName>Senior Member, IEEE</roleName><forename type="first">Ken</forename><forename type="middle">R</forename><surname>Duffy</surname></persName>
+							<email>k.duffy@northeastern.edu</email>
+							<affiliation key="aff0">
+								<orgName type="department">Department of Electrical Engineering and Computer Science</orgName>
+								<orgName type="institution">Mas-sachusetts Institute of Technology</orgName>
+								<address>
+									<postCode>02139</postCode>
+									<settlement>Cambridge</settlement>
+									<region>MA</region>
+									<country key="US">USA</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff5">
+								<orgName type="department">Department of Mathematics</orgName>
+								<orgName type="institution">Boston University</orgName>
+								<address>
+									<postCode>02215</postCode>
+									<settlement>Boston</settlement>
+									<region>MA</region>
+									<country key="US">USA</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><roleName>Fellow, IEEE</roleName><forename type="first">Muriel</forename><surname>Médard</surname></persName>
+							<email>medard@mit.edu</email>
+							<affiliation key="aff0">
+								<orgName type="department">Department of Electrical Engineering and Computer Science</orgName>
+								<orgName type="institution">Mas-sachusetts Institute of Technology</orgName>
+								<address>
+									<postCode>02139</postCode>
+									<settlement>Cambridge</settlement>
+									<region>MA</region>
+									<country key="US">USA</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Leveraging AES Padding: dBs for Nothing and FEC for Free in IoT Systems</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date type="published" when="2024-05-08">8 May 2024</date>
+						</imprint>
+					</monogr>
+					<idno type="MD5">F93085391D787C8468FEB2E6FC83C072</idno>
+					<idno type="arXiv">arXiv:2405.05107v1[cs.ET]</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.2" ident="GROBID" when="2024-05-12T15:27+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>
+					<term>Internet of Things (IoT)</term>
+					<term>advanced encryption standard (AES)</term>
+					<term>forward error correction (FEC)</term>
+					<term>hardware architecture design</term>
+					<term>communication system reliability</term>
+					<term>energy efficiency in IoT</term>
+				</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>The Internet of Things (IoT) represents a significant advancement in digital technology, with its rapidly growing network of interconnected devices. This expansion, however, brings forth critical challenges in data security and reliability, especially under the threat of increasing cyber vulnerabilities. Addressing the security concerns, the Advanced Encryption Standard (AES) is commonly employed for secure encryption in IoT systems. Our study explores an innovative use of AES, by repurposing AES padding bits for error correction and thus introducing a dual-functional method that seamlessly integrates error-correcting capabilities into the standard encryption process. The integration of the state-of-the-art Guessing Random Additive Noise Decoder (GRAND) in the receiver's architecture facilitates the joint decoding and decryption process. This strategic approach not only preserves the existing structure of the transmitter but also significantly enhances communication reliability in noisy environments, achieving a notable over 3 dB gain in Block Error Rate (BLER). Remarkably, this enhanced performance comes with a minimal power overhead at the receiver-less than 15% compared to the traditional decryption-only process, underscoring the efficiency of our hardware design for IoT applications. This paper discusses a comprehensive analysis of our approach, particularly in energy efficiency and system performance, presenting a novel and practical solution for reliable IoT communications.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>I. INTRODUCTION</head><p>T HE Internet of Things (IoT) is a pivotal force in the evolution of digital technology, marked by the rapid integration of interconnected devices into a wide array of sectors <ref type="bibr" target="#b0">[1]</ref>. These applications, ranging from smart homes to advanced traffic systems in transportation, remote health monitoring in healthcare, smart farming in agriculture, and supply chain optimization in business, are revolutionizing traditional practices <ref type="bibr" target="#b1">[2]</ref>. They improve efficiency, precision, and decision-making capabilities, reflecting the profound impact of IoT on everyday life. As the IoT network continues to grow, with projections suggesting a leap to billions of connected devices, the challenges of data security and privacy have escalated. In this interconnected environment, where data is continuously exchanged, securing these vast streams of information becomes a critical task <ref type="bibr" target="#b2">[3]</ref>.</p><p>In the context of IoT, the use of lightweight cryptographic techniques such as the Advanced Encryption Standard (AES) <ref type="bibr" target="#b3">[4]</ref> is essential for securing data in energy-constrained environments. AES provides a practical balance, aligning with the dual demands of security and operational efficiency in IoT devices. It represents a strategic choice for IoT applications, ensuring that security measures are in harmony with the inherent constraints of these devices. AES, being a block cipher, always operates over a fixed block size of 128 bits <ref type="bibr">(16 bytes)</ref>. AES encryption typically incorporates padding to fill the remaining bits of its block in case of a mismatch in the input size <ref type="bibr" target="#b4">[5]</ref>. Standards and protocols that are prevalent in IoT applications, such as IEEE 802.15.4 <ref type="bibr" target="#b5">[6]</ref> or Message Queuing Telemetry Transport (MQTT) <ref type="bibr" target="#b6">[7]</ref>, often employ such padding bits to match the AES block sizes.</p><p>Recent advances in communication research have highlighted a unique aspect of AES, specifically its application in error correction <ref type="bibr" target="#b7">[8]</ref>. This exploration revealed that the portion of an AES block used for padding can effectively provide error correction capabilities, thereby opening avenues for additional functionalities beyond its primary role in encryption. Building upon this insight, this work aims to explore the potential of the existing AES encryption and its padding scheme to improve communication reliability in IoT devices. By multi-purposing the existing padding bits required for AES encryption for error correction, we introduce a method that infuses errorcorrecting capabilities into the standard encryption process. This approach retains the original transmitter-side processes intact, while embedding an additional layer of error correction to improve data transmission reliability.</p><p>In this research, the primary aim is to utilize AES's encryption capabilities and padding strategy to enhance communication reliability in IoT devices, without altering its existing security standards. Our method ingeniously repurposes existing AES padding bits for error correction, significantly enhancing data transmission reliability without necessitating modifications to the transmitter's architecture. This strategic application of AES,without necessitating operational alterations, fortifies communication against errors, evidenced by notable improvements in BER and BLER across diverse scenarios. This is complemented by a comparative analysis with the state-of-theart Guessing Random Additive Noise Decoder (GRAND) <ref type="bibr" target="#b8">[9]</ref> in practical application scenarios, assessing the method's effectiveness in realistic communication environments.</p><p>We have also implemented and compared the hardware for the state-of-the-art approaches as the baseline system and our proposed AES-based error correction architecture. This comparison focused on key metrics such as power consumption, latency, goodput, decoding energy required per bit (energy/bit), and hardware area. Through this comprehensive evaluation, we highlight the practical benefits of our approach, especially in terms of energy efficiency and system performance in realworld IoT applications.</p><p>This study aligns with scenarios outlined in the IEEE 802.15.4 standard, where Forward Error Correction (FEC) is usually not employed due to energy constraints, and retransmissions are used for error handling <ref type="bibr" target="#b5">[6]</ref>. Our method of utilizing AES padding for error correction provides an efficient way to enhance system reliability and reduce retransmission rates in noisy channels. This offers a dual benefit: it provides FEC without necessitating additional changes to the transmitter side and provides better transmission rates as per IEEE standards.</p><p>The primary contributions of our study are summarized as follows:</p><p>• Introduction of AES-based error correction in existing transmitter systems for IoT applications to enhance communication reliability in noisy environments, without the need for additional encoding processes.</p><p>• Comparative analysis of error correction capabilities between our AES-based method and the GRAND decoder, focusing on practical communication scenarios to demonstrate the effectiveness of our approach.</p><p>• Implementation and evaluation of hardware for both the baseline and AES-based error correction systems, analyzing power consumption, throughput, decoding energy required per bit, and hardware area.</p><p>• Demonstration of improvements in energy efficiency and overall system performance in IoT communication systems, emphasizing key performance indicators such as energy/bit and throughput.</p><p>The remainder of the paper is organized as follows: Section II discusses related works on AES in error correction and its relevance to IoT systems. Section III details our proposed system, covering both the transmitter and receiver aspects. Section IV details the hardware design for receiver systems in IoT devices, comparing our novel architecture with different traditional receiver architectures. System analysis, including error-correcting capabilities and hardware evaluation, is presented in Section V. Section VI offers a discussion on the broader implications and potential future research directions. Finally, the paper concludes with Section VII, summarizing the key findings and their significance.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>II. RELATED WORKS</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>A. The Internet of Things</head><p>The phrase Internet of Things (IoT) was coined by Kevin Ashton <ref type="bibr" target="#b9">[10]</ref> in the late 1990's to represent the wide range of sensors and other small digital devices that capture and process data and gained a lot of interest in the early 2000s onwards. With the rapid advancements in technology, IoT devices that are digitally identifiable, with data capturing and processing capabilities, and connected to the internet have dominated the connected world. However, these resource-constrained devices are also prone to security threats and require lightweight cryptosystems to operate efficiently <ref type="bibr" target="#b10">[11]</ref>, <ref type="bibr" target="#b11">[12]</ref>. There are different communication protocols defined for secure and reliable IoT operations such as the IEEE 802.15.4 and MQTT. The IoT devices, characterized by low data rates and their limited storage and processing capabilities, often prioritize encryption over channel coding schemes. For example, the IEEE 802.15.4 standard for ZigBee <ref type="bibr" target="#b12">[13]</ref> proposes AES as the encryption scheme and depends on a Cyclic Redundancy Check (CRC), a scheme that checks for error detection, while relying on retransmissions of lost packets for reliable communication <ref type="bibr" target="#b5">[6]</ref>. This leads to an increased active period for the devices resulting in higher energy consumption, especially in lossy channels. Different performance analysis studies using the IEEE 802.15.4 standard focus on Eb/N0 up to 10 dB and achieve a Bit Error Rate (BER) of 10 −4 in that range <ref type="bibr" target="#b13">[14]</ref>, <ref type="bibr" target="#b14">[15]</ref>. Even though not part of the standards, incorporating channel coding techniques such as Reed Solomon codes to IoT scenarios to reduce retransmissions and thus improve efficiency has been studied <ref type="bibr" target="#b15">[16]</ref>, <ref type="bibr" target="#b16">[17]</ref>. However, these schemes require significant modifications to devices, including the integration of an encoder module, as well as the implementation of a corresponding decoding process at the receiver. This leads to increased power consumption and elevated computational complexity, presenting particular challenges for IoT devices where energy efficiency and processing power are paramount concerns.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>B. Advanced Encryption Standard</head><p>The Advanced Encryption Standard (AES) is widely recognized as a robust symmetric block cipher scheme, mainly used to protect sensitive data <ref type="bibr" target="#b3">[4]</ref>. Characterized by a fixed block size and supporting key sizes of 128, 192, and 256 bits, AES is known for its thorough encryption process. This process involves multiple rounds of encryption -10, 12, or 14, depending on the key size -where each round, except the last, includes four distinct steps: SubBytes, ShiftRows, MixColumns, and AddRoundKey. These steps intricately mix the data with a key derived for each round, ensuring a high level of security.</p><p>A key aspect of AES, particularly relevant to our research, is its output's statistical randomness. AES has been effectively analyzed as a pseudo-random number generator, a characteristic that offers valuable potential beyond its primary encryption role <ref type="bibr" target="#b17">[18]</ref>. Due to this inherent randomness of AES output, it becomes viable to utilize AES for generating error-correcting performance akin to Random Linear Codes (RLCs) <ref type="bibr" target="#b7">[8]</ref>. In leveraging this property, we explore the dual utility of AES -not only as an encryption mechanism but also as an effective means for error correction. This innovative application highlights the versatility of AES in enhancing communication reliability, particularly in scenarios where error correction is paramount.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>C. Guessing Random Additive Noise Decoding</head><p>Guessing Random Additive Noise Decoding (GRAND) is a decoding algorithm employed at the receiver to interpret corrupted binary sequences <ref type="bibr" target="#b18">[19]</ref>, <ref type="bibr" target="#b8">[9]</ref>. The GRAND process works by generating putative noise effect sequences based on channel conditions or soft data inputs. These sequences are ordered from the most likely to the least likely, using criteria such as Hamming weight for binary symmetric channels or logistic-weight for systems with soft input like per-bit reliabilities <ref type="bibr" target="#b19">[20]</ref>, <ref type="bibr" target="#b20">[21]</ref>. This process is effectively illustrated in Algorithm 1, where each potential noise effect is tested against the received sequence for codebook membership. This methodology allows for maximum likelihood decoding and highlights the flexibility of GRAND as a universal decoder that works for any encoding method by verifying codebook membership.</p><p>ORBGRAND, an extension of GRAND, is optimized for soft detection scenarios and enhances block error rate (BLER) performance <ref type="bibr" target="#b20">[21]</ref>. It processes reliability bits in a specific order, derived from soft information, for more effective decoding of block codes. This variant adapts the GRAND approach to accommodate soft input scenarios, such as those involving perbit reliabilities, by generating noise effects based on increasing logistic-weight. ORBGRAND thus bridges the gap between the hard detection efficacy of GRAND and the complexity of soft detection techniques, proving essential for ultra-reliable, low-latency communications in environments like IoT.</p><p>Algorithm 1 Guessing Random Additive Noise Decoding 1: Inputs: A demodulated channel output y n = (y 1 , y 2 , . . . , y n ); a code-book membership function such that C(y n ) = 1 if and only if y n is in the codebook; and optional statistical noise characteristics or soft information, Φ. z n ← next most likely binary noise effect sequence (which may depend on Φ)</p><formula xml:id="formula_0">7: if C(y n ⊕ z n ) = 1 then 8: c n * ← y n ⊕ z n 9:</formula><p>d ← 1  encryption is prevalent, necessitating padding to align with AES's 128-bit block size. Our design maintains the encryption framework at the transmitter end while introducing an innovative hardware architecture for joint decoding and decryption at the receiver, utilizing GRAND as proposed in <ref type="bibr" target="#b21">[22]</ref>, <ref type="bibr" target="#b22">[23]</ref>. Our analysis contrasts our proposed system with traditional setups: a baseline system employing only encryption, thus lacking error correction, and another that separates encryption and encoding. The latter's receiver architecture includes distinct decryption and decoding phases. This comprehensive evaluation allows us to compare the error-correcting capabilities and decoding energy efficiency of our AES-based system with both the baseline encryption-only method and separated encryptionencoding systems. Detailed insights into each system's performance in various operational scenarios are provided in the following subsections.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>A. Transmitter</head><p>In this section, we investigate three scenarios, each addressing how the payload is processed for reliable transmission.</p><p>1) Padding for encryption, no redundancy bits (Baseline): Figure <ref type="figure">1</ref> shows a standard encryption setup, adding padding to a k-bit payload to reach the n-bit AES block size, followed by encryption. However, these padding bits are only used for data security and do not provide error correction capabilities in traditional IoT systems.</p><p>2) Padding for encryption, separate redundancy bits for error correction: In Figure <ref type="figure" target="#fig_0">2</ref>, the depicted process adds encoding after encryption, a typical approach in conventional secure and reliable communication systems <ref type="bibr" target="#b23">[24]</ref>, <ref type="bibr" target="#b24">[25]</ref>. This step incorporates redundancy bits that enhance the errorcorrecting capability, thereby improving the reliability of the channel. Our comparison between this architecture and our proposed one will primarily focus on hardware aspects, such as power consumption, area, and energy efficiency. This allows us to demonstrate the practicality and effectiveness of our system in real-world applications.</p><p>3) Padding for encryption, use the padding for error correction (Proposed): In the proposed system, as outlined in Figure <ref type="figure">1</ref>, the transmitter-side architecture remains unchanged from the first scenario. The k-bit payload undergoes padding with (n − k) bits to align with the n-bit AES block size. However, what distinguishes this approach is the alteration in the receiver architecture, where these padding bits are now utilized for error correction. This is achieved through the novel integration of the GRAND joint decoding and decryption functionality, offering an innovative method for enhancing error correction without modifying the transmitter's setup.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>B. Receiver</head><p>Our research employed both performance simulations and hardware implementations to validate our approach, ensuring its applicability in energy-constrained IoT environments. The study involved a detailed comparison of three receiver architectures, each designed to align with specific transmitter setups. These architectures, focusing on reliable and efficient decoding in challenging channel conditions, were critical for understanding their viability in IoT systems, where energy efficiency and effective data processing are paramount.</p><p>1) AES decryption without decoding (Baseline): The baseline receiver system, corresponding to the "Padding for encryption, no redundancy bits" transmitter setup outlined in Section III-A1, is designed solely for AES decryption, without any error-correction capability. This baseline configuration is crucial for our study, providing a standard against which we can evaluate the error-correcting efficiency of our proposed system. Our analysis not only compares the reliability and efficiency improvements of our system over this baseline but also includes an assessment of the hardware overheads involved in implementing our advanced error-correcting approach in the receiver. This comparison is key to highlighting the practical benefits and potential trade-offs of our system in IoT environments.</p><p>2) Separate ORBGRAND decoding and AES decryption: In the receiver architecture aligned with Section III-A2, titled "Padding for encryption, Redundancy bits for error correction," the approach involves separate ORBGRAND decoding and AES decryption. As depicted in Figure <ref type="figure">3</ref>, this process starts with an attempt at codebook matching. If the match fails, the system activates the error pattern generator, which operates based on the reliability of received bits. An error pattern is generated, subtracted from the received signal, and codebook matching is retried until a match is found. Following successful decoding, the AES decryption module decrypts the decoded block.</p><p>3) ORBGRAND + AES joint decoding and decryption (Proposed): The proposed architecture in Figure <ref type="figure">4</ref> is tailored to III-A3 "Padding for encryption, use padding for error correction" transmitter scenario. It begins with AES decryption, checking the padding sequence. Upon detecting padding sequence discrepancies, the system activates the error pattern generator. It iteratively adjusts the received signal based on generated error patterns until the correct padding sequence is detected post-decryption.</p><p>In comparing these architectures, the proposed system, with its integrated decoding and decryption, aims to reduce latency, whereas the separate decoding and decryption system may involve more clock cycles due to its sequential approach. The proposed system also occupies a smaller area, as it omits the need for a codebook checking matrix. These aspects, particularly in terms of latency, energy demands, and area efficiency will be comprehensively analyzed in Section V, taking into account the constraints of energy-efficient IoT systems.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>IV. ENERGY-EFFICIENT HARDWARE DESIGN</head><p>The design and implementation of the receiver systems in IoT devices is a meticulous process, especially when focusing on the baseline receiver system, which comprises the ORB-GRAND decoder followed by AES decryption, and our novel architecture integrating AES for error correction with joint decoding and decryption.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>A. Error Pattern Generator</head><p>Our receiver hardware's error pattern generator design strategically utilizes a 128-bit block size. This choice, deviating from the larger block sizes found in previous designs <ref type="bibr" target="#b22">[23]</ref>, enhances hardware efficiency. The smaller block size reduces the number of comparator stages needed, thereby lowering the clock cycles required for generating error patterns, speeding up the process and boosting overall efficiency. The optimized error pattern generator's adoption is consistent across both the separate decoding and decryption receiver architecture and our proposed receiver architectures, ensuring uniform performance across different system configurations.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>B. Decoding Process in Proposed Receiver Hardware</head><p>The decoding process in our proposed receiver hardware architecture is strategically designed to improve system performance:</p><p>1) Data Fetch and Storage: This initial stage handles the retrieval and storage of the incoming data, setting the foundation for the decoding process. 2) Decryption and Padding Check: Combining decryption with padding check, this stage employs AES-128<ref type="foot" target="#foot_0">1</ref> for its efficiency. Completing in just 13 clock cycles, it includes data input and output, ensuring a continuous flow of data. 3) Error Pattern Generation and Noise Removal: If discrepancies in the padding sequence are detected, the system generates and subtracts error patterns based on the reliability of the received bits, correcting potential transmission errors. 4) Iterative Decryption and Padding Check: The process of decryption and padding check repeats until the correct padding sequence is identified, ensuring the accuracy and reliability of the decoded data. Incorporating AES-128, selected for its compact area and efficient energy usage per bit, is a critical component of our design <ref type="bibr" target="#b25">[26]</ref>. This pipelined architecture is especially advantageous in high SNR conditions, effectively reducing latency V. SYSTEM ANALYSIS This section presents the results of evaluating the performance of AES as an error-correcting code in comparison to different transmitter setups discussed in Section III. We also include hardware simulation results for the receiver architecture, focusing on power, throughput, energy per bit, and area. The receiver system was designed and implemented using 28nm CMOS technology, and the results were obtained from post-synthesis simulations at 0.9V and 100MHz.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>A. Error Correcting Capability</head><p>In our error-correcting performance evaluation, binary messages of length k-bits, chosen uniformly from F k 2 , were transmitted using Binary Phase Shift Keying (BPSK) over an Additive White Gaussian Noise (AWGN) channel. We maintained an equal number of redundancy bits across different transmitter encoding scenarios. This approach was essential since the error-correcting performance of the GRAND decoder is influenced by the number of redundancy bits <ref type="bibr" target="#b21">[22]</ref>. Performance metrics such BER and BLER were analyzed based on the energy per information bit to noise power spectral density ratio (Eb/N 0 ) <ref type="bibr" target="#b26">[27]</ref>.</p><p>In our simulations, we investigated three distinct scenarios:</p><p>• Baseline Encryption-Only without Encoding: This system focuses solely on encryption, applying hard decoding where any bit error leads to decoding failure. It is a straightforward approach emphasizing data security, without incorporating any additional encoding.</p><p>• Separate Encryption and Encoding: This setup uses ORBGRAND for decoding, leveraging soft information from signal reliability. It combines encryption with subsequent encoding, enhancing error correction while maintaining secure data transmission. The choice of ORB-GRAND is due to its superior error-correcting capabilities, flexibility, and energy efficiency in hardware, making it a suitable option for this architecture <ref type="bibr" target="#b22">[23]</ref>.</p><p>• Proposed AES as Error Correction: This method innovatively combines joint decoding and decryption using ORBGRAND. It enhances error correction capabilities within the framework of AES encryption, providing a balanced approach to secure and reliable data transmission. Figures <ref type="figure" target="#fig_4">5 and 6</ref> provide a comprehensive analysis of BER and BLER against Eb/N 0. These figures showcase different scenarios with 8-bit and 12-bit padding. The proposed AES error correction scheme significantly improves over the baseline encryption-only system, especially with 12-bit padding. This improvement is particularly remarkable in the BER under 10 −4 , indicating a substantial improvement in the reliability of the system.</p><p>The first set of trials with 12-bit padding demonstrated the    Fig. <ref type="figure">6</ref>. BER (left) and BLER (right) vs. Eb/N 0 for padding bits = 8-bit robustness of our AES error correction strategy. It was compared with state-of-the-art encoding and decoding schemes such as RLC <ref type="bibr" target="#b27">[28]</ref> and CA-Polar <ref type="bibr" target="#b28">[29]</ref> for encoding, and ORBGRAND <ref type="bibr" target="#b20">[21]</ref> and CRC-Aided Successive Cancellation List (CA-SCL) <ref type="bibr" target="#b29">[30]</ref> for decoding. Our approach not only outperformed the "no encoding" scenario but also showed competitive capabilities against the widely used "CA-POLAR" code with CA-SCL decoding. Significantly, this level of error correction effectiveness was achieved with less than 10% of the AES block size as padding bits, underscoring the efficiency of our method. Additionally, it is noteworthy that ORBGRAND displayed significantly superior performance over the state-of-the-art CA-SCL decoder in both BER and BLER metrics, further establishing its effectiveness.</p><p>In scenarios involving 8-bit and 12-bit padding, our proposed system consistently outperformed the baseline encryption-only setup, demonstrating its versatility across different conditions. When compared with systems employing separate encryption and encoding -where encryption is followed by encoding -our integrated approach maintained similar levels of BER and BLER, if the number of redundancy bits is matched to the padding. This performance comparability, despite different operational methodologies, highlights the effectiveness of our proposed method in enhancing communication reliability without altering the security mechanism. Our approach maintains the same security standards provided by the AES with inherent padding while significantly improving reliability, demonstrating a balanced advancement in secure and reliable IoT communications.</p><p>In high Eb/N 0 scenarios, our AES-based error correction system experiences a marginal decrease in performance when compared to the separate encrypt-and-encode system, primarily due to AES's non-linear codebook characteristics. Unlike linear codes with uniform minimum Hamming distances <ref type="bibr" target="#b30">[31]</ref>, AES's codebook does not maintain this uniformity, particularly when single-bit errors are more likely at these higher Eb/N 0 levels. In the AES system, due to its non-linear codebook, a single-bit error for certain codewords may result in an erroneous codeword being closer, leading to potential decreases in error correction efficacy. Simultaneously, our study leverages ORBGRAND, known for its near-optimal performance in moderate Eb/N 0 regimes, especially below 9 dB <ref type="bibr" target="#b31">[32]</ref>. This is our ideal operation regime since no additional coding is required to maintain a BER below 10 −4 for Eb/N 0 above 9 dB. The differences in the construction of AES and RLC, and the specific characteristics of ORBGRAND, are key factors in our system's performance, particularly under varying Eb/N 0 conditions. This combined understanding of ORBGRAND's capabilities and AES's inherent codebook properties clarifies the observed performance trends in different Eb/N 0 environments. This research emphasizes the effective application of ORBGRAND within the moderate Eb/N 0 regimes, without delving into its alternative operational modes that might be more suitable in higher Eb/N 0 scenarios since that is outside our area of interest. Despite this minor decline in high Eb/N 0 conditions, our proposed system consistently outperformed the encryptiononly approach in terms of lower BER and BLER. Achieving a BER better than 10 −4 is particularly significant in practical use cases of IEEE 802.15.4 standard <ref type="bibr" target="#b13">[14]</ref>, <ref type="bibr" target="#b14">[15]</ref>, underscoring the practicality and applicability of our system in real-world settings. This finding highlights the potential of our proposed AES error correction scheme in enhancing the reliability of communication systems, particularly in IoT environments where efficient data transmission is crucial.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>B. Hardware Analysis</head><p>The hardware analysis in our study compares the performance of three different receiver architectures: our proposed system with integrated joint ORBGRAND and AES decoding and decryption, a baseline system focusing only on AES decryption without error correction, and a separate system that combines ORBGRAND decoding with subsequent AES decryption. This comprehensive analysis, detailed in Table <ref type="table" target="#tab_4">I</ref>, examines power consumption, latency, goodput, and energy efficiency under various Eb/N 0 scenarios along with different numbers of padding bits. The findings provide valuable insight into the operational efficiencies and energy demands of these systems, providing a clear understanding of their relative performances in different signal-to-noise ratio environments.</p><p>It's essential to note the baseline system's uniform operation across all noise levels, demonstrating consistent power and latency due to its sole reliance on AES decryption. However, the evaluation of goodput and energy per bit becomes particularly relevant under conditions where the baseline system's BER is maintained below 10 −4 , typically at Eb/N 0 values greater than 9. Instances not meeting this criterion, such as the Eb/N 0 = 5.5 dB scenario with 8-bit padding, are thus marked as N/A, underscoring the importance of maintaining a threshold for reliable transmission.</p><p>The baseline system, solely relying on AES decryption, displays consistent power consumption and latency across all noise levels, maintaining uniform operation regardless of channel conditions. However, its goodput and energy per bit, tied to the actual payload data (k-bit), are influenced by the size of the padding bits, thus varying with the number of redundancy bits used. This variation in goodput and energy efficiency reflects the baseline's dependence on payload size in different operational scenarios. Moreover, the system's goodput and energy efficiency metrics are directly linked to the actual payload data (k-bit) and are affected by the padding bits' size, indicating a dependency on payload size for different operational scenarios.</p><p>Our proposed receiver system experiences an additional power overhead from the error pattern generator. Remarkably, in high Eb/N 0 scenarios, this overhead is less than 15% compared to the baseline decryption-only system, a rate that remains fairly consistent even in lower Eb/N 0 scenarios. The separate system, which employs sequential ORBGRAND decoding and AES decryption, demonstrates lower power consumption in lower Eb/N 0 scenarios. This is attributed to the system's operational strategy, where it runs the error pattern generator and syndrome check until successful decoding, followed by a single instance of AES decryption.</p><p>In the context of latency, our proposed system demonstrates no degradation compared to the baseline system in high Eb/N 0 scenarios, maintaining a consistent latency of 130ns for the entire decoding and decryption process, which is a direct result of the pipelined and parallel processing design. This performance is notably superior to the separate decoding and decryption system, which requires 150ns for the same process. The enhanced latency of our system translates into higher goodput, making it highly advantageous for IoT receiver applications where efficiency is key. However, in lower Eb/N 0 conditions, the need for frequent generation of new error patterns and padding checks in our system results in increased latency, which adversely impacts the goodput.   B: Baseline receiver system, AES decryption only S: Separate receiver system, ORBGRAND decoding followed by AES decryption P: Proposed receiver system, joint ORBGRAND decoding and AES decryption N/A: Unavailable due to high BER in the initial transmission across different systems. The area of the error pattern generator varies with the codeword length (n), but its basic architecture is designed to minimize latency in error pattern generation for all systems. Consequently, our proposed receiver architecture, while maintaining a similar AES area, bene®ts from a more compact error pattern generator due to the shorter codeword length, enhancing ef®ciency in space-constrained IoT applications.</p><p>The area ef®ciency of our proposed receiver system is enhanced due to the absence of a large H-matrix for syndrome check, a feature required in the separate systems. In the separate decoding and decryption system, the area for syndrome check is directly proportional to the product of the number of redundancy bits (n − k) and the codeword length (n), necessitating substantial storage in registers. Our system's approach, which involves padding check instead of syndrome check, eliminates the need for this extensive matrix storage. This design choice not only reduces the area by approximately 28% compared to the separate systems but also becomes more bene®cial at lower code rates. The absence of additional area requirements for padding check in our architecture emphasizes its suitability for IoT applications, where space and resource constraints are critical factors.</p><p>The overhead of area in our proposed system is mainly due to the error pattern generator, which is 50.2kGE (kilo-Gate Equivalent). However, this is still smaller than the separate system, which requires over 67kGE for error-correcting capabilities compared to a baseline receiver. This highlights Our implementation hinges on the inclusion of an ORB-GRAND error pattern generator in the receiver architecture. This addition incurs less than a 15% power overhead but signi®cantly improves the reliability of the communication channel. For instance, in the scenario depicted in Figure <ref type="figure" target="#fig_4">5</ref>, aiming for a BER of 10 −4 , our proposed system achieved this BER at an Eb/N 0 of only 5.5, 3.5dB less than the 9 required by the no encoding scenario. Similarly, as shown in Figure <ref type="figure">6</ref>, with channel Eb/N 0 ®xed at 7, our system improved the BLER from 1.3 × 10 −1 in the no encoding scenario to a remarkable 1.0 × 10 −3 . This ef®ciency not only validates the effectiveness of our approach but also indicates a substantial reduction in the required energy for the transmitter to achieve speci®c BER/BLER targets.</p><p>Another key advantage is the reduction in retransmission rates, particularly relevant to the IEEE 802.15.4 standard, which relies on retransmissions rather than FEC and adopts CRC for this purpose. In the context of Figure <ref type="figure" target="#fig_4">5</ref> at Eb/N 0 = 7.5, our AES FEC approach can reduce retransmission rates from 9 × 10 −2 to as low as 3.5 × 10 −5 , marking a signi®cant improvement over the standard IEEE 802.15.4 communication error checking with CRC. Moreover, to achieve a similar errorcorrecting performance as our proposed AES FEC scheme, additional encoding after encryption would be required in the transmitter. This leads to increased bit transmission (n vs. n + (n − k)), reducing throughput and requiring more transmission energy, highlighting the ef®ciency of our approach.</p><p>The ¯exibility of our method, including the potential for B: Baseline receiver system, AES decryption only S: Separate receiver system, ORBGRAND decoding followed by AES decryption P: Proposed receiver system, joint ORBGRAND decoding and AES decryption N/A: Unavailable due to high BER in the initial transmission across different systems. The area of the error pattern generator varies with the codeword length (n), but its basic architecture is designed to minimize latency in error pattern generation for all systems. Consequently, our proposed receiver architecture, while maintaining a similar AES area, benefits from a more compact error pattern generator due to the shorter codeword length, enhancing efficiency in space-constrained IoT applications.</p><p>The area efficiency of our proposed receiver system is enhanced due to the absence of a large H-matrix for syndrome check, a feature required in the separate systems. In the separate decoding and decryption system, the area for syndrome check is directly proportional to the product of the number of redundancy bits (n − k) and the codeword length (n), necessitating substantial storage in registers. Our system's approach, which involves padding check instead of syndrome check, eliminates the need for this extensive matrix storage. This design choice not only reduces the area by approximately 28% compared to the separate systems but also becomes more beneficial at lower code rates. The absence of additional area requirements for padding check in our architecture emphasizes its suitability for IoT applications, where space and resource constraints are critical factors.</p><p>The overhead of area in our proposed system is mainly due to the error pattern generator, which is 50.2kGE (kilo-Gate Equivalent). However, this is still smaller than the separate system, which requires over 67kGE for error-correcting capabilities compared to a baseline receiver. This highlights the balance our system strikes between maintaining errorcorrecting capabilities and efficient use of space, vital in energy and area-constrained IoT environments.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>VI. DISCUSSION</head><p>The findings of our study highlight the effective utilization of existing AES encryption in the transmitter setup for enhancing communication reliability, without necessitating changes to the transmitter's operation. By using AES padding bits for error correction, we significantly improve the reliability of the communication channel with minimal overhead in the receiver.</p><p>Our implementation hinges on the inclusion of an ORB-GRAND error pattern generator in the receiver architecture. This addition incurs less than a 15% power overhead but significantly improves the reliability of the communication channel. For instance, in the scenario depicted in Figure <ref type="figure" target="#fig_4">5</ref>, B: Baseline receiver system, AES decryption only S: Separate receiver system, ORBGRAND decoding followed by AES decryption P: Proposed receiver system, joint ORBGRAND decoding and AES decryption N/A: Unavailable due to high BER in the initial transmission Despite increased latency in lower Eb/N 0 conditions due to frequent new error pattern generation and padding checks, our system still manages to achieve a reliable communication channel with a BER under 10 −4 , balancing between latency and error correction efficiency in varying channel conditions. In the high Eb/N 0 scenarios, the energy per bit metric for our proposed system demonstrates an overhead of less than 15% compared to the baseline system. Despite the higher power demand of the proposed system, its superior goodput efficiency effectively compensates for this, resulting in a comparably efficient energy per bit performance. Furthermore, when we compare the proposed system with the separate system, the energy per bit figures are comparable across the two architectures, particularly notable in high Eb/N 0 conditions. In contrast, in low Eb/N 0 scenarios, despite having similar power consumption levels, the proposed system's reduced goodput leads to a relative increase in energy per bit, highlighting the impact of operational efficiency on energy metrics in different noise environments.</p><p>The area comparison between our proposed receiver architecture and the separate systems is illustrated in Figure <ref type="figure">7</ref>. In our design, both the AES and error pattern generator components are optimized for low latency, tailored to a 128bit block size. This approach ensures a consistent AES area across different systems. The area of the error pattern generator varies with the codeword length (n), but its basic architecture is designed to minimize latency in error pattern generation for all systems. Consequently, our proposed receiver architecture, while maintaining a similar AES area, benefits from a more compact error pattern generator due to the shorter codeword length, enhancing efficiency in space-constrained IoT applications.</p><p>The area efficiency of our proposed receiver system is enhanced due to the absence of a large H-matrix for syndrome check, a feature required in the separate systems. In the separate decoding and decryption system, the area for syndrome check is directly proportional to the product of the number of redundancy bits (n − k) and the codeword length (n), necessitating substantial storage in registers. Our system's approach, which involves padding check instead of syndrome check, eliminates the need for this extensive matrix storage. This design choice not only reduces the area by approximately 28% compared to the separate systems but also becomes more beneficial at lower code rates. The absence of additional area requirements for padding check in our architecture emphasizes its suitability for IoT applications, where space and resource constraints are critical factors.</p><p>The overhead of area in our proposed system is mainly due to the error pattern generator, which is 50.2kGE (kilo-Gate Equivalent). However, this is still smaller than the separate system, which requires over 67kGE for error-correcting capabilities compared to a baseline receiver. This highlights the balance our system strikes between maintaining errorcorrecting capabilities and efficient use of space, vital in energy and area-constrained IoT environments.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>VI. DISCUSSION</head><p>The findings of our study highlight the effective utilization of existing AES encryption in the transmitter setup for enhancing communication reliability, without necessitating changes to the transmitter's operation. By using existing AES padding bits for error correction, we significantly improve the reliability of the communication channel with minimal overhead in the receiver.</p><p>Our implementation hinges on the inclusion of an ORB-GRAND error pattern generator in the receiver architecture. This addition incurs less than a 15% power overhead but significantly improves the reliability of the communication channel. For instance, in the scenario depicted in Figure <ref type="figure" target="#fig_4">5</ref>, aiming for a BER of 10 −4 , our proposed system achieved this BER at an Eb/N 0 of only 5.5 dB, 3.5 dB less than the 9 dB required by the no encoding scenario. Similarly, as shown in Figure <ref type="figure">6</ref>, with channel Eb/N 0 fixed at 7 dB, our system improved the BLER from 1.3 × 10 −1 in the no encoding scenario to a remarkable 1.0 × 10 −3 . This efficiency not only validates the effectiveness of our approach but also indicates a substantial reduction in the required energy for the transmitter to achieve specific BER/BLER targets.</p><p>Another key advantage is the reduction in retransmission rates, particularly relevant to the IEEE 802.15.4 standard, which relies on retransmissions rather than FEC and adopts CRC for this purpose. In the context of Figure <ref type="figure" target="#fig_4">5</ref> at Eb/N 0 = 7.5 dB, our AES FEC approach can reduce retransmission rates from 9 × 10 −2 to as low as 3.5 × 10 −5 , marking a significant improvement over the standard IEEE 802.15.4 communication error checking with CRC. Moreover, to achieve a similar error-correcting performance as our proposed AES FEC scheme, additional encoding after encryption would be required in the transmitter. This leads to increased bit transmission (n vs. n + (n − k)), reducing throughput and requiring more transmission energy, highlighting the efficiency of our approach.</p><p>The flexibility of our method, including the potential for error checking and retransmission requests similar to CRC operations, adds robustness and adaptability to different operational needs and scenarios. This study demonstrates the feasibility and benefits of using AES for error correction in communication systems, particularly in IoT environments where energy efficiency and reliability are paramount.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>VII. CONCLUSION</head><p>In conclusion, this research presents a novel approach to enhancing communication reliability in IoT systems by leveraging the existing AES encryption mechanism. Our proposed method repurposes the existing padding bits in AES encryption for error correction, effectively improving the reliability of data transmission without necessitating any changes to the transmitter setup. This innovative use of AES leaves the cryptographic consideration untouched while adding errorcorrecting functionality, showing significant improvements in BER and BLER across various scenarios without compromising the inherent security provided by AES encryption.</p><p>Our comprehensive system analysis includes a comparison with the state-of-the-art ORBGRAND decoder and an in-depth evaluation of receiver architectures in terms of power consumption, latency, goodput, energy, and area efficiency. The proposed system's design ensures minimal power overhead and matches the latency of a decryption-only receiver in high signal-to-noise ratio environments, making it highly suitable for energy and area-constrained IoT applications.</p><p>Moreover, the study underscores the potential of this approach in reducing retransmission rates, aligning with the IEEE 802.15.4 standard, which typically relies on retransmissions for error handling. By providing an effective error correction mechanism, our system significantly reduces the need for retransmissions, enhancing overall communication efficiency.</p><p>In essence, this work demonstrates the feasibility and advantages of using inherent AES padding for error correction in IoT communication systems, highlighting its dual benefits in improving system reliability and reducing retransmission rates, thereby contributing to the advancement of efficient IoT technologies.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>2 :</head><label>2</label><figDesc>Output: decoded element c n * . 3: procedure DECODING(C, y n , Φ)</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>Fig. 1 .Fig. 2 .</head><label>12</label><figDesc>Fig. 1. Transmitter: Encryption only. a. Baseline, b. Proposed</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head>Fig. 3 .Fig. 4 .</head><label>34</label><figDesc>Fig. 3. Receiver: separate ORBGRAND decoding and AES decryption</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_4"><head>Fig. 5 .</head><label>5</label><figDesc>Fig. 5. BER (left) and BLER (right) vs. Eb/N 0 for padding bits = 12-bit</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_4"><head>TABLE I PERFORMANCE</head><label>I</label><figDesc>COMPARISON IN DIFFERENT RECEIVER ARCHITECTURES (GOODPUT IS VALID FOR BER &lt; 10 −4 )</figDesc><table><row><cell>8</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_5"><head>TABLE I PERFORMANCE</head><label>I</label><figDesc>COMPARISON IN DIFFERENT RECEIVER ARCHITECTURES (GOODPUT IS VALID FOR BER &lt; 10 −4 ) Unavailable due to high BER in the initial transmission</figDesc><table><row><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell cols="4">Number of Padding Bits (n-k)</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell>Eb/N0</cell><cell>*</cell><cell cols="2">8-bit</cell><cell cols="2">12-bit</cell><cell>*</cell><cell cols="2">8-bit</cell><cell cols="2">12-bit</cell><cell></cell><cell>8-bit</cell><cell></cell><cell></cell><cell>12-bit</cell><cell></cell><cell></cell><cell>8-bit</cell><cell></cell><cell cols="2">12-bit</cell><cell></cell><cell></cell></row><row><cell></cell><cell>B</cell><cell>S</cell><cell>P</cell><cell>S</cell><cell>P</cell><cell>B</cell><cell>S</cell><cell>P</cell><cell>S</cell><cell>P</cell><cell>B</cell><cell>S</cell><cell>P</cell><cell>B</cell><cell>S</cell><cell>P</cell><cell>B</cell><cell>S</cell><cell>P</cell><cell>B</cell><cell>S</cell><cell>P</cell><cell></cell></row><row><cell></cell><cell></cell><cell cols="3">Power (mW)</cell><cell></cell><cell></cell><cell cols="3">Latency (ns)</cell><cell></cell><cell></cell><cell></cell><cell cols="2">Goodput (Mbps)</cell><cell></cell><cell></cell><cell></cell><cell cols="3">Energy/bit (pJ/bit)</cell><cell></cell><cell></cell><cell></cell></row><row><cell>5.5</cell><cell></cell><cell>N/A</cell><cell>N/A</cell><cell>0.4</cell><cell>1.35</cell><cell></cell><cell>N/A</cell><cell>N/A</cell><cell>226</cell><cell>508</cell><cell></cell><cell>N/A</cell><cell>N/A</cell><cell></cell><cell>22</cell><cell>17</cell><cell></cell><cell>N/A</cell><cell>N/A</cell><cell></cell><cell>18.3</cell><cell>78.8</cell><cell></cell></row><row><cell>6</cell><cell>N/A</cell><cell>1.09</cell><cell>1.4</cell><cell>1.01</cell><cell>1.4</cell><cell>N/A</cell><cell>194</cell><cell>429</cell><cell>179</cell><cell>248</cell><cell>N/A</cell><cell>443</cell><cell>321</cell><cell>N/A</cell><cell>203</cell><cell>176</cell><cell>N/A</cell><cell>2.47</cell><cell>4.37</cell><cell>N/A</cell><cell>5.00</cell><cell>7.93</cell><cell>dBs for Nothing</cell></row><row><cell>7</cell><cell></cell><cell>1.19</cell><cell>1.39</cell><cell>1.19</cell><cell>1.4</cell><cell></cell><cell>159</cell><cell>160</cell><cell>157</cell><cell>157</cell><cell></cell><cell>690</cell><cell>726</cell><cell></cell><cell>596</cell><cell>627</cell><cell></cell><cell>1.72</cell><cell>1.92</cell><cell></cell><cell>1.99</cell><cell>2.23</cell><cell>FEC for Free</cell></row><row><cell>8</cell><cell></cell><cell>1.19</cell><cell>1.38</cell><cell>1.21</cell><cell>1.38</cell><cell></cell><cell>152</cell><cell>136</cell><cell>152</cell><cell>136</cell><cell></cell><cell>771</cell><cell>878</cell><cell></cell><cell>728</cell><cell>832</cell><cell></cell><cell>1.54</cell><cell>1.57</cell><cell></cell><cell>1.65</cell><cell>1.66</cell><cell></cell></row><row><cell>9</cell><cell>1.21</cell><cell>1.19</cell><cell>1.38</cell><cell>1.2</cell><cell>1.38</cell><cell>130</cell><cell>150</cell><cell>131</cell><cell>150</cell><cell>131</cell><cell>923</cell><cell>794</cell><cell>915</cell><cell>892</cell><cell>763</cell><cell>882</cell><cell>1.30</cell><cell>1.5</cell><cell>1.51</cell><cell>1.34</cell><cell>1.57</cell><cell>1.56</cell><cell></cell></row><row><cell>10</cell><cell></cell><cell>1.19</cell><cell>1.38</cell><cell>1.2</cell><cell>1.38</cell><cell></cell><cell>150</cell><cell>130</cell><cell>150</cell><cell>130</cell><cell></cell><cell>799</cell><cell>923</cell><cell></cell><cell>772</cell><cell>892</cell><cell></cell><cell>1.49</cell><cell>1.49</cell><cell></cell><cell>1.55</cell><cell>1.54</cell><cell></cell></row><row><cell cols="17">B: Baseline receiver system, AES decryption only P: Proposed receiver system, joint ORBGRAND decoding and AES decryption S: Separate receiver system, ORBGRAND decoding followed by AES decryption N/A:</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell></row></table></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="1" xml:id="foot_0">This study employs AES-128 for its reduced operational rounds compared to AES with larger key sizes. Nevertheless, the approach can be adapted for different AES key sizes.</note>
+		</body>
+		<back>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">The internet of things: a survey</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><forename type="middle">D</forename><surname>Xu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Zhao</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Information systems frontiers</title>
+		<imprint>
+			<biblScope unit="volume">17</biblScope>
+			<biblScope unit="page" from="243" to="259" />
+			<date type="published" when="2015">2015</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">Internet of things applications: A systematic review</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Asghari</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">M</forename><surname>Rahmani</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><forename type="middle">H S</forename><surname>Javadi</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Computer Networks</title>
+		<imprint>
+			<biblScope unit="volume">148</biblScope>
+			<biblScope unit="page" from="241" to="261" />
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">Internet of things: Security vulnerabilities and challenges</title>
+		<author>
+			<persName><forename type="first">I</forename><surname>Andrea</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Chrysostomou</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Hadjichristofi</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">2015 IEEE Symposium on Computers and Communication (ISCC)</title>
+				<imprint>
+			<date type="published" when="2015">2015</date>
+			<biblScope unit="page" from="180" to="187" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<monogr>
+		<title level="m" type="main">AES proposal: Rijndael</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Daemen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Rijmen</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="1999">1999</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">The AES-CBC cipher algorithm and its use with ipsec</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Frankel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Glenn</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Kelly</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Tech. Rep</title>
+		<imprint>
+			<date type="published" when="2003">2003</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">Ieee standard for low-rate wireless networks</title>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Std</title>
+		<imprint>
+			<biblScope unit="volume">802</biblScope>
+			<biblScope unit="page" from="1" to="800" />
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+	<note>Revision of IEEE Std 802.15.4-2015</note>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">Mq telemetry transport (mqtt) v3. 1 protocol specification</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Locke</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="s">IBM developerWorks Technical Library</title>
+		<imprint>
+			<biblScope unit="volume">15</biblScope>
+			<date type="published" when="2010">2010</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">AES as error correction: Cryptosystems for reliable communication</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Cohen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">G L</forename><surname>D'oliveira</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">R</forename><surname>Duffy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Woo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Medard</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Communications Letters</title>
+		<imprint>
+			<biblScope unit="volume">27</biblScope>
+			<biblScope unit="issue">8</biblScope>
+			<biblScope unit="page" from="1964" to="1968" />
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">Capacity-achieving guessing random additive noise decoding</title>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">R</forename><surname>Duffy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Médard</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Information Theory</title>
+		<imprint>
+			<biblScope unit="volume">65</biblScope>
+			<biblScope unit="issue">7</biblScope>
+			<biblScope unit="page" from="4023" to="4040" />
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">That &apos;internet of things&apos; thing</title>
+		<author>
+			<persName><forename type="first">K</forename><surname>Ashton</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">RFID journal</title>
+		<imprint>
+			<biblScope unit="volume">22</biblScope>
+			<biblScope unit="issue">7</biblScope>
+			<biblScope unit="page" from="97" to="114" />
+			<date type="published" when="2009">2009</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">Security in internet of things: issues, challenges, taxonomy, and architecture</title>
+		<author>
+			<persName><forename type="first">V</forename><surname>Adat</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><forename type="middle">B</forename><surname>Gupta</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Telecommunication Systems</title>
+		<imprint>
+			<biblScope unit="volume">67</biblScope>
+			<biblScope unit="page" from="423" to="441" />
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">A comprehensive study of security of internet-of-things</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Mosenia</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><forename type="middle">K</forename><surname>Jha</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Emerging Topics in Computing</title>
+		<imprint>
+			<biblScope unit="volume">5</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="586" to="602" />
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<monogr>
+		<title level="m" type="main">Zigbee specification: Zigbee document 053474r17</title>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Alliance</surname></persName>
+		</author>
+		<ptr target="www.zigbee.org" />
+		<imprint>
+			<date type="published" when="2008">2008</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">Performance analysis of 2.4ghz ieee 802.15.4 phy under various fading channels</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">B</forename><surname>Mantri</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Velagapudi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><forename type="middle">C</forename><surname>Eravatri</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">V</forename></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">2013 International Conference on Emerging Trends in Communication, Control, Signal Processing and Computing Applications (C2SPCA)</title>
+				<imprint>
+			<date type="published" when="2013">2013</date>
+			<biblScope unit="page" from="1" to="4" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">Performance evaluation of IEEE 802.15. 4 physical layer using matlab/simulink</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Alnuaimi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Shuaib</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Jawhar</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">2006 Innovations in Information Technology</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2006">2006</date>
+			<biblScope unit="page" from="1" to="5" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<analytic>
+		<title level="a" type="main">Channel coding and interleaving in industrial WSN: abiding to timing constraints and bit error nature</title>
+		<author>
+			<persName><forename type="first">F</forename><surname>Barac</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Gidlund</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Zhang</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">2013 IEEE International Workshop on Measurements &amp; Networking (M&amp;N)</title>
+				<imprint>
+			<date type="published" when="2013">2013</date>
+			<biblScope unit="page" from="46" to="51" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<analytic>
+		<title level="a" type="main">Evaluating the IEEE 802.15. 4a UWB physical layer for WSN applications</title>
+		<author>
+			<persName><forename type="first">E</forename><forename type="middle">I S</forename><surname>Saadon</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Abdullah</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Ismail</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">2013 IEEE Symposium on Wireless Technology &amp; Applications (ISWTA)</title>
+				<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2013">2013</date>
+			<biblScope unit="page" from="68" to="73" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<analytic>
+		<title level="a" type="main">Empirical evidence concerning AES</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Hellekalek</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Wegenkittl</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/945511.945515</idno>
+		<ptr target="https://doi.org/10.1145/945511.945515" />
+	</analytic>
+	<monogr>
+		<title level="j">ACM Trans. Model. Comput. Simul</title>
+		<imprint>
+			<biblScope unit="volume">13</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="322" to="333" />
+			<date type="published" when="2003-10">oct 2003</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<analytic>
+		<title level="a" type="main">Guessing noise, not code-words</title>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">R</forename><surname>Duffy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Médard</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">2018 IEEE International Symposium on Information Theory (ISIT)</title>
+				<imprint>
+			<date type="published" when="2018">2018</date>
+			<biblScope unit="page" from="671" to="675" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<analytic>
+		<title level="a" type="main">Error detecting and error correcting codes</title>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">W</forename><surname>Hamming</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">The Bell System Technical Journal</title>
+		<imprint>
+			<biblScope unit="volume">29</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="147" to="160" />
+			<date type="published" when="1950">1950</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<analytic>
+		<title level="a" type="main">Ordered reliability bits guessing random additive noise decoding</title>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">R</forename><surname>Duffy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>An</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Médard</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Signal Processing</title>
+		<imprint>
+			<biblScope unit="volume">70</biblScope>
+			<biblScope unit="page" from="4528" to="4542" />
+			<date type="published" when="2022">2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<analytic>
+		<title level="a" type="main">Capacity-achieving guessing random additive noise decoding</title>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">R</forename><surname>Duffy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Medard</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/TIT.2019.2896110</idno>
+		<ptr target="http://dx.doi.org/10.1109/TIT.2019.2896110" />
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Information Theory</title>
+		<imprint>
+			<biblScope unit="volume">65</biblScope>
+			<biblScope unit="issue">7</biblScope>
+			<biblScope unit="page" from="4023" to="4040" />
+			<date type="published" when="2019-07">Jul. 2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<analytic>
+		<title level="a" type="main">A Sub-0.8pJ/b 16.3Gbps/mm2 Universal Soft-Detection Decoder Using ORBGRAND in 40nm CMOS</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Riaz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Yasar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Ercan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>An</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Ngo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Galligan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Medard</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">R</forename><surname>Duffy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">T</forename><surname>Yazicigil</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">2023 IEEE International Solid-State Circuits Conference (ISSCC)</title>
+				<imprint>
+			<date type="published" when="2023">2023</date>
+			<biblScope unit="page" from="432" to="434" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b23">
+	<analytic>
+		<title level="a" type="main">The OSI reference model</title>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">D</forename><surname>Day</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Zimmermann</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the IEEE</title>
+				<meeting>the IEEE</meeting>
+		<imprint>
+			<date type="published" when="1983">1983</date>
+			<biblScope unit="volume">71</biblScope>
+			<biblScope unit="page" from="1334" to="1340" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b24">
+	<monogr>
+		<author>
+			<persName><forename type="first">M</forename><surname>Bauer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Bui</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>De Loof</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Magerkurth</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Nettsträter</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Stefa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">W</forename><surname>Walewski</surname></persName>
+		</author>
+		<title level="m">IoT Reference Model</title>
+				<meeting><address><addrLine>Berlin, Heidelberg; Berlin Heidelberg</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2013">2013</date>
+			<biblScope unit="page" from="113" to="162" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b25">
+	<analytic>
+		<title level="a" type="main">An energy-efficient reconfigurable dtls cryptographic engine for securing internet-of-things applications</title>
+		<author>
+			<persName><forename type="first">U</forename><surname>Banerjee</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Wright</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Juvekar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Waller</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Arvind</forename></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">P</forename><surname>Chandrakasan</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Journal of Solid-State Circuits</title>
+		<imprint>
+			<biblScope unit="volume">54</biblScope>
+			<biblScope unit="issue">8</biblScope>
+			<biblScope unit="page" from="2339" to="2352" />
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b26">
+	<monogr>
+		<ptr target="https://en.wikipedia.org/w/index.php?title=Eb/" />
+		<title level="m">Eb/n0 -Wikipedia, the free encyclopedia</title>
+				<imprint>
+			<date type="published" when="2022-01">N0&amp;oldid=1121091972, 2022. January-2024</date>
+			<biblScope unit="volume">23</biblScope>
+		</imprint>
+	</monogr>
+	<note>Wikipedia contributors</note>
+</biblStruct>
+
+<biblStruct xml:id="b27">
+	<analytic>
+		<title level="a" type="main">The random coding bound is tight for the average linear code or lattice</title>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Domb</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Zamir</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Feder</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Information Theory</title>
+		<imprint>
+			<biblScope unit="volume">62</biblScope>
+			<biblScope unit="page">7</biblScope>
+			<date type="published" when="2013">2013</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b28">
+	<analytic>
+		<title level="a" type="main">List decoding of polar codes</title>
+		<author>
+			<persName><forename type="first">I</forename><surname>Tal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Vardy</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Information Theory</title>
+		<imprint>
+			<biblScope unit="volume">61</biblScope>
+			<biblScope unit="issue">5</biblScope>
+			<biblScope unit="page" from="2213" to="2226" />
+			<date type="published" when="2015">2015</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b29">
+	<analytic>
+		<title level="a" type="main">CRC-Aided Decoding of Polar Codes</title>
+		<author>
+			<persName><forename type="first">K</forename><surname>Niu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Chen</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Communications Letters</title>
+		<imprint>
+			<biblScope unit="volume">16</biblScope>
+			<biblScope unit="issue">10</biblScope>
+			<biblScope unit="page" from="1668" to="1671" />
+			<date type="published" when="2012">2012</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b30">
+	<analytic>
+		<title level="a" type="main">Generalized hamming weights for linear codes</title>
+		<author>
+			<persName><forename type="first">V</forename><forename type="middle">K</forename><surname>Wei</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on information theory</title>
+		<imprint>
+			<biblScope unit="volume">37</biblScope>
+			<biblScope unit="issue">5</biblScope>
+			<biblScope unit="page" from="1412" to="1418" />
+			<date type="published" when="1991">1991</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b31">
+	<analytic>
+		<title level="a" type="main">Orbgrand is almost capacityachieving</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Wei</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Chen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Zhang</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Information Theory</title>
+		<imprint>
+			<biblScope unit="volume">69</biblScope>
+			<biblScope unit="issue">5</biblScope>
+			<biblScope unit="page" from="2830" to="2840" />
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

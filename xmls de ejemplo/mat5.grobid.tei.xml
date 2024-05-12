@@ -1,0 +1,825 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">The largest subgraph without a forbidden induced subgraph</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+				<date type="published" when="2024-05-09">9 May 2024</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Jacob</forename><surname>Fox</surname></persName>
+							<email>jacobfox@stanford.edu</email>
+							<affiliation key="aff0">
+								<orgName type="department">Department of Mathematics</orgName>
+								<orgName type="institution">Stanford University</orgName>
+								<address>
+									<settlement>Stanford</settlement>
+									<region>CA</region>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Rajko</forename><surname>Nenadov</surname></persName>
+							<email>rajko.nenadov@auckland.ac.nz.research</email>
+							<affiliation key="aff1">
+								<orgName type="department">School of Computer Science</orgName>
+								<orgName type="institution">University of Auckland</orgName>
+								<address>
+									<country key="NZ">New Zealand</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Huy</forename><forename type="middle">Tuan</forename><surname>Pham</surname></persName>
+							<email>huypham@stanford.edu</email>
+							<affiliation key="aff0">
+								<orgName type="department">Department of Mathematics</orgName>
+								<orgName type="institution">Stanford University</orgName>
+								<address>
+									<settlement>Stanford</settlement>
+									<region>CA</region>
+								</address>
+							</affiliation>
+							<affiliation key="aff2">
+								<orgName type="department">Department of Mathematics</orgName>
+								<orgName type="institution">Stanford University</orgName>
+								<address>
+									<settlement>Stanford</settlement>
+									<region>CA</region>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">The largest subgraph without a forbidden induced subgraph</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date type="published" when="2024-05-09">9 May 2024</date>
+						</imprint>
+					</monogr>
+					<idno type="MD5">43776B1712AE6F719DCE1E1FE8461C7E</idno>
+					<idno type="arXiv">arXiv:2405.05902v1[math.CO]</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.2" ident="GROBID" when="2024-05-12T15:27+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>We initiate the systematic study of the following Turán-type question. Suppose Γ is a graph with n vertices such that the edge density between any pair of subsets of vertices of size at least t is at most 1 − c, for some t and c &gt; 0. What is the largest number of edges in a subgraph G ⊆ Γ which does not contain a fixed graph H as an induced subgraph or, more generally, which belongs to a hereditary property P? This provides a common generalization of two recently studied cases, namely Γ being a (pseudo-)random graph and a graph without a large complete bipartite subgraph. We focus on the interesting case where H is a bipartite graph.</p><p>We determine the answer up to a constant factor with respect to n and t, for certain bipartite H and for Γ either a dense random graph or a Paley graph with a square number of vertices. In particular, our bounds match if H is a tree, or if one part of H has d vertices complete to the other part, all other vertices in that part have degree at most d, and the other part has sufficiently many vertices. As applications of the latter result, we answer a question of Alon, Krivelevich, and Samotij on the largest subgraph with a hereditary property which misses a bipartite graph, and determine up to a constant factor the largest number of edges in a string subgraph of Γ. The proofs are based on a variant of the dependent random choice and a novel approach for finding induced copies by inductively defining probability distributions supported on induced copies of smaller subgraphs.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1">Introduction</head><p>The Turán number ex(n, H) is the maximum number of edges in a graph on n vertices which does not contain H as a subgraph. The Erdős-Stone-Simonovits theorem <ref type="bibr" target="#b12">[13,</ref><ref type="bibr" target="#b13">14]</ref> asymptotically determines Turán numbers for fixed non-bipartite H. It states that ex(n, H) = (1</p><formula xml:id="formula_0">− 1 χ(H)−1 + o(1)) n</formula><p>2 , where χ(H) is the chromatic number of H, and the o(1) term goes to 0 for H fixed as n → ∞. For H bipartite, the Erdős-Stone-Simonovits theorem gives ex(n, H) = o(n 2 ), and it is further known that there is ε = ε(H) &gt; 0 such that ex(n, H) ≤ n 2−ε . However, it remains a challenging open problem to give good estimates of Turán numbers of bipartite graphs. A prominent case is complete bipartite graphs K s,r with s ≤ r, for which the Kövári-Sós-Turán theorem <ref type="bibr" target="#b25">[26]</ref> gives ex(n, K s,r ) = O r (n 2−1/s ). This bound is known to be sharp up to the constant factor if s = 2 or s = 3, or r is sufficiently large as a function of s (see <ref type="bibr" target="#b3">[4,</ref><ref type="bibr" target="#b7">8,</ref><ref type="bibr" target="#b24">25]</ref>).</p><p>A property of graphs is hereditary if it is closed under taking induced subgraphs. A hereditary property of graphs is nontrivial if it contains all empty graphs and misses some graph. Throughout we assume all hereditary properties of graphs are nontrivial. For a hereditary property P of graphs and a graph Γ, let ex(Γ, P) be the maximum number of edges of a subgraph G ⊆ Γ that belongs to P. Note that in the special case that Γ is the complete graph K n and P is the property of not containing H as a subgraph, the definition coincides with that of ex(n, H).</p><p>Alon, Krivelevich, and Samotij <ref type="bibr" target="#b1">[2]</ref> proved the following extension of the Erdős-Stone-Simonovits theorem: For 0 &lt; p ≤ 1 fixed, if k = k(P) ≥ 2 is the minimum chromatic number of a graph that does not belong to P, then the Erdős-Renyi random graph Γ = G(n, p) satisfies ex(Γ, P) = (1 − 1 k−1 + o(1))p n 2 with high probability. While the proof they give does not extend from Erdős-Renyi graphs to quasirandom graphs, a different proof based on Szemeredi's regularity lemma mentioned in the concluding remarks of their paper does extend to quasirandom graphs, but gives weak quantitative bounds. They left as an open problem to improve the bound ex(Γ, P) = o(n 2 ) in the case k = 2 to ex(Γ, P) ≤ n 2−ε for some ε = ε(P) &gt; 0. We verify that this is the case.</p><p>Our results hold for a much larger class of graphs Γ. We say that a graph Γ is (c, t)-sparse if for every pair of vertex subsets A, B ⊂ V (G) (not necessarily disjoint) with |A|, |B| ≥ t, we have e(A, B) &lt; (1 − c)|A||B|.</p><p>Here, e(A, B) counts the number of pairs (a, b) ∈ A × B such that {a, b} is an edge in Γ. In particular, any edge which lies in A ∩ B is counted twice. Roughly, a graph is (c, t)-sparse if it doesn't have large, almost complete bipartite subgraphs. If a graph is (c, t)-sparse, then all of its subgraphs are as well.</p><p>Generalizing the question of Alon, Krivelevich, and Samotij <ref type="bibr" target="#b1">[2]</ref>, we propose the following Turán-type problem.</p><p>Problem 1.1. Given a hereditary property P which misses a bipartite graph and a (c, t)-sparse graph Γ, determine ex(Γ, P).</p><p>Note that, if Γ = G(n, p) with 0 &lt; p &lt; 1 fixed, with high probability Γ is (c, t)-sparse for any fixed c &lt; 1 − p and any t ≥ C ′ log n where C ′ = C ′ (p, c) is sufficiently large. Problem 1.1 thus entails the study of Turán-type problems in dense random (and pseudorandom) graphs. Problem 1.1 also entails the case Γ is K t,t -free (taking c = 1/t 2 ), which has been the subject of recent progress <ref type="bibr" target="#b4">[5,</ref><ref type="bibr" target="#b6">7,</ref><ref type="bibr" target="#b19">20,</ref><ref type="bibr" target="#b23">24,</ref><ref type="bibr" target="#b29">30,</ref><ref type="bibr" target="#b30">31,</ref><ref type="bibr" target="#b34">35]</ref>. We refer the reader to Subsection 1. <ref type="bibr" target="#b3">4</ref> for further details on the relation between our work and these results.</p><p>The following extension of the Kövári-Sós-Turán theorem is our first main result. We say a bipartite graph H = (A ∪ B, E) is d-bounded if there are 1 ≤ ℓ ≤ d vertices in A which are complete to B, and all other vertices in A have degree at most d.</p><p>Theorem 1.2. Let H be a d-bounded bipartite graph and c &gt; 0. Then there are constants C and α &gt; 0 such that if Γ is a (c, t)-sparse graph with n vertices, for some t, then any subgraph G ⊆ Γ with at least Ct 1/d n 2−1/d edges contains αq e(H) n v(H) copies of H which are induced copies in Γ, where q = 2e(G)/n 2 .</p><p>The bound on the number of edges in Theorem 1.2 is best possible up to the constant factor C in various cases as discussed in the next subsection, thus giving a complete answer (up to the constant factor) to Problem 1.1 in these cases. Also, the bound on the number of induced copies of H in G is best possible up to the constant factor α if for instance G is a random graph with edge density q.</p><p>If H = (A∪ B, E) is such that all vertices in A have degree at most d, then H is a subgraph of a d-bounded graph. Thus we immediately get the following corollary, albeit without a bound on the number of copies.</p><p>Corollary 1.3. Let H be a bipartite graph with all vertices in one part having degree at most d. If Γ is a (c, t)-sparse graph with n vertices, for some c &gt; 0 and t, then there exists C = C(c, H) &gt; 0 such that any subgraph G ⊆ Γ with at least Ct 1/d n 2−1/d edges contains a copy of H which is induced in Γ.</p><p>A result of Alon, Krivelevich, and Sudakov <ref type="bibr" target="#b2">[3]</ref> and Furedi <ref type="bibr" target="#b17">[18]</ref> states that if H satisfies the condition in Corollary 1.3, then ex(n, H) = O(n 2−1/d ). Therefore, Corollary 1.3 can be seen as an induced analogue. Moreover, the counting part of Theorem 1.2 provides an induced analogue of a result of Conlon, Fox, and Sudakov <ref type="bibr" target="#b9">[10]</ref> on Sidorenko's conjecture. The proof of Theorem 1.2 uses a variant of the dependent random choice motivated by the one from <ref type="bibr" target="#b9">[10]</ref>, however we encounter a number of challenges that do not arise in the non-induced setup. As in <ref type="bibr" target="#b9">[10]</ref>, we construct appropriate embeddings of the vertices in B of H by selecting vertices in the common neighborhood of an ℓ-tuple of vertices. We then consider, for each vertex a in A of H with degree at most d, a large set of potential options for embedding a. However, compared to the non-induced setting, in order to guarantee that we have the correct number of options viable for creating an induced copy of H, we need to make several crucial modifications of the dependent random choice argument. In particular, we cannot obtain the desired guarantee when selecting uniformly at random ℓ vertices and looking for the embedding of B in their common neighborhood. Instead, an important idea in the proof is to choose each of the ℓ vertices one at a time, with each selection preceded by a degree regularization procedure. Note that Corollary 1.3 solves the problem of Alon, Krivelevich, and Samotij <ref type="bibr" target="#b1">[2]</ref>. Indeed, if Γ = G(n, p) with 0 &lt; p &lt; 1 fixed, with high probability the number of edges of G is (1 + o(1))p n 2 , and, as earlier remarked, Γ is (c, t)-sparse for any fixed c &lt; 1 − p and any t ≥ C ′ log n where</p><formula xml:id="formula_1">C ′ = C ′ (p, c) is sufficiently large. If k(P) = 2,</formula><p>then there is a bipartite graph H not in P, and for d being, say, the maximum degree of H, we can apply Corollary 1.3 to deduce ex(Γ, P) ≤ n 2−1/d . In particular, ex(Γ, P) ≤ n 2−ε for some ε = ε(P) &gt; 0. The rest of the introduction is organized as follows. In Subsection 1.1, we discuss several cases in which the lower bound on the number of edges of G in Theorem 1.2 is best possible. In Subsection 1.2, we discuss our result giving tight bounds on the size of a largest subgraph of a (c, t)-sparse graph forbidding an induced tree. In comparison to the ordinary Turán problem for trees, the situation here becomes drastically more involved. In Subsection 1.3, we discuss an application of Theorem 1.2 that obtains tight bounds on the size of a largest string subgraph of a (c, t)-sparse graph. We then discuss the relationship with the special case of forbidding a large complete bipartite subgraph in Subsection 1.4, which has been the subject of much recent interest.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.1">Optimality of Theorem 1.2</head><p>For a graph H, let P H be the hereditary graph property of not containing H as an induced subgraph. For Γ a graph with p n 2 edges, by averaging, we have ex(Γ, P H ) ≥ p ex(n, H). Analogous to the case where H is not bipartite, it is natural to suspect that this is a good bound, at least for Γ = G(n, p). Surprisingly, we show that this is not the case. Our general lower bound on ex(Γ, P H ) is related to the chromatic number of the complement of Γ. In what follows, we are mainly concerned with H = K s,r as ex(n, K s,r ) is well understood for r sufficiently large in s.</p><p>Lemma 1.4. Let 2 ≤ s ≤ r be integers with r &gt; 2. For every graph Γ, we have</p><formula xml:id="formula_2">ex(Γ, P Ks,r ) ≥ 1 2 e(Γ)ex(χ(Γ), K s,r )/ χ(Γ) 2 .</formula><p>We also provide a bound for a general graph H (see Corollary 2.4). These are proved in Section 2.</p><p>Closely related to both χ(Γ) and (c, t)-sparseness is ω(Γ), the size of a largest clique in Γ. We have χ(Γ) ≥ n/ω(Γ) and if Γ is (c, t)-sparse for c which is not too small, then t ≥ ω(Γ). The latter follows from e(A, A)</p><formula xml:id="formula_3">= (1 − 1/|A|)|A| 2 where A is a largest clique in Γ. In the case of Γ = G(n, p), for constant 0 &lt; p &lt; 1, it is well-known that ω(Γ) = Θ(log n) and χ(Γ) = (1 + o(1)</formula><p>)n/ω(Γ) with high probability (see <ref type="bibr" target="#b5">[6]</ref>). Moreover, standard estimates on the edge distribution of G(n, p) imply it is with high probability (c, 2ω(Γ))-sparse, for some c = c(p) &gt; 0. Combining Theorem 1.2 and Lemma 1.4 with known estimates on ex(n, K s,r ), we thus obtain the following.</p><p>Theorem 1.5. Let 2 ≤ s ≤ r be fixed with r sufficiently large in s. If 0 &lt; p &lt; 1 is fixed and Γ = G(n, p), then with high probability we have ex(Γ, P Ks,r ) = Θ n 2−1/s (log n) 1/s .</p><p>We also obtain tight bounds in the case H = K s,r , again for r sufficiently large in s, and Γ is a Paley graph P q for q a perfect square. For a prime power q ≡ 1 (mod 4), recall that the Paley graph P q is a graph whose vertex set is the elements of a finite field with q elements, and two distinct vertices are adjacent if their difference is a perfect square. The clique number of P q is known to be at most √ q, with equality if q is a perfect square. Unlike in the case of random graphs, we do not know that χ(Γ) = Θ(n/ω(G)), but we can find a large subgraph Γ ′ ⊆ Γ for which this holds and then apply Lemma 1.4 with Γ ′ . We defer the details to Section 2. Standard estimates on character sums (see Theorem 3.4.2 of <ref type="bibr" target="#b33">[34]</ref>) implies that for each c &lt; 1/2 there is C = C(c) such that every Paley graph with n vertices is (c, C √ n)-sparse.</p><p>Combined, this gives the following.</p><p>Theorem 1.6. Let 2 ≤ s ≤ r be fixed with r sufficiently large in s. If Γ is a Paley graph with a square number n of vertices, then ex(Γ, P Ks,r ) = Θ(n 2−1/(2s) ).</p><p>1.2 Induced trees in (c, t)-sparse graphs</p><p>For a fixed tree T , we consider the property P T of not containing T as an induced subgraph. The following is our second main result.</p><p>Theorem 1.7. For any tree T and c &gt; 0, there exists C &gt; 1 such that the following holds. Given a (c, t)-sparse graph Γ on n vertices, for some t, every subgraph G ⊆ Γ with at least Ctn edges contains a copy of T which is induced in Γ.</p><p>Assuming that T contains at least two edges, the disjoint union of cliques is an induced-T -free graph. A graph Γ that is a disjoint union of cliques of size t/4 is (1/2, t)-sparse, thus the bound on the number of edges required in Theorem 1.7 is best possible. For Γ = G(n, p), by taking a subgraph which is a disjoint union of cliques, it follows that ex(Γ, P T ) = Ω(n log 1/p n) with high probability. In particular, this shows ex(Γ, P T ) = Θ(n log n) when 0 &lt; p &lt; 1 is a constant. Similarly, when Γ is a Paley graph P q for q a perfect square, we have ex(Γ, P T ) = Θ(n 3/2 ).</p><p>A standard way of proving that the Turán number of a fixed tree T is Θ(n) proceeds by passing on to a subgraph with sufficiently large (constant) minimum degree which depends on T , and then constructing a copy of T greedily. However, we face significant challenges in guaranteeing that the tree is induced under the (c, t)-sparse condition particularly when the graph G has irregular degree distribution. In order to address this, our proof of Theorem 1.7 follows from a fairly involved procedure to glue together distributions λ T ′ supported on induced copies of subtrees T ′ of T . This is our main technical contribution, thus we give a brief overview of the strategy.</p><p>The crucial property satisfied by the distributions λ is that, for a tree T ′ obtained by removing a leaf from T , λ T and λ T ′ satisfy appropriate consistency relations. The main step is then to inductively construct, for subtrees T 0 of T , the measure λ T 0 from λ T ′ for smaller subtrees T ′ of T 0 . We identify two subtrees T 1 , T 2 of T 0 such that each T 1 , T 2 is obtained from T 0 by removing a (different) leaf. Let T ′ be the intersection of T 1 and T 2 . We first sample an embedding ρ T ′ of T ′ from λ T ′ . Granted that ρ T ′ lies in a good event, we consider two independent extensions of ρ T ′ to embeddings of T 1 and T 2 , sampled according to λ T 1 and λ T 2 conditional on the image of T ′ being ρ T ′ . If combining both extensions gives us a good embedding of T 0 , then we successfully obtain a sample defining λ T 0 . Using consistency relations between ρ T ′ and ρ T 1 , and between ρ T ′ and ρ T 2 , and the (c, t)-sparse assumption, we can show that we successfully obtain a sample with a good probability. We then close the induction by verifying that the consistency relations hold between the defined distribution λ T 0 , and the distributions λ T 1 and λ T 2 .</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.3">Largest induced string subgraphs</head><p>Returning to the original set-up of Alon, Krivelevich, and Samotij, beyond studying the case of a single forbidden induced subgraph, estimating ex(Γ, P) remains an interesting problem when not all bipartite graphs belong to P.</p><p>A string graph is an intersection graph of arcwise connected sets in the plane. Let S denote the family of string graphs. Note that not every graph is a string graph. Indeed, subdividing each edge of a nonplanar graph at least once produces a graph which is not a string graph. In particular, subdividing each edge of the complete graph on five vertices yields a bipartite graph on fifteen vertices which is not a string graph.</p><p>A nontrivial upper bound on ex(Γ, S) for Γ a (c, t)-sparse graph follows from Theorem 1.2. However, we prove the following much better upper bound using an additional property of string graph, which roughly says that any string graph has a dense induced subgraph with about the same average degree.</p><p>Theorem 1.8. For every c &gt; 0 there exists C, such that if Γ is a (c, t)-sparse graph on n vertices then ex(Γ, S) ≤ Ctn.</p><p>Similarly as in the case of trees, this bound is tight when Γ is a random graph or a Paley graph with a square number of vertices. As an application of Theorem 1.8, we discuss in Section 5 the determination of ex(Γ, P) for P the property of being an incomparability graph, and Γ a random graph or a Paley graph with a square number of vertices.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.4">Forbidding large complete bipartite subgraphs</head><p>A related induced Turán number was introduced and studied by Loh et al. <ref type="bibr" target="#b27">[28]</ref>. For a positive integer n and graphs B and H, let ex(n, B, H-ind) be the maximum number of edges in a graph on n vertices which does not contain B as a subgraph and H as an induced subgraph. By averaging over subsets, if B is bipartite with parts of size r, s ≤ t and has m edges, then not containing B as a subgraph implies that the graph is (c, t)-sparse with c = 1 − (m − 1)/rs. Furthermore, if B = K t,t is a complete balanced bipartite graph, then it is not hard to show that not containing B as a subgraph is equivalent to being (c, t)-sparse with c = 1/t 2 . Several very recent papers <ref type="bibr" target="#b4">[5,</ref><ref type="bibr" target="#b6">7,</ref><ref type="bibr" target="#b19">20,</ref><ref type="bibr" target="#b23">24]</ref> appeared proving upper bounds on ex(n, K t,t , H-ind) for various graphs H. The bounds from <ref type="bibr" target="#b23">[24]</ref> establish that ex(n, </p><formula xml:id="formula_4">K t,t , H-ind) = t O(|V (H)|) n 2−1/d if</formula><formula xml:id="formula_5">= c −O(|V (H)| 2 )</formula><p>, and hence implies that ex(n,</p><formula xml:id="formula_6">K t,t , H-ind) = t O(|V (H)| 2 ) n 2−1/d if H is d-bounded.</formula><p>While it is plausible that the methods from <ref type="bibr" target="#b23">[24]</ref> could also be extended to the case of d-bounded graphs, the main message here is that our bounds obtained for the more general setup of (c, t)-sparse graphs rather than K t,t -free graphs. Note that, for 0 &lt; p &lt; 1 fixed, the Erdős-Renyi random graph G(n, p) almost surely does not contain K t,t as a subgraph for a t which is logarithmic in n. Thus the main result of Hunter, Milojević, Sudakov, and Tomon <ref type="bibr" target="#b23">[24]</ref> gives a weaker upper bound (off by a polylogarithmic in n factor) on ex(Γ, P Ks,r ) with Γ = G(n, p) for 0 &lt; p &lt; 1 fixed, compared to Theorem 1.5. For Paley graphs with a square number n of vertices, which contains a clique of order √ n, these results do not give a nontrivial upper bound on induced Turán numbers. In general, our setup is a natural strengthening where instead of forbidding large complete bipartite subgraphs we forbid large dense subgraphs. One attractive feature of this strengthening is that, in some cases, it allows us to prove bounds which are optimal in the size of such subgraphs. Consequently, this gives optimal bounds in the case the host graph is, say, a dense random graph. With this in mind, our focus was on optimizing the dependence on t. We did not try to optimize, or even calculate, the dependence on c.</p><p>Organization. In Section 2, we describe several constructions giving lower bounds on ex(Γ, P H ). In Section 3, we prove Theorem 1.2 based on a novel variation of dependent random choice. In Section 4, we give the proof Theorem 1.7 on embedding induced trees in subgraphs of (c, t)-sparse graphs. In Section 5, we discuss applications of Theorem 1.2 to the extremal numbers of the properties of being string graphs, incomparability graphs and comparability graphs. In Section 6, we finish with some concluding remarks, highlighting open problems and discussing consequences of our results for induced Ramsey numbers.</p><p>Notation. We follow standard graph theoretic notation. Given a graph G and a subset S ⊆ V (G), we denote with N + G (S) the union of neighborhoods of vertices in S, that is</p><formula xml:id="formula_7">N + G (S) = v∈S N G (v).</formula><p>Similarly, we let N G (S) denote the common neighborhood of vertices in S, that is</p><formula xml:id="formula_8">N G (S) = v∈S N G (v).</formula><p>Acknowledgments. Part of this work was completed while the second author was visiting Stanford University. We would also like to thank Matija Bucić for helpful discussions on connections to the recent works on induced Turán numbers.</p><p>2 Lower bound on a largest subgraph in P H</p><p>Recall that any graph contains a bipartite subgraph with at least half of the edges. Therefore, Lemma 1.4 follows immediately from the following by taking the maximum bipartite subgraph F of a K s,r -free graph on χ(Γ) vertices and ex(χ(Γ), K s,r ) edges.</p><p>Lemma 2.1. Let Γ be a graph such that χ(Γ) = k. Suppose F is a bipartite graph on k vertices which is K s,r -free (as a subgraph), for some 2 ≤ s ≤ r such that r = 2. Then Γ has a subgraph G with at least e(Γ)e(F )/ k 2 edges that is induced K s,r -free.</p><p>Proof. Since χ(Γ) = k, we can vertex partition Γ into k cliques A 1 , . . . , A k . Consider a uniform random bijection f from {1, . . . , k} to V (F ). Let G be the subgraph of G consisting of all edges that are in the cliques A i and any edge of Γ between A i and A j with (f (i), f (j)) ∈ E(F ).</p><p>We first show that G is necessarily induced K s,r -free. Indeed, suppose there was an induced copy of K s,r in G. If each of the s + r vertices are in distinct parts A i , then the corresponding vertices of F would form a copy of K s,r , thus a contradiction. No two vertices of an induced copy of K s,r from the same part in the bipartition can lie in the same A i as A i is a clique but they must be nonadjacent. So there must be a vertex from each part that maps to the same A i , say v 1 and w 1 map to A 1 . As 2 ≤ s ≤ r and r &gt; 2, we can choose v 2 , v 3 (distinct from v 1 ) from one part and w 2 (distinct from w 1 ) from the other part in the bipartition of H. As all three v 1 , v 2 , and v 3 have to lie in different A j 's, and w 2 cannot lie in A 1 , we obtain three different A j 's which are pairwise connected by an edge. This implies F contains a triangle, contradicting that F is bipartite.</p><p>Each edge of Γ has probability at least e(F )/ k 2 of surviving in G, and so the expected number of edges of G is at least e(Γ)e(H)/ k 2 . Hence there is a choice of such a G with at least this many edges.</p><p>We remark that the bipartite assumption on H in Lemma 2.1 is stronger than actually needed, but for an extremal problem, this assumption does not make a big difference, only changing the answer by a factor at most 1/2.</p><p>As remarked earlier, for a graph Γ with n vertices we have χ(Γ) ≥ n/ω(Γ). This bound is asymptotically sharp with high probability for Γ = G(n, p) with 0 &lt; p &lt; 1 fixed. In the case Γ is a vertex-transitive graph, by randomly picking out largest cliques we get that this lower bound on χ(Γ) is sharp up to a logarithmic factor. In order to get an optimal bound in Theorem 1.6, it suffices to cover most of the vertices instead of all (or, more importantly, covered vertices need to span many edges).</p><p>Lemma 2.2. Let Γ be a vertex transitive graph on n vertices. Then Γ has an induced subgraph Γ ′ with at least e(Γ)/2 edges satisfying χ(Γ ′ ) ≤ (ln 4)n/ω(Γ).</p><p>Proof. Since Γ is vertex transitive, it is d-regular for some d. Let A 1 , . . . , A k be cliques of size ω = ω(Γ) in Γ sampled uniformly and independently. Each vertex belongs to the same number of cliques of size ω, thus the probability that a particular vertex does not belong to one A i is exactly 1 − ω/n. By the independence of A i 's we have that it does not belong to any A i with probability (1 − ω/n) k . Using the linearity of expectation, we conclude</p><formula xml:id="formula_9">E [|V (Γ) \ (A 1 ∪ . . . ∪ A k )|] = n(1 − ω/n) k .</formula><p>Therefore, for k = (ln 4)n/ω there exist cliques A 1 , . . . , A k which cover all but at most n/4 vertices. Moreover, the subgraph Γ ′ induced by A 1 ∪ . . . A k can be partitioned into k cliques, thus χ(Γ ′ ) ≤ k. The vertices not in Γ ′ are incident to at most dn/4 edges, so e(Γ ′ ) ≥ e(Γ) − dn/4 = e(Γ)/2.</p><p>For vertex transitive graphs Γ, we obtain a lower bound on ex(Γ, P Ks,r ) by applying Lemma 1.4 to the induced subgraph Γ ′ of Γ. Crucially, by passing on to Γ ′ we lose only a constant fraction of all the edges.</p><p>Proof of Theorem 1.6. Let Γ = P q for a square q. In this case it is known that ω</p><formula xml:id="formula_10">(Γ) = √ q = √ n.</formula><p>As a Paley graph is a Cayley graph, and these are known to be vertex transitive, by applying Lemma 2.2 we obtain a subgraph</p><formula xml:id="formula_11">Γ ′ ⊆ Γ with e(Γ ′ ) ≥ n(n − 1)/8 edges such that χ(Γ ′ ) ≤ 2 √ n. By applying Lemma 1.4 on Γ ′ instead of Γ, we obtain ex(Γ, P Ks,r ) ≥ ex(Γ ′ , P Ks,r ) = Ω(n 2−1/(2s) ).</formula></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.1">General graphs H</head><p>For a graph H and a vertex partition P :</p><formula xml:id="formula_12">V (H) = V 1 ⊔ . . . ⊔ V k</formula><p>, the quotient graph of H obtained from the partition P is the graph with vertex set {1, . . . , k} and where (i, j) with i = j is an edge if some vertex in V i is adjacent to a vertex in V j . That is, the quotient graph is the graph obtained from H by contracting each of the sets We refer the reader to a discussion in Section 6 where we make use of this corollary to give a lower bound on the number of edges when the forbidden subgraph is an even cycle C 2k .</p><formula xml:id="formula_13">V i . If each V i is a clique in H,</formula></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3">Counting d-bounded graphs</head><p>In this section we prove Theorem 1.2. The following two lemmas will be useful to guarantee that the nonedges in the copy of H we find in a subgraph of the (c, t)-sparse graph Γ are nonedges of Γ.</p><p>Lemma 3.1. Let Γ be a (c, t)-sparse graph with c ≤ 1/2. Let V, W ⊆ V (Γ) with |W | ≥ c −r t, for some positive integer r. If we pick a uniformly random r-tuple R of vertices in V , then</p><formula xml:id="formula_14">P R |W \ N + Γ (R)| &lt; c r |W | ≤ rt/|V |.</formula><p>Proof. We pick vertices in a tuple R one at a time, picking v i in step i. Let W 0 = W and after picking v i , let</p><formula xml:id="formula_15">W i = W \N + Γ ({v 1 , . . . , v i }). Assuming |W i | ≥ c −i |W | ≥ t, the number of vertices in V that do not have at least c|W i | nonneighbors in W i is at most t. Hence, the probability that |W i+1 | &lt; c|W i | conditioned on |W i | ≥ c −i |W | is at most t/|V |. Therefore, the probability that the number of common nonneighbors of R is less than c −r |W | is at most rt/|V |. Lemma 3.2. Let Γ be a (c, t)-sparse graph with 0 &lt; c ≤ 1/2. Let k ≥ 2 and V 1 , . . . , V k be vertex subsets of Γ, not necessarily disjoint, each of size at least m ≥ k 2 c −k 2 t. A uniformly random k-tuple in V 1 × • • • × V k forms an independent set of k distinct elements with probability at least c k 2 .</formula><p>Proof. Consider picking the vertices one at a time, picking v i ∈ V i in step i. Having picked v 1 , . . . , v i for some 0 ≤ i &lt; k, let V j,i for i &lt; j ≤ k be the set of vertices in V j not adjacent to v 1 , . . . , v i . Note that V j,0 = V j for every j. For 0</p><formula xml:id="formula_16">≤ i &lt; k, call v i+1 ∈ V i+1 good if the number of nonneighbors of v i+1 in V j,i is at least c|V j,i | for all i + 1 &lt; j ≤ k. Note that if |V j,i | ≥ t, then all but at most t − 1 vertices v i+1 ∈ V i+1 have at least c|V j,i | nonneighbors in V j,i . Hence, assuming |V j,i | ≥ t for i + 1 &lt; j ≤ k, there are at most (k − i)(t − 1) vertices in V i+1 which are not good. Note that if each v 1 , . . . , v i is good, then |V j,i | ≥ c i |V j | ≥ t for i + 1 ≤ j ≤ k.</formula><p>Hence the probability that not all v 1 , . . . , v k−1 are good is at most</p><formula xml:id="formula_17">k−1 i=1 (k − i)(t − 1) m = k 2 (t − 1)/m. For 1 ≤ i ≤ k − 1, if v 1 , . . . , v i are good, then |V i+1,i | ≥ c i |V i+1 |. So conditioning on v 1 , . . . , v k−1 being</formula><p>good, the probability that there are no edges between v 1 , . . . , v k is at least k i=1 c i−1 = c ( k 2 ) . For 1 ≤ i &lt; j ≤ k, the probability that the same vertex is picked in V i and V j is at most 1/m. Hence by the union bound, the probability that uniform random v 1 , . . . , v k are all distinct is at least 1 − k 2 /m. All together, the probability that the chosen vertices form an independent set of distinct vertices is at least</p><formula xml:id="formula_18">c ( k 2 ) − k 2 t/m ≥ c k 2 .</formula><p>Given a graph G and a subset S ⊆ V (G), we denote with d avg (S) the average degree of vertices in S. We say that a bipartite graph G on vertex sets</p><formula xml:id="formula_19">U and R is δ-reduced if d(u) ∈ [δd avg (U ), δ −1 d avg (U )] for all u ∈ U .</formula><p>The following lemma provides a strong form of one-sided regularization.</p><p>Lemma 3.3. Given κ &gt; 1, let 0 &lt; δ &lt; 1/4 be so that 1 − 2δ &gt; δ 1−1/κ . Let G be a bipartite graph with vertex parts U and R. Then there exists</p><formula xml:id="formula_20">U ′ ⊆ U such that G ′ = [U ′ , R] is δ 2 -reduced, d avg (U ′ ) ≥ δd avg (U ),</formula><p>and for any real x ≥ κ we have</p><formula xml:id="formula_21">|U ′ |d avg (U ′ ) x ≥ δ x |U |d avg (U ) x .</formula><p>Proof. Set U 0 = U , and consider the following process for i ≥ 0. As long as</p><formula xml:id="formula_22">u∈U i d(u)≤δ −1 D i d(u) &lt; 2δe(U i , R),<label>(1)</label></formula><p>where D i = d avg (U i ) is the average degree of vertices in U i , set</p><formula xml:id="formula_23">U i+1 := {u ∈ U i : d(u) ≥ δ −1 D i }</formula><p>and proceed to the next iteration. By Markov's inequality, we have</p><formula xml:id="formula_24">|U i+1 | ≤ δ|U i |. By (1), we have |e(U i+1 , R)| ≥ (1 − 2δ)|e(U i , R)|.</formula><p>Let i 0 denote the first index i for which (1) does not hold. Set</p><formula xml:id="formula_25">U ′ = {u ∈ U i 0 : δD i 0 ≤ d(u) ≤ δ −1 D i 0 }. Note that G ′ = G[U ′ , R] is δ 2 -reduced.</formula><p>Furthermore, from the assumption that (1) fails for i 0 we have e(U ′ , R) ≥ δe(U i 0 , R). We also have that e(U i 0 , R)</p><formula xml:id="formula_26">≥ (1 − 2δ) i 0 e(G) and |U ′ | ≤ |U i 0 | ≤ δ i 0 |U |. Then d avg (U ′ ) = e(U ′ , R) |U ′ | ≥ δe(U i 0 , R) |U i 0 | ≥ δ 1 − 2δ δ i 0 d avg (U ) ≥ δd avg (U ).</formula><p>Similarly, for x ≥ κ we have</p><formula xml:id="formula_27">|U ′ |d avg (U ′ ) x = e(U ′ , R) x |U ′ | x−1 ≥ δ x e(U i 0 , R) x |U i 0 | x−1 ≥ δ x 1 − 2δ δ 1−1/x xi 0 |U |d avg (U ) x . As 1 − 2δ &gt; δ 1−1/κ ≥ δ 1−1/x</formula><p>, we obtain the desired inequality.</p><p>Given a graph H, for the rest of the section we fix κ = 1 + 1/v(H) and let δ be as in Lemma 3.3.</p><p>The following lemma is the heart of the proof of Theorem 1.2. Given a graph Γ with n vertices and a bipartite subgraph G ⊆ Γ on vertex sets U and R with |U | = m, |R| = r, let q = e(G)/(mr) be the edge density of G. We say that S ⊆ R is (ε, T )-rich, for some ε &gt; 0 and T ⊆ U , if</p><formula xml:id="formula_28">|N G (S) \ N + Γ (T )| ≥ εmq |S| . For 1 ≤ k ≤ d,</formula><p>we say that T is (β, ε, k)-good if the number of k-tuples of vertices in N G (T ) that are not (ε, T )-rich is at most β|N G (T )| k . Note that we do not require elements in these tuples to be distinct. Lemma 3.4. For every 0 &lt; c &lt; 1/2, β &gt; 0, and positive integer d there are C, ε &gt; 0 such that the following holds. Let Γ be a (c, t)-sparse graph with n vertices and G ⊆ Γ be a δ-reduced bipartite subgraph of Γ with parts U, R with |U | = m, |R| = r, and at least Crm 1−1/d t 1/d edges. Then, with probability at least 1/2 over uniformly chosen u ∈ U , we have that u is (β, ε, k)-good for all k ≤ d.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Proof. Consider k ∈ [d].</head><p>Let B k denote the set of all vertices u which are not (β, ε, k)-good, where ε &gt; 0 will be chosen as a sufficiently small constant in terms of β, c and d.</p><p>We distinguish two types of k-tuples that are not (ε, u)-rich. Let S denote the family of k-tuples S in R such that |N G (S)| ≥ c −d εmq k . Let s 1 (u) denote the number of k-tuples S ⊂ N G (u) for which S is not (ε, u)-rich and S ∈ S. Let s 2 (u) denote the number of k-tuples S ⊂ N G (u) for which S is not (ε, u)-rich and S / ∈ S.</p><p>We first bound E[s 1 (u)]. For each S ∈ S, since Γ is (c, t)-sparse there are at most t vertices u for which S is not (ε, u)-rich. Hence,</p><formula xml:id="formula_29">P[S is not (ε, u)-rich | S ∈ N G (u)] ≤ t |N G (S)| ≤ t c −d εmq k . In particular, since G is δ-reduced, c −d εmq k t E[s 1 (u)] ≤ E[|N G (u)| k ] ∈ [(δD) k , (δ −1 D) k ],</formula><p>where D is the average degree of vertices in U . Next, we bound E[s 2 (u)]. For S / ∈ S we have</p><formula xml:id="formula_30">P[S ∈ N G (u)] ≤ c −d εq k .</formula><p>Hence,</p><formula xml:id="formula_31">E[s 2 (u)] ≤ r k c −d εq k ≤ c −d ε(δ −1 D) k .</formula><p>By Markov's inequality, with probability at least 1 − 1/(2d) over u ∈ U ,</p><formula xml:id="formula_32">s 1 (u) + s 2 (u) ≤ 2dt c −d εmq k (δ −1 D) k + 2dc −d ε(δ −1 D) k ≤ 2d(δ −1 D) k c d t εmq k + c −d ε .</formula><p>For ε sufficiently small and C sufficiently large, we then have s 1 (u) + s 2 (u) ≤ β|N G (u)| k with probability at least 1 − 1/(2d).</p><p>By the union bound, with probability at least 1/2 we have that u is (β, ε, k)-good for all k ∈ <ref type="bibr">[1, d]</ref>.  δt(m/t) 1/d . Let β &gt; 0 be sufficiently small in H, c and d. Suppose u ∈ U is (β, ε, k)-good. Then, for some constant γ = γ(δ, c, β, ε, H) &gt; 0, there are at least γm a r b q e(H) copies of H in G which are induced in Γ and contain u, where q = e(G)/(mr) the edge density of G.</p><formula xml:id="formula_33">Let H = (A ∪ B,</formula><p>Proof. Consider a vertex u ∈ U which is (β, ε, k)-good for all k ≤ d. We then consider embeddings of H where A 0 (of size 1) maps to u. We then embed B according to a uniformly random b-tuple X ⊆ N G (u). We first show that with decent probability, X satisfies the following properties:</p><p>1. all elements in X are distinct and independent in Γ,</p><formula xml:id="formula_34">2. every d-tuple Y in X is (c b−d ε, {u} ∪ (X \ Y ))-rich.</formula><p>The first property holds with probability at least c b 2 by Lemma 3.2. We show the second property holds with probability close to one by a union bound over Y . By the assumption that u is (β, ε, k)-good for k ≤ d, one particular k-tuple Y in X fails to be (ε, u)-rich with probability at most β. Conditioning on Y being (ε, u)-rich, by Lemma 3.1 the probability of choosing the remaining vertices in X such that</p><formula xml:id="formula_35">|N G (Y ) \ N + Γ ({u} ∪ (X \ Y ))| &lt; c b−k εmq k is at most (b − k)t/(εmq k ).</formula><p>Therefore, one particular Y fails to be (ε, {u} ∪ (X \ Y ))-rich with probability at most β + bt/(εmq k ). As mq d &gt; Ct, by taking C to be sufficiently large we can upper bound this probability by 2β. Finally, for β &gt; 0 sufficiently small, by taking union bound over all d-tuples of X we have that X fails either property with probability at most</p><formula xml:id="formula_36">1 − c b 2 + b d 2β &lt; 1 − c b 2 /2.</formula><p>Next, we show that each X which satisfies the two properties gives rise to c 2ab ε a m a q e(H)−b copies of H in G which are induced in Γ. As there are c , by Lemma 3.2 we have that all chosen vertices are distinct and independent in Γ with probability c a 2 . Assuming this is the case, we obtain a copy of H in G which is induced in Γ. Therefore, there are at least c a 2 (c b εm) a q e(H)−b copies which contain u. Proof. We prove the statement by induction on ℓ. We let β &gt; 0 be sufficiently small (depending on H, c and d) and let ε &gt; 0 be given by Lemma 3.4. For ℓ ≥ 1, we choose the constants C ℓ and C ′ ℓ as follow.</p><formula xml:id="formula_37">C ℓ = 1/(2(1 − β)εδ) ℓ , C ′ ℓ = δ −2ℓ , γ ℓ = ((1 − β) e(H) ε e(H) δ 2b /2) ℓ .</formula><p>Base case: ℓ = 1.</p><formula xml:id="formula_38">Apply Lemma 3.3 to obtain a δ 2 -reduced induced subgraph G ′ = G[U ′ , R] with |U ′ | = m ′ . In particular, for x ≥ 1 + 1/v(H) we have m ′ • d avg (U ′ ) x ≥ δ x m • d avg (U ) x .</formula><p>Dividing each side by r x , we get</p><formula xml:id="formula_39">m ′ (q ′ ) x ≥ δ x mq x ,<label>(2)</label></formula><p>where q ′ = e(G ′ )/(m ′ r) is the density of G ′ . By Lemma 3.4 and Claim 3.5, the number of copies of</p><formula xml:id="formula_40">H in G ′ induced in Γ is at least γ m ′ 2 (m ′ ) a r b (q ′ ) e(H) = γ 2 r b m ′ • (q ′ ) e(H)/(a+1) a+1</formula><p>≥ γδ e(H) 2 r b mq e(H)/(a+1) a+1 = γ ′ m a+1 r b q e(H) .</p><p>The first inequality follows from (2) applied with x = e(H)/(a + 1) ≥ 1 + 1/v(H).</p><p>Inductive step: Assume the conclusion of the lemma holds when H has ℓ − 1 vertices complete to the other side.</p><p>Apply Lemma 3.3 to obtain a δ 2 -reduced induced subgraph</p><formula xml:id="formula_41">G ′ = G[U ′ , R] with |U ′ | = m ′ . By Lemma 3.4, at least m ′ /2 vertices u ∈ U ′ are such that N G ′ (u) is (β, ε, k)-good for all k ≤ d. In particular, for at least (1 − β)|N G ′ (u)| vertices x ∈ N G ′ (u), we have |N G ′ (x) \ N Γ (u)| ≥ εm ′ q ′ ,</formula><p>where q ′ = e(G ′ )/(m ′ r).</p><p>Let H ′ be the graph obtained from H by removing one of ℓ vertices in A complete to B. Let G ′′ be the induced subgraph of G between N G ′ (u) and U ′ \ N Γ (u). We then have</p><formula xml:id="formula_42">e(G ′′ ) = x∈N G ′ (u) |N G ′ (x) \ N Γ (u)| ≥ (1 − β)|N G ′ (u)| • εm ′ q ′ , thus q ′′ ≥ (1 − β)εq ′ .<label>(3)</label></formula><p>Towards obtaining more precise estimate on the density q ′′ of G ′′ , we have</p><formula xml:id="formula_43">e(G ′′ ) |N G ′ (u)|(m ′ ) 1−1/d ≥ (1 − β)ε m ′ q ′ r(m ′ ) 1−1/d ≥ (1 − β)ε d avg (U ′ )(m ′ ) 1/d r = (1 − β)ε d avg (U )m 1/d r d avg (U ′ ) d m ′ d avg (U ) d m 1/d ≥ (1 − β)εδ d avg (U )m 1/d r = (1 − β)εδqm 1/d ≥ C ℓ (1 − β)εδt 1/d ,</formula><p>where the third inequality follows from the property of Lemma 3.3 applied with x = d. Hence, the edge density</p><formula xml:id="formula_44">q ′′ of G ′′ satisfies q ′′ ≥ C ℓ (1 − β)εδ(m ′ ) −1/d t 1/d . Our choice of C ℓ guarantees that C ℓ (1 − β)εδ ≥ C ℓ−1 . Moreover, |N G ′ (u)| ≥ δd avg (U ′ ) ≥ δ 2 d avg (U ) = δ 2 rq ≥ δ 2 • C ′ ℓ t(m/t) ℓ/d • C ℓ (t/m) 1/d , which is at least C ′ ℓ−1 t(m/t) (ℓ−1)/d for our choice of C ′ ℓ .</formula><p>Then, by the inductive hypothesis, we have that the number of copies of H ′ in G ′′ is at least</p><formula xml:id="formula_45">γ ℓ−1 (m ′ ) a+ℓ−1 |N G ′ (u)| b (q ′′ ) e(H)−b (3) ≥ γ ℓ−1 (1 − β) e(H) ε e(H) • (m ′ ) a+ℓ−1 • |N G ′ (u)| b • (q ′ ) e−b ≥ γ ℓ−1 (1 − β) e(H) ε e(H) • (m ′ ) a+ℓ−1 • δ 2b d avg (U ′ ) b • (d avg (U ′ )/r) e(H)−b ≥ γ ′ • m a+ℓ−1 • d avg (U ) e(H) r b−e(H) = γ ′ m a+ℓ−1 r b q e(H) , where γ ′ = γ ℓ−1 (1 − β) e(H) ε e(H) δ 2b . Summing over vertices u ∈ U ′ such that N G ′ (u) is (β, ε, k)-</formula><p>good for all k ≤ d, we obtain that the number of copies of H in G which are induced in Γ is at least (m/2)γ ′ m a+ℓ−1 r b q e(H) = γ ℓ m a+ℓ r b q e(H) . This completes the inductive step.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4">Trees</head><p>The proof of Theorem 1.7 is based on a delicate inductive argument which 'glues' induced copies of subtrees of T . To this end, we start by introducing necessary notions. We only consider labelled copies of T , which we identify with an injective function φ : V (T ) → V (G). For a given copy φ of T and a leaf v ∈ V (T ), we denote by φ − v a copy of T − v given by φ ↾ V (T )−v .</p><p>Unique neighbors. Given graphs G and Γ on the same vertex set, we say that a subset of vertices</p><formula xml:id="formula_46">S ⊂ V (G) is c-unique if for every v ∈ S we have |N G (v) \ N + Γ (S − v)| ≥ c |S|−1 |N G (v)|. We say that a copy φ of T is c-unique if the set φ(T ) is c-unique.</formula><p>Extending T − v to T . Let T be a tree with at least two vertices, v ∈ V (T ) a leaf in T and h v ∈ V (T ) the unique neighbor of v. Suppose λ T −v and λ T are probability measures over copies of T − v and T , respectively, in some graph G. We say that λ T (K, ε, κ)-extends λ T −v , for K, ε, κ &gt; 0, if the following two properties hold:</p><formula xml:id="formula_47">λ T (φ) ≤ Kλ T −v (φ − v) deg G (φ(h v )) for every φ ∈ supp(λ T )<label>(4)</label></formula><p>and</p><formula xml:id="formula_48">P φ ′ ∼λ T −v λ T (φ ′ ) ≥ ελ T −v (φ ′ ) ≥ 1 − κ,<label>(5)</label></formula><p>where</p><formula xml:id="formula_49">λ T (φ ′ ) = λ T ({φ ∈ supp(λ T ) : φ − v = φ ′ }).</formula><p>Note that (4) implies</p><formula xml:id="formula_50">λ T (φ ′ ) ≤ Kλ T −v (φ ′ ) for every φ ′ ∈ supp(λ T −v ).<label>(6)</label></formula><p>The following two lemmas are indirectly related to these properties, thus we state them now.</p><p>Lemma 4.1. Let Γ be a (c, t)-sparse graph. Suppose π 1 and π 2 are probability measures over V (Γ) such that π i (v) &lt; γ/t for all v ∈ V (Γ) and i ∈ {1, 2}, for some 0 &lt; γ &lt; 1. Define the good set of vertices with respect to π 2 as</p><formula xml:id="formula_51">D(π 2 ) = {x ∈ V (Γ) : π 2 ({y ∈ V (Γ) : (x, y) ∈ Γ}) ≥ c}.</formula><p>Then</p><formula xml:id="formula_52">P x∼π 1 [x ∈ D(π 2 )] &gt; 1 − γ.</formula><p>Proof. Assume for the sake of contradiction that</p><formula xml:id="formula_53">P x∼π 1 [x ∈ D(π 2 )] ≤ 1 − γ. Since π 1 (v) &lt; γ/t for all v, there is a set B 1 ⊆ Γ of size at least t for which π 2 ({y ∈ V (Γ) : (x, y) / ∈ Γ}) &lt; c, and hence π 2 ({y ∈ V (Γ) : (x, y) ∈ Γ}) &gt; 1 − c, for all x ∈ B 1 . Thus, letting U 1 denote the uniform distribution on B 1 , E x 1 ∼U 1 ,x 2 ∼π 2 [I((x, y) ∈ Γ)] &gt; 1 − c.</formula><p>Recall the standard fact that, any distribution P on a finite set V with max v∈V P (v) ≤ θ can be written as a convex combination of distributions, each of which is uniform over its support (which is a subset of V ) of size ⌊1/θ⌋ (see <ref type="bibr" target="#b32">[33,</ref><ref type="bibr">Lemma 6.10]</ref>). Applying this fact to π 2 with θ = γ/t, and by averaging, we obtain that there is a subset B 2 ⊆ Γ of size ⌊t/γ⌋ ≥ t such that, for U 2 the uniform distribution on B 2 ,</p><formula xml:id="formula_54">E x 1 ∼U 1 ,x 2 ∼U 2 [I((x, y) ∈ Γ)] &gt; 1 − c.</formula><p>However, this contradicts the (c, t)-sparse assumption on Γ. Lemma 4.2. Let Γ be a (c, t)-sparse graph. Suppose π 1 and π 2 are probability measures over V (Γ) such that π i (v) &lt; γ/t for all v ∈ V (Γ) and i ∈ {1, 2}, for some 0 &lt; γ &lt; 1. Moreover, let S = {S v : v ∈ supp(π 2 )} be a family of subsets of V (Γ), each of size |S v | ≥ t. Denote with D(π 2 , S) the good set of vertices with respect to π 2 and the family S, defined as</p><formula xml:id="formula_55">D(π 2 , S) = {x ∈ V (Γ) : π 2 ({y ∈ V (Γ) : |S y \ N Γ (x)| &lt; c|S y |}) &lt; √ γ}.</formula><p>Then</p><formula xml:id="formula_56">P x∼π 1 [x ∈ D(π 2 , S)] &gt; 1 − √ γ.</formula><p>Proof. For x, y ∈ V (Γ), write x⊲y as a shorthand for |S y \N Γ (x)| &lt; c|S y |. As Γ is (c, t)-sparse and |S y | ≥ t, there are at most t vertices x such that x ⊲ y, for any y ∈ V (Γ). Therefore, P x,y [x ⊲ y] &lt; γ with x ∼ π 1 and y ∼ π 2 sampled independently.</p><formula xml:id="formula_57">Let B = V (G) \ D(π 2 , S) = {x ∈ V (Γ) : π 2 ({y ∈ V (Γ) : x ⊲ y}) ≥ √ γ}.</formula><p>By Markov's inequality,</p><formula xml:id="formula_58">P x∼π 1 [x ∈ B] ≤ P x,y [x ⊲ y] √ γ &lt; √ γ.</formula><p>Thus,</p><formula xml:id="formula_59">P x∼π 1 [x ∈ D(π 2 , S)] &gt; 1 − √ γ.</formula><p>Peeling a tree. Let T be a (labelled) tree, and let S(T ) denote the family of all subtrees of T . A mapping ν : S(T ) → 2 V (T ) is T -peeling if the following holds: (i) ν({v}) = {v} for v ∈ V (T ), and (ii) for |T ′ | ≥ 2 we have ν(T ′ ) = {u, w} where u and w are leaves in T ′ such that u ∈ ν(T ′ − w) and w ∈ ν(T ′ − u).</p><p>Lemma 4.3. For every tree T there exists a T -peeling mapping.</p><p>Proof. We prove the lemma by induction on the size of T . For |T | ≤ 2, the claim trivially holds. Consider some |T | ≥ 3, and pick a leaf v ∈ T . Set T v = T − v, and let ν v be a T v -peeling mapping. For a subtree T ′ ⊆ T which does not contain v we set ν(T ′ ) = ν v (T ′ ). For a subtree T ′ ⊆ T which contains v, take w ∈ ν v (T ′ − v) which is not adjacent to v and set ν(T ) = {v, w}.</p><p>We are now ready to prove Theorem 1.7.</p><p>Proof of Theorem 1.7. By sequentially removing vertices of degree less than Ct in G, we eventually end up with a graph with n ′ &gt; 1 vertices, at least Ctn ′ edges, and minimum degree at least Ct. Therefore, without loss of generality we may assume that G has minimum degree at least Ct.</p><p>Consider a T -peeling mapping ν. We show that for each tree T ′ ⊆ T there exists a probability measure λ T ′ over c-unique copies of T ′ in G which are induced in Γ, such that λ T ′ (K ℓ , ε ℓ , κ ℓ )-extends λ T ′ −v for each T ′ ⊆ T with at least two vertices and v ∈ ν(T ′ ), where ℓ = |V (T ′ )|. As the parameters depend only on the size of a tree, we simply write λ T ′ extends λ T ′ −v . Here K i &gt; 1 and 0 &lt; ε i , κ i &lt; 1, for 2 ≤ i ≤ |V (T )|, are defined as follows:</p><formula xml:id="formula_60">K 2 = 2, ε 2 = 1/3, κ |V (T )| = 1/2 ε i = c/(2K i−1 ), K i = 2K i−1 /(ε 2 i−1 c) for i ≥ 3 κ i = κ i+1 /(2K i ) for 2 ≤ i &lt; |V (T )|,</formula><p>and C is chosen to be sufficiently large. We prove the existence of such measures by induction on the size of T ′ , handling the base cases T ′ has one or two vertices first.</p><p>T ′ is a single vertex. Let T ′ = {v}. We define λ v as</p><formula xml:id="formula_61">λ v (x) = deg G (x) 2e(G) .</formula><p>T ′ is an edge. Let T ′ be an edge {u, w}, and note that necessarily ν(T ′ ) = {u, w} (recall that T is a labelled tree, so we distinguish between u and w). Consider the following process: Sample x u ∼ λ u , and then sample</p><formula xml:id="formula_62">x w ∈ N G (x u ) uniformly at random from N G (x u ). If |N G (x u ) \ N Γ (x w )| ≥ c|N G (x u )| and |N G (x w ) \ N Γ (x u )| ≥ c|N G (x w )|</formula><p>, output a copy φ = {u → x u , w → x w } of T ′ and otherwise reject. When we output, φ is a c-unique copy of T ′ , and as T ′ contains a single edge it is trivially induced in Γ. Define λ T ′ to be the corresponding output distribution. We will make use of the fact that first sampling x w ∼ λ w and then x u ∈ N G (x w ) yields the same probability distribution. Indeed, the distribution can alternatively be described as sampling a uniformly random edge</p><formula xml:id="formula_63">{x u , x w } in G, then accept if |N G (x u ) \ N Γ (x w )| ≥ c|N G (x u )| and |N G (x w ) \ N Γ (x u )| ≥ c|N G (x w )|. For each x ∈ V (Γ), as Γ is (c, t)-sparse and |N G (x)| ≥ Ct, we have |N G (x) \ N Γ (y)| ≥ c|N G (x)</formula><p>| for all but at most t vertices y ∈ N G (x). As we can sample T ′ starting with either x u or x w , the above claim (with x = x u or x = x w ) implies that φ is c-unique with probability at least 1 − 2t/(Ct) &gt; 1 − κ 2 /2. In other words, the probability p succ of successfully outputting a copy of T ′ is at least 1 − κ 2 /2 &gt; 1/2. We now verify that λ T ′ (K 2 , ε 2 , κ 2 )-extends λ T ′ −u = λ w and λ T ′ −w = λ u .</p><p>Property <ref type="bibr" target="#b3">(4)</ref> states that for every (ordered) edge e = (x u , x w ) ∈ supp(λ T ′ ) we have</p><formula xml:id="formula_64">λ T ′ (e) = 1 p succ • λ u (x u ) deg G (x u ) ≤ 2λ u (x u ) deg G (x u ) ,</formula><p>which follows from the lower bound on the success probability and the definition of the process. The analogous statement holds for w in place of u.</p><p>Property <ref type="bibr" target="#b4">(5)</ref> states that</p><formula xml:id="formula_65">P xu∼λu [λ T ′ (u → x u ) ≥ λ u (x u )/3] ≥ 1 − κ 2 ,<label>(7)</label></formula><p>where </p><formula xml:id="formula_66">λ T ′ (u → x u ) = λ T ′ ({(x u , x w ) ∈ supp(λ T ′ )}).</formula><formula xml:id="formula_67">λ T ′ (u → x u ) ≥ y∈N G (xu) (x,y) c-unique λ u (x u )/ deg G (x u ) ≥ λ u (x u )/3.</formula><p>To prove <ref type="bibr" target="#b6">(7)</ref>, it suffices to show λ u (B) ≤ κ 2 . Suppose otherwise, then</p><formula xml:id="formula_68">1 − p succ = P xu,xw [(x u , x w ) not c-unique] ≥ P xu∼λu (x u ∈ B)P xu,xw [(x u , x w ) not c-unique | x u ∈ B] &gt; κ 2 /2,</formula><p>where the joint probability (x u , x w ) is as given by the process. This is a contradiction with the previously established lower bound on p succ .</p><p>T ′ has at least three vertices. Suppose now T ′ has ℓ ≥ 3 vertices and the statement holds for every proper subtree T ′′ ⊂ T ′ . Let ν(T ′ ) = {u, w}, and let h u and h w be unique neighbors of u and w in T ′ . Note that h u and h w could be the same vertex. Set R = T ′ − ν(T ), R u = T ′ − w and R w = T ′ − u. By the inductive assumption and the definition of a T -peeling mapping, λ Ru and λ Rw extend λ R .</p><p>Consider the following process:</p><formula xml:id="formula_69">(I) Sample ρ ∼ λ R . If λ Ru (ρ) &lt; ε ℓ−1 λ R (ρ) or λ Rw (ρ) &lt; ε ℓ−1 λ R (ρ), reject.</formula><p>(II) Sample ρ u ∼ λ Ru | ρ, that is, ρ u is sampled according to λ Ru conditioned on agreeing with ρ on R. Similarly, independently sample ρ w ∼ λ Rw | ρ. Let x u = ρ u (u) and x w = ρ w (w), and define φ to be a mapping given by ρ ∪ {u → x u , w → x w }. Reject if any of the following events happen: (i)</p><p>x u = x w , (ii) φ is not c-unique, or (iii) x u and x w are adjacent in Γ.</p><p>(III) Output the copy φ of T ′ .</p><p>Note that if we did not reject in step (I) then λ Rv (ρ) &gt; 0 implies λ Rv | ρ is defined, for v ∈ {u, w}. Events (i)-(iii) ensure that φ is a c-unique copy of T ′ in G which is induced in Γ, thus we define λ T ′ to be the corresponding output distribution. It remains to show that the probability p succ of outputting a copy of T ′ in step (3) is non-zero and λ T ′ extends λ T ′ −u = λ Rw and λ T ′ −w = λ Ru .</p><p>For brevity, throughout the proof we denote with π v,ρ = λ Rv | ρ the probability measure corresponding to x v with respect to ρ, for v ∈ {u, w}.</p><formula xml:id="formula_70">Claim 4.4. Suppose λ Ru (ρ) ≥ ε ℓ−1 λ R (ρ). Then for every x ∈ N G (ρ(h u )) we have π u,ρ (x) ≤ L deg G (ρ(h u )) ≤ L Ct .</formula><p>where</p><formula xml:id="formula_71">L = K ℓ−1 ε −1 ℓ−1 .</formula><p>The analogous statement holds for replacing u in each instance by w.</p><formula xml:id="formula_72">λ T ′ (ρ u ) ≥ ε ℓ λ Ru (ρ u ) for ε ℓ = c/(2K ℓ−1 )</formula><p>. We estimate the probability that ρ u does not satisfy (8):</p><formula xml:id="formula_73">P ρu∼λ Ru [λ Ru (ρ) &lt; ε ℓ−1 λ R (ρ) ∨ x u ∈ D(π w,ρ ) ∩ D(π w,ρ, , S)] = P ρu∼λ Ru [λ Ru (ρ) &lt; ε ℓ−1 λ R (ρ)] + P ρu∼λ Ru [x ∈ D(π w,ρ ) ∩ D(π w,ρ, , S) | λ Ru (ρ) ≥ ε ℓ−1 λ R (ρ)] .</formula><p>By ( <ref type="formula" target="#formula_48">5</ref>) and ( <ref type="formula" target="#formula_50">6</ref>), the first term is at most κ ℓ−1 K ℓ−1 . The second term is at most L/C + L/C by Lemma 4.1 and Lemma 4.2. For C sufficiently large and κ ℓ−1 sufficiently small with respect to K ℓ−1 , we get a desired upper bound on ρ ∼ λ Ru failing (5). This finishes the proof.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5">Applications of Theorem 1.2 for certain hereditary families</head><p>In this section, we prove Theorem 1.8 which states that ex(Γ, S) = O c (tn) for Γ a (c, t)-sparse graph and S the family of string graphs. The following lemma from <ref type="bibr" target="#b14">[15]</ref> was proved using an iterative application of Lee's separator lemma for string graphs. Proof of Theorem 1.8. Let Γ be a (c, t)-sparse graph on n vertices and G ⊆ Γ be a subgraph which is a string graph with the maximum number of edges. Let d be the average degree of G. We may suppose suppose d ≥ At for some large constant A dependent on c as otherwise we are done. Applying Lemma 5.1 with ε = 1/2, there is an induced subgraph G ′ of G with average degree at least d/2 and with at most Cd vertices. As G ′ is a subgraph of Γ, G ′ is (c, t)-sparse. As G ′ is an induced subgraph of G, G ′ is a string graph. From Corollary 1.3 applied to G ′ as Γ (noting that G ′ is a string graph and hence does not contain any induced copy of the bipartite graph B which is the 1-subdivision of K 5 ), we get that G ′ has small edge density, contradicting that its edge density is at least (d/2)/(Cd) = 1/(2C).</p><p>As an application of Theorem 1.8, we determine the extremal number within a constant factor when P is the property of being an incomparability graph of a partially ordered set, in which case for Γ = G(n, p) with 0 &lt; p &lt; 1 fixed, with high probability we have ex(Γ, P) = Θ(n log n). Indeed, by <ref type="bibr" target="#b20">[21,</ref><ref type="bibr" target="#b28">29,</ref><ref type="bibr" target="#b31">32]</ref>, any incomparability graph is a string graph. Thus, ex(Γ, P) = O(n log n) by Theorem 1.8. On the other hand, we saw that Γ contains a subgraph G with Θ(n log n) edges, which is a disjoint union of cliques of size Θ(log n). Such a graph G is an incomparability graph of a partially ordered set. The same argument shows that if Γ = P q is the Paley graph for a square q, then ex(Γ, P) = Θ(q 3/2 ).</p><p>In contrast, if P is the family of comparability graphs (complements of incomparability graphs) or perfect graphs, we have with high probability, for Γ = G(n, p), ex(Γ, P) is asymptotically pn 2 /4 by the theorem of Alon, Krivelevich and Samotij <ref type="bibr" target="#b1">[2]</ref>, as these families contain all bipartite graphs, but there are graphs of chromatic number 3 like the five-cycle which are not in the family.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6">Concluding remarks</head><p>Improved bound for Paley graphs. It is conjectured that the clique number of Paley graphs with a prime number q of vertices is much smaller than the upper bound √ q. This bound has only been improved recently by a constant factor <ref type="bibr" target="#b8">[9,</ref><ref type="bibr" target="#b22">23]</ref>. An improvement on the bound in Theorem 1.6 when q is not a square would imply the clique number of the Paley graph is o( √ q). Furthermore, the Paley Graph Conjecture implies that such graphs should be (c, q ε )-sparse for any fixed c &lt; 1/2 and ε &gt; 0 and q sufficiently large (see <ref type="bibr" target="#b33">[34]</ref> for more). Together with our results, this would imply for n prime and Γ a Paley graph on n vertices that ex(Γ, P Ks,r ) = n 2−1/s+o (1) for fixed r and s with r sufficiently large in s and n → ∞.</p><p>Even cycles. Corollary 2.4 shows that for general graphs H and Γ, we can lower bound ex(Γ, P H ) via the extremal numbers of the family of clique quotients of H. The corollary is interesting when H is bipartite.</p><p>For some H, we understand F H quite well. For example, if H = C 2ℓ is the even cycle on 2ℓ vertices, then F H consists of all cycles of length at least ℓ and at most 2ℓ. It is known <ref type="bibr" target="#b0">[1]</ref> that if a graph on n vertices has girth larger than 2ℓ (so the shortest cycle has more than 2ℓ vertices), then it has at most 1 2 n 1+1/ℓ + 1 2 n edges. It is conjectured that this upper bound is tight up to a constant factor, and this conjecture holds for ℓ ∈ {2, 3, 5}, see <ref type="bibr" target="#b18">[19]</ref> for more on this problem. We thus conjecture the following: Conjecture 6.1. For every c &gt; 0 and integer ℓ there exists C &gt; 1, such that if Γ is a (c, t)-sparse graph then ex(Γ, P C 2ℓ ) ≤ Ct 1−1/ℓ n 1+1/ℓ . For many bipartite H, like complete bipartite graphs K s,r with 2 ≤ s ≤ r and r ≥ 3, every clique quotient of H apart from H is non-bipartite, and hence, for such graphs H, the construction used to prove Corollary 2.4 gives a natural bound of ex(Γ, P H ) ≥ 1 2 e(Γ)ex(χ(Γ), H)/ χ(Γ) 2 .</p><p>It seems challenging to prove a matching upper bound in general.</p><p>Induced subdivisions. Given a graph H, let us denote by D H the property of containing a subdivision of H as an induced subgraph. In the context of induced Turán-type problem, this family of graphs has received considerable attention recently <ref type="bibr" target="#b6">[7,</ref><ref type="bibr" target="#b10">11,</ref><ref type="bibr" target="#b19">20,</ref><ref type="bibr" target="#b26">27]</ref>. In particular, a result of Hunter, Milojević, Sudakov, and Tomon <ref type="bibr" target="#b23">[24]</ref> states that if G has Ct O(|V (H)|) n edges and no K t,t as a subgraph (not necessarily induced), then G contains an induced subdivision of H. Recasting the problem in our setup, it is natural to believe that the following is true.</p><p>Conjecture 6.2. For every c &gt; 0 and a graph H, there exists C &gt; 1 such that if Γ is a (c, t)-sparse graph then ex(Γ, D H ) ≤ Ctn.</p><p>Multicolor induced Ramsey numbers. For a graph H and positive integer r, the induced Ramsey number r ind (H, r) is the minimum N for which there is a graph G on N vertices such that in every r-edgecoloring of G there is a monochromatic induced copy of H. The existence of induced Ramsey numbers was proved in the early 1970s, and it has remained a challenging open problem to estimate these numbers. As shown in <ref type="bibr" target="#b15">[16]</ref>, like for Ramsey numbers, if H is non-bipartite, then</p><formula xml:id="formula_74">2 r ≤ r ind (H, r) ≤ r C(H)r</formula><p>for some constant C = C(H).</p><p>One of the consequences of our results implies that for bipartite H, the multicolor induced Ramsey number has polynomial growth in the number of colors, similar to Ramsey numbers. Further, we can determine the induced Ramsey number for certain fixed bipartite graphs H up to a lower order factor. </p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head></head><label></label><figDesc>E) be a d-bounded bipartite graph with A 0 ⊆ A denoting the set of vertices complete to B and A 1 = A \ A 0 . Recall that, by the definition, every vertex in A 1 has degree at most d. Let ℓ = |A 0 |, a = |A 1 |, b = |B|, and let e be the number of edges of H. Claim 3.5. Assume ℓ = 1. Let G be a bipartite subgraph of Γ with vertex sets |U | = m, |R| = r and at least Crm 1−1/d t 1/d edges. Assume that G is δ-reduced, and r ≥ |V (H)| 2 c −|V (H)|</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>2</head><label>2</label><figDesc></figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head></head><label></label><figDesc>b 2 |N G (u)| b /2 ≥ (c b 2 /2)(δqr) b such b-tuples X, this implies the claim. Fix an ordering v 1 , . . . , v b of the vertices in B, and consider one such X. For every tuple of vertices Y in X, let U (Y ) = N G (Y ) \ N + Γ ({u} ∪ (X \ Y )) denote the 'unique' neighborhood of Y . Let f be an arbitrary mapping of v 1 , . . . , v b to B and, for each w ∈ A 1 , let B w = f (N H (w)) and V w = U (B w ). Now pick one vertex from each V w for w ∈ A 1 , uniformly at random. As |V w | ≥ c b εmq |N H (w)|</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head>Theorem 1 .Lemma 3 . 6 .</head><label>136</label><figDesc>2 follows immediately from Lemma 3.6 below, upon replacing G with a bipartite subgraph with at least (1 − o(1))e(G)/2 edges on parts U and R with |U | = ⌊n/2⌋ and |R| = ⌈n/2⌉. For every 0 &lt; c &lt; 1/2, and positive integer d and ℓ ≤ d, there are C ℓ , C ′ ℓ , γ ℓ &gt; 0 such that the following holds. Let Γ be a (c, t)-sparse graph with n vertices and G ⊆ Γ be a bipartite subgraph with parts U, R with |U | = m, |R| = r and edge density q ≥ C ℓ m −1/d t 1/d . Assume that r ≥ C ′ ℓ t(m/t) ℓ/d . Let H be d-bounded with vertex parts A and B, ℓ vertices in A complete to B, |A| = ℓ + a and |B| = b. Then, there are at least γ ℓ m a+ℓ r b q e(H) copies of H in G which are induced in Γ.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_4"><head></head><label></label><figDesc>Due to symmetry, this implies the analogous statement for λ w . Let B ⊆ V (G) denote the set of vertices such that for each x ∈ B there are less than deg G (x)/2 vertices y ∈ N G (x) for which |N G (y)\N Γ (x)| ≥ c|N G (y)|. For each x ∈ B, there are at least deg G (x)/2−t &gt; deg G (x)/3 vertices y ∈ N G (x) such that (x, y) is c-unique. Therefore, for x u ∈ B we have</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_5"><head>Lemma 5 . 1 .</head><label>51</label><figDesc>(Lemma 3, page 224 of<ref type="bibr" target="#b14">[15]</ref>) For each ε &gt; 0 there is C = C(ε) such that every string graph which has average degree d has an induced subgraph on at most Cd vertices which has average degree at least (1 − ε)d.Lemma 5.1 shows that string graphs have dense induced subgraphs with average degree close to that of the original graph. Together with Corollary 1.3, this implies Theorem 1.8.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_6"><head>Theorem 6 . 3 .</head><label>63</label><figDesc>Let d be a positive integer, and fix a d-bounded bipartite graph H contains a K d,s with s sufficiently large. Then r ind (H, r) = Θ(r d ).</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_1"><head></head><label></label><figDesc>then this is a clique quotient of H. For each graph H, let F H denote the family of bipartite graphs that are clique quotients of H. Note that H ∈ F H as H is a clique quotient of itself by taking the vertex partition into singletons. Note that if H is a bipartite graph, then the family F H consists of exactly the bipartite graphs that can be obtained by contracting disjoint edges of H. The proof of Lemma 2.1 extends directly to show the following generalization.Lemma 2.3. Let Γ be a graph such that χ(Γ) = k. Let H be a graph and suppose F is a bipartite graph on k vertices which does not contain any graphs in F H as a subgraph. Then Γ has a subgraph G with at least e(Γ)e(F )/ k 2 edges that is induced H-free.</figDesc><table><row><cell>Lemma 2.3 immediately implies the following generalization of Lemma 1.4.</cell></row></table><note>Corollary 2.4. For all graphs H and Γ, we haveex(Γ, P H ) ≥ 1 2 e(Γ)ex(χ(Γ), F H )/ χ(Γ) 2 .</note></figure>
+		</body>
+		<back>
+
+			<div type="acknowledgement">
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>The upper bound follows from our results by considering a stronger density-type variant of induced Ramsey numbers studied by Dudek, Frankl, and Rödl <ref type="bibr" target="#b11">[12]</ref>. Say that a graph G has the induced (ε, H) density property if for every subgraph G ′ of G with e(G ′ ) ≥ εe(G), there is an induced copy of H in G with all edges in G ′ . If ε = 1/r and G has the induced (ε, H) density property, then there is a monochromatic induced copy of H in the densest color in any r-edge coloring of G, thus showing that r ind (H, r) ≤ |G|. Taking G = G(n, 1/2) shows that Theorem 1.5 gives the desired upper bound in Theorem 6.3.</p><p>The lower bound in Theorem 6.3 follows from the lower bound on the ordinary Ramsey number for H. Using the symmetric hypergraph theorem (see Chapter 4.4 of <ref type="bibr" target="#b21">[22]</ref>), we can color the edges of the complete graph on n vertices with at most n 2 ex(n,H) log n colors such that each color class is H-free. This gives the desired lower bound on the Ramsey number (and hence the induced Ramsey number).</p></div>
+			</div>
+
+
+			<div type="funding">
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Research supported by NSF Award DMS-2154129. supported by the New Zealand Marsden Fund. Research supported by a Clay Research Fellowship and a Stanford Science Fellowship.</p></div>
+			</div>
+
+			<div type="annex">
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Proof. Consider some x ∈ N G (ρ(h u )) (otherwise π u,ρ (x) = 0) and let ρ x = ρ ∪ {u → x}. Then, as λ Ru extends λ R , we have</p><p>thus the claim follows from λ Ru (ρ) ≥ ε ℓ−1 λ R (ρ) and the minimum degree assumption.</p><p>Success probability p succ . By <ref type="bibr" target="#b4">(5)</ref>, the probability of rejecting in step (I) is at most 2κ ℓ−1 . Let us condition on ρ not being rejected, that is,</p><p>. By Claim 4.4 we have x u = x w with probability at most L/C. Next, as ρ u is a c-unique copy of R u and Γ is (c, t)-sparse, for all but at most (ℓ − 1)t choices of x w ∈ N G (ρ(h w )) we have</p><p>We implicitly assume here C &gt; c −ℓ , so that the right hand side of the previous inequality is at least t. Analogous statement holds for x u ∈ N G (ρ(h u )). By Claim 4.4 and the fact that x u and x w are sampled independently, we conclude that φ is not c-unique with probability at most 2(ℓ − 1)L/C. Finally, by Lemma 4.1 applied with π u,ρ (as π 1 ) and π w,ρ (as π 2 ), x u and x w are not adjacent in Γ with probability at least (1 − L/C)c. All together, for sufficiently large C we have p succ &gt; c/2.</p><p>Next, we verify that λ T ′ (K ℓ , ε ℓ , κ ℓ )-extends λ Ru and λ Rw . The two cases are identical, thus we only do it for λ Ru .</p><p>Property (4). Consider some φ ∈ supp(λ T ′ ), and let x u = φ(u) and x w = φ(w). Then ρ = φ − {u, w} is not rejected in step (I), as otherwise φ would not be produced by the procedure. We have</p><p>where the last inequality follows from λ Ru (ρ) ≥ ε ℓ−1 λ R (ρ). Claim 4.4 applied on π w,ρ (x w ) gives (4).</p><p>Property <ref type="bibr" target="#b4">(5)</ref>. Consider a copy ρ u ∈ supp(λ Ru ) of R u . Set x u = ρ u (u) and let ρ = φ u − u be a corresponding copy of R. For x ∈ supp(π w,ρ ) define S x = N G (x) \ N + Γ (ρ(R)), and denote the family of all such subsets by S. By the fact that ρ ∪ {w → x} is c-unique for every x ∈ supp(π w,ρ ), we have</p><p>where D(π w,ρ ) is as defined in Lemma 4.1, and D(π w,ρ , S) as defined in Lemma 4.2. Then, along similar lines as when estimating p succ , we have</p><p>for C sufficiently large. Briefly, c is the bound on the probability that x w and x u are not adjacent in Γ (coming from x u ∈ D(π w,ρ )), and the remaining term takes into account the probability that x u and x w are distinct and φ u ∪ {w → x w } is c-unique (recall that ρ u is c-unique by the definition). Therefore, λ T ′ (ρ u ) ≥ λ R (ρ)π u,ρ (x u )π w,ρ ({x w : ρ u ∪ {w → x w } ∈ supp(λ T ′ )})</p><p>≥ λ R (ρ) λ Ru (ρ u ) λ Ru (ρ)</p><p>≥ c 2K ℓ−1 λ Ru (ρ u ).</p><p>In the last inequality we used the assumption that λ Ru extends λ R . To summarise, if ρ u satisfies (8) then</p></div>			</div>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<monogr>
+		<title level="m" type="main">The Moore bound for irregular graphs, Graphs Combin</title>
+		<author>
+			<persName><forename type="first">N</forename><surname>Alon</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Hoory</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Linial</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2002">2002</date>
+			<biblScope unit="volume">18</biblScope>
+			<biblScope unit="page" from="53" to="57" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">Largest subgraph from a hereditary property in a random graph</title>
+		<author>
+			<persName><forename type="first">N</forename><surname>Alon</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Krivelevich</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Samotij</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Discrete Math</title>
+		<imprint>
+			<biblScope unit="volume">346</biblScope>
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+	<note>Paper No. 113480</note>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">Turán numbers of bipartite graphs and related Ramsey-type questions</title>
+		<author>
+			<persName><forename type="first">N</forename><surname>Alon</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Krivelevich</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Sudakov</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Combin. Probab. Comput</title>
+		<imprint>
+			<biblScope unit="volume">12</biblScope>
+			<biblScope unit="page" from="477" to="494" />
+			<date type="published" when="2003">2003</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">Norm-graphs: variations and applications</title>
+		<author>
+			<persName><forename type="first">N</forename><surname>Alon</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Rónyai</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Szabó</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">J. Combin. Theory Ser. B</title>
+		<imprint>
+			<biblScope unit="volume">76</biblScope>
+			<biblScope unit="page" from="280" to="290" />
+			<date type="published" when="1999">1999</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<monogr>
+		<author>
+			<persName><forename type="first">M</forename><surname>Axenovich</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Zimmermann</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:2401.11296</idno>
+		<title level="m">Induced Turán problem in bipartite graphs</title>
+				<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">The chromatic number of random graphs</title>
+		<author>
+			<persName><forename type="first">B</forename><surname>Bollobás</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Combinatorica</title>
+		<imprint>
+			<biblScope unit="volume">8</biblScope>
+			<biblScope unit="page" from="49" to="55" />
+			<date type="published" when="1988">1988</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<monogr>
+		<author>
+			<persName><forename type="first">R</forename><surname>Bourneuf</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Bucić</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Cook</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Davies</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:2311.03341</idno>
+		<title level="m">On polynomial degree-boundedness</title>
+				<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<monogr>
+		<author>
+			<persName><forename type="first">B</forename><surname>Bukh</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:2107.04167</idno>
+		<title level="m">Extremal graphs without exponentially small bicliques</title>
+				<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">On the directions determined by a Cartesian product in an affine Galois plane</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Di Benedetto</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Solymosi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><forename type="middle">P</forename><surname>White</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Combinatorica</title>
+		<imprint>
+			<biblScope unit="volume">41</biblScope>
+			<biblScope unit="page" from="755" to="763" />
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">An approximate version of Sidorenko&apos;s conjecture</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Conlon</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Fox</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Sudakov</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Geom. Funct. Anal</title>
+		<imprint>
+			<biblScope unit="volume">20</biblScope>
+			<biblScope unit="page" from="1354" to="1366" />
+			<date type="published" when="2010">2010</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<monogr>
+		<title level="m" type="main">Induced C4-free subgraphs with large average degree</title>
+		<author>
+			<persName><forename type="first">X</forename><surname>Du</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Giräo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Hunter</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Mccarty</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Scott</surname></persName>
+		</author>
+		<idno>arxiv:2307.08361</idno>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<author>
+			<persName><forename type="first">A</forename><surname>Dudek</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Frankl</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Rödl</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Some recent results on Ramsey-type numbers</title>
+				<imprint>
+			<date type="published" when="2013">2013</date>
+			<biblScope unit="volume">161</biblScope>
+			<biblScope unit="page" from="1197" to="1202" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">On the structure of linear graphs</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Erdős</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">M</forename><surname>Stone</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Bull. Amer. Math. Soc</title>
+		<imprint>
+			<biblScope unit="volume">52</biblScope>
+			<biblScope unit="page" from="1087" to="1091" />
+			<date type="published" when="1946">1946</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">A limit theorem in graph theory</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Erdős</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Simonovits</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Studia Sci. Math. Hungar</title>
+		<imprint>
+			<biblScope unit="volume">1</biblScope>
+			<biblScope unit="page" from="51" to="57" />
+			<date type="published" when="1966">1966</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">Quasiplanar graphs, string graphs, and the Erdős-Gallai problem, Graph drawing and network visualization</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Fox</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Pach</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Suk</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="s">Lecture Notes in Comput. Sci.</title>
+		<imprint>
+			<biblScope unit="page" from="219" to="231" />
+			<date type="published" when="2023">13764. 2023</date>
+			<publisher>Springer</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<analytic>
+		<title level="a" type="main">Density theorems for bipartite graphs and related Ramsey-type results</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Fox</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Sudakov</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Combinatorica</title>
+		<imprint>
+			<biblScope unit="volume">29</biblScope>
+			<biblScope unit="page" from="153" to="196" />
+			<date type="published" when="2009">2009</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<analytic>
+		<title level="a" type="main">Dependent random choice</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Fox</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Sudakov</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Random Structures Algorithms</title>
+		<imprint>
+			<biblScope unit="volume">38</biblScope>
+			<biblScope unit="page" from="68" to="99" />
+			<date type="published" when="2011">2011</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<analytic>
+		<title level="a" type="main">On a Turán type problem of Erdős</title>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Füredi</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Combinatorica</title>
+		<imprint>
+			<biblScope unit="volume">11</biblScope>
+			<biblScope unit="page" from="75" to="79" />
+			<date type="published" when="1991">1991</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<analytic>
+		<title level="a" type="main">The history of degenerate (bipartite) extremal graph problems, in Erdős centennial</title>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Füredi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Simonovits</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Bolyai Soc. Math. Stud</title>
+		<imprint>
+			<biblScope unit="volume">25</biblScope>
+			<biblScope unit="page" from="169" to="264" />
+			<date type="published" when="2013">2013</date>
+			<publisher>János Bolyai Math. Soc</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<monogr>
+		<title level="m" type="main">Induced subdivisions in K s,s -free graphs with polynomial average degree</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Giräo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Hunter</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:2310.18452</idno>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<analytic>
+		<title level="a" type="main">Comparability graphs and intersection graphs</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">C</forename><surname>Golumbic</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Rotem</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Urrutia</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Discrete Math</title>
+		<imprint>
+			<biblScope unit="volume">43</biblScope>
+			<biblScope unit="page" from="37" to="46" />
+			<date type="published" when="1983">1983</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<monogr>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">L</forename><surname>Graham</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><forename type="middle">L</forename><surname>Rothschild</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">H</forename><surname>Spencer</surname></persName>
+		</author>
+		<title level="m">Ramsey theory</title>
+				<imprint>
+			<publisher>John Wiley &amp; Sons</publisher>
+			<date type="published" when="1991">1991</date>
+			<biblScope unit="volume">20</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<analytic>
+		<title level="a" type="main">Refined estimates concerning sumsets contained in the roots of unity</title>
+		<author>
+			<persName><forename type="first">B</forename><surname>Hanson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Petridis</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Proc. Lond. Math. Soc</title>
+		<imprint>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="353" to="358" />
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b23">
+	<monogr>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Hunter</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Milojević</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Sudakov</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Tomon</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:2401.10853</idno>
+		<title level="m">Kövari-Sós-Turán theorem for hereditary families</title>
+				<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b24">
+	<analytic>
+		<title level="a" type="main">Norm-graphs and bipartite Turán numbers</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Kollár</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Rónyai</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Szabó</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Combinatorica</title>
+		<imprint>
+			<biblScope unit="volume">16</biblScope>
+			<biblScope unit="page" from="399" to="406" />
+			<date type="published" when="1996">1996</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b25">
+	<analytic>
+		<title level="a" type="main">On a problem of K</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Kövári</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><forename type="middle">T</forename><surname>Sós</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Turán</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Zarankiewicz, Colloq. Math</title>
+		<imprint>
+			<biblScope unit="volume">3</biblScope>
+			<biblScope unit="page" from="50" to="57" />
+			<date type="published" when="1954">1954</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b26">
+	<analytic>
+		<title level="a" type="main">Induced subdivisions in K s,s -free graphs of large average degree</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Kühn</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Osthus</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Combinatorica</title>
+		<imprint>
+			<biblScope unit="volume">24</biblScope>
+			<biblScope unit="page" from="287" to="304" />
+			<date type="published" when="2004">2004</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b27">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">P.-S</forename><surname>Loh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Tait</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Timmons</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">M</forename><surname>Zhou</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Combin. Probab. Comput</title>
+		<imprint>
+			<biblScope unit="volume">27</biblScope>
+			<biblScope unit="page" from="274" to="288" />
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+	<note>Induced Turán numbers</note>
+</biblStruct>
+
+<biblStruct xml:id="b28">
+	<analytic>
+		<title level="a" type="main">Perfect graphs</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Lovász</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Selected Topics in Graph Theory</title>
+				<meeting><address><addrLine>London</addrLine></address></meeting>
+		<imprint>
+			<publisher>Academic Press</publisher>
+			<date type="published" when="1983">1983</date>
+			<biblScope unit="volume">2</biblScope>
+			<biblScope unit="page" from="55" to="87" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b29">
+	<monogr>
+		<author>
+			<persName><forename type="first">A</forename><surname>Milojević</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Sudakov</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Tomon</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:2401.06670</idno>
+		<title level="m">Incidence bounds via extremal graph theory</title>
+				<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b30">
+	<monogr>
+		<title level="m" type="main">Point-variety incidences, unit distances and Zarankiewicz&apos;s problem for algebraic graphs</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Milojević</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Sudakov</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Tomon</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:2403.08756</idno>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b31">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">J</forename><surname>Pach</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Tóth</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Comment on Fox News</title>
+		<imprint>
+			<biblScope unit="volume">15</biblScope>
+			<biblScope unit="page" from="150" to="154" />
+			<date type="published" when="2006">2006</date>
+		</imprint>
+	</monogr>
+	<note>Geombinatorics</note>
+</biblStruct>
+
+<biblStruct xml:id="b32">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">P</forename><surname>Vadhan</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Pseudorandomness</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Foundations and Trends in Theoretical Computer Science</title>
+		<imprint>
+			<biblScope unit="volume">7</biblScope>
+			<biblScope unit="issue">1-3</biblScope>
+			<biblScope unit="page" from="1" to="336" />
+			<date type="published" when="2012">2012</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b33">
+	<monogr>
+		<title level="m" type="main">On the clique number of Paley graphs and generalized Paley graphs, MSc thesis</title>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">H</forename><surname>Yip</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+		<respStmt>
+			<orgName>University of British Columbia</orgName>
+		</respStmt>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b34">
+	<monogr>
+		<title level="m" type="main">Induced Turán problems, BSc thesis</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Zimmermann</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2024">2024</date>
+			<publisher>Karlsruhe Institute of Technology</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

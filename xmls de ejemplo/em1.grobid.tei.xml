@@ -1,0 +1,1623 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Design and Implementation of Energy-Efficient Wireless Tire Sensing System with Delay Analysis for Intelligent Vehicles</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+				<date type="published" when="2024-05-09">9 May 2024</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Shashank</forename><surname>Mishra</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department">Department of Electrical En-gineering</orgName>
+								<orgName type="institution">National University of Tainan</orgName>
+								<address>
+									<postCode>70005</postCode>
+									<settlement>Tainan</settlement>
+									<country key="TW">Taiwan</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff1">
+								<orgName type="department">26 bytes</orgName>
+								<address>
+									<postCode>0X -12X34Y56 -0107 -029 -00 -3 -3 03</postCode>
+									<settlement>bytes 09 bytes 05 bytes 04 bytes 02 bytes 01 bytes</settlement>
+								</address>
+							</affiliation>
+						</author>
+						<author role="corresp">
+							<persName><forename type="first">Jia-Ming</forename><surname>Liang</surname></persName>
+							<email>jmliang@mail.nutn.edu.tw</email>
+							<affiliation key="aff0">
+								<orgName type="department">Department of Electrical En-gineering</orgName>
+								<orgName type="institution">National University of Tainan</orgName>
+								<address>
+									<postCode>70005</postCode>
+									<settlement>Tainan</settlement>
+									<country key="TW">Taiwan</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Jia- Ming</forename><surname>Liang</surname></persName>
+							<affiliation key="aff1">
+								<orgName type="department">26 bytes</orgName>
+								<address>
+									<postCode>0X -12X34Y56 -0107 -029 -00 -3 -3 03</postCode>
+									<settlement>bytes 09 bytes 05 bytes 04 bytes 02 bytes 01 bytes</settlement>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">J.-M</forename><surname>Mishra</surname></persName>
+							<affiliation key="aff1">
+								<orgName type="department">26 bytes</orgName>
+								<address>
+									<postCode>0X -12X34Y56 -0107 -029 -00 -3 -3 03</postCode>
+									<settlement>bytes 09 bytes 05 bytes 04 bytes 02 bytes 01 bytes</settlement>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><surname>Liang</surname></persName>
+							<affiliation key="aff1">
+								<orgName type="department">26 bytes</orgName>
+								<address>
+									<postCode>0X -12X34Y56 -0107 -029 -00 -3 -3 03</postCode>
+									<settlement>bytes 09 bytes 05 bytes 04 bytes 02 bytes 01 bytes</settlement>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Design and Implementation of Energy-Efficient Wireless Tire Sensing System with Delay Analysis for Intelligent Vehicles</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date type="published" when="2024-05-09">9 May 2024</date>
+						</imprint>
+					</monogr>
+					<idno type="MD5">34BE535EE7BDDF6888A74B473D89A2C8</idno>
+					<idno type="arXiv">arXiv:2405.05757v1[cs.ET]</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.2" ident="GROBID" when="2024-05-12T15:27+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>
+					<term>Delay analysis</term>
+					<term>Internet-of-Things (IoT)</term>
+					<term>energy saving</term>
+					<term>intelligent vehicles</term>
+					<term>wireless tire sensing system (WTSS)</term>
+				</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>The growing prevalence of Internet of Things (IoT) technologies has led to a rise in the popularity of intelligent vehicles that incorporate a range of sensors to monitor various aspects, such as driving speed, fuel usage, distance proximity and tire anomalies. Nowadays, real-time tire sensing systems play important roles for intelligent vehicles in increasing mileage, reducing fuel consumption, improving driving safety, and reducing the potential for traffic accidents. However, the current tire sensing system drains a significant vehicle' energy and lacks effective collection of sensing data, which may not guarantee the immediacy of driving safety. Thus, this paper designs an energy-efficient wireless tire sensing system (WTSS), which leverages energy-saving techniques to significantly reduce power consumption while ensuring data retrieval delays during real-time monitoring. Additionally, we mathematically analyze the worst-case transmission delay and sensor reception ratio of the system to ensure the immediacy based on the collision probabilities of sensor transmissions. This system has been implemented and verified by the simulation and field train experiments. These results show that the proposed scheme provides enhanced performance in energy efficiency up to 76.5% in average and identifies the worst transmission delay accurately.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>I. INTRODUCTION</head><p>T HE demand for Internet of Things (IoT)-enabled real- time monitoring devices is on the rise in the field of automotive industry, where safety is of the utmost importance <ref type="bibr" target="#b1">[2]</ref>, <ref type="bibr" target="#b2">[3]</ref>. Currently, the regulations of most countries such as the United States, the European Union, and Korea <ref type="bibr" target="#b3">[4]</ref>- <ref type="bibr" target="#b5">[6]</ref> have mandated that vehicles equipped with tire pressure monitoring systems be roadworthy, especially for passenger vehicles and/or larger vehicles such as trucks, flatbeds, and trailers, since accidents involving these vehicles often result in significant and severe consequences <ref type="bibr" target="#b6">[7]</ref>, <ref type="bibr" target="#b7">[8]</ref>. Numerous wired and wireless technologies employing radio frequency (RF) receivers have been introduced to address the issue of real-time tire status monitoring <ref type="bibr" target="#b8">[9]</ref>, <ref type="bibr" target="#b9">[10]</ref>. The real-time data reception is crucial for vehicle safety. Rapid tire pressure drops, such as those from hitting a pothole or due to pressure leakage, require an immediate response to warn the driver and potentially activate safety features <ref type="bibr" target="#b10">[11]</ref>. However, the effectiveness of RF receivers is limited by the coverage range of their antennas and the need for close proximity to mitigate sensor transmission delay <ref type="bibr" target="#b11">[12]</ref>. Additionally, traditional systems continuously detect sensing data, leading to significant energy consumption in vehicles, especially for larger vehicles such as trucks, flatbeds, and trailers. These larger vehicles are often detached from their tractors and parked separately in parking lots, making it difficult to sustain power supply from the tractor's battery <ref type="bibr" target="#b12">[13]</ref>- <ref type="bibr" target="#b14">[15]</ref>. Therefore, it is necessary to identify scenarios of sensor transmission delay while considering energy efficiency to ensure immediacy for driving safety.</p><p>To address the above issue, we propose an energy-efficient IoT-enabled wireless tire sensing system (WTSS) that incorporates wireless sensors and multiple RF transmission modules to enable real-time monitoring. We develop and demonstrate this system based on wireless pressure and temperature sensors, which are widely used in intelligent vehicles <ref type="bibr" target="#b15">[16]</ref>. These sensors are low-end and typically comprise a radio-frequency (RF) transmitter module, sensor cells, and a unique sensor ID, which make it possible for the receiver end to decode the pressure and temperature in real time <ref type="bibr" target="#b16">[17]</ref>. In addition, an energy-saving mechanism is designed at the system receiver to conserve energy. This mechanism enforces the receiver to perform wake-up and sleep operations to maintain system reliability and immediacy. Specifically, an analytic scheme is developed to identify the wake-up and sleep schedule and also analyze the sensing delays to achieve real-time identification and avoid potential consequences. The extended simulations and experiments of the field trial will show that the proposed system can save up to 76.5% of energy on average while ensuring the worst transmission delay.</p><p>The major contributions of this paper are fourfold.</p><p>• First, to the best of our knowledge, this is the first paper to address the issue of energy and sensing delay in the intelligent tire sensing system. We point out the necessity of energy conservation issues for intelligent vehicle systems and propose an innovative, comprehensive approach encompassing an energy-saving mechanism with sleep behavior analysis, sensor transmission delay evaluation, and timely data scheduling.</p><p>• Second, we propose a high-accuracy analytic scheme and prove its properties by 2 Theorems, 4 Lemmas, and 2 Corollaries to precisely determine the worst transmission delay accounting for sensor collision probability, sensor reception rate, and power saving ratio for multiple sensors transmitting simultaneously. This novel scheme effectively enhances system reliability for real-time sensor data transmission while ensuring energy efficiency. • Third, we have designed and implemented this prototype system and conducted extensive field trial experiments in a large parking lot to validate the system's effectiveness and feasibility. Comprehensive real-time experiments were also conducted with a variety of scenarios.</p><p>Their results demonstrate the prototype's feasibility and reliability and also reveal that the proposed scheme can accurately predict and ensure sensor transmission delays while significantly saving energy. This approach is equally essential for other real-time systems where timely data is crucial for safety and optimal performance. • Fourth, the proposed architecture can also be applied to other wireless sensor-based information gathering in intelligent vehicles, such as PIR sensors, wheel inertial sensors, ultrasonic sensors, and/or radar sensors <ref type="bibr" target="#b17">[18]</ref>- <ref type="bibr" target="#b20">[21]</ref>. These can all benefit from the proposed methodologies. The rest of this paper is structured as follows. Section II is related work. Section III introduces the system overview, including system architecture and problem identification. Section IV describes the proposed scheme and proofs. Section V shows the performance evaluation. Section VI presents the system demonstration, and Section VII draws the final conclusions and outlines future work. II. RELATED WORK Significant efforts have been made in previous years to develop tire status monitoring systems for improving safety and preventing accidents <ref type="bibr" target="#b21">[22]</ref>, <ref type="bibr" target="#b22">[23]</ref>. To address sudden changes in tire status, different technologies and concepts have been proposed <ref type="bibr" target="#b23">[24]</ref>, <ref type="bibr" target="#b24">[25]</ref>. Whereas several studies have explored the potential of wireless sensor networks and Internet of Things (IoT) technologies to enhance the performance of different IoT-based monitoring systems <ref type="bibr" target="#b25">[26]</ref>, <ref type="bibr" target="#b26">[27]</ref>. Specifically, reference <ref type="bibr" target="#b27">[28]</ref> uses a pressure sensor and voice warning system on a helmet to measure tire air pressure and transmit data via Bluetooth. However, it overlooks tire temperature and potential transmission delays. Reference <ref type="bibr" target="#b28">[29]</ref> designs an ID calibration device for a tire pressure monitoring system using Bluetooth and CAN bus data interaction, with a timebased task scheduler algorithm and a dual producer-consumer buffer. Reference <ref type="bibr" target="#b29">[30]</ref> proposes a basic monitoring system for tire mileage and wear estimation using G-sensors and Hall sensors, relying solely on Bluetooth for data collection and user interaction, neglecting the importance of other wireless technologies for vehicle safety. The work <ref type="bibr" target="#b30">[31]</ref> presents a smart tire status monitoring system that detects vehicle mass but does not analyze sensor data to identify tire conditions. The study <ref type="bibr" target="#b31">[32]</ref> designs an air pressure detection system using an IoT platform but fails to propose practical approaches to solve significant issues or enhance system performance. Reference <ref type="bibr" target="#b32">[33]</ref> presents a Vehicle-to-Cloud interface utilizing 3G/4G connectivity and LoRaWAN. Reference <ref type="bibr" target="#b33">[34]</ref> proposes an IoTbased fleet monitoring system utilizing cloud computing. However, both studies <ref type="bibr" target="#b32">[33]</ref>, <ref type="bibr" target="#b33">[34]</ref> neglect issues related to sensor transmission delay and system reliability. The study <ref type="bibr" target="#b34">[35]</ref> proposes a hybrid tire status monitoring system that estimates the pressure of all four wheels using a single pressure sensor. The work <ref type="bibr" target="#b35">[36]</ref> develops an IoT-based TPMS using separate sensors for measuring air pressure and temperature in real time. Reference <ref type="bibr" target="#b36">[37]</ref> presents an indirect tire pressure monitoring system that uses existing sensors for vehicle dynamics control to detect tire pressure. The proposed system uses a modified transceiver structure with a temperature-compensated film bulk acoustic resonator (FBAR) and lowers the energy consumption of the wireless receiver system. However, these studies <ref type="bibr" target="#b34">[35]</ref>- <ref type="bibr" target="#b36">[37]</ref> do not consider real-time monitoring systems that utilize multiple wireless communication modes and analyze system reception delays.</p><p>Furthermore, several studies <ref type="bibr" target="#b37">[38]</ref>- <ref type="bibr" target="#b41">[42]</ref> address the energy consumption issue for vehicle monitoring systems, particularly focusing on the sensor transmitter and receiver. Reference <ref type="bibr" target="#b37">[38]</ref> proposes a method for identifying the vehicle's running state, with an emphasis on developing small-size and low-energy consumption systems. Reference <ref type="bibr" target="#b38">[39]</ref> introduces a vehicle health monitoring system for accessing real-time information. Study <ref type="bibr" target="#b39">[40]</ref> examines the energy consumption problem in connected vehicular applications and communication systems. Study <ref type="bibr" target="#b40">[41]</ref> investigates the impact of sensor signal frequency on the power use of sensor transmitters. Study <ref type="bibr" target="#b41">[42]</ref> examines tire slip angle estimation based on tire pressure sensors affecting transmitter power consumption. However, these existing studies <ref type="bibr" target="#b37">[38]</ref>- <ref type="bibr" target="#b41">[42]</ref> focused entirely on addressing the energy consumption issue while neglecting to consider sensor transmission delay.</p><p>Hence, there is a need to design and implement an efficient IoT-enabled system for real-time tire status monitoring, energy-saving consideration, analysis of sensor transmission delay, and ensuring system reliability in intelligent vehicle systems.</p><p>(1) TP Sensor The TP gateway simultaneously sends data to local and cloud servers via wireless communication systems, including Wi-Fi, Bluetooth, and cellular networks, depending on the required scenarios. Specifically, this system consists of three main components: (1) Wireless TP Sensor, (2) TP Gateway, and (3) Management System, as shown in Fig. <ref type="figure">2</ref>. These components collaborate to facilitate seamless data reception, analysis, conversion, and real-time monitoring, ensuring efficient data processing and comprehensive management.</p><p>1) Wireless TP Sensor<ref type="foot" target="#foot_1">2</ref> is battery powered and incorporates modules to collect accurate tire pressure and temperature data to wirelessly transmit the data through a 433 MHz antenna. The TP sensor operates on a fixed transmission duty-cycle (with the length of C L (in slots)) <ref type="bibr" target="#b50">[51]</ref> and periodically transmits data containing sensor ID, pressure, temperature, alert status, battery level, and sensor status, following a predefined format, as shown in Fig. <ref type="figure">3</ref>.</p><p>2) TP Gateway comprises three main modules, namely (a) 433 MHz RF Receiver Antenna, (b) RTL8722DM IoT Development Board, and (c) 4G SIM Module. Specifically, (a) 433 MHz RF receiver Antenna receives the encoded sensor data Fig. <ref type="figure">3</ref>. Example data format of a TP sensor <ref type="bibr" target="#b50">[51]</ref> and transmits the signals to the RTL8722DM IoT development board for decoding into a suitable format. (b) RTL8722DM IoT Development Board is a 32-bit dual micro-controller unit and features dual-band Wi-Fi and BLE5 mesh, making it ideal for IoT applications. (c) 4G SIM Module provides extensive network coverage for 4G/LTE, 3G, and 2G bands, accurate positioning, and navigation with its built-in GNSS receiver.</p><p>3) Management system represents the connection between a physical device and the platform service, encompassing a database for local and web servers that grant access to a Graphical User Interface (GUI) and mobile application.</p><p>The data transmission from the sensor to the TP Gateway is illustrated in Fig. <ref type="figure" target="#fig_1">4</ref>. In order to save system energy, the TP gateway is designed and enforced to perform wake-up (in W slots) and sleep (in S slots) to monitor the sensing data. Thus, it constitutes a sleep behavior with a cycle length of W + S slots. Periodically, each sensor (s i , i = 1, 2, ..., N ) transmits data every C L slots to the system through the 433 MHz RF antenna. The TP gateway monitors the transmitted data during the designated wakeup slot (W ). If the data transmission collides with another transmission (denoted by C t , i.e., the cross slot in the figure, where t is the number of collisions and t ∈ N) or occurs during the system sleeping slot, it may not be received by the system, leading to an expected delay in the receipt of the transmitted data. In order to ensure timely data reception in the system and mitigate potential consequences of delays, it is crucial to address system reliability and data transmission delays by asking the following questions:</p><p>1) Does the system exhibit a finite maximum waiting time?</p><p>2) How to quantify the total expected worst transmission delay E[W total delay ] of this system considering the collision probability? 3) Can it effectively determine the optimal transmission parameters, such as the minimum sensor duty-cycles C min L and the minimum number of wakeup-sleep cycles N min sleep by considering additional factors to improve the system's reliability? Table <ref type="table">I</ref> presents the notations used in this paper. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>IV. THE PROPOSED ANALYTIC SCHEME</head><p>In this section, we present an analytic scheme for determining the worst transmission delay (W delay ) according to the worst sensor transmission (T max ) and minimum number of wakeup-sleep cycles (N min sleep ). In order to identify T max and N min sleep , we considered various combinations of sleeping (S) slots, where wakeup (W ) is fixed as one slot for scheduling data in order to optimize energy consumption of the system. The scheme includes the number of transmitting sensors (s i , i = 1, 2, ..., N ), the number of wakeup-sleep cycles (N sleep ), the sensor duty-cycle length (C L ), and the worst sensor transmission T max .</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>A. Analytic Scheme</head><p>In this scheme, we consider two cases:</p><formula xml:id="formula_0">Case 1 is when GCD(C L , [W + S]) ̸ = 1 whereas Case 2 is when GCD(C L , [W + S]) = 1.</formula><p>Additionally, we also consider sensor transmission collision scenarios to quantify the total expected worst transmission delay E[W total delay ]. First, we need to find the sensor incurring the worst transmission delay. Without loss of generality, we assume it first arrives at the n th slot, denoted by T n , where</p><formula xml:id="formula_1">1 ≤ n ≤ C L .</formula><p>The initial step involves identifying whether the sensor T n can be received under the wakeup-sleep operations or not. We consider the wakeup-sleep cycle starting with a wakeup slot. Then, finding the worst sensor transmission T max can be modeled as the scenario where a sensor arrives at the nth slot but fails to receive until several duty-cycles passed, i.e., n + C min L • C L , and is finally received at a W slot over several wakeup-sleep cycles, i.e., W + N min sleep • [W + S]. This is expressed as follows.</p><formula xml:id="formula_2">T max = n * = arg max n=1,2,...,C L {n + C min L • C L | n + C min L • C L = W + N min sleep • [W + S]}.</formula><p>(1) Here, C min L and N min sleep are the minimum number of sensor duty-cycles and minimum number of wakeup-sleep cycles that a sensor transmission T n arrives to meet a wakeup slot, respectively.</p><p>In the following, we show that T max exists only when the sensor duty-cycle length C L and the wakeup-sleep cycle length [W + S] are relative prime. This is expressed in Theorem 1:</p><p>Theorem 1. The system experiences worst sensor transmission upon successful sensor transmission reception, if</p><formula xml:id="formula_3">T max = C L − S if GCD(C L , [W + S]) = 1 Not exist if GCD(C L , [W + S]) ̸ = 1 .<label>(2)</label></formula><p>We employ the following Lemmas 1.1 ∼ 1.4 to constitute Theorem 1. Proof. We use a direct proof method as follows. First, we rewrite Eq. (1) as follows:</p><formula xml:id="formula_4">N min sleep • [W + S] − C min L • C L = n − W.<label>(3)</label></formula><p>Since GCD(C L , [W + S]) = 1, it means that C L and [W + S] can be represented as a linear combination resulting in 1 according to Bézout's theorem <ref type="bibr" target="#b51">[52]</ref>, i.e.,</p><formula xml:id="formula_5">GCD(C L , [W + S]) = 1 = α • [W + S] + β • C L ,</formula><p>where ∃α, ∃β ∈ Z. Thus, for each n = 1, 2, ...., C L , we can find an integer multiple of α and β to satisfy Eq. (3), i.e., Proof. First, we show that when n = C L − S, it has C min L = S. We use a direct proof as follows. According to Eq. ( <ref type="formula">1</ref>), it can be written as</p><formula xml:id="formula_6">N min sleep • [W + S] − C min L • C L = (n − W ) = (n − W )(α • [W + S] + β • C L ) = ((n − W ) • α)[W + S] + ((n − W ) • β)C L .</formula><formula xml:id="formula_7">N min sleep = n + C min L • C L − W [W + S] ∈ N.<label>(5)</label></formula><p>By applying n = C L − S, we have</p><p>Eq.( <ref type="formula" target="#formula_7">5</ref>)</p><formula xml:id="formula_8">⇒ (C L − S) + C min L C L − W [W + S] = C L + C min L C L − (W + S) [W + S] .<label>(6)</label></formula><p>Because we have to ensure the result of Eq. ( <ref type="formula" target="#formula_8">6</ref>) belonging to N when W = 1 is set up in this scheme, it means that the following equation should belong to N as wall, i.e.,</p><p>Eq.( <ref type="formula" target="#formula_8">6</ref>)</p><formula xml:id="formula_9">⇒ C L (C min L + 1) [1 + S] ∈ N.<label>(7)</label></formula><p>Since GCD(C L , [W + S]) = 1, it means that Eq. </p><formula xml:id="formula_10">N min sleep = (C L − S) + S • C L − 1 [1 + S] = C L (1 + S) − (1 + S) [1 + S] = C L − 1.</formula><p>Before introducing Lemma 1.3, we show the following two corollaries first.  <ref type="formula" target="#formula_7">5</ref>), the numerator can be separated as two parts:</p><formula xml:id="formula_11">(n − 1) and (C min L • C L ). (n + 1) + (C min L • C L ) [1 + S] ∈ N,</formula><p>it means that any remainder of (C min L • C L ) divided by (1 + S) should be deducted by the remainder of (n − 1) divided by (1 + S). Without loss of generality, we let θ ∈ [θ, .., S] be the remainder of (C min L • C L ) divided by (1 + S). The above property can be written as</p><formula xml:id="formula_12">C min L • C L mod (1 + S) = θ (8) and n − 1 mod (1 + S) = −θ.<label>(9)</label></formula><p>Also, we let r be the remainder of C L divided by (1 + S), i.e., C L = q(1 + S) + r, where q ∈ N is a quotient. We can rewrite Eq. ( <ref type="formula">8</ref>) as</p><formula xml:id="formula_13">θ = C min L • C L mod (1 + S) = C min L • (r) mod (1 + S). ⇒ C min L • C L ≡ C min L • (r) ≡ θ mod (1 + S).<label>(10)</label></formula><p>Based on Eq. ( <ref type="formula" target="#formula_13">10</ref>), Eq. ( <ref type="formula" target="#formula_12">9</ref>) can be written as</p><formula xml:id="formula_14">n − 1 mod (1 + S) = −θ = −(C min L • (r) mod (1 + S)) = C min L • (−r) mod (1 + S). ⇒ n − 1 ≡ C min L • (−r) ≡ −θ mod (1 + S).<label>(11)</label></formula><p>This can conclude two important properties. First, for those n satisfying Eq. ( <ref type="formula" target="#formula_14">11</ref>), they have the same</p><formula xml:id="formula_15">C min L , i.e., n − 1 ≡ C min L • (−r) ≡ −θ mod (1 + S) ⇒ n = k(1 + S) − θ + 1, k ∈ N + . (<label>12</label></formula><formula xml:id="formula_16">)</formula><p>Second, from Eq. ( <ref type="formula" target="#formula_14">11</ref>), C min L will not exceed S. We show it as follows.</p><p>Assume there is a C min ′ L &gt; S and we can find a C min L ≤ S to represent as</p><formula xml:id="formula_17">C min ′ L = ∆(1 + S) + C min</formula><p>L , where ∆ ∈ N. From Eq. ( <ref type="formula" target="#formula_14">11</ref>), we can derive it as follows.</p><formula xml:id="formula_18">C min ′ L • (−r) mod (1 + S) = (∆(1 + S) + C min L )(−r) mod (1 + S) = C min L (−r) mod (1 + S) ⇒ C min ′ L (−r) ≡ C min L (−r) mod (1 + S).</formula><p>Thus, for those C min ′ L &gt; S, the results will be congruent to that of C min L ≤ S. So, we have the minimum number of duty-cycle C min L ≤ S. Corollary 1.2.2. For all C min L ∈ [0, .., S], their corresponding series of n to satisfy Eq. (5) will constitute all possible transmission arrivals.</p><p>Proof. First, we show that for any pair of</p><formula xml:id="formula_19">C min ′ L , C min L ∈ [0, .., S] and C min ′ L ̸ = C min</formula><p>L , their corresponding θ ′ and θ, respectively, will not be the same (i.e., θ</p><formula xml:id="formula_20">′ ̸ = θ), if θ ′ = C min ′ L •C L mod (1 + S) and θ = C min L • C L mod (1 + S)</formula><p>, respectively. Here, we use a contradiction proof by assuming if C min L ̸ = C min ′ L and then θ ′ = θ is true. This result implies that</p><formula xml:id="formula_21">θ ′ = θ ⇒ θ ′ ≡ θ mod (1 + S) ⇒ C min ′ L (r) ≡ C min L (r) mod (1 + S) ⇒ C min ′ L = C min L • (→←).</formula><p>This contradicts to the assumption of C min From this result, we can conclude that when C min L = 0, 1, .., S, it totally has (1 + S) possible outcomes of n from Eq. ( <ref type="formula" target="#formula_15">12</ref>) due to its individual and difference congruence θ ∈ [0, .., S]. According to Eq. ( <ref type="formula" target="#formula_15">12</ref>), since difference and disjoint congruence θ will constitute different and disjoint sensor arrivals of n, i.e.,</p><formula xml:id="formula_22">n = k(1 + S) − θ + 1, k ∈ N + , θ ∈ [0, ..., S],</formula><p>that means that different series of n for (1 + S) difference θ will be generated. Thus, all possible transmission arrivals n ∈ N + will be constituted and any arrival can be received by a certain C min L ∈ [0, ..., S]. Lemma 1.3. When the system has a finite waiting time, the worst delay will be incurred by such sensor T n = C L − S (where C L − S &gt; 0), i.e., if C L and [W + S] are relative prime, and then T max = C L − S.</p><p>Proof. According to Corollary 1.2.1, we know that for all n = 1, 2, . . . , C L , their corresponding C min L will not exceed S, i.e., 0 ≤ C min L ≤ S. In the following, we prove this lemma by contradiction. Assume it exists a slot n ′ ̸ = C L − S, which insures a delay worse than n = C L − S. We consider this in two cases: one is n ′ &lt; C L − S and n ′ &gt; C L − S as follows.</p><p>If n ′ &lt; C L − S, assume it has the largest value C min ′ L = S to incur the maximal delay with the maximal n ′ = C L − S − 1 (because n ′ &lt; C L − S). From Eq. ( <ref type="formula">1</ref>), we have Therefore, if we want to find another worst delay from Eq. ( <ref type="formula">1</ref>), we have to use the maximum n ′ = C L with the maximum possible value C min ′ L = S − 1. Then, the delay will be</p><formula xml:id="formula_23">n ′ + C min ′ L • C L = (C L − S − 1) + SC L = C L + SC L − S − 1 &lt; C L + SC L − S = (C L − S) + SC L = n + C min L • C L ,</formula><formula xml:id="formula_24">n ′ + C min ′ L • C L = C L + (S − 1)C L = SC L &lt; SC L + C L − S = (C L − S) + SC L = n + C min L • C L ,</formula><p>which means that it is less than the delay incurred by n = C L − S with C min L = S (by applying the results of Lemma 1.2). This is contradicted to the assumption. Thus, the worst delay will be incurred by n = C L − S.</p><p>Lemma 1.4. The system has an "infinite" waiting time to receive all the sensors if C L and [W + S] are not relative prime, i.e., if</p><formula xml:id="formula_25">GCD(C L , [W + S]) ̸ = 1, it exists at least one slot (∃n, 1 ≤ n ≤ C L ) that cannot satisfy n + C min L • C L = W + N min sleep [W + S]. Proof. Since GCD(C L , [W +S]) ̸ = 1,</formula><p>it implies the existence of a greatest common factor k &gt; 1(k ∈ Z + ) that satisfies k|C L and k|[W + S]. Then, we rewrite Eq. ( <ref type="formula">1</ref>) as follows:</p><formula xml:id="formula_26">n − W = N min sleep [W + S] − C min L • C L .<label>(13)</label></formula><p>In Eq. ( <ref type="formula" target="#formula_26">13</ref>), the right hand side has a factor of k due to k|C L and k|[W + S]. Thus, the left hand side of Eq. ( <ref type="formula" target="#formula_26">13</ref>) should have a factor of k as well according to the prime factorization, i.e., k | n − W , and thus n−W k ∈ Z. However, since n ranges from 1 to C L , these exists at least one value does not satisfy Eq. (1). For example, n = W + 1 cannot satisfy because k ∤ 1 for any k &gt; 1. Thus, it cannot ensure all possible transmissions to be received and incurs an "infinite" waiting time. Now, we investigate the worst transmission delay for such sensor T max , denoted as W delay , and then extend this analysis to evaluate the expected total worst transmission delay, denoted as E[W total delay ], considering the conditional probability P r(c).  <ref type="formula">1</ref>) can be written as follows:</p><formula xml:id="formula_27">W delay = n ′ + C min L • C L = (C L − S) + S • C L = S • C L + C L − S = C L (S + 1) − S.</formula><p>Theorem 2. For any sensor transmission T n , the system has a total expected worst transmission delay E[W total delay ] with t times collision, where</p><formula xml:id="formula_28">E[W total delay ] = (C L (S + 1) − S) C L − 1 C L (N −1) ∞ t=0 (t + 1) 1 − C L − 1 C L (N −1) t . (<label>14</label></formula><formula xml:id="formula_29">)</formula><p>Proof. Suppose we have N sensors to transmit in the system and each sensor randomly chooses a time slot to transmit within a duty-cycle in the first round without pre-defined rules or synchronization, the probability of collision P r(c) for the worst sensor transmission T max being received at W delay slot is given by P r(c) = 1 − P r(s), <ref type="bibr" target="#b14">(15)</ref> where P r(s) is the successful probability without collision. To calculate P r(s), we consider the case that any other sensors choose a slot different than that one chosen by sensor T max . Since there are N sensors and C L time slots available for all transmissions, the probability that sensor T max arrives but the remaining N − 1 sensors choose other time slots will be</p><formula xml:id="formula_30">P r(s) = C L − 1 C L (N −1) = 1 − P r(c).</formula><p>Thus, if sensor T max is not received at time slot W delay and poses t times of collisions before being received successfully, it will incur a total delay consisting of the sum of t previous collision delays and the last successful reception delay. Mathematically, this total delay is given by</p><formula xml:id="formula_31">W t delay = t × W delay + W delay = (t + 1) × W delay .</formula><p>The probability of this total delay<ref type="foot" target="#foot_2">3</ref> , denoted as P r(W t delay ), is determined by the probability of encountering a collision P r(c), raised to the power of t, multiplied by the probability of successful reception P r(s), and it is with a probability given by P r(W t delay ) = P r(c) t × P r(s). Therefore, using this result and Lemma 1.5, we can derive the total expected transmission delay, denoted as E[W total delay ], as follows:</p><formula xml:id="formula_32">E[W total delay ] = ∞ t=0 W t delay • P r(W t delay ) = ∞ t=0 (t + 1) × W delay • P r(c) t × P r(s) = W delay P r(s) ∞ t=0 (t + 1) • ((1 − P r(s)) t ) = (C L (S + 1) − S) C L − 1 C L (N −1) ∞ t=0 (t + 1) 1 − C L − 1 C L (N −1) t .</formula><p>In conclusion, Theorem 1 and Lemmas 1.1 ∼ 1.4 are used to determine that the system has a finite delay or not, while Theorem 2 and Lemmas 1.5 are used to calculate the total expected worst transmission delay E[W total delay ]. Below, we give two examples in Fig. <ref type="figure" target="#fig_9">5</ref> to clarify the analytic results. In the Fig. <ref type="figure" target="#fig_9">5</ref> </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>V. PERFORMANCE EVALUATION</head><p>In this section, we conduct both the field trial experiments and mathematical analysis to validate the effectiveness of the system. The performance evaluations, collectively referred to as Mathematical Analysis and Real-time Experiment with different parameters of S = 2, 6, 30 where GCD(C L , [W + S]) = 1 and W is fixed as 1, to demonstrate the efficiency and effectiveness of our proposed system. It is important to note that there has been no previous work specifically addressing TP sensor with sleep operation and transmission delay, making our study the first to comprehensively investigate this critical aspect of TP sensor performance.</p><p>To simulate a realistic range of TP sensor counts for passenger vehicles and heavy-weight logistic trucks, trailers, and flatbeds, we considered N = 4 ∼ 32 sensors in our simulations. This range encompasses the typical number of sensors found on passenger vehicles (4 to 8 wheels) <ref type="bibr" target="#b53">[54]</ref> and heavy-weight logistic trucks, trailers, and flatbeds (8 to 16 wheels) <ref type="bibr" target="#b53">[54]</ref>. Note that the experiments will demonstrate the performance results even if the system is overloaded (i.e., N ≈ C L , where C L = 32 <ref type="bibr" target="#b50">[51]</ref>).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>A. Worst Transmission Delay</head><p>Fig. <ref type="figure" target="#fig_10">6</ref> shows the worst transmission delay (in seconds) experienced by the system for different numbers of sensors transmitting. As the number of transmitting sensors increases, the delay also increases due to frequent collisions of sensor transmissions. Note that all the pair results of mathematical and experiment analysis are consistent. Specifically, Mathematical Analysis [S=2] shows the lowest transmission delay due to a higher number of total wakeup slots per cycle length, allowing more data to be received in the system. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>B. Expected Worst Transmission Delay</head><p>Fig. <ref type="figure" target="#fig_11">7</ref> shows the expected worst transmission delay (in seconds) received in the system for different numbers of sensors transmitting, where E[W total delay ] = ∞ t=0 P r(c) × t × W delay + P r(s) × W delay . Based on different numbers of transmitting sensors in the system, it is shown that the expected delay of Real-time Experiment is always higher than Mathematical Analysis. This is due to a higher collision probability (P r(c)) with an increasing number of transmitting sensors, resulting in a higher expected worst transmission delay. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>C. Average Transmission Delay</head><p>Fig. <ref type="figure" target="#fig_12">8</ref> shows the average transmission delay (in seconds) received in the system for different numbers of sensors transmitting. Real-time Experiment results show the worst average results as they're based on real-time data with higher collision probabilities, which causes a higher average transmission delay when considering the higher number of sensors transmitting per C L . Mathematical Analysis [S=2] results are the lowest and most efficient due to the maximum number of total wakeup slots per cycle length among all other compared schemes.</p><p>From Fig. <ref type="figure" target="#fig_10">6</ref> to Fig. <ref type="figure" target="#fig_12">8</ref>, we can observe that for vehicles with fewer tires (e.g., 4 to 8 wheels), a shorter sleep cycle length (e.g., S = 2) can facilitate the reception of all sensor data. For those special large vehicles such as trucks, trailers, and flatbeds with a larger number of wheels (e.g., ≥ 12 wheels), the individual receivers will be recommended for the detached ones to facilitate the data reception. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>D. Successful Sensor Receiving Rate</head><p>We analyzed the successful reception rate of sensors for different numbers of sensors transmitting, where successful reception rate (%) = ( number of received sensors total number of transmitting sensors × 100) per C L . Fig. <ref type="figure" target="#fig_13">9</ref> shows that as the number of transmitting sensors increases, the successful data reception rate decreases due to frequent collision of sensor transmissions. Mathematical Analysis [S=2] outperforms the other compared schemes in terms of successful reception rate due to its maximum number of wakeup slots.  for all the schemes due to higher number of wake-up slots in the system. Real-time Experiment [S=2] demonstrates the lowest power saving ratio among all the schemes, primarily due to the fewest number of sleep slots. Finally, the correctness rate, the ratio of the theoretical values derived from the Mathematical Analysis (Fig. <ref type="figure" target="#fig_2">11</ref>) to the corresponding Real-time Experiment values for Worst Transmission Delay, Average Transmission Delay, and Successful Sensor Receiving Rate. CCR is defined as:</p><formula xml:id="formula_33">CCR = MA × 100 RE</formula><p>where MA and RE represent the average values of the three aforementioned metrics in the Mathematical Analysis and the Real-time Experiment, respectively. The Mathematical Analysis achieved a significantly higher CCR (over 97.9%), demonstrating the analytic scheme's consistency in replicating real-world behavior and its overall reliability in delivering accurate values.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>G. Discussion of Comparison and Analysis with Other Applications</head><p>Table <ref type="table" target="#tab_1">II</ref> illustrates the potential applicability of the proposed system in various wireless sensor-based applications within Fig. <ref type="figure" target="#fig_2">11</ref>. Correctness rate of the proposed scheme intelligent vehicles, including the Anti-lock Braking System (ABS) <ref type="bibr" target="#b44">[45]</ref>, Electronic Stability Control (ESC) <ref type="bibr" target="#b36">[37]</ref>, Parking Assist Systems (PAS) <ref type="bibr" target="#b33">[34]</ref>, Occupancy Sensor System (OSS) <ref type="bibr" target="#b17">[18]</ref>, and Lane Departure Warning (LDW) <ref type="bibr" target="#b39">[40]</ref>. We highlight a common challenge of high energy consumption resulting from frequent data transmissions (ranging from 100 to 500 slots, with each slot lasting milliseconds) across all applications. A key advantage of our proposed system lies in its adaptability to address such challenges. We suggest setting the parameters of the proposed analytic scheme for ABS, ESC, PAS, OSS, and LDW at 150, 200, 350, 200, and 300 slots, respectively, with sleep lengths set as 10, 12, 22, 12, and 20 slots, respectively. With our approach, it can effectively balance transmission delays and energy consumption, both critical factors for safetycritical systems. By employing our analytic scheme to analyze data and determine delays, it has the potential to mitigate the issue of high energy consumption while ensuring the seamless operation of applications.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>VI. SYSTEM DEMONSTRATION</head><p>Intelligent vehicles rely on the IoT-enabled WTSS, a critical component that utilizes various IoT and wireless technologies to facilitate effective and efficient real-time monitoring. This section delves into its applications and demonstrates its deployment across diverse IoT and wireless technologies to achieve real-time monitoring capabilities. Note that Table <ref type="table" target="#tab_1">III</ref>  summarizes a comparative analysis of existing wireless tire sensing systems. We can say that our system has more features and more comprehensive functions than traditional systems.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>A. Overview and Working Scenario of IoT-Enabled WTSS</head><p>The proposed IoT-enabled WTSS system can manage realtime data for intelligent vehicles, making it suitable for organizations with small or large parking spaces. This includes residential neighborhoods, local parks, universities, airports, stadiums, business parks, and large automobile industries. Fig. <ref type="figure" target="#fig_0">12</ref> illustrates the IoT-enabled WTSS system, which utilizes multiple wireless technologies for various purposes, including 1) Bluetooth for mobile app connectivity, 2) Wi-Fi for industrial parking areas, and 3) 4G cellular for long-distance communication and real-time vehicle location tracking. The system captures and processes tire pressure and temperature data from wireless TP sensors installed on each tire of the intelligent vehicle, which is transmitted wirelessly to the TP Gateway for decoding and storage in the proposed cloud-based management system's database. The system's GUI dashboard provides real-time and historical data analysis, including vehicle type, parking lot, sensor positions, live geo-location, and other insights. The prototype of our system has been developed and verified. Fig. <ref type="figure" target="#fig_16">13</ref> shows the various parts of the proposed TP Gateway. The TP Gateway is the data processing source of our proposed IoT-enabled WTSS system. To gather tire pressure, temperature, and current status of sensors, we have integrated the device with multiple modules, including RTL8722DM development board, I2C LCD, 4G SIM module, host microcontroller, 433 MHz antenna, Wi-Fi antenna, cellular antenna, and GNSS/GPS antenna. The portable device, shown in Fig. <ref type="figure" target="#fig_17">14(a)</ref>, has a box shape and features various wireless technologies that allow it to communicate with multiple devices simultaneously. It also includes a push button for activating the I2C LCD display. The TP Gateway is an IoT-enabled real-time system designed to collect and process tire pressure and temperature data from wireless TP sensors installed on the tires of intelligent vehicles. The gateway is an important technology for the automotive industry as it enables real-time data processing, which leads to improved safety, better fuel efficiency, and longer tire life. By employing multiple wireless technologies for data transmission, it can be highly efficient and reliable. Overall, the TP Gateway can help prevent accidents and reduce maintenance costs, making it a valuable asset for fleet management and individual vehicle owners alike.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>C. Cloud-Based Management System</head><p>Our graphical user interface (GUI) is developed in HTML, php, JavaScript and CSS. Fig. <ref type="figure" target="#fig_8">15</ref> shows different snapshots of GUI. Fig. <ref type="figure" target="#fig_8">15</ref>(a) shows all the listed vehicles with their status, vehicle type, number of wheels with attached sensors, parking lot, and live geo-location. The user interface allows the user to define a sensor by inserting its ID information and fetches real-time sensor information from the database while keeping it updated. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>VII. CONCLUSION AND FUTURE WORK</head><p>In this paper, we have developed and validated an efficient IoT-enabled wireless tire sensing system (WTSS), addressing the issue of worst transmission delay for any sensor received while considering energy savings. Our analytic scheme effectively evaluates factors affecting transmission and identifies the worst transmission delay based on different wakeup-sleep periods and collision probabilities, leading to higher energy efficiency. The real-time WTSS system, with its wireless technologies, cloud-based management system, and mobile app, offers comprehensive data insights and instant alerts to avoid accidents and boost vehicle efficiency. The effectiveness of the proposed scheme is verified by analysis, experimentation, and simulation results. The scheme effectively addresses the worst transmission delay for sensor transmission, providing a reliable and efficient solution for real-time monitoring of tire status in intelligent vehicles. This will be valuable for developers working on real-time applications for logistic trucks where minimizing sensor transmission delays is crucial.</p><p>For future work, we will further consider the energy issue of the transmitter in the WTSS. We plan to develop a new prototype of sensor transmitters with an energy-saving mechanism, enabling a more in-depth analysis of the relationship between energy consumption and delay. This initiative aims to extend the sensors' lifetime while ensuring the immediacy of tire pressure monitoring.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Fig. 1 .Fig. 2 .</head><label>12</label><figDesc>Fig. 1. IoT-Enabled Wireless Tire Sensing System (WTSS)</figDesc><graphic coords="2,314.41,510.51,105.57,52.79" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>Fig. 4 .</head><label>4</label><figDesc>Fig. 4. illustration of data transmission to the TP Gateway</figDesc><graphic coords="3,310.02,526.66,255.31,170.97" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head>Lemma 1 . 1 .</head><label>11</label><figDesc>The system exists a feasible number of sensor duty-cycles and number of wakeup-sleep cycles to successfully receive all possible arrivals of sensor transmissions if C L and [W + S] are relative prime, i.e., if GCD(C L , [W + S]) = 1, it exists minimal integers C min L ∈ N and N min sleep ∈ N that satisfies the equation n + C min L • C L = W + N min sleep • [W + S] for all n = 1, 2, ...., C L .</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head>( 4 )</head><label>4</label><figDesc>This means that N min sleep and C min L have feasible solutions to satisfy Eq. (1) when N min sleep = (n − W ) • α and C min L = −(n − W )•β for all n = 1, 2, ...., C L . Since α, β have multiple pairs, by well-ordering principle [53], it exists a pair incurring the minimal and positive solutions of N min sleep ∈ N and C min L ∈ N to satisfy. Under this condition, the system has a "finite" waiting time to receive all possible sensor transmissions. Lemma 1.2. When the system has a finite waiting time, the minimum number of sensor duty-cycles and minimum number of wakeup-sleep cycles required to successfully receive the worst sensor transmissions are C min L = S and N min sleep = C L −1 when n = C L − S, under the condition that C L &gt; S and C L and [W + S] are relative prime.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_4"><head>1 .</head><label>1</label><figDesc><ref type="bibr" target="#b6">(7)</ref> has to satisfy [W + S] | C min L + As we know that the minimum number of sensor duty-cycles should be larger or equal to 0, i.e., C min L ≥ 0. Thus, the smallest value of C min L to satisfy Eq. (7) will be C min L = S because C L and [1 + S] have no common factor and C min L cannot satisfy if C min L &lt; S. Based on this result, it yields</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_5"><head>Corollary 1 . 2 . 1 .</head><label>121</label><figDesc>When the system has a finite waiting time, the minimum number of duty-cycle C min L will not exceed S, i.e., C min L ≤ S if GCD(C L , [W + S]) = 1. Proof. According to Eq. (</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_6"><head>L̸</head><label></label><figDesc>= C min ′ L . As a result, each C min L ∈ [0, .., S] has its own and individual congruence θ ∈ [0, .., S].</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_7"><head></head><label></label><figDesc>which means that it is less than the delay incurred by n = C L − S with C min L = S (by applying the results of Lemma 1.2). This is contradicted to the assumption. For n ′ &gt; C L − S, we first combine it with n = C L − S and represent them as the continuous integers n ′ = C L − δ (where δ = S, S − 1, .., 0). According to Eq. (9), since n ′ are (1 + S) continuous integers, it will have (1 + S) different remainders when n ′ is divided by (1 + S) and thus results in (1 + S) different congruences θ ∈ [0, 1, .., S]. This means that each n ′ has an individual C min ′ L ∈ [0, 1, .., S]. Since n = C L − S has been proved in Lemma 1.2 that it is with C min L = S, it means that the other n ′ = C L − δ (where δ = S − 1, .., 0, except for S) has the largest value C min ′ L = S − 1 &lt; S.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_8"><head>Lemma 1 . 5 .</head><label>15</label><figDesc>The worst transmission delay W delay incurring by the wakeup-sleep operation can be obtained by W delay = C L (S + 1) − S. Proof. According to Lemma 1.2, we have the worst sensor transmission T max = n ′ = C L − S with C min L = S. Since W = 1, Eq. (</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_9"><head>Fig. 5 .</head><label>5</label><figDesc>Fig. 5. Example of two transmission scenarios</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_10"><head>Fig. 6 .</head><label>6</label><figDesc>Fig. 6. Comparisons on worst transmission delay</figDesc><graphic coords="8,48.96,141.13,251.06,128.27" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_11"><head>Fig. 7 .</head><label>7</label><figDesc>Fig. 7. Comparisons on expected worst transmission delay</figDesc><graphic coords="8,48.96,457.95,251.06,128.27" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_12"><head>Fig. 8 .</head><label>8</label><figDesc>Fig. 8. Comparisons on average worst transmission delay</figDesc><graphic coords="8,311.98,176.07,251.06,128.27" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_13"><head>Fig. 9 .</head><label>9</label><figDesc>Fig. 9. Comparisons on successful sensor reception rate</figDesc><graphic coords="8,311.98,487.09,251.06,128.27" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_14"><head>Fig. 10 .</head><label>10</label><figDesc>Fig. 10. Comparisons on power saving ratio</figDesc><graphic coords="9,48.96,318.09,251.06,128.27" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_15"><head>Fig. 12 .</head><label>12</label><figDesc>Fig. 12. Working scenario of proposed IoT-enabled WTSS: (a) wireless TP sensor installed on the tire of a vehicle, (b) TP Gateway installed in the vehicle, (c) bluetooth based mobile app for user/driver and (d) web and mobile app based monitoring system for administrators</figDesc><graphic coords="10,158.63,362.73,144.52,108.39" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_16"><head>Fig. 13 .</head><label>13</label><figDesc>Fig. 13. Various parts of TP Gateway</figDesc><graphic coords="10,340.91,332.98,196.83,284.90" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_17"><head>Fig. 14 .</head><label>14</label><figDesc>Fig. 14. The hardware components: (a) TP Gateway, (b) wireless TP sensor, (c) raspberrypi as a local server, and (d) web server</figDesc><graphic coords="11,319.82,244.19,236.13,134.89" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_18"><head></head><label></label><figDesc>Fig. 14(b) illustrates 3V lithium battery-powered wireless TP sensors that gather tire pressure and temperature data with high accuracy. The module collects and transmits data through the radio frequency transmitter to the 433 MHz antenna. A local server based on Raspberry Pi4 and a web server based on Apache HTTP v3.3.0 is installed on our surveillance server. Fig. 14(c) and (d) depict the hardware configuration of the local and web servers, respectively.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_19"><head>Fig. 15 .Fig. 16 .</head><label>1516</label><figDesc>Fig. 15. Snapshots of graphical user interface: (a) vehicle details including status and live location (b) vehicle's record including real-time pressure and temperature</figDesc><graphic coords="11,309.98,444.61,94.52,163.55" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_1"><head>TABLE II *</head><label>II</label><figDesc>COMPARISON AND ANALYSIS WITH OTHER APPLICATIONS</figDesc><table><row><cell>Applications</cell><cell>Sensors</cell><cell>Wireless</cell><cell>Trans.</cell><cell>Delay</cell><cell cols="2">Energy Consumption</cell><cell cols="2">Suggested Parameters</cell></row><row><cell></cell><cell></cell><cell>Channel</cell><cell>Interval</cell><cell>Constraints</cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell></cell><cell></cell><cell></cell><cell>(in ms)</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell>Energy</cell><cell>Applicable</cell><cell>C L</cell><cell>S</cell></row><row><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell>Issue?</cell><cell>or not?</cell><cell></cell><cell></cell></row><row><cell>ABS [45]</cell><cell>Wheel inertial</cell><cell>5 GHz</cell><cell>100∼200</cell><cell>146.2</cell><cell>Yes</cell><cell>Yes</cell><cell>150</cell><cell>10</cell></row><row><cell>ESC [37]</cell><cell>Wheel inertial</cell><cell>5 GHz</cell><cell>100∼300</cell><cell>197.8</cell><cell>Yes</cell><cell>Yes</cell><cell>200</cell><cell>12</cell></row><row><cell>PAS [34]</cell><cell>Ultrasonic</cell><cell>433 MHz</cell><cell>200∼500</cell><cell>348.3</cell><cell>Yes</cell><cell>Yes</cell><cell>350</cell><cell>22</cell></row><row><cell>OSS [18]</cell><cell>PIR</cell><cell>5 GHz</cell><cell>100∼300</cell><cell>197.8</cell><cell>Yes</cell><cell>Yes</cell><cell>200</cell><cell>12</cell></row><row><cell>LDW [40]</cell><cell>Radar,</cell><cell>2.4 GHz</cell><cell>100∼500</cell><cell>296.7</cell><cell>Yes</cell><cell>Yes</cell><cell>300</cell><cell>20</cell></row><row><cell></cell><cell>Infrared</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_2"><head>*</head><label></label><figDesc>The parameters are based on proposed analytic scheme. ABS: Anti-lock Braking System; ESC: Electronic Stability Control; PAS: Parking Assist Systems; OSS: Occupancy Sensor System; LDW: Lane Departure Warning.</figDesc><table /></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="1" xml:id="foot_0">Tire temperature and pressure frequently influence each other<ref type="bibr" target="#b2">[3]</ref>,<ref type="bibr" target="#b42">[43]</ref>. Monitoring tire condition can lead to various benefits, including accident reduction, fuel consumption minimization, driving convenience improvement, braking distance reduction, and tire lifespan extension<ref type="bibr" target="#b43">[44]</ref>,<ref type="bibr" target="#b44">[45]</ref>. It is worth noting that certain tire monitors also incorporate inertial components<ref type="bibr" target="#b45">[46]</ref>,<ref type="bibr" target="#b46">[47]</ref>. This paper specifically concentrates on tire sensors measuring pressure and temperature exclusively.</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="2" xml:id="foot_1">Currently, TP Sensor can continue to operate for several years, lasting until tire replacement, due to their low-end and uncontrollable design<ref type="bibr" target="#b40">[41]</ref>,<ref type="bibr" target="#b41">[42]</ref>,<ref type="bibr" target="#b47">[48]</ref>. Disrupting the sensor's energy cycle or external interference could lead to unreliable data transmission or malfunction<ref type="bibr" target="#b48">[49]</ref>,<ref type="bibr" target="#b49">[50]</ref>.</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="3" xml:id="foot_2">Note that if the system does not receive a sensor over T delay slots, it will re-activate such sensor to randomly transmit again to avoid such sensor being collided by the same pattern.</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" xml:id="foot_3">App-based Monitoring system for administrator (c)Bluetooth based mobile app for user/driver</note>
+		</body>
+		<back>
+
+			<div type="funding">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Read-only memory</head><p>Pseudo-Static RAM Static Random-access mem.</p></div>
+			</div>
+
+			<div type="annex">
+<div xmlns="http://www.tei-c.org/ns/1.0" />			</div>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">Design and Analysis for Wireless Tire Pressure Sensing System</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Mishra</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J.-M</forename><surname>Liang</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">International Computer Symposium (ICS)</title>
+				<meeting><address><addrLine>Taoyuan, Taiwan</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2022">2022</date>
+			<biblScope unit="page" from="599" to="610" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">Energy Harvesting for Tire Pressure Monitoring Systems From a Mechanical Energy Point of View</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Germer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">U</forename><surname>Marschner</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Richter</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Internet of Things Journal</title>
+		<imprint>
+			<biblScope unit="volume">9</biblScope>
+			<biblScope unit="issue">10</biblScope>
+			<biblScope unit="page" from="7700" to="7714" />
+			<date type="published" when="2022">2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">Artificial Neural Network-Based Method for Identifying Under-Inflated Tire in Indirect TPMS</title>
+		<author>
+			<persName><forename type="first">X</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Chen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Cao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Xu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X</forename><surname>Shi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Q</forename><surname>Song</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Xiao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Sun</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Access</title>
+		<imprint>
+			<biblScope unit="volume">8</biblScope>
+			<biblScope unit="page">805</biblScope>
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<monogr>
+		<title level="m" type="main">Federal Motor Vehicle Safety Standard (FMVSS): Light Vehicle Brake Systems</title>
+		<ptr target="https://www.govinfo.gov/app/details/CFR-2022-title49-vol6/CFR-2022-title49-vol6-sec571-135/summary" />
+		<imprint>
+			<date type="published" when="2024-03-09">March 9, 2024</date>
+		</imprint>
+		<respStmt>
+			<orgName>National Highway Traffic Safety Administration (NHTSA)</orgName>
+		</respStmt>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<monogr>
+		<title level="m" type="main">Regulation No 141 -Uniform provisions concerning the approval of vehicles with regard to their Tyre Pressure Monitoring Systems (TPMS)</title>
+		<ptr target="http://data.europa.eu/eli/reg/2018/1593/oj" />
+		<imprint>
+			<date type="published" when="1593-03-09">2018/1593. March 9, 2024</date>
+		</imprint>
+		<respStmt>
+			<orgName>Economic Commission for Europe of the United Nations (UN/ECE</orgName>
+		</respStmt>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<monogr>
+		<title level="m" type="main">Automobile ESC/TPMS becomes mandatory</title>
+		<author>
+			<persName><forename type="first">The</forename><surname>Ministry</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Land</surname></persName>
+		</author>
+		<ptr target="http://www.puntofocal.gov.ar/notificotrosmiembros/kor286t.pdf" />
+		<imprint>
+			<date type="published" when="2010-03-09">2010. March 9, 2024</date>
+		</imprint>
+	</monogr>
+	<note>Transport and Maritime Affairs</note>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">Analysis of Vehicle Location Prediction Errors for Safety Applications in Cooperative-Intelligent Transportation Systems</title>
+		<author>
+			<persName><forename type="first">N</forename><surname>Dasanayaka</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Feng</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Intelligent Transportation Systems</title>
+		<imprint>
+			<biblScope unit="volume">23</biblScope>
+			<biblScope unit="issue">9</biblScope>
+			<biblScope unit="page" from="15" to="512" />
+			<date type="published" when="2022">2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">An efficient real-time vehicle monitoring method</title>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Ye</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Wei</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Wang</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Intelligent Transportation Systems</title>
+		<imprint>
+			<biblScope unit="volume">23</biblScope>
+			<biblScope unit="issue">11</biblScope>
+			<biblScope unit="page">83</biblScope>
+			<date type="published" when="2022">2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">A Low-Cost Tire Pressure Loss Detection Framework Using Machine Learning</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Wei</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Yu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Liu</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Industrial Electronics</title>
+		<imprint>
+			<biblScope unit="volume">68</biblScope>
+			<biblScope unit="issue">12</biblScope>
+			<biblScope unit="page" from="730" to="742" />
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">A costefficient environment monitoring robotic vehicle for smart industries</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">A</forename><surname>Khan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Wechtaisong</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><forename type="middle">A</forename><surname>Khan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Ahmad</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Computers, Materials &amp; Continua</title>
+		<imprint>
+			<biblScope unit="volume">71</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="473" to="487" />
+			<date type="published" when="2022">2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">Real-Time IoT-Based Connected Vehicle Infrastructure for Intelligent Transportation Safety</title>
+		<author>
+			<persName><forename type="first">N</forename><surname>Sharma</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">D</forename><surname>Garg</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Intelligent Transportation Systems</title>
+		<imprint>
+			<biblScope unit="volume">24</biblScope>
+			<biblScope unit="issue">8</biblScope>
+			<biblScope unit="page" from="8339" to="8347" />
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">Dual-mode flexible capacitive sensor for proximity-tactile interface and wireless perception</title>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Qin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Xu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Xu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Zheng</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Gao</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Sensors Journal</title>
+		<imprint>
+			<biblScope unit="volume">22</biblScope>
+			<biblScope unit="issue">11</biblScope>
+			<biblScope unit="page">453</biblScope>
+			<date type="published" when="2022">2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">Energy consumption and charging load profiles from long-haul truck electrification in the United States</title>
+		<author>
+			<persName><forename type="first">F</forename><surname>Tong</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Wolfson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Jenn</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">D</forename><surname>Scown</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Auffhammer</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Environmental Research: Infrastructure and Sustainability</title>
+		<imprint>
+			<biblScope unit="volume">1</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page">25007</biblScope>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">Route Towards Road Freight Electrification in India: Examining Battery Electric Truck Powertrain and Energy Consumption</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Madichetty</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">J</forename><surname>Neroth</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Mishra</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><forename type="middle">C</forename><surname>Babu</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Chinese Journal of Electrical Engineering</title>
+		<imprint>
+			<biblScope unit="volume">8</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="57" to="75" />
+			<date type="published" when="2022">2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">Charging Infrastructure for Commercial Electric Vehicles: Challenges and Future Works</title>
+		<author>
+			<persName><forename type="first">B</forename><surname>Al-Hanahi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Ahmad</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Habibi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">A S</forename><surname>Masoum</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Access</title>
+		<imprint>
+			<biblScope unit="volume">9</biblScope>
+			<biblScope unit="page">492</biblScope>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<analytic>
+		<title level="a" type="main">Batteryless Tire Pressure Real-Time Monitoring System Driven by an Ultralow Frequency Piezoelectric Rotational Energy Harvester</title>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Yi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Yang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Wu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Liu</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Industrial Electronics</title>
+		<imprint>
+			<biblScope unit="volume">68</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="3192" to="3201" />
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<analytic>
+		<title level="a" type="main">Radio Frequency Identification and Sensing: Integration of Wireless Powering, Sensing, and Communication for IIoT Innovations</title>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Meng</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Gao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Wu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Gray</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Communications Magazine</title>
+		<imprint>
+			<biblScope unit="volume">59</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="38" to="44" />
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<analytic>
+		<title level="a" type="main">Intelligent Traffic Monitoring Systems for Vehicle Classification: A Survey</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Won</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Access</title>
+		<imprint>
+			<biblScope unit="volume">8</biblScope>
+			<biblScope unit="page" from="340" to="373" />
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<analytic>
+		<title level="a" type="main">In-Vehicle Monitoring by Radar: A Review</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Gharamohammadi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Khajepour</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Shaker</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Sensors Journal</title>
+		<imprint>
+			<biblScope unit="volume">23</biblScope>
+			<biblScope unit="issue">21</biblScope>
+			<biblScope unit="page">672</biblScope>
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<analytic>
+		<title level="a" type="main">Connected Sensors, Innovative Sensor Deployment, and Intelligent Data Analysis for Online Water Quality Monitoring</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Manjakkal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Mitra</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><forename type="middle">R</forename><surname>Petillot</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Shutler</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><forename type="middle">M</forename><surname>Scott</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Willander</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Dahiya</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Internet of Things Journal</title>
+		<imprint>
+			<biblScope unit="volume">8</biblScope>
+			<biblScope unit="issue">18</biblScope>
+			<biblScope unit="page" from="13" to="805" />
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<analytic>
+		<title level="a" type="main">WITM: Intelligent Traffic Monitoring Using Fine-Grained Wireless Signal</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Chen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Ota</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Dong</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Yu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Jin</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Emerging Topics in Computational Intelligence</title>
+		<imprint>
+			<biblScope unit="volume">4</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="206" to="215" />
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<analytic>
+		<title level="a" type="main">Exploring relationships between microscopic kinetic parameters of tires under normal driving conditions, road characteristics and accident types</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>He</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X</forename><surname>Yan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Chen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Zhang</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of safety research</title>
+		<imprint>
+			<biblScope unit="volume">78</biblScope>
+			<biblScope unit="page" from="80" to="95" />
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<analytic>
+		<title level="a" type="main">Analysis of Truck Tractor Tire Damage in the Context of the Study of Road Accident Causes</title>
+		<author>
+			<persName><forename type="first">K</forename><surname>Drozd</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Tarkowski</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Caban</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Nieoczym</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Vrábel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Krzysiak</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Applied Sciences</title>
+		<imprint>
+			<biblScope unit="volume">12</biblScope>
+			<biblScope unit="issue">23</biblScope>
+			<biblScope unit="page">12333</biblScope>
+			<date type="published" when="2022">2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b23">
+	<analytic>
+		<title level="a" type="main">Tire Wear Detection for Accident Avoidance Employing Convolutional Neural Networks</title>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">M</forename><surname>Karim</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Rahman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">A</forename><surname>Hai</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Mahfuza</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">8th NAFOSTED Conference on Information and Computer Science (NICS)</title>
+				<meeting><address><addrLine>Hanoi, Vietnam</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2021">2021</date>
+			<biblScope unit="page" from="364" to="368" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b24">
+	<analytic>
+		<title level="a" type="main">Model predictive path-planning controller with potential function for emergency collision avoidance on highway driving</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Lin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Tsukada</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Robotics and Automation Letters</title>
+		<imprint>
+			<biblScope unit="volume">7</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="4662" to="4669" />
+			<date type="published" when="2022">2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b25">
+	<monogr>
+		<author>
+			<persName><forename type="first">E</forename><surname>Artetxe</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">O</forename><surname>Barambones</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Calvo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Fernández-Bustamante</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Martin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Uralde</surname></persName>
+		</author>
+		<title level="m">Wireless Technologies for Industry 4.0 Applications,&quot; Energies</title>
+				<imprint>
+			<date type="published" when="2023">2023</date>
+			<biblScope unit="volume">16</biblScope>
+			<biblScope unit="page">1349</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b26">
+	<analytic>
+		<title level="a" type="main">Tackling the Challenges of the Integration of Wired and Wireless TSN With a Technology Proof-of-Concept</title>
+		<author>
+			<persName><forename type="first">O</forename><surname>Seijo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X</forename><surname>Iturbe</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Val</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Industrial Informatics</title>
+		<imprint>
+			<biblScope unit="volume">18</biblScope>
+			<biblScope unit="issue">10</biblScope>
+			<biblScope unit="page" from="7361" to="7372" />
+			<date type="published" when="2022">2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b27">
+	<analytic>
+		<title level="a" type="main">Wireless monitoring system for motorcycle tire air pressure with pressure sensor and voice warning on helmet using fuzzy logic</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">I</forename><surname>Tawakal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Abdurohman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">G</forename><surname>Putrada</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">International Conference on Software Engineering &amp; Computer Systems and 4th International Conference on Computational Science and Information Management (ICSECS-ICOCSIM)</title>
+				<meeting><address><addrLine>Pahang, Malaysia</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2021">2021</date>
+			<biblScope unit="page" from="47" to="52" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b28">
+	<analytic>
+		<title level="a" type="main">ID Calibration Device Design for Vehicle Tire Pressure Monitoring System Based on Bluetooth Communication</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Hou</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Zhao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Gu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Xi</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Procedia Computer Science</title>
+		<imprint>
+			<biblScope unit="volume">202</biblScope>
+			<biblScope unit="page" from="223" to="227" />
+			<date type="published" when="2022">2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b29">
+	<analytic>
+		<title level="a" type="main">Implementation of Tire Status Estimation Using Hall Sensor and G-Sensor</title>
+		<author>
+			<persName><forename type="first">W.-H</forename><surname>Chang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R.-T</forename><surname>Juang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M.-H</forename><surname>Huang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M.-F</forename><surname>Sung</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">IEEE/ACIS 22nd International Conference on Software Engineering</title>
+				<meeting><address><addrLine>Taichung, Taiwan</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2021">2021</date>
+			<biblScope unit="page" from="102" to="105" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b30">
+	<analytic>
+		<title level="a" type="main">Smart Tire Pressure Monitoring System with Piezoresistive Pressure Sensors and Bluetooth 5</title>
+		<author>
+			<persName><forename type="first">H</forename><surname>Fechtner</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">U</forename><surname>Spaeth</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Schmuelling</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">IEEE Conference on Wireless Sensors (ICWiSe)</title>
+				<meeting><address><addrLine>Penang, Malaysia</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2019">2019</date>
+			<biblScope unit="page" from="18" to="23" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b31">
+	<analytic>
+		<title level="a" type="main">Air Pressure Detection System on Motorized Vehicle Tires Based on IoT Platform</title>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">M S</forename><surname>Waworundeng</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">Fernando</forename><surname>Tiwow</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><forename type="middle">M</forename><surname>Tulangi</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">1st International Conference on Cybernetics and Intelligent System (ICORIS)</title>
+				<meeting><address><addrLine>Bali, Indonesia</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2019">2019</date>
+			<biblScope unit="page" from="251" to="256" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b32">
+	<analytic>
+		<title level="a" type="main">On the use of LoRaWAN for the Internet of Intelligent Vehicles in Smart City scenarios</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Ferrari</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Sisinni</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">F</forename><surname>Carvalho</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Depari</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Signoretti</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Silva</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Silva</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Silva</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">IEEE Sensors Applications Symposium (SAS)</title>
+				<meeting><address><addrLine>Kuala Lumpur, Malaysia</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2020">2020</date>
+			<biblScope unit="page" from="1" to="6" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b33">
+	<analytic>
+		<title level="a" type="main">Car e-talk: An iot-enabled cloud-assisted smart fleet maintenance system</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Hussain</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">U</forename><surname>Mahmud</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Yang</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Internet of Things Journal</title>
+		<imprint>
+			<biblScope unit="volume">8</biblScope>
+			<biblScope unit="issue">12</biblScope>
+			<biblScope unit="page" from="9484" to="9494" />
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b34">
+	<analytic>
+		<title level="a" type="main">h-tpms: a hybrid tire pressure monitoring system for road vehicles</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Formentin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Onesto</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Colombo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Pozzato</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">M</forename><surname>Savaresi</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Mechatronics</title>
+		<imprint>
+			<biblScope unit="volume">74</biblScope>
+			<biblScope unit="page">102492</biblScope>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b35">
+	<analytic>
+		<title level="a" type="main">IoT-based tire pressure monitoring system for air and temperature pressure using MPX5500D and LM35 sensor</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Pangestu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Sodikin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Yusro</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Sapundani</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">R</forename><surname>Al Hakim</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Wilyanti</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">IEEE 8th International Conference on Computing, Engineering and Design (ICCED)</title>
+				<meeting><address><addrLine>Sukabumi, West Java Indonesia</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2022">2022</date>
+			<biblScope unit="page" from="1" to="4" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b36">
+	<analytic>
+		<title level="a" type="main">An in-tire-pressure monitoring SoC using FBAR resonatorbased ZigBee transceiver and deep learning models</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Vasantharaj</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Nandhagopal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">A</forename><surname>Karuppusamy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Subramaniam</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Microprocessors and Microsystems</title>
+		<imprint>
+			<biblScope unit="volume">95</biblScope>
+			<biblScope unit="page">104709</biblScope>
+			<date type="published" when="2022">2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b37">
+	<analytic>
+		<title level="a" type="main">An Intelligent IoT Sensing System for Rail Vehicle Running States Based on TinyML</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Zhou</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Du</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Chen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X</forename><surname>Luan</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Access</title>
+		<imprint>
+			<biblScope unit="volume">10</biblScope>
+			<biblScope unit="page" from="98" to="860" />
+			<date type="published" when="2022">2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b38">
+	<analytic>
+		<title level="a" type="main">A Secure and Intelligent Framework for Vehicle Health Monitoring Exploiting Big-Data Analytics</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">A</forename><surname>Rahman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">A</forename><surname>Rahim</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">M</forename><surname>Rahman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Moustafa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Razzak</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Ahmad</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">N</forename><surname>Patwary</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Intelligent Transportation Systems</title>
+		<imprint>
+			<biblScope unit="volume">23</biblScope>
+			<biblScope unit="issue">10</biblScope>
+			<biblScope unit="page" from="19" to="727" />
+			<date type="published" when="2022">2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b39">
+	<analytic>
+		<title level="a" type="main">A survey on approximate edge ai for energy efficient autonomous driving services</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Katare</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Perino</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Nurmi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Warnier</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Janssen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">Y</forename><surname>Ding</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Communications Surveys &amp; Tutorials</title>
+		<imprint>
+			<biblScope unit="volume">25</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="2714" to="2754" />
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b40">
+	<analytic>
+		<title level="a" type="main">Convolutional Neural Network-Based Tire Pressure Monitoring System</title>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Márton</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Szalay</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Fodor</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Access</title>
+		<imprint>
+			<biblScope unit="volume">11</biblScope>
+			<biblScope unit="page" from="70" to="317" />
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b41">
+	<analytic>
+		<title level="a" type="main">Tire Slip Angle Estimation Based on the Intelligent Tire Technology</title>
+		<author>
+			<persName><forename type="first">N</forename><surname>Xu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Huang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Askari</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Tang</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Vehicular Technology</title>
+		<imprint>
+			<biblScope unit="volume">70</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="2239" to="2249" />
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b42">
+	<analytic>
+		<title level="a" type="main">Estimation of Wheel Pressure for Hydraulic Braking System by Interacting Multiple Model Filter</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Wei</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Li</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Vehicular Technology</title>
+		<imprint>
+			<biblScope unit="volume">73</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="463" to="472" />
+			<date type="published" when="2024">2024</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b43">
+	<analytic>
+		<title level="a" type="main">Prototype-Based Supervised Contrastive Learning Method for Noisy Label Correction in Tire Defect Detection</title>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Jiang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Zheng</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Chen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Lu</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Sensors Journal</title>
+		<imprint>
+			<biblScope unit="volume">24</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="660" to="670" />
+			<date type="published" when="2024">2024</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b44">
+	<analytic>
+		<title level="a" type="main">Safety of Automatic Emergency Braking in Platooning</title>
+		<author>
+			<persName><forename type="first">G</forename><surname>Sidorenko</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Thunberg</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Sjöberg</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Fedorov</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Vinel</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Vehicular Technology</title>
+		<imprint>
+			<biblScope unit="volume">71</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="2319" to="2332" />
+			<date type="published" when="2022">2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b45">
+	<analytic>
+		<title level="a" type="main">An Enabling Tire-Road Friction Estimation Method for Four-in-Wheel-Motor-Drive Electric Vehicles</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Guo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X</forename><surname>Ding</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Transportation Electrification</title>
+		<imprint>
+			<biblScope unit="volume">9</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="3697" to="3710" />
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b46">
+	<analytic>
+		<title level="a" type="main">IMU-Based Automated Vehicle Body Sideslip Angle and Attitude Estimation Aided by GNSS Using Parallel Adaptive Kalman Filters</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Xiong</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X</forename><surname>Xia</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Lu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Gao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Song</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Yu</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Vehicular Technology</title>
+		<imprint>
+			<biblScope unit="volume">69</biblScope>
+			<biblScope unit="issue">10</biblScope>
+			<biblScope unit="page">680</biblScope>
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b47">
+	<analytic>
+		<title level="a" type="main">A Blockchain-Based Mutual Authentication Method to Secure the Electric Vehicles&apos; TPMS</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Razmjoui</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Kavousi-Fard</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Jin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Dabbaghjamanesh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Karimi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Jolfaei</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Industrial Informatics</title>
+		<imprint>
+			<biblScope unit="volume">20</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="158" to="168" />
+			<date type="published" when="2024">2024</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b48">
+	<analytic>
+		<title level="a" type="main">Fault Injection in Model-Based System Failure Analysis of Highly Automated Vehicles</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Salih</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Olawoyin</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Open Journal of Intelligent Transportation Systems</title>
+		<imprint>
+			<biblScope unit="volume">2</biblScope>
+			<biblScope unit="page" from="417" to="428" />
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b49">
+	<analytic>
+		<title level="a" type="main">Investigation of the Cause of a Malfunction in a Display Package and Its Solution</title>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">C</forename><surname>Kim</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">J</forename><surname>Lee</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">W</forename><surname>Hwang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B.-K</forename><surname>Ju</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">K</forename><surname>Yun</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H.-W</forename><surname>Park</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">T</forename><surname>Chung</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Components, Packaging and Manufacturing Technology</title>
+		<imprint>
+			<biblScope unit="volume">1</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="119" to="124" />
+			<date type="published" when="2011">2011</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b50">
+	<monogr>
+		<title level="m" type="main">Ave External Sensor Specification</title>
+		<ptr target="http://www.avetechnology.com/index.php?unit=products&amp;lang=en&amp;act=view&amp;id=89" />
+		<imprint>
+			<date type="published" when="2023-11">November-2023</date>
+			<biblScope unit="volume">16</biblScope>
+		</imprint>
+		<respStmt>
+			<orgName>AVE</orgName>
+		</respStmt>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b51">
+	<analytic>
+		<title level="a" type="main">An Arithmetic Enrichment of Bézout&apos;s Theorem</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Mckean</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/s00208-020-02120-3</idno>
+		<ptr target="http://dx.doi.org/10.1007/s00208-020-02120-3" />
+	</analytic>
+	<monogr>
+		<title level="j">Mathematische Annalen</title>
+		<imprint>
+			<biblScope unit="volume">379</biblScope>
+			<biblScope unit="issue">1-2</biblScope>
+			<biblScope unit="page" from="633" to="660" />
+			<date type="published" when="2021-01">Jan. 2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b52">
+	<analytic>
+		<title level="a" type="main">92.30 The well-ordering principle for N</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Machale</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="s">The Mathematical Gazette</title>
+		<imprint>
+			<biblScope unit="volume">92</biblScope>
+			<biblScope unit="issue">524</biblScope>
+			<biblScope unit="page" from="257" to="259" />
+			<date type="published" when="2008">2008</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b53">
+	<analytic>
+		<title level="a" type="main">Rollover risk of cars and light trucks after accounting for driver and environmental factors</title>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">M</forename><surname>Farmer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">K</forename><surname>Lund</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Accident Analysis &amp; Prevention</title>
+		<imprint>
+			<biblScope unit="volume">34</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="1" to="4575" />
+			<date type="published" when="2002">2002</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>
