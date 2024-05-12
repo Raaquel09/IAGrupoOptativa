@@ -1,4 +1,0 @@
-git clone https://github.com/kermitt2/grobid_client_python
-cd grobid_client_python
-python3 setup.py install
-(Si el comando anterior da fallo porque no estuviesen instaladas todas las herramientas ejecuta "pip install setuptools" y vuelve a ejecutar el otro comando)
