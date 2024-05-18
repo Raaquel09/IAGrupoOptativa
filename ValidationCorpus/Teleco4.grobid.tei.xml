@@ -1,0 +1,630 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">On Design and Verification of an Efficient Microwave Wireless Power Transmission System</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher>Hindawi Limited</publisher>
+				<availability status="unknown"><p>Copyright Hindawi Limited</p>
+				</availability>
+				<date type="published" when="2024-04-23">23 April 2024</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Baoxian</forename><surname>Zheng</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="institution">Aerospace Times FeiHong Technology Company Limited</orgName>
+								<address>
+									<postCode>100094</postCode>
+									<settlement>Beijing</settlement>
+									<country key="CN">China</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Kunding</forename><surname>Ma</surname></persName>
+							<affiliation key="aff1">
+								<orgName type="institution">China Academy of Space Technology (Xi&apos;an)</orgName>
+								<address>
+									<postCode>710100</postCode>
+									<settlement>Xi&apos;an, Shaanxi</settlement>
+									<country key="CN">China</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Yuanyuan</forename><surname>Liu</surname></persName>
+							<affiliation key="aff1">
+								<orgName type="institution">China Academy of Space Technology (Xi&apos;an)</orgName>
+								<address>
+									<postCode>710100</postCode>
+									<settlement>Xi&apos;an, Shaanxi</settlement>
+									<country key="CN">China</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Tong</forename><surname>Jiang</surname></persName>
+							<affiliation key="aff1">
+								<orgName type="institution">China Academy of Space Technology (Xi&apos;an)</orgName>
+								<address>
+									<postCode>710100</postCode>
+									<settlement>Xi&apos;an, Shaanxi</settlement>
+									<country key="CN">China</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Tingyi</forename><surname>Liu</surname></persName>
+							<affiliation key="aff2">
+								<orgName type="institution">Shaanxi University of Technology</orgName>
+								<address>
+									<postCode>710071</postCode>
+									<settlement>Hanzhong, Shaanxi</settlement>
+									<country key="CN">China</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Qishuai</forename><surname>Ma</surname></persName>
+							<affiliation key="aff2">
+								<orgName type="institution">Shaanxi University of Technology</orgName>
+								<address>
+									<postCode>710071</postCode>
+									<settlement>Hanzhong, Shaanxi</settlement>
+									<country key="CN">China</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Yi</forename><surname>Liu</surname></persName>
+							<affiliation key="aff3">
+								<orgName type="institution">Te 39th Research Institute of China Electronics Technology Group Corporation</orgName>
+								<address>
+									<settlement>Beijing</settlement>
+									<country key="CN">China</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Lin</forename><surname>Yang</surname></persName>
+							<affiliation key="aff4">
+								<orgName type="institution">Xidian University</orgName>
+								<address>
+									<postCode>710071</postCode>
+									<settlement>Xi&apos;an, Shaanxi</settlement>
+									<country key="CN">China</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Xi</forename><surname>Li</surname></persName>
+							<idno type="ORCID">0000-0002-4734-7357</idno>
+							<affiliation key="aff4">
+								<orgName type="institution">Xidian University</orgName>
+								<address>
+									<postCode>710071</postCode>
+									<settlement>Xi&apos;an, Shaanxi</settlement>
+									<country key="CN">China</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">On Design and Verification of an Efficient Microwave Wireless Power Transmission System</title>
+					</analytic>
+					<monogr>
+						<title level="j" type="main">International Journal of Antennas and Propagation</title>
+						<title level="j" type="abbrev">International Journal of Antennas and Propagation</title>
+						<idno type="ISSN">1687-5869</idno>
+						<idno type="eISSN">1687-5877</idno>
+						<imprint>
+							<publisher>Hindawi Limited</publisher>
+							<biblScope unit="volume">2024</biblScope>
+							<biblScope unit="page" from="1" to="10"/>
+							<date type="published" when="2024-04-23">23 April 2024</date>
+						</imprint>
+					</monogr>
+					<idno type="MD5">C8F87408FEEF1D305B57D22A8E28FAF1</idno>
+					<idno type="DOI">10.1155/2024/1861253</idno>
+					<note type="submission">Received 15 December 2023; Revised 23 January 2024; Accepted 31 March 2024;</note>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.2" ident="GROBID" when="2024-05-16T18:04+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>We report on the theoretical design and experimental verifcation of a high efciency microwave wireless power transmission (MWPT) system operating in the Fresnel region. To achieve high conversion efciency over a transmit distance of 11 meters, the transmit refector antenna was optimized to locate the focal point at 11 m. Te size of the receive antenna was decided by calculating the feld distribution and the received power at diferent positions in the receive antenna aperture. Furthermore, an accurate model of the diode is presented, which was imported into the ADS software for high-precision rectifying circuit design. As a result, an overall DC-DC conversion efciency of 20% was achieved, as measured in an anechoic chamber at a given distance of 11 m. Te experimental results validated the proposed method.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.">Introduction</head><p>Microwave wireless power transmission (MWPT) has attracted increasing attention, owing to its capability of charging mobile phones and laptops, electric vehicles, and unmanned aerial vehicles (UAV) <ref type="bibr" target="#b0">[1]</ref>. Moreover, it is one of the key technologies to realize space solar power satellites (SSPS). MWPT technologies can be broadly divided into radiative and nonradiative power transfer methods. As for the former, if the distance between transmit and receive antenna satisfying far-feld (FF) condition long range MWPT can be achieved by means of microwave or laser sources <ref type="bibr" target="#b1">[2,</ref><ref type="bibr" target="#b2">3]</ref>. However, the achievable radiative power transmission efciency in the FF region is often unacceptably low, mainly because of the size limitation of transmit and receive antennas. Nonradiative power transfer methods mainly include near-feld magneto-inductive coupling <ref type="bibr" target="#b3">[4]</ref> and Fresnel felds <ref type="bibr" target="#b4">[5]</ref>. Systems operating in the reactive near-feld zone can achieve high conversion efciency since power is transferred between resonant circuits via magneto-inductive coupling. However, their efciency decrease as 1 � d6 <ref type="bibr">[6]</ref>, where d is the distance between transmit and receive antennas. In the Fresnel region, the Friis transmission equation is invalid since the FF pattern is not formed. In this case, the power transmission efciency can be improved by focusing the feld intensity from the source, and therefore, increasing the amount of power received by a receive antenna aperture placed at the focal point power received by a receiving antenna aperture placed at the focal point.</p><p>It is worth noting that in many applications, such as mobile devices, Internet of things, and sensors, do not require a long power transfer distance, but only a few meters, typically around 10 m <ref type="bibr">[7]</ref>. In this case, to increase the power transmission efciency, the aperture of the transmit antenna should be enlarged in order to narrow the beamwidth. Te receive antenna is placed in the Fresnel zone rather than in the far-feld region, at a mid-range of several meters. In recent years, MWPT systems and methods operating in the Fresnel feld have gained much attention due to their good conversion efciency, medium-range distance, and acceptable antenna size <ref type="bibr" target="#b5">[8]</ref><ref type="bibr" target="#b6">[9]</ref><ref type="bibr" target="#b7">[10]</ref><ref type="bibr" target="#b8">[11]</ref><ref type="bibr" target="#b9">[12]</ref>. In <ref type="bibr" target="#b5">[8]</ref>, the infuence of the beam focus, and the taper distribution of the radiating feld in the Fresnel zone have been discussed. In <ref type="bibr" target="#b6">[9,</ref><ref type="bibr" target="#b7">10]</ref>, the designs of Fresnel MWPT systems which can achieve 66.5% and 33.2% RF-DC efciency, respectively, have been reported. However, in both cases, the operating distance is only about 10λ, and the feeding network is complicated and easy to make systems defocus for a larger array. In <ref type="bibr" target="#b8">[11]</ref>, an MWPT system equipped with an optimal number of rectenna array elements for mid-range application and a parallel DC combing circuit is designed to improve conversion efciency. Nevertheless, only a 5.01% RF-DC efciency can be achieved at a distance of 1 m. Based on Bezier curves <ref type="bibr" target="#b9">[12]</ref>, a method for antenna aperture illumination design for MWPT in the Fresnel zone is reported in <ref type="bibr" target="#b10">[13]</ref>. As a result, a larger aperture power coefcient can be achieved, with a slight reduction of the beam collection efciency <ref type="bibr" target="#b11">[14]</ref>. Publication <ref type="bibr" target="#b12">[15]</ref> reports a compact, polarization-insensitive rectenna based on metasurface at a frequency of 5.8 GHz, it can reach the maximum conversion efciency measured 66% under a 500 Ω load. Article <ref type="bibr" target="#b13">[16]</ref> proposes a highly integrated multipolarization wideband rectenna for simultaneous wireless information and power transfer, the wireless power receiving port has conversion efciency up to 76.5%.</p><p>In this paper, a new design of MWPTsystem operating in the Fresnel zone is presented. Te main features of the proposed MWTP system can be summarized as follows: (i) a refector antenna is deployed as the transmit antenna, which can enjoy advantages of low cost and no feeding network; (ii) an air-supported microstrip antenna is used as the receive antenna to reduce substrate loss; (iii) twoelement series fed and four-element cascaded arrays are introduced such that diferent power densities can be adapted; (ii) and (iii) have been introduced in article <ref type="bibr" target="#b14">[17]</ref>; (iv) a diode model is implemented to get its optimal characteristic and parameters, and a high-precision rectifying circuit model is designed accordingly; and (v) a parallel DC combing circuit is designed. By means of the proposed design, the resulting experimental conversion efciency is 20%, as measured in an anechoic chamber at a distance of 11 m.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.">MWPT System Design</head><p>Figure <ref type="figure">1</ref> illustrates a schematic diagram of the MWPT system. It mainly includes microwave transmitter, transmit antenna, the receive antenna, rectifying, and the DC combiner circuits. It is known that the overall efciency of the system relates to each of the aforementioned components. Tus, each component of the MWPT system should be carefully designed, and we shall discuss this in the sequal.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.1.">Te Microwave</head><p>Transmitter. In the MWPT system, the DC energy should be frst converted to RF power, which is then radiated to the free space by the transmit antenna. In our designed system, a GaN power amplifer is introduced to achieve high output power, as illustrated in Figure <ref type="figure">2</ref>. Te maximum DC-RF conversion efciency is 59.3% when the input power is 88 W.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.2.">Transmit Antenna Design.</head><p>Since high DC-DC conversion efciency is a primary objective for our MWPT system, a narrow beam width of the transmit antenna is expected. It is known that antenna array can be employed for this purpose. However, in our design, a refector antenna was selected because of its low cost and no feeding network. In our design, the distance between the transmit antenna and the receive antenna is fxed at 11 meters.</p><p>Since the position of the focus is dependent on the antenna dimension, the size of the refector antenna should be determined. To this end, we frst give the power density S(ρ) of the refector antenna as</p><formula xml:id="formula_0">S(ρ) � 1 η • |E(ρ)| 2 , (<label>1</label></formula><formula xml:id="formula_1">)</formula><p>where η is the wave impedance and in free space we have η � 120π, ρ indicates the distance between the feld point and the center in the transmit antenna aperture, and | E(ρ)| means the electric feld strength. Figure <ref type="figure">3</ref> shows a diagrammatic sketch relevant to these parameters. Te total energy within the antenna aperture can be expressed as</p><formula xml:id="formula_2">􏽚 D/2 0 􏽚 2π 0 S(ρ)ρdρdφ � P t • η a , (<label>2</label></formula><formula xml:id="formula_3">)</formula><p>where D denotes the diameter of the refector antenna, P t is the transmit power, and η a is the antenna efciency excluding leakage. In our design, a −10 dB aperture feld distribution of the refector is assumed. Letting η � 120π and substituting (1) into (2), one obtains</p><formula xml:id="formula_4">􏽚 D/2 0 |E(ρ)| 2 ρdρ � 60 • P t • η a . (<label>3</label></formula><formula xml:id="formula_5">)</formula><p>Te feld in the axial direction E(z) can be obtained by integrating the |E(ρ)| feld distribution at z position according to the following equation ( <ref type="formula" target="#formula_8">5</ref>):</p><formula xml:id="formula_6">E(z) � A 0 􏽚 2π 0 􏽚 D/2 0 |E(ρ)| e −jk ��� � z 2 +ρ 2 √ ������ z 2 + ρ 2 􏽱 ρdρdφ, (<label>4</label></formula><formula xml:id="formula_7">)</formula><p>where z is the distance from the refector antenna in the axial direction. Figure <ref type="figure">4</ref> displays the distribution of the normalized electric feld along z, for diferent refector antenna diameters D � 2.0 m, D � 2.4 m, and D � 2.8 m. As it can be observed in the fgure, the electric feld focuses at 11 m when D � 2.4 m. Te transmit antenna size is therefore selected as 2.4 m in the designed WPT system.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.3.">Design of the Receiving Antenna.</head><p>A low profle airsupported microstrip antenna is chosen as the receiving antenna element in order to reduce substrate loss and withstand high power. Moreover, two-element series-fed and four-element cascaded arrays are introduced in order to adapt diferent power densities. Tis section was also introduced in the previous article <ref type="bibr" target="#b14">[17]</ref>.</p><p>Te comparative results among antenna element, twoelement series-fed array, and four-element cascaded array are presented in Table <ref type="table" target="#tab_0">1</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Signal source (GaN) Amplifier</head><p>Microwave transmitter DC energy  </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>RF power Antenna</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.4.">Calculation of Received</head><p>Power. Te Friis transmission equations are not suitable for computing the RF power captured by the receiving antenna because the distance between the transmitting and the receiving antenna does not satisfy the FF condition. Te received RF power can be computed by</p><formula xml:id="formula_8">P r (x, y) � A e (x, y) • p(x, y), (<label>5</label></formula><formula xml:id="formula_9">)</formula><p>where P r (x, y) denotes the power received by the antenna, whose efective receiving area is A e (x, y) at position (x, y), and p(x, y) is the power density at position (x, y). p(x, y) can be expressed as follows:</p><formula xml:id="formula_10">p(x, y) � p m • a(x, y), (<label>6</label></formula><formula xml:id="formula_11">)</formula><p>where p m is the maximum power density, and a(x, y) is the normalized relative power density distribution. Finally, the following equation can be formulated:</p><formula xml:id="formula_12">P r (x, y) � A e (x, y) • p m • a(x, y). (<label>7</label></formula><formula xml:id="formula_13">)</formula><p>According to equation (3), we can write</p><formula xml:id="formula_14">P t • η tr � 􏽚 ∞ −∞ 􏽚 ∞ −∞ p(x, y)dxdy � p m • 􏽚 ∞ −∞ 􏽚 ∞ −∞ a(x, y)dxdy, (<label>8</label></formula><formula xml:id="formula_15">)</formula><p>where η tr is the transmission efciency between the transmitting antenna and the receiving antenna, including cable loss, coaxial connector loss, space transmission loss, polarization mismatch, feld mismatch, and so on. Terefore, p m can be expressed as</p><formula xml:id="formula_16">p m � P t • η tr 􏽒 ∞ −∞ 􏽒 ∞ −∞ a(x, y)dxdy . (<label>9</label></formula><formula xml:id="formula_17">)</formula><p>P r (x, y) can be reformulated as</p><formula xml:id="formula_18">P r (x, y) � P t • η tr 􏽒 ∞ −∞ 􏽒 ∞ −∞ a(x, y)dxdy • A e (x, y) • a(x, y), (<label>10</label></formula><formula xml:id="formula_19">)</formula><p>and a(x, y) can be computed by</p><formula xml:id="formula_20">a(x, y) � 􏽒 2π 0 􏽒 ρ 0 |E(ρ)| e −jkr /r 􏼐 􏼑dρdφ 􏽒 2π 0 􏽒 ρ 0 |E(ρ)| e −jkr /r 􏼁dρdφ 􏼒 􏼓 max , (<label>11</label></formula><formula xml:id="formula_21">)</formula><formula xml:id="formula_22">r � ��������������������������� � (ρ cos φ − x) 2 +(ρ sin φ − y) 2 + z 2 􏽱 , (<label>12</label></formula><formula xml:id="formula_23">)</formula><p>where ρ is the distance between the feld point and the center in the transmitting antenna aperture (see equation ( <ref type="formula" target="#formula_0">1</ref>)), (x, y, z) means the position in the receiving antenna aperture, and r is the distance between the source point and the feld point.</p><p>According to equation <ref type="bibr" target="#b7">(10)</ref>, if the transmitted power P t , the normalized relative power density distribution at a fxed distance from the transmitting antenna a(x, y), and the efective receiving area A e (x, y) at position (x, y) are given, the received power can be computed. Figure <ref type="figure" target="#fig_3">5</ref> shows the normalized near feld amplitude distribution at center row and at center column, at a distance of 11 m (z � 11 m in equation ( <ref type="formula" target="#formula_22">12</ref>)) from the transmitting antenna. Te size of the plotted near feld area is 3 m × 3 m. A −10 dB aperture feld distribution of the refector is assumed for computations. As it can be seen from the plots, the feld strength at a distance of 1.2 m from the center is about −10 dB, so the size of the receiving antenna is selected as 2.4 m. It is worth to point out that since the rectifying efciency is related to the input power to the rectifying circuit, input power should be kept as stable as possible. Te gain of the antenna element can be related to the efective receiving area A e by the following equation:</p><formula xml:id="formula_24">G � 4π λ 2 • A e . (<label>13</label></formula><formula xml:id="formula_25">)</formula><p>Te computed gain of the simulated antenna element is 8.6 dBi, as obtained by HFSS software, so A e can be calculated as 0.0086 m 2 according to equation <ref type="bibr" target="#b10">(13)</ref>. Substituting A e � 0.0086 m 2 , P t � 50 W, and η tr � 0.5 into equation <ref type="bibr" target="#b7">(10)</ref>, the distribution of P r can be obtained (see Figure <ref type="figure" target="#fig_4">6</ref>). Te maximum received power by the antenna element is 22.6 dBm. Within the receiving area, a single antenna element is conveniently adopted where P r is between 20 dBm and 22.6 dBm; two-element series-fed antenna array is a better choice where P r is between 17 dBm and 20 dBm; four-element cascaded array is adopted where P r is between 10 dBm and 17 dBm; the place is vacant where P r is less than 10 dBm. According to this idea, the schematic view of the resulting antenna placement is shown in Figure <ref type="figure">7</ref>. Green, red, and blue portions, respectively, indicate the single antenna elements, the two-element series-fed antenna arrays, and the four-element cascaded antenna arrays, each of them being connected to a single rectifying circuit. As a result, there are a total of 214 RF ports.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.5.">Rectifying Circuit Design</head><p>. In a MWPT system, the rectifying circuit is one of the crucial components since the overall system efciency mainly depends on the characteristics of the rectifying circuit <ref type="bibr" target="#b15">[18]</ref>. An accurate model of the rectifying circuit is therefore mandatory. Te accuracy of the model is mainly determined by the parameter acquisition of the diode, since other passive parts of the circuit can be easily modeled and simulated. Terefore, the diode model is of Figure <ref type="figure">8</ref> shows schematic and photographs of the diode measurement setup, which include straight calibration, refection calibration, transmission calibration, and diode measurement circuit. Te diode parameters can be obtained using the method introduced in Ref. <ref type="bibr" target="#b16">[19]</ref>. Measured junction current I j and junction capacitance C j were ftted according to this model. Te best ft curves and the measured data are shown in Figure <ref type="figure" target="#fig_6">9</ref>. Te fnal equivalent circuit model of the HSMS-282b diode is displayed in Figure <ref type="figure" target="#fig_7">10</ref>. Terefore, the calculated diode parameters can be imported into the ADS software for the rectifying circuit design.</p><p>According to the received power analysis reported in Section 2.4, the input power to the rectifying circuit is approximately between 20 dBm and 22.6 dBm. Terefore, the expected input power to the rectifying circuit is around 21 dBm. Te conversion efciency of the rectifying circuit (η r ) is defned as</p><formula xml:id="formula_26">η r � V 2 DC P in R L × 100%. (<label>14</label></formula><formula xml:id="formula_27">)</formula><p>Te detailed design has been presented in the previous article <ref type="bibr" target="#b14">[17]</ref>. Figure <ref type="figure" target="#fig_8">11</ref> shows the fnal rectifying circuit.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.6.">DC Combiner Circuit Design.</head><p>In order to improve the power transfer efciency, the receiver must collect as much wireless power as possible from the transmitter. Te conventional method consists in RF-power combing by means of a power divider, but this technique results efective on condition that the RF power waves follow into the power divider in-phase condition. However, in the Fresnel region the received phase of the power changes at each point of the receiver because of the diferent path lengths from the transmitter to the receiver. Indeed, a DC combiner circuit must be designed if there is more than one rectifying circuit.    Te value of the rectifying circuit load must be optimized since it will afect the overall conversion efciency. Assuming that the load value is R when the conversion efciency of a single rectifying circuit reaches the maximum, then the load value is n • R when n-th rectifying circuits are in series, and the load value is R/m when m-th rectifying circuits are in parallel. Terefore, the ultimately optimized load value is n • R/m in hybrid circuits. Figure <ref type="figure" target="#fig_8">11</ref> shows a photograph of the DC combiner circuit comprising four parallel rectifying circuits.   </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.">MWPT System Measurement</head><p>Te experimental verifcation of the designed MWPT system is mainly aimed to illustrate the key factors which afect the WPT conversion efciency. Te WPT system is placed in an anechoic chamber, with the purpose of avoiding the electromagnetic interference. In order to reduce the transmission loss as much as possible, the connection path between the microwave transmitter and the transmitting antenna is short. Figure <ref type="figure" target="#fig_9">12</ref> shows a photo of the designed MWPT system during testing, the transmitting distance is 11 m. Figure <ref type="figure" target="#fig_1">13</ref> shows the back view of the receiving antenna. All the rectifying circuits, as well as the 214 RF ports, have been tested individually by means of a power sensor, and the total RF output power is 24.3 W.Based on the above analysis, the RF-DC conversion efciency is strictly related to the load resistance. In the proposed design, 214 rectifying circuits are connected in parallel, so the DC load is estimated as 3500/214 Ω � 16.4 Ω. Te key factors afecting the conversion efciency are: the DC-RF conversion efciency (η s ), the transmission efciency (η tr ), the rectifying efciency (η rect ), and the DC combing efciency (η pc ). Teir values are 59.3%, 46.8%, 77.2%, and 90%, respectively, according to the measurement results. Figure <ref type="figure">14</ref> shows the efciency confguration of the designed WPT system, and the overall conversion efciency can be obtained by <ref type="bibr" target="#b12">(15)</ref> based on the efciency of each component:</p><formula xml:id="formula_28">η � η s • η tr • η rect • η pc � 59.3% • 46.8% • 77.2% • 90% � 20%. (<label>15</label></formula><formula xml:id="formula_29">)</formula><p>During measurements, the infuence of the DC load on the overall conversion efciency has been investigated, and the results are shown in Figure <ref type="figure" target="#fig_11">15</ref>. Te plot indicates that the maximum efciency can reach 20% when the DC load is 16 Ω. In this condition, the measured DC output voltage is  16.6 V. Table <ref type="table" target="#tab_2">2</ref> summarizes the conversion efciency achieved in the present work with that by other reported designs. Te results show that the measured RF-DC and DC-DC conversion efciencies can reach 37.5% and 20%, respectively, at a given distance of 11 m. Te RF-DC conversion efciency is higher than that reported in References <ref type="bibr" target="#b7">[10,</ref><ref type="bibr" target="#b8">11]</ref>; lower than that reported in Reference <ref type="bibr" target="#b6">[9]</ref>, but in that work the transmission distance was only 1 m. Furthermore, the mentioned references do not give the DC-DC conversion efciency.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.">Conclusion</head><p>Tis paper presents the theoretical design and the experimental verifcation of a high-efciency MWPT system operating in the Fresnel zone. Te design principle and the corresponding equations are elaborated in detail. Finally, the MWPT system is tested in an anechoic chamber, and the total DC-DC conversion efciency can reach 20% at a distance of 11 m. Te proposed method can be useful for the applications of high-efciency, high-power, mediumdistance MWPT system operating in the Fresnel region.   </p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Figure 2 :Figure 4 :</head><label>24</label><figDesc>Figure 2: Sketch of the basic structure of the microwave transmitter.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>Figure 1 :Figure 3 :</head><label>13</label><figDesc>Figure 1: Schematic representation of the demonstrating MWPT system.</figDesc><graphic coords="3,103.43,167.96,108.04,89.20" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head>Figure 5 :</head><label>5</label><figDesc>Figure 5: Te computed amplitude distribution at center row and at center column. (a) Te computed near feld amplitude distribution at center row. (b) Te computed near feld amplitude distribution at center column.</figDesc><graphic coords="5,60.83,314.87,104.95,104.68" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_4"><head>Figure 6 :</head><label>6</label><figDesc>Figure 6: Received power (Pr) by the antenna element.</figDesc><graphic coords="5,60.83,419.27,139.72,69.88" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_5"><head>Figure 7 :Figure 8 :Figure 9 :</head><label>789</label><figDesc>Figure 7: Schematic view of the antenna placement.</figDesc><graphic coords="5,69.49,631.13,101.84,100.36" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_6"><head>Figure 9 :</head><label>9</label><figDesc>Figure 9: Results from diode measurements and ftting procedure. (a) Y-parameters of remaining voltage-dependent components when when bias voltage is −0.4 V. (b) Y-parameters of remaining voltage-dependent components bias voltage is 0.1 V. (c) Measured I j as a function of applied voltage and best ft curve of measured data. (d) Measured C j as a function of applied voltage and best ft curve of measured data.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_7"><head>Figure 10 :</head><label>10</label><figDesc>Figure 10: Te fnal equivalent circuit model of HSMS-282b diode.</figDesc><graphic coords="7,210.43,479.04,107.80,92.20" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_8"><head>Figure 11 :</head><label>11</label><figDesc>Figure 11: Photograph of the DC combiner circuit comprising four parallel rectifer circuits.</figDesc><graphic coords="7,317.83,479.04,71.80,153.52" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_9"><head>Figure 12 :</head><label>12</label><figDesc>Figure 12: Te designed MWPT system.</figDesc><graphic coords="8,317.30,73.39,70.19,131.08" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_10"><head>Figure 13 :Figure 14 :</head><label>1314</label><figDesc>Figure 13: Back view of the receiving during testing antenna.</figDesc><graphic coords="8,317.32,244.06,70.39,131.68" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_11"><head>Figure 15 :</head><label>15</label><figDesc>Figure 15: Te DC-to-DC conversion efciency as a function of the load resistance.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_0"><head>Table 1 :</head><label>1</label><figDesc>Comparison among antenna parameters for the evaluated receiving antenna designs.</figDesc><table><row><cell>4</cell><cell></cell><cell cols="2">International Journal of Antennas and Propagation</cell></row><row><cell>Receiving antenna</cell><cell>S 11 (&lt;−10 dB) (%)</cell><cell>E/H beamwidth at 2.45 GHz ( °)</cell><cell>Gain at 2.45 GHz (dBi)</cell></row><row><cell>Element</cell><cell>4.1</cell><cell>53/63</cell><cell>8.6</cell></row><row><cell>Two-element</cell><cell>3.7</cell><cell>31/62</cell><cell>11.6</cell></row><row><cell>Four-element</cell><cell>4</cell><cell>31/39</cell><cell>13.5</cell></row></table><note>primary importance in the rectifying circuit design, and its inaccurate model would lead to a deviation of measurements from simulated results.</note></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_1"><head></head><label></label><figDesc>Transactions on Instrumentation and Measurement, vol. 56, no. 6, pp. 2186-2195, 2007. [6] G. Lipworth, J. Ensworth, K. Seetharam et al., "Magnetic metamaterial superlens for increased range wireless power transfer," Scientifc Reports, vol. 4, no. 1, pp. 3642-3646, 2014. [7] X. Wang, B. Ruan, and M. Lu, "Retro-directive beamforming versus retrorefective beamforming with applications in</figDesc><table><row><cell>Efficiency (%)</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell>13</cell><cell>14</cell><cell>15</cell><cell>16</cell><cell>17</cell><cell>18</cell><cell>19</cell><cell>20</cell></row><row><cell></cell><cell></cell><cell></cell><cell cols="2">Rload (Ω)</cell><cell></cell><cell></cell><cell></cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_2"><head>Table 2 :</head><label>2</label><figDesc>Comparison of the proposed MWPT design with other designs reported in literature.</figDesc><table><row><cell>Ref. no</cell><cell>Frequency (GHz)</cell><cell>Polarization</cell><cell>Distance</cell><cell>RF-DC efciency (%)</cell><cell>DC-DC efciency</cell></row><row><cell>[9]</cell><cell>5.8</cell><cell>Circular</cell><cell>0.55 m</cell><cell>66.5</cell><cell>Not given</cell></row><row><cell>[10]</cell><cell>5.8</cell><cell>Linear</cell><cell>10λ</cell><cell>33.2</cell><cell>Not given</cell></row><row><cell>[11]</cell><cell>2.45</cell><cell>Linear</cell><cell>1 m</cell><cell>5.01</cell><cell>Not given</cell></row><row><cell>[15]</cell><cell>5.8</cell><cell>Insensitive</cell><cell>0.8 m</cell><cell>66</cell><cell>Not given</cell></row><row><cell>[16]</cell><cell>5.8</cell><cell>Circular</cell><cell>1 m</cell><cell>76.5</cell><cell>Not given</cell></row><row><cell>Tis work</cell><cell>2.45</cell><cell>Linear</cell><cell>11 m</cell><cell>77.2</cell><cell>20%</cell></row></table></figure>
+		</body>
+		<back>
+
+			<div type="acknowledgement">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Acknowledgments</head><p>Tis work was supported by the Pre-Research Project of Civil Aerospace Technology of China (D040202).</p></div>
+			</div>
+
+
+			<div type="availability">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Data Availability</head><p>No underlying data were collected or produced in this study.</p></div>
+			</div>
+
+			<div type="annex">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Conflicts of Interest</head><p>Te authors declare that they have no conficts of interest.</p></div>			</div>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">Power without wires</title>
+		<author>
+			<persName><forename type="first">N</forename><surname>Shinohara</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Microwave Magazine</title>
+		<imprint>
+			<biblScope unit="volume">12</biblScope>
+			<biblScope unit="issue">7</biblScope>
+			<biblScope unit="page" from="S64" to="S73" />
+			<date type="published" when="2011">2011</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">An RF energy harvester with 44.1% PCE at input available power of-12 dBm</title>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">H</forename><surname>Heieh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">H</forename><surname>Chou</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Chiang</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Circuits and Systems I: Regular Papers</title>
+		<imprint>
+			<biblScope unit="volume">62</biblScope>
+			<biblScope unit="issue">6</biblScope>
+			<biblScope unit="page" from="1528" to="1537" />
+			<date type="published" when="2015">2015</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<monogr>
+		<title level="m" type="main">Concepts for Wireless Energy Transmission via Laser</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Summerer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">O</forename><surname>Purcell</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2008">2008</date>
+			<publisher>European Space Agency</publisher>
+			<pubPlace>Paris, France</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">Analysis, experimental results, and range adaptation of magnetically coupled resonators for wireless power transfer</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">P</forename><surname>Sample</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">A</forename><surname>Meyer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">R</forename><surname>Smith</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Industrial Electronics</title>
+		<imprint>
+			<biblScope unit="volume">58</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="544" to="554" />
+			<date type="published" when="2011">2011</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">Microstrip antenna array with a beam focused in the near-feld zone for application in noncontact microwave industrial inspection</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Bogosanovic</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">G</forename><surname>Williamson</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Progress in Electromagnetics Research</title>
+		<imprint>
+			<biblScope unit="volume">157</biblScope>
+			<biblScope unit="page" from="79" to="91" />
+			<date type="published" when="2016">2016</date>
+		</imprint>
+	</monogr>
+	<note>IEEE wireless power transmission</note>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">Some peculiarities of the wave beams in wireless power transmission</title>
+		<author>
+			<persName><forename type="first">V</forename><forename type="middle">R</forename><surname>Garmash</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Katsenelenbaum</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Shaposhnikov</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Tioulpakov</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Vaganov</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Aerospace and Electronic Systems Magazine</title>
+		<imprint>
+			<biblScope unit="volume">13</biblScope>
+			<biblScope unit="issue">10</biblScope>
+			<biblScope unit="page" from="39" to="41" />
+			<date type="published" when="1998">1998</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">Focused microwave power transmission system with high-efciency rectifying surface</title>
+		<author>
+			<persName><forename type="first">Y</forename><forename type="middle">Z</forename><surname>Dong</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">W</forename><surname>Dong</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Wang</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IET Microwaves, Antennas and Propagation</title>
+		<imprint>
+			<biblScope unit="volume">12</biblScope>
+			<biblScope unit="issue">5</biblScope>
+			<biblScope unit="page" from="808" to="813" />
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">Wireless power transfer in the radiative near feld</title>
+		<author>
+			<persName><forename type="first">V</forename><forename type="middle">R</forename><surname>Gowda</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">O</forename><surname>Yurduseven</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Lipworth</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Zupan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">S</forename><surname>Reynolds</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">R</forename><surname>Smith</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Antennas and Wireless Propagation Letters</title>
+		<imprint>
+			<biblScope unit="volume">15</biblScope>
+			<biblScope unit="page" from="1865" to="1868" />
+			<date type="published" when="2016">2016</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">Microwave power transfer with optimal number of rectenna arrays for midrange applications</title>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">T</forename><surname>Khang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">J</forename><surname>Lee</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><forename type="middle">J</forename><surname>Hwang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">D</forename><surname>Yeo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">W</forename><surname>Yu</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Antennas and Wireless Propagation Letters</title>
+		<imprint>
+			<biblScope unit="volume">17</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="155" to="159" />
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">Aperture illumination designs for microwave wireless power transmission with constraints on edge tapers using bezier curves</title>
+		<author>
+			<persName><forename type="first">X</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">M</forename><surname>Luk</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><forename type="middle">Y</forename><surname>Duan</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Antennas and Propagation</title>
+		<imprint>
+			<biblScope unit="volume">67</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="1380" to="1385" />
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">Te Bernstein polynomial basis: a centennial retrospective</title>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">T</forename><surname>Farouki</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Computer Aided Geometric Design</title>
+		<imprint>
+			<biblScope unit="volume">29</biblScope>
+			<biblScope unit="issue">6</biblScope>
+			<biblScope unit="page" from="379" to="419" />
+			<date type="published" when="2012">2012</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">Planar array synthesis for optimal microwave power transmission with multiple constraints</title>
+		<author>
+			<persName><forename type="first">X</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Duan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Zhou</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Song</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Zhang</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Antennas and Wireless Propagation Letters</title>
+		<imprint>
+			<biblScope unit="volume">16</biblScope>
+			<biblScope unit="page" from="70" to="73" />
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">A compact polarization-insensitive rectenna with harmonic suppression for wireless power transfer</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">Y</forename><surname>Chang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><forename type="middle">C</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">Q</forename><surname>Han</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><forename type="middle">X</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Li</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Antennas and Wireless Propagation Letters</title>
+		<imprint>
+			<biblScope unit="volume">23</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="119" to="123" />
+			<date type="published" when="2024">2024</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">A highly integrated multipolarization wideband rectenna for simultaneous wireless information and power transfer (SWIPT)</title>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">F</forename><surname>Cao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X</forename><forename type="middle">M</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">Y</forename><surname>Song</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Georgiadis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Goussetis</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Antennas and Propagation</title>
+		<imprint>
+			<biblScope unit="volume">71</biblScope>
+			<biblScope unit="issue">10</biblScope>
+			<biblScope unit="page" from="7980" to="7991" />
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">Novel design of 2.45-GHz rectenna element and array for wireless power transmission</title>
+		<author>
+			<persName><forename type="first">X</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Yang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Huang</surname></persName>
+		</author>
+		<idno>ID 28356</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Access</title>
+		<imprint>
+			<biblScope unit="volume">7</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<analytic>
+		<title level="a" type="main">High-efciency broadband rectifer with wide ranges of input power and output load based on branch-line coupler</title>
+		<author>
+			<persName><forename type="first">X</forename><forename type="middle">Y</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><forename type="middle">X</forename><surname>Du</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Q</forename><surname>Xue</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Circuits and Systems I: Regular Papers</title>
+		<imprint>
+			<biblScope unit="volume">64</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="731" to="739" />
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<analytic>
+		<title level="a" type="main">Technology-independent table-based diode model for rectenna design in RF energy harvesting</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>He</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><forename type="middle">C</forename><surname>Sun</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Zhong</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><forename type="middle">X</forename><surname>Guo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">Y</forename><surname>Xia</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 2012 IEEE International Symposium on Antennas and Propagation</title>
+				<meeting>the 2012 IEEE International Symposium on Antennas and Propagation<address><addrLine>Chicago, IL, USA</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2012-07">July 2012</date>
+			<biblScope unit="page" from="1" to="2" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

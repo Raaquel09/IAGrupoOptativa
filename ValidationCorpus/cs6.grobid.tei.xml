@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Experimental Evaluation in Computer Science: A Quantitative Study</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+				<date type="published" when="1994-08-25">August 25, 1994</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Paul</forename><surname>Lukowicz</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department">Department of Informatics</orgName>
+								<orgName type="institution">University of Karlsruhe</orgName>
+								<address>
+									<country key="DE">Germany</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Ernst</forename><forename type="middle">A</forename><surname>Heinz</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department">Department of Informatics</orgName>
+								<orgName type="institution">University of Karlsruhe</orgName>
+								<address>
+									<country key="DE">Germany</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Lutz</forename><surname>Prechelt</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department">Department of Informatics</orgName>
+								<orgName type="institution">University of Karlsruhe</orgName>
+								<address>
+									<country key="DE">Germany</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Walter</forename><forename type="middle">F</forename><surname>Tichy</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department">Department of Informatics</orgName>
+								<orgName type="institution">University of Karlsruhe</orgName>
+								<address>
+									<country key="DE">Germany</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Experimental Evaluation in Computer Science: A Quantitative Study</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date type="published" when="1994-08-25">August 25, 1994</date>
+						</imprint>
+					</monogr>
+					<idno type="MD5">472CC0CC8BF38C7A8A6A94E1125EC8B6</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.2" ident="GROBID" when="2024-05-16T18:04+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>A survey of over 400 recent research articles suggests that computer scientists publish relatively few papers with experimentally validated results.</p><p>The survey includes complete volumes of several refereed computer science journals, a conference, and 50 titles drawn at random from all articles published by ACM in 1993. The journals Optical Engineering (OE) and Neural Computation (NC) were used for comparison.</p><p>Of the papers in the random sample that would require experimental validation, 40% have none at all. In journals related to software engineering, this fraction is over 50%. In comparison, the fraction of papers lacking quantitative evaluation in OE and NC is only 15% and 12%, respectively.</p><p>Conversely, the fraction of papers that devote one fth or more of their space to experimental validation is almost 70% for OE and NC, while it is a mere 30% for the CS random sample and 20% for software engineering.</p><p>The low ratio of validated results appears to be a serious weakness in computer science research. This weakness should be recti ed for the long-term health of the eld.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1">Introduction</head><p>A large part of computer science research consists of proposing new designs | systems, algorithms, and models. Such designs must be judged by whether they increase our knowledge about what are useful and cost-e ective problem solutions. In most cases, objective judgement can only be achieved on the basis of reproducible experiments.</p><p>This study was motivated by our subjective impression that experimental evaluation is often neglected in CS research. We feared that the quality of CS research might be inferior to other disciplines, in particular the natural sciences, the engineering sciences, and applied mathematics. To test whether this impression was merely scienti c pessimism, we performed an empirical study involving both CS and non-CS publications. This article presents the design and the results of this study.</p><p>We classi ed research articles in peer-reviewed journals and conferences. The classi cation divides the set of articles into theoretical work, design and modeling work, empirical work, hypothesis testing, and other (for details see Section 3). Ideally, theoretical work should be well-balanced with empirical work, and design and modeling work should contain experimental evaluation. Assessing the quantity and quality of such evaluations is the main purpose of this study. We used the fraction of space each article devotes to evaluation as an indicator of quality. Section 3.3 explains the rationale for this approach.</p><p>We sampled a broad set of recent CS publications: the complete volumes 9{11 (1991-93) of ACM Transactions on Computer Systems (TOCS), the complete volumes 14{15 (1992-93) and numbers 1 and 2 of volume 16 (1994) of ACM Transactions on Programming Languages and Systems (TOPLAS), the complete volume 19 (1993) of IEEE Transactions on Software Engineering (TSE), and all papers from the Proceedings of the 1993 SIGPLAN Conference on Programming Language Design and Implementation (PLDI). Moreover, we drew a random sample of 74 titles from the set of all works published by ACM in 1993, using the INSPEC database 9]. From this sample, we excluded 24 articles that were either inappropriate (because they were not peer-reviewed research papers) or not available in our library. See Appendix A for details. The resulting set contains 50 papers, of which 30 are refereed conference contributions. This sample represents a fair cross-section of peer-reviewed research in CS.</p><p>For comparison, we reviewed publications from two other elds: volume <ref type="bibr">5 (1993)</ref> of Neural Computation (NC), and numbers 1 and 3 of volume 33 (1994) of Optical Engineering (OE). Neural Computation, published by MIT Press, is an interdisciplinary journal in the eld of neuro-science. It contains articles about arti cial neural networks, neural modeling, and the theory of neural computation; the contributors come from many disciplines, e.g. biology, computer science, mathematics, medicine, physics, and psychology. We chose NC because it might share characteristics with CS due to its youth and partial overlap with CS. Optical Engineering, published by the International Society for Optical Engineering, is a journal devoted to applied optics, opto-mechanics, optoelectronics, image processing research, and related elds. Most contributors come from physics, electrical engineering, optics, astronomy, space science, and mechanical engineering. We chose OE because optics, similar to CS, has many immediate applications, but in contrast has a longer history.</p><p>The remaining sections review related work, introduce the methodology of our study, present the observations, and discuss accuracy.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2">Related Work</head><p>The literature contains only a few articles about the nature of experimental CS, and we are not aware of any systematic attempt to assess research in this area.</p><p>Early surveys <ref type="bibr" target="#b5">6,</ref><ref type="bibr" target="#b11">12]</ref> published in 1979 describe the state of experimental CS with respect to the poor support it received. Today, the situation is perceived as largely unchanged: In 1994, the authors of reference 13] conclude that experimental CS is still underfunded, and that researchers in the area often face di cult career paths at universities.</p><p>In 1980, Denning 3] gives a de nition of what experimental CS is: \Measuring an apparatus in order to test a hypothesis." Denning notes that standards in the natural sciences describe how to carry out such work properly, but that CS is rarely performing well by these standards. He concludes that \If we do not live up to the traditional standards of science, there will come a time when no one takes us seriously". In later articles, Denning cites the eld of performance evaluation as a positive example of experimental CS research Obviously, the views on the quality of experimental CS are quite contradictory; yet we could not nd any attempt in the literature to objectively assess the quantity or quality of experimental work in CS.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3">Methodology</head><p>The initial step was to de ne reasonable classication criteria. Each author then performed his classi cation tasks independently of the others, in order to minimize possible distortions caused by direct or indirect mutual in uence.</p><p>All four authors classi ed the ACM papers drawn at random; groups of two did so for PLDI, TOPLAS, and TSE, whereas only single persons handled NC, OE, and TOCS. A degree of uniformity was achieved by having the same person classify nearly all samples (except NC). The following table shows who actually classi ed which sample.</p><p>Ernst Lutz Paul Walter NC</p><formula xml:id="formula_0">X OE X TOCS X Random X X X X PLDI X X TOPLAS X X TSE X X 3.1 Classi cation</formula><p>Our classi cation scheme distinguishes ve major categories: formal theory, design &amp; modeling, empirical study, hypothesis testing, and other. These categories su ce for our purpose. Moreover, they appear general enough to be applicable to other disciplines as well.</p><p>Publications of the design &amp; modeling category require reproducible experiments for validation of claims. Without validation, they fail to establish useful and credible results. Our classi cation captures the importance of experimental validation by further subdividing the design &amp; modeling category according to the space devoted to the description of experimental evaluation.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.2">Major Categories</head><p>In order to achieve an acceptable degree of objectivity, we applied the classi cation criteria to the main claims and contributions of the surveyed papers. Main claims and contributions are usually clearly stated in the abstracts, introductions, or conclusions of articles. The classi cation criteria are as follow.</p><p>Formal Theory. This category consists of articles whose main contributions are formally tractable propositions, e.g. lemmata and theorems, and their proofs.</p><p>Design &amp; Modeling. The main contributions of articles in this category are systems, techniques, or models, whose claimed properties cannot be proven formally. Examples include software tools, performance prediction models, and complex hard-and software systems of all kinds.</p><p>Empirical Work. Articles in this category collect, analyze, and interpret observations about known designs, systems, or models, or about abstract theories or subjects (as this paper does). The emphasis is on evaluation, not on new designs or models.</p><p>Hypothesis Testing. Articles in this category de ne hypotheses and describe experiments to test them.</p><p>Other. This category includes articles that do not t any of the four categories above, e.g. surveys.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.3">Subclasses of Design &amp; Modeling</head><p>Work in design &amp; modeling is further classi ed according to the experimental evaluation that appears in it. We used a simple and objectively quanti able criterion, namely the physical space devoted to describing experimental setups, presenting observations, and interpreting results. We partitioned the papers into ve subclasses of 0%, (0% ? 10%], (10% ? 20%], (20% ? 50%], and over 50% of space per article devoted to such material.</p><p>Although space is a purely quantitative measure, we believe that it is also indicative of quality, based on the following two assumptions.</p><p>1. The amount of space devoted to the description of experimental evaluation and the importance attached to it by authors and reviewers are closely correlated.</p><p>2. The importance attached to, and the quality of experimental evaluation are closely correlated. Both assumptions are plausible, but we have not validated them. Together they suggest a correlation between the quality of experimental evaluation and the amount of space devoted thereto.</p><p>Although these assumptions need not always apply, our collective impressions during the study support a positive correlation. Where we felt condent to judge quality, we rarely found mismatches. Intuitively, it is di cult to write something meaningful about a di cult experimental setup and the interpretation of results in, say, three pages of a twenty-page paper. Conversely, a long description of an uninteresting experiment is likely to be rejected by reviewers. We attribute the positive correlation between quality and space to a functioning process of peer review.</p><p>In any event, one of our main observations concerns papers that have no experimental validation at all. For an absent evaluation, a correlation between quality and space is moot.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.4">Assessing Experimental Evaluation</head><p>Recall that design &amp; modeling papers state claims that cannot be proven by logical reasoning, but require experimental evaluation. Hence, we looked for designs, systems, algorithms, etc. executed, techniques and methods applied, models validated. This material is generally easy to spot: It manifests itself in tables, graphs, or section headings and is often summarized in abstracts. We did not attempt to assess quality of experimental work in any way. But we did try to include only what appeared to be true experimental work. The nature of true experiments is characterized by testing claims in an objective and repeatable manner. For example, benchmark measurements are acceptable, because they are repeatable and their outcomes are not completely determined in advance. The only subjective part is the composition of the benchmark.</p><p>We excluded demonstrations of systems, because in essence they are predetermined functionality shows, not objective measurements. Their outcomes are completely determined in advance and often not measurable. Examples that appear in papers, even if extensive, are also excluded, because they merely illustrate concepts.</p><p>It proved di cult to assess whether simulation setups constituted acceptable experimental work. After some initial experience, we formulated the following guideline: Simulation is regarded as true experimentation if and only if 1. it is employed to generate input data for other true experiments, or 2. it uses data traces of real world events as inputs and is conducted in realistic setups, e.g. in generally accepted simulation environments.</p><p>4 Observations</p><p>This section summarizes the overall results of our study according to the two-level classi cation in the previous section. The complete classi cation data can be found in Appendix B. Rather than averaging the class sizes, we only took one persons (Paul's) classi cation data to compile the results in this section. The other classi ers' data is used for bounding the error in Section 5. This approach has the advantage that the classi cation criteria are applied uniformly to all samples. The only exception is NC, which was classi ed by a di erent person.   Because hypothesis testing is so rare, we combined it with empirical work in Figure <ref type="figure" target="#fig_2">2</ref>.    To underscore these observations, Figure <ref type="figure" target="#fig_7">5</ref> shows the fraction of design &amp; modeling articles that have no experimental evaluation at all, and Figure <ref type="figure" target="#fig_8">6</ref> shows the fraction of design articles with more than 20% of their space devoted to experimental evaluation. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.1">Major Categories</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5">Accuracy of Study</head><p>Any experiment dealing with humans involves a considerable amount of ambiguity. Unlike physically measurable quantities, human judgement is often subjective. In a strict empirical study, statistical techniques should be used to determine and minimize the margin of human error. This implies large numbers of independent trials with di erent individuals. Unfortunately, this kind of analysis is beyond our resources. However, the trends exposed by our study are so clear-cut, and our conclusions are so modest that they remain valid even for large margins of error. Therefore, we restrict our error analysis to a discussion of the sources of inaccuracies and present plausible arguments for our error estimates. Furthermore, Appendix B makes our classi cation data publicly available for analysis by anyone. If enough additional people classify the same papers, we might be able to derive a statistically sound error estimate. Since the margin of error analysis is based on a rough estimate instead of a rigorous analysis, this study can only present evidence but cannot supply a conclusive scienti c proof.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.1">Systematic Error</head><p>The main sources of systematic error are misclassi cation and publication selection bias.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.1.1">Classi cation Error</head><p>Systematic classi cation errors consist of classication ambiguities and inaccuracies in determining the amount of space devoted to experimental evaluation. To get an idea of the impact of systematic classi cation errors, consider the classication deviations when the same sample is evaluated by di erent individuals. Since the random sample was classi ed by four people, and PL-DI, TOPLAS, and TSE where each classi ed by two individuals, we obtain 468 article classi cation pairs. Of these, 93, i.e., 20%, show di erences. The absolute and relative number of deviations between all class pairs is detailed in Figure <ref type="figure" target="#fig_9">7</ref>.</p><p>Classi cation Ambiguity. Classi cation ambiguities result from subjectivity in interpreting and applying the criteria described in Section 3.1. A close look reveals that the vast majority of classication di erences arose between 1. formal theory and design &amp; modeling subclass 0%, due to disagreement on their exact distinction (26% of all discrepancies), 2. design &amp; modeling subclass 0% and category \other", as it was di cult to apply our criteria to some unorthodox work (10% of all discrepancies), 3. design &amp; modeling subclass 0% and the remaining design &amp; modeling subclasses due to di erent views on how to classify simulations (6% + 4% + 10% + 0% = 20% of all discrepancies).</p><p>Counting Inaccuracy. About 5% + 8% + 1% = 14% of all discrepancies are between neighboring design &amp; modeling subclasses, due to inaccuracies in determining the exact amount of space devoted to the evaluation, in particular for articles not containing a separate section for experimental evaluation.</p><p>To judge the e ect of the classi cation error on the observations in Section 4, the deviations in class cardinalities should be established. Unfortunately, an exact estimation using statistical techniques is not possible given the small number of classi cations we have for each sample. Instead, we can make an educated guess by looking directly at the class cardinality deviations in the samples classied by di erent individuals (Figure <ref type="figure" target="#fig_10">8</ref>). For large classes the deviation is less than 20%. For small ones it ranges between 30% and 60% ( 2 items).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.1.2">Publication Selection Bias</head><p>The second source of systematic error is that the selection of articles we reviewed could be biased towards a particular style or quality. Selection of Journals. The CS journals were selected to be representative of di erent areas of CS. We have concentrated on renowned journals that are widely recognized as leading in their respective elds. Furthermore, we were careful not to consider journals with an editorial policy explicitly encouraging speci c kinds of contributions. It is unlikely that the character of the actual research going on in those elds signi cantly di ers from what is published in these journals. It is possible however, that our results do not generalize to other elds within CS. The 1993 PLDI proceedings cannot be considered to be more than a case study of conference contributions.</p><p>Random Sample Quality. We claim that the random sample provides a fairly representative cross-section of all areas of CS. This claim is valid if neither the set of publications contained in the INSPEC database nor our inability to get hold of some articles is correlated with the objectives of this study. These seem to be reasonable assumptions.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.2">Statistical Error</head><p>There are two kinds of statistical error in our study. The rst one, random classi cation mistakes, is neglected, because the classi cation deviation data shown in Figure <ref type="figure" target="#fig_9">7</ref> suggests that it is much smaller than the systematic classi cation error. The second one concerns questions about how well our samples represent the underlying populations in a statistical sense.</p><p>Journal Sample Quality. For the journals NC, TOCS, TOPLAS, and TSE, at least one year was under consideration. Within the considered time span, all articles of a journal were included in the sample, resulting in zero statistical error. We do not claim a particular error bound for generalizations to other time spans. Due to the large number of articles (about 40 per issue) only two issues of OE were studied. Again, within these issues, the statistical error is zero since all articles were included in the sample. We assume the deviations between these issues and others of the same volume to be negligible. Random Sample Quality. Since the sample of 50 ACM publications was taken at random (from a population of over 800), con dence intervals for the random deviations between observed and true class frequencies can be calculated. Due to the small sample size, the intervals become relatively large if a high con dence niveau is chosen. In Figure <ref type="figure">9</ref>, con dence intervals (at a 0.7 con dence niveau) for the true class sizes are shown, given observed class sizes of n in a sample of 50 items. Figure <ref type="figure">9</ref>: The con dence intervals for di erent observed class cardinalities n of a sample with 50 items at a 70% con dence niveau.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.3">Overall Accuracy</head><p>The overall error is dominated by class cardinality deviations caused by the systematic classi cation error and the statistical inaccuracy of the random sample. Based on the discussions in Section 5.1.1 and Section 5.2, we make a worst case analysis to underscore the plausibility of our claims. For the class cardinality deviation the average values presented in Figure <ref type="figure" target="#fig_10">8</ref> are used. The statistical error in the random sample is approximated by the condence intervals shown in Figure <ref type="figure">9</ref>. In Figures 10{ 12, the above error estimates have been applied to the data from Figures <ref type="figure" target="#fig_14">2{6, respectively</ref>, in such a way that the maximumpossible distortion of class cardinalities in Section 4 is achieved. For NC and OE the sizes of the categories theory, other, design &amp; modeling subclass 0%, and design &amp; modeling subclass (0%::10%] were increased, whereas those of the empirical category, design &amp; modeling subclass (20%::50%], and design &amp; modeling subclass &gt;50% were decreased. For the CS samples, the opposite was done. The trends become weakened but still remain quite visible as we see in the resulting gures.    We presented an empirical study of the amount of experimental evaluation in refereed CS publications. In a random sample, over 40% of articles about new designs and models completely lack such experimentation. For samples related to software engineering, this fraction is higher; it is over 50% for TSE. When considering papers with at least one fth of their space devoted to evaluation, we nd that only 30% of CS papers satisfy this (rather mild) criterion, and only 20% for TSE and 15% for TOPLAS. Even when allowing for the worst possible error in this study, the fraction of unvalidated papers seems high. There is no signi cant number of articles with purely empirical work that could compensate for this de ciency.</p><p>Over half of the CS random sample consists of refereed conference contributions. One might suspect that this is the reason for the high number of articles lacking validation. However, when conferences are excluded, both the ratio of unvalidated work and the ratio for papers with acceptable evaluation change insigni cantly (by only two percentage points). Note that these numbers are quite unreliable, because they are based on only 13 papers in the design &amp; modeling subclass. However, two of the three selected journals are worse than the random sample including conferences; PLDI, a conference, turns out to be better.</p><p>On the whole, we consider this situation as unacceptable, even alarming. The results suggest that large parts of CS may not meet standards long established in the natural and engineering sciences. Among other things, such standards hold that only validated claims are published in journals.</p><p>Computer scientists that we have contacted informally with our results (admittedly a biased selection!) are not surprised by our numbers, but are quick with explanations. The youth of computer science is often advanced as a reason for low standards. However, when comparing to Neural Computing, this explanation becomes doubtful. NC is only six years old and thus younger than all the CS journals surveyed. Furthermore, computational approaches to an area can hardly be older than computer science. Yet the scienti c standards applied in NC appear far better than in computer science in general, and are nearly indistinguishable from an established eld as represented by the Optical Engineering. We think that youth alone is not a su cient explanation for poor standards. The most damaging observation one might make is that computer scientists are a minority among the contributors to NC and OE! Other explanations point to the di culty of conducting experiments in CS, especially when humans are involved. There may be some truth in that, especially when looking at the software area. However, psychologists have evolved techniques to deal with humans in experimental settings and perhaps CS has simply not embraced those techniques. Furthermore, the experiments that physicists and other scientists conduct are far more complicated and costly than what computer scientists have ever attempted. A more plausible explanation for low standards is that computer scientists, on the whole, have neglected to develop adequate measuring techniques. CS labs seem poorly equipped for evaluating their own progress. Workers who wish to base their claims on solid evidence face a tremendous e ort in building up measuring equipment and expertise. Naturally, they are quickly discouraged, and why bother if experimental work is not rewarded and papers are accepted without it?</p><p>We also have the impression that while many computer scientists agree that standards should be raised, as individuals they are afraid to take the rst step. This is an understandable fear, because investing in experimentation may damage or slow careers. This fear can only be counterbalanced by concerted, open, and positive action. We suggest the following steps: Editors, reviewers, and tenure committees must all set higher standards for what constitutes acceptable design papers. Reasonable evaluation of design ideas must be included in almost all papers. We must recognize that empirical work is rst-class science. Purely empirical work that makes no design contribution of its own should be sought-after material by journals and conferences. Wherever appropriate, publicly accessible sets of benchmark problems must be established to be used in experimental evaluations. In many areas within CS, rules for how to conduct repeatable experiments still have to be discovered. Workshops, laboratories, and prizes should be organized to help with this process. Tenure committees and funding agencies must recognize that high-quality experimental CS needs time and money to produce validated results; but these results will be more valuable than the ones we usually get today. Finally, and most e ectively, computer scientists have to begin with themselves, in their own laboratories, with their own colleagues and students, to produce results that are grounded in evidence.</p><p>We do not expect the situation to change over night. Nor do we require that all design work stop and every computer scientist do nothing but measure. Quite the contrary | new ideas are needed more than ever. But computer scientists must nd out how good these ideas are and use experimentation to guide them to the pro table ones.</p><p>We submit that computer science, after having been in existence for about half a century (we assume modern CS started with the rst digital, electronic computer) is no longer a \young" science whose standards are by necessity weaker than that of established sciences. With the shrinking amount of research funding, CS will face sti competition from other elds, young and old. \Business as usual" may become extremely damaging for CS. The time has come to act so everyone can take CS seriously once more.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>B Classi cation Data</head><p>Except for the ACM random sample, all listed values represent the number of the rst page of an article in the respective publication. For the ACM random sample, values correspond to the numbering introduced in Appendix A. </p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Figure 1 :</head><label>1</label><figDesc>Figure 1: The absolute cardinalities of major categories (total number of all classi ed articles = 403).</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>Figure 1</head><label>1</label><figDesc>Figure 1 presents class sizes for the major categories per sample, whereas Figure 2 depicts the classes as percentages of the total number of articles in each sample. Three important observations directly follow from this data.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head>Figure 2 :</head><label>2</label><figDesc>Figure 2: The relative cardinalities of major categories (sum of all articles per sample = 100%).</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head>4. 2</head><label>2</label><figDesc>Subclasses of Design &amp; Modeling The subclass cardinalities for experimental evaluation in design &amp; modeling work appear in Figure 3; percentages relative to the total number of design &amp; modeling articles are shown in Figure 4.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_4"><head>Figure 3 :</head><label>3</label><figDesc>Figure 3: The absolute cardinalities of all design and modeling subclasses plus the relative cardinality of the subclass 0% and the cumulative relative cardinality of the subclasses &gt;20%.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_5"><head>Figure 4 :</head><label>4</label><figDesc>Figure 4: The relative cardinalities of the design and modeling subclasses (sum of d&amp;m articles per sample = 100%).</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_6"><head>2 .</head><label>2</label><figDesc>In NC and OE there are signi cantly more design &amp; modeling articles devoting over 20% of their space to experimental evaluation than in the CS samples. (67% in OE vs. 31% in the random sample). 3. Samples related to software engineering (TSE and TOPLAS) are worse than the random CS sample.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_7"><head>Figure 5 :</head><label>5</label><figDesc>Figure 5: The percentage of design &amp; modeling articles without any experimental evaluation.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_8"><head>Figure 6 :</head><label>6</label><figDesc>Figure 6: The percentage of design &amp; modeling articles with more than 20% of space devoted to experimental evaluation.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_9"><head>Figure 7 :</head><label>7</label><figDesc>Figure 7: The absolute and relative numbers of classi cation discrepancies observed between di erent individuals (shown for each pair of classes). The highlighted numbers are discussed in the text.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_10"><head>Figure 8 :</head><label>8</label><figDesc>Figure 8: The deviations in cardinalities of major categories and subclasses as classi ed by di erent individuals. The deviations are given as absolute mean values for each sample classi ed by more than one person. The rightmost column shows the corresponding relative mean value over all samples.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_11"><head>Figure 10 :</head><label>10</label><figDesc>Figure 10: The relative cardinalities of major categories after applying the error estimates.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_12"><head>Figure 11 :</head><label>11</label><figDesc>Figure 11: The percentage of design &amp; modeling articles without any experimental evaluation after applying the error estimates.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_13"><head>Figure 12 :</head><label>12</label><figDesc>Figure 12: The percentage of design &amp; modeling articles with more than 20% of space devoted to experimental evaluation after applying the error estimates.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_14"><head>6</head><label>6</label><figDesc>Conclusions</figDesc></figure>
+		</body>
+		<back>
+
+			<div type="acknowledgement">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Acknowledgements</head><p>We thank Michael Philippsen for an inspiring review of a late version of this report.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>FTP address</head><p>This technical report is available for anonymous FTP on the Internet from the following source: machine: ftp.ira.uka.de directory: /pub/uni-karlsruhe/papers/techreports/1994 le: 1994-17.ps.Z</p></div>
+			</div>
+
+			<div type="annex">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>A Titles Drawn at Random</head><p>The original random sample contained 74 titles. For thenal classi cation, we excluded 7 articles from the Communications of the ACM (CACM), 2 articles from the History of Programming Languages conference (HOPL-II), 3 non-CS articles that had gotten into the sample accidentally, 1 title that was a complete workshop proceedings volume, 1 title that was a complete journal issue, and 10 articles not available in our library.</p><p>The CACM and HOPL-II articles were excluded because we felt that these publications were reviews or historical accounts that did not claim to advance the science per se.  </p></div>			</div>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">Twelve ways to fool the masses when giving performance results on parallel computers</title>
+		<author>
+			<persName><forename type="first">David</forename><forename type="middle">H</forename><surname>Bailey</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Supercomputing Review</title>
+				<imprint>
+			<publisher>Supercomputer</publisher>
+			<date type="published" when="1991-08">August 1991. September 1991</date>
+			<biblScope unit="page" from="4" to="7" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">Using scienti c experiments in early computer science laboratories</title>
+		<author>
+			<persName><forename type="first">Doug</forename><surname>Baldwin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Johannes</forename><surname>Koomen</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">ACM SIGCSE Bulletin</title>
+		<imprint>
+			<biblScope unit="volume">24</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="102" to="106" />
+			<date type="published" when="1992">1992</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">What is experimental computer science?</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Peter</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Denning</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Communications of the ACM</title>
+		<imprint>
+			<biblScope unit="volume">23</biblScope>
+			<biblScope unit="issue">10</biblScope>
+			<biblScope unit="page" from="543" to="544" />
+			<date type="published" when="1980-10">October 1980</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">Performance analysis: Experimental computer science at its best</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Peter</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Denning</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Communications of the ACM</title>
+		<imprint>
+			<biblScope unit="volume">24</biblScope>
+			<biblScope unit="issue">11</biblScope>
+			<biblScope unit="page" from="725" to="727" />
+			<date type="published" when="1981-11">November 1981</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">Performance evaluation: experimental computer science at its best</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Peter</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Denning</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">ACM Performance Evaluation Review (SIGMETRICS)</title>
+		<imprint>
+			<biblScope unit="volume">10</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="106" to="109" />
+			<date type="published" when="1981">1981</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">Rejuvenating experimental computer science | A report to the national science foundation and others</title>
+		<author>
+			<persName><forename type="first">Jerome</forename><forename type="middle">A</forename><surname>Feldman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">William</forename><forename type="middle">R</forename><surname>Sutherland</surname></persName>
+		</author>
+		<idno>497{ 502</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Communications of the ACM</title>
+		<imprint>
+			<biblScope unit="volume">22</biblScope>
+			<biblScope unit="issue">9</biblScope>
+			<date type="published" when="1979-09">September 1979</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">Science and substance: A challenge to software engineers</title>
+		<author>
+			<persName><forename type="first">Norman</forename><surname>Fenton</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Shari</forename><surname>Lawrence P Eeger</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Robert</forename><forename type="middle">L</forename><surname>Glass</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Software</title>
+		<imprint>
+			<biblScope unit="page" from="86" to="95" />
+			<date type="published" when="1994-07">July 1994</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">Needed: An empirical science of algorithms</title>
+		<author>
+			<persName><forename type="first">John</forename><forename type="middle">N</forename><surname>Hooker</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Operations Research</title>
+		<imprint>
+			<biblScope unit="volume">42</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="201" to="212" />
+			<date type="published" when="1994-03">March 1994</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">INSPEC: Information service for physics and engineering communities. c/o Chemical Abstracts Service</title>
+	</analytic>
+	<monogr>
+		<title level="m">Made by IEE, Station House, 70 Nightingale Road</title>
+				<meeting><address><addrLine>Columbus, Ohio; Hitchin, Herts SG5 1RJ, Great Britain</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="1994">1994</date>
+			<biblScope unit="volume">3012</biblScope>
+		</imprint>
+	</monogr>
+	<note>STN International</note>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">Experimental computer science</title>
+		<author>
+			<persName><forename type="first">K</forename><surname>Ravi</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Iyer</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Software Engineering</title>
+		<imprint>
+			<biblScope unit="volume">16</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="109" to="110" />
+			<date type="published" when="1990-02">February 1990</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">Machine learning as an experimental science</title>
+		<author>
+			<persName><forename type="first">Pat</forename><surname>Langley</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Machine Learning</title>
+				<imprint>
+			<date type="published" when="1988-08">August 1988</date>
+			<biblScope unit="volume">3</biblScope>
+			<biblScope unit="page" from="5" to="8" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">An ACM executive committee position on the crisis in experimental computer science</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Daniel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Peter</forename><forename type="middle">J</forename><surname>Mccracken</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">David</forename><forename type="middle">H</forename><surname>Denning</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Brandin</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Communications of the ACM</title>
+		<imprint>
+			<biblScope unit="volume">22</biblScope>
+			<biblScope unit="issue">9</biblScope>
+			<biblScope unit="page" from="503" to="504" />
+			<date type="published" when="1979-09">September 1979</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">Academic careers for experimental computer scientists and engineers</title>
+	</analytic>
+	<monogr>
+		<title level="j">Communications of the ACM</title>
+		<imprint>
+			<biblScope unit="volume">37</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="87" to="90" />
+			<date type="published" when="1994-04">April 1994</date>
+		</imprint>
+		<respStmt>
+			<orgName>Computer Science and Telecommunications Board</orgName>
+		</respStmt>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

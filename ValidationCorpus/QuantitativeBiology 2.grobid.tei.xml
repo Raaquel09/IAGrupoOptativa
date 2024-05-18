@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">QUANTIFYING SMOOTH MUSCLES REGIONAL ORGANIZATION IN THE RAT BLADDER USING IMMUNOHISTOCHEMISTRY, MULTIPHOTON MICROSCOPY AND MACHINE LEARNING</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">A</forename><surname>Asadbeygi</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department">Department of Mechanical Engineering and Materials Sciences</orgName>
+								<orgName type="institution">University of Pittsburgh</orgName>
+								<address>
+									<settlement>Pittsburgh</settlement>
+									<region>Pennsylvania</region>
+									<country key="US">USA</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Y</forename><surname>Tobe</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department">Department of Mechanical Engineering and Materials Sciences</orgName>
+								<orgName type="institution">University of Pittsburgh</orgName>
+								<address>
+									<settlement>Pittsburgh</settlement>
+									<region>Pennsylvania</region>
+									<country key="US">USA</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">N</forename><surname>Yoshimura</surname></persName>
+							<affiliation key="aff1">
+								<orgName type="department">Department of Urology</orgName>
+								<orgName type="institution">University of Pittsburgh</orgName>
+								<address>
+									<settlement>Pittsburgh</settlement>
+									<region>Pennsylvania</region>
+									<country key="US">USA</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">S</forename><forename type="middle">D</forename><surname>Stocker</surname></persName>
+							<email>stockers@pitt.edu</email>
+							<affiliation key="aff2">
+								<orgName type="department">Department of Neurobiology</orgName>
+								<orgName type="institution">University of Pittsburgh</orgName>
+								<address>
+									<settlement>Pittsburgh</settlement>
+									<region>Pennsylvania</region>
+									<country key="US">USA</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">S</forename><surname>Watkins</surname></persName>
+							<email>simon.watkins@pitt.edu</email>
+							<affiliation key="aff3">
+								<orgName type="department">Center for Biologic Imaging</orgName>
+								<orgName type="institution">University of Pittsburgh</orgName>
+								<address>
+									<settlement>Pittsburgh</settlement>
+									<region>Pennsylvania</region>
+									<country key="US">USA</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">A</forename><forename type="middle">M</forename><surname>Robertson</surname></persName>
+							<email>rbertson@pitt.edu</email>
+							<affiliation key="aff0">
+								<orgName type="department">Department of Mechanical Engineering and Materials Sciences</orgName>
+								<orgName type="institution">University of Pittsburgh</orgName>
+								<address>
+									<settlement>Pittsburgh</settlement>
+									<region>Pennsylvania</region>
+									<country key="US">USA</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">QUANTIFYING SMOOTH MUSCLES REGIONAL ORGANIZATION IN THE RAT BLADDER USING IMMUNOHISTOCHEMISTRY, MULTIPHOTON MICROSCOPY AND MACHINE LEARNING</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+					<idno type="MD5">CE30AF692FA214FF7A6F0F0FBAEEDF02</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.2" ident="GROBID" when="2024-05-16T18:04+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>
+					<term>bladder smooth muscle cells</term>
+					<term>immunohistochemistry</term>
+					<term>multiphoton microscopy</term>
+				</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>The smooth muscle bundles (SMB) in the bladder act as contractile elements which enable the bladder to void effectively. In contrast to skeletal muscles, these bundles are not highly aligned, rather they are oriented more heterogeneously throughout the bladder wall. In this work, for the first time, this regional orientation of the SMBs is quantified across the whole bladder, without the need for optical clearing or cryosectioning. This information is essential for biomechanical models of the bladder that include contractile elements.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1">INTRODUCTION</head><p>The urinary bladder's ability for periodic voiding is predominantly governed by the organized interaction between its neuronal inputs and the muscular layers comprising its wall. Central to this are the smooth muscle cells (SMCs) and bundles, collectively forming the detrusor muscle layer, which is responsible for the contraction and relaxation phases <ref type="bibr" target="#b0">[1,</ref><ref type="bibr" target="#b1">2]</ref>.The role of smooth muscle cells and bundles is paramount in the bladder's active function. These muscle cells respond to neuronal signals by contracting or relaxing, thereby changing the bladder's volume and pressure <ref type="bibr" target="#b0">[1,</ref><ref type="bibr" target="#b1">2]</ref>. Moreover, in pathophysiological conditions such as bladder outlet obstruction (BOO), the organization and functionality of these SMCs can undergo significant remodeling in both quantity and organization. This can lead to alterations in bladder compliance, hypertrophy and ultimately, detrusor overactivity or underactivity. Such changes not only play a pivotal role in causing clinical symptoms but also contribute significantly to the progression of bladder disease. Quantifying the orientation of bladder SMBs is therefore essential for developing high fidelity and anatomically accurate digital twins of the bladder to study disease and design patient specific treatments. Such digital twins, which represent a significant advancement in computational modeling, rely on accurate representation of the anisotropic and heterogeneous organization of the SMBs (contractile elements) to accurately simulate individual bladder dynamics. Previous studies have qualitatively demonstrated the multidirectional orientation of bladder smooth muscles using electron microscopy <ref type="bibr" target="#b2">[3]</ref> or 2D histological scans <ref type="bibr" target="#b3">[4,</ref><ref type="bibr" target="#b4">5]</ref>. Although the overall directionality of the SMC bundles has been quantified in 2D histological sections <ref type="bibr" target="#b4">[5]</ref> (which has limitations in quantifying out of plane bundles), no study has quantitatively analyzed the 3D organization of smooth muscle bundles throughout the whole mount of a healthy bladder. In this work, for the first time the regional orientation of smooth muscle bundles in the whole rat bladder is quantified. A new technique for 3D imaging and quantification of SMC orientation is utilized which eliminates the need for optical clearing or cryosectioning of the tissue and is illustrated on a rat bladder.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2">METHODOLOGY</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.1">Tissue harvesting and bladder inflation</head><p>A 10-week-old Sprague-Dawley male rat bladder was harvested and catheterized through the urethra. A syringe needle was inserted into the catheter tube and water-sealed with super glue. A one-way valve was attached to the needle head, to prevent voiding. A syringe was attached to the valve and 1 ml of physiological buffer solution (PBS) was injected to inflate the bladder. The final volume of bladder was measured as 1.24 ml, estimated from dimensions of major and minor axes (Figure1a).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.2">Tissue fixation and immunohistochemistry</head><p>The inflated bladder attached to the one-way valve was immersed in 4% paraformaldehyde (PFA) for 12 hours for fixation. The bladder was discharged and was cut in half in the longitudinal direction, having one ureter at each side (Figure <ref type="figure" target="#fig_0">1b, c</ref>). To stain for smooth muscle bundles, first the two halves were immersed in blocking reagent (4% normal horse serum) for six hours. The fixed sample was stained with monoclonal mouse anti-human smooth muscle actin clone 1A4 IgG2a antibody (Dako, Denmark) as the primary antibody and Alexa Fluor 568 goat anti-mouse IgG2a (Invitrogen, USA) for the secondary antibody.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.3">Tissue mounting and multiphoton scanning</head><p>In order to image the anatomical organization of the SMCs, the ellipsoidal shape of the bladder should be preserved. For that purpose, a support with similar curvature to the bladder lumen was designed and 3D printed along with a sample holder. Each half of the bladder was mounted on the support, placed in the sample container and imaged using a scanning Nikon Multiphoton Microscope (MPM), (Nikon A1R MP HD, Tokyo, Japan). All the scans were performed with 10X lens at 1.24 um/pixel resolution. For each half, first a 3D MPM scan of the entire half bladder was performed, from the abluminal side. Due to the curvature of the sample, the sample edges were not captured in the whole scan; so regional MPM scans of the eight labeled zones were also performed, resulting in 5 scans per bladder half, Figures <ref type="figure" target="#fig_0">1b and 1c</ref>. For these regional scans, the bladder was rotated so the region of interest (ROI) was located just above the dome of the support, enabling scanning of the plane tangent to the abluminal surface of the ROI, including the regions at the edge of the specimen.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.4">Image processing and orientation quantification</head><p>Stacks of 3D MPM slices were projected onto a 2D plane using IMARIS 10.1 (Oxford Instruments plc). Regional intensity correction was applied to the projected images using Fiji <ref type="bibr" target="#b5">[6]</ref>. We used the CT-FIRE package <ref type="bibr" target="#b6">[7]</ref> to quantify the orientation of the SMC bundles. The raw MPM images contains significant noise and a high number of intersecting fibers, which results in significant error in bundle tracing. To overcome this challenge, we utilized Labkit plugin <ref type="bibr" target="#b7">[8]</ref> in Fiji to first train a classifier model which can segment-out the bundle structures from the noisy images. Filters including gaussian blur, gaussian gradient magnitude, laplacian of gaussian, hessian eigenvalues, structure tensor eigenvalues, gabor and sobel gradient were used to create feature stacks for each image. Finally, a random forest classifier was trained based on the feature vectors and grand truth labels. Although the traditional machine learning models like random forest have much lower computational cost compared to deep learning models, they have shown very high accuracies specifically on small size training data <ref type="bibr" target="#b8">[9]</ref><ref type="bibr" target="#b9">[10]</ref><ref type="bibr" target="#b10">[11]</ref>. Once the classifier is trained on just one of the labeled projected images, it can effectively segment out the SMBs in all other MPM scans. Finally, instead of the raw images, these automatic SMB segmentations with slight manual modifications were fed to the CT-FIRE, for fiber tracing and angle measurements. Due to the circular structure of the data (angles), a Python script was written for visualizing the data in the polar histogram format. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3">RESULTS AND CONCLUSIONS</head><p>We first consider the projected images from the large scale MPM scans of the medial and lateral halves of the bladder, Figures <ref type="figure" target="#fig_1">2a and 2b</ref>, respectively. Projected substacks are also shown to evaluate changes in SMB directions at different layers, Figure <ref type="figure" target="#fig_1">2d-f</ref>. Consistent with previous studies, the direction of bundles changes through the wall thickness <ref type="bibr" target="#b11">[12]</ref> , in some but not all the regions (comparing top and bottom layers in Figure <ref type="figure" target="#fig_1">2c-2f</ref>). Additionally, the SMC bundles display a heterogeneous directionality across the bladder (quantified in Fig. <ref type="figure" target="#fig_2">3</ref>). Although, previous studies in the literature report longitudinal and circumferential directions for SMC bundles in pig bladder <ref type="bibr" target="#b12">[13]</ref>, our results demonstrate the bundle orientations can have substantial deviation from these two directions (Figures <ref type="figure" target="#fig_1">2a and 2b</ref>). Moreover, strikingly, there are locations where the smooth muscle cell bundles of different angles appear to intersect (singular points), Figure <ref type="figure" target="#fig_1">2g</ref>. The SMB orientation is quantified in Figure <ref type="figure" target="#fig_2">3</ref> where the regional MPM images, corresponding bundle segmentations and polar histograms are shown. The polar histograms illustrate the angle distributions of the SMC bundles with respect to the global coordinates (labeled CD and LD). The distribution of bundle angles varies among the different scanned regions. In particular, in Zones 4 and 6, the circumferential orientation predominates among SMBs, whereas in Zones 2 and 8, a longitudinal orientation is more prevalent. These zones correspond to the central bladder area, stretching between the apex and the ureter. This pattern suggests the presence of both circumferential and longitudinal SMBs in the central bladder, implying their contraction is not uniform. This is compatible with the physical sense that this central region should be contracted in both directions, to initiate appropriate volumetric contraction, rather than being contracted in a single direction. In contrast, in the apex region (primarily Zone 7 due to the asymmetric cut), SMBs are predominantly oriented in the circumferential direction (90°). Meanwhile, Zone 3, located just below the apex, displays circumferential bundles at its junction with Zone 7 but also includes longitudinal bundles throughout the rest of the area. Finally, Zone 5 illustrates SMBs that are predominantly oriented in the circumferential direction in the ureter zone of the lateral half, while Zone 1 in the medial half is mainly oriented in the longitudinal direction. This indicates an asymmetric orientation pattern in the ureter region between the medial and lateral halves. It can be conjectured that this heterogeneous organization will enable a spatially non-uniform contraction pattern during voiding, in which the dome and ureteral regions squeeze circumferentially, with a bidirectional contraction in the central regions. This spatially heterogeneous deformation pattern is likely essential for efficient contraction of the bladder, needed for healthy voiding function. Acknowledgement : The authors gratefully acknowledge funding from NIH R01 DK133434 and R01 1S10OD025041.   </p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Figure 1 .</head><label>1</label><figDesc>Figure 1. a) The inflated bladder. The fixed bladder bisected into (b) medial and (c) lateral halves. In b and c, samples are mounted on curved 3D-printed supports, shown with labeled zones of regional MPM imaging. Images in b,c are rotated 90 o relative to a, with urethra at the top of a, and right of b,c. The relative location of each zone is shown in (d) ventral and (e) dorsal sides of the bladder.</figDesc><graphic coords="3,62.60,49.30,479.65,125.60" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>Figure 2 .</head><label>2</label><figDesc>Figure 2. a and b) MPM scan of the entire medial and lateral halves, respectively. c-f) Magnified MPM images, indicating the changes in bundle direction through the wall thickness. g) Magnified image of green square in b, illustrating the intersection of bundles with different directions (singular point). LD and CD represent longitudinal and circumferential directions, respectively. In a and b, apex and urethra are located is at left and right sides, respectively.</figDesc><graphic coords="4,43.75,49.30,517.55,479.40" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head>Figure 3 .</head><label>3</label><figDesc>Figure 3. Polar histograms of the SMB angles, for a) medial and b) lateral halves of the bladder at 8 zones in Figures 1b and 1c.</figDesc><graphic coords="5,29.58,74.60,536.15,360.60" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head></head><label></label><figDesc>Figure 3. Polar histograms of the SMB angles, for a) medial and b) lateral halves of the bladder at 8 zones in Figures 1b and 1c.</figDesc></figure>
+		</body>
+		<back>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<monogr>
+		<title level="m" type="main">Anatomy, abdomen and pelvis, bladder detrusor muscle</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Sam</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Nassereddin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">A</forename><surname>Lagrange</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">A computational analysis of the effect of supporting organs on predicted vesical pressure in stress urinary incontinence</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Barzegari</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Medical &amp; Biological Engineering &amp; Computing</title>
+		<imprint>
+			<biblScope unit="volume">58</biblScope>
+			<biblScope unit="issue">5</biblScope>
+			<biblScope unit="page" from="1079" to="1089" />
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">Urinary bladder of rat: fine structure of normal and hypertrophic musculature</title>
+		<author>
+			<persName><forename type="first">G</forename><surname>Gabella</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Uvelius</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Cell and Tissue Research</title>
+		<imprint>
+			<biblScope unit="volume">262</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="67" to="79" />
+			<date type="published" when="1990">1990</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">Contractile elements and their sympathetic regulations in the pig urinary bladder: a species and regional comparative study</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Mitsui</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Cell and Tissue Research</title>
+		<imprint>
+			<biblScope unit="volume">379</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="373" to="387" />
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">Quantification of Bladder Smooth Muscle Orientation in Normal and Spinal Cord Injured Rats</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Nagatomi</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Annals of Biomedical Engineering</title>
+		<imprint>
+			<biblScope unit="volume">33</biblScope>
+			<biblScope unit="issue">8</biblScope>
+			<biblScope unit="page" from="1078" to="1089" />
+			<date type="published" when="2005">2005</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">Fiji: an open-source platform for biological-image analysis</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Schindelin</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Nature Methods</title>
+		<imprint>
+			<biblScope unit="volume">9</biblScope>
+			<biblScope unit="issue">7</biblScope>
+			<biblScope unit="page" from="676" to="682" />
+			<date type="published" when="2012">2012</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">Computational segmentation of collagen fibers from secondharmonic generation images of breast cancer</title>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">S</forename><surname>Bredfeldt</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">J Biomed Opt</title>
+		<imprint>
+			<biblScope unit="volume">19</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page">16007</biblScope>
+			<date type="published" when="2014">2014</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">LABKIT: Labeling and Segmentation Toolkit for Big Image Data</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Arzt</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Frontiers in Computer Science</title>
+		<imprint>
+			<biblScope unit="issue">4</biblScope>
+			<date type="published" when="2022">2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">Predicting Pressure Gradient in Aortic Coarctation Based on Geometrical Features Using Design of Experiments and Machine Learning Models</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Asadbeygi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">A</forename><surname>Abazari</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Alimohammadi</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">ASME 2023 International Mechanical Engineering Congress and Exposition</title>
+				<imprint>
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">Predicting hemodynamic indices in coronary artery aneurysms using response surface method: An application in Kawasaki disease</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Asadbeygi</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Computer Methods and Programs in Biomedicine</title>
+		<imprint>
+			<biblScope unit="volume">224</biblScope>
+			<biblScope unit="page">107007</biblScope>
+			<date type="published" when="2022">2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<monogr>
+		<title level="m" type="main">Enhancing Predictive Accuracy in Pharmaceutical Sales Through An Ensemble Kernel Gaussian Process Regression Approach</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Mirshekari</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:2404.19669</idno>
+		<imprint>
+			<date type="published" when="2024">2024</date>
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">Layer-dependent role of collagen recruitment during loading of the rat bladder wall</title>
+		<author>
+			<persName><forename type="first">F</forename><surname>Cheng</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Biomechanics and Modeling in Mechanobiology</title>
+		<imprint>
+			<biblScope unit="volume">17</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="403" to="417" />
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">Locational and Directional Dependencies of Smooth Muscle Properties in Pig Urinary Bladder</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Borsdorf</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Frontiers in Physiology</title>
+		<imprint>
+			<biblScope unit="issue">10</biblScope>
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

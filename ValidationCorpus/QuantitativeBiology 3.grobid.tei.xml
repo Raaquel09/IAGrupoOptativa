@@ -1,0 +1,676 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Characterization of the Autonomic Nervous System Activity in Females Classified According to Mood Scores During the Follicular Phase</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Makiko</forename><surname>Aoki</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Eriko</forename><surname>Terasawa</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Mai</forename><surname>Nishimura</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Hisayo</forename><surname>Okayama</surname></persName>
+							<email>okayama@md.tsukuba.ac.jp</email>
+						</author>
+						<author>
+							<persName><forename type="first">Masato</forename><surname>Suzuki</surname></persName>
+							<email>suzuki@sci.u-hyogo.ac.jp</email>
+						</author>
+						<author>
+							<affiliation key="aff0">
+								<orgName type="department">Faculty of Health Science and Nursing</orgName>
+								<orgName type="institution">Juntendo University Shizuoka</orgName>
+								<address>
+									<country key="JP">Japan</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<affiliation key="aff1">
+								<orgName type="laboratory">Comprehensive Human Sciences Research Group</orgName>
+								<orgName type="institution">Graduate School of Comprehensive Human Sciences University of Tsukuba Ibaraki</orgName>
+								<address>
+									<country key="JP">Japan</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<affiliation key="aff2">
+								<orgName type="laboratory">Comprehensive Human Sciences Research Group</orgName>
+								<orgName type="institution">Graduate School of Comprehensive Human Sciences University of Tsukuba Ibaraki</orgName>
+								<address>
+									<country key="JP">Japan</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<affiliation key="aff3">
+								<orgName type="department">Faculty of Medicine</orgName>
+								<orgName type="institution">University of Tsukuba Ibaraki</orgName>
+								<address>
+									<country key="JP">Japan</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<affiliation key="aff4">
+								<orgName type="department">Graduate School of Science</orgName>
+								<orgName type="institution">University of Hyogo Hyogo</orgName>
+								<address>
+									<country key="JP">Japan</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Characterization of the Autonomic Nervous System Activity in Females Classified According to Mood Scores During the Follicular Phase</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+					<idno type="MD5">2713F9841C0B8A855D5104FFB4DAF419</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.2" ident="GROBID" when="2024-05-16T18:04+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>
+					<term>PMS</term>
+					<term>mood scores</term>
+					<term>autonomic nervous system</term>
+					<term>POMS2</term>
+				</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Many sexually mature females suffer from premenstrual syndrome (PMS), but effective coping methods for PMS are limited due to the complexity of symptoms and unclear pathogenesis. Awareness has shown promise in alleviating PMS symptoms but faces challenges in long-term recording and consistency. Our research goal is to establish a convenient and simple method to make individual female aware of their own psychological, and autonomic conditions. In previous research, we demonstrated that participants could be classified into non-PMS and PMS groups based on mood scores obtained during the follicular phase. However, the properties of neurophysiological activity in the participants classified by mood scores have not been elucidated. This study aimed to classify participants based on their scores on a mood questionnaire during the follicular phase and to evaluate their autonomic nervous system (ANS) activity using a simple device that measures pulse waves from the earlobe. Participants were grouped into Cluster I (high positive mood) and Cluster II (low mood). Cluster II participants showed reduced parasympathetic nervous system activity from the follicular to the menstrual phase, indicating potential PMS symptoms. The study demonstrates the feasibility of using mood scores to classify individuals into PMS and non-PMS groups and monitor ANS changes across menstrual phases. Despite limitations such as sample size and device variability, the findings highlight a promising avenue for convenient PMS self-monitoring.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>I. INTRODUCTION</head><p>Many sexually mature females exhibit a variety of psychological, autonomic, and physiological symptoms, such as irritability, mood swings, hot flashes, palpitations, anorexia, loss of appetite, abdominal pain, and breast tenderness, which occur periodically during the menstrual cycle. When these symptoms are particularly intense during the premenstrual (luteal) phase, premenstrual syndrome (PMS) is diagnosed <ref type="bibr" target="#b0">[1]</ref>. The gynecologist diagnoses PMS based on a diary record of the patient's symptoms over several months. The difficulty of keeping a long-term record makes it challenging to assess PMS accurately. Therefore, the prevalence of PMS is highly variable, ranging from 12% (study in France) to 98% (study in Iran) in sexually mature females, depending on the type of research <ref type="bibr" target="#b1">[2]</ref>. Since PMS symptoms are complex and the mechanisms of onset remain unclear, effective coping strategies are limited. Awareness and acceptance of PMS have been reported to be associated with an increased perceived ability to cope with PMS <ref type="bibr" target="#b2">[3]</ref>, offering a defensive effect against premenstrual symptoms <ref type="bibr" target="#b3">[4]</ref>. Awareness and acceptance through habitual mindfulness have been reported to alleviate PMS symptoms <ref type="bibr" target="#b4">[5]</ref>. Moreover, the use of menstrual tracking smartphone applications has been reported to significantly reduce the incidence rates of depression and dysmenorrhea <ref type="bibr" target="#b5">[6]</ref>. Thus, awareness and acceptance of one's state can potentially cope with PMS symptoms. However, this approach necessitates diary-like records over a long period (covering three menstrual cycles), posing a challenge to maintaining consistent records.</p><p>For a simple and rapid assessment of PMS status, it is effective to use a questionnaire that describes symptoms on the spot and in retrospect of past menstrual cycles, rather than a daily questionnaire such as the Daily Record of Severity of Problems (DRSP) <ref type="bibr" target="#b6">[7]</ref>, <ref type="bibr" target="#b7">[8]</ref>. The Menstrual Distress Questionnaire (MDQ) is a questionnaire that reflects on the past menstrual cycle and describes the psychological state of each cycle and has been used to identify symptoms related to menstruation <ref type="bibr" target="#b8">[9]</ref>. However, it has been revealed that MDQ is unsuitable for identifying PMS <ref type="bibr" target="#b9">[10]</ref>. Although there are reported scales for assessing PMDD <ref type="bibr" target="#b10">[11]</ref>, which is considered a severe form of PMS, validated scales for on-the-spot evaluation of PMS are extremely limited <ref type="bibr" target="#b11">[12]</ref>, <ref type="bibr" target="#b12">[13]</ref>. The profile of Mood States 2 nd edition (POMS2) is a scale for evaluating moods <ref type="bibr" target="#b13">[14]</ref>, and it has been reported that PMS participants exhibit characteristic POMS scores during each menstrual cycle <ref type="bibr" target="#b14">[15]</ref>, <ref type="bibr" target="#b15">[16]</ref>. Additionally, a significant decrease in the positive mood sub-scale (Vigor-Activity: VA and Friendliness: F) of POMS2 during the follicular phase in the PMS patients compared to the non-PMS patients has been reported. There was also an increase in sub-scales indicating negative mood, thereby demonstrating the ability to distinguish between PMS and non-PMS patients based on the score patterns of POMS2 sub-scales <ref type="bibr" target="#b16">[17]</ref>. However, the reproducibility of this classification method has not been verified due to the small number of participants.</p><p>On the other hand, to understand the pathogenesis of PMS and to objectively diagnose PMS symptoms, research has been conducted to measure biosignals such as electrocardiograms and brain functions in participants with PMS and PMDD and to explore characteristic biosignals of these participants. Functional brain imaging techniques such as functional magnetic resonance imaging (fMRI) <ref type="bibr" target="#b17">[18]</ref> and electroencephalogram (EEG) <ref type="bibr" target="#b18">[19]</ref> have revealed the dysfunction in the amygdala and prefrontal cortex (PFC) regions responsible for simple mental arithmetic tasks and emotional processing. Using near-infrared spectroscopy (NIRS), which can easily measure blood flow optically, our study also found that blood flow in the PFC of female students in their 20s with PMS symptoms during a two-back task, one of the cognitive tasks, was reduced compared to non-PMS participants <ref type="bibr" target="#b15">[16]</ref>. Additionally, dysfunction in the amygdala region has been associated with the hypothalamus, which regulates autonomic nervous system (ANS) activity. A reduction in parasympathetic nervous activity in PMS participants during the luteal and menstrual phases has been revealed through power spectrum analysis of electrocardiograms (ECGs) <ref type="bibr" target="#b20">[20]</ref>. The measurement of ANS activity is expected to be applied to the awareness of PMS symptoms, as it requires no task presentation and can be measured in a short time.</p><p>Based on the above background, the combination of a simple questionnaire and daily ANS activity measurement can be used to achieve convenient and accurate awareness of one's mental condition. In this study, the POMS2 subscale of follicular phase was used to classify the participants into PMS and non-PMS groups, to understand the characteristics of ANS activity during the follicular and menstrual phases of each group. In anticipation of achieving future convenient and casual awareness, ANS activity was assessed by power spectral analysis of pulse waves obtained from the earlobe by photoplethysmography (PPG).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>II. EXPERIMENTAL METHODS</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>A. Requirements for participants in this study</head><p>Participants consisted of undergraduate and graduate female students in their early 20s. The following information was collected for each participant: age, height, weight, body mass index (BMI), which is obtained from height and weight, age at menarche, daily medication use, menstrual cycle length, duration of menstruation, duration of the last two menstrual periods, menstruation-related medication uses and drug names, and awareness of menstrual symptoms. The awareness of menstrual symptoms was assessed using the MDQ. The MDQ comprises 47 questions and is used to evaluate physical, mood, and arousal symptoms before, during, and after menstruation. The A-type MDQ, which requires participants to recall and describe symptoms at three periods: premenstrual, during menstruation, and postmenstrual, was utilized. Participants were selected based on the following criteria:</p><p>• Menstrual cycles range from 25 to 38 days.</p><p>• BMI between 18.5 and 25.0.</p><p>• Not using medications that affect autonomic nerve system balance.</p><p>• No smoking habit.</p><p>• Not taking oral contraceptives within 6 months.</p><p>• No experience of pregnancy or childbirth.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>B. Experimental Procedure</head><p>Participants underwent measurements of their blood pressure (HEM-FM31, OMRON Corp., Kyoto, Japan), mood (shortened Japanese version of POMS2), and autonomic nervous activity measured during the menstrual and follicular phases. The day on which menstruation occurred was defined as day 1 menstruation, and the menstrual phase was designated as day 2 of menstruation. The follicular phase was defined as 5-7 days after the menstrual phase. ANS activity was evaluated based on heart rate variability obtained using an earlobe-mounted PPG (Inner Balance Scan, Biocom Technologies, Poulsbo, WA). After wearing the instrument, participants remained seated in a quiet state for 5 minutes. Subsequently, the plethysmogram was measured for 5 minutes. The Fast Fourier transform method was applied to the obtained plethysmograph, and the power spectra were calculated. Power spectra in the frequency range of 0.004-0.15 Hz were designated as low-frequency components (LF), while those in the frequency range of 0.15-0.4 Hz were designated as high-frequency components (HF).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>C. Data Analysis</head><p>Participants were classified into two groups using Ward's method based on their scores of POMS2 during the follicular phase. The obtained ANS indices (heart rate (HR), R-R interval (RRI), LF, and HF) were evaluated for outliers using the Grubbs outlier test. When comparing values of MDQ, POMS, HR, RRI, and LF/HF between the two groups, the Mann-Whitney U-test was employed.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>D. Ethical Consideration</head><p>This study was conducted after obtaining approval from the Medical Ethics Committee of Medicine and Health Sciences in the University of Tsukuba Faculty of (Approval No. 1650-1).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>III. RESULTS AND DISCUSSION</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>A. Classification of Participants According to POMS2 Scores</head><p>ANS activity during the follicular and menstrual phases was obtained from 19 participants, and as a result of the Grubbs test, data from 15 participants during the menstrual phase and 17 participants during the follicular phase were used for analysis. Participants were classified into two groups, Cluster I and Cluster II, using Ward's method based on their POMS2 scores during the follicular phase. The classification results using Ward's method are shown in Fig. <ref type="figure" target="#fig_0">1A</ref>. Cluster I consisted of 11 participants, while Cluster II comprised 6 participants. The basic properties, blood pressure, and respiratory rate of all participants and those classified into Cluster I and Cluster II are shown in Table <ref type="table">1</ref>. No significant differences were observed in any of the items, indicating similar basic properties across all groups. The distribution of scores for the subscales of POMS2 obtained during the follicular phase in Cluster I and Cluster II is shown in Fig 1B <ref type="figure">.</ref> Participants in Cluster I exhibited significantly higher scores in parameters for positive mood (F and VA), compared to Cluster II (p&lt;0.05). In addition, the negative mood subscales, including anger-hostility (AH), confusion-bewilderment (CB), depression-dejection (DD), fatigue-inertia (FI), tensionanxiety (TA), and total mood disturbance (TMD), were lower in Cluster I, with AH, CB, FI, TA, and TMD being significantly lower (p&lt;0.05). This distribution of scores on the POMS2 sub-scales during the follicular phase closely resembled the results of previous our study conducted on female university students in their 20s with PMS symptoms <ref type="bibr" target="#b16">[17]</ref>. In this previous study, participants classified into Cluster I, with significantly higher F and VA scores, were categorized by gynecologists as non-PMS participants based on PMDD scale scores. Conversely, Cluster II included PMS participants, PMDD participants, or participants who appeared to have mild depressive symptoms according to their scores on the self-rating depression (SDS), which is an index for assessing depression. Therefore, participants classified in Cluster I in this study were considered to be non-PMSs, while those classified into Cluster II were considered to have PMS or PMDD symptoms. It is interesting to note that the participants in the present study are a completely different population from the participants in our previous study, with only the same basic properties (age, menstrual cycle, etc.). In addition, the location of the current study was different from our previous study. Despite these differences, adopting Ward's method to the scores in the sub-scales of POMS2 yields two distinct groups: one with significantly higher scores in positive mood (Cluster I) and another with higher scores in negative mood (Cluster II). The present distribution of the scores on the sub-scales of the POMS2 for these two groups closely resembled that obtained in previous research. These results demonstrate that the classification of participants based on POMS 2 sub-scale scores during the follicular phase is a highly robust and effective method for easily distinguishing between non-PMS and PMS/PMDD groups.</p><p>In the Cluster I group, the MDQ scores during premenstrual (corresponding to the late luteal phase) and menstrual phases were significantly higher compared to those during the follicular phase (Fig. <ref type="figure" target="#fig_0">1C</ref>). A higher MDQ score indicates greater physical and psychological symptoms. Therefore, participants in Cluster I likely experienced physical and psychological symptoms during the premenstrual and menstrual phases, and these symptoms were likely relieved after menstruation. In a previous study of healthy Japanese female university students, the average MDQ scores during the postmenstrual (follicular phase) were significantly higher than those in the premenstrual (luteal phase) <ref type="bibr" target="#b21">[21]</ref>. The MDQ scores obtained in the present study showed a similar trend to the previous study, suggesting the validity of the MDQ scores obtained in the present study. Cluster II showed a similar distribution of premenstrual, menstrual, and postmenstrual MDQ scores. The average value of postmenstrual MDQ scores in Cluster II was higher than that in Cluster I, suggesting that Cluster II may continue to experience physical and mental discomfort even during the postmenstrual phase. There were no significant differences between Cluster I and Cluster II in MDQ values during any phases. While the MDQ has a good record of quantifying the intensity of symptoms in each menstrual cycle, issues of accuracy in assessing PMS have been reported <ref type="bibr" target="#b9">[10]</ref>. The lack of differences in MDQ scores between the Cluster I and Cluster II groups suggests the difficulty in identifying PMS by MDQ scores.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>B. Evaluation of ANS Activity</head><p>The ANS activity properties of the participants classified as Cluster I and Cluster II were compared (Fig. <ref type="figure" target="#fig_1">2</ref>). HR and RRI, directly obtained from pulse wave, did not differ significantly between Cluster I and Cluster II during either the follicular or menstrual phases. The LF and HF, which are used as indicators of ANS activity, were compared between Cluster I and Cluster II. LF slightly decreased during the menstrual phase compared to the follicular phase in both Cluster I and Cluster II, which implies a decrease in parasympathetic nerve system activity. However, there were no statistically significant differences in LF values in either group, suggesting no change in LF values in either Cluster I or Cluster II. Similarly, HF decreased during the menstrual phase compared to the follicular phase in both Cluster I and Cluster II. Particularly in Cluster II, HF significantly decreased during the menstrual phase compared to the follicular phase. The pvalue of HF between the follicular and menstrual phases in Cluster II was 0.11, indicating a trend of decreased HF values during the menstrual phase. Since HF reflects parasympathetic ANS, this result suggests a trend toward decreased parasympathetic nervous system activity in Cluster II participants from the follicular to the menstrual phase. A previous study reported a significant decrease in HF during  the luteal phase (premenstrual) in the PMS group compared to HF values during the follicular phase <ref type="bibr" target="#b22">[22]</ref>. The substantial decrease in HF values from the follicular phase to the menstrual phase in the Cluster II group likely reflects a reduction in parasympathetic activity associated with PMS symptoms. These results suggest that even with a simple earlobe-mounted PGG device, the reduction in parasympathetic activity specific to PMS participants from the premenstrual to the menstrual period can be detected.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>IV. CONCLUSION</head><p>In this study, participants were classified based on the POMS2 sub-scale scores during the follicular phase, aiming to characterize their ANS activity. As a result of classifying participants into two groups, they were categorized into a group with a high positive mood (Cluster I) and a group with a low mood (Cluster II). The distribution of POMS2 sub-scale scores in these two groups was comparable to that obtained in our previous study. These findings suggest that the POMS2 subscale scores can classify participants into two groups: those with a high likelihood of PMS and those without, even if the timing and institution of implementation differ. Furthermore, it was revealed that participants in Cluster II, considered to be PMS symptoms, showed a decreasing trend in HF values, indicating parasympathetic nervous activity, from the follicular phase to the menstrual phase. These results suggest the potential for detecting PMS through mood assessment during the follicular phase and measuring pulse waves from the luteal phase to the menstrual phase. However, this study had a small sample size of 19 participants. Additionally, since measurements of PPG were conducted using a simple earlobe-mounted device, there was a large variability in the measured values. Therefore, it is necessary to increase the number of participants and simultaneously measure both pulse wave-based simple heart rate variability measurement devices and electrocardiograms to validate the measurement values.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Fig. 1 .</head><label>1</label><figDesc>Fig. 1. Classification of participants into two groups according to the POMS2 sub-scale scores during the follicular phase. (A) The two Clusters classified using Ward's method and the ID numbers of the participants belonging to each Cluster. (B) Distribution of the mean values of each sub-scale of POMS2 obtained from the participants in Cluster I and Cluster II, respectively. (C) MDQ scores obtained from participants in Clusters I and Cluster II, respectively. * p &lt; 0.05.</figDesc><graphic coords="3,45.70,53.78,251.90,160.70" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>Fig. 2 .</head><label>2</label><figDesc>Fig. 2. Mean values of ANS activity parameters (HR, RRI, LF, and HF) obtained from participants in Cluster I and Cluster II, respectively.</figDesc><graphic coords="4,42.45,54.07,249.90,179.30" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_0"><head>TABLE I .</head><label>I</label><figDesc>BASIC PROPERTIES OF ALL PARTICIPANTS, PARTICIPANTS IN CLUSTER I, AND PARTICIPANTS IN CLUSTER II</figDesc><table /></figure>
+		</body>
+		<back>
+
+			<div type="acknowledgement">
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>ACKNOWLEDGMENT M. A., M. N., and E. T. performed experiments. M. A. and M. S. analyzed experimental data. M. N. and H. O. conceived the project. M. A. and M. S. wrote the paper.</p></div>
+			</div>
+
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">Management of Premenstrual Syndrome</title>
+		<idno type="DOI">10.1111/1471-0528.14260</idno>
+	</analytic>
+	<monogr>
+		<title level="j">ACOG Clinical Practice Guideline</title>
+		<imprint>
+			<biblScope unit="volume">124</biblScope>
+			<biblScope unit="issue">7</biblScope>
+			<biblScope unit="page" from="e73" to="e105" />
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+	<note>BJOG Int. J. Obstet. Gynaecol.</note>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">Epidemiology of Premenstrual Syndrome (PMS)-A Systematic Review and Meta-Analysis Study</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Direkvand-Moghadam</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Sayehmiri</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Delpisheh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Kaikhavandi</surname></persName>
+		</author>
+		<idno type="DOI">10.7860/JCDR/2014/8024.4021</idno>
+	</analytic>
+	<monogr>
+		<title level="j">J. Clin. Diagn. Res. JCDR</title>
+		<imprint>
+			<biblScope unit="volume">8</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="106" to="109" />
+			<date type="published" when="2014-02">Feb. 2014</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">Ways of coping with premenstrual change: development and validation of a premenstrual coping measure</title>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">R</forename><surname>Read</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Perz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">M</forename><surname>Ussher</surname></persName>
+		</author>
+		<idno type="DOI">10.1186/1472-6874-14-1</idno>
+	</analytic>
+	<monogr>
+		<title level="j">BMC Womens Health</title>
+		<imprint>
+			<biblScope unit="volume">14</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page">9000</biblScope>
+			<date type="published" when="2014-01">Jan. 2014</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">Associations of premenstrual symptoms with daily rumination and perceived stress and the moderating effects of mindfulness facets on symptom cyclicity in premenstrual syndrome</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Nayman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">T</forename><surname>Konstantinow</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><forename type="middle">F</forename><surname>Schricker</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Reinhard</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Kuehner</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/s00737-023-01304-5</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Arch. Womens Ment. Health</title>
+		<imprint>
+			<biblScope unit="volume">26</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="167" to="176" />
+			<date type="published" when="2023-04">Apr. 2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">The Effects of Mindfulness-Based Cognitive Therapy on Depression and Anxiety in Women with Premenstrual Syndrome</title>
+		<author>
+			<persName><forename type="first">F</forename><surname>Panahi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Faramarzi</surname></persName>
+		</author>
+		<idno type="DOI">10.1155/2016/9816481</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Depress. Res. Treat</title>
+		<imprint>
+			<biblScope unit="volume">2016</biblScope>
+			<biblScope unit="page">e9816481</biblScope>
+			<date type="published" when="2016-11">Nov. 2016</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">Effectiveness of mobile application for menstrual management of working women in Japan: randomized controlled trial and medical economic evaluation</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Song</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Kanaoka</surname></persName>
+		</author>
+		<idno type="DOI">10.1080/13696998.2018.1515082</idno>
+	</analytic>
+	<monogr>
+		<title level="j">J. Med. Econ</title>
+		<imprint>
+			<biblScope unit="volume">21</biblScope>
+			<biblScope unit="issue">11</biblScope>
+			<biblScope unit="page" from="1131" to="1138" />
+			<date type="published" when="2018-11">Nov. 2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">Reliability and validity of a daily diary for premenstrual syndrome</title>
+		<author>
+			<persName><forename type="first">E</forename><forename type="middle">W</forename><surname>Freeman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">J</forename><surname>Derubeis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Rickels</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/S0165-1781(96)02929-0</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Psychiatry Res</title>
+		<imprint>
+			<biblScope unit="volume">65</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="97" to="106" />
+			<date type="published" when="1996-11">Nov. 1996</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">The Japanese Version of the Daily Record of Severity of Problems for Premenstrual Symptoms: Reliability and Validity Among the General Japanese Population</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Takeda</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Yoshimi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Kai</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Inoue</surname></persName>
+		</author>
+		<idno type="DOI">10.2147/IJWH.S450300</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Int. J. Womens Health</title>
+		<imprint>
+			<biblScope unit="volume">16</biblScope>
+			<biblScope unit="page" from="299" to="308" />
+			<date type="published" when="2024-02">Feb. 2024</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">The Development of a Menstrual Distress Questionnaire</title>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">H</forename><surname>Moos</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Psychosom. Med</title>
+		<imprint>
+			<biblScope unit="volume">30</biblScope>
+			<biblScope unit="issue">6</biblScope>
+			<biblScope unit="page">853</biblScope>
+			<date type="published" when="1968-11">Nov. 1968</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">The menstrual distress questionnaire: Are the critics right?</title>
+		<author>
+			<persName><forename type="first">E</forename><surname>Hawes</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">P S</forename><surname>Oei</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/BF02686846</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Curr. Psychol</title>
+		<imprint>
+			<biblScope unit="volume">11</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="264" to="281" />
+			<date type="published" when="1992-09">Sep. 1992</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">Fulfillment of the premenstrual dysphoric disorder criteria confirmed using a self-rating questionnaire among Japanese women with depressive disorders</title>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Miyaoka</surname></persName>
+		</author>
+		<idno type="DOI">10.1186/1751-0759-5-5</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Biopsychosoc. Med</title>
+		<imprint>
+			<biblScope unit="volume">5</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page">5</biblScope>
+			<date type="published" when="2011-05">May 2011</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">The premenstrual symptoms screening tool (PSST) for clinicians</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Steiner</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Macdougall</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Brown</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/s00737-003-0018-4</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Arch. Women&apos;s Ment. Health</title>
+		<imprint>
+			<biblScope unit="volume">6</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="203" to="209" />
+			<date type="published" when="2003-08">Aug. 2003</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">Validity and Reliability Study of Premenstrual Syndrome Scale (PMSS)</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Padmavathi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Sankar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Kokilavani</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Dhanapal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Ashok</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Int. J. Adv. Nurs. Manag</title>
+		<imprint>
+			<biblScope unit="volume">2</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="4" to="05" />
+			<date type="published" when="2014-03">Mar. 2014</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<monogr>
+		<title level="m" type="main">Profile of Mood States</title>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">P</forename><surname>Heuchert</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">M</forename><surname>Mcnair</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2012">2012</date>
+			<publisher>Multi-Health Systems Inc</publisher>
+		</imprint>
+	</monogr>
+	<note>2nd Edition: POMS 2</note>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">Changes in mood, cognitive performance and appetite in the late luteal and follicular phases of the menstrual cycle in women with and without PMDD (premenstrual dysphoric disorder)</title>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">C</forename><surname>Reed</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><forename type="middle">R</forename><surname>Levin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">M</forename><surname>Evans</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.yhbeh.2008.02.018</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Horm. Behav</title>
+		<imprint>
+			<biblScope unit="volume">54</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="185" to="193" />
+			<date type="published" when="2008-06">Jun. 2008</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<analytic>
+		<title level="a" type="main">Cognitive function evaluation in premenstrual syndrome during the follicular and luteal phases using near-infrared spectroscopy</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Aoki</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Suzuki</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Suzuki</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Takao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Okayama</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.cpnec.2022.100117</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Compr. Psychoneuroendocrinology</title>
+		<imprint>
+			<biblScope unit="volume">10</biblScope>
+			<biblScope unit="page">100117</biblScope>
+			<date type="published" when="2022-05">May 2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<analytic>
+		<title level="a" type="main">Distinction between women with premenstrual syndrome or premenstrual dysphoric disorder and healthy women based on clustering Profile of Mood States 2nd Edition scores in the follicular phase</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Aoki</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Hoshino</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Suzuki</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Okayama</surname></persName>
+		</author>
+		<idno type="DOI">10.24462/jnse.9.0_108</idno>
+	</analytic>
+	<monogr>
+		<title level="j">J. Nurs. Sci. Eng</title>
+		<imprint>
+			<biblScope unit="volume">9</biblScope>
+			<biblScope unit="page" from="108" to="116" />
+			<date type="published" when="2022">2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<analytic>
+		<title level="a" type="main">In search of convergent regional brain abnormality in cognitive emotion regulation: A transdiagnostic neuroimaging meta-analysis</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Khodadadifar</surname></persName>
+		</author>
+		<idno type="DOI">10.1002/hbm.25722</idno>
+	</analytic>
+	<monogr>
+		<title level="s">Hum. Brain Mapp.</title>
+		<imprint>
+			<biblScope unit="volume">43</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="1309" to="1325" />
+			<date type="published" when="2022">2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<monogr>
+		<title level="m" type="main">Electroencephalography findings in menstrually-related mood disorders: A critical review</title>
+		<author>
+			<persName><forename type="first">E</forename><surname>Kaltsouni</surname></persName>
+		</author>
+		<imprint/>
+	</monogr>
+	<note>Front</note>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<monogr>
+		<title/>
+		<author>
+			<persName><surname>Neuroendocrinol</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.yfrne.2023.101120</idno>
+		<imprint>
+			<date type="published" when="2024-01">Jan. 2024</date>
+			<biblScope unit="volume">72</biblScope>
+			<biblScope unit="page">101120</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<analytic>
+		<title level="a" type="main">Biopsychosocial aspects of premenstrual syndrome and premenstrual dysphoric disorder</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Matsumoto</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Asakura</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Hayashi</surname></persName>
+		</author>
+		<idno type="DOI">10.3109/09513590.2012.705383</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Gynecol. Endocrinol</title>
+		<imprint>
+			<biblScope unit="volume">29</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="67" to="73" />
+			<date type="published" when="2013-01">Jan. 2013</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<analytic>
+		<title level="a" type="main">Lower peripheral circulation in eumenorrheic young women with premenstrual symptoms</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Matsumoto</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Ushiroyama</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Tatsumi</surname></persName>
+		</author>
+		<idno type="DOI">10.1186/1751-0759-1-8</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Biopsychosoc. Med</title>
+		<imprint>
+			<biblScope unit="volume">1</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<date type="published" when="2007-03">Mar. 2007</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<analytic>
+		<title level="a" type="main">Altered autonomic nervous system activity as a potential etiological factor of premenstrual syndrome and premenstrual dysphoric disorder</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Matsumoto</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Ushiroyama</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Kimura</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Hayashi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Moritani</surname></persName>
+		</author>
+		<idno type="DOI">10.1186/1751-0759-1-24</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Biopsychosoc. Med</title>
+		<imprint>
+			<biblScope unit="volume">1</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page">24</biblScope>
+			<date type="published" when="2007-12">Dec. 2007</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

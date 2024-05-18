@@ -1,0 +1,592 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">A REMARK ON FUJINO&apos;S WORK ON THE CANONICAL BUNDLE FORMULA VIA PERIOD MAPS</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+				<date type="published" when="2024-05-09">9 May 2024</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author role="corresp">
+							<persName><forename type="first">Hyunsuk</forename><surname>Kim</surname></persName>
+							<email>kimhysuk@umich.edu</email>
+							<affiliation key="aff0">
+								<orgName type="department">Department of Mathematics</orgName>
+								<orgName type="institution">University of Michigan</orgName>
+								<address>
+									<addrLine>530 Church Street</addrLine>
+									<postCode>48109</postCode>
+									<settlement>Ann Arbor</settlement>
+									<region>MI</region>
+									<country key="US">USA</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">A REMARK ON FUJINO&apos;S WORK ON THE CANONICAL BUNDLE FORMULA VIA PERIOD MAPS</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date type="published" when="2024-05-09">9 May 2024</date>
+						</imprint>
+					</monogr>
+					<idno type="MD5">8716F343805BA8510A20DA4646F122EB</idno>
+					<idno type="arXiv">arXiv:2405.05489v1[math.AG]</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.2" ident="GROBID" when="2024-05-16T18:04+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Fujino gave a proof in <ref type="bibr" target="#b10">[Fuj03]</ref> for the semi-ampleness of the moduli part in the canonical bundle formula in the case when the general fibers are K3 surfaces or Abelian varieties. We show a similar statement when the general fibers are primitive symplectic varieties with mild singularities. This answers a question of Fujino raised in the same article. Moreover, using the structure theory of varieties with trivial first Chern class, we reduce the question of semi-ampleness in the case of families of K-trivial varieties to a question when the general fibers satisfy a slightly weaker Calabi-Yau condition.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.">Introduction</head><p>Starting from Kodaira's canonical bundle formula for minimal elliptic surfaces in <ref type="bibr" target="#b21">[Kod64]</ref>, the canonical bundle formula has been extensively studied and widely generalized (for example, by <ref type="bibr" target="#b19">[Kaw97]</ref>, <ref type="bibr" target="#b20">[Kaw98]</ref>, <ref type="bibr" target="#b1">[Amb04]</ref>, <ref type="bibr" target="#b9">[FM00]</ref>, <ref type="bibr" target="#b10">[Fuj03]</ref>, <ref type="bibr" target="#b8">[Fil20]</ref>, to list a few) and crucially used in higher dimensional adjunction. Roughly speaking, the set up is the following. Let f : X → Y be a projective morphism with connected fibers between normal projective varieties. Let ∆ be a (non necessarily effective) Q-divisor on X such that (X, ∆) is klt (or lc) and K X + ∆ ∼ Q,f 0. Then the canonical bundle formula suggests to write</p><formula xml:id="formula_0">K X + ∆ ∼ Q f * (K Y + B Y + M Y )</formula><p>in an insightful way so that, roughly speaking, B Y comes from the contribution of the singularity of the fibers, and M Y comes from the (Hodge theoretic) variation of the general fiber. Moreover, once we have f : X → Y , it makes sense to have the same formula for other birational models f ′ : X ′ → Y ′ over f so that B Y and M Y make sense as b-divisors. We call B Y the divisorial part and M Y the moduli part. After choosing a high enough model satisfying certain simple normal crossing assumptions, the moduli part commutes with generically finite base change and it is known to be nef ( <ref type="bibr" target="#b20">[Kaw98]</ref>). In the following cases for the general fibers, this nef divisor is known to be semi-ample:</p><p>(1) P 1 : <ref type="bibr" target="#b19">[Kaw97]</ref>, [PS09, Theorem 8.1] (2) Elliptic curves: <ref type="bibr" target="#b21">[Kod64]</ref>, <ref type="bibr" target="#b12">[Fuj86]</ref> (3) Surfaces with κ(X η ) = 0 or Abelian varieties: <ref type="bibr" target="#b10">[Fuj03]</ref> (4) Surfaces not isomorphic to P 2 : <ref type="bibr" target="#b8">[Fil20]</ref> (5) P 2 , and hence in relative dimension 2: [ABB + 23, Theorem 1.4].</p><p>A conjecture of Prokhorov and Shokurov [PS09, Conjecture 7.13] predicts that this would always be the case. They suggest to compactify the space parametrizing the general fibers to 2020 Mathematics Subject Classification. 14C30, 14D07, 14E30, 14J27.</p><p>a projective variety and show that the ample line bundle on the compactified moduli space pulls back to the moduli part.</p><p>Meanwhile, <ref type="bibr" target="#b8">[Fil20]</ref> gives an inductive approach to this conjecture by developing the canonical bundle formula and adjunction for generalized pairs. Using the techniques in the minimal model program, he shows that in order to verify the conjecture in relative dimension n, it is enough to verify the conjecture in relative dimension &lt; n, and the following two extremal cases in relative dimension n:</p><p>(1) f : X → Y is a Mori fiber space, or (2) K X ∼ Q,f 0, and ∆ has no horizontal divisors.</p><p>We concentrate on special situations in the second extremal case, when ∆ has no horizontal divisors. Indeed, the cases when the general fibers are K3 or Abelian varieties in <ref type="bibr" target="#b10">[Fuj03]</ref> fit into this framework. Fujino observes that the semi-ampleness in this situation reduces to a purely Hodge theoretic result, namely, by looking at the Baily-Borel compactification of the period domain, we get semi-ampleness. He raises the question whether one can use the same strategy when the fiber is a holomorphic symplectic variety. We provide an affirmative answer.</p><p>Theorem 1.1. Let f : X → Y be an algebraic fiber space, with X and Y projective normal varieties. Suppose that the general fiber is a primitive symplectic variety of dimension 2m (see Definition 2.12). Then there exists a vertical divisor ∆ on X such that f : (X, ∆) → Y is an lc-trivial fibration. The moduli part M Y does not depend on ∆ and it is b-semi-ample.</p><p>We use the same idea as in <ref type="bibr" target="#b10">[Fuj03]</ref>, namely, we consider the Baily-Borel compactification of the parametrizing space of weight 2 Hodge structures. The other input is to relate the second cohomology and the middle cohomology of the general fibers. While it is hard to determine the entire middle cohomology of the fiber, the existence of a generically non-degenerate two form is strong enough for our purpose since we are only interested in the variation of the lowest piece of the Hodge filtration.</p><p>We can combine this result with the structure theory of klt varieties with trivial first Chern class, and reduce the semi-ampleness question to the case when the general fibers satisfy a weaker Calabi-Yau condition. First, we recall the statement of the conjecture of Prokhorov and Shokurov.</p><p>Conjecture 1 ([PS09, Conjecture 7.13]). Let f : (X, ∆) → Y be an lc-trivial fibration. Then</p><p>(1) M Y is b-semi-ample.</p><p>(2) Let X η be the generic fiber of f . Then there exists an I 0 depending only on the dimension of the generic fiber and the coefficients of the horizontal part ∆ h such that</p><formula xml:id="formula_1">I 0 (K Xη + ∆ η ) ∼ 0. (3) M Y is effectively b-semi-ample,</formula><p>that is, there exists an I 1 depending only on the dimension of the generic fiber and the coefficients of</p><formula xml:id="formula_2">∆ h such that I 1 M Y is b-free.</formula><p>We present two subconjectures of the first part of [PS09, Conjecture 7.13] in our setting.</p><p>Conjecture 2. Let f : X → Y be an algebraic fiber space, with X and Y normal projective varieties. Consider a pair (X, ∆) such that K X + ∆ ∼ Q,f 0 and ∆ has no horizontal divisors. Suppose that the general fiber of f</p><p>(1) is a Calabi-Yau manifold, or (2) is a pre-CY variety (see Definition 2.11).</p><p>Then M Y is b-semi-ample.</p><p>Conjecture 3. Let f : X → Y be an algebraic fiber space as before. Consider the pair (X, ∆) such that K X + ∆ ∼ Q,f 0 and ∆ has no horizontal divisors. Suppose that the general fiber</p><p>(1) is smooth, or</p><p>(2) has klt singularities.</p><p>Then M Y is b-semi-ample.</p><p>We show the following result:</p><formula xml:id="formula_3">Theorem 1.2. Conjecture 2 (1) (resp. (2)) in reletive dimension ≤ n implies Conjecture 3 (1) (resp. (2)) in relative dimension n.</formula><p>Therefore, we reduce the b-semi-ampleness question for K-trivial fibrations to the (pre)-CY case.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.">Preliminaries</head><p>2.1. The Canonical bundle formula. We discuss the canonical bundle formula and the behavior of the moduli part under various operations, mainly following <ref type="bibr" target="#b22">[Kol07]</ref>. Before that, we collect some notation and terminology for algebraic fiber spaces.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Notation and terminology.</head><p>(1) An algebraic fiber space is a projective morphism f : X → Y between normal projective varieties with connected fibers. We put dim f = dim X − dim Y for the relative dimension of the algebraic fiber space. (2) For a Q-divisor B on a normal algebraic variety X, we write B = B + − B − where B + and B − share no irreducible components. We call B + (resp. B − ) the positive (resp. negative) part of B.</p><p>(3) Let f : X → Y be an algebraic fiber space and B be a Q-divisor on X. We write B = B h + B v where the irreducible components of B h are exactly the irreducible components of B that map onto Y . We call B h (resp. B v ) the horizontal (resp. vertical) part of B. We say B is horizontal</p><formula xml:id="formula_4">(resp. vertical) if B = B h (resp. B = B v ). (4) [Amb04] We say f : (X, ∆) → Y is an lc-trivial fibration if f : X → Y is an algebraic fiber space such that (a) K X + ∆ ∼ Q,f 0, (b) (X, ∆) is klt over the generic point of Y , and (c) If π : (X ′ , ∆ ′ ) → (X, ∆) is a log resolution, then h 0 (F ′ , ∆ ′ − | F ) = 1, where F ′ is a general fiber of f • π : X ′ → Y . 1</formula><p>(5) Let f : X → Y be an algebraic fiber space and let µ : Y ′ → Y be a projective morphism from a normal projective variety Y ′ . Let X ′ be any normal projective variety mapping birationally onto the main component</p><formula xml:id="formula_5">X ′ → (X × Y Y ′ ) main . Then we have the corresponding commutative diagram X ′ X Y ′ Y. f ′ µ ′ f µ</formula><p>We call f ′ : X ′ → Y ′ an algebraic fiber space induced by µ. (6) Let f : X → Y be an algebraic fiber space and ∆ be a divisor on X such that K X + ∆ ∼ Q,f 0. We say that f satisfies the standard normal crossing assumptions if the following conditions hold: (a) X and Y are smooth, (b) There exists an SNC divisor Σ on Y such that f is smooth over</p><formula xml:id="formula_6">Y \ Σ, (c) supp(∆) + f * Σ has SNC support, (d) ∆ is relatively SNC over Y \ Σ.</formula><p>Even though the divisors ∆ and Σ are oppressed in the terminology, we remark that they are the part of the data of the standard normal crossing assumptions. For clarity, we will sometimes say that X, Y, ∆, Σ satisfy the standard normal crossing assumptions. (7) Let f : X → Y be an algebraic fiber space satisfying the standard normal crossing assumptions. We say f is semi-stable in codimension 1 if there exists a codimension</p><formula xml:id="formula_7">≥ 2 closed subset Z of Y such that f * (Σ \ Z) is a reduced SNC divisor. In this case, the local system R i f * C X | Y \Σ has unipotent monodromy for every i by [Kat71].</formula><p>Remark 2.1. For any algebraic fiber space f : X → Y , there exists a birational morphism µ : Y ′ → Y and an algebraic fiber space f ′ : X ′ → Y ′ induced by µ such that f ′ is satisfies the standard normal crossing assumptions. Moreover, we can take a generically finite morphism µ : Y ′ → Y and an algebraic fiber space f ′ : X ′ → Y ′ induced by µ such that f ′ is semi-stable in codimension 1.</p><p>Remark 2.2. Even though there is a more general set up such as slc-trivial fibrations due to <ref type="bibr" target="#b11">[Fuj22]</ref> which is important in many applications, we are only interested here in the case of lc-trivial fibrations.</p><p>We describe the canonical bundle formula for algebraic fiber spaces. Let f : (X, ∆) → Y be an lc-trivial fibration and fix</p><formula xml:id="formula_8">L a Q-divisor on Y such that K X + ∆ ∼ Q f * L.</formula><p>For each prime divisor P on Y , we consider</p><formula xml:id="formula_9">t P = sup{t ∈ Q : (X, ∆ + tf * P ) is log-canonical over η P }.</formula><p>We define B Y = P (1 − t P )P . Note that this is a finite sum since (X, ∆) is klt over the generic point of Y . We define</p><formula xml:id="formula_10">M Y = L − K Y − B Y , so that we have K X + ∆ ∼ Q f * (K Y + B Y + M Y ).</formula><p>Remark 2.3. Note that by definition, B Y and M Y do not depend on the birational model of X. In other words, if we consider a birational morphism π : X → X such that K X + ∆ = π * (K X + ∆), then f : ( X, ∆) → Y is an lc-trivial fibration, and the B Y and M Y computed in terms of f • π : ( X, ∆) → Y agree with the ones computed in terms of f : (X, ∆) → Y .</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>For every birational morphism</head><formula xml:id="formula_11">µ : Y ′ → Y , we have a commutative diagram X ′ X Y ′ Y µ ′ f ′ f µ where µ ′ : X ′ → X is birational. If we write K X ′ + ∆ ′ = µ ′ * (K X + ∆), then we use the formula for f ′ : (X ′ , ∆ ′ ) → Y ′ and write K X ′ + ∆ ′ ∼ Q f ′ * (µ * L) = f ′ * (K Y ′ + B Y ′ + M Y ′ ). We have µ * M Y ′ = M Y and µ * B Y ′ = B Y</formula><p>and therefore, we may and will consider the divisorial part and the moduli part as b-divisors, and denote them by B Y and M Y . We point out that each M Y ′ may be well-defined only up to Q-linear equivalence, but once we fix a representative L such that</p><formula xml:id="formula_12">K X + ∆ ∼ Q f * L, then M Y is well-defined as a b-divisor.</formula><p>Remark 2.4. We collect some standard facts about the divisorial part and the moduli part from [Kol07, §8.4.]. We say that a b-divisor D on X descends to</p><formula xml:id="formula_13">X ′ if D = D X ′ . We remark that a b-divisor D on X is b-nef (resp. b-semi-ample, b-free)</formula><p>if there exists a birational model X ′ → X such that D descends to X ′ and D X ′ is nef (resp. semi-ample, free). For basic notions for b-divisors, we refer to [Cor07, Chapter 1].</p><p>(1) For an lc trivial fibration f : (X, ∆) → Y , we can take a resolution of singularities µ : Y ′ → Y and an algebraic fiber space </p><formula xml:id="formula_14">f ′ : (X ′ , ∆ ′ ) → Y ′ induced by µ such that X ′ , Y ′ , ∆ ′ , B Y ′ satisfy</formula><formula xml:id="formula_15">M Y,Y ′′ = π * M Y ′ , and K Y ′′ + B Y,Y ′′ = π * (K Y ′ + B Y ′ ).</formula><p>(2) M Y only depends on the general fiber (F, ∆| F ) and Y .</p><p>(3) Let f : (X, ∆) → Y be an lc-trivial fibration satisfying the standard simple normal crossing assumptions. Then M Y is b-nef. (4) Let f : (X, ∆) → Y be an lc-trivial fibration satisfying the standard normal crossing assumptions. Let µ : Y ′ → Y be a generically finite morphism from a smooth variety</p><formula xml:id="formula_16">Y ′ . Let X ′ X Y ′ Y µ ′ f ′ f µ</formula><p>be an algebraic fiber space induced by µ and write</p><formula xml:id="formula_17">K X ′ + ∆ ′ = µ ′ * (K X + ∆). Then, f ′ : (X ′ , ∆ ′ ) → Y ′ is an lc-trivial fibration and M Y ′ = µ * M Y .</formula><p>(5) Suppose moreover that there exists an SNC divisor Σ on Y such that f : (X, ∆) → Y satisfies the standard normal crossing assumptions and ∆ h is an integral divisor (hence −∆ h is effective). Furthermore, assume that p g (X η ) = 1 where η is the generic point of Y , and the variation of Hodge structures</p><formula xml:id="formula_18">R dim f f * C X | Y \Σ has unipotent local monodromies.</formula><p>Then M Y is the divisor class corresponding to the canonical extension of the lowest piece of the Hodge filtration of</p><formula xml:id="formula_19">R dim f f * C X | Y \Σ .</formula><p>Remark 2.5. We remark that it is enough to take a resolution of singularities and a generically finite cover of the base in order to check the b-semi-ampleness of the moduli part.</p><p>We compare our setup with the formulation in <ref type="bibr" target="#b9">[FM00]</ref> and <ref type="bibr" target="#b10">[Fuj03]</ref>. Consider an algebraic fiber space f : X → Y between smooth projective varieties. Suppose that the Kodaira dimension of the generic fiber of f is zero, that is, κ(X η ) = 0, where η is the generic point of Y . Fix b ∈ Z &gt;0 such that the b-th plurigenus of the general fiber P b (X η ) is non-zero. Then we have the following formula for the canonical bundle K X .</p><p>Proposition 2.6 ([FM00, Proposition 2.2.]). In the above situation, there exists a unique Q-divisor D on Y , modulo linear equivalence, with an isomorphism of graded O Y -algebras:</p><formula xml:id="formula_20">i≥0 O Y (⌊iD⌋) ≃ i≥0 (f * O Y (ibK X/Y )) * * . Furthermore, the isomorphism induces a Q-linear equivalence bK X ∼ Q f * (bK Y + D) + B, where B is a Q-divisor on X satisfying (1) f * O X (⌊iB + ⌋) = O Y for i &gt; 0, and (2) codim Y f (supp B − ) ≥ 2.</formula><p>Note that we recover the canonical bundle formula in this situation, since f : (X, −b −1 B) → Y is an lc-trivial fibration, and we can write</p><formula xml:id="formula_21">K X − b −1 B ∼ Q f * (K Y + B Y + M Y ).</formula><p>Remark 2.7. We point out that in this situation, there is a natural choice of ∆ h since on the general fiber F , the divisor −b∆| F is the zero locus of the unique section (up to scalar) in H 0 (F, ω ⊗b F ). Moreover, any two such ∆ that make (X, ∆) → Y as an lc-trivial fibration differ by the pull-back of a divisor on Y . Note that the moduli part M Y only depends on the general fiber (F, ∆| F ). Therefore, given a projective morphism f : X → Y between smooth projective varieties whose general fiber has Kodaira dimension zero, it makes sense to talk about the moduli part M Y without picking a divisor ∆ on X such that f : (X, ∆) → Y is an lc-trivial fibration.</p><p>We end this section by describing the behavior of the moduli part after taking a generically finite cover of the source.</p><p>Proposition 2.8 ([Fuj03, Lemma 4.1]). Let f : X → Y and h : W → Y be algebraic fiber spaces between smooth projective varieties such that (1) κ(X η ) = 0, where η is the generic point of Y , (2) there is a generically finite morphism g : W → X such that h = f • g, (3) there is an SNC divisor Σ on Y such that f and h are smooth over Y • := Y \ Σ, and (4) κ(W η ) = 0 and p g (W η ) = 1.</p><p>Let M X/Y and M W/Y be the moduli part of the canonical bundle formula coming from f : X → Y and h : W → Y respectively. Then M X/Y = M W/Y . Remark 2.9. We point out that there is a difference of a multiple of b in the formula from <ref type="bibr" target="#b10">[Fuj03]</ref>, where b is the smallest number such that the plurigenus P b (X η ) is non-zero. This is because the semi-stable part denoted by L ss X/Y in <ref type="bibr" target="#b10">[Fuj03]</ref> actually equals bM X/Y in our situation.</p><p>2.2. The Structure theorem for K-trivial klt varieties. We recall the structure theorem for K-trivial varieties, starting from the decomposition theorem of Beauville-Bogomolov and its singular generalization. Roughly speaking, this theorem suggests to study K-trivial varieties by studying three different special types of varieties.</p><p>Theorem 2.10. <ref type="bibr" target="#b4">[Bea83]</ref> Let X be a Kähler manifold with c 1 (K X ) = 0 ∈ H 2 (X, R). Then X admits a finite étale cover γ : X → X such that X decomposes as</p><formula xml:id="formula_22">X ≃ A × j∈J Y j × k∈K Z k such that</formula><p>(1) A is an Abelian variety;</p><p>(2) Y j are irreducible hyperkähler manifolds;</p><p>(3) Z k are Calabi-Yau manifolds.</p><p>We introduce a remarkable generalization of this result to singular varieties, due to <ref type="bibr" target="#b17">[HP19]</ref> and a series of works including <ref type="bibr" target="#b13">[GGK19]</ref>, <ref type="bibr" target="#b7">[Dru18]</ref>, <ref type="bibr" target="#b15">[GKP16]</ref>. We first define the singular analogues of irreducible hyperkähler manifolds and Calabi-Yau manifolds, in the sense of <ref type="bibr" target="#b13">[GGK19]</ref>. We also introduce weaker versions of these notions. Definition 2.11. Let X be a normal projective variety of dimension n ≥ 2. We say (1) X is CY (Calabi-Yau) if X has Gorenstein canonical singularities with ω X ≃ O X , and if H 0 (Y, Ω</p><p>[p] Y ) = 0 for all covers γ : Y → X which are étale in codimension 1 and for all 1 ≤ p ≤ n − 1.</p><p>(1)' X is pre-CY (pre-Calabi-Yau) if X has Gorenstein canonical singularities with ω X ≃ O X , and if H 0 (X, Ω</p><p>[p] X ) = 0 for all 1 ≤ p ≤ n − 1. (2) X is IHS (irreducible holomorphic symplectic) if X has Gorenstein canonical singularities with ω X ≃ O X , and if there exists a holomorphic 2-form σ ∈ H 0 (X, Ω</p><p>X ) such that for all covers γ : Y → X étale in codimension 1, the exterior algebra</p><formula xml:id="formula_24">H 0 (Y, Ω [•]</formula><p>Y ) is generated by the reflexive pull-back of σ.</p><p>Following <ref type="bibr" target="#b3">[Bea00]</ref>, we also give a slightly general class of symplectic varieties than those appearing in the decomposition theorem. Definition 2.12. A normal projective variety X is primitive symplectic if (1) H 1 (X, O X ) = 0 and H 0 (X, Ω</p><p>[2] X ) = Cσ, where σ is non-degenerate on the smooth locus X reg , and (2) there exists a resolution of singularities π : Y → X such that the the pull back of σ| Xreg extends to a holomorphic 2-form on Y .</p><p>Remark 2.13. Let X be a primitive symplectic variety of dimension 2m and σ be the symplectic form. Then ω X ≃ O X since it is trivialized by σ m and therefore X is Gorenstein. We point out that the second condition on Definition 2.12 is equivalent to X having canonical singularities by [GKKP11, Theorem 1.4]. Pick any resolution of singularities π : X → X and let σ be the holomorphic 2-form on X extending π * σ| Xreg . Note that in this case, we have</p><formula xml:id="formula_25">h 2,0 ( X) = h 0,2 ( X) = 1.</formula><p>Note that there is a natural morphism of Hodge structures µ</p><formula xml:id="formula_26">: Sym m H 2 ( X, Q) → H 2m ( X, Q).</formula><p>We observe that ker µ is a Hodge structure of weight 2m that does not have a (2m, 0) part since σ is generically non-degenerate. We also point out that if X itself is a smooth hyperkähler manifold, then the natural morphism µ for X is injective by <ref type="bibr" target="#b25">[Ver96]</ref>.</p><p>Remark 2.14. We will use the following convention for Calabi-Yau manifolds. A smooth projective variety</p><formula xml:id="formula_27">X of dimension n is a Calabi-Yau manifold if ω X ≃ O X and dim C H k,0 (X) = 1 if k = 0, n 0 otherwise.</formula><p>This condition is weaker than the condition appearing in Beauville's decomposition theorem (see <ref type="bibr" target="#b4">[Bea83,</ref><ref type="bibr">Proposition 2]</ref>). However, we point out that if X is a holomorphic symplectic manifold of dimension 2m with</p><formula xml:id="formula_28">dim C H k,0 (X) = 1 k is even 0 k is odd,</formula><p>then X is automatically simply connected, and hence irreducible holomorphic symplectic (see [HNW11, Proposition A.1]).</p><p>We finally introduce the generalization of the Beauville-Bogomolov decomposition to the singular case.</p><p>Theorem 2.15 ([HP19, Theorem 1.5]). Let X be a normal projective variety with at worst klt singularities such that c 1 (K X ) = 0. Then there exists a projective variety X ′ with at worst canonical singularities, with a quasi-étale (which means quasi-finite and étale in codimension one) map γ : X ′ → X and a decomposition</p><formula xml:id="formula_29">X ′ ≃ A × j∈J Y j × k∈K Z k ,</formula><p>into normal varieties with trivial canonical bundles, such that (1) A is an Abelian variety;</p><p>(2) Y j are irreducible holomorphic symplectic varieties;</p><p>(3) Z k are Calabi-Yau varieties.</p><p>2.3. Summary of Fujino's result for K3 surfaces. We briefly summarize the Hodge theoretic results used in <ref type="bibr" target="#b10">[Fuj03,</ref><ref type="bibr">§2]</ref>. Let B be a smooth projective variety and Σ be an SNC divisor on B. Let B • = B \ Σ and consider a polarized Z-variation of Hodge structures of weight 2 on B • with the following numerical conditions:</p><formula xml:id="formula_30">h 2,0 = h 0,2 = 1, h 1,1 = g ≥ 3,</formula><p>and h p,q = 0 otherwise.</p><p>We furthermore assume that the local monodromies around Σ are unipotent and there exists a neat arithmetic group Γ containing the local monodromy operators around Σ. Then we have the period map ℘ • : B • → D/Γ and in this case, D is a bounded hermitian symmetric domain. By Borel's extension theorem <ref type="bibr" target="#b5">[Bor72]</ref>, the holomorphic map ℘ • extends to B as</p><formula xml:id="formula_31">℘ : B → (D/Γ) BB</formula><p>where (D/Γ) BB is the Baily-Borel compactification of D/Γ ([BB66]) which is a normal analytic space. The tautological sub-bundle on D descends to a line bundle L on D/Γ. The sections of L ⊗gk can be identified with automorphic forms of weight k (which are Γ-equivariant kpluricanonical forms on D). For some k &gt; 0, the automorphic forms give an embedding of D/Γ in a projective space, and the automorphic forms can be continuously (hence analytically) extended to (D/Γ) BB . Moreover, these extended automorphic forms define a projective embedding of (D/Γ) BB . Hence, L ⊗gk extends to an ample line bundle O (D/Γ) BB (1) on (D/Γ) BB . On the other hand, from the variation of Hodge structures, we have the associated vector bundle H on B • with a filtration F • . By the nilpotent orbit theorem, the canonical extension H of H is a vector bundle on B which carries a filtration F • by vector bundles extending the filtration on H. By definition, we have the natural identification (℘</p><formula xml:id="formula_32">• ) * L ≃ F 2 H. [Fuj03,</formula><p>Theorem 2.10] says that the lowest piece of the filtration on the canonical extension H and the ample line bundle on (D/Γ) BB are compatible. In other words, we have</p><formula xml:id="formula_33">℘ * O (D/Γ) BB (1) ≃ (F 2 H) ⊗gk .</formula><p>In particular, this shows that F 2 H is a semi-ample line bundle on B.</p><p>Remark 2.16. [Fuj03, §2] has a parallel statement dealing with variations of Hodge structures of weight 1 which covers the case when the general fiber is an Abelian variety.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.">Proof of Theorem 1.1</head><p>We give a proof of Theorem 1.1.</p><p>Proof of Theorem 1.1. All other assertions except b-semi-ampleness are clear. By Remark 2.5, we can take a generically finite base change of Y and resolve singularities. Hence, we can assume that we have a morphism f ′ : X ′ → Y ′ between smooth projective varieties and we have a divisor ∆ ′ on X ′ such that f ′ : (X ′ , ∆ ′ ) → Y ′ is an lc-trivial fibration. We can furthermore assume that the followings hold:</p><p>(1) there exists an SNC divisor Σ ′ on Y ′ such that f ′ is smooth over Y ′ \ Σ ′ , and</p><p>(2) X ′ , Y ′ , ∆ ′ , Σ ′ satisfy the standard normal crossing assumptions, and f ′ is semi-simple in codimension 1, and (3) every fiber</p><formula xml:id="formula_34">X ′ y of f ′ for y ∈ Y ′ \ Σ admits a unique holomorphic 2-form σ y ∈ H 0 (X ′ y , Ω 2 X ′ y ) which is generically non-degenerate, and (4) h 1,1 (X ′ y ) ≥ 3 (by blowing-up X ′ further). 2</formula><p>Note that in this case, the local monodromies of</p><formula xml:id="formula_35">R 2 f ′ * C X ′ | Y ′ \Σ ′ and R 2m f ′ * C X ′ | Y ′ \Σ ′ around Σ ′ are unipotent. It is enough to show that M Y ′ is semi-ample.</formula><p>Since the general fibers of f : X → Y have Gorenstein canonical singularities, −∆ ′ h is effective and integral. Hence, we are exactly in the situation in Remark 2.4 (5). Hence, M Y ′ is the divisor class of the canonical extension of the lowest piece of the Hodge filtration of the variation of Hodge structures 2 We point out that it is important to allow negative coefficients for ∆ ′h in the canonical bundle formula since we are blowing-up X ′ further.</p><formula xml:id="formula_36">R 2m f ′ * C X ′ | Y ′ \Σ ′ .</formula><p>We denote by V (2) and V (2m) the polarizable variations of Hodge structures</p><formula xml:id="formula_37">R 2 f ′ * C X ′ | Y ′ \Σ ′ and R 2m f ′ * C X ′ | Y ′ \Σ ′ . 3</formula><p>Then we have a natural morphism of variations of Hodge structures µ : Sym m V (2) → V (2m) . Then we have non-canonical splittings</p><formula xml:id="formula_38">Sym m V (2) ≃ ker µ ⊕ im µ V (2m) ≃ im µ ⊕ B</formula><p>where ker µ, im µ, and B are polarizable variations of Hodge structures. By Remark 2.13, ker µ and B do not have (2m, 0)-part. We denote by (H (2) , F • ), (H, F • ), and (H (2m) , F • ) the filtered vector bundles associated to the variations of Hodge structures V (2) , im µ, and V (2m) . Denote by H (2) , H, and H (2m) the canonical extensions of H (2) , H, and H (2m) , respectively. Since B does not have a (2m, 0)-part, we get</p><formula xml:id="formula_39">F 2m H ≃ F 2m H (2m) .</formula><p>We also have F 2m H ≃ (F 2 H (2) ) ⊗m by Lemma 3.1 below and since ker µ does not have a (2m, 0)-part. Then [Fuj03, Theorem 2.10] immediately implies that F 2 H (2) is semi-ample, and therefore, F 2m H (2m) is semi-ample as well. Since M Y ′ is a divisor class of this line bundle, we are done.</p><p>Lemma 3.1. Let Y be a smooth complex manifold and Σ be an SNC divisor on Y . Let V be a polarizable variation of Hodge structures of weight 2 on Y \ Σ, with Hodge numbers h 2,0 = h 0,2 = 1, and h p,q = 0 if p &lt; 0 or p &gt; 2.</p><p>Suppose that V has unipotent local monodromies along Σ. Let H and H ′ be the filtered vector bundles associated to the variations of Hodge structures V and Sym m V, respectively. Denote by H and H ′ be the canonical extensions of H and H ′ , respectively. Then we have</p><formula xml:id="formula_40">(F 2 H) ⊗m ≃ F 2m H ′ .</formula><p>Proof. We fix a polarization on V and denote the hermitian metric on H by h. We have the induced metric h ′ on H ′ . Note that there is a canonical isomorphism (F 2 H) ⊗m ≃ F 2m H ′ between line bundles on Y \Σ. Fix local coordinates z 1 , . . . , z n on an open subset Ω ⊂ Y such that Ω ≃ {(z 1 , . . . , z n ) ∈ C n : |z i | &lt; 1} and Σ ∩ Ω is given by the equation z 1 • • • z l = 0. Since V and Sym m V both have unipotent local monodromies, we have the following description of the local sections of F 2 H and F 2m H ′ using the estimation of Hodge norms by <ref type="bibr" target="#b24">[Sch73,</ref><ref type="bibr">§6]</ref>:</p><formula xml:id="formula_41">Γ(Ω, F 2 H) = s ∈ Γ(Ω \ Σ, F 2 H) : s 2 h = O l i=1 | log z i | N i for some N i &gt; 0 Γ(Ω, F 2m H ′ ) = s ′ ∈ Γ(Ω \ Σ, F 2m H ′ ) : s ′ 2 h ′ = O l i=1 | log z i | N ′ i for some N ′ i &gt; 0 . Since s ⊗m 2 h ′ = s 2m h , the isomorphism (F 2 H) ⊗m ≃ F 2m H ′ extends to (F 2 H) ⊗m ≃ F 2m H ′ .</formula><p>3 We point out that we should first fix a relatively ample class for f ′ : X ′ → Y ′ to give a polarization on the variations of Hodge structures V (2) and V (2m) due to a subtlety of signs in the polarization for primitive and non-primitive parts, but this does not cause a problem throughout the argument.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.">Proof of Theorem 1.2</head><p>We give a proof of Theorem 1.2.</p><p>Proof of Theorem 1.2. We first consider the case when the general fiber is smooth. By resolving singularities, we can assume that X and Y are both smooth, and the geometric general fiber has trivial first Chern class. By <ref type="bibr" target="#b4">[Bea83]</ref>, after taking a generically finite base change of Y , we can assume that there are algebraic fiber spaces h :</p><formula xml:id="formula_42">W → Y , p : A → Y, {q j : Y j → Y } a j=1 , {r k : Z k → Y } b k=1</formula><p>satisfying the following conditions:</p><p>(1) h factors as</p><formula xml:id="formula_43">W g − → X f − → Y ,</formula><p>where g is a generically finite morphism. (2) There exists an SNC divisor Σ on Y such that f, h, p, q j , r k are smooth over Y • = Y \Σ.</p><p>(3) Over Y • , the fiber spaces p, q j , r k 's are families of Abelian varieties, irreducibe hyperkähler manifolds, and Calabi-Yau manifolds, respectively. (4) Denote the inverse images of Y</p><formula xml:id="formula_44">• by W • , A • , Y • j , and Z • k . Then there is an isomorphism W • ≃ A • × Y • Y • 1 × Y • . . . × Y • Y • a × Y • Z • 1 × Y • . . . × Y • Z • b over Y • . (5) The variations of Hodge structures R dim h h * C W • , R dim p p * C A • , R dim q j q j * C Y • j , and R dim r k r k * C Z •</formula><p>k have unipotent local monodromies around Σ. By Proposition 2.8, it is enough to show that the moduli part M W/Y associated to h : W → Y is semi-ample. Applying the Künneth formula and the realization of the moduli part as a canonical extension of the lowest piece of the Hodge filtration, we get</p><formula xml:id="formula_45">M W/Y = M A/Y + a j=1 M Y j /Y + b k=1 M Z k /Y ,</formula><p>where M A/Y , M Y j /Y , and M Z k are the moduli parts associated to the fiber spaces p, q j , and r k , respectively. By [Fuj03, Theorem 5.1] and Theorem 1.1, we know that M A/Y and M Y j /Y are semi-ample. Hence, Conjecture 2 (1) in relative dimension ≤ n implies Conjecture 3 (1) in relative dimension n.</p><p>We deal with the singular case similarly. By applying Theorem 2.15 to the geometric generic fiber X η , we get the following diagram:</p><formula xml:id="formula_46">X X ′′′ X ′′ X ′ X η π µ 1 h µ 2 µ 3 such that (1) π : X → X η is a resolution of singularities, (<label>2</label></formula><p>) µ 3 is a generically finite morphism such that</p><formula xml:id="formula_47">X ′ ≃ A × a j=1 Y j × b k=1 Z k ,</formula><p>where A is an Abelian variety, Y j are IHS varieties, and Z k are CY varieties,</p><p>(3) φ j : Y j → Y j and ϕ k : Z k → Z k are resolutions of singularities and</p><formula xml:id="formula_48">X ′′ ≃ A × a j=1 Y j × b k=1 Z k</formula><p>such that X ′′ → X ′ is induced by the maps φ j and ϕ k 's. (4) X ′′′ is smooth and µ 1 : X ′′′ → X ′′ is a birational morphism resolving the indeterminacy of the rational map from X ′′ to X.</p><p>After replacing Y with a generically finite cover of Y and resolving singularities, we can assume that Y is smooth, and there exist an SNC divisor Σ and algebraic fiber spaces</p><formula xml:id="formula_49">p : A → Y , {q j : Y j → Y } a j=1 , { q j : Y j → Y } a j=1 , {r k : Z k → Y } b k=1 , and { r k : Z k → Y } b k=1 over Y , and a commutative diagram X X ′′′ X ′′ X ′ X Y f π µ 1 h µ 2 µ 3 f</formula><p>satisfying the following conditions:</p><p>(1) π : X → X is a resolution of singularities, and f satisfies the standard normal crossing assumptions.</p><p>(2) For every point y ∈ Y \ Σ, the fibers of p, q j , and r k over y are Abelian varieties, primitive symplectic varieties, and pre-CY varieties, respectively. (3) µ 3 : X ′ → X is a generically finite morphism and if we denote by X ′ • , A • , Y • j , Z • k the corresponding inverse images of Y • , then we have an isomorphism</p><formula xml:id="formula_50">X ′ • ≃ A • × Y • Y • 1 × Y • . . . × Y • Y • a × Y • Z • 1 × Y • . . . × Y • Z • b over Y • . (<label>4</label></formula><p>) µ 2 is a birational morphism from a smooth projective variety X ′′ , and if we denote the inverse images of Y • similarly, we have an isomorphism and a commutative diagram</p><formula xml:id="formula_51">X ′′ • A • × Y • Y • 1 × Y • . . . × Y • Y • a × Y • Z • 1 × Y • . . . × Y • Z • b X ′ • A • × Y • Y • 1 × Y • . . . × Y • Y • a × Y • Z • 1 × Y • . . . × Y • Z • b , ≃ µ 2 ≃</formula><p>where the right vertical map is induced by the morphisms φ j : Y j → Y j and ϕ k : Z k → Z k over Y such that for each point y ∈ Y • , the morphisms φ j and ϕ k , restricted to the fibers over y, give resolutions of singularities. (5) µ 1 is a birational morphism, h is a generically finite morphism, and f • h satisfies the standard normal crossing assumptions. (6) The variations of Hodge structures R dim p p * C A • , R dim q j q j * C Y Remark 4.1. Note that we used wider classes of varieties when we passed from the properties of geometric generic fiber to those of the general fiber. This is because the definitions of IHS and CY in [GGK19, Definition 1.3] have a condition on the reflexive Hodge numbers for 'every' étale in codimension 1 cover, which involves a priori infinite data. It is also not clear to use the description of IHS and CY using holonomy groups in the sense of <ref type="bibr" target="#b13">[GGK19,</ref><ref type="bibr">Proposition 12</ref>.10] since one should choose an abstract field isomorphism C ≃ k(η) in order to perform such a decomposition in the proof of Theorem 1.2. It would be interesting if one could overcome this technical point.</p><formula xml:id="formula_52">• j , R dim r k r k * C Z • k , R dim f f * C X • ,</formula></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head></head><label></label><figDesc>andR dim f ( f • h) * C X ′′′• have unipotent local monodromies along Σ. Note that M X/Y = M X/Y = M X ′′′ /Y = M X ′′ /Y by Proposition 2.8 and Remark 2.3. Note that M X ′′ /Y = M A/Y + a j=1 M Y j /Y + b k=1 M Z k /Y = M A/Y + a j=1 M Y j /Y + b k=1 M Z k /Y .We already know that M A/Y and M Y j /Y are semi-ample. Therefore, Conjecture 2 (2) in relative dimension ≤ n implies Conjecture 3 (2) in relative dimension n.</figDesc></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="1" xml:id="foot_0">This is equivalent to the condition rank f * OX (⌈A(X, ∆)⌉) = 1 in [Amb04, Definition</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="2" xml:id="foot_1">.1].</note>
+		</body>
+		<back>
+
+			<div type="acknowledgement">
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Acknowledgements. The author would like to thank his advisor Mircea Mustat ¸ȃ for support and helpful discussions. The author would also like to thank Osamu Fujino and Stefano Filipazzi for useful comments and answering his questions.</p></div>
+			</div>
+
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<monogr>
+		<author>
+			<persName><forename type="first">Dori</forename><surname>Abb + 23] Kenneth Ascher</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Harold</forename><surname>Bejleri</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Kristin</forename><surname>Blum</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Giovanni</forename><surname>Devleming</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yuchen</forename><surname>Inchiostro</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Xiaowei</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Wang</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:2307.06522</idno>
+		<title level="m">Moduli of boundary polarized calabi-yau pairs</title>
+				<imprint>
+			<date type="published" when="2023">2023</date>
+			<biblScope unit="page">1</biblScope>
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">Shokurov&apos;s boundary property</title>
+		<author>
+			<persName><forename type="first">Florin</forename><surname>Ambro</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">J. Differential Geom</title>
+		<imprint>
+			<biblScope unit="volume">67</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page">3</biblScope>
+			<date type="published" when="2004">2004. MR2153078</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">Compactification of arithmetic quotients of bounded symmetric domains</title>
+		<author>
+			<persName><forename type="first">W</forename><forename type="middle">L</forename><surname>Baily</surname><genName>Jr</genName></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Borel</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Ann. of Math</title>
+		<imprint>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="442" to="528" />
+			<date type="published" when="1966">1966</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">Symplectic singularities</title>
+		<author>
+			<persName><forename type="first">Arnaud</forename><surname>Beauville</surname></persName>
+		</author>
+		<idno>MR1738060 ↑7</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Invent. Math</title>
+		<imprint>
+			<biblScope unit="volume">139</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="541" to="549" />
+			<date type="published" when="2000">2000</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">Variétés Kähleriennes dont la première classe de Chern est nulle</title>
+	</analytic>
+	<monogr>
+		<title level="j">J. Differential Geom</title>
+		<imprint>
+			<biblScope unit="volume">18</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page">11</biblScope>
+			<date type="published" when="1983">1983</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">Some metric properties of arithmetic quotients of symmetric spaces and an extension theorem</title>
+		<author>
+			<persName><forename type="first">Armand</forename><surname>Borel</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">J. Differential Geometry</title>
+		<imprint>
+			<biblScope unit="volume">6</biblScope>
+			<biblScope unit="page" from="543" to="560" />
+			<date type="published" when="1972">1972</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+	</analytic>
+	<monogr>
+		<title level="m">Flips for 3-folds and 4-folds</title>
+		<title level="s">Oxford Lecture Series in Mathematics and its Applications</title>
+		<editor>
+			<persName><forename type="first">Alessio</forename><surname>Corti</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Oxford</addrLine></address></meeting>
+		<imprint>
+			<publisher>Oxford University Press</publisher>
+			<date type="published" when="2007">2007. MR2352762 ↑5</date>
+			<biblScope unit="volume">35</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">A decomposition theorem for singular spaces with trivial canonical class of dimension at most five</title>
+		<author>
+			<persName><forename type="first">Stéphane</forename><surname>Druel</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Invent. Math</title>
+		<imprint>
+			<biblScope unit="volume">211</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="245" to="296" />
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">On a generalized canonical bundle formula and generalized adjunction</title>
+		<author>
+			<persName><forename type="first">Stefano</forename><surname>Filipazzi</surname></persName>
+		</author>
+		<idno>1187-1221. MR4288631</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Ann. Sc. Norm. Super. Pisa Cl. Sci</title>
+		<imprint>
+			<biblScope unit="volume">1</biblScope>
+			<biblScope unit="issue">5</biblScope>
+			<biblScope unit="page">21</biblScope>
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">A canonical bundle formula</title>
+		<author>
+			<persName><forename type="first">Osamu</forename><surname>Fujino</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Shigefumi</forename><surname>Mori</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">J. Differential Geom</title>
+		<imprint>
+			<biblScope unit="volume">56</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page">6</biblScope>
+			<date type="published" when="2000">2000</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">A canonical bundle formula for certain algebraic fiber spaces and its applications</title>
+		<author>
+			<persName><forename type="first">Osamu</forename><surname>Fujino</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">MR2019523 ↑1</title>
+				<meeting><address><addrLine>2, 6, 7, 8, 9</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2003">2003</date>
+			<biblScope unit="volume">172</biblScope>
+			<biblScope unit="page">11</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">Fundamental properties of basic slc-trivial fibrations I</title>
+	</analytic>
+	<monogr>
+		<title level="j">Publ. Res. Inst. Math. Sci</title>
+		<imprint>
+			<biblScope unit="volume">58</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="473" to="526" />
+			<date type="published" when="2022">2022</date>
+		</imprint>
+	</monogr>
+	<note>MR4458545 ↑4</note>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">Zariski decomposition and canonical rings of elliptic threefolds</title>
+		<author>
+			<persName><forename type="first">Takao</forename><surname>Fujita</surname></persName>
+		</author>
+		<idno>MR816221 ↑1</idno>
+	</analytic>
+	<monogr>
+		<title level="j">J. Math. Soc. Japan</title>
+		<imprint>
+			<biblScope unit="volume">38</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="19" to="37" />
+			<date type="published" when="1986">1986</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">Klt varieties with trivial canonical class: holonomy, differential forms, and fundamental groups</title>
+		<author>
+			<persName><forename type="first">Daniel</forename><surname>Greb</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Henri</forename><surname>Guenancia</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Stefan</forename><surname>Kebekus</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Geom. Topol</title>
+		<imprint>
+			<biblScope unit="volume">23</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page">13</biblScope>
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">Differential forms on log canonical spaces</title>
+		<author>
+			<persName><forename type="first">Daniel</forename><surname>Greb</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Stefan</forename><surname>Kebekus</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Sándor</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Thomas</forename><surname>Kovács</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Peternell</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Publ. Math. Inst. Hautes Études Sci</title>
+		<imprint>
+			<biblScope unit="volume">114</biblScope>
+			<biblScope unit="page" from="87" to="169" />
+			<date type="published" when="2011">2011</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<monogr>
+		<title level="m" type="main">Singular spaces with trivial canonical class, Minimal models and extremal rays</title>
+		<author>
+			<persName><forename type="first">Daniel</forename><surname>Greb</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Stefan</forename><surname>Kebekus</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Thomas</forename><surname>Peternell</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2011">2011. 2016</date>
+			<biblScope unit="page" from="67" to="113" />
+			<pubPlace>Kyoto</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<analytic>
+		<title level="a" type="main">Remarks on derived equivalences of Ricci-flat manifolds</title>
+		<author>
+			<persName><forename type="first">Daniel</forename><surname>Huybrechts</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Marc</forename><surname>Nieper-Wisskirchen</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Math. Z</title>
+		<imprint>
+			<biblScope unit="volume">267</biblScope>
+			<biblScope unit="issue">3-4</biblScope>
+			<biblScope unit="page" from="939" to="963" />
+			<date type="published" when="2011">2011</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<analytic>
+		<title level="a" type="main">Algebraic integrability of foliations with numerically trivial canonical bundle</title>
+		<author>
+			<persName><forename type="first">Andreas</forename><surname>Höring</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Thomas</forename><surname>Peternell</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Invent. Math</title>
+		<imprint>
+			<biblScope unit="volume">216</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="395" to="419" />
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<analytic>
+		<title level="a" type="main">The regularity theorem in algebraic geometry</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Nicholas</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Katz</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Actes du Congrès International des Mathématiciens</title>
+				<meeting>s du Congrès International des Mathématiciens<address><addrLine>Nice</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="1970">1970. 1971</date>
+			<biblScope unit="page" from="437" to="443" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<monogr>
+		<title level="m" type="main">Subadjunction of log canonical divisors for a subvariety of codimension 2, Birational algebraic geometry</title>
+		<author>
+			<persName><forename type="first">Yujiro</forename><surname>Kawamata</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="1996">1996. 1997</date>
+			<biblScope unit="page" from="79" to="88" />
+			<pubPlace>Baltimore, MD</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<analytic>
+		<title level="a" type="main">Subadjunction of log canonical divisors. II</title>
+	</analytic>
+	<monogr>
+		<title level="j">Amer. J. Math</title>
+		<imprint>
+			<biblScope unit="volume">120</biblScope>
+			<biblScope unit="issue">5</biblScope>
+			<biblScope unit="page" from="893" to="899" />
+			<date type="published" when="1998">1998</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<analytic>
+		<title level="a" type="main">On the structure of compact complex analytic surfaces. I, Amer</title>
+		<author>
+			<persName><forename type="first">K</forename><surname>Kodaira</surname></persName>
+		</author>
+		<idno>MR187255 ↑1</idno>
+	</analytic>
+	<monogr>
+		<title level="j">J. Math</title>
+		<imprint>
+			<biblScope unit="volume">86</biblScope>
+			<biblScope unit="page" from="751" to="798" />
+			<date type="published" when="1964">1964</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<monogr>
+		<title level="m" type="main">Kodaira&apos;s canonical bundle formula and adjunction, Flips for 3-folds and 4-folds</title>
+		<author>
+			<persName><forename type="first">János</forename><surname>Kollár</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2007">2007. MR2359346</date>
+			<biblScope unit="volume">3</biblScope>
+			<biblScope unit="page">5</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b23">
+	<analytic>
+		<title level="a" type="main">Towards the second main theorem on complements</title>
+		<author>
+			<persName><forename type="middle">G</forename><surname>Yu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><forename type="middle">V</forename><surname>Prokhorov</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Shokurov</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">J. Algebraic Geom</title>
+		<imprint>
+			<biblScope unit="volume">18</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="151" to="199" />
+			<date type="published" when="2009">2009. MR2448282</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b24">
+	<analytic>
+		<title level="a" type="main">Variation of Hodge structure: the singularities of the period mapping</title>
+		<author>
+			<persName><forename type="first">Wilfried</forename><surname>Schmid</surname></persName>
+		</author>
+		<idno>MR382272 ↑10</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Invent. Math</title>
+		<imprint>
+			<biblScope unit="volume">22</biblScope>
+			<biblScope unit="page" from="211" to="319" />
+			<date type="published" when="1973">1973</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b25">
+	<analytic>
+		<title level="a" type="main">Cohomology of compact hyper-Kähler manifolds and its applications</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Verbitsky</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Geom. Funct. Anal</title>
+		<imprint>
+			<biblScope unit="volume">6</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="601" to="611" />
+			<date type="published" when="1996">1996</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

@@ -1,0 +1,1030 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Safety Assessment of Electromagnetic Environmental Exposure for GPS Antenna of Electric Vehicle</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher>Hindawi Limited</publisher>
+				<availability status="unknown"><p>Copyright Hindawi Limited</p>
+				</availability>
+				<date type="published" when="2024-04-29">29 April 2024</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Siyu</forename><surname>Shang</surname></persName>
+							<idno type="ORCID">0009-0005-8241-493X</idno>
+							<affiliation key="aff0">
+								<orgName type="laboratory">Key Laboratory of Opto-Electronic Technology and Intelligent Control of Ministry of Education</orgName>
+								<orgName type="institution">Lanzhou Jiao Tong University</orgName>
+								<address>
+									<addrLine>88 West Anning Road</addrLine>
+									<postCode>730070</postCode>
+									<settlement>Anning District, Lanzhou</settlement>
+									<country key="CN">China</country>
+								</address>
+							</affiliation>
+						</author>
+						<author role="corresp">
+							<persName><forename type="first">Mai</forename><surname>Lu</surname></persName>
+							<email>mai.lu@hotmail.com</email>
+							<idno type="ORCID">0000-0001-7192-9771</idno>
+							<affiliation key="aff0">
+								<orgName type="laboratory">Key Laboratory of Opto-Electronic Technology and Intelligent Control of Ministry of Education</orgName>
+								<orgName type="institution">Lanzhou Jiao Tong University</orgName>
+								<address>
+									<addrLine>88 West Anning Road</addrLine>
+									<postCode>730070</postCode>
+									<settlement>Anning District, Lanzhou</settlement>
+									<country key="CN">China</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Safety Assessment of Electromagnetic Environmental Exposure for GPS Antenna of Electric Vehicle</title>
+					</analytic>
+					<monogr>
+						<title level="j" type="main">International Journal of Antennas and Propagation</title>
+						<title level="j" type="abbrev">International Journal of Antennas and Propagation</title>
+						<idno type="ISSN">1687-5869</idno>
+						<idno type="eISSN">1687-5877</idno>
+						<imprint>
+							<publisher>Hindawi Limited</publisher>
+							<biblScope unit="volume">2024</biblScope>
+							<biblScope unit="page" from="1" to="21"/>
+							<date type="published" when="2024-04-29">29 April 2024</date>
+						</imprint>
+					</monogr>
+					<idno type="MD5">ACF3BAD2CA3E517E78078E02C22102E2</idno>
+					<idno type="DOI">10.1155/2024/3192747</idno>
+					<note type="submission">Received 7 December 2023; Revised 29 January 2024; Accepted 3 April 2024;</note>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.2" ident="GROBID" when="2024-05-16T18:04+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Te present GPS (global positioning system) is widely used in electric vehicle navigation; it is usually installed in the middle-torear position on the car's roof, near the rear windshield. Since the GPS antenna operating frequency is 1.575 GHz, the health risk of the passengers in the car in this high-frequency electromagnetic exposure is a matter of concern. In this paper, we construct models for a GPS antenna, an electric vehicle, and a human body. Trough the multiphysics feld coupling calculation in COMSOL Multiphysics, a fnite element simulation software, in both frequency domain and transient analysis, we obtain the electric feld strength distribution, specifc absorption rate, and temperature distribution of the human body at three positions inside the electric vehicle after being exposed to the GPS antenna radiation for 30 minutes. Te peak human-induced electric feld is 18.4 V/m, and the peak specifc absorption rate is 0.193 W/kg. Te 30 minute average maximum human-induced electric feld is 1.6906 V/m, which is 3.1% of the ICNIRP limit, the 30 minute average whole-body SAR is 0.0036 W/kg, which is 4.5% of the ICNIRP limit, and the 30 minute average human core temperature rise is 0.06 °C, which is 6% of the ICNIRP limit. In addition, we simulate the impact of three diferent vehicle shell materials on the level of electromagnetic exposure to the human body, which can provide reference for electromagnetic shielding design in automobiles. Te results indicate that the induced electric feld strength, specifc absorption rate (SAR), and temperature rise in various parts of the human body did not exceed the standard limits in the latest version of ICNIRP. Tis suggests that the electromagnetic exposure from the GPS antenna in a typical automotive environment does not pose a threat to human health.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.">Introduction</head><p>In recent years, under the strong support and promotion of national policies, new energy electric vehicles have emerged, and antenna is an important part of the radio communication and detection system in electric vehicles. Te GPS antenna used in electric vehicles emits high-frequency radiation, which has led to increasing concerns about the biological efects of exposure to high-frequency and radio-frequency electromagnetic felds in the range of 100 kHz to 300 GHz. GPS has 24 satellites, including 21 working satellites and 3 backup satellites, and theoretically GPS receivers should be able to receive signals from 4 to 11 satellites at any location on Earth at any time; therefore, the system can provide accurate and continuous three-dimensional position, velocity, and time information to users with appropriate receivers. Te GPS antenna used in electric vehicles operates at a transmission frequency of 1575.42 MHz (L1 band) and 1227.6 MHz (L2 band), providing separate services for civil and military use, respectively. Circularly polarized microstrip antennas are commonly used as GPS antennas due to their lightweight, cost-efectiveness, and ability to provide omnidirectional coverage, making them popular in radar systems and mobile satellite communication as well. Tese antennas ofer the advantage of enabling an omnidirectional orientation between the transmitter and receiver, allowing for efcient signal reception and transmission <ref type="bibr" target="#b0">[1,</ref><ref type="bibr" target="#b1">2]</ref>. In the 1970s, microstrip antennas emerged as a new antenna concept. Subsequently, microstrip antennas studied by R. E. Munson and J. Q. Howell were applied as conformal omnidirectional antennas on rockets and missiles. With further research, microstrip antennas have been widely used in broadband radio devices ranging from 100 MHz to 100 GHz, particularly in aircraft and electric vehicles.</p><p>In electric vehicles, where passengers sit very close to the electrical system and antennas, the high currents generated in these vehicles mean that passengers may be exposed to signifcant electromagnetic felds <ref type="bibr" target="#b2">[3]</ref>. In 1990, Tsukahara and Hirano used numerical analysis to calculate the electric feld in the passenger compartment for vehicle surface currents and diferent plane wave exposures <ref type="bibr" target="#b3">[4]</ref>. In 2003, Shiraki et al. conducted a study on the electromagnetic radiation generated by electronic devices inside a vehicle. Te study employed a hybrid method combining the time-domain fnite diference method and transmission line technique. Tis approach was utilized to determine the optimal placement of the FM radio antenna within the vehicle <ref type="bibr" target="#b4">[5]</ref>. In 2015, Vassilev et al. measured the magnetic felds inside eight diferent electric vehicles (including battery, hybrid, plug-in hybrid, and fuel cell types) with diferent motor technologies (brush DC, permanent magnet synchronous, and induction) at frequencies of up to 10 MHz <ref type="bibr" target="#b5">[6]</ref>. In 2019, Alessandro Arduino examined the accuracy of numerical dosimetric simulations in the context of human exposure to an electric vehicle electrostatic induction charging system. Te study focuses on two optional numerical methods: the electric vector potential formulation and the electric scalar potential formulation <ref type="bibr" target="#b6">[7]</ref>. In the same year, Gombarska et al. conducted a study using an omnidirectional 8 dBi antenna to measure the electric feld intensity generated by in-vehicle communication devices and highfrequency electronic devices within the 500 MHz-3300 MHz frequency range. Te study demonstrated that the exposure to the electromagnetic environment in electric vehicles did not exceed the established safe range <ref type="bibr" target="#b7">[8]</ref>. In addition, Shah and Yoo et al. conducted measurements to assess the exposure of manikins with implanted pacemakers to electromagnetic felds emitted by electric vehicle wireless power transmission systems. Te study revealed that passengers with neurostimulation implants and implanted hip joints with prostheses experienced specifc absorption rate (SAR) values exceeding the established safety standard by more than 10 g of human tissue <ref type="bibr" target="#b8">[9]</ref>. In 2021, WenTing and Mai conducted an evaluation of the safety of electromagnetic exposure to the human central nervous system from an electric vehicle magnetically coupled resonance wireless charging system. Te study demonstrated that the maximum magnetic induction and electric feld strengths in the human head were measured as 0.9 μT and 0.18 V/m, respectively. Tese values were found to be below the public exposure limits set by the International Commission on Non-Ionizing Radiation Protection, which are 27 μT for magnetic induction and 2.97 V/m for electric feld strength <ref type="bibr" target="#b9">[10]</ref>. In the same year, De Santis et al. conducted an evaluation of external magnetic felds emitted by wireless power transfer (WPT) systems and internal electric felds generated by human models during the charging process of small electric vehicles (EVs). Te study revealed that the obtained results exceeded the reference levels set by the International Commission on Non-Ionizing Radiation Protection (ICNIRP) in the driving position <ref type="bibr" target="#b10">[11]</ref>.</p><p>Te efects of high-frequency electromagnetic felds generated by antennas on human health have been studied for decades. In 1993, Dimbylow conducted a study where they used the fnite diference in time domain (FDTD) method to calculate the radiation emitted by a dipole antenna on a realistic head model. Teir analysis led to the conclusion that highly conductive tissues have a greater tendency to absorb the energy preferentially <ref type="bibr" target="#b11">[12]</ref>. In 2008, Yu et al. simulated the electromagnetic characteristics of a whip antenna of a car at diferent positions based on the CST FIT technique <ref type="bibr" target="#b12">[13]</ref>. In 2009, Hirata and Ida conducted a simulation study where they exposed a vehicle to a highfrequency electromagnetic environment, including radar and antennas. Teir fndings revealed that the presence of the human body model led to the suppression of standing waves near the vehicle's dashboard. Tis suppression was attributed to the power absorption of the human body, particularly in the frequency range of 100-200 MHz <ref type="bibr" target="#b13">[14]</ref>. Wessapan et al. investigated the specifc absorption rate (SAR) distribution and temperature feld distribution of a real human body model subjected to electromagnetic radiation from antennas operating at 900 MHz and 1800 MHz, respectively, as infuenced by the operating frequency and the size of the distance between the antenna and the human head <ref type="bibr" target="#b14">[15]</ref>. In 2021, Kumar and Imaculate presented a hybrid half-mode substrate integrated waveguide (HMSIW) diplex antenna for on-body transceiver application with two resonant frequencies of 4 GHz and 4.79 GHz. Tis literature has simulated the radiation from the antenna to the human head and body and verifed the specifc absorption rate. Due to the unidirectional nature of the radiation from this antenna, the SAR values are low <ref type="bibr" target="#b15">[16]</ref>.</p><p>At present, investigations have revealed that the research on the impact of high-frequency environments in electric vehicles on the human body is still not very comprehensive, particularly in the context of the efects of onboard antennas on human subjects. And in this paper, multiphysics feld coupling calculations are performed. A comprehensive assessment of the safety of human electromagnetic exposure has been carried out in COMSOL software. We simulated not only the EM-induced E-feld distribution and SAR distribution of the human body but also the whole-body average induced E-feld, SAR, and head temperature feld distributions after 30 minutes of EM irradiation environment, and then compared the results with the latest international standard ICNIRP (2020). In addition, I believe that the research methodology used in this study can signifcantly reduce the computational efort of similar research endeavours, providing a more economical and efcient approach.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.">Model Building and Calculation Method</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.1.">GPS Antenna Model</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.1.1.">GPS Antenna Design Principle.</head><p>In this paper, we present the design of a right-handed circularly polarized GPS receiving antenna. Te antenna is fed by a coaxial probe, with a center frequency of 1.575 GHz. To achieve circular polarization, an angle cut is employed, ensuring that the antenna radiates circularly polarized waves. Te axis ratio of the circularly polarized wave at the center frequency is maintained at less than 2.0 dB. Te excitation source of the model is a voltage source, the excitation source is a sinusoidal voltage signal excitation, the amplitude is set to 1 V, the impedance is 50 Ω, the input power is 20 mw, and the excitation source is set at the base of the antenna <ref type="bibr" target="#b16">[17]</ref>. Tere are two ways to feed the rectangular microstrip antenna to obtain circular polarization characteristics, one is single point feed and the other is orthogonal double feed. Te GPS antenna model used in this paper is a single-point fed tangential circularly polarized microstrip patch antenna. By a special feeding method, the circularly polarized rectangular patch microstrip antenna can be obtained. Te key to circular polarization is to excite a line polarization wave with two polarization directions of equal orthogonal amplitude and 90 °phase diference. According to the cavity mode theory, a single rectangular microstrip antenna fed by a point can produce two simple parallel modes with equal polarization orthogonal amplitude but cannot form a 90 °phase diference. In order to form a 90 °phase diference between the simple and parallel modes, a simple and parallel mode separation unit is introduced in the regular shape of the single microstrip antenna, the most common form of separation unit is to cut the corner on the two diagonals of the rectangular patch, so that the resonant frequency of the simple and orthogonal modes are separated, and the operating frequency is chosen between the two frequencies. When the size of the simple parallel mode separation unit is appropriately selected, it results in the formation of circular polarization radiation. Specifcally, at the operating frequency, the equivalent impedance of one mode exhibits a phase angle leading by 45%, while the equivalent impedance of another mode lags by 45%. Tis phase diference between the modes facilitates the generation of circularly polarized radiation <ref type="bibr" target="#b17">[18]</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.1.2.">GPS Antenna Design</head><p>Steps. Coaxial line feed, also referred to as backfeed, involves a coaxial socket mounted on a grounding plate. Te conductor within the coaxial line is connected to the radiation patch through the dielectric substrate. By identifying the correct location for the feed point, a favorable match can be achieved. In order to design a right circularly polarized microstrip antenna, it is necessary to relocate the coaxial line feed point to the position depicted in Figure <ref type="figure">1</ref>. In addition, two appropriately sized isosceles triangles need to be cut out at the opposite corners of the square metal patch.</p><p>Based on the dielectric substrate parameters, we can employ calculations from formulas (1) to <ref type="bibr" target="#b5">(6)</ref> to determine the resonant frequency of 1.575 GHz for the initial size of the radiation patch. By adjusting the width W and length L of the radiation patch, as well as the side length of the square dielectric substrate (Length), we can set the distance d p and the tangent triangle waist length a from the center of the fne-tuned feed point to generate circularly polarized waves <ref type="bibr" target="#b18">[19]</ref>. Te position of the coaxial feed point with an input impedance of 50 Ω is estimated based on the dielectric substrate parameters and the initial size of the radiating patch. Te actual size of the radiating patch and the precise position of the 50 Ω feed point at the resonant frequency of 1.575 GHz are determined through parametric scan analysis. Te optimization objective is to achieve a return loss of less than − 20 dB, an axial ratio of less than 3 dB, and a radiation patch size and feed point position that meet the design requirements.</p><p>For the rectangular microstrip antenna operating at frequency f, the width w of the high-efciency radiation patch can be designed using the following equation:</p><formula xml:id="formula_0">w � c 2f ε r + 1 2 􏼒 􏼓 − (1/2) , (<label>1</label></formula><formula xml:id="formula_1">)</formula><p>where c is the speed of light and ε r is the permittivity of the dielectric substrate. Te length of the radiation patch is taken as λ e /2, where λ e is the wavelength of the guided wave within the medium:</p><formula xml:id="formula_2">λ e � c f �� ε e √ . (<label>2</label></formula><formula xml:id="formula_3">)</formula><p>Due to the consideration of the edge-shortening efect, the actual radiation cell length L should be</p><formula xml:id="formula_4">L � c 2f �� ε e √ − 2ΔL,<label>(3)</label></formula><p>where ε e is the efective dielectric constant and ΔL is the equivalent radiation gap length. Tey can be calculated separately by the following equation, i.e.: Te following equation can also be used to directly approximate the location of the feed point when the input impedance is 50 Ω.</p><formula xml:id="formula_5">ε e � ε r + 1 2 + ε r − 1 2 1 + 12 h w 􏼠 􏼡 − (1/2) . (<label>4</label></formula><formula xml:id="formula_6">)</formula><formula xml:id="formula_7">L 1 � L 2 1 − 1 �� � ξ re 􏽰 􏼠 􏼡, ΔL � 0.412h ε e + 0.3 􏼁(w/h + 0.264) ε e − 0.258 􏼁(w/h + 0.8) , (<label>5</label></formula><formula xml:id="formula_8">)</formula><p>where</p><formula xml:id="formula_9">ξ re (L) � ε r + 1 2 + ε r − 1 2 1 + 12 h L 􏼠 􏼡 − (1/2) . (<label>6</label></formula><formula xml:id="formula_10">)</formula><p>First, the size of the patch is estimated using equation (2). Te antenna structure consists of the patch, dielectric substrate, and ground plane, with their material parameters shown in Table <ref type="table" target="#tab_0">1</ref>. Te patch, ground plane, inner conductor, and outer conductor of the coaxial cable are assumed to be ideal conductors. An air domain in the shape of a sphere is set outside the antenna and truncated by a perfectly matched layer (PML) to absorb all radiation. To analyze the electromagnetic waves more accurately, all domains are divided into grids, with the maximum grid size not exceeding one-ffth of the wavelength. Te antenna is excited by a coaxial collector port with an input voltage of 1 V and a relative dielectric constant of 1. Te port is located on the bottom surface of the coaxial-fed outer cylindrical structure. Due to the high input impedance at the edge of the patch and low input impedance at the center, the position of the coaxial feed cable needs to be adjusted to match the 50 Ω reference impedance. In addition, to fnd the resonance point at 1.575 GHz, a parameterized scan of the chamfer size of the patch is performed. Te main process of the parameter scan is shown in Table <ref type="table" target="#tab_1">2</ref>.</p><p>Finally, the design results are given, as shown in Table <ref type="table" target="#tab_2">3</ref>. In practice, the shell of the antenna is mostly of shark fn shape. Te material is carbon fber, because it has very little efect on the antenna radiation characteristics, so in order to simplify the calculation, the antenna shell is designed into a square model with side length of 120 mm, as shown in Figure <ref type="figure">2</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.2.">Model of Human Body.</head><p>Based on the internationally common proportions of the human body, a sitting model of an adult with a height of 1.75 meters has been established. Te height of the sitting model is 1300 mm, and the shoulder width is 520 mm. Te parameters of the simple three-layer head model are: scalp radius is 92 mm, skull radius is 85 mm, and cerebrum radius is 80 mm. As early as 1968, Rush and Driscoll proposed a three-sphere model to replace the real human head model for numerical calculations <ref type="bibr" target="#b19">[20]</ref>. Tey used three concentric spheres with diferent resistivities to represent the cerebrum, skull, and scalp. Te geometry and coordinate system of the three-sphere mathematical model and the nature of its ft to the head were derived from the standard methods of feld theory and the potential energy equation <ref type="bibr" target="#b20">(21)</ref>. Te validity of the model was tested by means of an electrolytic bath containing a human skull and compared with in vivo data from the inside of a monkey's brain and from the surface of the human head, and can be used to calculate equivalently the dielectric parameters of the human head.</p><p>Te sitting manikin is shown in Figure <ref type="figure">3</ref>. Te dielectric constants and conductivities of human tissues at the corresponding operating frequencies are obtained according to the fourth order Cole-Cole model, where the average values of cerebral white matter, cerebral gray matter, and cerebrospinal fuid are used for the brain, and the average values of four tissues, skin, blood, muscle and bone are taken for the trunk tissues.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.3.">Complete Vehicle Model</head><p>. Construct a simplifed model of a car body based on the design of the Chinese standard car model. Te electric car body model, as depicted in Figure <ref type="figure">4</ref>, primarily utilizes aluminum alloy and glass materials. Te dimensions of the body are 4600 mm × 1800 mm × 1500 mm. A three-dimensional Cartesian coordinate system is established, and the left rear endpoint of the electric car was set as the coordinate origin. Te positions of the mannequin and the onboard GPS antenna are listed in Table <ref type="table">4</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.">Principles and Methods of Human</head><p>Electromagnetic Exposure Assessment</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.1.">Calculation Method for Electromagnetic Exposure</head><p>Assessment. When using the RF Module in COMSOL software for simulation, the main electromagnetic wave equations involved are shown in Table <ref type="table" target="#tab_3">5</ref>.</p><p>Φ denotes the magnetic fux through the closed equivalent surface of C and Js denotes the surface current density. Deriving the boundary conditions corresponding to the surface integrals in Maxwell-Ampere's and Faraday's laws is a process of taking the limit, which requires obtaining the fux perpendicular to the limiting surface. For a surface that tends to be infnitesimal to vanishing, the contribution of this process is zero, so that at rest, the boundary conditions corresponding to Maxwell-Ampere's and Faraday's laws are the same.</p><p>By combining Maxwell-Ampere's law and Faraday's law, a second-order fuctuation equation can be obtained by substituting the rotations of one of the equations into the other, and the system of equations resulting from the union of these two frst-order equations represents an electromagnetic wave. Since the conductivity of the antenna material is set to 0, the plane wave equation is</p><formula xml:id="formula_11">k ×(k × E) + ω 2 μεE � 0. (<label>7</label></formula><formula xml:id="formula_12">)</formula><p>Te far feld of an antenna can be calculated from the near feld using the Stratton-Chu formula. In 3D space, the formula is as follows:</p><formula xml:id="formula_13">E P � jk 4π r 0 × 􏽚 S n × E − ηr 0 ×(n × H) 􏼂 􏼃 exp jkr • r 0 􏼁dS.<label>(8)</label></formula><p>Tus, the relative far-feld radiation pattern is given by plotting |E P | 2 . Te use of a Perfectly Matched Layer (PML) enables the absorption of outgoing radiation over a wide range of frequencies and angles of incidence to improve simulation accuracy.</p><p>A major focus of bioelectromagnetic exposure assessment is the dielectric properties of living organisms, as diferent dispersion phenomena occur in the same biological tissue at diferent frequency bands, resulting in changes in the relative permittivity and conductivity of biological tissues with frequency <ref type="bibr" target="#b21">[22]</ref>. In 1996, <ref type="bibr">Gabriel</ref>  </p><formula xml:id="formula_14">􏽢 ε r � ε r ′ − jε r ″ � ε r∞ + 􏽘 4 n�0 Δε n 1 + jωτ n 􏼁 1− α + σ i jωε 0 , (<label>9</label></formula><formula xml:id="formula_15">)</formula><p>where 􏽢 ε r is the complex relative permittivity, ε ′ is the real part of the complex relative permittivity, also known as the relative permittivity, ε r ″ is the imaginary part of the complex relative permittivity, also known as the loss factor, ε r∞ is the value of the relative permittivity at the optical frequency, ω is the angular frequency in rad/s, which can be found from the frequency, and ε 0 � 8.854187817 × 10 − 12 is the permittivity in vacuum in F/m. Δε n is the increment of dielectric constant, τ n is the central relaxation time, α is the relaxation distribution time, which usually takes the value between 0 and 1, and σ i is the conductivity of ions. In this paper, the conductivity of similar tissues is used to simulate various tissues in the head model based on the GPS antenna frequency of 1.575 GHz <ref type="bibr" target="#b23">[24]</ref>, and the calculated dielectric parameters and the electromagnetic power loss density (emw) heat sources of the three-layer spherical head model and the human trunk are shown in Table <ref type="table" target="#tab_4">6</ref>.</p><p>Te efect of electromagnetic exposure on the human body in the 1.575 GHz band is dominated by the heating efect on the human body, a physical process expressed in biometrics as SAR. SAR is the electromagnetic power  </p><p>Te basic SAR-based equation:</p><formula xml:id="formula_17">SAR � σ ρ E 2 � c ΔT Δt , (<label>11</label></formula><formula xml:id="formula_18">)</formula><p>where SAR is the specifc absorption rate (W/kg), σ is the electrical conductivity (S/m), ρ is the tissue density (kg/m 3 ), E is the electric feld strength (V/m), and c is the specifc heat capacity.</p><p>Human head tissue absorbs electromagnetic radiation and converts it into joule heat <ref type="bibr" target="#b25">[26]</ref>. In this paper, the transient bioheat equation by Pennes <ref type="bibr" target="#b26">[27]</ref> is employed in the COMSOL simulation software to describe a series of heat transfer processes occurring when electromagnetic radiation penetrates through the scalp layer and reaches the skull and cerebrum layers. Tis allows for the analysis of temperature distribution in various tissue layers of the human head model. Te heat transfer equation is expressed by the following formula:</p><formula xml:id="formula_19">ρC zT zt � ∇ • (k∇T) + ρ b C b ω b T b − T 􏼁 + Q met + Q ext , (<label>12</label></formula><formula xml:id="formula_20">)</formula><p>where ρ is the tissue density (kg/m 3 ); C is the tissue-specifc heat capacity (J/(kg• °C)); k is the thermal conductivity (W/(m• °C)); T is the tissue temperature ( °C); T b is the blood temperature ( °C); ρ b is the blood density (kg/m 3 ); C b is the blood-specifc heat capacity (J/(kg• °C)); ω b is the blood irrigation rate (s − 1 ); Q met is the metabolic heat source (W/m 3 ); and Q ext is the external heat source (W/m 3 ).</p><p>Te heat transfer between the tissue and the blood stream is approximated by</p><formula xml:id="formula_21">ρ b C b ω b (T b − T).</formula><p>Te external heat source is the heat loss from the absorption of electromagnetic irradiation by the biological tissue. It can be defned as shown in the following equation:.</p><formula xml:id="formula_22">Q ext � 1 2 σ tissue |E| 2 � ρ • SAR,<label>(13)</label></formula><p>where σ tissue � 2πfε r ′ ε 0 ; ε r ′ is the relative permittivity of the tissue; and ε 0 is the (absolute) permittivity in vacuum.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.2.">Electromagnetic Exposure Safety Assessment Criteria.</head><p>In order to unify the level of protection related to electromagnetic exposure, the World Health Organization (WHO) has recommended the International Commission on Non-Ionizing Radiation Protection (ICNIRP) guidelines and the Institute of Electrical and Electronics Engineers (IEEE) C95.1-2005 as the safety assessment standards for electromagnetic exposure to all countries around the world. In March 2020, ICNIRP published the latest edition of the ICNIRP Guidelines for human protection against exposure to radiofrequency electromagnetic felds (emf ) in the range of 100 kHz-300 GHz (referred to as "RF"). According to the latest ICNIRP guidelines (2020), for frequencies ranging from 30 MHz to 2 GHz, in the far-feld region, compliance is demonstrated if the incident power density, incident electric feld strength, or incident magnetic feld strength (only one of them is required) does not exceed the reference levels. Te safety limits for public human-induced electric feld exposure in electromagnetic felds from 100 kHz to 300 GHz for an average of 30 minutes are shown in Table <ref type="table" target="#tab_5">7</ref>, and the reference levels for whole-body exposures for an average of 30 minutes are shown in Table 8 <ref type="bibr" target="#b27">[28]</ref>. Whole-body average SAR values are to be averaged over the entire body and over a 30 minute period. Te 30 minute averaging time is International Journal of Antennas and Propagation intended to take into account the time required to reach a steady-state temperature, while requiring that the wholebody human body warming value does not exceed 1 °C. Te frequency of the GPS antenna is 1.575 GHz. Corresponding to the data in the table, the safety limit of the human body-induced electric feld at this frequency is 54.57 V/m, and the safety limit of the whole body average SAR is 0.08 W/kg.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.3.">Computational Validation.</head><p>In order to test the accuracy of the research modelling and methodology, this paper is compared with the fndings in the literature <ref type="bibr" target="#b28">[29]</ref>. In the literature, there are studies that focus on the use of UHF Radio Frequency Identifcation (UHF RFID) passive tagged fxed multiantenna readers for performing SAR assessments in the human body. As depicted in Figure <ref type="figure" target="#fig_4">5</ref>, the dimensions of the antenna patch are 122.5 mm in width and 99.6 mm in length. Te substrate measures 138.3 mm in width and 131.5 mm in length, with a thickness of 1.52 mm. Te copper patch utilized for the antenna possesses a conductivity of 5.813 × 10 7 S/m, and a relative dielectric constant of 1. Te substrate material employed is RO3003, which has a conductivity of 2.2 × 10 − 4 S/m. Te ground surface is set as PEC (perfect electrical conductor). Te UHF RFID antennas were located at a distance of 5 cm to the closest surface of the human body. In the exposed scenario, there are three antennas. Te center height of the lower antenna is 626 mm, that of the middle antenna is 1018 mm, and that of the upper antenna is 1410 mm, as shown in Figure <ref type="figure" target="#fig_5">6</ref>. In this paper, the corresponding microstrip patch antenna is modelled using COMSOL simulation software, the input power of the excitation source is 1 W, and the operating frequency is 866 MHz. Te electrical parameters of the organisation in the human body model at 866 MHz are calculated from the fourth order Cole-Cole model, as shown in Table <ref type="table" target="#tab_6">9</ref>.</p><p>After performing numerical analysis using the COMSOL software, the human body's 30 minute whole-body average specifc absorption rate (SAR) value was calculated. Te distribution of these simulated values is depicted in Figure <ref type="figure" target="#fig_6">7</ref>. In order to assess the accuracy of the simulation, the obtained SAR values were compared with the corresponding values reported in the literature. Te results of this comparison are presented in Table <ref type="table" target="#tab_7">10</ref>.</p><p>Te simulation results show that the 30 minute wholebody average SAR value of the human body is 0.0118 W/kg, compared with the results obtained from the simulation in the literature of the 30 minute whole-body average SAR value of 0.012 W/kg. Te error ratio of 1.67%, which is within the permissible range of error, due to the diferent selection of the mesh sectioning fneness of the COMSOL software as well as the computational diferences between diferent software, will inevitably result in the existence of errors. Te validation is primarily aimed at confrming the accuracy of  the theories, methods, and COMSOL software employed in this study. Tis paper constructed a microstrip patch antenna model of the same type as described in the literature. Te model was utilized to simulate the electromagnetic feld distribution when a human body is exposed to the electromagnetic environment of the antenna. A comparison of the results revealed errors of less than 5%, indicating that the methods and software utilized in this study are suitable for electromagnetic simulation calculations involving human subjects.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.">Safety Assessment of Human Electromagnetic Exposure in Electric Vehicles under GPS Antenna Operating Conditions</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.1.">GPS Antenna Radiation Characteristics Simulation.</head><p>For high-frequency electromagnetic felds, the characterization of the system requires defning scattering parameters (S-parameters) based on the electric feld. To achieve this, an eigenmode expansion of the electromagnetic felds on the ports is necessary. Tis expansion allows for the conversion of an electric feld pattern on a port into a scalar complex number representing the voltage in transmission line theory.</p><p>Assume that an eigenmode analysis has been performed on the ports 1, 2, 3, . . ., and that the electric feld patterns E1, E2, E3, . . ., of the fundamental modes on these ports are known. Further, assume that the felds are normalized with respect to the integral of the power fow across each port cross section, respectively. Te port excitation is applied using the fundamental eigenmode, the mode with subscript 1. Te computed electric feld E c on the port consists of the excitation plus the refected feld. Tat is, on the port boundary where there is an incident wave, the computed feld can be expanded in terms of the mode felds as</p><formula xml:id="formula_23">E c � E 1 + 􏽘 i�1 S i1 E i , (<label>14</label></formula><formula xml:id="formula_24">)</formula><p>where as on all other port boundaries, the computed feld is given by    </p><formula xml:id="formula_25">E c � 􏽘 i�1 S i1 E i . (<label>15</label></formula><formula xml:id="formula_26">)</formula><p>Te S-parameter for the mode with index k is given by multiplying with the conjugate of the mode feld for mode k and integrating over the port boundary. Since the mode felds for the diferent modes are orthogonal, the following relations are obtained for the S-parameters.</p><formula xml:id="formula_27">S 11 � 􏽒 port1 E c − E 1 􏼁 • E * 1 􏼁dA 1 􏽒 port1 E 1 • E * 1 􏼁dA 1 , (<label>16</label></formula><formula xml:id="formula_28">)</formula><formula xml:id="formula_29">S 21 � 􏽒 port2 E c • E * 2 􏼁dA 2 􏽒 port2 E 2 • E * 2 􏼁dA 2 , (<label>17</label></formula><formula xml:id="formula_30">)</formula><formula xml:id="formula_31">S 31 � 􏽒 port3 E c • E * 3 􏼁dA 3 􏽒 port3 E 3 • E * 3 􏼁dA 3 . (<label>18</label></formula><formula xml:id="formula_32">)</formula><p>To get S22 and S12, excite port number 2 in the same way.</p><p>In this paper, the radiation performance of the antenna is simulated in COMSOL software, and the electromagnetic wave refection capability is analyzed. As Figure <ref type="figure">8</ref> gives the GPS antenna ideal case S 11 parameter curve, the horizontal coordinate is frequency, the vertical coordinate is return loss, its resonance point is located at 1.575 GHz, and the return loss at this point is − 20 dB. Terefore, the antenna exhibits good return loss. Figure <ref type="figure">9</ref> shows the polar plot of antenna axis ratio, all of which are in line with the design principle of GPS antenna. Figure <ref type="figure">10</ref> shows the antenna surface electric feld distribution; the maximum electric feld is 3110 V/m. Te four corners of the patch exhibit high electric feld, which is consistent with the characteristics of circularly polarized antennas. Figure <ref type="figure" target="#fig_0">11</ref> shows the antenna threedimensional far feld gain; the maximum gain is 6.83 dBi. Figure <ref type="figure">12</ref> represents the antenna voltage standing wave ratio (VSWR), and the VSWR values near the resonance points are all below 2, indicating that the antenna has good input matching. Te characteristics of the GPS antenna in this work are compared with other literature, as shown in Table <ref type="table" target="#tab_8">11</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.2.">Electric Field Intensity Distribution in Space of Electric</head><p>Vehicles. Figure <ref type="figure" target="#fig_9">13</ref> shows the three-dimensional distribution of the induced electric feld intensity in the electric car body, wherein the radiation energy it receives is more uniformly spread throughout the car, which is due to the omnidirectional nature of the radiation of the circularly polarized antenna. Te maximum value of the induced electric feld on the car body is 61.9 V/m, which is located on the rear window glass of the car.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.3.">Human Electric Field Intensity Distribution.</head><p>Figures <ref type="figure" target="#fig_10">14-16</ref> show the induced electric feld intensity distributions of the whole human body and head at the middle rear seat position, the rear window seat position, and the driver's seat position, respectively, as well as the XY and YZ plane slices of the head. Table <ref type="table" target="#tab_1">12</ref> gives the details of the maximum values and distributions of the induced electric feld intensity of the human body model and the ball head model under the operating frequency of 1.575 GHz of the GPS antenna, respectively.</p><p>As can be seen from Figures <ref type="figure" target="#fig_10">14-16</ref>, the distribution of electric feld intensity in the whole human body has no obvious rule, which shows that the direction of the electric feld generated by the GPS antenna is scattered and not concentrated, and the maximum value does not exceed the ICNIRP guideline of the public exposure safety limit of 54.57 V/m. From the head slices, it can be seen that the electric feld gradually decreases from outside to inside the head, and all of them are within the safety standard. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.4.">Human SAR Distribution.</head><p>For high-frequency electromagnetic radiation, the applied electric feld will produce an induced electric feld in the human body, and human tissues are lossy media, so there will be a current generated by the electric feld, absorbing and dissipating electromagnetic energy, thus the electric feld causes a heating efect on human tissues. According to the safety guidelines of ICNIRP, the exposure threshold for the general public is generally 0.08 W/kg, which has been widely used in recent years in bioelectromagnetic exposure studies. Figures <ref type="figure" target="#fig_14">17-19</ref> show the distribution of the specifc absorption rate of the antenna on the human body in the middle rear seat position, the rear window seat position, and the driver seat position, respectively. Te SAR values of the human head model and the threelayer spherical head model consisting of the scalp layer, the skull layer, and the cerebrum layer at the operating frequency of 1.575 GHz of the GPS antenna are given in detail in Table <ref type="table" target="#tab_9">13</ref>. Comparing with Table <ref type="table" target="#tab_9">13</ref>, it can be seen that as the electromagnetic wave generated by the antenna penetrates the human head model, the SAR value is highest in the scalp layer of the human head model, decreases after passing through the skull layer, and is lowest after entering the cerebrum layer. Tis is determined by the electrical characteristics of the skull layer, where a large amount of electromagnetic waves are absorbed by the skull layer, thus reducing the number of electromagnetic waves entering the cerebrum layer.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.5.">Whole-Body Average of 30 Minute Exposure to GPS</head><p>Antenna Electromagnetic Fields. Te electromagnetic waves generated by the vehicle GPS antenna penetrate the human body. Due to the electromagnetic coupling efect and the cumulative efect of radiation over time, each tissue layer of the human body absorbs the electromagnetic radiation energy and converts it into heat loss. Te space averaged induced electric feld strength values, whole body averaged SAR, temperature rise values, and ICNIRP limit comparisons for the human body model when the vehicle GPS antenna is operated continuously for 30 minutes at an operating frequency of 1.575 GHz are given in detail in Table 14. A cutaway view of the temperature distribution of the three-layer spherical head model after 30 minutes of irradiation is shown in Figure <ref type="figure" target="#fig_15">20</ref>.</p><p>Te peak human body temperature over time is derived in the COMSOL results, as shown in Figure <ref type="figure">21</ref>.</p><p>As can be seen, after 30 minutes of irradiation time under the operating condition of the onboard GPS antenna, the average value of the human-induced electric feld, the average SAR of the whole human body, and the temperature rise of the body core of the human model at the three positions inside the electric vehicle do not exceed the       ICNIRP limits. Terefore, the 30 minute exposure to the human body produced by the car GPS antenna does not produce physiological damage.</p><p>From the distribution of temperature feld in the head, it can be observed that the scalp layer with the highest electromagnetic power dissipation density has the highest temperature rise, while the skull layer with the lowest power dissipation has the smallest temperature rise. According to Figure <ref type="figure">21</ref>, the temperature increases rapidly during the early stage of radiation and then gradually slows down after reaching a certain value.</p><p>From Table <ref type="table" target="#tab_12">15</ref>, it can be observed that the SAR value and temperature rise caused by GPS antenna radiation on the human body are the lowest compared to medical antennas and mobile phone antennas. Tis is because GPS antennas typically have lower power levels and are located at a certain distance from the human body. However, due to the prolonged exposure of the body to vehicle-mounted antennas, further research is needed to assess the potential efects of long-term exposure.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.6.">Te Impact of Diferent Vehicle Shell Materials on Human</head><p>Exposure to Electromagnetic Radiation. Considering that diferent vehicle body materials can afect the radiation performance of antennas, this study simulated the electromagnetic impact on the human body caused by three typical car shell materials <ref type="bibr" target="#b34">[35]</ref><ref type="bibr" target="#b35">[36]</ref><ref type="bibr" target="#b36">[37]</ref><ref type="bibr" target="#b37">[38]</ref>. Te shell materials were set as PEC, aluminum alloy, and carbon fber, with their respective dielectric parameters shown in Table <ref type="table" target="#tab_13">16</ref>. Table <ref type="table" target="#tab_14">17</ref> provides a detailed comparison of the spatial average induced electric feld strength, whole-body average SAR value, temperature rise, and ICNIRP limit when the vehicle-mounted GPS antenna operates continuously for 30 minutes at a frequency of 1.575 GHz.   Te data indicate that the average whole-body exposure level of the human body is signifcantly below the ICNIRP standard limits. Among the diferent vehicle shell materials, carbon fber material results in the highest exposure to electromagnetic radiation. At a frequency of 1.575 GHz, materials with higher relative permittivity and electrical conductivity exhibit better electromagnetic radiation shielding capabilities. Materials with higher relative permittivity cause a slowdown in the propagation of electromagnetic waves within the material, providing better electromagnetic radiation shielding. Materials with high electrical conductivity can efectively absorb and conduct    electromagnetic radiation energy, reducing its propagation. However, carbon fber materials exhibit relatively weaker absorption capabilities in the high-frequency range. Te data presented in this study can provide some reference for the electromagnetic shielding design of vehicles. However, the optimal choice of shielding materials still depends on specifc application requirements and design needs, necessitating practical testing and evaluation to determine the most suitable materials.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.">Conclusion</head><p>In this paper, we investigate the electromagnetic exposure generated by the GPS antenna of an electric vehicle. Specifcally, we focus on evaluating the induced electric feld and the specifc absorption rate (SAR) in various tissues of the adult human torso, as well as the three layers of tissues in the scalp, skull, and cerebrum. Our simulations were conducted for three diferent seating positions: the rear middle seat, the rear window seat, and the driver's seat. To perform these simulations, we employed a multiphysics feld approach, utilizing both frequency domain and transient coupling techniques in the COMSOL software.</p><p>Te purpose is to comprehensively analyze the potential harm caused by the electromagnetic feld generated by the GPS antenna. We can also see that the electromagnetic feld generated by the GPS is unevenly and unconcentratedly distributed everywhere in the EV. Te peak value of humaninduced electric feld is 18.4 V/m, and the peak value of specifc absorption rate is 0.193 W/kg. Te average maximum value of human-induced electric feld in 30 minutes is 1.6906 V/m, which is 3.1% of the ICNIRP limit; the 30 minute average whole-body SAR maximum is 0.0036 W/kg, which is 4.5% of the ICNIRP limit; and the 30 minute maximum body core temperature rise is 0.06 °C, which is 6% of the ICNIRP limit.</p><p>Based on the literature review, the advantages of this paper compared to previous similar works are summarized in Table <ref type="table" target="#tab_15">18</ref>.</p><p>According to the simulations conducted in this study under specifc conditions, the radiation levels of the GPS antenna are considered safe and within the limits set by the International Commission on Non-Ionizing Radiation Protection (ICNIRP). However, in real-world situations, the electromagnetic radiation from in-vehicle GPS antennas is subject to various limitations. For instance, from a material perspective, diferent materials used for the GPS antenna and vehicle shell exhibit diferent dielectric properties, which can afect the propagation of electromagnetic waves in and around the antenna, thus infuencing the intensity and range of electromagnetic radiation. In terms of time, prolonged operation of the GPS antenna can increase the amount of electromagnetic radiation exposure to the human body. Terefore, when designing and using GPS systems, it is important to consider multiple factors for control and limitation to ensure that human exposure remains within safe levels.</p><p>Te induced electric feld strength, specifc absorption rate (SAR) value, and temperature rise in the human body resulting from exposure to the EV GPS antenna are infuenced by numerous complex factors. Tese factors include the operating frequency of the antenna, dielectric properties of the tissues, thermal properties, blood irrigation rate, and more. Further research will focus on developing more realistic human body and antenna models to provide detailed explanations regarding the potential safety risks associated with electromagnetic irradiation from the EV GPS antenna. Ongoing investigations and research into the efects of EV GPS antenna radiation will enhance our understanding of potential risks and help ensure that electromagnetic exposure remains within acceptable limits to protect human health.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>1 Figure 1 :</head><label>11</label><figDesc>Figure 1: GPS single point fed circularly polarized microstrip antenna structure.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head></head><label></label><figDesc>et al. derived the fourth-order Cole-Cole model based on the results of RHCole and KSCole studies, which can be applied to calculate the dielectric constant of biological tissues in the frequency band of 10 Hz-20 GHz [23]. Te fourth-order Cole-Cole model is shown in the following equation:</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head>Figure 2 :Figure 3 :</head><label>23</label><figDesc>Figure 2: GPS antenna and outer shell model.</figDesc><graphic coords="5,81.18,456.38,183.33,180.64" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head>Figure 4 :Table 4 :</head><label>44</label><figDesc>Figure 4: Simple model of electric vehicle.</figDesc><graphic coords="6,142.22,77.63,320.33,223.48" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_4"><head>Figure 5 :</head><label>5</label><figDesc>Figure 5: Structure of a fxed I-RFID reader microstrip patch antenna.</figDesc><graphic coords="8,331.99,270.95,194.20,101.32" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_5"><head>Figure 6 :</head><label>6</label><figDesc>Figure 6: Antenna position diagram of human body.</figDesc><graphic coords="9,128.46,73.66,85.17,310.12" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_6"><head>Figure 7 :</head><label>7</label><figDesc>Figure 7: Exposure scenarios to EMF near UHFI-RFID multiantenna readers.</figDesc><graphic coords="9,386.47,73.64,85.17,295.96" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_7"><head>Figure 8 :Figure 9 :</head><label>89</label><figDesc>Figure 8: Antenna S11 parameter.</figDesc><graphic coords="10,350.66,330.38,165.23,165.16" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_8"><head>Figure 10 :Figure 11 :Figure 12 :</head><label>101112</label><figDesc>Figure 10: Antenna electric feld intensity distribution.</figDesc><graphic coords="11,60.60,105.25,208.40,177.40" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_9"><head>Figure 13 :</head><label>13</label><figDesc>Figure 13: Distribution of induced electric feld intensity in the car body.</figDesc><graphic coords="12,188.24,197.12,212.13,120.04" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_10"><head>Figure 14 :</head><label>14</label><figDesc>Figure 14: Intensity of human-induced electric feld in the rear middle seat position (a) for the whole human body, (b) for the head, (c) for the YZ section of head, and (d) for the XY section of head.</figDesc><graphic coords="12,209.52,576.72,71.63,148.72" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_11"><head>Figure 15 :</head><label>15</label><figDesc>Figure 15: Intensity of human-induced electric feld in the rear window seat position (a) for the whole human body, (b) for the head, (c) for the YZ section of head, and (d) for the XY section of head.</figDesc><graphic coords="13,218.72,272.45,62.57,130.36" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_13"><head>Figure 16 Figure 16 :Figure 17 Figure 17 :Figure 18 Figure 18 :Figure 19 :</head><label>16161717181819</label><figDesc>Figure 16: Continued.</figDesc><graphic coords="13,220.71,502.59,62.78,130.12" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_14"><head>Figure 19 :</head><label>19</label><figDesc>Figure 19: Specifc absorption rate of the human body in the driver's seat position (a) for the whole human body, (b) for the scalp layer, (c) for the skull layer, (d) for the cerebrum layer, (e) for the YZ section of head, and (f ) for the XY section of head.</figDesc><graphic coords="17,213.94,92.50,62.57,136.60" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_15"><head>Figure 20 :</head><label>20</label><figDesc>Figure 20: Temperature distribution section of a three-layer spherical head model with 30 minute irradiation. (a) Te rear middle seat position. (b) Te rear window seat position. (c) Te driver's seat position.</figDesc><graphic coords="18,310.27,546.69,118.12,60.88" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_0"><head>Table 1 :</head><label>1</label><figDesc>Material parameters of the antenna.</figDesc><table><row><cell>Name</cell><cell>Relative permittivity</cell><cell>Relative permeability</cell><cell>Electrical conductivity (S/m)</cell></row><row><cell>Patch</cell><cell>3.38</cell><cell>1</cell><cell>0</cell></row><row><cell>Outer conductor of the coaxial cable</cell><cell>2.1</cell><cell>1</cell><cell>0</cell></row><row><cell>Dielectric substrate</cell><cell>3.38</cell><cell>1</cell><cell>0</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_1"><head>Table 2 :</head><label>2</label><figDesc>Variation of the antenna radiation parameters (output) for diferent inputs.</figDesc><table><row><cell></cell><cell cols="2">Input parameters</cell><cell></cell><cell cols="2">Output results</cell></row><row><cell>h</cell><cell>L</cell><cell>d p</cell><cell>a</cell><cell>S 11 return loss (dB)</cell><cell>Resonate peak (GHz)</cell></row><row><cell>1.5240</cell><cell>50.26</cell><cell>10.000</cell><cell>3.5</cell><cell>− 17.35</cell><cell>1.574</cell></row><row><cell>1.5240</cell><cell>50.25</cell><cell>10.000</cell><cell>3.5</cell><cell>− 18.70</cell><cell>1.574</cell></row><row><cell>1.6510</cell><cell>50.25</cell><cell>10.000</cell><cell>3.9</cell><cell>− 18.70</cell><cell>1.575</cell></row><row><cell>1.5360</cell><cell>50.25</cell><cell>10.830</cell><cell>3.9</cell><cell>− 19.95</cell><cell>1.576</cell></row><row><cell>1.5354</cell><cell>50.25</cell><cell>10.815</cell><cell>3.9</cell><cell>− 20.10</cell><cell>1.575</cell></row><row><cell>1.5354</cell><cell>50.25</cell><cell>10.850</cell><cell>3.9</cell><cell>− 18.60</cell><cell>1.575</cell></row><row><cell>1.5354</cell><cell>50.25</cell><cell>10.810</cell><cell>3.9</cell><cell>− 18.30</cell><cell>1.575</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_2"><head>Table 3 :</head><label>3</label><figDesc>GPS antenna model parameters.</figDesc><table><row><cell cols="2">Parameter</cell><cell>Value (mm)</cell></row><row><cell>h</cell><cell></cell><cell>1.5354</cell></row><row><cell>L</cell><cell></cell><cell>50.25</cell></row><row><cell>W</cell><cell></cell><cell>50.25</cell></row><row><cell>Length</cell><cell></cell><cell>50.00</cell></row><row><cell>d p</cell><cell></cell><cell>10.815</cell></row><row><cell>a</cell><cell></cell><cell>3.9</cell></row><row><cell>r 1</cell><cell></cell><cell>0.6</cell></row><row><cell>r 2</cell><cell></cell><cell>1.5</cell></row><row><cell>y</cell><cell>z</cell><cell>x</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_3"><head>Table 5 :</head><label>5</label><figDesc>Electromagnetic wave equations. 􏽈C H • dl � I + 􏽈 S (zD/zt) • ds n × (H 2 − H 1 ) � J S Faraday's law ∇ × E � − (zB/zt) 􏽈 C E • dl � − 􏽈 S (zB/zt) • ds � − (zΦ/zt) n × (E 2 − E 1 ) � 0</figDesc><table><row><cell>Name</cell><cell>Diferential form</cell><cell>Integral form</cell><cell>Boundary conditions</cell></row><row><cell>Gauss's law for magnetism</cell><cell>∇ • B � 0</cell><cell>􏽈 S B • nds � 0</cell><cell>n • (B 2 − B 1 ) � 0</cell></row><row><cell>Maxwell-Ampere's law (static magnetism)</cell><cell>∇ × H � J + (zD/zt)</cell><cell></cell><cell></cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_4"><head>Table 6 :</head><label>6</label><figDesc>Dielectric and heat source parameters of human tissues at 1.575 GHz.</figDesc><table><row><cell>Human model tissues</cell><cell>Relative permittivity</cell><cell>Electrical conductivity (S•m − 1 )</cell><cell>Electromagnetic power loss density (emw) heat source (W•m − 3 )</cell></row><row><cell>Scalp</cell><cell>39.28</cell><cell>1.10</cell><cell>12.693</cell></row><row><cell>Skull</cell><cell>12.33</cell><cell>0.27</cell><cell>2.6968</cell></row><row><cell>Cerebrum</cell><cell>51.82</cell><cell>1.62</cell><cell>3.8098</cell></row><row><cell>Trunk</cell><cell>41.31</cell><cell>1.12</cell><cell>Not</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_5"><head>Table 7 :</head><label>7</label><figDesc></figDesc><table><row><cell cols="2">Exposure scenario Frequency range</cell><cell cols="2">Incident E-feld strength; einc (V/m)</cell></row><row><cell></cell><cell>0.1-30 MHz</cell><cell></cell><cell>300f 0.7 M</cell></row><row><cell>General public</cell><cell>&gt;30-400 MHz &gt;400− 2000 MHz</cell><cell></cell><cell>27.7 1.375f 0.5</cell></row><row><cell>Exposure scenario</cell><cell cols="2">Frequency range</cell><cell>Whole-body average SAR (W/kg)</cell></row><row><cell>General public</cell><cell>100 kHz-6 GHz &gt;6-300 GHz</cell><cell></cell><cell>0.08 0.08</cell></row></table><note>Reference levels for exposure, averaged over 30 minutes and the whole body, to electromagnetic felds from 100 kHz to 300 GHz (unperturbed rms values).M &gt;2-300 GHz Not applicableTable8: Basic restrictions for electromagnetic feld exposure from 100 kHz to 300 GHz, for averaging intervals ≥6 min.</note></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_6"><head>Table 9 :</head><label>9</label><figDesc>Permittivity and conductivity of human tissues at 866 MHz.</figDesc><table><row><cell>Human model tissues</cell><cell>Relative permittivity</cell><cell>Electrical conductivity (S•m − 1 )</cell></row><row><cell>Scalp</cell><cell>41.58</cell><cell>0.86</cell></row><row><cell>Skull</cell><cell>12.95</cell><cell>0.17</cell></row><row><cell>Cerebrum</cell><cell>53.53</cell><cell>1.30</cell></row><row><cell>Trunk</cell><cell>41.78</cell><cell>0.87</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_7"><head>Table 10 :</head><label>10</label><figDesc>Comparison of SAR results and error analysis.</figDesc><table><row><cell>Value</cell><cell>30 minute whole-body average SAR (W/kg)</cell></row><row><cell>Simulated value</cell><cell>0.0118</cell></row><row><cell>Literature value</cell><cell>0.0120</cell></row><row><cell>Error value</cell><cell>1.67%</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_8"><head>Table 11 :</head><label>11</label><figDesc>Performance comparison among proposed and reported antennas.</figDesc><table><row><cell>Ref.</cell><cell>Return loss, S 11</cell><cell>Gain</cell><cell>Bandwidth</cell><cell>Axial ratio (dB)</cell></row><row><cell>Tis work</cell><cell>&lt;− 20 dB</cell><cell>6.83 dBi</cell><cell>− 10 dB, 28 MHz</cell><cell>&lt;3</cell></row><row><cell>[30]</cell><cell>-</cell><cell>3.69 dBi</cell><cell>-</cell><cell>3.1</cell></row><row><cell>[31]</cell><cell>&lt;− 20 dB</cell><cell>3.5 dBi</cell><cell>ARBW3 dB, 50 MHz</cell><cell>1.9</cell></row><row><cell>[32]</cell><cell>&lt;− 30 dB</cell><cell>5.94 dBi</cell><cell>− 10 dB, 39 MHz</cell><cell>2.5</cell></row><row><cell>[33]</cell><cell></cell><cell></cell><cell></cell><cell></cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_9"><head>Table 13 :</head><label>13</label><figDesc>Ideal situation and distribution of specifc absorption rate of human body at diferent positions.</figDesc><table><row><cell>Mannequin position</cell><cell>Rear middle seat position</cell><cell>Rear seat window position</cell><cell>Driver's seat position</cell></row><row><cell>Human body maximum (W/kg)</cell><cell>0.155</cell><cell>0.183</cell><cell>0.193</cell></row><row><cell>Scalp maximum (W/kg)</cell><cell>0.013</cell><cell>0.036</cell><cell>0.015</cell></row><row><cell>Skull maximum (W/kg)</cell><cell>0.010</cell><cell>0.030</cell><cell>0.009</cell></row><row><cell>Cerebrum maximum (W/kg)</cell><cell>0.002</cell><cell>0.003</cell><cell>0.002</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_10"><head>Table 14 :</head><label>14</label><figDesc>Comparison of exposure levels for the whole body over 30 minutes and the ICNIRP guidelines (2020).</figDesc><table><row><cell>Human model</cell><cell>Volume average of the induced electric feld E inc (V/m)</cell><cell>Whole-body average SAR (W/kg)</cell><cell>Temperature rise ( °C)</cell></row><row><cell>Te rear middle seat position</cell><cell>1.4678</cell><cell>0.0028</cell><cell>0.0050</cell></row><row><cell>Te rear window seat position</cell><cell>1.6906</cell><cell>0.0036</cell><cell>0.0600</cell></row><row><cell>Te driver's seat position</cell><cell>1.4490</cell><cell>0.0017</cell><cell>0.0170</cell></row><row><cell>ICNIRP guidelines</cell><cell>54.57</cell><cell>0.0800</cell><cell>1.0000</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_12"><head>Table 15 :</head><label>15</label><figDesc>Comparison of current work with previous analysis of human exposure to high-frequency electromagnetic felds.Figure 21: Variation of peak human body temperature over time under 30 minutes of electromagnetic radiation.</figDesc><table><row><cell></cell><cell></cell><cell>310.20</cell><cell></cell><cell></cell></row><row><cell></cell><cell></cell><cell>310.10</cell><cell></cell><cell></cell></row><row><cell></cell><cell>Temperature (K)</cell><cell>309.50 309.60 309.70 309.80 309.90 310.00</cell><cell></cell><cell></cell></row><row><cell></cell><cell></cell><cell>309.40</cell><cell></cell><cell></cell></row><row><cell></cell><cell></cell><cell>309.30</cell><cell></cell><cell></cell></row><row><cell></cell><cell></cell><cell>0.0000</cell><cell>500.00</cell><cell>1000.0</cell><cell>1500.0</cell><cell>2000.0</cell></row><row><cell></cell><cell></cell><cell></cell><cell></cell><cell>Time (s)</cell></row><row><cell>Ref.</cell><cell cols="2">Radiation source</cell><cell></cell><cell>Frequency</cell><cell>Averaged SAR maximum value (W/kg)</cell><cell>Temperature rise in 30 minutes</cell></row><row><cell>Tis work</cell><cell cols="2">GPS antenna</cell><cell></cell><cell>1.575 GHz</cell><cell>0.0036</cell><cell>0.06</cell></row><row><cell>[29]</cell><cell cols="3">Rectangular microstrip patch antenna used in the UHF RFID readers</cell><cell>866 MHz</cell><cell>0.012</cell><cell>None</cell></row><row><cell>[25]</cell><cell cols="3">Dipole antennas in the mobile phone</cell><cell>900 MHz 1.785 GHz</cell><cell>0.56 0.17</cell><cell>None 0.118</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_13"><head>Table 16 :</head><label>16</label><figDesc>Vehicle shell materials and their dielectric parameters.</figDesc><table><row><cell>Material</cell><cell>Relative permittivity</cell><cell>Electrical conductivity (S/m)</cell></row><row><cell>PEC</cell><cell>∞</cell><cell>∞</cell></row><row><cell>Aluminum alloy</cell><cell>2.6</cell><cell>4,032,000</cell></row><row><cell>Carbon fber</cell><cell>2</cell><cell>5000</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_14"><head>Table 17 :</head><label>17</label><figDesc>Comparison of exposure levels for the whole body over 30 minutes and the ICNIRP guidelines (2020) for diferent vehicle shell materials.</figDesc><table><row><cell>Material</cell><cell>Volume average of the induced electric feld E inc (V/m)</cell><cell>Whole-body average SAR (W/kg)</cell><cell>Temperature rise ( °C)</cell></row><row><cell>PEC</cell><cell>1.1786</cell><cell>0.0009</cell><cell>0.0501</cell></row><row><cell>Aluminum alloy</cell><cell>1.6906</cell><cell>0.0036</cell><cell>0.0600</cell></row><row><cell>Carbon fber</cell><cell>2.5695</cell><cell>0.0051</cell><cell>0.0642</cell></row><row><cell>ICNIRP guidelines</cell><cell>54.570</cell><cell>0.0800</cell><cell>1.0000</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_15"><head>Table 18 :</head><label>18</label><figDesc>Te importance of the proposed work.</figDesc><table><row><cell>Comparison factors</cell><cell>Existing methods</cell><cell>Proposed work</cell></row><row><cell>Calculating memory and time</cell><cell>Tree-layer spherical head simplifed model</cell><cell>Reduced</cell></row><row><cell>Human position</cell><cell>Tree positions</cell><cell>Increased</cell></row><row><cell>Physical feld</cell><cell>Multiphysics coupling</cell><cell>Comprehensive</cell></row><row><cell>Simulation calculation methods</cell><cell>Finite element method (FEM)</cell><cell>High accuracy</cell></row></table></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" xml:id="foot_0">Microwaves in Medicine and Biology, vol. 5, no. 2, pp. 100-107, 2021.</note>
+		</body>
+		<back>
+
+			<div type="acknowledgement">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Acknowledgments</head><p>Tis work was supported in part by the National Nature Science Foundation of China (no. 51867014) and the Department of Education of Gansu Province (Grant number 2024CXPT-11).</p></div>
+			</div>
+
+
+			<div type="availability">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Data Availability</head><p>All data are available from the corresponding author upon request.</p></div>
+			</div>
+
+			<div type="annex">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Conflicts of Interest</head><p>Te authors declare that they have no conficts of interest.</p></div>			</div>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">Wideband single-feed circularly polarized patch antenna with conical radiation pattern</title>
+		<author>
+			<persName><forename type="first">Y</forename><forename type="middle">X</forename><surname>Guo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">C H</forename><surname>Tan</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Antennas and Wireless Propagation Letters</title>
+		<imprint>
+			<biblScope unit="volume">8</biblScope>
+			<biblScope unit="page" from="924" to="926" />
+			<date type="published" when="2009">2009</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">Circularly polarized conical patterns from circular microstrip antennas</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Huang</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Antennas and Propagation</title>
+		<imprint>
+			<biblScope unit="volume">32</biblScope>
+			<biblScope unit="issue">9</biblScope>
+			<biblScope unit="page" from="991" to="994" />
+			<date type="published" when="1984">1984</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">Passenger exposure to magnetic felds due to the batteries of an electric vehicle</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Moreno-Torres Concha</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Velez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Lafoz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Arribas</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Vehicular Technology</title>
+		<imprint>
+			<biblScope unit="volume">65</biblScope>
+			<biblScope unit="issue">6</biblScope>
+			<biblScope unit="page" from="4564" to="4571" />
+			<date type="published" when="2016">2016</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">Numerical analysis of electromagnetic felds around vehicles</title>
+		<author>
+			<persName><forename type="first">H</forename><surname>Tsukahara</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Hirano</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the IEEE International Symposium on Electromagnetic Compatibility</title>
+				<meeting>the IEEE International Symposium on Electromagnetic Compatibility<address><addrLine>Washington, DC, USA</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="1990-08">August 1990</date>
+			<biblScope unit="page" from="567" to="571" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">Electromagnetic feld distribution inside an automobile vehicle</title>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Shiraki</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Sugahara</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Tanabe</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Nakamoto</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Watanabe</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 2003 IEEE Symposium on Electromagnetic Compatibility. symposium Record (Cat. No. 03CH37446)</title>
+				<meeting>the 2003 IEEE Symposium on Electromagnetic Compatibility. symposium Record (Cat. No. 03CH37446)<address><addrLine>Boston, MA, USA</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2003-08">August 2003</date>
+			<biblScope unit="volume">2</biblScope>
+			<biblScope unit="page" from="730" to="734" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">Magnetic feld exposure assessment in electric vehicles</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Vassilev</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Ferber</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Wehrmann</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">O</forename><surname>Pinaud</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Schilling</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">R</forename><surname>Ruddle</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Electromagnetic Compatibility</title>
+		<imprint>
+			<biblScope unit="volume">57</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="35" to="43" />
+			<date type="published" when="2015">2015</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">Accuracy assessment of numerical dosimetry for the evaluation of human exposure to electric vehicle inductive charging systems</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Arduino</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">O</forename><surname>Bottauscio</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Chiampi</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Electromagnetic Compatibility</title>
+		<imprint>
+			<biblScope unit="volume">62</biblScope>
+			<biblScope unit="issue">5</biblScope>
+			<biblScope unit="page" from="1939" to="1950" />
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">Highfrequency electromagnetic feld measurement inside personal vehicle within urban environment</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Gombarska</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Smetana</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Janousek</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 20 International Journal of Antennas and Propagation 2019 12th International Conference on Measurement</title>
+				<meeting>the 20 International Journal of Antennas and Propagation 2019 12th International Conference on Measurement<address><addrLine>Smolenice, Slovakia</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2019-08">August 2019</date>
+			<biblScope unit="page" from="223" to="226" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">Assessing human exposure with medical implants to electromagnetic felds from a wireless power transmission system in an electric vehicle</title>
+		<author>
+			<persName><forename type="first">I</forename><forename type="middle">A</forename><surname>Shah</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Yoo</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Electromagnetic Compatibility</title>
+		<imprint>
+			<biblScope unit="volume">62</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="338" to="345" />
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">Dosimetry simulation research on electromagnetic exposure of wireless charging electric vehicle to human central nervous system</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">O U</forename><surname>Wenting</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><forename type="middle">U</forename><surname>Mai</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 2021 IEEE 16th Conference on Industrial Electronics and Applications (ICIEA)</title>
+				<meeting>the 2021 IEEE 16th Conference on Industrial Electronics and Applications (ICIEA)<address><addrLine>Chengdu, China</addrLine></address></meeting>
+		<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2021-08">August 2021</date>
+			<biblScope unit="page" from="609" to="614" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">Chassis infuence on the exposure assessment of a compact EV during WPT recharging operations</title>
+		<author>
+			<persName><forename type="first">V</forename><forename type="middle">De</forename><surname>Santis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Giaccone</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Freschi</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Magnetochemistry</title>
+		<imprint>
+			<biblScope unit="volume">7</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page">25</biblScope>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">FDTD calculations of the SAR for a dipole closely coupled to the head at 900 MHz and 1.9 GHz</title>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">J</forename><surname>Dimbylow</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Physics in Medicine and Biology</title>
+		<imprint>
+			<biblScope unit="volume">38</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="361" to="368" />
+			<date type="published" when="1993">1993</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">Te simulation and research on electromagnetic character and coupling degree of vehicle whip antennas</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Yu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X</forename><surname>Ma</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Q</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Zheng</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 2007 International Symposium on Microwave, Antenna, Propagation and EMC Technologies for Wireless Communications</title>
+				<meeting>the 2007 International Symposium on Microwave, Antenna, Propagation and EMC Technologies for Wireless Communications<address><addrLine>Hangzhou, China</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2007-08">August 2007</date>
+			<biblScope unit="page" from="1371" to="1374" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">Analysis of electromagnetic environment in a CAD-based vehicle with a human body for far-feld incidence</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Hirata</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Ida</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Antennas and Wireless Propagation Letters</title>
+		<imprint>
+			<biblScope unit="volume">7</biblScope>
+			<biblScope unit="page" from="625" to="628" />
+			<date type="published" when="2008">2008</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">Specifc absorption rate and temperature distributions in human head subjected to mobile phone radiation at diferent frequencies</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Wessapan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Srisawatdhisukul</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Rattanadecho</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">International Journal of Heat and Mass Transfer</title>
+		<imprint>
+			<biblScope unit="volume">55</biblScope>
+			<biblScope unit="issue">1-3</biblScope>
+			<biblScope unit="page" from="347" to="359" />
+			<date type="published" when="2012">2012</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<analytic>
+		<title level="a" type="main">Hybrid half-mode SIW cavitybacked diplex antenna for on-body transceiver applications</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Kumar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">S</forename><surname>Imaculate</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Applied Physics A</title>
+		<imprint>
+			<biblScope unit="volume">127</biblScope>
+			<biblScope unit="page" from="1" to="7" />
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<analytic>
+		<title level="a" type="main">Simple circuit model for coax-fed stacked rectangular microstrip patch antenna</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Edimo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Mahdjoubi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Sharaiha</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Terret</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">IEE Proceedings-Microwaves, Antennas and Propagation</title>
+				<imprint>
+			<date type="published" when="1998">1998</date>
+			<biblScope unit="volume">145</biblScope>
+			<biblScope unit="page" from="268" to="272" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<analytic>
+		<title level="a" type="main">Single-feed slotted equilateral-triangular microstrip antenna for circular polarization</title>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">H</forename><surname>Lu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">L</forename><surname>Tang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">L</forename><surname>Wong</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Antennas and Propagation</title>
+		<imprint>
+			<biblScope unit="volume">47</biblScope>
+			<biblScope unit="issue">7</biblScope>
+			<biblScope unit="page" from="1174" to="1178" />
+			<date type="published" when="1999">1999</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<analytic>
+		<title level="a" type="main">Technical memorandum: simple design formulas for circularly polarised microstrip antennas</title>
+		<author>
+			<persName><forename type="first">Y</forename><forename type="middle">T</forename><surname>Lo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Engst</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">Q</forename><surname>Lee</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">IEE Proceedings H Microwaves, Antennas and Propagation</title>
+				<imprint>
+			<date type="published" when="1988">1988</date>
+			<biblScope unit="volume">135</biblScope>
+			<biblScope unit="page" from="213" to="215" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<analytic>
+		<title level="a" type="main">Current distribution in the brain from surface electrodes</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Rush</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">A</forename><surname>Driscoll</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Anesthesia and Analgesia</title>
+		<imprint>
+			<biblScope unit="volume">47</biblScope>
+			<biblScope unit="issue">6</biblScope>
+			<biblScope unit="page" from="717" to="723" />
+			<date type="published" when="1968">1968</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<analytic>
+		<title level="a" type="main">EEG electrode sensitivity-an application of reciprocity</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Rush</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">A</forename><surname>Driscoll</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Biomedical Engineering</title>
+		<imprint>
+			<biblScope unit="volume">16</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="15" to="22" />
+			<date type="published" when="1969">1969</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<analytic>
+		<title level="a" type="main">Multiterm Debye dispersion relations for permittivity of muscle</title>
+		<author>
+			<persName><forename type="first">W</forename><forename type="middle">D</forename><surname>Hurt</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Biomedical Engineering</title>
+		<imprint>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="60" to="64" />
+			<date type="published" when="1985">1985</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<analytic>
+		<title level="a" type="main">Te dielectric properties of biological tissues: II. Measurements in the frequency range 10 Hz to 20 GHz</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Gabriel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">W</forename><surname>Lau</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Gabriel</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Physics in Medicine and Biology</title>
+		<imprint>
+			<biblScope unit="volume">41</biblScope>
+			<biblScope unit="issue">11</biblScope>
+			<biblScope unit="page" from="2251" to="2269" />
+			<date type="published" when="1996">1996</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b23">
+	<analytic>
+		<title level="a" type="main">Comparison of the induced felds using diferent coil confgurations during deep transcranial magnetic stimulation</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Lu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Ueno</surname></persName>
+		</author>
+		<idno>ID 178422</idno>
+	</analytic>
+	<monogr>
+		<title level="j">PLoS One</title>
+		<imprint>
+			<biblScope unit="volume">12</biblScope>
+			<biblScope unit="issue">6</biblScope>
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b24">
+	<analytic>
+		<title level="a" type="main">SAR generated by commercial cellular phones-phone modeling, head modeling, and measurements</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Bielli</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Richiardi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Bertotto</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Schiavoni</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Microwave Teory and Techniques</title>
+		<imprint>
+			<biblScope unit="volume">48</biblScope>
+			<biblScope unit="issue">11</biblScope>
+			<biblScope unit="page" from="2064" to="2071" />
+			<date type="published" when="2000">2000</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b25">
+	<analytic>
+		<title level="a" type="main">A review of numerical models for predicting the energy deposition and resultant thermal response of humans exposed to electromagnetic felds</title>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">J</forename><surname>Spiegel</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Microwave Teory and Techniques</title>
+		<imprint>
+			<biblScope unit="volume">32</biblScope>
+			<biblScope unit="issue">8</biblScope>
+			<biblScope unit="page" from="730" to="746" />
+			<date type="published" when="1984">1984</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b26">
+	<analytic>
+		<title level="a" type="main">Analysis of tissue and arterial blood temperatures in the resting human forearm. 1948</title>
+		<author>
+			<persName><forename type="first">H</forename><forename type="middle">H</forename><surname>Pennes</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Applied Physiology</title>
+		<imprint>
+			<biblScope unit="volume">85</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="5" to="34" />
+			<date type="published" when="1998">1998</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b27">
+	<analytic>
+		<title level="a" type="main">Guidelines for limiting exposure to electromagnetic felds (100 kHz to 300 GHz)</title>
+	</analytic>
+	<monogr>
+		<title level="j">Health Physics</title>
+		<imprint>
+			<biblScope unit="volume">118</biblScope>
+			<biblScope unit="issue">5</biblScope>
+			<biblScope unit="page" from="483" to="524" />
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+	<note>International Commission on Non-Ionizing Radiation Protection Icnirp</note>
+</biblStruct>
+
+<biblStruct xml:id="b28">
+	<analytic>
+		<title level="a" type="main">Modelling and evaluation of the absorption of the 866 MHz electromagnetic feld in humans exposed near to fxed I-RFID readers used in medical RTLS or to monitor PPE</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Zradziński</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Karpowicz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Gryz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Owczarek</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Ramos</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Sensors</title>
+		<imprint>
+			<biblScope unit="volume">21</biblScope>
+			<biblScope unit="issue">12</biblScope>
+			<biblScope unit="page">4251</biblScope>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b29">
+	<analytic>
+		<title level="a" type="main">On-vehicle GPS antenna measurements</title>
+		<author>
+			<persName><forename type="first">K</forename><surname>Yegin</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Antennas and Wireless Propagation Letters</title>
+		<imprint>
+			<biblScope unit="volume">6</biblScope>
+			<biblScope unit="page" from="488" to="491" />
+			<date type="published" when="2007">2007</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b30">
+	<analytic>
+		<title level="a" type="main">A compact dual-band GPS antenna design</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Chen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">C</forename><surname>Chen</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Antennas and Wireless Propagation Letters</title>
+		<imprint>
+			<biblScope unit="volume">12</biblScope>
+			<biblScope unit="page" from="245" to="248" />
+			<date type="published" when="2013">2013</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b31">
+	<analytic>
+		<title level="a" type="main">Low-profle circularly polarized planar antenna for GPS L1, L2, and L5 bands</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Mishra</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Das</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">S</forename><surname>Pattnaik</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Kumar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><forename type="middle">K</forename><surname>Kanaujia</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="s">Microwave and Optical Technology Letters</title>
+		<imprint>
+			<biblScope unit="volume">62</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="806" to="815" />
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b32">
+	<analytic>
+		<title level="a" type="main">Analysis and design of a low-cost dual-band compact circularly polarized antenna for GPS application</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Sun</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Zheng</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Liu</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Antennas and Propagation</title>
+		<imprint>
+			<biblScope unit="volume">64</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="365" to="370" />
+			<date type="published" when="2016">2016</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b33">
+	<analytic>
+		<title level="a" type="main">Dual-band miniature coupled double loop GPS antenna loaded with lumped capacitors and inductive pins</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Gupta</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Mumcu</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Antennas and Propagation</title>
+		<imprint>
+			<biblScope unit="volume">61</biblScope>
+			<biblScope unit="issue">6</biblScope>
+			<biblScope unit="page" from="2904" to="2910" />
+			<date type="published" when="2013">2013</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b34">
+	<analytic>
+		<title level="a" type="main">Road user exposure from ITS-5.9 GHz vehicular connectivity</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Benini</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Parazzini</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Bonato</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Sensors</title>
+		<imprint>
+			<biblScope unit="volume">22</biblScope>
+			<biblScope unit="issue">18</biblScope>
+			<biblScope unit="page">6986</biblScope>
+			<date type="published" when="2022">2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b35">
+	<analytic>
+		<title level="a" type="main">Electromagnetic safety evaluation and protection methods for a wireless charging system in an electric vehicle</title>
+		<author>
+			<persName><forename type="first">Q</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Kang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Wang</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Electromagnetic Compatibility</title>
+		<imprint>
+			<biblScope unit="volume">61</biblScope>
+			<biblScope unit="issue">6</biblScope>
+			<biblScope unit="page" from="1913" to="1925" />
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b36">
+	<analytic>
+		<title level="a" type="main">Assessment of the variability of human exposure to radiofrequency electromagnetic felds arising from 5.9 GHz vehicular communication in urban environments</title>
+		<author>
+			<persName><forename type="first">G</forename><surname>Tognola</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Benini</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Bonato</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Gallucci</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Parazzini</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Sensors</title>
+		<imprint>
+			<biblScope unit="volume">23</biblScope>
+			<biblScope unit="issue">15</biblScope>
+			<biblScope unit="page">6802</biblScope>
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b37">
+	<analytic>
+		<title level="a" type="main">Numerical assessment of RF human exposure in smart mobility communications</title>
+		<author>
+			<persName><forename type="first">G</forename><surname>Tognola</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Masini</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Gallucci</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Journal of Electromagnetics</title>
+		<imprint/>
+	</monogr>
+	<note>RF and</note>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

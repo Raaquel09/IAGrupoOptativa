@@ -1,0 +1,1760 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Compositional imprecise probability</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+				<date type="published" when="2024-05-15">15 May 2024</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Jack</forename><surname>Liell-Cock</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="institution">University of Oxford Draft</orgName>
+								<address>
+									<postCode>2024</postCode>
+									<settlement>May</settlement>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Sam</forename><surname>Staton</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="institution">University of Oxford Draft</orgName>
+								<address>
+									<postCode>2024</postCode>
+									<settlement>May</settlement>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Compositional imprecise probability</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date type="published" when="2024-05-15">15 May 2024</date>
+						</imprint>
+					</monogr>
+					<idno type="MD5">D435163936C546780EC8428313DC7807</idno>
+					<idno type="arXiv">arXiv:2405.09391v1[cs.PL]</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.2" ident="GROBID" when="2024-05-16T18:04+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Imprecise probability is concerned with uncertainty about which probability distributions to use. It has applications in robust statistics and elsewhere. Imprecise probability can be modelled in various ways, including by convex sets of probability distributions.</p><p>We look at programming language models for imprecise probability. Our desiderata are that we would like our model to support all kinds of composition, categorical and monoidal, in other words, guided by dataflow diagrams. Another equivalent perspective is that we would like a model of synthetic probability in the sense of Markov categories.</p><p>There is already a fairly popular monad-based approach to imprecise probability, but it is not fully compositional because the monad involved is not commutative, which means that we do not have a proper monoidal structure. In this work, we provide a new fully compositional account. The key idea is to name the nondeterministic choices. To manage the renamings and disjointness of names, we use graded monads. We show that the resulting compositional model is maximal. We relate with the earlier monad approach, showing that we obtain tighter bounds on the uncertainty.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1">Overview</head><p>This paper is about using programming language notations to give compositional descriptions of imprecise probability. For illustration, consider a situation with three outcomes: red (r), green (g) and blue (b). A precise probability distribution can be understood as a point in the triangle: the corner (r) represents 100% certainty of red; the points on the edge between g and b represent the probability distributions where r is impossible (Figure <ref type="figure" target="#fig_0">1a</ref>). (a) Five probabilities over the three-point set {r, g, b} illustrated as points in the triangle: the three extreme points are the corners; p is the equal odds chance between b and g; q is the equal odds chance between all three points. (b) A line indicating a convex region between r and p, which includes q. (c) A convex region which is the convex hull of four points, including r, p and also the equal odds chance between r and b and between r and g. (d) A different convex region, considered in <ref type="bibr" target="#b85">[86,</ref><ref type="bibr">Ex. 7.3</ref>].</p><p>An imprecise probability on three outcomes is a convex region of the triangle (Figure <ref type="figure" target="#fig_0">1b-1d</ref>). One interpretation is that if a probability distribution describes a bet, as in the foundations of Bayesianism, then a convex region is a collection of bets that would be reasonable given the current imprecise knowledge. Imprecise probability has a long history in terms of statistical robustness (e.g. <ref type="bibr" target="#b32">[33,</ref><ref type="bibr" target="#b85">86]</ref>), recently considered as part of infrabayesianism (e.g. <ref type="bibr" target="#b2">[3,</ref><ref type="bibr" target="#b3">4,</ref><ref type="bibr" target="#b48">49]</ref>) and the foundations of safe AI <ref type="bibr" target="#b19">[20]</ref>.</p><p>There is already a body of work on semantics models of programming languages with imprecise probability <ref type="bibr" target="#b1">[2,</ref><ref type="bibr" target="#b27">28,</ref><ref type="bibr" target="#b28">29,</ref><ref type="bibr" target="#b29">30,</ref><ref type="bibr" target="#b33">34,</ref><ref type="bibr" target="#b42">43,</ref><ref type="bibr" target="#b43">44,</ref><ref type="bibr" target="#b61">62,</ref><ref type="bibr" target="#b62">63,</ref><ref type="bibr" target="#b63">64,</ref><ref type="bibr" target="#b64">65,</ref><ref type="bibr" target="#b65">66,</ref><ref type="bibr" target="#b69">70,</ref><ref type="bibr" target="#b82">83,</ref><ref type="bibr" target="#b83">84]</ref>. Our contribution is to investigate new models that support our compositional desiderata ( §1.1) by naming the non-deterministic choices ( §1.2). We show that this compares favourably with earlier work (Thm. 1, §1.3) and that it is a maximal approach (Thm. 2).</p><p>1.1 Desiderata: a language for imprecise probability with compositional reasoning A first language for describing imprecise probability is a first-order functional language without recursion. Rather, we have if/then/else statements, sequencing with immutable variable assignment (like <ref type="bibr" target="#b55">[56,</ref><ref type="bibr" target="#b66">67]</ref>), and the following two commands, which both return a boolean value:</p><p>• bernoulli: a fair Bernoulli choice <ref type="bibr" target="#b5">[6]</ref> which draws a ball from some urn containing two balls labelled 'true' and 'false', and replaces it;</p><p>• knight: a Knightian choice <ref type="bibr" target="#b45">[46]</ref> which draws a ball from a fresh urn containing balls labelled 'true' and 'false', where the number and ratio of balls are unknown and we have no priors on their distribution, except to know that the urn is not empty. (These 'Knightian urns' are fresh each time, i.e. they can each be used only once.</p><p>For example, we are not interested in here in using multiple draws and frequencies to predict their contents.)</p><p>For example, consider the following two programs.</p><p>Example 1.1. Consider the following program, which we argue describes the convex region in Figure <ref type="figure" target="#fig_0">1b</ref>:</p><p>x ← knight ; z ← bernoulli ; if z then ( if x then return r else return g ) else ( if x then return r else return b )</p><p>We draw two boolean values, x and z, respectively with Knightian uncertainty and from a fair Bernoulli trial. We then combine these two boolean values using the logic on the second and third lines of the program.</p><p>Example 1.2. The following program describes the convex region in Figure <ref type="figure" target="#fig_0">1c</ref>:</p><p>x ← knight ; y ← knight ; z ← bernoulli ; if z then ( if x then return r else return g ) else ( if y then return r else return b )</p><p>This time, we draw three boolean values, x, y and z, where y is with Knightian uncertainty too. We then combine these three boolean values using the logic on the second and third lines of the program, which is almost the same except for the use of y when z is false. Decoupling the Knightian uncertainties increases the region of imprecise probability because it allows new outcomes (such as an equal chance between r and b when x is true and y is false) that were impossible in Example 1.1.</p><p>Our desiderata for a compositional account of a first-order language are the following. We are inspired by recent compositional accounts of probability theory (e.g. <ref type="bibr" target="#b22">[23,</ref><ref type="bibr" target="#b34">35,</ref><ref type="bibr" target="#b47">48]</ref>), statistics (e.g. <ref type="bibr" target="#b9">[10,</ref><ref type="bibr" target="#b37">38,</ref><ref type="bibr" target="#b52">53]</ref>), and probabilistic programming (e.g. <ref type="bibr" target="#b16">[17,</ref><ref type="bibr" target="#b38">39,</ref><ref type="bibr" target="#b75">76]</ref>), and the connections between them (e.g. <ref type="bibr" target="#b78">[79]</ref>). These desiderata are formalized in Section 2.</p><p>Desideratum 1. The language should be commutative:</p><formula xml:id="formula_0">x ← t ; y ← u ; v = y ← u ; x ← t ; v (if x is not free in u and y not free in t)</formula><p>and affine:</p><formula xml:id="formula_1">(x ← t ; u) = u (if x is not free in u).</formula><p>This means that we can regard composition graphically, as a data flow graph. For instance, the notation u . . .   Although this requirement does not hold generally in the presence of memory side effects and mutable variables, we do not have mutable variables here, and it is desirable in a declarative language. For example, we would like to notate the program from Example 1.1 as bernoulli knight if z then ... x z Desideratum 2. The standard equational reasoning about if/then/else should apply, and in particular the following hoisting equation should be allowed:</p><formula xml:id="formula_2">if b then (x ← t ; u) else (x ← t ; v) = x ← t ; if b then u else v where x is not free in b.</formula><p>One earlier approach to a semantic study of a language like this is provided by a convex powerset of distributions monad (e.g. <ref type="bibr" target="#b6">[7,</ref><ref type="bibr" target="#b7">8,</ref><ref type="bibr" target="#b29">30,</ref><ref type="bibr" target="#b33">34,</ref><ref type="bibr" target="#b43">44,</ref><ref type="bibr" target="#b63">64,</ref><ref type="bibr" target="#b64">65]</ref>). This does not satisfy the desiderata for compositional reasoning. In fact, no semantic model satisfying the desiderata can allow Examples 1.1 and 1.2 to be distinguished, as we show in Figure <ref type="figure" target="#fig_3">2</ref>.</p><p>The key issue is with the third program in Figure <ref type="figure" target="#fig_3">2</ref>:</p><formula xml:id="formula_3">z ← bernoulli ; if z then (x ← knight ; if x then return r else return g ) else (x ← knight ; if x then return r else return b )</formula><p>This program draws a boolean value with Knightian uncertainty on each of the branches of the if statement. The paradox arises in whether each choice comes from different urns or the same urn. Perhaps there is one Knightian urn that is used in both branches. Or perhaps we draw a boolean value from a new Knightian urn on the second branch. Our proposed solution is to make this distinction explicit.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.2">Resolution: named Knightian choices</head><p>To satisfy both desiderata, our proposal is to name each Knightian choice (Section 3). To do this, we rewrite Example 1.1 by annotating the only Knightian choice with the name a 1 :</p><p>x ← knight(a 1 ) ; z ← bernoulli ; if z then ( if x then return r else return g ) else ( if x then return r else return b )</p><p>We think of this program as giving rise to the convex set in Figure <ref type="figure" target="#fig_0">1</ref>(b). This is then the same as the program where y describes the outcome of the same Knightian choice, i.e. one with the same name:</p><p>x ← knight(a 1 ) ; y ← knight(a 1 ) ; z ← bernoulli ; if z then ( if x then return r else return g ) else ( if y then return r else return b ) but it is different from the program where y describes a different Knightian choice, i.e. one with a different name:</p><p>x ← knight(a 1 ) ; y ← knight(a 2 ) ; z ← bernoulli ; if z then ( if x then return r else return g ) else ( if y then return r else return b )</p><p>which is intuitively what Example 1.2 describes, and gives rise to the convex set in Figure <ref type="figure" target="#fig_0">1(c</ref>). Now when we try to follow the same equational derivation as in Figure <ref type="figure" target="#fig_3">2</ref>, the third program becomes: which explicitly uses a different Knightian choice on the else branch.</p><formula xml:id="formula_4">z ← bernoulli ; if z then (x ← knight(a</formula><p>The idea of naming non-deterministic choices appears in work outside probability (e.g. proved transitions, <ref type="bibr" target="#b8">[9]</ref>) and probabilistic choices are often named in practical probabilistic programming [82, §6.2] which has already been explored using graded monads <ref type="bibr" target="#b56">[57]</ref>. More generally, intensionality in non-determinism is known to be a profitable perspective (e.g. <ref type="bibr" target="#b11">[12,</ref><ref type="bibr" target="#b51">52]</ref>).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.2.1">Named Knightian choices via a reader monad</head><p>The set-up with named Knightian choices is consistent with Desiderata 1 and 2, which we can show by building a monad (e.g. <ref type="bibr" target="#b66">[67]</ref>), namely the reader transformer (e.g. <ref type="bibr" target="#b57">[58]</ref>) of the finite distributions monad (e.g. [37, Ch. 2]):</p><formula xml:id="formula_5">T 2 A (X) = [2 A ⇒ D(X)] (<label>1</label></formula><formula xml:id="formula_6">)</formula><p>where X is the set of outcomes, A is the set of names required, and D is the finite distributions monad. Then the Knightian choices are interpreted by reading, and the Bernoulli choices use the distributions monad. This combined monad is well known to be commutative and affine. Thus both desiderata are satisfied. We can recover a convex set of probability distributions from any t ∈ T 2 A (X) by pushing forward all the possible probability distributions on 2 A . Formally, we can express this using the monadic bind (&gt;&gt;= D , Kleisli composition) of D:</p><formula xml:id="formula_7">t 2 A = {p &gt;&gt;= D t | p ∈ D(2 A )} ⊆ D(X).</formula></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.2.2">Grading to account for renamings</head><p>A remaining concern with named Knightian choices is that we ought to take seriously name-space issues in composition. When composing programs with named Knightian choices, we may wish to avoid name clashes. This is dependent on how we interpret the set A in (1). We resolve this issue by regarding the monad (1) as a graded monad <ref type="bibr" target="#b40">[41,</ref><ref type="bibr" target="#b41">42,</ref><ref type="bibr" target="#b67">68]</ref>. This is closely related to the 'para' construction (e.g. <ref type="bibr" target="#b21">[22,</ref><ref type="bibr" target="#b30">31]</ref>). Some of the crucial steps are as follows:</p><p>• Any injection ι : A → B induces a renaming of programs using names A to programs using names B, and indeed a natural map T 2 ι : T 2 A (X) → T 2 B (X);</p><p>• We can regard monadic bind (Kleisli composition) in T as operating on disjoint sets of names:</p><formula xml:id="formula_8">&gt;&gt;= T : T 2 A (X) × (X ⇒ T 2 B (Y )) → T 2 A⊎B (Y )</formula><p>Thus a computation using names A is sequenced with a computation using names B to build a computation that involves names (A ⊎ B).</p><p>• This monad is graded-monoidal too, via a map</p><formula xml:id="formula_9">T 2 A (X) × T 2 B (Y ) → T 2 (A⊎B) (X × Y )</formula><p>which juxtaposes computations using names A and B to give a computation using (A ⊎ B).</p><p>• The induced convex set of distributions is invariant under renaming:</p><formula xml:id="formula_10">t 2 A = T 2 ι (t) 2 B .</formula><p>The crucial element is that the injective renaming ι induces a surjection 2 ι : 2 B → 2 A between the spaces of Knightian choices. We abstract and generalize by allowing arbitrary surjections 2 B → 2 A , further by allowing sets other than 2 A , and further still by allowing surjective stochastic maps rather than surjections.</p><p>As an aside, we note that probability monads too can often be regarded as sort-of reader monads (e.g. <ref type="bibr" target="#b4">[5,</ref><ref type="bibr" target="#b16">17,</ref><ref type="bibr" target="#b73">74,</ref><ref type="bibr" target="#b74">75,</ref><ref type="bibr" target="#b79">80,</ref><ref type="bibr" target="#b80">81]</ref>), since probability distributions D(X) can be described by random variables Ω → X, for some base probability sample space Ω. Thus we could regard our monad T (X) as a quotient of</p><formula xml:id="formula_11">[(Ω × Ξ) ⇒ X]</formula><p>where Ω is a sample space for Bernoulli probability and Ξ = 2 A is a sample space for Knightian uncertainty. In this work, we will quotient by the 'law' of random variables in Ω, so that the usual equational reasoning about Bernoulli probability is valid.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.3">Results about quotienting our theory</head><p>The names for the Knightian choices in our language appear to be additional intensional information, and the reader monad does not quotient this away. For this reason we show two results about the equational theory. First, we connect our approach to the convex powerset of distributions monad, showing that our bounds are tighter. Second, we show it is maximal -no further quotient is possible.</p><p>Theorem 1 ( §4): Improved bounds on uncertainty In our resulting language, every closed term describes a convex set of distributions. We thus establish a connection to the non-compositional approach that uses the Kleisli category of the convex powerset of distributions monad (e.g. <ref type="bibr" target="#b6">[7,</ref><ref type="bibr" target="#b7">8,</ref><ref type="bibr" target="#b29">30,</ref><ref type="bibr" target="#b33">34,</ref><ref type="bibr" target="#b43">44,</ref><ref type="bibr" target="#b63">64,</ref><ref type="bibr" target="#b64">65]</ref>). We have an 'op-lax' functor R : ImP → Kl(CP). from our locally graded category ImP ( §3.2) to the Kleisli category of the convex powerset of distributions monad CP. Being an op-lax functor means that</p><formula xml:id="formula_12">R(g • f ) ⊆ R(g) • R(f ),</formula><p>i.e. composition in our category gives a tighter bound on the Knightian uncertainty than the composition using the Kleisli category of the convex powerset of distributions monad (see also the Example in §4.4).</p><p>Note that this could not be a proper functor because we would then have a quotient theory in violation of the maximality theorem (Theorem 2). But an op-lax functor is beneficial as an interpretation of giving a tighter bound.</p><p>Theorem 2 ( §5): Maximality. Our language also gives rise to a compositional theory of equality. We prove our equational theory is maximal in that we can add no further equations on open terms without equating different convex sets of distributions or compromising the compositional structure. (See Theorem 2 for a precise statement.)</p><p>Further detail: two quotients In slightly more detail, we consider two candidates from the literature for quotients of a graded monad. They are general methods, but appear in our language as follows. Notice that an open term in our language contains both names and variables: names for Knightian choices, and free variables standing for ordinary values that might be substituted later. There are two ways to quotient the names away:</p><p>Quotient A Following <ref type="bibr" target="#b23">[24,</ref><ref type="bibr" target="#b24">25]</ref> we could equate two open terms if, for every valuation of the free variables, there is a renaming that equates them.</p><p>Quotient B Following <ref type="bibr" target="#b30">[31]</ref>, we could equate two open terms if there is a renaming such that for every valuation of the free variables they are made equal.</p><p>For closed terms with no free variables, the two approaches are the same and give rise to a convex set of distributions (Prop. 4.3).</p><p>Quotient A does not directly give a compositional theory in our setting: the criteria of <ref type="bibr" target="#b23">[24]</ref> are not satisfied. Nonetheless, the construction of <ref type="bibr" target="#b23">[24]</ref> can be adjusted, giving the op-lax functor of Theorem 1 rather than a monad morphism.</p><p>Quotient B does not satisfy Desideratum 2 (commuting if-then-else). Informally, it would allow us to rename on the 'then' branch but not the 'else' branch, which is inconsistent with Desideratum 2. Nonetheless, it could be a useful approach in a metalanguage for combining models that do not need a general if-then-else construction. For this reason, Quotient B is not a counterexample to Theorem 2.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.4">Notes about context</head><p>Other situations combining probability and non-determinism. Our focus here is on imprecise probability. This is one form of non-determinism, but there is a broader body of general interest in non-determinism and its combination with probability. Of course, non-determinism can arise in many different semantic situations, beyond the motivation from imprecise probability. One motivation is in program abstraction and refinement: there, one describes a problem by writing a non-deterministic program that solves it; one then solves the problem by refining that non-deterministic program. The mathematical analysis is similar, and for instance illustrations essentially the same as Figure <ref type="figure" target="#fig_0">1</ref>  An arguably different kind of non-determinism appears where there are many appropriate results that we want to collect. In this sense, for instance, database queries are non-deterministic if they return multiple results, and Prolog is non-deterministic. When combined with probability, this leads more naturally to random sets or random bags, which are in contrast to the sets of distributions shown in Figure <ref type="figure" target="#fig_0">1</ref>. Random bags do arise in probabilistic databases and in point process theory. We looked at these applications from a monad perspective here <ref type="bibr" target="#b17">[18,</ref><ref type="bibr" target="#b18">19]</ref>, and the monads have long been discussed (e.g. <ref type="bibr" target="#b14">[15,</ref><ref type="bibr" target="#b15">16,</ref><ref type="bibr" target="#b35">36,</ref><ref type="bibr" target="#b43">44,</ref><ref type="bibr" target="#b49">50,</ref><ref type="bibr" target="#b83">84]</ref>).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Work on distributive laws.</head><p>There is a large literature on finding elegant explanations for combining existing monads for probability and non-determinism, exploring distributive laws (e.g. <ref type="bibr" target="#b7">[8,</ref><ref type="bibr" target="#b12">13,</ref><ref type="bibr" target="#b14">15,</ref><ref type="bibr" target="#b29">30,</ref><ref type="bibr" target="#b49">50,</ref><ref type="bibr" target="#b69">70,</ref><ref type="bibr" target="#b83">84]</ref>). Although the reader monad transformer is a distributive law, our emphasis here is on the commutativity desiderata ( §1.1) rather than distributivity issues. Even when there is a distributive law between commutative monads, the resulting composite monad need not be commutative. Indeed both the random bags monad (e.g. <ref type="bibr" target="#b15">[16]</ref>) and the powerdomain of indexed valuations monad <ref type="bibr" target="#b83">[84]</ref> arise from distributive laws between commutative monads, but neither composite monads are commutative.</p><p>Algebraic perspective. Some of this work on distributive laws takes the perspective of algebraic theories. Our desiderata can be viewed from the point of view of algebraic theories, via algebraic effects (e.g. <ref type="bibr" target="#b71">[72]</ref>), which we now briefly explore. We define two binary operations:</p><formula xml:id="formula_13">(t + 0.5 u) def = if bernoulli then t else u (t ∨ u) def = if knight then t else u</formula><p>Regarding Desideratum 1, Commutativity means that each operation is a homomorphism for the other:</p><formula xml:id="formula_14">(s∨t)+ 0.5 (u∨v) = (s+ 0.5 u)∨(t+ 0.5 v) (s+ 0.5 t)+ 0.5 (u+ 0.5 v) = (s+ 0.5 u)+ 0.5 (t+ 0.5 v) (s∨t)∨(u∨v) = (s∨u)∨(t∨v)</formula><p>and Affinity says that t ∨ t = t and t + 0.5 t = t. Desideratum 2 is always assumed in algebraic effects. From these five axioms, the derivation of Figure <ref type="figure" target="#fig_3">2</ref> can be made algebraically:</p><formula xml:id="formula_15">r ∨ (g + 0.5 b) = (r + 0.5 r) ∨ (g + 0.5 b) = (r ∨ g) + 0.5 (r ∨ b).</formula><p>If we regard ∨ as a Minkowski sum (see §4.1) then the left hand side appears to be Fig. <ref type="figure" target="#fig_0">1</ref>(b) and the right hand side is Fig. <ref type="figure" target="#fig_0">1(c</ref>). especially since the latter can be further rearranged just using the commutativity and affinity laws to (r ∨ (g + 0.5 r)) ∨ ((r + 0.5 b) ∨ (g + 0.5 b))</p><p>which enumerates the four extreme points of Fig. <ref type="figure" target="#fig_0">1(c</ref>). From this algebraic perpective, our proposal is to label the Knightian branching, with a family of binary operators ∨ a1 , ∨ a2 , . . . , and then we still have that</p><formula xml:id="formula_16">r ∨ a1 (g + 0.5 b) = (r + 0.5 r) ∨ a1 (g + 0.5 b) = (r ∨ a1 g) + 0.5 (r ∨ a1 b) yet it is consistent to assume (r ∨ a1 g) + 0.5 (r ∨ a1 b) = (r ∨ a1 g) + 0.5 (r ∨ a2 b).</formula><p>with different names on the right hand side, corresponding to the difference between Figures <ref type="figure" target="#fig_0">1(b</ref>) and 1(c).</p><p>Our intuition is that t ∨ a u branches left or right depending on the Knightian draw a. Here a is describing the unique draw from that urn. We note that a labelled binary choice already appears in the probabilistic setting in <ref type="bibr" target="#b76">[77]</ref>, where it has a different meaning: there, a stands for an urn but not a specific draw, and ? a denotes sampling from urn a according to Polya's scheme (replace with two copies of what was drawn).</p><p>We note that it is already known that Desiderata 1 is incompatible with symmetry laws (t ∨ u = u ∨ t and t + 0.5 u = u + 0.5 t), since we can use those to deduce</p><formula xml:id="formula_17">t ∨ u = (t ∨ u) + 0.5 (t ∨ u) = (t ∨ u) + 0.5 (u ∨ t) = (t + 0.5 u) ∨ (u + 0.5 t) = (t + 0.5 u) ∨ (t + 0.5 u) = t + 0.5 u (2)</formula><p>In our graded semantics (ImP), we do have t + 0.5 u = u + 0.5 t exactly. We do not have t ∨ u = u ∨ t, although there is a reindexing in the grading that corresponds to this symmetry. One view is that we have side-stepped this Eckmann-Hilton-like obstacle (2) by putting the symmetry t ∨ u ≈ u ∨ t into the grading structure.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2">Rudiments of graded Markov categories and graded monads</head><p>We now recall notions of Markov category ( §2.1) and relative monads ( § 2.2), recasting them in the locally graded setting. We show how to pass between the concepts (Prop. 2.5, 2.6) and we relate them to notions from enriched category theory ( §2.3). For brevity, in this section we focus on definitions and in the next section ( §3) we focus on examples, rather than interleaving them. Definition 2.1. A monoidal category is a category C equipped with a functor ⊗ : C × C → C and an object I together with associativity and unitor isomorphisms (e.g. (X ⊗ Y ) ⊗ Z ∼ = X ⊗ (Y ⊗ Z)) that satisfy coherence conditions (e.g. <ref type="bibr" target="#b58">[59]</ref>). It is strict if the isomorphisms are equalities. A symmetric monoidal category is moreover equipped with isomorphisms σ X,Y :</p><formula xml:id="formula_18">X ⊗ Y ∼ = Y ⊗ X such that σ Y,X = σ −1</formula><p>X,Y and satisfying coherence conditions. A semicartesian category is a symmetric monoidal category in which the monoidal unit is a terminal object. That is, there is exactly one morphism X → I for all X.</p><p>A semicartesian category has projections X ⊗ Y → X ⊗ I ∼ = X, but it is weaker than a full categorical product because there need not be a natural diagonal X → X ⊗ X.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.1">Graded Markov categories</head><p>Definition 2.2. <ref type="bibr" target="#b22">[23]</ref> A Markov category is a semicartesian category such that every object is equipped with a commutative comonoid structure, that is, a map copy X : X → X ⊗ X that is symmetric and associative and has the terminal map X → I as a unit.</p><p>A morphism f : X → Y in a Markov category is deterministic if it commutes with the copy map (copy</p><formula xml:id="formula_19">Y • f = (f ⊗ f ) • copy X ).</formula><p>A distributive Markov category <ref type="bibr" target="#b0">[1]</ref> is a Markov category that has coproducts such that the canonical maps</p><formula xml:id="formula_20">X ⊗ Z + Y ⊗ Z → (X + Y ) ⊗ Z are isomorphisms and the coproduct injections X → X + Y ← Y are deterministic.</formula><p>A typical example of a distributive Markov category is the category FinStoch of stochastic matrices (Def. 3.2). An ordinary distributive category <ref type="bibr" target="#b10">[11,</ref><ref type="bibr" target="#b13">14]</ref> is a distributive Markov category in which every morphism is deterministic. A typical example is the category FinSet of finite sets.</p><p>Programming syntax. We can use programming language syntax for composition in a distributive Markov category (see also e.g. <ref type="bibr" target="#b78">[79]</ref>). The objects of the category are regarded as types, with bool regarded as the object</p><formula xml:id="formula_21">1 + 1. If Γ = (x 1 : A 1 ) ⊗ • • • ⊗ (x n : A n ) then a morphism t : Γ → B is regarded as a term Γ ⊢ t : B. We notate (t ,u) for Γ copy −−→ Γ ⊗ Γ t⊗u −−→ A ⊗ B x ← t ; u for Γ copy −−→ Γ ⊗ Γ Γ⊗t −−→ Γ ⊗ A u − → B if t then u else v for Γ copy −−→ Γ ⊗ Γ t⊗Γ −−→ (1 + 1) ⊗ Γ ∼ = Γ + Γ [t,u] −−→ B</formula><p>In this way, given interpretations of bernoulli and knight, we can interpret the programs from Examples 1.1 and 1.2.</p><p>Definition 2.3. Let G be a semicartesian category. A graded distributive Markov category C is given by • a distributive Markov category C I , but moreover,</p><p>• for each pair of objects and each grade a ∈ G a set C a (X, Y ) of morphisms, agreeing with C I when a = I;</p><formula xml:id="formula_22">• for each morphism f : b → a, a function C a (X, Y ) → C b (X, Y ); • a family of maps • : C a (X, Y ) × C b (Y, Z) → C a⊗b (X, Z); • a family ⊗ : C a (X, X ′ ) × C b (Y, Y ′ ) → C a⊗b (X ⊗ Y, X ′ ⊗ Y ′ )</formula><p>all such that composition is natural and associative up to the associativity of G (see e.g. [87, §1.2], <ref type="bibr" target="#b54">[55]</ref>, [27, App. B]), monoidal product of morphisms is also natural and has associators and symmetric braidings up-to the structure of G, and such that the induced function</p><formula xml:id="formula_23">C a (X + Y, Z) → C a (X, Z) × C a (Y, Z</formula><p>) is a bijection (e.g. <ref type="bibr">[87, p. 36]</ref>).</p><p>See Proposition 3.3 for our example of a graded Markov category. We note that since G is semicartesian, there are canonical projections a ⊗ b → a, and so we can regard any morphism at grade a as a morphism at grade (a ⊗ b).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.2">Monads and graded relative affine monads</head><p>It is well-established that notions of computation can be modelled by monads <ref type="bibr" target="#b66">[67]</ref>, including probability and nondeterminism <ref type="bibr" target="#b39">[40,</ref><ref type="bibr" target="#b63">64,</ref><ref type="bibr" target="#b64">65]</ref>. In this section, we introduce the flavours of monads relevant to this work and establish their correspondence to Markov categories. We present them in the Kleisli triple setting because this is more conducive to their use in programming languages. Definition 2.4. A strong monad over a cartesian closed category C is for each X ∈ C an object T (X) ∈ C and a morphism η X :</p><formula xml:id="formula_24">I C → [X, T (X)],</formula><p>and a family of morphisms</p><formula xml:id="formula_25">(−) * : [X, T (Y )] → [T (X), T (Y )]</formula><p>such that for generalised elements f and g of [X, T (Y )] and [Y, T (Z)], the following equations hold:</p><formula xml:id="formula_26">f = f * • η X id T (X) = (η X ) * g * • f * = (g * • f ) * . (3) The left-strength t : X ×T (Y ) → T (X ×Y ) is induced by the canonical action (η Y •−) * : [X, Y ] → [T (X), T (Y )] [47].</formula><p>The monad is commutative if the following diagram commutes, where t is the induced right strength from the symmetry of the cartesian product.</p><formula xml:id="formula_27">T (X) × T (Y ) T (X × T (Y )) T (X × Y ) T (T (X) × Y ) t t * t * t</formula><p>It is affine if the unique map T (1) → 1 is an isomorphism. A typical example is C = Set, and T = D is the finite probability distribution monad <ref type="bibr" target="#b36">[37]</ref>.</p><p>Let J be a category with finite products and consider a finite product preserving functor J : J → C. A relative strong monad T on J is a functor T : J → C, along with a J-relative unit</p><formula xml:id="formula_28">η X : I → [J(X), T (X)]</formula><p>natural in X ∈ J , and a family of J-relative Kleisli extensions</p><formula xml:id="formula_29">(−) * : [J(X), T (Y )] → [T (X), T (Y )]</formula><p>natural in X, Y ∈ J , and such that (3) holds for f and g generalised elements of [J(X), T (Y )] and [J(Y ), T (Z)]. A typical example is C = Set, and J = FinSet, with J the evident embedding, and T = DJ.</p><p>Let (G, ⊗, I) be a monoidal category. A graded strong monad is a functor</p><formula xml:id="formula_30">T : G → [C, C], with unit η X : I → [X, T I (X)]</formula><p>natural in X ∈ J , and a family of Kleisli extensions</p><formula xml:id="formula_31">(−) * a,b : [X, T b (Y )] → [T a (X), T a⊗b (Y )]</formula><p>natural in X, Y ∈ J , and such that for f and g generalised elements of [X, T a (Y )] and [Y, T b (Z)], the following equations hold: A graded relative strong monad T on J is a functor T : G → [J , C], along with a J-relative unit</p><formula xml:id="formula_32">f = T λ • (f ) * I,a • η X , id T b (X) = T ρ • (η X ) * b,I , (g) * c⊗a,b • (f ) * c,a = T α • ((g) * a,b • f ) * c,a⊗b ,<label>(4)</label></formula><formula xml:id="formula_33">η X : I C → [J(X), T I (X)]</formula><p>natural in X ∈ J , and a family of J-relative Kleisli extensions</p><formula xml:id="formula_34">(−) * a,b : [J(X), T b (Y )] → [T a (X), T a⊗b (Y )]</formula><p>natural in X, Y ∈ J , and such that (4) holds for f and g generalised elements of [J(X), T a (Y )] and [J(Y ), T b (Z)].</p><p>The graded left-strength t a is induced by the action</p><formula xml:id="formula_35">T ρ • (η Y • −) * a,I : [X, Y ] → [T a (X), T a (Y )].</formula><p>The monad is commutative if G is symmetric monoidal and the following diagram commutes, where σ : a ⊗ b → b ⊗ a is the symmetric coherence isomorphism of G.</p><formula xml:id="formula_36">T a (X) × T b (Y ) T a (X × T b (Y )) T a⊗b (X × Y ) T b⊗a (X × Y ) T b (T a (X) × Y ) ta (t b ) * a,b Tσ ( ta) * b,a t b</formula><p>It is affine if the unique map T I (1) → 1 is an isomorphism.</p><p>Proposition 2.5. If T is a graded commutative affine relative monad on a distributive category, then its Kleisli category (e.g. <ref type="bibr" target="#b25">[26,</ref><ref type="bibr" target="#b50">51]</ref>) is a graded Markov category:</p><p>• The objects are the same as J ;</p><p>• The morphisms in Kl(T ) a (X, Y ) are the morphisms J(X) → T a (X) in C;</p><p>• Composition is via the Kleisli extension.</p><p>Proposition 2.6. Any graded Markov category induces a graded commutative affine relative monad, by</p><p>• J = C I,det , the distributive category of I-graded deterministic maps</p><p>• The underlying category is FP(J op , Set), the finite product-preserving contravariant presheaves on J ;</p><p>• J : J → FP(J op , Set) is the Yoneda embedding;</p><formula xml:id="formula_37">• T : G → [J , FP(J op , Set)] is given by T a (Y )(X) = C a (X, Y )</formula><p>Proof. Note. In both cases, the proof amounts to expanding the definitions. The constructions are similar to <ref type="bibr">[73, §7]</ref>.</p><p>See also <ref type="bibr" target="#b0">[1,</ref><ref type="bibr">Prop. 13]</ref> for the non-graded case.</p><p>(We conjecture that Propositions 2.5-2.6 are part of a biequivalence between graded distributive Markov categories and commutative affine graded relative monads. We do not pursue this here because we will not need the generality of the biequivalence in what follows.)</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.3">Connection with enriched categories</head><p>To show that the concepts in this section are canonical, we connect with the theory of enriched categories. Let V be a symmetric monoidal closed category with limits and colimits, that is moreover semicartesian. Recall (e.g. <ref type="bibr" target="#b44">[45]</ref>) that a V-enriched category C is given by a collection of objects, and for each pair of objects X, Y of C, a 'hom-object'</p><formula xml:id="formula_38">C(X, Y ) in V. Composition is a morphism C(X, Y ) ⊗ C(Y, Z) → C(X, Z) in V.</formula><p>We can also define V-enriched monoidal categories, by requiring the functor ⊗ : C×C → C to be a monoidal category. And V-enriched coproducts require a natural isomorphism</p><formula xml:id="formula_39">C(X 1 + • • • + X n , Y ) ∼ = C(X 1 , Y ) × • • • × C(X n , Y )</formula><p>between objects of V. Any enriched category has an underlying ordinary category C 0 , which has the same objects but with a hom-set given by C 0 (X, Y ) = V(I, C(X, Y This ordinary category inherits monoidal, limit and colimit structure from C. Definition 2.7 (e.g. <ref type="bibr" target="#b68">[69]</ref>). A V-enriched Markov category is a V-enriched symmetric monoidal category such that the monoidal unit is terminal: C(A, I) ∼ = 1, and such that the underlying symmetric monoidal category is equipped with the structure of a Markov category (i.e. a comonoid structure in the underlying ordinary category).</p><p>A V-enriched Markov category is moreover distributive if it has V-coproducts that distribute over the monoidal structure, and such that the coproduct injections are deterministic, in the sense of the underlying ordinary category. • [G op , Set] has all limits and colimits, computed pointwise.</p><p>• [G op , Set] has a semicartesian structure such that the Yoneda embedding is a symmetric monoidal functor. This is given by Day convolution <ref type="bibr" target="#b20">[21]</ref>, and has the following universal property: for functors F, G, H ∈ [G op , Set], to give a natural transformation F ⊗G → H is to give a natural family of functions</p><formula xml:id="formula_40">F (a) × G(b) → H(a ⊗ b). • [G op , Set] is moreover monoidal closed.</formula><p>Proposition 2.8. To give an [G op , Set]-enriched distributive Markov category is to give a G-graded distributive Markov category.</p><p>Notes. This follows from the characterization of locally G-graded categories as [G op , Set]-enriched categories (e.g. <ref type="bibr" target="#b26">[27,</ref><ref type="bibr" target="#b54">55,</ref><ref type="bibr" target="#b86">87]</ref>), and then translating Definition 2.7 across this correspondence to arrive at Definition 2.3.</p><p>The correspondence between graded monads and enriched monads is also well understood (e.g. <ref type="bibr" target="#b59">[60]</ref>).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.4">Discussion</head><p>Recent work by Perrone <ref type="bibr" target="#b68">[69]</ref> has considered enriched Markov categories to obtain an abstract view of the distance between probabilities, which allows for an abstract development of entropy. We note that the enriching category V = Div in <ref type="bibr" target="#b68">[69]</ref> is indeed semicartesian. The full theory of enriched Markov categories perhaps deserves a more thorough analysis.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3">A graded Markov category for probability and non-determinism</head><p>We recall ordinary Markov categories for finite probability ( §3.1). We then consider a generic construction for graded Markov categories, and instantiate it in our setting, obtaining the graded Markov category ImP (for 'Imprecise Probability', §3.2). We conclude this section with a worked example ( §3.3). In the subsequent sections ( §4-5) we relate this graded Markov category with convex sets of distributions.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.1">Ordinary Markov categories for probability</head><p>Definition 3.1. A probability vector p ∈ R n is a sequence of non-negative numbers that sum to 1. We write D(n) for the set of probability vectors of length n.</p><p>The set D(n) is always a convex set: for any r ∈ [0, 1] and p, q ∈ D(n), the convex combination r • p + (1 − r) • q is again a probability vector in D(n). We write p + r q as shorthand for such a convex combination. Every probability vector in D(n) arises via convex combinations of the Dirac vectors δ i , for i = 1 . . . n, where δ 1 = (1, 0, 0, 0 . . . ), δ 2 = (0, 1, 0, 0 . . . ) and so on.</p><p>A matrix of real numbers f ∈ R n×m is called stochastic if each column is a probability vector. This is equivalent to requiring that as a linear map, it preserves the property of being a probability vector, i.e. if p ∈ D(n) then (f p) ∈ D(m). In fact, every function D(n) → D(m) that preserves convex structure arises from a stochastic matrix in this way. We call such a function a convex map. Definition 3.2 (e.g. <ref type="bibr" target="#b22">[23]</ref>, Ex. 2.5). The category FinStoch of finite stochastic matrices has as objects natural numbers, and morphisms m → n stochastic matrices in R n×m . Composition is matrix multiplication, and the identity morphism is the unit diagonal matrix.</p><p>This can be made into a symmetric monoidal category, with monoidal structure on objects given by multiplication of numbers, and on morphisms by the Kronecker product of matrices. It is semicartesian where the terminal object is 1, and there is a unique stochastic matrix with one row. This is moreover a Markov category, with copy n : n → n⊗n given by the three-dimensional diagonal (in R (n×n)×n ).</p><p>The Markov category FinStoch moreover has a distributive structure. The coproduct of objects is given by addition, and the coproduct of morphisms by block matrices (concatenating the columns).</p><p>The monad view on FinStoch is as follows. First, we consider the embedding J : FinSet → Set. We then regard D (Def. 3.1) as a J-relative monad D : FinSet → Set, which is affine and commutative. In fact there is an ordinary monad D ′ on Set, comprising finitely supported probability distributions (e.g. [37, Ch. 2]), and D = D ′ J. The distributive Markov category FinStoch can then be regarded as the Kleisli category for this relative monad.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.2">The graded Markov category ImP</head><p>We first introduce a general construction for graded Markov categories. This is a variation on the Para construction <ref type="bibr" target="#b21">[22]</ref>, also called monoidal indeterminates <ref type="bibr" target="#b30">[31]</ref>. Via the connections between Markov categories and commutative affine relative monads ( §2.2), it is equivalently a graded version of the reader monad transformer <ref type="bibr" target="#b57">[58]</ref>. Proposition 3.3. Let G be a semicartesian subcategory of a distributive Markov category C. There is a graded distributive Markov category with the same objects as C and with the hom-sets</p><formula xml:id="formula_41">C a (X, Y ) = C(a ⊗ X, Y ) (a ∈ G).</formula><p>The reindexing is given by composition</p><formula xml:id="formula_42">: if f ∈ G(b, a) and g ∈ C a (X, Y ) f * (g) = g • (f ⊗ X) ∈ C b (X, Y ).</formula><p>For the composition of f ∈ C a (X, Y ) and g ∈ C b (Y, Z),</p><formula xml:id="formula_43">(g • f ) = a ⊗ b ⊗ X ∼ = b ⊗ a ⊗ X b⊗f −−→ b ⊗ Y g − → Z ∈ C a⊗b (X, Z).</formula><p>The monoidal product of f ∈ C a (X, X ′ ) and g ∈ C b (Y, Y ′ ) is given by</p><formula xml:id="formula_44">(f ⊗ g) = a ⊗ b ⊗ X ⊗ Y ∼ = a ⊗ X ⊗ b ⊗ Y f ⊗g − −− → X ′ ⊗ Y ′ ∈ C a⊗b (X ⊗ Y, X ′ ⊗ Y ′ ). Definition 3.4. A stochastic matrix f ∈ FinStoch(m, n) is surjective if for every j ∈ [1, n] there exists i ∈ [1, m]</formula><p>such that f i is the Dirac distribution at j. In other words, the induced function D(m) → D(n) is surjective. Let FinStoch Surj be the category of natural numbers and surjective stochastic matrices. This is a semicartesian monoidal subcategory of FinStoch.</p><p>Definition 3.5. The graded distributive Markov category ImP is the FinStoch Surj -graded version of FinStoch, according to Proposition 3.3.</p><p>This graded distributive Markov category supports both finite probability and finite non-determinism.</p><p>• For binary probabilistic choice with bias r, we consider the morphism in ImP 1 (1, 2) given by the column vector r 1 − r .</p><p>• For a binary non-deterministic (i.e. Knightian) choice, we consider the morphism in ImP 2 <ref type="bibr" target="#b0">(1,</ref><ref type="bibr" target="#b1">2)</ref> given by the unit diagonal matrix.</p><p>We can extend the above notions of probabilistic and non-deterministic choice between elements of a finite set n by considering probability vectors (in ImP 1 (1, n)) and unit diagonal matrices (in ImP n (1, n)) respectively.</p><p>Remark: We could have considered a subcategory of FinStoch Surj as the grading. One example is finite sets and (deterministic) surjective functions. Another example is the subcategory where the objects are of the form 2 A and where we only consider the surjections 2 B → 2 A induced by injections A → B (connecting with nominal sets <ref type="bibr" target="#b70">[71]</ref> and the notation for grading considered in Section 1.2; in this case the semicartesian monoidal structure amounts to disjoint union, A ⊎ B.). We leave for future work the question of to what extent the following results depend on this particular choice of grading.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.3">Example calculation with ImP</head><p>Example 3.6. Consider the scenarios from Examples 1.1 and 1.2 where we draw boolean values with Knightian uncertainty and from fair Bernoulli trials and combine them using different program logic. We denote outcomes as probability vectors of length three, representing the chance of r, g, and b, respectively. Example 1.1 is the morphism</p><formula xml:id="formula_45">(g + h) • f =   1 0 0 0.5 0 0.5   ∈ ImP 2 (1, 3),</formula><p>where f denotes the conditional on the fair Bernoulli trial, and g and h are the conditionals on the Knightian choices in each branch, respectively.</p><formula xml:id="formula_46">f = 0.5 0.5 ∈ ImP 1 (1, 2) g =   1 0 0 1 0 0   ∈ ImP 2 (1, 3) h =   1 0 0 0 0 1   ∈ ImP 2 (1, 3)</formula><p>On the other hand, Example 1.2 is the morphism</p><formula xml:id="formula_47">(FinStoch Surj,π1 (g) + FinStoch Surj,π2 (h)) • f =  <label>1</label></formula><p>0.5 0.5 0 0 0 0.5 0.5 0 0.5 0 0.5</p><formula xml:id="formula_48">  ∈ ImP 4 (1, 3),</formula><p>where f , g, and h denote the same conditional statements, but now we lift the grading of g and h to 4 via the projections π 1 , π 2 ∈ FinStoch Surj (2 × 2, 2) to account for the decoupling of their Knightian uncertainties.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4">Convex sets of distributions and an op-lax functor</head><p>In this section we recall the properties of convex powersets of distributions (see also <ref type="bibr" target="#b6">[7,</ref><ref type="bibr" target="#b33">34,</ref><ref type="bibr" target="#b43">44,</ref><ref type="bibr" target="#b63">64,</ref><ref type="bibr" target="#b64">65]</ref> and elsewhere).</p><p>We then connect our category ImP ( §3) with convex powersets, via the Kan extension method of <ref type="bibr" target="#b23">[24]</ref> ( §4.2) and then show that this yields an op-lax functor ( §4.3), which means that our category is more conservative with uncertainty bounds. We begin by recalling some basic properties of convex sets of distributions.</p><p>Definition 4.1. A subset S of D(n) is convex if it is closed under convex combinations: if p, q ∈ S then for any r ∈ [0, 1] we have p + r q ∈ S.</p><p>A convex subset S of D(n) is finitely generated if there is a finite sequence p 1 . . . p m ∈ S such that every element of S can be achieved by convex combinations of the p i 's. In other words, S = {q • (p 1 . . . p m ) | q ∈ D(m)}, with the p i 's regarded as column vectors and q regarded as a row vector. Lemma 4.2. For any convex map f : D(m) → D(n) between the sets of probability vectors, the image of f is a convex subset of D(n).</p><p>Moreover, such convex subsets of D(n) are finitely generated, and every finitely generated convex set arises in this way.</p><p>Proof. Suppose q, q ′ ∈ image(f ), and let r ∈ [0, 1]. So we must have p, p ∈ D(m) such that f (p) = q and f (p</p><formula xml:id="formula_49">′ ) = q ′ . Then q + r q ′ = f (p) + r f (p ′ ) = f (p + r p ′ ),</formula><p>the last step because f is a convex map, and so we see that q + r q ′ ∈ image(f ).</p><p>The set image(f ) is generated by f (δ i ) for i = 1 . . . m. Conversely if a set S is generated by p 1 . . . p m , regarded as column vectors, then the matrix (p</p><formula xml:id="formula_50">1 . . . p m ) ∈ FinStoch(m, n) determines a map f : D(m) → D(n) such that image(f ) = S.</formula></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.1">Convex powersets of distributions</head><p>We write CP(n) for the set of convex subsets of D(n), and CP fin (n) for the finitely generated convex subsets of D(n). Both support convex combinations: if r ∈ [0, 1] and S, T ∈ CP(n) then</p><formula xml:id="formula_51">S + r T def = {p + r q | p ∈ S, q ∈ T } ∈ CP(n).</formula><p>There is moreover an ordering given by subset, and the join is a convex closure of the union: Proof. First, the fact that the image of f is convex is Lemma 4.2. For naturality in m, suppose g ∈ FinStoch Surj (m ′ , m). Then naturality in m amounts to the fact that image(f • g) = image(f ) which is true since g is surjective. For naturality in n, suppose h ∈ Set(n, n ′ ). Then naturality amounts to the fact that image(D(h)</p><formula xml:id="formula_52">S ∨ T def = {p + r q | r ∈ [0, 1], p ∈ S, q ∈ T }.</formula><formula xml:id="formula_53">• f ) = CP(h)(image(f ))</formula><p>which is true because taking an image of f after postcomposition with D(h) is the same as a pointwise application of D(h) to the image of f .</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.2">Connection to Kan extensions</head><p>Fritz and Perrone <ref type="bibr" target="#b23">[24,</ref><ref type="bibr" target="#b24">25]</ref> propose a method to extract a monad from a graded monad, by taking the left Kan extension. They provide criteria for when this process works and induces a monad morphism. This process cannot work entirely for our situation, for the following reason. First we note that we can interpret bernoulli and knight as the following elements of CP(2) :</p><formula xml:id="formula_54">• bernoulli is {( 1 0 )} + 0.5 {( 0 1 )} = {( 0.5 0.5 )}; • knight is {( 1 0 )} ∨ {( 0 1 )} = {( 1 0 ), (<label>0 1 )</label></formula><p>}. This construction CP extends to a monad on Set <ref type="bibr" target="#b33">[34]</ref>. Therefore, we can follow through the derivation of Figure <ref type="figure" target="#fig_3">2</ref> to see that the graded monad cannot be commutative (apparently contradicting <ref type="bibr" target="#b33">[34,</ref><ref type="bibr">Lemma 5.2]</ref>) since the convex sets in Fig. <ref type="figure" target="#fig_0">1(b)-(c</ref>) are different. (For another argument, note that CP contains two binary idempotent symmetric operations, ∨ and + 0.5 , and see e.g. <ref type="bibr" target="#b84">[85]</ref>.) By contrast, ImP ( §3.2) does satisfy our desiderata ( §1.1). So there cannot be a monad morphism between them. Nonetheless, the Kan extension of our graded Markov category ImP, regarded as a graded monad via Proposition 2.6, does give the finitely-generated convex powerset monad CP as a functor, just not as a monad. </p><formula xml:id="formula_55">m m ′ m ′′ n g g ′ f f ′ h</formula><p>The finitely generated convex set image(f ) = image(f ′ ) must have a unique convex hull, and we let m ′′ be the number of extremal points of the convex hull, which are uniquely determined. We construct g by noting that f (i) must be a convex combination from the m ′′ extremal points, and so we let g(i) be the probability vector corresponding to that combination. We construct g ′ from f ′ similarly. To see that g is surjective we note that since f is surjective onto its image we must have points in m that map onto the extremal points, and hence onto all the points of m ′′ via g. Similarly, g ′ is surjective. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.3">An op-lax functor</head><formula xml:id="formula_56">f * (X) = x∈ext(X) i∈m x i • f (i);</formula><p>where ext takes the extreme points of the finitely generated convex subset.</p><p>From this structure, we build a Kleisli category as usual.</p><p>• The objects of Kl(CP fin ) are natural numbers.</p><p>• The morphisms m → n are functions m → CP fin (n).</p><p>• The identity morphism is the unit η. Composition of g and f is given by g * • f . In fact, this category is order-enriched. That is to say, the hom-sets Kl(CP fin ) have a natural partial order structure given by f ≤ g if for all i, f (i) ⊆ g(i). Composition is thus monotone.</p><p>We now extend the quotient of Proposition 4.3 to an identity-on-objects op-lax functor ImP → Kl(CP fin ).</p><formula xml:id="formula_57">Theorem 1. Consider the assignment of a morphism f ∈ ImP a (m, n) to R(f ) : m → CP fin (n) given by R(f )(i) = image(f (−, i))</formula><p>. This defines an op-lax functor</p><formula xml:id="formula_58">ImP → Kl(CP fin ) Proof notes. It is straightforward that R(id) = id. It remains to show that R(g • f ) ⊆ R(g) • R(f ).</formula><p>Since we will show that R preserves finite coproducts, it is sufficient to first suppose that the domain of f is 1. So consider f ∈ ImP a (1, m) and g ∈ ImP b (m, n). So (g • f ) ∈ FinStoch(a × b, n). We must show that for all (i, j) ∈ (a × b), the probability vector (g</p><formula xml:id="formula_59">• f )(i, j) is in (R(g) • R(f ))() = R(g) * (image(f )) ∈ CP(n).</formula><p>To show this, we note that the grade of (g • f ) is (a × b), but we can also consider an alternative kind of composite (g * f ) with a bigger grade (a × b m ). This is given by</p><formula xml:id="formula_60">(g * f ) = a × b m f − → m × b m (eval,proj 1 ) −−−−−−−→ b × m g − → n ;</formula><p>where the middle arrow is the evident function between sets regarded as a stochastic matrix. Contrast with</p><formula xml:id="formula_61">(g • f ) = a × b f − → m × b swp −−→ b × m g − → n . The function (a × b) → (a × b m ) that copies b is an injection and exhibits image(g • f ) ⊆ image(g * f ) Moreover, we have that image(g * f ) = R(g) • R(f ).</formula><p>The intuitive point is that in (g * f ), for each possible intermediate m we are allowed to use different choices of b, but in (g • f ), each possible intermediate m will use the same choices of b.</p><p>To see that R preserves coproducts we note that on objects it is immediate, and expanding the definitions shows that the coproduct injections and copairings are exactly preserved by R.</p><p>(Here, we are regarding ImP with discrete order enrichment but non-trivial local grading, and Kl(CP fin ) with non-trivial order enrichment but trivial local grading. It is possible that there interesting ways to unify the two different enrichments.) </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.4">Discussion and example</head><formula xml:id="formula_62">(c). Thus, R(g • f ) R(g) • R(f ).</formula><p>Therefore, by accounting for corresponding choices of Knightian uncertainty within morphism compositions, our category ImP obtains tighter bounds on the imprecise probabilities.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5">Maximality as a commutative theory</head><p>In Proposition 4.3 we gave a family of maps φ that convert our compositional imprecise probability into convex sets of probability distributions. These maps are not injective, and in this sense the model of ImP is intensional. This raises a question of whether we could have made a less intensional model than ImP while still maintaining Desiderata 1 and 2 and maintaining the connection to convex sets of distributions. In Theorem 2 we answer this question negatively, in the following sense: We cannot quotient the hom-sets of ImP without either losing the connection with convex sets (and hence statistics) or losing the monoidal or distributive structure (and hence the compositionality desiderata of §1.1). In this sense, ImP is maximal. Definition 5.1. Let G be a semicartesian category. Let C and D be G-graded distributive Markov categories. A graded distributive Markov functor F : C → D is given by a mapping from the objects of C to the objects of D and a family of mappings from C a (X, Y ) → D a (F (X), F (Y )), strictly preserving the composition, monoidal and coproduct structure, and the copy maps.</p><p>Note In view of §2.1, we note that a graded distributive Markov functor is the same thing as the existing notion of strict distributive monoidal functor between distributive monoidal enriched categories (e.g. <ref type="bibr" target="#b44">[45]</ref>), together with the requirement that the copy maps are preserved, which is in common with the ordinary Markov category literature <ref type="bibr" target="#b22">[23]</ref>. We could also formulate this in terms of monad morphisms, following Section 2.2. </p><p>Now, for all i ∈ m, ( • f + 0.5 ι • d)(i) are independent because they each use a different dimension. They are all extremal vertices on the convex hull φ n,m+n ( • f + 0.5 ι • d). Moreover, they must be the same vertices as ( • g + 0.5 ι • d)(i) for respective i ∈ m because the convex hulls are the same <ref type="bibr" target="#b4">(5)</ref>. Therefore,</p><formula xml:id="formula_64"> • f + 0.5 ι • d =  • g + 0.5 ι • d.</formula><p>We can recover f and g as for any i ∈ m, j ∈ n, f (i)(j) = 2 × ( • f + 0.5 ι • d)(i)(j), g(i)(j) = 2 × ( • g + 0.5 ι • d)(i)(j).</p><p>So f = g.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6">Summary and outlook</head><p>We have shown that by taking a graded perspective and naming Knightian choices we can obtain a compositional account of Bernoulli and Knightian uncertainty together. The account gives a refined bound on the uncertainty (Theorem 1) and is maximal among the compositional accounts (Theorem 2).</p><p>There are a number of future directions. A first question is how to accommodate iteration. The convex sets considered in this article are all finitely generated, but if we allow iterative programs that have an unbounded number of Knightian choices, this leads to a more general class of convex sets.</p><p>The concerns about iteration hold even if we restrict to finite outcome spaces, and thus far we have focused on this for simplicity. Much work on programming semantics for imprecise probability has focused beyond finite outcome spaces, and it will be interesting to revisit this from our perspective: this includes domain theoretic structures (e.g. <ref type="bibr" target="#b28">[29,</ref><ref type="bibr" target="#b42">43,</ref><ref type="bibr" target="#b43">44,</ref><ref type="bibr" target="#b83">84]</ref>) and metric structures (e.g. <ref type="bibr" target="#b63">[64,</ref><ref type="bibr" target="#b64">65]</ref>).</p><p>It would be interesting to compare to another recent compositional framework combining unknowns with probability by Stein and Samuelson, currently focusing on Gaussians <ref type="bibr" target="#b77">[78]</ref>.</p><p>Our approach is based on random elements, and so is the quasi-Borel-space probability monad (e.g. <ref type="bibr" target="#b31">[32,</ref><ref type="bibr" target="#b80">81]</ref>), so this might be a good approach to accommodating function spaces.</p><p>On the more practical side, an open question is how to perform statistical inference in a probabilistic programming language with imprecise probability.</p><p>Going beyond statistics, it is possible that there are other scenarios where this approach is useful: making a theory compositional by using a graded theory (for a first purely speculative example, the issues with amb outlined in <ref type="bibr" target="#b53">[54]</ref>).</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Figure 1 :</head><label>1</label><figDesc>Figure1: (a) Five probabilities over the three-point set {r, g, b} illustrated as points in the triangle: the three extreme points are the corners; p is the equal odds chance between b and g; q is the equal odds chance between all three points. (b) A line indicating a convex region between r and p, which includes q. (c) A convex region which is the convex hull of four points, including r, p and also the equal odds chance between r and b and between r and g. (d) A different convex region, considered in<ref type="bibr" target="#b85">[86,</ref> Ex. 7.3].</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head>Figure 2 :</head><label>2</label><figDesc>Figure 2: An equational derivation that Examples 1.1 and 1.2 must be equal if Desiderata 1 and 2 are satisfied.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_4"><head></head><label></label><figDesc>appear in work on refinement of probabilistic programs [61, Fig. 6.4.2, Fig. 6.5.1]. But the motivation is different, and the desiderata ( §1.1) may be less relevant in program refinement.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_5"><head></head><label></label><figDesc>where λ : I ⊗ a → a, ρ : b ⊗ I → b, and α : c ⊗ (a ⊗ b) → (c ⊗ a) ⊗ b are the left unitor, right unitor, and associator of G, respectively.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_6"><head>For</head><label></label><figDesc>any semicartesian category G, recall the category of functors [G op , Set]. This extends G to a good 'cosmos' for enrichment since • [G op , Set] embeds G fully and faithfully (i.e. essentially as a full subcategory), via the Yoneda embedding y(a) = G(−, a).</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_7"><head>Proposition 4 . 3 .</head><label>43</label><figDesc>There is a family of functions φ m,n :ImP m (1, n) → CP fin (n), that takes f ∈ ImP m (1, n) to its image image(f ) ∈ CP fin (n), and the family is natural in m ∈ FinStoch Surj and n ∈ Set.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_8"><head>Proposition 4 . 4 .</head><label>44</label><figDesc>The family φ m,n : ImP m (1, n) → CP fin (n) exhibits CP fin : FinSet → Set as the Kan extension of ImP (−) (1, =) : FinStoch op Surj → [FinSet, Set] along the unique functor FinStoch op Surj → 1. Kan extensions in [FinSet, Set] can be computed pointwise, and for any n ∈ FinSet the Kan extension of ImP (−) (1, n) : FinStoch op Surj → Set along FinStoch op Surj → 1 is simply the colimit of the functor. Thus it suffices to show that the canonical function Φ :colimm∈FinStoch op Surj ImP m (1, n) → CP fin (n) (induced by φ) is a bijection. This function Φ is given by Φ[m, f ∈ FinStoch(m, n)] = image(f ).To see that it is surjective we recall that every finitely generated convex set is the image of some convex function D(m) → D(n) (Lemma 4.2). To see that it is injective we suppose that image(f) = image(f ′ ), for f ∈ FinStoch(m, n) and f ′ ∈ FinStoch(m ′ , n). We need to show that [m, f ] = [m ′ , f ′ ] in the colimit.It suffices to find m ′′ with h ∈ FinStoch(m, n) and surjections g ∈ FinStoch Surj (m, m ′′ ) and g ′ ∈ FinStoch Surj (m ′ , m ′′ ):</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_9"><head>Definition 4 . 5 .</head><label>45</label><figDesc>The construction CP fin extends to a relative monad. The unit morphism η n : n → CP fin (n) picks out the singleton set containing the Dirac vector, η n (i) = {δ i }. The Kleisli extension takes a function f : m → CP fin (n) to a function f * : CP fin (m) → CP fin (n) given by</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_10"><head>Example 4 . 6 . 5 ∈ 1 →.</head><label>4651</label><figDesc>We once again revisit the scenarios from Examples 1.1 and 1.2 where boolean values are drawn with Knightian uncertainty or from fair Bernoulli trials and combined using different program logic. Consider the morphism denoting a fair Bernoulli trial (f from Example 3.6), ImP 1 (1, 2), and a morphism that employs Knightian uncertainty on each of its inputs (g + h from Example 3.6), CP fin (2) maps the singleton set to 0.5 0.5 , R(g) : 2 → CP fin (3) maps the two-element set to Example 3.6, R(g • f ) : 1 → CP fin (3) maps the singleton set to This is the convex subset in Figure 1(b) if we consider the probability vectors as giving the corresponding chances of outcomes r, g, and b.On the other hand, by composing g with f after mapping them into Kl(CP fin ), we lose the ability to distinguish which outcomes were related via the same Knightian choices. So the morphism R(g) • R(f ) : 1 → CP fin (3) maps the singleton element to  convex subset given in Figure1</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_11"><head>Theorem 2 .</head><label>2</label><figDesc>Let C be FinStoch Surj -graded distributive Markov category with a graded distributive Markov functor F : ImP → C and a natural family of functionsψ m,n : C m (1, n) → CP fin (n) such that φ m,n : ImP m (1, n) → CP fin (n) (Proposition 4.3) factors through ψ. Then F is faithful: if F (f ) = F (g) in C then also f = g in ImP.Proof. Since F preserves finite coproducts, it is sufficient to suppose the domain of f and g is 1. That is, let f, g ∈ ImP m (1, n) and suppose φ m,n factors asImP m (1, n) Fm,n − −− → C m (1, n) ψm,n − −− → CP fin (n).Let d ∈ ImP m (1, m) be the evident tuple of Diracs. Define ι ∈ ImP 1 (m, n + m) and  ∈ ImP 1 (n, m + n) as the lifting of the injections m → m + n ← n via postcomposition with the unit of D. Since F is a graded distributive Markov functor and F m,n (f ) = F m,n (g),F m,m+n ( • f + 0.5 ι • d) = F m,m+n ( • g + 0.5 ι • d)where for h, k : X → D(Y ), we define (h + r k)(x) = h(x) + r k(x). Applying ψ gives φ m,m+n ( • f + 0.5 ι • d) = φ m,m+n ( • g + 0.5 ι • d)</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_0"><head></head><label></label><figDesc>1 ) ; if x then return r else return g ) else (x ← knight(a 1 ) ; if x then return r else return b ) which conveys the same Knightian value is used on each of the branches of the if statement. This can no longer derive the program: z ← bernoulli ; if z then (x ← knight(a 1 ) ; if x then return r else return g ) else (x ← knight(a 2 ) ; if x then return r else return b )</figDesc><table /></figure>
+		</body>
+		<back>
+
+			<div type="acknowledgement">
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Acknowledgements It has been helpful to talk to many people about this work. The 2023/2024 Aria workshops emphasised aspects of imprecise probability as discussion topics (and so it was helpful to discuss with davidad, Dylan Braithwaite, Elena Di Lavore, Alex Lew, Owen Lynch, Sean Moss, Zenna Tavares, and others). It has been helpful to discuss with colleagues in Oxford (particularly Paolo Perrone, who is running an adjoint school project on uncertainty in Markov categories, and some time ago Kwok Ho Cheung regarding his thesis work <ref type="bibr" target="#b12">[13]</ref>), and at the 2024 Bellairs workshop. We also received helpful feedback from Hugo Paquet, Dario Stein, and MFPS 2024 reviewers, where this material was submitted as an 'early announcement'.</p><p>Research supported by Clarendon Scholarship, ERC Consolidator Grant BLAST, and AFOSR Project FA9550-21-1-0038.</p></div>
+			</div>
+
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">Probabilistic programming interfaces for random graphs: Markov categories, graphons, and nominal sets</title>
+		<author>
+			<persName><forename type="first">N</forename><surname>Ackerman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Freer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Kaddar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Karwowski</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Moss</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Roy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Staton</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Yang</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. POPL 2024</title>
+				<meeting>POPL 2024</meeting>
+		<imprint>
+			<date type="published" when="2024">2024</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">Static analysis of programs with imprecise probabilistic inputs</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Adjé</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">O</forename><surname>Bouissou</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Goubault-Larrecq</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Goubault</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Putot</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. VSTTE 2013</title>
+				<meeting>VSTTE 2013</meeting>
+		<imprint>
+			<date type="published" when="2013">2013</date>
+			<biblScope unit="page" from="22" to="47" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<monogr>
+		<title level="m" type="main">Basic inframeasure theory. LessWrong</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Appel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Kosoy</surname></persName>
+		</author>
+		<ptr target="https://www.lesswrong.com/posts/YAa4qcMyoucRS2Ykr/basic-inframeasure-theory" />
+		<imprint>
+			<date type="published" when="2020-08">August 2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<monogr>
+		<title level="m" type="main">Inframeasures and domain theory. LessWrong</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Appel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Kosoy</surname></persName>
+		</author>
+		<ptr target="https://www.lesswrong.com/posts/vrbidMiczaoHBhZGp/inframeasures-and-domain-theory" />
+		<imprint>
+			<date type="published" when="2021-03">March 2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">A monad for randomized algorithms</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Barker</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. MFPS 2016</title>
+				<meeting>MFPS 2016</meeting>
+		<imprint>
+			<date type="published" when="2016">2016</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<monogr>
+		<title level="m" type="main">Ars conjectandi, opus posthumum. Thurneysen</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Bernoulli</surname></persName>
+		</author>
+		<imprint>
+			<biblScope unit="page">1713</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">The theory of traces for systems with nondeterminism and probability</title>
+		<author>
+			<persName><forename type="first">F</forename><surname>Bonchi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Sokolova</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Vignudelli</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. LICS 2019</title>
+				<meeting>LICS 2019</meeting>
+		<imprint>
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">Presenting convex sets of probability distributions by convex semilattices and unique bases</title>
+		<author>
+			<persName><forename type="first">F</forename><surname>Bonchi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Sokolova</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Vignudelli</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. CALCO 2021</title>
+				<meeting>CALCO 2021<address><addrLine>CALCO</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">Flow models of distributed computations: three equivalent semantics for CCS</title>
+		<author>
+			<persName><forename type="first">G</forename><surname>Boudol</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Castellani</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Inform. Comput</title>
+		<imprint>
+			<biblScope unit="volume">114</biblScope>
+			<biblScope unit="page" from="247" to="314" />
+			<date type="published" when="1994">1994</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">The compositional structure of Bayesian inference</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Braithwaite</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Hedges</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>St Clere Smithe</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. MFCS 2023</title>
+				<meeting>MFCS 2023</meeting>
+		<imprint>
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">Introduction to extensive and distributive categories</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Carboni</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Lack</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">F C</forename><surname>Walters</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">J. Pure Appl. Algebra</title>
+		<imprint>
+			<biblScope unit="volume">84</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="145" to="158" />
+			<date type="published" when="1993">1993</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">A theory of recursive domains with applications to concurrency</title>
+		<author>
+			<persName><forename type="first">G</forename><forename type="middle">L</forename><surname>Cattani</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">P</forename><surname>Fiore</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Winskel</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. LICS</title>
+				<meeting>LICS</meeting>
+		<imprint>
+			<date type="published" when="1998">1998. 1998</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<monogr>
+		<title level="m" type="main">Distributive Interaction of Algebraic Effects</title>
+		<author>
+			<persName><forename type="first">K.-H</forename><surname>Cheung</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2017">2017</date>
+		</imprint>
+		<respStmt>
+			<orgName>University of Oxford Department of Computer Science</orgName>
+		</respStmt>
+	</monogr>
+	<note type="report_type">PhD thesis</note>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">Introduction to distributive categories</title>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">R B</forename><surname>Cockett</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Math. Struct. Comput. Sci</title>
+		<imprint>
+			<biblScope unit="volume">3</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="277" to="307" />
+			<date type="published" when="1993">1993</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">Layer by layer: composing monads</title>
+		<author>
+			<persName><forename type="first">F</forename><surname>Dahlqvist</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Parlant</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Silva</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. ICTAC</title>
+				<meeting>ICTAC</meeting>
+		<imprint>
+			<date type="published" when="2018">2018. 2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<monogr>
+		<title level="m" type="main">A Monadic Theory of Point Processes</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Dash</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2024">2024</date>
+		</imprint>
+		<respStmt>
+			<orgName>University of Oxford</orgName>
+		</respStmt>
+	</monogr>
+	<note type="report_type">PhD thesis</note>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<analytic>
+		<title level="a" type="main">Affine monads and lazy structures for Bayesian programming</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Dash</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Kaddar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Paquet</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Staton</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. POPL 2023</title>
+				<meeting>POPL 2023</meeting>
+		<imprint>
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<analytic>
+		<title level="a" type="main">A monad for probabilistic point processes</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Dash</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Staton</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. ACT 2020</title>
+				<meeting>ACT 2020</meeting>
+		<imprint>
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<analytic>
+		<title level="a" type="main">Monads for measurable queries in probabilistic databases</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Dash</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Staton</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. MFPS 2021</title>
+				<meeting>MFPS 2021</meeting>
+		<imprint>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<monogr>
+		<title level="m" type="main">Safeguarded AI: constructing safety by design</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Dalrymple</surname></persName>
+		</author>
+		<ptr target="https://www.aria.org.uk/wp-content/uploads/2024/01/ARIA-Safeguarded-AI-Programme-Thesis-V1.pdf" />
+		<imprint>
+			<date type="published" when="2024-01">January 2024</date>
+		</imprint>
+	</monogr>
+	<note type="report_type">ARIA Programme Thesis</note>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<analytic>
+		<title level="a" type="main">On closed categories of functors</title>
+		<author>
+			<persName><forename type="first">B</forename><surname>Day</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. Midwest Category Seminar IV</title>
+				<meeting>Midwest Category Seminar IV</meeting>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="1969">1969</date>
+			<biblScope unit="volume">137</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<analytic>
+		<title level="a" type="main">Backprop as functor: A compositional perspective on supervised learning</title>
+		<author>
+			<persName><forename type="first">B</forename><surname>Fong</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Spivak</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Tuyéras</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 34th Annual ACM/IEEE Symposium on Logic in Computer Science, LICS &apos;19</title>
+				<meeting>the 34th Annual ACM/IEEE Symposium on Logic in Computer Science, LICS &apos;19</meeting>
+		<imprint>
+			<publisher>IEEE Press</publisher>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<analytic>
+		<title level="a" type="main">A synthetic approach to Markov kernels, conditional independence and theorems on sufficient statistics</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Fritz</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Adv. Math</title>
+		<imprint>
+			<biblScope unit="volume">370</biblScope>
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b23">
+	<monogr>
+		<title level="m" type="main">A criterion for Kan extensions of lax monoidal functors</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Fritz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Perrone</surname></persName>
+		</author>
+		<idno>arxiv:1809.10481</idno>
+		<imprint>
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b24">
+	<monogr>
+		<title level="m" type="main">A probability monad as the colimit of spaces of finite samples. Theory and Applications of Categories</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Fritz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Perrone</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2019">2019</date>
+			<biblScope unit="volume">34</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b25">
+	<analytic>
+		<title level="a" type="main">Graded hoare logic and its categorical semantics</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Gaboardi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Katsumata</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Orchard</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Sato</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. ESOP 2021</title>
+				<meeting>ESOP 2021</meeting>
+		<imprint>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b26">
+	<monogr>
+		<title level="m" type="main">Fundamental Components of Deep Learning: A category-theoretic approach</title>
+		<author>
+			<persName><forename type="first">B</forename><surname>Gavranovic</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:2403.13001</idno>
+		<imprint>
+			<date type="published" when="2024">2024</date>
+		</imprint>
+		<respStmt>
+			<orgName>Strathclyde University</orgName>
+		</respStmt>
+	</monogr>
+	<note type="report_type">PhD thesis</note>
+</biblStruct>
+
+<biblStruct xml:id="b27">
+	<analytic>
+		<title level="a" type="main">Goubault-Larrecq. Continuous previsions</title>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. CSL 2007</title>
+				<meeting>CSL 2007</meeting>
+		<imprint>
+			<date type="published" when="2007">2007</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b28">
+	<analytic>
+		<title level="a" type="main">Prevision domains and convex powercones</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Goubault-Larrecq</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. FOSSACS 2008</title>
+				<meeting>FOSSACS 2008</meeting>
+		<imprint>
+			<date type="published" when="2008">2008</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b29">
+	<analytic>
+		<title level="a" type="main">Combining probabilistic and non-deterministic choice via weak distributive laws</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Goy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Petrisan</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">LICS 2020</title>
+				<imprint>
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b30">
+	<analytic>
+		<title level="a" type="main">Monoidal indeterminates and categories of possible worlds</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Hermida</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Tennent</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Theoretical Computer Science</title>
+		<imprint>
+			<biblScope unit="page">430</biblScope>
+			<date type="published" when="2012">2012</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b31">
+	<analytic>
+		<title level="a" type="main">A convenient category for higher-order probability theory</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Heunen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">O</forename><surname>Kammar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Staton</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Yang</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. LICS 2017</title>
+				<meeting>LICS 2017</meeting>
+		<imprint>
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b32">
+	<monogr>
+		<title level="m" type="main">Robust statistics</title>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">J</forename><surname>Huber</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="1981">1981</date>
+			<publisher>Wiley</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b33">
+	<analytic>
+		<title level="a" type="main">Coalgebraic trace semantics for combined possibilitistic and probabilistic systems</title>
+		<author>
+			<persName><forename type="first">B</forename><surname>Jacobs</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. CMCS</title>
+				<meeting>CMCS</meeting>
+		<imprint>
+			<date type="published" when="2008">2008. 2008</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b34">
+	<analytic>
+		<title level="a" type="main">From probability monads to commutative effectuses</title>
+		<author>
+			<persName><forename type="first">B</forename><surname>Jacobs</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">J. Log. Algebr. Methods Program</title>
+		<imprint>
+			<biblScope unit="volume">94</biblScope>
+			<biblScope unit="page" from="200" to="237" />
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b35">
+	<analytic>
+		<title level="a" type="main">From multisets over distributions to distributions over multisets</title>
+		<author>
+			<persName><forename type="first">B</forename><surname>Jacobs</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. LICS 2021</title>
+				<meeting>LICS 2021</meeting>
+		<imprint>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b36">
+	<monogr>
+		<title level="m" type="main">Structured probabilistic reasoning. Available from the author&apos;s homepage</title>
+		<author>
+			<persName><forename type="first">B</forename><surname>Jacobs</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2023-07">July 2023</date>
+		</imprint>
+	</monogr>
+	<note>Draft book</note>
+</biblStruct>
+
+<biblStruct xml:id="b37">
+	<analytic>
+		<title level="a" type="main">Causal inference by string diagram surgery</title>
+		<author>
+			<persName><forename type="first">B</forename><surname>Jacobs</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Kissinger</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Zanasi</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. FOSSACS 2019</title>
+				<meeting>FOSSACS 2019</meeting>
+		<imprint>
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b38">
+	<analytic>
+		<title level="a" type="main">Commutative monads for probabilistic programming languages</title>
+		<author>
+			<persName><forename type="first">X</forename><surname>Jia</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Lindenhovius</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">W</forename><surname>Mislove</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Zamdzhiev</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. LICS 2021</title>
+				<meeting>LICS 2021</meeting>
+		<imprint>
+			<date type="published" when="2021">2021</date>
+			<biblScope unit="page" from="1" to="14" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b39">
+	<analytic>
+		<title level="a" type="main">A probabilistic powerdomain of evaluations</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Jones</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><forename type="middle">D</forename><surname>Plotkin</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Fourth Annual Symposium on Logic in Computer Science</title>
+				<imprint>
+			<date type="published" when="1989-06">June 1989</date>
+			<biblScope unit="page" from="186" to="195" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b40">
+	<analytic>
+		<title level="a" type="main">Algebraic foundations for effect-dependent optimisations</title>
+		<author>
+			<persName><forename type="first">O</forename><surname>Kammar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><forename type="middle">D</forename><surname>Plotkin</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. POPL 2012</title>
+				<meeting>POPL 2012</meeting>
+		<imprint>
+			<date type="published" when="2012">2012</date>
+			<biblScope unit="page" from="349" to="360" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b41">
+	<analytic>
+		<title level="a" type="main">Parametric effect monads and semantics of effect systems</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Katsumata</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. POPL</title>
+				<meeting>POPL</meeting>
+		<imprint>
+			<date type="published" when="2014">2014. 2014</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b42">
+	<analytic>
+		<title level="a" type="main">Topological cones: Foundations for a domain theoretical semantics combining probability and nondeterminism</title>
+		<author>
+			<persName><forename type="first">K</forename><surname>Keimel</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">MFPS 2005</title>
+				<imprint>
+			<date type="published" when="2005">2005</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b43">
+	<analytic>
+		<title level="a" type="main">Mixed powerdomains for probability and nondeterminism</title>
+		<author>
+			<persName><forename type="first">K</forename><surname>Keimel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><forename type="middle">D</forename><surname>Plotkin</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Log. Methods Comput. Sci</title>
+		<imprint>
+			<biblScope unit="volume">13</biblScope>
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b44">
+	<monogr>
+		<title level="m" type="main">Basic Concepts of Enriched Category Theory</title>
+		<author>
+			<persName><forename type="first">G</forename><forename type="middle">M</forename><surname>Kelly</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="1982">1982</date>
+			<publisher>CUP</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b45">
+	<monogr>
+		<title level="m" type="main">Risk, uncertainty and profit</title>
+		<author>
+			<persName><forename type="first">F</forename><forename type="middle">H</forename><surname>Knight</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="1921">1921</date>
+			<pubPlace>Houghton Mifflin</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b46">
+	<analytic>
+		<title level="a" type="main">Strong functors and monoidal monads</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Kock</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Arch. Math</title>
+		<imprint>
+			<biblScope unit="volume">23</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="113" to="120" />
+			<date type="published" when="1972-12">Dec. 1972</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b47">
+	<analytic>
+		<title level="a" type="main">Commutative monads as a theory of distributions</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Kock</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Theory Appl. Categ</title>
+		<imprint>
+			<biblScope unit="volume">26</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="97" to="131" />
+			<date type="published" when="2012">2012</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b48">
+	<analytic>
+		<title level="a" type="main">Infra-Bayesian physicalism: A formal theory of naturalized induction</title>
+		<author>
+			<persName><forename type="first">V</forename><surname>Kosoy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Appel</surname></persName>
+		</author>
+		<ptr target="https://www.alignmentforum.org/posts/gHgs2e2J5azvGFatb/infra-bayesian-physicalism-a-formal-theory-of-n" />
+	</analytic>
+	<monogr>
+		<title level="j">AI Alignment Forum</title>
+		<imprint>
+			<date type="published" when="2021-11">November 2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b49">
+	<monogr>
+		<title level="m" type="main">Multisets and distributions</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Kozen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Silva</surname></persName>
+		</author>
+		<idno>arxiv:2301.10812</idno>
+		<imprint>
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b50">
+	<analytic>
+		<title level="a" type="main">Graded algebraic theories</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Kura</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. FOSSACS 2020</title>
+				<meeting>FOSSACS 2020</meeting>
+		<imprint>
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b51">
+	<analytic>
+		<title level="a" type="main">Weighted relational models of typed lambda-calculi</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Laird</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Manzonetto</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Mccusker</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Pagani</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. LICS 2013</title>
+				<meeting>LICS 2013</meeting>
+		<imprint>
+			<date type="published" when="2013">2013</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b52">
+	<analytic>
+		<title level="a" type="main">Evidential decision theory via partial Markov categories</title>
+		<author>
+			<persName><forename type="first">E</forename><forename type="middle">D</forename><surname>Lavore</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Román</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. LICS 2023</title>
+				<meeting>LICS 2023</meeting>
+		<imprint>
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b53">
+	<analytic>
+		<title level="a" type="main">Amb breaks well-pointedness, ground amb doesn&apos;t</title>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">B</forename><surname>Levy</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. MFPS 2007</title>
+				<meeting>MFPS 2007</meeting>
+		<imprint>
+			<date type="published" when="2007">2007</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b54">
+	<analytic>
+		<title level="a" type="main">Locally graded categories</title>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">B</forename><surname>Levy</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Slides available from the author&apos;s webpage</title>
+				<imprint>
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b55">
+	<analytic>
+		<title level="a" type="main">Modelling environments in call-by-value programming languages</title>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">B</forename><surname>Levy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Power</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Thielecke</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Inform. Comput</title>
+		<imprint>
+			<biblScope unit="volume">185</biblScope>
+			<date type="published" when="2003">2003</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b56">
+	<analytic>
+		<title level="a" type="main">Trace types and denotational semantics for sound programmable inference in probabilistic languages</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">K</forename><surname>Lew</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">F</forename><surname>Cusumano-Towner</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Sherman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Carbin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><forename type="middle">K</forename><surname>Maninghka</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. POPL 2020</title>
+				<meeting>POPL 2020</meeting>
+		<imprint>
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b57">
+	<analytic>
+		<title level="a" type="main">Monad transformers and modular interpreters</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Liang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Hudak</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Jones</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. POPL 1995</title>
+				<meeting>POPL 1995</meeting>
+		<imprint>
+			<date type="published" when="1995">1995</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b58">
+	<monogr>
+		<title level="m" type="main">Categories for the Working Mathematician</title>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">Mac</forename><surname>Lane</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="1998">1998</date>
+			<publisher>Springer</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b59">
+	<analytic>
+		<title level="a" type="main">Flexibly graded monads and graded algebras</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Mcdermott</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Uustalu</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. MPC 2022</title>
+				<meeting>MPC 2022</meeting>
+		<imprint>
+			<date type="published" when="2022">2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b60">
+	<monogr>
+		<title level="m" type="main">Abstraction, Refinement and Proof for Probabilistic Systems</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Mciver</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Morgan</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2005">2005</date>
+			<publisher>Springer</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b61">
+	<analytic>
+		<title level="a" type="main">Partial correctness for probabilistic demonic programs</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">K</forename><surname>Mciver</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Morgan</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Theoret. Comput. Sci</title>
+		<imprint>
+			<biblScope unit="volume">266</biblScope>
+			<biblScope unit="page" from="513" to="541" />
+			<date type="published" when="2001">2001</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b62">
+	<analytic>
+		<title level="a" type="main">Upper-expectation bisimilarity and Lukasiewicz mu-calculus</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Mio</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. FoSSaCS</title>
+				<meeting>FoSSaCS</meeting>
+		<imprint>
+			<date type="published" when="2014">2014. 2014</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b63">
+	<analytic>
+		<title level="a" type="main">Combining nondeterminism, probability, and termination: Equational and metric reasoning</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Mio</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Sarkis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Vignudelli</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. LICS 2021</title>
+				<meeting>LICS 2021</meeting>
+		<imprint>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b64">
+	<analytic>
+		<title level="a" type="main">Monads and quantitative equational theories for nondeterminism and probability</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Mio</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Vignudelli</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. CONCUR 2020</title>
+				<meeting>CONCUR 2020</meeting>
+		<imprint>
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b65">
+	<analytic>
+		<title level="a" type="main">Axioms for probability and nondeterminism</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">W</forename><surname>Mislove</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Ouaknine</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Worrell</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. EXPRESS 2003</title>
+				<meeting>EXPRESS 2003</meeting>
+		<imprint>
+			<date type="published" when="2003">2003</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b66">
+	<monogr>
+		<title level="m" type="main">Notions of computation and monads</title>
+		<author>
+			<persName><forename type="first">E</forename><surname>Moggi</surname></persName>
+			<affiliation>
+				<orgName type="collaboration">Information and Computation</orgName>
+			</affiliation>
+		</author>
+		<imprint>
+			<date type="published" when="1991">1991</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b67">
+	<analytic>
+		<title level="a" type="main">Unifying graded and parameterised monads</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Orchard</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Wadler</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><forename type="middle">E</forename><surname>Iii</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. MSFP 2020</title>
+				<meeting>MSFP 2020</meeting>
+		<imprint>
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b68">
+	<analytic>
+		<title level="a" type="main">Markov categories and entropy</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Perrone</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Information Theory</title>
+		<imprint>
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b69">
+	<analytic>
+		<title level="a" type="main">Semialgebras and weak distributive laws</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Petrisan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Sarkis</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. MFPS 2021</title>
+				<meeting>MFPS 2021</meeting>
+		<imprint>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b70">
+	<analytic>
+		<title level="a" type="main">Nominal Sets: names and symmetry in computer science</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">M</forename><surname>Pitts</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">CUP</title>
+		<imprint>
+			<date type="published" when="2013">2013</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b71">
+	<analytic>
+		<title level="a" type="main">Notions of computation determine monads</title>
+		<author>
+			<persName><forename type="first">G</forename><forename type="middle">D</forename><surname>Plotkin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Power</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. FOSSACS 2002</title>
+				<meeting>FOSSACS 2002</meeting>
+		<imprint>
+			<date type="published" when="2002">2002</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b72">
+	<analytic>
+		<title level="a" type="main">Generic models for computational effects</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Power</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Theor. Comput. Sci</title>
+		<imprint>
+			<biblScope unit="volume">364</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="254" to="269" />
+			<date type="published" when="2006">2006</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b73">
+	<analytic>
+		<title level="a" type="main">Categorical Stochastic Processes and Likelihood</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Shiebler</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Compositionality</title>
+		<imprint>
+			<biblScope unit="volume">3</biblScope>
+			<date type="published" when="2021-04">Apr. 2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b74">
+	<analytic>
+		<title level="a" type="main">Probability sheaves and the Giry monad</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Simpson</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. CALCO 2017</title>
+				<meeting>CALCO 2017</meeting>
+		<imprint>
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b75">
+	<analytic>
+		<title level="a" type="main">Commutative semantics for probabilistic programming</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Staton</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. ESOP 2017</title>
+				<meeting>ESOP 2017</meeting>
+		<imprint>
+			<date type="published" when="2017">2017</date>
+			<biblScope unit="page" from="855" to="879" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b76">
+	<analytic>
+		<title level="a" type="main">The Beta-Bernoulli process and algebraic effects</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Staton</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Stein</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Yang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><forename type="middle">L</forename><surname>Ackerman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">E</forename><surname>Freer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">M</forename><surname>Roy</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. ICALP</title>
+				<meeting>ICALP</meeting>
+		<imprint>
+			<date type="published" when="2018">2018. 2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b77">
+	<monogr>
+		<title level="m" type="main">A categorical treatment of open linear systems</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Stein</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Samuelson</surname></persName>
+		</author>
+		<idno>arxiv:2403.03934</idno>
+		<imprint>
+			<date type="published" when="2024-03">March 2024</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b78">
+	<analytic>
+		<title level="a" type="main">Compositional semantics for probabilistic programs with exact conditioning</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Stein</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Staton</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. LICS 2021</title>
+				<meeting>LICS 2021</meeting>
+		<imprint>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b79">
+	<analytic>
+		<title level="a" type="main">A language for counterfactual generative models</title>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Tavares</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Koppel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Das</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Solar-Lezama</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. ICML 2021</title>
+				<meeting>ICML 2021</meeting>
+		<imprint>
+			<date type="published" when="2021">2021</date>
+			<biblScope unit="page" from="10173" to="10182" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b80">
+	<analytic>
+		<title level="a" type="main">A domain theory for statistical probabilistic programming</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Vákár</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">O</forename><surname>Kammar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Staton</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Proc. ACM Program. Lang</title>
+		<imprint>
+			<biblScope unit="volume">3</biblScope>
+			<biblScope unit="page">29</biblScope>
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b81">
+	<monogr>
+		<title level="m" type="main">An introduction to probabilistic programming</title>
+		<author>
+			<persName><forename type="first">J.-W</forename><surname>Van De Meent</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Paige</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Yang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Wood</surname></persName>
+		</author>
+		<idno>1809.10756</idno>
+		<imprint>
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv e-print</note>
+</biblStruct>
+
+<biblStruct xml:id="b82">
+	<analytic>
+		<title level="a" type="main">Convex language semantics for nondeterministic probabilistic automata</title>
+		<author>
+			<persName><forename type="first">G</forename><surname>Van Heerdt</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Hsu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Ouaknine</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Silva</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. ICTAC</title>
+				<meeting>ICTAC</meeting>
+		<imprint>
+			<date type="published" when="2018">2018. 2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b83">
+	<analytic>
+		<title level="a" type="main">Distributing probability over non-determinism</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Varacca</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Winskel</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Math. Structures Comput. Sci</title>
+		<imprint>
+			<biblScope unit="page" from="87" to="113" />
+			<date type="published" when="2006">2006</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b84">
+	<monogr>
+		<title level="m" type="main">Eckmann-Hilton argument. nLab</title>
+		<ptr target="https://ncatlab.org/nlab/show/Eckmann-Hilton+argument#variation" />
+		<imprint>
+			<date type="published" when="2024-04">April 2024</date>
+		</imprint>
+	</monogr>
+	<note>Various authors</note>
+</biblStruct>
+
+<biblStruct xml:id="b85">
+	<monogr>
+		<title level="m" type="main">Statistical Reasoning with Imprecise Probabilities</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Walley</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="1991">1991</date>
+			<publisher>Chapman and Hall</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b86">
+	<monogr>
+		<title level="m" type="main">Indical methods for relative categories</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Wood</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="1976">1976</date>
+		</imprint>
+		<respStmt>
+			<orgName>Dalhousie University</orgName>
+		</respStmt>
+	</monogr>
+	<note type="report_type">PhD thesis</note>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

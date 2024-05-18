@@ -1,0 +1,2489 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Restoring balance: principled under/oversampling of data for optimal classification</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+				<date type="published" when="2024-05-15">15 May 2024</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author role="corresp">
+							<persName><forename type="first">Emanuele</forename><surname>Loffredo</surname></persName>
+							<email>&lt;emanuele.loffredo@phys.ens.fr&gt;</email>
+							<affiliation key="aff0">
+								<orgName type="department">Equal contribution</orgName>
+							</affiliation>
+							<affiliation key="aff1">
+								<orgName type="laboratory" key="lab1">Laboratoire de physique de l&apos;École normale supérieure</orgName>
+								<orgName type="laboratory" key="lab2">UMR8023</orgName>
+								<orgName type="institution" key="instit1">CNRS</orgName>
+								<orgName type="institution" key="instit2">PSL University</orgName>
+								<orgName type="institution" key="instit3">Sor-bonne University</orgName>
+								<orgName type="institution" key="instit4">Université Paris-Cité 24 rue Lhomond</orgName>
+								<address>
+									<postCode>75005</postCode>
+									<settlement>Paris</settlement>
+									<country key="FR">France</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Mauro</forename><surname>Pastore</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department">Equal contribution</orgName>
+							</affiliation>
+							<affiliation key="aff1">
+								<orgName type="laboratory" key="lab1">Laboratoire de physique de l&apos;École normale supérieure</orgName>
+								<orgName type="laboratory" key="lab2">UMR8023</orgName>
+								<orgName type="institution" key="instit1">CNRS</orgName>
+								<orgName type="institution" key="instit2">PSL University</orgName>
+								<orgName type="institution" key="instit3">Sor-bonne University</orgName>
+								<orgName type="institution" key="instit4">Université Paris-Cité 24 rue Lhomond</orgName>
+								<address>
+									<postCode>75005</postCode>
+									<settlement>Paris</settlement>
+									<country key="FR">France</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Simona</forename><surname>Cocco</surname></persName>
+							<affiliation key="aff1">
+								<orgName type="laboratory" key="lab1">Laboratoire de physique de l&apos;École normale supérieure</orgName>
+								<orgName type="laboratory" key="lab2">UMR8023</orgName>
+								<orgName type="institution" key="instit1">CNRS</orgName>
+								<orgName type="institution" key="instit2">PSL University</orgName>
+								<orgName type="institution" key="instit3">Sor-bonne University</orgName>
+								<orgName type="institution" key="instit4">Université Paris-Cité 24 rue Lhomond</orgName>
+								<address>
+									<postCode>75005</postCode>
+									<settlement>Paris</settlement>
+									<country key="FR">France</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Rémi</forename><surname>Monasson</surname></persName>
+							<affiliation key="aff1">
+								<orgName type="laboratory" key="lab1">Laboratoire de physique de l&apos;École normale supérieure</orgName>
+								<orgName type="laboratory" key="lab2">UMR8023</orgName>
+								<orgName type="institution" key="instit1">CNRS</orgName>
+								<orgName type="institution" key="instit2">PSL University</orgName>
+								<orgName type="institution" key="instit3">Sor-bonne University</orgName>
+								<orgName type="institution" key="instit4">Université Paris-Cité 24 rue Lhomond</orgName>
+								<address>
+									<postCode>75005</postCode>
+									<settlement>Paris</settlement>
+									<country key="FR">France</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Restoring balance: principled under/oversampling of data for optimal classification</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date type="published" when="2024-05-15">15 May 2024</date>
+						</imprint>
+					</monogr>
+					<idno type="MD5">8286B1879C40AACEC8BE2395A5D8DA95</idno>
+					<idno type="arXiv">arXiv:2405.09535v1[cond-mat.dis-nn]</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.2" ident="GROBID" when="2024-05-16T18:04+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Class imbalance in real-world data poses a common bottleneck for machine learning tasks, since achieving good generalization on underrepresented examples is often challenging. Mitigation strategies, such as under or oversampling the data depending on their abundances, are routinely proposed and tested empirically, but how they should adapt to the data statistics remains poorly understood. In this work, we determine exact analytical expressions of the generalization curves in the high-dimensional regime for linear classifiers (Support Vector Machines). We also provide a sharp prediction of the effects of under/oversampling strategies depending on class imbalance, first and second moments of the data, and the metrics of performance considered. We show that mixed strategies involving under and oversampling of data lead to performance improvement. Through numerical experiments, we show the relevance of our theoretical predictions on real datasets, on deeper architectures and with sampling strategies based on unsupervised probabilistic models.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.">Introduction</head><p>Many real-world classification tasks, e.g. in automated medical diagnostics <ref type="bibr" target="#b45">(Krawczyk et al., 2016;</ref><ref type="bibr" target="#b27">Fotouhi et al., 2019)</ref>, molecular biology <ref type="bibr" target="#b82">(Wang et al., 2006;</ref><ref type="bibr" target="#b85">Yang et al., 2012;</ref><ref type="bibr" target="#b16">Cheng et al., 2015;</ref><ref type="bibr" target="#b78">Song et al., 2021;</ref><ref type="bibr" target="#b8">Ansari &amp; White, 2023</ref>), text classification <ref type="bibr" target="#b55">(Liu et al., 2009;</ref><ref type="bibr">2017)</ref>, ... are plagued by the so-called curse of class imbalance <ref type="bibr" target="#b47">(Kubat &amp; Matwin, 1997;</ref><ref type="bibr" target="#b50">Lemaître et al., 2017)</ref>: one or more classes in the training data are significantly under-represented, yet correct identification of these rare examples is crucial for performance <ref type="bibr" target="#b83">(Weiss, 2004)</ref>. For such imbalanced datasets, machine learning methods struggle to achieve good classification performances when tested fairly <ref type="bibr">(He &amp; Ma, 2013)</ref>.</p><p>Due to its wide-spread and intrinsic nature, the issue of learning with class imbalance has long been studied in the computer science literature. Systematic empirical studies, assessing the performances of various architectures and algorithms with imbalanced data have been carried out <ref type="bibr">(Japkowicz &amp; Stephen, 2002;</ref><ref type="bibr" target="#b5">Akbani et al., 2004;</ref><ref type="bibr" target="#b51">Lemnaru &amp; Potolea, 2012;</ref><ref type="bibr" target="#b12">Buda et al., 2018)</ref>, with a renewed interest in the era of big data and deep learning <ref type="bibr" target="#b34">(Ghosh et al., 2022;</ref><ref type="bibr" target="#b40">Johnson &amp; Khoshgoftaar, 2019)</ref>. Various strategies <ref type="bibr" target="#b7">(Anand et al., 1993;</ref><ref type="bibr" target="#b48">Laurikkala, 2001;</ref><ref type="bibr" target="#b15">Chawla et al., 2002;</ref><ref type="bibr" target="#b10">Batista et al., 2004;</ref><ref type="bibr" target="#b37">He et al., 2008;</ref><ref type="bibr" target="#b6">Alshammari et al., 2022)</ref> based on restoring balance in the training set can be found in textbooks <ref type="bibr">(He &amp; Ma, 2013;</ref><ref type="bibr" target="#b26">Fernández et al., 2018)</ref>. Despite this considerable body of work, a theoretical understanding of learning with class imbalance remains elusive, which possibly impedes the design of optimal, task-adapted strategies.</p><p>In this work we propose a probabilistic setting that faithfully takes into account the imbalance ratio and essential features of the data, such as their first and second moments, in which the performances of linear classifiers can be analytically derived in the high-dimensional limit using the framework of the statistical mechanics of learning <ref type="bibr" target="#b25">(Engel &amp; Van den Broeck, 2001)</ref>. Based on this theory we can identify strategies to under or oversample the data in, respectively, the majority and minority classes offering optimal performances for the metrics of interest.</p><p>Summary of the main results. We report here the main results of our work.</p><p>In Sec. 2, we analytically characterize the asymptotic performances of linear classifiers trained on imbalanced datasets, when data points are discrete multi-state variables. These asymptotics are based on the so-called replica method from statistical physics.</p><p>We provide quantitative behaviors of various metrics within this setting -such as confusion matrix, accuracy (ACC), balanced accuracy (BA) and area under the ROC curve (AUC). This allows us to show, for example, that AUC is rather insensitive to imbalance, and is therefore not a reliable predictor of some aspects of the performances captured by more sensitive metrics, e.g. BA.</p><p>In Sec. 3, we provide exact asymptotic predictions to assess the effect of simple under and/or oversampling strategies to mitigate the imbalance problem. We show that best performances are reached with mixed strategies restoring data balance (Fig. <ref type="figure" target="#fig_0">1</ref>).</p><p>In Sec. 4, we provide empirical support that our theoretical findings qualitatively hold with deeper classifiers and more sophisticated under/oversampling methods. In particular, we propose and test an unsupervised probabilistic model, learned on the minority class, to generate new minority-class instances or to filter out majority-class data (Fig. <ref type="figure" target="#fig_0">1</ref>). Related works. Learning imbalanced mixture models of data with linear classifiers has long been studied in the statistical physics literature <ref type="bibr">(Del Giudice, P. et al., 1989)</ref>. Recently, <ref type="bibr" target="#b58">Loureiro et al. (2021)</ref>; <ref type="bibr" target="#b62">Mignacco et al. (2020)</ref>; <ref type="bibr" target="#b73">Pesce et al. (2023)</ref> evaluated rigorously the generalization error of a linear classifier on data from Gaussian mixture models, on test sets distributed as the training set; in the present work, we consider instead data in the form of multi-state discrete variables not necessarily normally distributed, we compare different performance metrics and study the impact of mitigation strategies on the learning protocol. <ref type="bibr" target="#b59">Mannelli et al. (2023)</ref> revisited this problem in the context of the fairness of AI methods; at variance with them, we consider a classification task with labels coinciding with class membership, and we focus on dataset-preprocessing mitigation strategies more than on algorithmic-based methods (lossreweighting, coupled neural networks). The dynamics of learning with gradient-based methods in presence of class imbalance, which we do not address here, was recently studied by <ref type="bibr" target="#b29">Francazi et al. (2023)</ref>.</p><p>Other theoretical assessments from complementary point of views were formulated in the recent past to obtain optimal oversampling ratios for imbalanced datasets <ref type="bibr" target="#b77">(Shang et al., 2023;</ref><ref type="bibr" target="#b14">Chaudhuri et al., 2023)</ref>. An interesting comparison with our work is given by <ref type="bibr" target="#b60">Menon et al. (2013)</ref>, which proves that classifiers trained with empirically-balanced losses attain optimal performances in the limit of infinite data: as discussed in Section 3.4, we can account for this setting within our formalism, but our work deals with the proportional asymptotics where both the input dimension and the training set size are large, for which we show that simple loss-reweighting methods are sub-optimal with respect to data augmentation techniques more sophisticated than random oversampling.</p><p>In addition, a plethora of methods have been proposed to effectively restore balance in datasets. SMOTE <ref type="bibr" target="#b15">(Chawla et al., 2002)</ref>, whose strategy is to oversample the minority class by linearly interpolating existing data points, is one of the most frequently applied algorithms and exists in the literature under more than 100 variations <ref type="bibr" target="#b44">(Kovács, 2019)</ref>. The use of unsupervised generative model to first learn and then augment the minority class has been actively explored, e.g. with generative adversarial networks <ref type="bibr" target="#b23">(Douzas &amp; Bacao, 2018)</ref>, autoencoders <ref type="bibr" target="#b66">(Mondal et al., 2023)</ref>, variational autoencoders <ref type="bibr" target="#b81">(Wan et al., 2017;</ref><ref type="bibr" target="#b3">Ai et al., 2023)</ref>, etc. Our proposed approch is closely related to RBM-SMOTE, introduced by <ref type="bibr" target="#b86">Zięba et al. (2015)</ref>, where a Restricted Boltzmann Machine (RBM) is trained on the minority class and then used to generate new samples starting from intermediate points obtained by SMOTE. Similar restoring balance procedures have been showed in <ref type="bibr" target="#b64">Mirza et al. (2021)</ref> to have a positive impact on different performances metrics. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.">Theoretical setting</head><p>We consider pairs (v ν , y ν ) ∈ R L×Q × {−1, +1} with ν = 1, . . . , P + N of training data points independently sampled, where L sets the dimension of data points and each symbol v i can take Q values (Table <ref type="table" target="#tab_0">1</ref>). For example, in image recognition tasks, L is the number of pixels and Q the number of possible colors of each pixel; in molecular biology, L is the length of the biological sequence and Q the size of the alphabet, e.g. 20 for amino acids. In statistical physics, this kind of data are usually called Potts configurations; in computer science, they are routinely obtained via tokenization, for example in language models <ref type="bibr" target="#b42">(Jurafsky &amp; Martin, 2009)</ref> or image recognition <ref type="bibr" target="#b84">(Wu et al., 2020)</ref>. A convenient representation of these categorical variables is one-hot encoding:</p><formula xml:id="formula_0">s i (t) = 1 if v i = t, 0 otherwise.</formula><p>In particular, we focus on a binary classification task where the classes are labeled by y = ±1 and the training set is made of P positive and</p><formula xml:id="formula_1">N negative examples, T = {(s µ + , y µ = +1)} P µ=1 ∪ {(s ν − , y ν = −1)} N ν=1</formula><p>. The classes are imbalanced, i.e. in general P ̸ = N . We denote with α ± the classes' sizes scaled by the dimension of data, e.g. α + = P/L, and with ρ ± the fractions of positive and negative examples in the training set, i.e. ρ ± = α ± /(α + + α − ). We are interested in studying the statistical properties of the linear classifier</p><formula xml:id="formula_2">ŷ = f (s) = sgn i,t J i (t)s i (t) √ L − b ,<label>(1)</label></formula><p>where the weights and bias (J, b) ∈ R L×Q × R define the model and are learnt over the training data. The scaling of the inner product with √ L is chosen to obtain components J i (t) ∼ O(1) after regularization and training. Due to the property t s i (t) = 1 of one-hot encoding, a linear classifier described by the set of parameters (J i (t), b) is identical to the one defined by (J i (t) + u i , b + i u i / √ L) for any arbitrary real numbers u i . To avoid this overparametrization, we impose the zero-sum conditions t J i (t) = 0 for all i.</p><p>Given the training set, the parameters of the model are learnt through the following Empirical Risk Minimization (ERM):</p><formula xml:id="formula_3">(J ⋆ , b ⋆ ) = arg min J∈S,b∈R L(J, b) ,<label>(2)</label></formula><formula xml:id="formula_4">L(J, b) = P µ=1 ℓ y µ = +1, ∆ + µ (J, b) + N ν=1 ℓ y ν = −1, ∆ − ν (J, b) ,<label>(3)</label></formula><formula xml:id="formula_5">∆ ± µ (J, b) = i,t J i (t)s µ ±,i (t) √ L − b,<label>(4)</label></formula><p>where ℓ : {−1, +1} × R → R + is a loss function and the set S, over which the optimization problem (2) is defined, is the surface of the (L × Q)-dimensional sphere (spherical regularization) compatible with the zero-sum conditions. Notice that the variables ∆ ± µ defined in Eq. ( <ref type="formula" target="#formula_5">4</ref>) are simply the pre-activations of the output neuron evaluated on the input points s µ ± . A possible choice of the loss function, which we will use in the following as a case of study, is the hinge loss</p><formula xml:id="formula_6">ℓ(y, ∆) = max(0, κ − y∆) ,<label>(5)</label></formula><p>for some positive parameter κ called margin. High values of κ make the classifier less affected by noise in the training data, so that the learning protocol is more stable. The choice of the set S and of the hinge loss implies that the linear model ( <ref type="formula" target="#formula_2">1</ref>) is a spherical perceptron with hinge loss <ref type="bibr" target="#b31">(Franz et al., 2019)</ref>, which is equivalent to a soft-margin support vector machine with L2 regularization, as detailed in the Appendix A.6.</p><p>In this work we assume that the input data points belonging to the two classes are sampled independently from a distribution having the following first and second moments:</p><formula xml:id="formula_7">⟨s i (t)⟩ ± = M i (t) ± δ i (t) 2 √ L , ⟨s i (t)s j (u)⟩ ± − ⟨s i (t)⟩ ± ⟨s j (u)⟩ ± = C ij (t, u) ,<label>(6)</label></formula><p>where the angle brackets stand for the expectations over the positive and negative classes. The vector M represents the global center-of-mass of the positive and negative distributions, δ is the (rescaled) shift between their centers. The scaling by the factor 1/ √ L with δ i (t) ∼ O(1) ensures that the classification task is non-trivial for a linear classifier in the high-dimensional regime L ≫ 1. Notice that, to simplify the analysis, we are assuming the two classes to have the same covariance, a condition often referred to as homoscedasticity. Higher-order statistics of the data is irrelevant for the asymptotic properties reported below under mild conditions on the cumulants <ref type="bibr" target="#b65">(Monasson, 1992)</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.1.">Statistical mechanics of the learning problem</head><p>The ERM problem introduced in the previous section can be rephrased in a statistical mechanics framework. We consider (J, b) as the configuration of a 'physical' system with energy L. The partition function of this system reads</p><formula xml:id="formula_8">Ω = db dµ(J) exp[−βL(J, b)],<label>(7)</label></formula><p>where dµ(J) is an opportune measure over the weights taking into account regularization and zero-sum conditions, as defined in Appendix A, Eq. ( <ref type="formula" target="#formula_22">16</ref>). As the 'inverse temperature' β → ∞, the integral in Eq. ( <ref type="formula" target="#formula_8">7</ref>) is dominated by the solution of the optimization problem (2). Within this framework, we are able to derive the expected values of functions of (J ⋆ , b ⋆ ) over the data. In particular, we can characterize the asymptotic performance of the linear classifer. Proposition 2.1. Consider the ERM problem in Eq. (2) under the assumption of training data distribution (6). Let the fractions φ ± be the composition of the test set and</p><formula xml:id="formula_9">M gen. (φ + , φ − ) = y∈{±} φ y ⟨g(∆ y , y)⟩ ∆ y ,<label>(8)</label></formula><p>a performance metric of choice, with ∆ ± defined as in Eq. (4) over test data points and g a generic test loss function (see Table <ref type="table" target="#tab_1">2</ref> for examples). In the asymptotic regime L, P, N → ∞ at fixed ratios α + = P/L and α − = N/L, the expected value in Eq. (8) can be taken over the normal distribution</p><formula xml:id="formula_10">p(∆ ± ) = N ± r 2 − b, q ,<label>(9)</label></formula><p>whose parameters q, r, b are the solution of the saddle-point equations stemming from the extremization of the following quantity</p><formula xml:id="formula_11">E data [log Ω] ∼ βL 2 extr b,r,q,x k,r,q,x (G S + α + G + + α − G − ). (<label>10</label></formula><formula xml:id="formula_12">)</formula><p>In the above proposition -fully derived in Appendices A.1-4, B -the functions G ± and G S in Eq (10) are defined as</p><formula xml:id="formula_13">G ± = − q 2π x − K ± x e − (x−K ± ) 2 2q + K ± x e − K 2 ± 2q + (x − K ± ) 2 + q x H x − K ± √ q − K 2 ± + q x H −K ± √ q ,<label>(11)</label></formula><p>and</p><formula xml:id="formula_14">G S = Q k + xq + qx + 2rr + r2 L δ ⊤ A −1 δ − q L tr A −1 C ,<label>(12)</label></formula><p>where</p><formula xml:id="formula_15">K ± = κ − r/2 ± b, H(x) = erfc(x/ √ 2)/2 (erfc is the complementary error function), A = kI Q ⊗ I L + xC (⊗ is the Kroenecker product).</formula><p>Here, algebraic operations as traces and vector/matrix multiplications are performed in the (L × Q)-dimensional linear space spanned by the Potts and position indices.</p><p>We stress here that Proposition 2.1 holds under the hypotheses that higher cumulants in the distribution of the data can be neglected in Eq. (10) for large L with respect to the first and second cumulants reported in Eq. ( <ref type="formula" target="#formula_7">6</ref>), and that the optimization problem (2) is strictly convex; the hypothesis of strict convexity is inessential and can be relaxed to convexity, in which case Eqs. ( <ref type="formula" target="#formula_13">11</ref>) and ( <ref type="formula" target="#formula_14">12</ref>) need to be substituted with ( <ref type="formula" target="#formula_44">35</ref>) and (30), as discussed in Appendix A. The extremization in Eq. ( <ref type="formula" target="#formula_11">10</ref>) is performed numerically with respect to the bias b, the order parameters x, q, r, and the conjugate </p><formula xml:id="formula_16">PPV(γ) φ + TPR(γ) φ + TPR(γ) + φ − FPR(γ) Precision ACC φ + TPR(0) + φ − TNR(0) Accuracy BA [TPR(0) + TNR(0)]/2 Balanced accuracy AUC ∞ −∞ dγ|FPR ′ (γ)|TPR(γ) Area under ROC AUPRC ∞ −∞ dγ|TPR ′ (γ)|PPV(γ)</formula><p>Area under PRC variables x, q, r, k. This procedure provides our analytical predictions for training and generalization metrics as a function of α + , α − and the data statistics, M, δ and C. The order parameters, whose precise definition in terms of replica-symmetric overlap matrices is detailed in the Appendix, have a simple physical interpretation in terms of the low-order statistics of the variables ∆ ± test (J ⋆ , b ⋆ ), defined over test data points. The order parameters can also be interpreted in geometric terms. In particular, r measures how well J ⋆ is aligned along the vector δ, q measures the inner product (J ⋆ ) ⊤ CJ ⋆ /L, and b is the optimal value of the bias in Eq. (1).</p><p>Detailed calculations and more general results, such as the expression for the functions G S , G ± in the linearly separable phase of the classifier, are reported in Appendix A.2-3.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.2.">Performance metrics</head><p>The approach above, and in particular Eq. ( <ref type="formula" target="#formula_10">9</ref>) evaluated on the values of the order parameters obtained from the extremization (10), provides analytical expressions for the generalization performance, assessed through the elements of the confusion matrix from Table <ref type="table" target="#tab_1">2</ref>. For example, the accuracy ACC(φ + , φ − ) (or 0/1 accuracy) referred to as ACC in Table <ref type="table" target="#tab_1">2</ref> is obtained from Eq. ( <ref type="formula" target="#formula_9">8</ref>) with g(y, ∆ y ) = θ(y ∆ y ), where θ is the Heaviside step function. The choice φ ± = 0.5 corresponds to the balanced accuracy (BA), a popular measure of performance with imbalanced datasets, while φ + = ρ + stands for test as imbalanced as training.</p><p>The expression of the balanced accuracy BA is generally involved, but simplifies for large margin κ ≫ 1. In this regime, we obtain explicit rates of convergence in terms of the training set size (α + , α − ). In the case of</p><formula xml:id="formula_17">Q = 2 states (t = ±), position-independent M i (t = ±) = (1±m)/2 and diagonal covariance matrix C ij (t = +, u = +) = δ ij (1 − m 2 )/4, we obtain the peak value of the BA at α + = α − as BA(α + = α − ) ∼ 1 − 1 2 erfc ∥δ∥ 2 2 2L(1 − m 2 ) + C 2α + , (<label>13</label></formula><p>) where C is a constant term, while BA(α + ̸ = α − ) = 0.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.">Theoretical results on imbalanced learning</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.1.">Behaviour of common performance metrics</head><p>In this section we analyze the metrics defined in Table <ref type="table" target="#tab_1">2</ref> based on the theory explained above. We first notice, from their definition, that these metrics are impacted by imbalance both explicitly, due to the dependence on the ratios φ ± expressing the composition of the test set, and implicitly, due to the fact that they are evaluated on a model trained on an imbalanced dataset. Common choices for the test set are φ + = ρ + (test set distributed as the training set) or φ + = 0.5 (balanced test set).</p><p>We report in Fig. <ref type="figure" target="#fig_1">2a</ref> the analytical curves as a function of the training imbalance ratio ρ + , obtained in the theoretical setting explained above, for φ + = ρ + . We conclude that:</p><p>• ACC, even if exhibiting a peak around the balanced point ρ + = 0.5, predicts best performances when the dataset is heavily imbalanced. This is expected: due to the explicit dependence on φ ± and the fact that φ + = ρ + , ACC only evaluates how well the majority class is predicted, even though the model behaves as a random classifier on the minority class.</p><p>• BA, which has no explicit dependence on the composition of the test set (it weights in the same way the probabilities of true label prediction on the majority and minority classes), assign best performances to the model trained on a balanced dataset.</p><p>• AUC predicts best performances away from the balanced point. AUC is defined as the area under the receiver operating characteristic (ROC) curve, that is the parametric curve (FPR(γ), TPR(γ)) as a function of the threshold on the predictor γ. As γ ∈ (−∞, ∞), AUC is independent from the bias b in Eq. ( <ref type="formula" target="#formula_10">9</ref>), which is the observable most impacted by imbalance (see its trend obtained from our theory in Appendix A, Fig. <ref type="figure" target="#fig_4">5</ref>, and many observations in literature, e.g. Chaudhuri et al. ( <ref type="formula">2023</ref>)).</p><p>• AUPRC, i.e. the area under the Precision-Recall curve (PRC -the parametric curve (TPR(γ), PPV(γ)) as a function of γ), is often proposed as a better alternative to AUC in presence of imbalance. As AUC, it does not depend on the bias b, and thus does not directly measure the parameter most sensitive to imbalance. However, due to the explicit dependence on the test set (notice that PPV(∞) = 1, PPV(−∞) = φ + ), AUPRC is always bounded from below by φ + = ρ + , increasing "by definition" as the positive class ratio in the dataset.</p><p>For more of these metrics, we address the reader to Appendix B and Table <ref type="table" target="#tab_2">3</ref>. We conclude from this analysis that, for different reasons we can explain within our theoretical setting, standard generalization metrics can be misleading about the performance of a model trained under imbalance.</p><p>For the rest of this paper we will mostly make use of BA, which is one of the most robust in predicting best performances around the balanced point.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.2.">Agreement with results on real datasets.</head><p>We show in Figure <ref type="figure" target="#fig_1">2b</ref> that the theory devised in this work is able to quantitatively predict the BA curves (as well as other generalization curves) of linear SVMs trained on standard benchmark datasets. In particular, we validated our predictions on (i) the Parity MNIST (pMNIST) dataset, having odd and even digits classes; (ii) Fashion MNIST (FMNIST) with classes containing "Pullover" and "Shirt" images; and (iii) CelebA with classes containing faces with "Straight hair" and "Wavy hair". Note that our theory assumes the two classes in the training dataset to have the same covariance matrices: while this is not generally true on all datasets, we observe agreement between numerical experiments and asymptotic predictions, by feeding the mean empirical covariance of positive and negative data, C = (C + emp + C − emp )/2, in our theory. Such agreement remains quantitatively valid provided that the covariance matrices C + emp , C − emp are similar, and is only qualitative for more diverse covariances (e.g. 0/1 MNIST). Moreover, we report in Appendix E a benchmark dataset with Lattice Proteins where diagonal covariances are sufficient to predict quantitatively the numerical results.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.3.">Balance-to-performance trade-off</head><p>Using analytical results from Sec. 2, we can assess to what extent the imbalance of the dataset and the stability of the classifier impact the performance. We evaluate results in terms of the BA for different compositions of the training set. The generalization curves in Figure <ref type="figure" target="#fig_1">2c</ref> exhibit the presence of a balance-to-performance trade-off: for high values of κ, the accuracy is extremely sensitive to the composition of the training set, and the outputs of the classifier are essentially random unless ρ − = ρ + ∼ 0.5. Increasing the margin κ results in an absolute gain of accuracy as a function of ρ − , but narrows down the window outside of which the classifier acts as a random one. We can get intuition on the existence of such trade-off by looking at the high-κ and ρ + = 0.5 case. In this regime, the bias of the algorithm b is then factoring out the center-ofmass M of the data, while the weight vector J becomes fully aligned with the displacement δ between the two classes, yielding the optimal solution for the classification task. However, as soon as one moves away from the balanced training set, the extremely steep behaviour of the parameters J and b around ρ + = ρ − = 0.5 -due to the high margin -makes the performance drop down (see Figure <ref type="figure" target="#fig_4">5a</ref> in the Appendix A). For milder values of κ, the effect is less pronounced, even though J and b are not optimal.</p><p>For real data, the value of the margin κ of the linear classifier has to be compared to the data statistics to determine how tight the balance-to-performance trade-off is. Theory suggests that what matters is an effective margin depending on the ratio η(C)/∥δ∥ 2 2 , where η(C) denotes the largest eigenvalue of the covariance matrix. We check this on pM-NIST and CelebA datasets, where the ratio η(C)/∥δ∥ 2 2 is larger for CelebA data and thus results in a tighter good performance window (see Figure <ref type="figure" target="#fig_1">2b</ref>).</p><p>Hence, from the interplay between κ and data statistics and composition arises the balance-to-performance trade-off.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.4.">Insights on standard over vs. undersampling</head><p>The theoretical framework of Sec. 2 allows us to gain some understanding on whether it is better to restore balance by oversampling the minority class or undersampling the majority class. With no loss of generality we assume the minority class to be the positive one; hence, the negative class size is α − &gt; α + . The full undersampling strategy consists in randomly removing negative data points down to α − = α + , a strategy called Random Undersampling (RUS). To oversample positive data, we modify Eq. ( <ref type="formula" target="#formula_4">3</ref>) by introducing a factor c µ ≥ 1 in front of the loss function for positive samples, accounting for their multiplicity due to duplication. For the sake of simplicity, we assume ⟨c µ ⟩ = c ∈ R, i.e. we uniformly sample each positive data c times, with c ∈ [1, α − /α + ]. The limit case c = 1 corresponds to leaving the dataset as it is (RUS), while when c = α − /α + the minority class is duplicated up to the majority class size, a strategy known as Random Oversampling (ROS). In this respect, ROS is theoretically equivalent to a simple loss-reweighting strategy that scales the contribution of each class to the total loss by the inverse of their size. Intermediate strategies mixing under and oversampling are associated to intermediate values of c. Based on our observation from the previous section, we study only the case of balanced training set looking at BA -even though our theory allows to make prediction for any training set composition and metrics. Thus we define the mixing percentage as</p><formula xml:id="formula_18">mixing % = α + α − − α + (c − 1),<label>(14)</label></formula><p>and we ask what is the optimal mixing percentage in terms of BA, i.e. what is the best c value?</p><p>In Figure <ref type="figure" target="#fig_2">3</ref> we observe that for all tested cases, full undersampling is a sub-optimal technique among restoring balance protocols, while mixed under/oversampling and oversampling should be preferred. In particular, for severe imbalance a mixed strategy gives highest BA compared to full oversampling, which should be preferred when the imbalance is milder: this is also numerically observed on real data in Figure <ref type="figure" target="#fig_3">4b</ref>, dashed lines. However, we expect that in general the optimal strategy strongly depends not only on the imbalance ratio between classes, but on absolute dataset size, on classes' similarity in feature space and on the margin κ used in the linear classifier.</p><p>In this respect, our theoretical framework can be useful as it offers a quantitative way to evaluate a priori the performances based on the first-and second-order statistic of the data, thus providing a guideline in practical applications.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.">Numerical experiments</head><p>In this section we investigate with numerical experiments if the phenomenological findings at the theoretical level hold when we go beyond the limits of our theory. Specifically, we developed a framework for liner SVMs and for ROS/RUS techniques. We now ask what happens with deeper neural networks and more involved under/oversampling techniques.</p><p>We address these two questions separately, to factor out any other element.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.1.">Improved sampling strategies</head><p>First, we examine the effect of sampling strategies more involved than random sampling, resorting to Restricted Boltzmann Machines (RBMs) that allow to under and oversample at the same time with a protocol we call Likelihood-Informed Sampling (LIS). We train the model on the positive (minor) class solely and use it to generate new positive digits and to subsample negative digits based on their likelihood. A closely related approach to generate new examples with RBMs has been introduced in <ref type="bibr" target="#b86">Zięba et al. (2015)</ref>.</p><p>Restricted Boltzmann machines. RBMs are bipartite graphical models, and include</p><formula xml:id="formula_19">L visible units v = (v 1 , • • • , v L ) and M latent (or hidden) units z = (z 1 , • • • , z M ).</formula><p>Only connections between visible and latent units are allowed through the interaction weights w iµ . RBMs define a joint probability distribution over v and z as the Gibbs distribution</p><formula xml:id="formula_20">p(v, z) = 1 Z exp L i=1 h i (v i ) − M µ=1 U µ (z µ ) + M µ=1 L i=1 w iµ (v i )z µ , (<label>15</label></formula><formula xml:id="formula_21">)</formula><p>where the h i 's and U µ 's act on, respectively, visible and latent units, and the last term couples the latent and visible layers. Learning of the model parameters is achieved by maximizing the marginal likelihood p(v) ≡ dz p(v, z) over the training set. Details about the numerical implementation can be found in Appendix G. After training and validation, the model can be used to score any new data v ′ through log p(v ′ ).</p><p>Likelihood-informed sampling. We use RBM scores to form an appropriate balanced dataset by oversampling the minority class or undersampling the majority one, as follows.</p><p>(i) for oversampling, we rely on the generative power of our unsupervised architecture. Starting from an initial configuration, we perform Gibbs sampling in data space based on the model scores. We retain only samples having scores similar to the ones in the minority data class, as low-score samples are considered not representative of the class.</p><p>(ii) for undersampling, we filter out majority class samples at the boundaries of the log-likelihood distribution, as they are potentially less informative to the classification task.</p><p>Results. We perform numerical experiments on MNIST (classes with smaller and larger than digit 5) and with linear SVMs. Using RBMs for LIS we show that there is an improvement of performances as it was happening for ROS/RUS, even when starting from low positive class sizes; moreover, this sampling strategy yields better results compared to naive random under/oversamplings (see Figure <ref type="figure" target="#fig_3">4a</ref>). The effect of restoring balance of data can be seen through a geometric visualization of the problem. We train separately two linear SVMs with imbalanced ERM and with ERM after restoring balance between the two classes of the training set. We then project the test set data in the 2d space defined by the two optimal decision boundaries found by the classifier (see Figure <ref type="figure" target="#fig_3">4b</ref>). We observe that data balance between classes allows the model to place a more effective decision boundary (gold line), while imbalanced ERM (purple line) only learns the majority class.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.2.">Deep classifiers</head><p>We consider an ImageNet pretrained ResNet-50 and finetune it on a binarized version of Cifar10 (i.e. images are split in two classes -positive and negative -depending if their label is smaller or larger than 5). To understand if the imbalance plays a relevant role similarly to the case with linear SVMs, we run two parallel experiments with imbalanced and balanced training set, P = 0.1N and P = N respectively. All network parameters in the two experiments stay the same. We show that the balanced experiments achieves higher accuracy by looking at the last feature layer of the network (see Figure <ref type="figure" target="#fig_3">4c</ref>).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.">Discussion and perspectives</head><p>In this work we devise a theoretical framework to study the generalization performance of linear models for binary classification tasks under imbalanced training datasets. We show which metrics are more informative than others in imbalance learning and we give sharp estimations on the optimal mixing of under and oversampling strategy given the data statistics. We extend our study beyond the limit of the theoretical analysis, supporting our findings with numerical investigations.</p><p>To the best of our knowledge, this is the first asymptotic characterization of linear classifiers trained over imbalanced datasets for any generalization metrics and categorical data.</p><p>Looking forward, we believe that while restoring data balance techniques are unanimously empirically beneficial for ERM, their theoretical understanding falls behind, and our work can help closing this gap. In this regard, our study can be extended along several directions. First, our theoretical setting assumes that the two classes of data differ by their first-order statistics while share the same second-order one.</p><p>We would like to pursue this direction and derive analytical predictions for heteroscedastic classes, motivated by the stream of results obtained for high-dimensional data with non-trivial structures, such as correlated patterns <ref type="bibr" target="#b65">(Monasson, 1992;</ref><ref type="bibr" target="#b57">Lopez et al., 1995)</ref>, Gaussian covariate and mixture models <ref type="bibr" target="#b58">(Loureiro et al., 2021)</ref>, random features models <ref type="bibr" target="#b35">(Goldt et al., 2020)</ref>, object manifolds <ref type="bibr" target="#b17">(Chung et al., 2018)</ref>, simplex learning <ref type="bibr" target="#b71">(Pastore et al., 2020;</ref><ref type="bibr" target="#b74">Rotondo et al., 2020;</ref><ref type="bibr">Pastore, 2021;</ref><ref type="bibr" target="#b9">Baroffio et al., 2024)</ref>.</p><p>Moreover, it would be interesting to investigate, in light of our findings, the behavior of deep classifiers: how does the sensitivity to class imbalance scale with the expressive power of the architecture? For a recent review on the phenomenology, see <ref type="bibr" target="#b34">Ghosh et al. (2022)</ref>. While deep learning models in general remain analytically intractable, theoretical understanding has been reached in certain asymptotic regimes (mainly, the infinite-width limit and the proportional scaling between width and size of the training set), both for fully connected <ref type="bibr" target="#b38">(Jacot et al., 2018;</ref><ref type="bibr" target="#b49">Lee et al., 2018;</ref><ref type="bibr" target="#b69">Pacelli et al., 2023;</ref><ref type="bibr" target="#b18">Cui et al., 2023;</ref><ref type="bibr">2024)</ref> and convolutional architectures <ref type="bibr" target="#b68">(Naveh &amp; Ringel, 2021;</ref><ref type="bibr" target="#b4">Aiudi et al., 2023)</ref>.</p><p>Analysis in a framework similar to the one we provide has been proven to work not only for linear models, but also for kernel machines <ref type="bibr">(Dietrich et al., 1999;</ref><ref type="bibr" target="#b33">Gerace et al., 2020;</ref><ref type="bibr" target="#b11">Bordelon et al., 2020;</ref><ref type="bibr" target="#b2">Aguirre-López et al., 2024)</ref>. We expect our approach to be easily generalizable to these cases, by simply replacing the input space we consider here with the feature space of those models, and the input statistics (means and covariances) with the one of the features (means of the features, kernel in feature space). Deep neural networks have been proven equivalent to kernel machines in certain cases, namely the infinite-width limit mentioned above; in this sense, kernels provide lower bounds on the performance of deep neural networks that work in more generic regimes of feature learning. Therefore, our findings, which are sharp for linear models and could be extended to kernel machines, can provide insights on generalization also for deep neural networks. Considering the large use of deep learning in practical applications, a theoretical assessment of its properties in the case of imbalanced data is very much needed.</p><p>Lastly, our theory could be extended beyond binary classification as in several applications one faces imbalance within the context of multiclass classification tasks.</p><p>As for numerical experiments, we introduced a strategy to restore balance based on unsupervised probabilistic models proving that it improves performance compared to naive imbalanced ERM. At a speculative level, RBMs have the potential to capture interpretable features of the minority class, while saving computational cost compared to deeper architectures. This restoring balance approach could also benefit from recent progress on efficient out-of-equilibrium sampling with RBMs <ref type="bibr" target="#b1">(Agoritsas et al., 2023;</ref><ref type="bibr" target="#b13">Carbone et al., 2023)</ref>. We believe that similar increase in performances would follow from restoring data balance with other methods <ref type="bibr" target="#b64">(Mirza et al., 2021)</ref>. Geometrically, we showed that restoring balance allowed one to remove the bias of the decision boundary towards the majority class only, as also observed in <ref type="bibr" target="#b14">Chaudhuri et al. (2023)</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Impact Statement</head><p>This paper aims to advance the field of Machine Learning. Class imbalance in datasets represents a common issue in many Machine Learning applications, since it undermines performance and makes predictions hard to assess with ad- equate metrics. We consider crucial to have a theoretical control on how imbalance impacts learning, and how it can be alleviated.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>A. Details on the replica calculation</head><p>We give here all the details in order to get the theoretical predictions sketched in Sec. 2 of the main text. The measure over the weights for the two cases of the spherical perceptron and the SVM in Eq. ( <ref type="formula" target="#formula_8">7</ref>) is defined as</p><formula xml:id="formula_22">dµ(J) =        i,t dJ i (t) Ω 0 δ[ u J i (u)]δ(∥J∥ 2 2 − LQ) (perceptron) , i,t dJ i (t) Ω 0 δ[ u J i (u)] exp − βλ 2 ∥J∥ 2 2 (SVM) ,<label>(16)</label></formula><p>where Ω 0 is the corresponding normalization factor and for convenience we included the L2 regularization in the measure of the SVM. The common delta functions are enforcing the zero-sum conditions t J i (t) = 0 for all i mentioned in Sec. 2. We report in the following the case of the spherical perceptron, mentioning where the calculation differs crucially from the case of the SVM in Sec. A.6.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>A.1. Replicated partition function</head><p>To evaluate the expected value of the logarithm of the partition function appearing in Eq. ( <ref type="formula" target="#formula_11">10</ref>), we resort to the so-called replica trick from statistical physics: writing log Ω = lim n→0 + (Ω n − 1)/n, we convert the quenched averaged over the training data into an annealed average of the n-times replicated partition function Ω n . This quantity can be written as</p><formula xml:id="formula_23">E data [Ω n ] = n a=1 db a dµ(J a ) y∈{±} α y L µ=1 d∆ a µ d ∆a µ 2π e −β(κ−y∆ a µ )θ(κ−y∆ a µ ) e i a,µ ∆a µ (∆ a µ +b) e −i a,µ ∆a µ J a •s µ √ L y</formula><p>(17) where we inserted delta-functions for the variables (replicated versions of the ones defined in Eq. ( <ref type="formula" target="#formula_5">4</ref>))</p><formula xml:id="formula_24">∆ a µ = J a • s µ √ L − b ,<label>(18)</label></formula><p>using their Fourier-conjugates ∆a µ . We introduce the order parameters</p><formula xml:id="formula_25">r a = i,t J a i (t)δ i (t) L , q ab = i,j,t,u J a i (t)J b j (u) L C ij (t, u),<label>(19)</label></formula><p>so that the average over the samples gives, for large L, e</p><formula xml:id="formula_26">−i a,µ ∆a µ J a •s µ √ L ± ∼ exp − 1 2 a,b ∆a µ ∆b µ q ab ∓ i 2 a ∆a µ r a − i √ L a ∆a µ i,t J a i (t)M i (t) . (<label>20</label></formula><formula xml:id="formula_27">)</formula><p>This asymptotic expansions is justified as long as higher moments in the distribution of the data can be neglected with respect to the first and second moments. The full integral to work out becomes</p><formula xml:id="formula_28">E data [Ω n ] = a db a i,t dJ a i (t) Ω 0 δ u J a i (u) δ(∥J a ∥ 2 2 − LQ) a dr a δ(J a • δ − Lr a ) × a≤b dq ab δ i,j,t,u J a i (t)J b i (u)C ij (t, u) − Lq ab × y∈{±} a,µ d∆ a µ d ∆a µ 2π e −β(κ−y∆ a µ )θ(κ−y∆ a µ )− 1 2 µ,a,b ∆a µ ∆b µ q ab +i µ,a ∆a µ ∆ a µ +b a −y r a 2 − 1 √ L i,t J a i (t)Mi(t)<label>(21)</label></formula><p>The last line depends explicitly on the weights J a only through the combination J a • M/ √ L; however, as the threshold b a is a parameter to be optimized, it is always possible to shift it with</p><formula xml:id="formula_29">b a − 1 √ L i,t J a i (t)M i (t) → b a , (<label>22</label></formula><formula xml:id="formula_30">)</formula><p>in order to absorb this term.</p><p>To perform the integrals over the weights, we express all the delta-functions in their Fourier representation, introducing additional variables g a i (for the zero-sum conditions), ka (for the spherical constraint) and qab , ra for the deltas enforcing the definition of the order parameters. Moreover, we impose the replica symmetric (RS) Ansatz b a = b , r a = r , ka = k , ra = r , q ab = q 0 δ ab + q(1 − δ ab ) , qab = q0 δ ab + q(1 − δ ab )</p><p>(23) on all the tensors with replica indices. This Ansatz is justified as long as the optimization problem in Eq. ( <ref type="formula" target="#formula_3">2</ref>) is convex; though one may find a non-convex regime arising for some values of α ± , δ and C, as discussed in <ref type="bibr" target="#b31">Franz et al. (2019)</ref>, we expect it to be exact for many choices of the parameters. In practice, we find excellent agreement between our theoretical predictions and numerical experiments throughout this work (see Fig. <ref type="figure" target="#fig_10">8</ref>).</p><p>Under the Ansatz ( <ref type="formula">23</ref>), the high-dimensional integral over weights and threshold can be carried out and reduces to a four-dimensional integral over the order parameters b, r, q, q 0 . The calculation can be split in an entropic contribution, from the integrals over the weights, and an energetic term, from the training data. At the end, the expected value in Eq. ( <ref type="formula" target="#formula_28">21</ref>) can be written as</p><formula xml:id="formula_31">E data [Ω n ] = db drdq 0 dq exp nβL 2 G S + α + G + + α − G − , (<label>24</label></formula><formula xml:id="formula_32">)</formula><p>where the functions of the order parameters G S (entropic term) and G ± (energetic term) are detailed in the following. The remaining integral over the order parameters can be estimated for L large through the saddle-point method.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>A.2. Entropic term</head><p>First we evaluate the normalization of the measure µ(J) in Eq. ( <ref type="formula" target="#formula_22">16</ref>). With our zero-sum conditions, compatible with the ones of <ref type="bibr" target="#b67">Nadal &amp; Rau (1991)</ref>, this factor is given by</p><formula xml:id="formula_33">Ω 0 = i,t dJ i (t) δ i,t J 2 i (t) − LQ i δ t J i (t) = d k 2π i dg i 2π t dJ i (t) exp i k i,t J 2 i (t) − LQi k + i i g i t J i (t) ∼ exp L(Q − 1) 2 [1 + log(2π)] − L(Q − 1) 2 log Q − 1 Q − L 2 log(Q) ,<label>(25)</label></formula><p>as the integrals first over J and then over g are Gaussian and the large-L result for the integral over k is obtained at the saddle point, which is located in k = i(Q − 1)/(2Q).</p><p>In the RS case, the integral over the weights becomes</p><formula xml:id="formula_34">I = a,i dg a i 2π t dJ a i (t) exp − 1 2 a,b t,u J a i (t)Σ ab ij (t, u)J b i (u) − ir a,t J a i (t)δ i (t) + i a g a i t J a i (t) ,<label>(26)</label></formula><p>where the quadratic form Σ is given by</p><formula xml:id="formula_35">Σ ab ij (t, u) = kδ ij δ tu δ ab + (2q 0 − q)δ ab C ij (t, u) + qC ij (t, u)<label>(27)</label></formula><p>(to write this equation, we rescaled all the hat variables by −i). The evaluation of this Gaussian integral is straightforward but tedious. It can be performed, for example, factorizing the double sums over replica indices via Gaussian linearization (Hubbard-Stratonovich transformation). The result for small n is given by</p><formula xml:id="formula_36">I = exp n 2 L(Q − 1) log(2π) − L log Q k − log det A − q tr A −1 C + r2 δ ⊤ A −1 δ , (<label>28</label></formula><formula xml:id="formula_37">)</formula><p>where all the algebraic operations (determinants, traces, vector/matrix multiplications) are defined on the space spanned by Potts and input indices, the matrix A is defined as</p><formula xml:id="formula_38">A = kI Q ⊗ I L + ŵC<label>(29)</label></formula><p>and ŵ = 2q 0 − q. Notice that, even if the matrix A is not invertible for k = 0 (the matrix C has a spectrum with L zero eigenvalues, corresponding to the eigenvectors v (ℓ) with components v (ℓ) i (t) = δ iℓ 1), the combinations appearing in this formula are always well defined; in particular, the factor L log k comes from the zero-sum conditions, which regularize the divergence in log det A.</p><p>Summing over the input dimensions and normalizing by (25) we get, for the function G S appearing in Eq. ( <ref type="formula" target="#formula_31">24</ref>),</p><formula xml:id="formula_39">nβLG S 2 = log i∞ −i∞ d k 4π d ŵ 2π dq 2π dr 2π e nL 2 [Q k+ ŵw+ ŵq+qw+2rr]− nL(Q−1) 2 [1−log( Q−1 Q )] ×e − n 2 [log det A−L log k+q tr(A −1 C)−r 2 δ ⊤ A −1 δ] ,<label>(30)</label></formula><p>where w = q 0 − q.</p><p>A.3. Energetic term SAT phase. When the problem is linearly separable (low density α + and α − of the classes, large distance δ between their center), the perceptron at equilibrium reaches one of the many configurations corresponding to zero loss. This means that the optimization problem (2) becomes equivalent to a constraint statisfaction problem (CSP) where all the training data are required to be correctly classified by the decision boundary, namely in its satisfiable (SAT) phase. Formally, this means that the terms depending on the loss in Eq. ( <ref type="formula" target="#formula_28">21</ref>) can be written as follows:</p><formula xml:id="formula_40">e −β µ (κ−y∆ a µ )θ(κ−y∆ a µ ) −→ β→∞ µ θ(y∆ a µ − κ) .<label>(31)</label></formula><p>Thus, the part of the integral depending on the constraints from the training data reduces to the evaluation (respectively, P and N times) of the following two integrals</p><formula xml:id="formula_41">I ± = a d∆ a d ∆a 2π θ(±∆ a − κ)e − w 2 a ( ∆a ) 2 − q 2 ( a ∆a ) 2 +i a ∆a (∆ a +b∓ r 2 ) .<label>(32)</label></formula><p>By Gaussian linearization,</p><formula xml:id="formula_42">I ± = D q ξ d∆ d ∆ 2π θ(±∆ − κ)e − w 2 ∆2 +i ∆(∆+b+ξ∓ r 2 ) n ,<label>(33)</label></formula><p>where we defined the Gaussian measure as D q ξ = dξ N (ξ|0, q). For small n, the final result is</p><formula xml:id="formula_43">log I ± ≈ nβ 2 G ± ,<label>(34)</label></formula><formula xml:id="formula_44">with βG ± 2 = D q ξ log H κ ± b ∓ ξ − r/2 √ w , H(x) = 1 2 erfc x √ 2 = 1 − H(−x) .<label>(35)</label></formula><p>This equation defines the functions G ± in Eq. ( <ref type="formula" target="#formula_31">24</ref>) in the linearly separable phase.</p><p>UNSAT phase. When the training set is not linearly separable, the corresponding CSP is in its unsatisfiable phase. In this case, the loss gives a non-trivial energetic contribution for each mis-classified input point. Calculations can be done as in the previous paragraph, by noticing that</p><formula xml:id="formula_45">e −β(κ∓λ)θ(κ∓λ) = e −β(κ∓λ) + 1 − e −β(κ∓λ) θ(−κ ± λ) .<label>(36)</label></formula><p>The result for the free energy contributions is</p><formula xml:id="formula_46">βG ± 2 = D q ξ log exp −β(κ ± b ∓ ξ − r/2) + 1 2 β 2 w H − κ ± b ∓ ξ − r/2 − βw √ w + H κ ± b ∓ ξ − r/2 √ w .<label>(37)</label></formula><p>We will assume in the following that the space of equilibrium configurations of the model shrinks to a single point as β → ∞. As the variance of this space is given, in the replica symmetric framework, by the order parameter w = q 0 − q (see Sec. B), for β → ∞ we take the following scaling Ansatz:</p><formula xml:id="formula_47">w → x β , q → q , r → r , ŵ → β x , q → β 2 q , r → βr , k → β k ,<label>(38)</label></formula><p>where we re-defined all the order parameters to their infinite-β value except w and ŵ, for which we introduced the quantities x, x to avoid ambiguities. The scaling of all the others variables is fixed once w scales as 1/β and we search for finite values in the limit.</p><p>We can push forward the analysis using the asymptotic expansion of the complementary error function, which gives for β large</p><formula xml:id="formula_48">H( βa) ∼ θ(−a) + e − βa 2 2 √ 2πβa θ(a) ,<label>(39)</label></formula><p>so that the logarithm in Eq. ( <ref type="formula" target="#formula_46">37</ref>) can be expressed as</p><formula xml:id="formula_49">log{• • •} ∼      −β (κ ± b ∓ ξ − r/2 − x/2) if ∓ ξ &gt; x + r/2 − κ ∓ b , −β(κ ± b − r/2 ∓ ξ) 2 /(2x) if ∓ ξ &lt; x + r/2 − κ ∓ b ∧ ∓ξ &gt; r/2 − κ ∓ b , 0 if ∓ ξ &lt; r/2 − κ ∓ b .<label>(40)</label></formula><p>As a result, we obtain Eq. ( <ref type="formula" target="#formula_13">11</ref>) for the functions G ± .</p><p>A.4. Saddle-point equations for large L For large L, the integral in Eq. ( <ref type="formula" target="#formula_31">24</ref>) can be evaluated via the saddle-point method. The stationary points of the functions G S , G ± with respect to the parameters can be found by solving the following equations. We distinguish the two cases SAT/UNSAT we reported above.</p><p>SAT phase. We obtain stationary equations for the exponent in Eq. ( <ref type="formula" target="#formula_31">24</ref>) by deriving with respect to all the order parameters and their conjugate variables the function at exponent in Eq. ( <ref type="formula" target="#formula_39">30</ref>) and the functions in Eq. ( <ref type="formula" target="#formula_44">35</ref>). Deriving with respect to the hat variables,</p><formula xml:id="formula_50">Q = k 1 L tr A −2 − 1 k2 + ŵ L tr A −2 C − q L tr A −2 C + r2 L δ ⊤ A −2 δ , q = − q L tr A −2 C 2 + r2 L δ ⊤ A −2 Cδ , w = k L tr A −2 C + ŵ L tr A −2 C 2 , r = − rk L δ ⊤ A −2 δ − r ŵ L δ ⊤ A −2 Cδ ,<label>(41)</label></formula><p>where we used the useful formulas</p><formula xml:id="formula_51">A −1 = kA −2 + ŵA −2 C , A 2 = k2 I Q ⊗ I L + 2 k ŵC + ŵ2 C 2 . (<label>42</label></formula><formula xml:id="formula_52">)</formula><p>The equations obtained deriving with respect to the other set of parameters are</p><formula xml:id="formula_53">ŵ = −α + ∂ q (βG + ) − α − ∂ q (βG − ) , ŵ + q = −α + ∂ w (βG + ) − α − ∂ w (βG − ) , r = [−α + ∂ r (βG + ) − α − ∂ r (βG − )]/2 , 0 = α + ∂ b (βG + ) + α − ∂ b (βG − ) ,<label>(43)</label></formula><p>with βG ± given by ( <ref type="formula" target="#formula_44">35</ref>).</p><p>UNSAT phase. Using the scalings (38), we can redefine the matrix A → A/β, so that now</p><formula xml:id="formula_54">A = kI Q ⊗ I L + xC .<label>(44)</label></formula><p>At leading order in β, the stationary equations for the hat variables in the scaling regime become</p><formula xml:id="formula_55">Q = − q L tr A −2 C + r2 L δ ⊤ A −2 δ , q = − q L tr A −2 C 2 + r2 L δ ⊤ A −2 Cδ , x = k L tr A −2 C + x L tr A −2 C 2 , r = − rk L δ ⊤ A −2 δ − rx L δ ⊤ A −2 Cδ ,<label>(45)</label></formula><p>while the other set of equations is</p><formula xml:id="formula_56">x = −α + ∂ q G + − α − ∂ q G − , q = −α + ∂ x G + − α − ∂ x G − , r = [−α + ∂ r G + − α − ∂ r G − )]/2 , 0 = α + ∂ b G + + α − ∂ b G − ,<label>(46)</label></formula><p>with G ± given by Eq. ( <ref type="formula" target="#formula_13">11</ref>). These last equations admit a semi-analytical expression for the derivatives:</p><formula xml:id="formula_57">∂ x G ± = − G ± x + x − K ± x erfc x − K ± √ 2q − 2 x q 2π e − (K ± −x) 2 2q , ∂ q G ± = − 1 2x erfc − K ± √ 2q − erfc x − K ± √ 2q , ∂ r G ± = K ± 2x erfc − K ± √ 2q + x − K ± 2x erfc x − K ± √ 2q + 1 x q 2π e − K 2 ± 2q − e − (K ± −x) 2 2q , ∂ b G ± = ∓ K ± x erfc − K ± √ 2q ∓ x − K ± x erfc x − K ± √ 2q ∓ 2 x q 2π e − K 2 ± 2q − e − (K ± −x) 2 2q .<label>(47)</label></formula><p>SAT/UNSAT surface. The equations above can be used to draw the phase diagram of the model with respect to the external control parameters α ± , κ (and, possibly, to the vectors M, δ). In this space, the SAT/UNSAT transition surface expressing the critical value of one of these control parameters as a function of the others can be plotted requiring that w → 0 (approaching the transition from the SAT phase) or x → ∞ (approaching the transition from the UNSAT phase).</p><p>A.5. Ising case (Q = 2)</p><p>The case Q = 2 (Ising configurations, with the index t = ±1) admits a much simpler solution that dates back to <ref type="bibr" target="#b32">Gardner (1988)</ref>, <ref type="bibr" target="#b65">Monasson (1992)</ref>. In this case, the probability distribution of the data can be parametrized as</p><formula xml:id="formula_58">M i (±1) = 1 ± m i 2 , δ i (±1) = ± δ i 2 , C ij (+1, +1) = C ij (−1, −1) = −C ij (+1, −1) = −C ij (−1, +1) = Γ ij 4 ,<label>(48)</label></formula><p>where now m i , δ i , Γ ij are scalars. The saddle-point equations for the hat variables become   <ref type="table" target="#tab_2">2 and 3</ref>), for synthetic data as in Figure <ref type="figure" target="#fig_1">2a</ref>.</p><formula xml:id="formula_59">1 = − q L tr A −2 Γ + r2 L δ ⊤ A −2 δ , q = − q L tr A −2 Γ 2 + r2 L δ ⊤ A −2 Γδ , x = k L tr A −2 Γ + x L tr A −2 Γ 2 , r = − rk L δ ⊤ A −2 δ − rx L δ ⊤ A −2 Γδ ,<label>(49)</label></formula><p>where now</p><formula xml:id="formula_60">A = kI L + xΓ ,<label>(50)</label></formula><p>The other set of equations remains unchanged and the case of the SAT phase can be obtained as before.</p><p>A.6. SVM</p><p>The case of the soft-margin SVM can be cast in its standard form (see Sec. G.2) by starting from the loss defined in Eq. ( <ref type="formula" target="#formula_4">3</ref>), and scaling J → κJ, b → κb, λ → λ/κ, obtaining the optimization problem (we now move the L2 regularization from the measure ( <ref type="formula" target="#formula_22">16</ref>) to the training energy, as this is the standard formulation for SVMs)</p><formula xml:id="formula_61">(J ⋆ , b ⋆ ) = arg min J∈S,b∈R P µ=1 max 0, 1 − ∆ + µ (J, b) + N ν=1 max 0, 1 + ∆ − ν (J, b) + λ ∥J∥ 2 2 2 . (<label>51</label></formula><formula xml:id="formula_62">)</formula><p>From this, we can define the associated finite-temperature statistical mechanics model from the SVM measure in Eq. ( <ref type="formula" target="#formula_22">16</ref>) and proceed as before. The calculation is the same, provided that we take κ → 1, we substitute k from (26) with β λ, and we do not integrate over it (being now fixed as an external hyperparameter). The scaling of λ with β mirrors the fact that, at finite regularization, the SVM is finding a single solution of the optimization problem (51) even in the linearly separable case, the max-margin solution, so that the scalings (38) should be enforced in the whole phase diagram.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>B. Details on the theoretical derivation of training and generalization metrics</head><p>The order parameters introduced in Sec. 2 and obtained from the replica method explained above have a clear interpretation in terms of the low-order statistics -with respect to thermal fluctuations and quenched disorder -of the collective variables</p><p>We conclude that optimal classification over the training set is reached at balanced number of samples, for high margin and infinite dataset size. For large α ± , we finally derive the convergence rate of the mis-classification error in the balanced case (φ ± = 0.5), as</p><formula xml:id="formula_63">E gen. ∼ α ± ≫1 1 2 erfc ∥δ∥ 2 2 2L(1 − m 2 ) δ(α + − α − ) + C α + + α − δ(α + − α − ) + O((α ± ) −2 ),<label>(67)</label></formula><p>where</p><formula xml:id="formula_64">C = 1 − m 2 exp − ∥δ∥ 2 2 8L(1 − m 2 ) .<label>(68)</label></formula><p>C. Details on the theory of oversampling strategy</p><p>Here we provide details about the main steps to adapt the analytical computation of Sec. A when the minority class is oversampled c times. We assume, as in most of the paper, that the minority class is the positive one. The mathematical formulation in this setting follows immediately from Eq. ( <ref type="formula">17</ref>) by introducing the oversampling factor c, accounting for the multiplicity of each positive sample:</p><formula xml:id="formula_65">exp    −β α + L µ=1 (κ − ∆ a µ )θ(κ − ∆ a µ )    −→ exp    −βc α + L µ=1 (κ − ∆ a µ )θ(κ − ∆ a µ )    . (<label>69</label></formula><formula xml:id="formula_66">)</formula><p>In the phase where the dataset is linearly separable, oversampling the positive class is pointless, as the perceptron already correctly classifies all the training data and adding equivalent ones does not yield any benefit. On the other hand, in the UNSAT phase the presence of the factor c becomes relevant and affects the energetic contribution from the positive class, see Eq. ( <ref type="formula" target="#formula_13">11</ref>); in practice, the quantities β, x are multiplied by the degree of oversampling c. The positive function G + becomes</p><formula xml:id="formula_67">G + = − q 2π cx − K + cx e − (cx−K + ) 2 2q + K + cx e − K 2 + 2q + (cx − K + ) 2 + q cx H cx − K + √ q − K 2 + + q cx H −K + √ q<label>(70)</label></formula><p>and all its derivatives in Eq. ( <ref type="formula" target="#formula_57">47</ref>) are changed accordingly. The procedure to solve the saddle-point equations remains analogous.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>D. Oversampling vs undersampling: the choice depends on the performance metric</head><p>In Section 3.4 we discussed the advantage of restoring balance in the dataset, oversampling or undersampling, evaluating the generalization performances in terms of the BA metrics. However, same data distributions and sizes can lead to different optimal strategies depending on how performances are evaluated, i.e. on the specific performance metric adopted. We discuss this phenomenon within our theoretical framework, comparing the mis-classification error E gen. and a distance-based metric, namely the generalization loss L gen. defined in Eq. ( <ref type="formula">58</ref>). Both metrics are such that the lower the better, as they measure wrongly classified data points. (BP) Balanced Protocol: we undersample the negatives down to the same size of positives, hence dealing with a balanced training set of total size 2cα + . Note that this is the protocol adopted elsewhere in the work and it is the only one restoring balance between classes.</p><p>We show results in Figure <ref type="figure" target="#fig_7">6</ref>: in the same conditions, the optimal strategy minimizing the generalization loss is the BP protocol with c = 1 (i.e., random undersampling of the majority class), while the optimal one for the mis-classification error is the BP protocol with c = α − /α + (i.e., random oversampling of the minority class).  </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>E. Lattice Proteins</head><p>In many real-world applications tokenization and categorical variables are routinely encountered in machine learning. For example, biological applications are one of such cases, where Potts indices run over the amino acid or nucleotides alphabet, i.e. Q = 20 or Q = 4 respectively. In this section we report an analysis carried out on synthetic protein data -namely Lattice Proteins -where we aim to distinguish between two Lattice Proteins in a bounded or unbounded state. In this analysis we note that our theory quantitatively predicts numerical results even if we ignore the covariance matrix,</p><formula xml:id="formula_68">i.e. C ij (t, u) = [M 2 i (t) − M i (t)M i (u)]δ ij ;</formula><p>in other terms, the first-order statistics of the data is sufficient to reproduce numerical results, despite the data contain non-trivial correlations.</p><p>Lattice Proteins (LPs) models consist of artificial protein sequences used to reproduce relevant features of real proteins and investigate their folding properties <ref type="bibr" target="#b52">(Li et al., 1996;</ref><ref type="bibr" target="#b63">Mirny &amp; Shakhnovich, 2001)</ref>. A LP is defined as a self-avoiding path of over a 3 × 3 × 3 lattice cube. There are 103,406 possible configurations (structures) over the lattice cube, excluding global symmetries <ref type="bibr" target="#b76">(Shakhnovich &amp; Gutin, 1990)</ref>. A sequence v is given by the chain of L = 27 amino acids sitting on each site of the lattice cube. A structure S is defined by its contact matrix c S such that -given two sites i,j on the lattice cube</p><formula xml:id="formula_69">c S ij = 1 i, j in contact, 0 otherwise.<label>(71)</label></formula><p>The probability that sequence v folds into structure S is</p><formula xml:id="formula_70">p nat (S|v) = e −E(v|S) R S ′ =1 e −E(v|S ′ ) , (<label>72</label></formula><formula xml:id="formula_71">)</formula><p>where R is a representative subset of all possible structures (R = 10000 in this case). The energy of the sequence in a structure E(v|S) is given by E</p><formula xml:id="formula_72">(v|S) = i&lt;j c S ij E M J (v i , v j ),<label>(73)</label></formula><p>where residues in contact interact via the Miyazawa-Jernigan matrix E M J , a proxy containing effective interaction energies for each amino acid pair. Eventually we let two sequences v 1 , v 2 -folded in structure S 1 , S 2 respectively -interact to form a unique compound via the interaction energy where now the contact matrix c (S1+S2) is defined over both structures and the sum runs over all sites of both lattice cubes. The index π in Eq. ( <ref type="formula" target="#formula_73">74</ref>) labels a specific orientation of the interaction. In analogy with Equation ( <ref type="formula" target="#formula_70">72</ref>), the probability that sequences v 1 , v 2 folded into the compound S 1 + S 2 interact is (v1,v2|S1+S2,π=0)</p><formula xml:id="formula_73">I(v 1 , v 2 |S 1 + S 2 , π) = i&lt;j c (S1+S2,π) ij E M J (v i , v j ),<label>(74)</label></formula><formula xml:id="formula_74">p int (π = 0, S 1 + S 2 |v 1 , v 2 ) = e −I</formula><formula xml:id="formula_75">R ′ π ′ =1 e −I(v1,v2|S1+S2,π ′ ) χ ,<label>(75)</label></formula><p>where R ′ is the total number of orientations (R ′ = 144 in this case) and we added the exponent χ to tune the interaction strength. Depending on the value of χ, we refer to the compound S 1 + S 2 as bounded (χ = 5), mildly bounded (χ = 0.1) or unbounded (χ = 0).</p><p>Given two structures S 1 , S 2 , we collect sequences through MCMC dynamics such that p nat (S 1 |v 1 ), p nat (S 2 |v 2 ) &gt; 0.99.</p><p>Here we randomly choose two specific compounds, namely S A + S C and S B + S C (see Figure <ref type="figure" target="#fig_8">7a</ref> to visualize one of the two compounds). We group lists of sequences to form the dataset used in this work as follows:</p><p>• sequences v A , v C in the bounded state S A + S C represent positive data;</p><p>• sequences v A , v C in the unbounded state S A + S C represent negative data;</p><p>• sequences v B , v C in the bounded state S B + S C or sequences v A , v C in the mildly bounded state S A + S C represent out-of-sample data.</p><p>We stress again explicitly that this so-defined model of LPs is not a model with independent features as it involves interand intra-structures couplings in the energy terms ( <ref type="formula" target="#formula_72">73</ref>) and ( <ref type="formula" target="#formula_73">74</ref>). Yet, we find that our theoretical predictions with diagonal covariance matrix closely reproduce numerical simulations (see Fig. <ref type="figure" target="#fig_8">7b</ref>).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>F. Additional numerical results</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>F.1. Numerical validation of replica calculation</head><p>Here we numerically validate our predictions of the quantities L train. , L gen. , E train. within the RS Ansatz. The numerical solution of the saddle-point equations of interest can be obtained via a simple iterative method and allows to get the theoretical predictions. The code to reproduce the theoretical curves can be found on github. We check the agreement of numerical simulation with theory over three different synthetic datasets D 1 , D 2 , D 3 , composed as follows. Note that here all the datasets contain diagonal covariance matrices, i.e. we are setting C i,j (t, u) = [M i (t) 2 − M i (t)M j (u)]δ ij .</p><p>1) The dataset D 1 has L = 100, Q = 2, α + = 1 and κ = 0.4. We sample positive and negative data using m i = 0.4 and δ i = 1 over each position.   <ref type="formula">57</ref>), ( <ref type="formula">58</ref>) -in panels a), b) and c), respectively. We test our predictions within three different scenarios, labelled D1, D2, D3 and composed as explained in the text. All numerical experiments are averaged over 20 trials.</p><p>2) The dataset D 2 has L = 200, Q = 10, α + = 3 and κ = 2. We sample the tensor M as i.i.d. variables uniform in [0.1, 0.3] and δ as i.i.d. variables uniform in [0, 0.1]. We then enforce the normalization conditions setting the last component over each position as</p><formula xml:id="formula_76">M i (Q) = 1 − Q−1 t=1 M i (t), δ i (Q) = − Q−1 t=1 δ i (t).<label>(76)</label></formula><p>3) The dataset D 3 has L = 200, Q = 10, α + = 4.5 and κ = 2. We sample the tensors</p><formula xml:id="formula_77">M ± = M ± δ 2 √ L ∼ N (0.8 ± 0.2, 0.1),<label>(77)</label></formula><p>and rescale them so that on each position the vector sums to one (normalization condition). We then obtain M, δ from M ± by sum and difference.</p><p>We show the results in Figure <ref type="figure" target="#fig_10">8</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>G. On numerical experiments G.1. Implementation details of RBM</head><p>We train the RBM using a gradient-based method to maximize the log-likelihood L RBM = P k=1 log p(v k ), where the sum runs over the training (positive) data. Given a generic parameter ω to learn, we solve the momentum matching condition</p><formula xml:id="formula_78">∂L RBM ∂ω = ∂E ∂ω M − ∂E ∂ω D ,<label>(78)</label></formula><p>where the r.h.s. expectation values are over the model and data distribution, respectively. The parameters are updated with persistent-contrastive-divergence (PCD) <ref type="bibr" target="#b80">(Tieleman, 2008)</ref> algorithm. Averages over the model are estimated running T = 100 parallel Markov chains, while averages over the data are computed on mini-batches of size T sampled from the training set. The RBM weights w are initialized to small random Gaussian values, with a standard deviation equal to 0.1/ √ L, where L is the number of visible units. Eventually, we include a regularization during the training procedure by introducing a L2 penalty term L RBM → L RBM − λ∥ω∥ 2 2 . For the MNIST dataset we used the following parameters: 784 visible units,100 hidden units, L2 strenght 0.001 and 250 Epochs.</p><p>Gibbs Sampling. To generate a new sample with the RBM, we use Gibbs Sampling as follows</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Figure 1 .</head><label>1</label><figDesc>Figure 1. Illustration of our restoring balance procedure. Classifiers trained on datasets with severe imbalance (blue star) generally show poor generalization performances. Restoring balance by mixing under and oversampling improves classification performances (red stars across the line P = N ). Here P, N indicate the sizes of the positive and negative classes, initially with P ≪ N .</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>Figure 2 .</head><label>2</label><figDesc>Figure 2. Analytical results derived within our framework. a) Different metrics on synthetic data evaluated on a test set having same train set composition. Here L = 100, κ = 2, α − = 5 with C, δ sampled randomly. b) Analytical predictions for benchmark datasets (MNIST, FashionMNIST and CelebA). Dots show numerical simulations, averaged over 10 trials for κ = 0.5. c) Balanced accuracy curves as a function of ρ − . The margin κ of the algorithm controls the balance-to-performance trade-off. Dots correspond to numerical simulations with α + = 2, Q = 2, L = 100, position-independent M, normally-distributed δ, and diagonal covariance C averaged over 50 trials.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head>Figure 3 .</head><label>3</label><figDesc>Figure3. Optimal mixing strategy. We report theoretical predictions for the BA metric as a function of the mixing under/oversampling percentage in the training set. Depending on the initial training set composition (ρ + , ρ − ), one can select the optimal strategy to restore balance. Here L = 100, κ = 0.5, with C and δ sampled randomly.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head>Figure 4 .</head><label>4</label><figDesc>Figure 4. Numerical investigation on improved sampling techniques and deep classifier ResNet-50. a) Mixed sampling strategies to obtain a balanced training set for classification with a linear SVM on binary MNIST, as a function of the new sample size P ′ . As random sampling techniques, also higher level methods lead to an increase of performance. b) Geometrical interpretation of the effect of restoring balance (gold line) on the decision boundary of a linear SVM compared to imbalanced ERM (purple line). Data points are the MNIST test set. c) We visualize test data classification in the last feature layer of the network through tSNE, for imbalanced and balanced training set (top and bottom, respectively). The network trained on balanced data achieves improved performances, separating better the two classes.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_4"><head>Figure 5</head><label>5</label><figDesc>Figure 5. a) Behaviors of the order parameters q, r, b for the data statistics in Figure 2a. The bias b becomes steep around ρ + ∼ 0.5 and this effect is more evident the larger the value of κ is. b) Additional metric behaviors defined in this work (see Tables2 and 3), for synthetic data as in Figure2a.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_5"><head></head><label></label><figDesc>The so-defined generalization loss gives the average distance of the mis-classified examples from the decision boundary set by the classifier. In practice, low L gen. and high E gen. values correspond to many mis-classified examples close to the decision boundary, while the opposite refers to situations where there are few mis-classified examples far away from the decision boundary. Using the same notation as in Section 3.4 with c ∈ [1, α − /α + ], we compare the metrics E gen. and L gen. under two different protocols, defined as follows (IP) Imbalanced Protocol: we leave the majority class as it is and augment the minority class size, thus performing training with cα + positives and α − negatives;</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_7"><head>Figure 6 .</head><label>6</label><figDesc>Figure 6. Comparison between the mis-classification error and generalization loss as a function of the actual minority training size (including oversampling) cα + for protocols IP and BP. Here L = 100, Q = 2, κ = 0.4, α − = 15, α + = 0.5 with mi = 0.4 over each position, δi are i.i.d. as N (0.625, 0.75) and covariances are diagonal. Note that for these metrics the lower the better.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_8"><head>Figure 7</head><label>7</label><figDesc>Figure 7. a) Graphical representation of the compound SA + SC made of two Lattice Proteins. The solid black lines highlight the backbone structures over the lattice cubes. b) Theoretical predictions (solid lines) and numerical simulations (dots) on LP data of training and generalization losses as defined in Eq. (58) (left and right panel, respectively), for two different distributions of negative examples. In practice, we use data SA + SC in the bounded state as positives; negatives are data SA + SC in the unbounded or mildly bounded state (green and gold, respectively). Here α + = 19, κ = 5, Q = 20, L = 54, with M, δ estimated from the data. Numerical simulations are averaged over 20 trials.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_10"><head>Figure 8 .</head><label>8</label><figDesc>Figure8. Theoretical curves with their numerical validation for the quantities Ltrain., Lgen. and Egen. -defined in Eq. (57), (58) -in panels a), b) and c), respectively. We test our predictions within three different scenarios, labelled D1, D2, D3 and composed as explained in the text. All numerical experiments are averaged over 20 trials.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_0"><head>Table 1 .</head><label>1</label><figDesc>Notations and conventions used in this work.</figDesc><table><row><cell>L, Q</cell><cell>dimension of the data, size of the alphabet</cell></row><row><cell>P, N</cell><cell>positive and negative class sizes of training data</cell></row><row><cell>α + , α −</cell><cell>classes sizes scaled by data dimension</cell></row><row><cell>ρ + , ρ −</cell><cell>fractions of the two classes in the training dataset</cell></row><row><cell>φ + , φ −</cell><cell>fractions of the two classes in the test dataset</cell></row><row><cell>⟨•⟩± M, δ</cell><cell>average over positive and negative data midpoint and shift between the classes' centers</cell></row><row><cell>C</cell><cell>covariance matrix of the data</cell></row><row><cell>J, b</cell><cell>weights and bias of the linear SVM</cell></row><row><cell>κ</cell><cell>margin of the linear SVM</cell></row><row><cell>∆ + , ∆ −</cell><cell>pre-activations of the output neuron</cell></row><row><cell>ℓ(y, ∆)</cell><cell>training loss function</cell></row><row><cell>g(y, ∆)</cell><cell>test loss function</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_1"><head>Table 2 .</head><label>2</label><figDesc>Analytical predictions for the elements of the confusion matrix and common performance metrics derived from them. Brackets indicate averages w.r.t. the distributions (9), the threshold γ is introduced to define the ROC and the PR curves, φ ± indicates the composition of the test set and θ the Heaviside step function.</figDesc><table><row><cell cols="2">Other metrics are reported in Appendix.</cell><cell></cell></row><row><cell>TPR(γ) FPR(γ) TNR(γ) FNR(γ)</cell><cell>⟨θ(∆ + − γ)⟩ ∆ + ⟨θ(∆ − − γ)⟩ ∆ − 1 − FPR(γ) 1 − TPR(γ)</cell><cell>True positive rate False positive rate True negative rate False negative rate</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_2"><head>Table 3 .</head><label>3</label><figDesc>Additional common performance metrics that can be computed from Table2</figDesc><table /></figure>
+		</body>
+		<back>
+
+			<div type="acknowledgement">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Acknowledgements</head><p>We acknowledge funding from the CNRS -University of Tokyo "80 Prime" Joint Research Program and from the Agence Nationale de la Recherche (ANR-19 Decrypted CE30-0021-01 to S.C. and R.M.).</p></div>
+			</div>
+
+			<div type="annex">
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>∆ y (y ∈ {−1, +1}) after training. We recall here the definition of ∆ y for convenience</p><p>where (J, b) is an equilibrium configuration of the canonical ensemble described by the partition function ( <ref type="formula">7</ref>) and s y is an input point from the probability distributions described by Eq. ( <ref type="formula">6</ref>). We need to distinguish the two cases of s y being part of the training set or s y being part of the test set (i.e., independent from -but identically distributed as -the training set), denoting ∆ y train and ∆ y test the corresponding collective variables. It can be shown that their distribution for L large is given by p(∆ y train |ξ) = e −βℓ(y,∆ y train ) N (∆ y train |ξ − b + yr/2, q 0 − q ) d∆ e −βℓ(y,∆) N (∆|ξ − b + yr/2, q 0 − q ) , ( <ref type="formula">53</ref>)</p><p>where ξ is an auxiliary normal random variable, in both cases and for both classes distributed as</p><p>Note that in the test case the marginal of ∆ can be obtained explicitly, as</p><p>which reduces to Eq. ( <ref type="formula">9</ref>) for large β and in the UNSAT phase where q 0 = q + x/β. The Gaussian nature of ∆ y test is due to the fact that the weights learned by the classifier and the points in the test set are independent, and from central limit theorems. Eq. ( <ref type="formula">53</ref>) and ( <ref type="formula">54</ref>) are classical results from the statistical mechanics of disordered systems, and can be obtained by mapping the replica approach we devised so far to the cavity method from <ref type="bibr" target="#b61">Mezard (1989)</ref>. For a more recent derivation, see <ref type="bibr" target="#b0">Agoritsas et al. (2018)</ref>; for a way to obtain the train distribution directly from the replica approach, see <ref type="bibr" target="#b43">Kepler &amp; Abbott (1988)</ref>, extended in a more general non-convex setting in <ref type="bibr" target="#b30">Franz et al. (2017)</ref>.</p><p>Through these probability distributions, we obtain theoretical predictions for training and generalization metrics; in particular, train error and mis-classification error (corresponding to 1 − ACC) follow from</p><p>while training and generalization losses are given by</p><p>Alternatively, the training loss can be obtained in a more simple way, as the β → ∞ limit of the free-energy per-sample of the physical model, so that from Eq. ( <ref type="formula">10</ref>) we directly obtain</p><p>where the functions of the order parameters are evaluated on their saddle-point values. Other common performance metrics that can be computed in this way can be found in Tables <ref type="table">2 and 3</ref>, from Proposition 2.1.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>B.1. Convergence rate of the mis-classification error E gen.</head><p>Here we fully derive the analytical expression for the balanced mis-classification error as a function of the composition of the training set, in the limit where the training set size is large. To obtain the expression in Eq. ( <ref type="formula">13</ref>), we work in the Ising case (Q = 2) using the notation of section Sec. A.5, setting</p><p>In this scenario the saddle point equations are simpler and can be carried out without any numerical support. In particular, for the hat variables the system (49) becomes</p><p>where we defined the quantity u = ∥δ∥ 2 / √ L. The system is overdetermined due to the choice of a position-independent vector m i = m. Indeed, the constraint enforced by the definition of q 0 is equivalent to the spherical constraint on the weights J i , hence here q ⋆ 0 = (1 − m 2 ); consequently, the conjugate variable q0 plays no role and we can set q0 = 0, from which x = −q follows. The system of equation ( <ref type="formula">60</ref>) gives</p><p>Replacing the hat variables in the entropic contribution, we have to perform the extremization over (x, r, b) of the training loss</p><p>where G ± are given by Eq. ( <ref type="formula">11</ref>) with q = q ⋆ . In addition, we fix α + and minimize the training loss over the number of negative samples α − , to obtain the optimal imbalance ratio in terms of training performances. Now we first derive Eq. ( <ref type="formula">62</ref>) w.r.t. to x obtaining</p><p>We discard the solution x → ∞ as it is only valid when approaching the SAT/UNSAT transition, and we call x = x ⋆ (r, b, α + , α − ) the other solution. The stationary conditions of L train. in Eq. (62) using Eq. ( <ref type="formula">63</ref>) w.r.t. (α − , r, b) are</p><p>The first equation gives the condition K − = K + , yielding b ⋆ = 0. In the large limit κ ≫ 1, where we have shown to achieve the absolute best generalization performance, we get K ± → ∞. Hence Eq. ( <ref type="formula">63</ref>) admits the explicit solution</p><p>with</p><p>(i) We start from an initial configuration v 0 (either random or taken from the training set);</p><p>(ii) We sample the next configuration v 1 based on p(v 0 |z);</p><p>(iii) We repeat step (ii) for K times and return the configuration v K as a new sample.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>G.2. Implementation details of supervised classifiers</head><p>Perceptron. To validate the theoretical predictions (e.g. Figure <ref type="figure">2b</ref>), we minimize the following cost function</p><p>where the last two terms on the r.h.s. enforce the spherical weights and zero-sum condition. We set λ = LQ and minimize Eq. ( <ref type="formula">79</ref>) using the L-BFGS-B routine of the Scipy library <ref type="bibr" target="#b41">(Jones et al., 2001)</ref>.</p><p>Linear SVM. To carry out the numerical experiments on MNIST dataset to compare different mixing balancing strategies (e.g. Figure <ref type="figure">4a</ref>) we use Linear Support Vector Machines. We use the Scikit-learn package <ref type="bibr" target="#b72">(Pedregosa et al., 2011)</ref> which implements the SVM as follows</p><p>where the sum runs over the examples in the dataset. We set the intercept value b = 0 (option "fit-intercept=False") and the regularization strength C = 10. For each minority class size we average over 100 realization to make the performance curves smooth enough. We evaluate results using the BA metric. Notice how we can compare numerical curves obtained in this way with theoretical predictions derived from Eq. ( <ref type="formula">51</ref>), with C → λ−1 , b → −b and rescaling the input data by √ L.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>ResNet-50</head><p>We take a pretrained ImageNet ResNet-50 architecture and add a fresh dense layer with 512 neurons and ReLU activation; we put an output neuron with sigmoid activation for the binary classification task. We fine-tune the network weights on Cifar10 data. We use RMSprop optimizer with a learning rate of 10 −5 and decay of 10 −5 and train for 100 epochs with a batch-size of 128. MNIST. MNIST data are first converted to binary values {0, 1} setting the threshold value for the black/white mapping at 0.5. To perform binary classification we split the digits in two classes. Parity MNIST (pMNIST) has odd and even digits classes; while 5-MNIST has smaller and larger than digit five classes. Hence, the two classes contain ∼ 30000 examples each. The test set is balanced and has size 1000.</p><p>FashionMINST. FMNIST data are first converted to binary values {0, 1} setting the threshold value for the black/white mapping at 0.5. To perform binary classification we split the dataset in two classes representing "Pullover" and "Shirt" images. Hence, each class has 6000 examples. The test set is balanced and has size 1000.</p><p>CelebA. Images of the CelebA datasets are first converted to single (grayscale) channel by taking the average of the three color channels. Then data are binarized through the Sauvola-Pietikäinen adaptive image binarization algorithm <ref type="bibr" target="#b75">(Sauvola &amp; Pietikäinen, 2000)</ref>, that sets the threshold for the black/white mapping for each pixel (x, y) as</p><p>Here m, s refer to the mean and standard deviation of the intensity across a window of size 8 around the pixel (x, y). The two constant values are set as R = max s(x, y) over all pixels in the image and k = 0.05. To perform binary classification we only select images based on two attributes, namely "Straight hair" or "Wavy hair". Some randomly selected faces from the two classes are shown in Figure <ref type="figure">9</ref>. </p></div>			</div>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">Out-of-equilibrium dynamical mean-field equations for the perceptron model</title>
+		<author>
+			<persName><forename type="first">E</forename><surname>Agoritsas</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Biroli</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Urbani</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Zamponi</surname></persName>
+		</author>
+		<idno type="DOI">10.1088/1751-8121/aaa68d</idno>
+		<ptr target="https://dx.doi.org/10.1088/1751-8121/aaa68d" />
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Physics A: Mathematical and Theoretical</title>
+		<imprint>
+			<biblScope unit="volume">51</biblScope>
+			<biblScope unit="issue">8</biblScope>
+			<biblScope unit="page">85002</biblScope>
+			<date type="published" when="2018-01">jan 2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">Explaining the effects of non-convergent MCMC in the training of energy-based models</title>
+		<author>
+			<persName><forename type="first">E</forename><surname>Agoritsas</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Catania</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Decelle</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Seoane</surname></persName>
+		</author>
+		<ptr target="https://proceedings.mlr.press/v202/agoritsas23a.html" />
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 40th International Conference on Machine Learning</title>
+		<title level="s">Proceedings of Machine Learning Research</title>
+		<editor>
+			<persName><forename type="first">A</forename><surname>Krause</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">E</forename><surname>Brunskill</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">K</forename><surname>Cho</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">B</forename><surname>Engelhardt</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">S</forename><surname>Sabato</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">J</forename><surname>Scarlett</surname></persName>
+		</editor>
+		<meeting>the 40th International Conference on Machine Learning</meeting>
+		<imprint>
+			<publisher>PMLR</publisher>
+			<date type="published" when="2023-07">Jul 2023</date>
+			<biblScope unit="volume">202</biblScope>
+			<biblScope unit="page" from="23" to="29" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<monogr>
+		<author>
+			<persName><forename type="first">F</forename><surname>Aguirre-López</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Franz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Pastore</surname></persName>
+		</author>
+		<title level="m">Random features and polynomial rules</title>
+				<imprint>
+			<date type="published" when="2024">2024</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">Generative oversampling for imbalanced data via majorityguided vae</title>
+		<author>
+			<persName><forename type="first">Q</forename><surname>Ai</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>He</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Wen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Pan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Xu</surname></persName>
+		</author>
+		<ptr target="https://proceedings.mlr.press/v206/ai23a.html" />
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of The 26th International Conference on Artificial Intelligence and Statistics</title>
+				<editor>
+			<persName><forename type="first">F</forename><surname>Ruiz</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">J</forename><surname>Dy</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">J.-W</forename><surname>Van De Meent</surname></persName>
+		</editor>
+		<meeting>The 26th International Conference on Artificial Intelligence and Statistics</meeting>
+		<imprint>
+			<publisher>PMLR</publisher>
+			<date type="published" when="2023-04">Apr 2023</date>
+			<biblScope unit="volume">206</biblScope>
+			<biblScope unit="page" from="25" to="27" />
+		</imprint>
+	</monogr>
+	<note>of Proceedings of Machine Learning Research</note>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<monogr>
+		<title level="m" type="main">Local kernel renormalization as a mechanism for feature learning in overparametrized convolutional neural networks</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Aiudi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Pacelli</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Vezzani</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Burioni</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Rotondo</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">Applying support vector machines to imbalanced datasets</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Akbani</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Kwek</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Japkowicz</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-540-30115-8_7</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Machine Learning: ECML 2004</title>
+				<editor>
+			<persName><forename type="first">J.-F</forename><surname>Boulicaut</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">F</forename><surname>Esposito</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">F</forename><surname>Giannotti</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">D</forename><surname>Pedreschi</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Berlin, Heidelberg; Berlin Heidelberg</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2004">2004</date>
+			<biblScope unit="page" from="39" to="50" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">Long-tailed recognition via weight balancing</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Alshammari</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y.-X</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Ramanan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Kong</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)</title>
+				<meeting>the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)</meeting>
+		<imprint>
+			<date type="published" when="2022-06">June 2022</date>
+			<biblScope unit="page" from="6897" to="6907" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">An improved algorithm for neural network classification of imbalanced training sets</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Anand</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Mehrotra</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Mohan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Ranka</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/72.286891</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Neural Networks</title>
+		<imprint>
+			<biblScope unit="volume">4</biblScope>
+			<biblScope unit="issue">6</biblScope>
+			<biblScope unit="page" from="962" to="969" />
+			<date type="published" when="1993">1993</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<monogr>
+		<title level="m" type="main">Learning peptide properties with positive examples only</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Ansari</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">D</forename><surname>White</surname></persName>
+		</author>
+		<ptr target="https://www.biorxiv.org/content/early/2023/06/05/2023.06.01.543289" />
+		<imprint>
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">Resolution of similar patterns in a solvable model of unsupervised deep learning with structured data</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Baroffio</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Rotondo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Gherardi</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.chaos.2024.114848.URLhttps://www.sciencedirect.com/science/article/pii/S0960077924004004</idno>
+		<ptr target="https://doi.org/10.1016/j.chaos.2024.114848.URLhttps://www.sciencedirect.com/science/article/pii/S0960077924004004" />
+	</analytic>
+	<monogr>
+		<title level="j">Chaos, Solitons &amp; Fractals</title>
+		<idno type="ISSN">0960-0779</idno>
+		<imprint>
+			<biblScope unit="volume">182</biblScope>
+			<biblScope unit="page">114848</biblScope>
+			<date type="published" when="2024">2024</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">A study of the behavior of several methods for balancing machine learning training data</title>
+		<author>
+			<persName><forename type="first">G</forename><forename type="middle">E A P A</forename><surname>Batista</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">C</forename><surname>Prati</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">C</forename><surname>Monard</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/1007730.1007735</idno>
+		<ptr target="https://doi.org/10.1145/1007730.1007735" />
+	</analytic>
+	<monogr>
+		<title level="j">SIGKDD Explor. Newsl</title>
+		<idno type="ISSN">1931-0145</idno>
+		<imprint>
+			<biblScope unit="volume">6</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="20" to="29" />
+			<date type="published" when="2004-06">jun 2004</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">Spectrum dependent learning curves in kernel regression and wide neural networks</title>
+		<author>
+			<persName><forename type="first">B</forename><surname>Bordelon</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Canatar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Pehlevan</surname></persName>
+		</author>
+		<ptr target="https://proceedings.mlr.press/v119/bordelon20a.html" />
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 37th International Conference on Machine Learning</title>
+				<editor>
+			<persName><forename type="first">H</forename><forename type="middle">D</forename><surname>Iii</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">A</forename><surname>Singh</surname></persName>
+		</editor>
+		<meeting>the 37th International Conference on Machine Learning</meeting>
+		<imprint>
+			<publisher>PMLR</publisher>
+			<date type="published" when="2020-07">Jul 2020</date>
+			<biblScope unit="volume">119</biblScope>
+			<biblScope unit="page" from="13" to="18" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">A systematic study of the class imbalance problem in convolutional neural networks</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Buda</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Maki</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">A</forename><surname>Mazurowski</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.neunet.2018.07.011</idno>
+		<ptr target="https://www.sciencedirect.com/science/article/pii/S0893608018302107" />
+	</analytic>
+	<monogr>
+		<title level="j">Neural Networks</title>
+		<idno type="ISSN">0893-6080</idno>
+		<imprint>
+			<biblScope unit="volume">106</biblScope>
+			<biblScope unit="page" from="249" to="259" />
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">Fast and functional structured data generator</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Carbone</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Decelle</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Rosset</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Seoane</surname></persName>
+		</author>
+		<ptr target="https://openreview.net/forum?id=uXkfPvjYeM" />
+	</analytic>
+	<monogr>
+		<title level="m">ICML 2023 Workshop on Structured Probabilistic Inference &amp; Generative Modeling</title>
+				<imprint>
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">Why does throwing away data improve worst-group error?</title>
+		<author>
+			<persName><forename type="first">K</forename><surname>Chaudhuri</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Ahuja</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Arjovsky</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Lopez-Paz</surname></persName>
+		</author>
+		<ptr target="https://proceedings.mlr.press/v202/chaudhuri23a.html" />
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 40th International Conference on Machine Learning</title>
+				<editor>
+			<persName><forename type="first">A</forename><surname>Krause</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">E</forename><surname>Brunskill</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">K</forename><surname>Cho</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">B</forename><surname>Engelhardt</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">S</forename><surname>Sabato</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">J</forename><surname>Scarlett</surname></persName>
+		</editor>
+		<meeting>the 40th International Conference on Machine Learning</meeting>
+		<imprint>
+			<publisher>PMLR</publisher>
+			<date type="published" when="2023-07">Jul 2023</date>
+			<biblScope unit="volume">202</biblScope>
+			<biblScope unit="page" from="23" to="29" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<analytic>
+		<title level="a" type="main">SMOTE: synthetic minority over-sampling technique</title>
+		<author>
+			<persName><forename type="first">N</forename><forename type="middle">V</forename><surname>Chawla</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">W</forename><surname>Bowyer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><forename type="middle">O</forename><surname>Hall</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><forename type="middle">P</forename><surname>Kegelmeyer</surname></persName>
+		</author>
+		<idno type="DOI">10.1613/jair.953</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of artificial intelligence research</title>
+		<imprint>
+			<biblScope unit="volume">16</biblScope>
+			<biblScope unit="page" from="321" to="357" />
+			<date type="published" when="2002">2002</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<analytic>
+		<title level="a" type="main">Computationally predicting protein-RNA interactions using only positive and unlabeled examples</title>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Cheng</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Zhou</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Guan</surname></persName>
+		</author>
+		<idno type="DOI">10.1142/S021972001541005X</idno>
+		<ptr target="https://doi.org/10.1142/S021972001541005X" />
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Bioinformatics and Computational Biology</title>
+		<imprint>
+			<biblScope unit="volume">13</biblScope>
+			<biblScope unit="issue">03</biblScope>
+			<biblScope unit="page">1541005</biblScope>
+			<date type="published" when="2015">2015</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<analytic>
+		<title level="a" type="main">Classification and geometry of general perceptual manifolds</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Chung</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">D</forename><surname>Lee</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Sompolinsky</surname></persName>
+		</author>
+		<idno type="DOI">10.1103/PhysRevX.8.031003</idno>
+		<ptr target="https://link.aps.org/doi/10.1103/PhysRevX.8.031003" />
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. X</title>
+		<imprint>
+			<biblScope unit="volume">8</biblScope>
+			<biblScope unit="page">31003</biblScope>
+			<date type="published" when="2018-07">Jul 2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<monogr>
+		<title level="m" type="main">Bayes-optimal learning of deep random networks of extensive-width</title>
+		<author>
+			<persName><forename type="first">H</forename><surname>Cui</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Krzakala</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Zdeborová</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<monogr>
+		<title level="m" type="main">Asymptotics of feature learning in two-layer networks after one gradient-step</title>
+		<author>
+			<persName><forename type="first">H</forename><surname>Cui</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Pesce</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Dandi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Krzakala</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><forename type="middle">M</forename><surname>Lu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Zdeborová</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Loureiro</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2024">2024</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<analytic>
+		<title level="a" type="main">Perceptron beyond the limit of capacity</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Del Giudice</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Franz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">A</forename><surname>Virasoro</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">J. Phys</title>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<monogr>
+		<title/>
+		<author>
+			<persName><forename type="first">France</forename></persName>
+		</author>
+		<idno type="DOI">10.1051/jphys:01989005002012100</idno>
+		<ptr target="https://doi.org/10.1051/jphys" />
+		<imprint>
+			<date type="published" when="1989">1989</date>
+			<biblScope unit="volume">50</biblScope>
+			<biblScope unit="page">01989005002012100</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<analytic>
+		<title level="a" type="main">Statistical mechanics of support vector networks</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Dietrich</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Opper</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Sompolinsky</surname></persName>
+		</author>
+		<idno type="DOI">10.1103/PhysRevLett.82.2975</idno>
+		<ptr target="https://link.aps.org/doi/10.1103/PhysRevLett.82.2975" />
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. Lett</title>
+		<imprint>
+			<biblScope unit="volume">82</biblScope>
+			<biblScope unit="page">1999</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b23">
+	<analytic>
+		<title level="a" type="main">Effective data generation for imbalanced learning using conditional generative adversarial networks</title>
+		<author>
+			<persName><forename type="first">G</forename><surname>Douzas</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Bacao</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.eswa.2017.09</idno>
+		<ptr target="https://doi.org/10.1016/j.eswa.2017.09" />
+	</analytic>
+	<monogr>
+		<title level="j">Expert Systems with Applications</title>
+		<idno type="ISSN">0957- 4174</idno>
+		<imprint>
+			<biblScope unit="volume">91</biblScope>
+			<biblScope unit="page" from="464" to="471" />
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b24">
+	<monogr>
+		<ptr target="https://www.sciencedirect.com/science/article/pii/S0957417417306346" />
+		<title level="m">URL</title>
+				<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b25">
+	<monogr>
+		<title level="m" type="main">Statistical Mechanics of Learning</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Engel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Van Den Broeck</surname></persName>
+		</author>
+		<idno type="DOI">10.1017/CBO9781139164542</idno>
+		<imprint>
+			<date type="published" when="2001">2001</date>
+			<publisher>Cambridge University Press</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b26">
+	<monogr>
+		<title level="m" type="main">Learning from Imbalanced Data Sets</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Fernández</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>García</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Galar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">C</forename><surname>Prati</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Krawczyk</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Herrera</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-319-98074-4</idno>
+		<imprint>
+			<date type="published" when="2018">2018</date>
+			<publisher>Springer</publisher>
+			<pubPlace>Cham</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b27">
+	<analytic>
+		<title level="a" type="main">A comprehensive data level analysis for cancer diagnosis on imbalanced data</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Fotouhi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Asadi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">W</forename><surname>Kattan</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.jbi.2018.12</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Biomedical Informatics</title>
+		<idno type="ISSN">1532-0464</idno>
+		<imprint>
+			<biblScope unit="volume">90</biblScope>
+			<biblScope unit="page">103089</biblScope>
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b28">
+	<monogr>
+		<ptr target="https://www.sciencedirect.com/science/article/pii/S1532046418302302" />
+		<title level="m">URL</title>
+				<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b29">
+	<monogr>
+		<title level="m" type="main">A theoretical analysis of the learning dynamics under class imbalance</title>
+		<author>
+			<persName><forename type="first">E</forename><surname>Francazi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Baity-Jesi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Lucchi</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b30">
+	<analytic>
+		<title level="a" type="main">Universality of the SAT-UNSAT (jamming) threshold in non-convex continuous constraint satisfaction problems</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Franz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Parisi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Sevelev</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Urbani</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Zamponi</surname></persName>
+		</author>
+		<idno type="DOI">10.21468/SciPostPhys.2.3.019</idno>
+		<ptr target="https://scipost.org/10.21468/SciPostPhys.2.3.019" />
+	</analytic>
+	<monogr>
+		<title level="j">SciPost Phys</title>
+		<imprint>
+			<biblScope unit="volume">2</biblScope>
+			<biblScope unit="page">19</biblScope>
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b31">
+	<analytic>
+		<title level="a" type="main">Critical jammed phase of the linear perceptron</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Franz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Sclocchi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Urbani</surname></persName>
+		</author>
+		<idno type="DOI">10.1103/PhysRevLett.123.115702</idno>
+		<ptr target="https://link.aps.org/doi/10.1103/PhysRevLett.123.115702" />
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. Lett</title>
+		<imprint>
+			<biblScope unit="volume">123</biblScope>
+			<biblScope unit="page">115702</biblScope>
+			<date type="published" when="2019-09">Sep 2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b32">
+	<analytic>
+		<title level="a" type="main">The space of interactions in neural network models</title>
+		<author>
+			<persName><forename type="first">E</forename><surname>Gardner</surname></persName>
+		</author>
+		<idno type="DOI">10.1088/0305-4470/21/1/030</idno>
+		<ptr target="https://dx.doi.org/10.1088/0305-4470/21/1/030" />
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Physics A: Mathematical and General</title>
+		<imprint>
+			<biblScope unit="volume">21</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page">257</biblScope>
+			<date type="published" when="1988-01">jan 1988</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b33">
+	<analytic>
+		<title level="a" type="main">Generalisation error in learning with random features and the hidden manifold model</title>
+		<author>
+			<persName><forename type="first">F</forename><surname>Gerace</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Loureiro</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Krzakala</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Mezard</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Zdeborova</surname></persName>
+		</author>
+		<ptr target="https://proceedings.mlr.press/v119/gerace20a.html" />
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 37th International Conference on Machine Learning</title>
+				<editor>
+			<persName><forename type="first">H</forename><forename type="middle">D</forename><surname>Iii</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">A</forename><surname>Singh</surname></persName>
+		</editor>
+		<meeting>the 37th International Conference on Machine Learning</meeting>
+		<imprint>
+			<publisher>PMLR</publisher>
+			<date type="published" when="2020-07">Jul 2020</date>
+			<biblScope unit="volume">119</biblScope>
+			<biblScope unit="page" from="13" to="18" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b34">
+	<analytic>
+		<title level="a" type="main">The class imbalance problem in deep learning</title>
+		<author>
+			<persName><forename type="first">K</forename><surname>Ghosh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Bellinger</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Corizzo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Branco</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Krawczyk</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Japkowicz</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/s10994-022-06268-8</idno>
+		<ptr target="https://doi.org/10.1007/s10994-022-06268-8" />
+	</analytic>
+	<monogr>
+		<title level="m">Machine Learning</title>
+				<imprint>
+			<date type="published" when="2022-12">Dec 2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b35">
+	<analytic>
+		<title level="a" type="main">Modeling the influence of data structure on learning in neural networks: The hidden manifold model</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Goldt</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Mézard</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Krzakala</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Zdeborová</surname></persName>
+		</author>
+		<idno type="DOI">10.1103/PhysRevX.10.041044</idno>
+		<ptr target="https://link.aps.org/doi/10.1103/PhysRevX.10.041044" />
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. X</title>
+		<imprint>
+			<biblScope unit="volume">10</biblScope>
+			<biblScope unit="page">41044</biblScope>
+			<date type="published" when="2020-12">Dec 2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b36">
+	<monogr>
+		<idno type="DOI">10.1002/9781118646106</idno>
+		<ptr target="https://onlinelibrary.wiley.com/doi/abs/10.1002/9781118646106" />
+		<title level="m">Imbalanced Learning: Foundations, Algorithms, and Applications</title>
+				<editor>
+			<persName><forename type="first">H</forename><surname>He</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">Y</forename><surname>Ma</surname></persName>
+		</editor>
+		<imprint>
+			<publisher>John Wiley &amp; Sons</publisher>
+		</imprint>
+	</monogr>
+	<note>Ltd, 2013. ISBN 9781118646106</note>
+</biblStruct>
+
+<biblStruct xml:id="b37">
+	<analytic>
+		<title level="a" type="main">Adaptive synthetic sampling approach for imbalanced learning</title>
+		<author>
+			<persName><forename type="first">H</forename><surname>He</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Bai</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><forename type="middle">A</forename><surname>Garcia</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Adasyn</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/IJCNN.2008.4633969</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2008 IEEE International Joint Conference on Neural Networks (IEEE World Congress on Computational Intelligence)</title>
+				<imprint>
+			<date type="published" when="2008">2008</date>
+			<biblScope unit="page" from="1322" to="1328" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b38">
+	<analytic>
+		<title level="a" type="main">Neural tangent kernel: Convergence and generalization in neural networks</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Jacot</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Gabriel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Hongler</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Stephen</surname></persName>
+		</author>
+		<idno>doi: 10</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Advances in Neural Information Processing Systems</title>
+				<editor>
+			<persName><forename type="first">S</forename><surname>Bengio</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">H</forename><surname>Wallach</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">H</forename><surname>Larochelle</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">K</forename><surname>Grauman</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">N</forename><surname>Cesa-Bianchi</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">R</forename><surname>Garnett</surname></persName>
+		</editor>
+		<imprint>
+			<publisher>Curran Associates, Inc</publisher>
+			<date type="published" when="2002">2018. 2002</date>
+			<biblScope unit="volume">31</biblScope>
+			<biblScope unit="page" from="429" to="449" />
+		</imprint>
+	</monogr>
+	<note>The class imbalance problem: A systematic study. Intelligent Data Analysis</note>
+</biblStruct>
+
+<biblStruct xml:id="b39">
+	<monogr>
+		<title/>
+		<idno type="DOI">10.3233/IDA-2002-6504</idno>
+		<idno>/IDA-2002-6504</idno>
+		<ptr target="https://doi.org/10.3233/IDA-2002-6504.5" />
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b40">
+	<analytic>
+		<title level="a" type="main">Survey on deep learning with class imbalance</title>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">M</forename><surname>Johnson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">M</forename><surname>Khoshgoftaar</surname></persName>
+		</author>
+		<idno type="DOI">10.1186/s40537-019-0192-5</idno>
+		<ptr target="https://doi.org/10.1186/s40537-019-0192-5" />
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Big Data</title>
+		<idno type="ISSN">2196-1115</idno>
+		<imprint>
+			<biblScope unit="volume">6</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page">27</biblScope>
+			<date type="published" when="2019-03">Mar 2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b41">
+	<monogr>
+		<title level="m" type="main">SciPy: open source scientific tools for Python</title>
+		<author>
+			<persName><forename type="first">E</forename><surname>Jones</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Oliphant</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Peterson</surname></persName>
+		</author>
+		<ptr target="http://www.scipy.org" />
+		<imprint>
+			<date type="published" when="2001">2001</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b42">
+	<monogr>
+		<title level="m" type="main">Speech and Language Processing: An Introduction to Natural Language Processing, Computational Linguistics, and Speech Recognition. Prentice Hall series in artificial intelligence</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Jurafsky</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Martin</surname></persName>
+		</author>
+		<ptr target="https://books.google.fr/books?id=fZmj5UNK8AQC" />
+		<imprint>
+			<date type="published" when="2009">2009</date>
+			<publisher>Pearson Prentice Hall</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b43">
+	<analytic>
+		<title level="a" type="main">Domains of attraction in neural networks</title>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">B</forename><surname>Kepler</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Abbott</surname></persName>
+		</author>
+		<idno type="DOI">10.1051/jphys:0198800490100165700</idno>
+		<ptr target="https://doi.org/10.1051/jphys:0198800490100165700" />
+	</analytic>
+	<monogr>
+		<title level="j">J. Phys. France</title>
+		<imprint>
+			<biblScope unit="volume">49</biblScope>
+			<biblScope unit="issue">10</biblScope>
+			<biblScope unit="page" from="1657" to="1662" />
+			<date type="published" when="1988">1988</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b44">
+	<analytic>
+		<title level="a" type="main">An empirical comparison and evaluation of minority oversampling techniques on a large number of imbalanced datasets</title>
+		<author>
+			<persName><forename type="first">G</forename><surname>Kovács</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.asoc.2019.105662</idno>
+		<ptr target="https://www.sciencedirect.com/science/article/pii/S1568494619304429" />
+	</analytic>
+	<monogr>
+		<title level="j">Applied Soft Computing</title>
+		<idno type="ISSN">1568-4946</idno>
+		<imprint>
+			<biblScope unit="volume">83</biblScope>
+			<biblScope unit="page">105662</biblScope>
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b45">
+	<analytic>
+		<title level="a" type="main">Evolutionary undersampling boosting for imbalanced classification of breast cancer malignancy</title>
+		<author>
+			<persName><forename type="first">B</forename><surname>Krawczyk</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Galar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jeleń</forename><surname>Łukasz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Herrera</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.asoc.2015.08</idno>
+		<ptr target="https://doi.org/10.1016/j.asoc.2015.08" />
+	</analytic>
+	<monogr>
+		<title level="m">Applied Soft Computing</title>
+				<imprint>
+			<date type="published" when="2016">2016</date>
+			<biblScope unit="volume">38</biblScope>
+			<biblScope unit="page" from="714" to="726" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b46">
+	<monogr>
+		<ptr target="https://www.sciencedirect.com/science/article/pii/S1568494615005815" />
+		<title level="m">URL</title>
+				<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b47">
+	<analytic>
+		<title level="a" type="main">Addressing the curse of imbalanced training sets: one-sided selection</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Kubat</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Matwin</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">14th International Conference on Machine Learning(ICML97)</title>
+				<imprint>
+			<date type="published" when="1997">1997</date>
+			<biblScope unit="page" from="179" to="186" />
+		</imprint>
+	</monogr>
+	<note>ISBN 1558604863</note>
+</biblStruct>
+
+<biblStruct xml:id="b48">
+	<analytic>
+		<title level="a" type="main">Improving identification of difficult small classes by balancing class distribution</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Laurikkala</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Artificial Intelligence in Medicine</title>
+				<editor>
+			<persName><forename type="first">S</forename><surname>Quaglini</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">P</forename><surname>Barahona</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">S</forename><surname>Andreassen</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Berlin, Heidelberg; Berlin Heidelberg</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2001">2001</date>
+			<biblScope unit="page" from="63" to="66" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b49">
+	<analytic>
+		<title level="a" type="main">Deep neural networks as gaussian processes</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Lee</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Sohl-Dickstein</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Pennington</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Novak</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Schoenholz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Bahri</surname></persName>
+		</author>
+		<ptr target="https://openreview.net/forum?id=B1EA-M-0Z" />
+	</analytic>
+	<monogr>
+		<title level="m">International Conference on Learning Representations</title>
+				<imprint>
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b50">
+	<analytic>
+		<title level="a" type="main">Imbalancedlearn: A python toolbox to tackle the curse of imbalanced datasets in machine learning</title>
+		<author>
+			<persName><forename type="first">G</forename><surname>Lemaître</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Nogueira</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">K</forename><surname>Aridas</surname></persName>
+		</author>
+		<ptr target="http://jmlr.org/papers/v18/16-365.html" />
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Machine Learning Research</title>
+		<imprint>
+			<biblScope unit="volume">18</biblScope>
+			<biblScope unit="issue">17</biblScope>
+			<biblScope unit="page" from="1" to="5" />
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b51">
+	<analytic>
+		<title level="a" type="main">Imbalanced classification problems: Systematic study, issues and best practices</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Lemnaru</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Potolea</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Filipe</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Cordeiro</forename></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-642-29958-2_3</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Enterprise Information Systems</title>
+				<editor>
+			<persName><forename type="first">J</forename></persName>
+		</editor>
+		<meeting><address><addrLine>Berlin, Heidelberg; Berlin Heidelberg</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2012">2012</date>
+			<biblScope unit="page" from="35" to="50" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b52">
+	<analytic>
+		<title level="a" type="main">Emergence of preferred structures in a simple model of protein folding</title>
+		<author>
+			<persName><forename type="first">H</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Helling</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Tang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Wingreen</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Science</title>
+		<imprint>
+			<biblScope unit="volume">273</biblScope>
+			<biblScope unit="issue">5275</biblScope>
+			<biblScope unit="page" from="666" to="669" />
+			<date type="published" when="1996">1996</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b53">
+	<analytic>
+		<title level="a" type="main">Addressing the class imbalance problem in twitter spam detection using ensemble learning</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Chen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Xiang</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.cose.2016.12</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Computers &amp; Security</title>
+		<idno type="ISSN">0167-4048</idno>
+		<imprint>
+			<biblScope unit="volume">69</biblScope>
+			<biblScope unit="page" from="35" to="49" />
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b54">
+	<monogr>
+		<ptr target="https://www.sciencedirect.com/science/article/pii/S0167404816301754" />
+		<title level="m">URL</title>
+				<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b55">
+	<monogr>
+		<title level="m" type="main">Imbalanced text classification: A term weighting approach. Expert Systems with Applications</title>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><forename type="middle">T</forename><surname>Loh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Sun</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.eswa.2007.10</idno>
+		<imprint>
+			<date type="published" when="2009">2009</date>
+			<biblScope unit="volume">36</biblScope>
+			<biblScope unit="page" from="690" to="701" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b56">
+	<monogr>
+		<ptr target="https://www.sciencedirect.com/science/article/pii/S0957417407005350" />
+		<title level="m">URL</title>
+				<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b57">
+	<analytic>
+		<title level="a" type="main">Storage of correlated patterns in a perceptron</title>
+		<author>
+			<persName><forename type="first">B</forename><surname>Lopez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Schroder</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Opper</surname></persName>
+		</author>
+		<idno type="DOI">10.1088/0305-4470/28/16/005</idno>
+		<ptr target="https://dx.doi.org/10.1088/0305-4470/28/16/005" />
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Physics A: Mathematical and General</title>
+		<imprint>
+			<biblScope unit="volume">28</biblScope>
+			<biblScope unit="issue">16</biblScope>
+			<biblScope unit="page">L447</biblScope>
+			<date type="published" when="1995-08">aug 1995</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b58">
+	<analytic>
+		<title level="a" type="main">Learning gaussian mixtures with generalized linear models: Precise asymptotics in high-dimensions</title>
+		<author>
+			<persName><forename type="first">B</forename><surname>Loureiro</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Sicuro</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Gerbelot</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Pacco</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Krzakala</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Zdeborová</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Ranzato</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Beygelzimer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Dauphin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Liang</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Vaughan</surname></persName>
+		</author>
+		<ptr target="https://proceedings.neurips.cc/paper_files/paper/2021/file/543e83748234f7cbab21aa0ade66565f-Paper.pdf" />
+	</analytic>
+	<monogr>
+		<title level="m">Advances in Neural Information Processing Systems</title>
+				<editor>
+			<persName><forename type="first">J</forename><forename type="middle">W</forename></persName>
+		</editor>
+		<imprint>
+			<publisher>Curran Associates, Inc</publisher>
+			<date type="published" when="2021">2021</date>
+			<biblScope unit="volume">34</biblScope>
+			<biblScope unit="page" from="10144" to="10157" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b59">
+	<monogr>
+		<title level="m" type="main">Bias-inducing geometries: an exactly solvable data model with fairness implications</title>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">S</forename><surname>Mannelli</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Gerace</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Rostamzadeh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Saglietti</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b60">
+	<analytic>
+		<title level="a" type="main">On the statistical consistency of algorithms for binary classification under class imbalance</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Menon</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Narasimhan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Agarwal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Chawla</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">International Conference on Machine Learning</title>
+				<imprint>
+			<publisher>PMLR</publisher>
+			<date type="published" when="2013">2013</date>
+			<biblScope unit="page" from="603" to="611" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b61">
+	<analytic>
+		<title level="a" type="main">The space of interactions in neural networks: Gardner&apos;s computation with the cavity method</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Mezard</surname></persName>
+		</author>
+		<idno type="DOI">10.1088/0305-4470/22/12/018</idno>
+		<ptr target="https://dx.doi.org/10.1088/0305-4470/22/12/018" />
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Physics A: Mathematical and General</title>
+		<imprint>
+			<biblScope unit="volume">22</biblScope>
+			<biblScope unit="issue">12</biblScope>
+			<biblScope unit="page">2181</biblScope>
+			<date type="published" when="1989-06">jun 1989</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b62">
+	<analytic>
+		<title level="a" type="main">The role of regularization in classification of high-dimensional noisy Gaussian mixture</title>
+		<author>
+			<persName><forename type="first">F</forename><surname>Mignacco</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Krzakala</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Lu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Urbani</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Zdeborova</surname></persName>
+		</author>
+		<ptr target="https://proceedings.mlr.press/v119/mignacco20a.html" />
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 37th International Conference on Machine Learning</title>
+				<editor>
+			<persName><forename type="first">H</forename><forename type="middle">D</forename><surname>Iii</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">A</forename><surname>Singh</surname></persName>
+		</editor>
+		<meeting>the 37th International Conference on Machine Learning</meeting>
+		<imprint>
+			<publisher>PMLR</publisher>
+			<date type="published" when="2020-07">Jul 2020</date>
+			<biblScope unit="volume">119</biblScope>
+			<biblScope unit="page" from="13" to="18" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b63">
+	<monogr>
+		<title level="m" type="main">Protein folding theory: from lattice to all-atom models. Annual review of biophysics and biomolecular structure</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Mirny</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Shakhnovich</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2001">2001</date>
+			<biblScope unit="volume">30</biblScope>
+			<biblScope unit="page" from="361" to="396" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b64">
+	<analytic>
+		<title level="a" type="main">Deep generative models to counter class imbalance: A model-metric mapping with proportion calibration methodology</title>
+		<author>
+			<persName><forename type="first">B</forename><surname>Mirza</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Haroon</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Khan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Padhani</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">Q</forename><surname>Syed</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Access</title>
+		<imprint>
+			<biblScope unit="volume">9</biblScope>
+			<biblScope unit="page" from="55879" to="55897" />
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b65">
+	<analytic>
+		<title level="a" type="main">Properties of neural networks storing spatially correlated patterns</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Monasson</surname></persName>
+		</author>
+		<idno type="DOI">10.1088/0305-4470/25/13/019</idno>
+		<ptr target="https://dx.doi.org/10.1088/0305-4470/25/13/019" />
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Physics A: Mathematical and General</title>
+		<imprint>
+			<biblScope unit="volume">25</biblScope>
+			<biblScope unit="issue">13</biblScope>
+			<biblScope unit="page">3701</biblScope>
+			<date type="published" when="1992-07">jul 1992</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b66">
+	<analytic>
+		<title level="a" type="main">Minority oversampling for imbalanced data via classpreserving regularized auto-encoders</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">K</forename><surname>Mondal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Singhal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Tiwary</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Singla</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">P</forename></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename></persName>
+		</author>
+		<ptr target="https://proceedings.mlr.press/v206/mondal23a.html" />
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of The 26th International Conference on Artificial Intelligence and Statistics</title>
+				<editor>
+			<persName><forename type="first">F</forename><surname>Ruiz</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">J</forename><surname>Dy</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">J.-W</forename><surname>Van De Meent</surname></persName>
+		</editor>
+		<meeting>The 26th International Conference on Artificial Intelligence and Statistics</meeting>
+		<imprint>
+			<publisher>PMLR</publisher>
+			<date type="published" when="2023-04">Apr 2023</date>
+			<biblScope unit="volume">206</biblScope>
+			<biblScope unit="page" from="25" to="27" />
+		</imprint>
+	</monogr>
+	<note>of Proceedings of Machine Learning Research</note>
+</biblStruct>
+
+<biblStruct xml:id="b67">
+	<analytic>
+		<title level="a" type="main">Storage capacity of a pottsperceptron</title>
+		<author>
+			<persName><forename type="first">J.-P</forename><surname>Nadal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Rau</surname></persName>
+		</author>
+		<idno type="DOI">10.1051/jp1:1991104</idno>
+		<ptr target="https://doi.org/10.1051/jp1:1991104" />
+	</analytic>
+	<monogr>
+		<title level="j">J. Phys. I France</title>
+		<imprint>
+			<biblScope unit="volume">1</biblScope>
+			<biblScope unit="issue">8</biblScope>
+			<biblScope unit="page" from="1109" to="1121" />
+			<date type="published" when="1991">1991</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b68">
+	<analytic>
+		<title level="a" type="main">A self consistent theory of gaussian processes captures feature learning effects in finite CNNs</title>
+		<author>
+			<persName><forename type="first">G</forename><surname>Naveh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Ringel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Ranzato</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Beygelzimer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Dauphin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Liang</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Vaughan</surname></persName>
+		</author>
+		<ptr target="https://proceedings.neurips.cc/paper_files/paper/2021/file/b24d21019de5e59da180f1661904f49a-Paper.pdf" />
+	</analytic>
+	<monogr>
+		<title level="m">Advances in Neural Information Processing Systems</title>
+				<editor>
+			<persName><forename type="first">J</forename><forename type="middle">W</forename></persName>
+		</editor>
+		<imprint>
+			<publisher>Curran Associates, Inc</publisher>
+			<date type="published" when="2021">2021</date>
+			<biblScope unit="volume">34</biblScope>
+			<biblScope unit="page" from="21352" to="21364" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b69">
+	<monogr>
+		<title level="m" type="main">A statistical mechanics framework for bayesian deep neural networks beyond the infinitewidth limit</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Pacelli</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Ariosto</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Pastore</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Ginelli</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Gherardi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Rotondo</surname></persName>
+		</author>
+		<idno type="DOI">10.1038/s42256-023-00767-6</idno>
+		<ptr target="https://doi.org/10.1038/s42256-023-00767-6" />
+		<imprint>
+			<date type="published" when="2023-12">Dec 2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b70">
+	<analytic>
+		<title level="a" type="main">Critical properties of the sat/unsat transitions in the classification problem of structured data</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Pastore</surname></persName>
+		</author>
+		<idno type="DOI">10.1088/1742-5468/ac312b</idno>
+		<ptr target="https://dx.doi.org/10.1088/1742-5468/ac312b" />
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Statistical Mechanics: Theory and Experiment</title>
+		<imprint>
+			<biblScope unit="volume">2021</biblScope>
+			<biblScope unit="issue">11</biblScope>
+			<biblScope unit="page">2021</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b71">
+	<analytic>
+		<title level="a" type="main">Statistical learning theory of structured data</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Pastore</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Rotondo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Erba</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Gherardi</surname></persName>
+		</author>
+		<idno type="DOI">10.1103/PhysRevE.102.032119</idno>
+		<ptr target="https://link.aps.org/doi/10.1103/PhysRevE.102.032119" />
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. E</title>
+		<imprint>
+			<biblScope unit="volume">102</biblScope>
+			<biblScope unit="page">32119</biblScope>
+			<date type="published" when="2020-09">Sep 2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b72">
+	<analytic>
+		<title level="a" type="main">Scikit-learn: Machine learning in Python</title>
+		<author>
+			<persName><forename type="first">F</forename><surname>Pedregosa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Varoquaux</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Gramfort</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Michel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Thirion</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">O</forename><surname>Grisel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Blondel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Prettenhofer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Weiss</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Dubourg</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Vanderplas</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Passos</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Cournapeau</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Brucher</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Perrot</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Duchesnay</surname></persName>
+		</author>
+		<ptr target="http://www.jmlr.org/papers/volume12/pedregosa11a/pedregosa11a.pdf" />
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Machine Learning Research</title>
+		<imprint>
+			<biblScope unit="volume">12</biblScope>
+			<biblScope unit="page" from="2825" to="2830" />
+			<date type="published" when="2011">2011</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b73">
+	<analytic>
+		<title level="a" type="main">Are Gaussian data all you need? The extents and limits of universality in high-dimensional generalized linear estimation</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Pesce</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Krzakala</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Loureiro</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Stephan</forename></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename></persName>
+		</author>
+		<ptr target="https://proceedings.mlr.press/v202/pesce23a.html" />
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 40th International Conference on Machine Learning</title>
+				<editor>
+			<persName><forename type="first">A</forename><surname>Krause</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">E</forename><surname>Brunskill</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">K</forename><surname>Cho</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">B</forename><surname>Engelhardt</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">S</forename><surname>Sabato</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">J</forename><surname>Scarlett</surname></persName>
+		</editor>
+		<meeting>the 40th International Conference on Machine Learning</meeting>
+		<imprint>
+			<publisher>PMLR</publisher>
+			<date type="published" when="2023-07">Jul 2023</date>
+			<biblScope unit="volume">202</biblScope>
+			<biblScope unit="page" from="23" to="29" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b74">
+	<analytic>
+		<title level="a" type="main">Beyond the storage capacity: Data-driven satisfiability transition</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Rotondo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Pastore</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Gherardi</surname></persName>
+		</author>
+		<idno type="DOI">10.1103/PhysRevLett.125.120601</idno>
+		<ptr target="https://link.aps.org/doi/10.1103/PhysRevLett.125.120601" />
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. Lett</title>
+		<imprint>
+			<biblScope unit="volume">125</biblScope>
+			<biblScope unit="page">120601</biblScope>
+			<date type="published" when="2020-09">Sep 2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b75">
+	<analytic>
+		<title level="a" type="main">Adaptive document image binarization</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Sauvola</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Pietikäinen</surname></persName>
+		</author>
+		<idno type="DOI">org/10.1016/S0031-3203(99)00055-2</idno>
+		<ptr target="https://www.sciencedirect.com/science/article/pii/S0031320399000552" />
+	</analytic>
+	<monogr>
+		<title level="j">Pattern Recognition</title>
+		<idno type="ISSN">0031-3203</idno>
+		<imprint>
+			<biblScope unit="volume">33</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="225" to="236" />
+			<date type="published" when="2000">2000</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b76">
+	<analytic>
+		<title level="a" type="main">Enumeration of all compact conformations of copolymers with random sequence of links</title>
+		<author>
+			<persName><forename type="first">E</forename><surname>Shakhnovich</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Gutin</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">The Journal of Chemical Physics</title>
+		<imprint>
+			<biblScope unit="volume">93</biblScope>
+			<biblScope unit="issue">8</biblScope>
+			<biblScope unit="page" from="5967" to="5971" />
+			<date type="published" when="1990">1990</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b77">
+	<analytic>
+		<title level="a" type="main">Precision/recall on imbalanced test data</title>
+		<author>
+			<persName><forename type="first">H</forename><surname>Shang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J.-M</forename><surname>Langlois</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Tsioutsiouliklis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Kang</surname></persName>
+		</author>
+		<ptr target="https://proceedings.mlr.press/v206/shang23a.html" />
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of The 26th International Conference on Artificial Intelligence and Statistics</title>
+				<editor>
+			<persName><forename type="first">F</forename><surname>Ruiz</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">J</forename><surname>Dy</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">J.-W</forename><surname>Van De Meent</surname></persName>
+		</editor>
+		<meeting>The 26th International Conference on Artificial Intelligence and Statistics</meeting>
+		<imprint>
+			<publisher>PMLR</publisher>
+			<date type="published" when="2023-04">Apr 2023</date>
+			<biblScope unit="volume">206</biblScope>
+			<biblScope unit="page" from="25" to="27" />
+		</imprint>
+	</monogr>
+	<note>of Proceedings of Machine Learning Research</note>
+</biblStruct>
+
+<biblStruct xml:id="b78">
+	<analytic>
+		<title level="a" type="main">Inferring protein sequencefunction relationships with large-scale positive-unlabeled learning</title>
+		<author>
+			<persName><forename type="first">H</forename><surname>Song</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><forename type="middle">J</forename><surname>Bremer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><forename type="middle">C</forename><surname>Hinds</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Raskutti</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">A</forename><surname>Romero</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.cels.2020.10</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Cell Systems</title>
+		<idno type="ISSN">2405-4712</idno>
+		<imprint>
+			<biblScope unit="volume">12</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="92" to="101" />
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b79">
+	<monogr>
+		<ptr target="https://www.sciencedirect.com/science/article/pii/S2405471220304142" />
+		<title level="m">URL</title>
+				<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b80">
+	<analytic>
+		<title level="a" type="main">Training restricted boltzmann machines using approximations to the likelihood gradient</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Tieleman</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 25th international conference on Machine learning</title>
+				<meeting>the 25th international conference on Machine learning</meeting>
+		<imprint>
+			<date type="published" when="2008">2008</date>
+			<biblScope unit="page" from="1064" to="1071" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b81">
+	<analytic>
+		<title level="a" type="main">Variational autoencoder based synthetic data generation for imbalanced learning</title>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Wan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>He</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/SSCI.2017.8285168</idno>
+	</analytic>
+	<monogr>
+		<title level="m">2017 IEEE Symposium Series on Computational Intelligence (SSCI)</title>
+				<imprint>
+			<date type="published" when="2017">2017</date>
+			<biblScope unit="page" from="1" to="7" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b82">
+	<analytic>
+		<title level="a" type="main">PSoL: a positive sample only learning algorithm for finding non-coding RNA genes</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Ding</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">F</forename><surname>Meraz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">R</forename><surname>Holbrook</surname></persName>
+		</author>
+		<idno type="DOI">10.1093/bioinformatics/btl441</idno>
+		<ptr target="https://doi.org/10.1093/bioinformatics/btl441" />
+	</analytic>
+	<monogr>
+		<title level="j">Bioinformatics</title>
+		<idno type="ISSN">1367-4803</idno>
+		<imprint>
+			<biblScope unit="volume">22</biblScope>
+			<biblScope unit="issue">21</biblScope>
+			<biblScope unit="page" from="2590" to="2596" />
+			<date type="published" when="2006-08">08 2006</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b83">
+	<analytic>
+		<title level="a" type="main">Mining with rarity: A unifying framework</title>
+		<author>
+			<persName><forename type="first">G</forename><forename type="middle">M</forename><surname>Weiss</surname></persName>
+		</author>
+		<idno type="DOI">10.1145/1007730.1007734</idno>
+		<ptr target="https://doi.org/10.1145/1007730.1007734" />
+	</analytic>
+	<monogr>
+		<title level="j">SIGKDD Explor. Newsl</title>
+		<idno type="ISSN">1931- 0145</idno>
+		<imprint>
+			<biblScope unit="volume">6</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="7" to="19" />
+			<date type="published" when="2004-06">jun 2004</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b84">
+	<monogr>
+		<title level="m" type="main">Visual transformers: Token-based image representation and processing for computer vision</title>
+		<author>
+			<persName><forename type="first">B</forename><surname>Wu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Xu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X</forename><surname>Dai</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Wan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Yan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Tomizuka</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Gonzalez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Keutzer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Vajda</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b85">
+	<analytic>
+		<title level="a" type="main">Positive-unlabeled learning for disease gene identification</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Yang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X.-L</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J.-P</forename><surname>Mei</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C.-K</forename><surname>Kwoh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S.-K</forename><surname>Ng</surname></persName>
+		</author>
+		<idno type="DOI">10.1093/bioinformatics/bts504</idno>
+		<ptr target="https://doi.org/10.1093/bioinformatics/bts504" />
+	</analytic>
+	<monogr>
+		<title level="j">Bioinformatics</title>
+		<idno type="ISSN">1367-4803</idno>
+		<imprint>
+			<biblScope unit="volume">28</biblScope>
+			<biblScope unit="issue">20</biblScope>
+			<biblScope unit="page" from="2640" to="2647" />
+			<date type="published" when="2012-08">08 2012</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b86">
+	<analytic>
+		<title level="a" type="main">Restricted boltzmann machines for synthetic minority oversampling technique</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Zięba</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">M</forename><surname>Tomczak</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Gonczarek</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Rbm-Smote</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Intelligent Information and Database Systems</title>
+				<editor>
+			<persName><forename type="first">N</forename><forename type="middle">T</forename><surname>Nguyen</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">B</forename><surname>Trawiński</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">R</forename><surname>Kosala</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Cham</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer International Publishing</publisher>
+			<date type="published" when="2015">2015</date>
+			<biblScope unit="page" from="377" to="386" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

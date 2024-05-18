@@ -1,0 +1,533 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Design of the Monopulse Feeding Network for a Slotted Waveguide Array on an Annular Disk</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher>Hindawi Limited</publisher>
+				<availability status="unknown"><p>Copyright Hindawi Limited</p>
+				</availability>
+				<date type="published" when="2024-04-16">16 April 2024</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author role="corresp">
+							<persName><forename type="first">Zongxin</forename><surname>Wang</surname></persName>
+							<email>wangzx@seu.edu.cn</email>
+							<idno type="ORCID">0000-0002-6278-6577</idno>
+							<affiliation key="aff0">
+								<orgName type="laboratory">State Key Laboratory of Millimeter Waves</orgName>
+								<orgName type="institution">Southeast University</orgName>
+								<address>
+									<postCode>210096</postCode>
+									<settlement>Nanjing</settlement>
+									<country key="CN">China</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Yulan</forename><surname>Wang</surname></persName>
+							<idno type="ORCID">0009-0004-6329-1754</idno>
+							<affiliation key="aff0">
+								<orgName type="laboratory">State Key Laboratory of Millimeter Waves</orgName>
+								<orgName type="institution">Southeast University</orgName>
+								<address>
+									<postCode>210096</postCode>
+									<settlement>Nanjing</settlement>
+									<country key="CN">China</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Shengchi</forename><surname>Zhu</surname></persName>
+							<idno type="ORCID">0000-0001-9365-5812</idno>
+							<affiliation key="aff0">
+								<orgName type="laboratory">State Key Laboratory of Millimeter Waves</orgName>
+								<orgName type="institution">Southeast University</orgName>
+								<address>
+									<postCode>210096</postCode>
+									<settlement>Nanjing</settlement>
+									<country key="CN">China</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Peng</forename><surname>Chen</surname></persName>
+							<idno type="ORCID">0000-0002-7120-1577</idno>
+							<affiliation key="aff0">
+								<orgName type="laboratory">State Key Laboratory of Millimeter Waves</orgName>
+								<orgName type="institution">Southeast University</orgName>
+								<address>
+									<postCode>210096</postCode>
+									<settlement>Nanjing</settlement>
+									<country key="CN">China</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Design of the Monopulse Feeding Network for a Slotted Waveguide Array on an Annular Disk</title>
+					</analytic>
+					<monogr>
+						<title level="j" type="main">International Journal of Antennas and Propagation</title>
+						<title level="j" type="abbrev">International Journal of Antennas and Propagation</title>
+						<idno type="ISSN">1687-5869</idno>
+						<idno type="eISSN">1687-5877</idno>
+						<imprint>
+							<publisher>Hindawi Limited</publisher>
+							<biblScope unit="volume">2024</biblScope>
+							<biblScope unit="page" from="1" to="15"/>
+							<date type="published" when="2024-04-16">16 April 2024</date>
+						</imprint>
+					</monogr>
+					<idno type="MD5">ADA286251C8BECE03EC80A621F8D2E32</idno>
+					<idno type="DOI">10.1155/2024/5761698</idno>
+					<note type="submission">Received 10 January 2024; Revised 20 February 2024; Accepted 22 March 2024;</note>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.2" ident="GROBID" when="2024-05-16T18:04+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Design of a monopulse feeding network including a compact power distribution network and a monopulse comparator for a dual polarization slotted waveguide array fabricated on an annular disk is presented in this paper. As the slotted waveguide array is arranged on an annular disk, the feeding network is more complicated than that of a regular array such as a rectangular array. Te design details of some key waveguide components, such as the compact assembly of H-plane T-junctions and E-plane elbows used to connect power distribution networks and radiation waveguides, are provided. Quasiplanar magic tees are designed and used to construct the compact sum and diference comparator. Te antenna system contains two comparators, which are used to generate sum and diference beams for horizontal polarization and vertical polarization, respectively. Finally, the monopulse slotted waveguide array antenna is divided into two modules, a comparator module and an antenna module (including power distribution network), and fabricated with the layered processing and bonding process. Te comparator module is measured using a network analyzer to verify its amplitude-frequency characteristics and phase-frequency characteristics. Screwing the comparator module and the antenna module together, a monopulse slotted waveguide array antenna is obtained, and the sum beam and diference beam characteristics of the antenna are measured in a microwave chamber and presented.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.">Introduction</head><p>A tracking radar is widely used not only in military departments, such as fre control of weapons and missile guidance, but also in civil felds, such as satellite tracking <ref type="bibr" target="#b0">[1]</ref> and meteorology <ref type="bibr" target="#b1">[2]</ref>. If the measurement is not based on one pulse but on multiple pulses, the amplitude fuctuations between the echo pulses will afect the tracking accuracy <ref type="bibr" target="#b2">[3]</ref>. A radar system that can provide angle error information with only one echo pulse is called a monopulse (or simultaneous lobing) radar. In a monopulse radar system, the antenna must generate more than one receiving beam. By comparing the relative amplitude or phase of diferent beams, the angle of the echo signal (i.e., the angle of the target) can be obtained. Based on two receiving beams, only a single plane's angle error information can be obtained. Terefore, in order to achieve two-dimensional tracking of the target, which involves obtaining both azimuth and elevation angle error information, four antenna beams are required.</p><p>Te antenna forms of monopulse tracking systems mainly include refector antennas, slotted waveguide antennas (SWAs), and microstrip patch array antennas. Due to signifcant feed line losses <ref type="bibr" target="#b3">[4]</ref><ref type="bibr" target="#b4">[5]</ref><ref type="bibr" target="#b5">[6]</ref><ref type="bibr" target="#b6">[7]</ref>, especially at high frequencies, microstrip patch antenna arrays are mainly used in low-frequency systems. Both the refector antenna and SWA can be fed using waveguide-based feeding networks to fully utilize the low loss characteristics of waveguides. Refector antennas are three-dimensional structures, which are usually larger in size. Te SWAs, on the other hand, are planar structures, which are compact and reliable, making them more suitable in space limited platforms, such as certain aircraft, than the refector antennas <ref type="bibr" target="#b7">[8]</ref>. In a SWA monopulse antenna, the antenna aperture is usually divided into four quadrants. Each quadrant contains a slotted waveguide subarray, which is fed by a power distribution feeding network (PDFN). Four subarrays are connected to a comparator network to provide the sum (carrying distance information), the azimuth diference (carrying azimuth angle information), and the elevation diference (carrying pitch angle information) signals. Te comparator contains four hybrids (magic tees or equivalent), and this is similar to most comparators for two-dimensional monopulse tracking antennas <ref type="bibr" target="#b8">[9]</ref><ref type="bibr" target="#b9">[10]</ref><ref type="bibr" target="#b10">[11]</ref>. Here, the PDFN (feeding the subarray) and the comparator are collectively referred to as a monopulse feeding network <ref type="bibr">(MFN)</ref>.</p><p>A design of the W-band dual polarized SWA on an annular disk has been presented in our previous paper <ref type="bibr" target="#b11">[12]</ref>, which focuses on the arrangement of rectangular waveguides and ridge waveguides in limited space, the layout of two polarization slots on a circular disk, and the optimization method of the slot parameters, and so the design details of the PDFN for feeding the SWA are not specifcally introduced. In this paper, an irregular PDFN (composed of several key waveguide components) adapted to the slotted waveguide array arranged on the annular disk will be given, and more importantly, the design of two comparators (for two diferent polarizations) adapted to the SWA designed will be presented. Te comparators are compact in terms of height as they are designed based on a kind of quasiplanar magic tee <ref type="bibr" target="#b12">[13]</ref>. Te MFN composed of the power distribution network and the comparator is then integrated with the SWA to obtain the fnal dual polarization monopulse SWA.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.">Design of the Monopulse Feeding Network</head><p>2.1. Design of the Power Distribution Network. Te slotted waveguide array to be fed has two characteristics: orthogonal dual polarization and annular aperture. To provide the orthogonal dual polarization, the combination of two separate waveguide arrays of vertical polarization (VP) and horizontal polarization (HP) is usually used. Many building blocks have been reported <ref type="bibr" target="#b13">[14]</ref><ref type="bibr" target="#b14">[15]</ref><ref type="bibr" target="#b15">[16]</ref> in the C-band and Xband where the slotted waveguide and feeding structures are relatively easy to process. However, those structures are no longer applicable in the W-band due to fabrication difculties. In our design, a broad wall longitudinal ofset slot array and an edge wall inclined slot array <ref type="bibr" target="#b11">[12]</ref> are used to provide HP and VP, respectively. Te typical feeding method of the slotted waveguide array is shown in Figure <ref type="figure">1</ref>, where the feeding waveguide is placed under the radiating waveguide array and distributes power though the coupling slots cut in the shared wall of the radiating waveguide and feeding waveguide.</p><p>Tis feeding technique is no longer applicable to our design due to two reasons: (a) the antenna aperture is circular so the ends of all the radiating waveguides are not able to arrange in a straight line and (b) the bottom walls of the ridged waveguides of the HP array and the side walls of the rectangular waveguides of the VP array are not wide enough, so the coupling slots cut in those walls cannot provide enough coupling to the feeding waveguide.</p><p>One quadrant of the annular SWA of our design is shown in Figure <ref type="figure">2</ref>, where Figure <ref type="figure">2</ref>(a) is the front of the SWA, Figure <ref type="figure">2</ref>(b) is the two PDFNs (for dual polarizations) on the back of the array, and Figure <ref type="figure">2(c</ref>) is the 3D view of the interconnection between the feed network and the radiation waveguide. Te HP slots and VP slots are cut on a thin metal layer covering the HP radiation waveguides and VP radiation waveguides, respectively. Te layout of the PDFN is determined by the radiation waveguides distributed along the annular disk and the stacking and interconnection details of the radiation waveguide and two PDFNs can be found in Figure <ref type="figure">2(c)</ref>, where a local part of the VP feeding network is cut open (see the dashed frame) to display the connection detail of the HP feeding network and the HP radiation waveguides. Te HP waveguides are bent and transformed to rectangular waveguides placed at the back of the array and then connected to a waveguide power divider network. For the sake of clarity, only the waveguide air cavities (without metal wall) are given in Figures <ref type="figure">2(b</ref>) and 2(c). In the VP array, every two adjacent waveguides are combined through waveguide bends to an H-plane Tjunction (TH in Figure <ref type="figure">2(c</ref>)) frstly and then bend the main arm of T-junction to the back of the array and connected to a waveguide power divider network.</p><p>For clarity, the PDFNs of HP and VP are pulled out, as shown in Figures <ref type="figure">3 and 4</ref>, respectively. Key waveguide components of the PDFN to be discussed here include a compact 1 to 4 power divider (as in the dashed box enlarged and placed in the upper right corner in Figure <ref type="figure">3</ref>), a rectangular waveguide to ridged waveguide transition bend (as in the dashed box enlarged and placed in the upper left corner in Figure <ref type="figure">3</ref>), and a compact assembly of 1 to 2 power divider and E-plane waveguide bends (as in the dashed box enlarged and placed in the upper right corner in Figure <ref type="figure">4</ref>). Te orange parts of Figures <ref type="figure">3 and 4</ref> are identical PDFN, which is an unequal power distribution network that includes three unequal power dividers T1, T2, and T3. Te electromagnetic wave amplitude along the diameter of an annular array should be evenly distributed to obtain good side lobe characteristics. Terefore, the power distribution ratio of T1, T2, and T3 must be 4 : 7 (where the meaning of 4 : 7 is that the ratio of power distributed to two subports is 4 to 7), 3 : 4, and 1 : 2, respectively, to enable each radiating waveguide obtaining the same power. On the other hand, it is necessary to ensure that the waves arriving at all subport are in phase, i.e., all the wave path lengths from main port P1 to all subports must be equal.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.1.1.">Compact 1 to 4 Power Divider of HP PDFN.</head><p>Due to the dense arrangement of the radiation waveguide array, the space for the associated PDFN is also very small.</p><p>In particular, a compact 1 to 4 power divider for the HP waveguide array is required. Generally, a 1 to 4 power divider can be composed of three identical 3 dB power dividers, and the input ports of the two secondary-stage 3 dB power dividers are connected to the output ports of the frststage 3 dB power dividers. However, the connection waveguide of the two-stage 3 dB power divider needs to be relatively long so that the frst and second stages do not interfere with each other. In our design, there are many matching steps and wedges, and all matching structures of this compact 1 to 4 power divider need unifed parameter optimization. Te 1 to 4 power divider (with a central operating frequency f 0 of 94.7 GHz) is fnally designed based on a rectangular waveguide of 0.627λ 0 × 0.3135λ 0 (width × height, λ 0 is the center frequency wavelength of free space); the designed 1 to 4 power divider is shown in Figure <ref type="figure" target="#fig_3">5</ref>(a), the optimized structural parameters of the power divider are given in Table <ref type="table">1</ref>, and the corners of the steps have been chamfered (chamfer radius is 0.078λ 0 ) for ease of machine processing. Te simulated results are given in Figure <ref type="figure" target="#fig_3">5</ref>(b); it can be seen that the power input from port 1 is approximately distributed evenly to ports 2∼5, and the refection coefcient of port 1 is less than −30 dB.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.1.2.">Rectangular Waveguide to Ridged Waveguide Transition Bend of HP PDFN.</head><p>A ridged waveguide, which has smaller width than the rectangular waveguide, is used to form the HP slotted radiation waveguide array to save space. Te ridged radiation waveguide should be connected to the feeding rectangular waveguide through a waveguide bend transition, as shown in Figure <ref type="figure" target="#fig_5">6</ref>(a). Te main match structure is a corner step, and by optimization of two parameters c 1 and c 2 of the step and the length c 3 of the connecting waveguide, it is easy to obtain a bend transition with good transmission characteristics. Te fnal optimized parameters are given in Table <ref type="table" target="#tab_0">2</ref>, and the simulated transmission and refection results of the fnal optimized waveguide bends are given in Figure <ref type="figure" target="#fig_5">6(b)</ref>; the refection coefcient is less than −20 dB in a 10% frequency bandwidth.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.1.3.">Compact Assembly of 1 to 2 Power Divider and E-Plane</head><p>Waveguide Bend of VP PDFN. In addition to small space, a compact assembly of a 1 to 2 power divider and waveguide E-plane bend is required for connecting VP radiation waveguides and PDFN. Te assembly consists of an H-plane T and three E-plane bends. As shown in Figure <ref type="figure" target="#fig_7">7</ref>(a), many matching structures, including corner steps, stepped gaps, and chamfers, are used to obtain good transmission characteristics. Optimized parameters of these matching structures are given in Table <ref type="table">3</ref>. Te simulation results of the assembly are given in Figure <ref type="figure" target="#fig_7">7</ref>(b); the refection parameters are better than −33 dB, and the power is evenly distributed to ports 2 and 3.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.1.4.">Design of 4 : 7 Unequal Power Divider. As described in</head><p>Section II-A, the design of a 4 : 7 power divider will be given here as a representative of the unequal power distributor. Te structural details and simulation results of the 4 : 7 power divider are shown in Figures <ref type="figure" target="#fig_9">8 and 9</ref>.</p><p>Structure parameters of the 4 : 7 power divider are given in Table <ref type="table" target="#tab_1">4</ref>. It can be seen from Figure <ref type="figure" target="#fig_9">9</ref>(a) that the return loss is better than −35 dB, and the transmission   Table <ref type="table">1</ref>: Structural parameters of the 1 to 4 power divider.    </p><formula xml:id="formula_0">d 0 d 1 d 2 d 3 d 4 d 5 d 6 d 7 d 8 w 1 h 1 h 2 0.351λ 0 0.63λ 0 0.915λ 0 1.12λ 0 1.2λ 0 1.012λ 0 1.291λ 0 1.371λ 0 1.592λ 0 0.242λ 0 0.31λ 0 0.21λ 0</formula></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.2.">Design of the Sum and Diference Network.</head><p>As known to all, to generate sum and diference beams for a monopulse system, a comparator network is required. Because there are two types of slot arrays (with orthogonal polarization) in our design, two comparator networks are needed, which are connected separately to the VP array and HP array to generate their respective sum and diference beams. Te key component of the comparator network is the quasiplanar magic tee (QPMT) shown in Figure <ref type="figure">11</ref>. Compared with the traditional magic tee, the QPMT is compact and easy to be fabricated with the layered processing and bonding process.</p><p>Te QPMT is composed of an H-plane tee junction (HTJ), Table <ref type="table">3</ref>: Structural parameters of assembly of 1 to 2 power divider and E-plane waveguide bend. a waveguide, and a coupling hole. Te waveguide is ofset on one side of the main arm axis of the HTJ and connected with the HTJ through the coupling hole. Te HTJ has a slot for impedance matching. Te simulated results of the optimized QPMT are shown in Figure <ref type="figure">12</ref>. It can be seen that when incident at port 1, the input power is divided equally and in phase to ports 2 and 3, see Figure <ref type="figure">12</ref>(a), and when incident at port 2, the input power is divided equally and out of phase to ports 2 and 3, see Figure <ref type="figure">12</ref>(b). Te refection and isolation characteristic curves are better than 20 dB; see Figure <ref type="figure">12(c</ref>).</p><p>Based on four QPMTs (enclosed in the dashed circle in Figure <ref type="figure">13</ref>), a comparator for the VP array is designed and shown in Figure <ref type="figure">13</ref>. Te comparator for the HP array is similar and not given any more. Te reason why the comparator is designed in this shape is to match the dual polarization array on the annular disk. A split structure diagram shown in Figure <ref type="figure">14</ref> is used to illustrate the spatial layout relationship between the radiation waveguide array, the PDFN, and the sum and diference comparator, and for clarity, only one quadrant of the waveguide array and its PDFN is shown.</p><p>Referring to Figure <ref type="figure">13</ref>, the small arrows at ports 1, 2, 3, and 4 represent the integration line direction of the waveguide port set in HFSS. Let us use ports 1 and 4 to explain why the integration line directions are set in this way. When incident at port Sum, electromagnetic waves reached at ports 1 and 4 are out of phase because ports 1 and 4 are separately connected with the E-plane elbows and the two elbows bent 90 °in the opposite direction. Terefore, the integration line directions at ports 1 and 4 are set to be opposite to each other. Waveguide ports marked as Sum, Az., Pit., and Idle are sum beam port, azimuth diference beam port, pitch diference beam port, and idle port (connected to a matching load and not used), respectively. Te simulated results of the comparator are shown in Figure <ref type="figure" target="#fig_6">15</ref>. It can be seen from Figures <ref type="figure" target="#fig_6">15(a</ref>)-15(c) that when incident at ports Sum, Az., and Pit., respectively, electromagnetic waves are almost evenly distributed (standard value -6.02 dB) to ports 1, 2, 3, and 4. When incident at port Sum, all the distributed electromagnetic wave signals at ports 1∼4 are in phase; when incident at ports Az., ports 1 and 4 are in phase and ports 2 and 3 are also in phase, but ports 1 and 2 are out of phase (ports 3 and 4 are also out of phase, of course); and when incident at port Pit., ports 1 and 2 are in phase and ports 3 and 4 are also in phase, but ports 1 and 3 (or ports 2 and 4) are out of phase. Te amplitude and phase relationship between the ports described above shows that the comparator we designed is a good sum and diference beamforming network. Typical port refection coefcients of the comparator are given in Figure <ref type="figure" target="#fig_6">15(d)</ref>, nearly −20 dB in the most frequency band.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.">Fabrication and Measurement</head><p>Finally, the monopulse SWA is divided into two modules for easy processing and testing, a comparator module and an antenna module (including SWA and PDFN). Te comparator model established in structural design software is shown in Figure <ref type="figure" target="#fig_5">16</ref>, and the antenna module has been described in detail in <ref type="bibr" target="#b11">[12]</ref> and will not be given again here. Te two modules are fabricated with the layered processing and bonding process. During the processing, every model is divided into several thin aluminum alloy layers from the top to bottom, which are separately milled out in the machining center and then laminated and difusion bonded together. Te manufactured MFN prototype is shown in Figure <ref type="figure" target="#fig_7">17</ref>.</p><p>Te waveguide port of the prototype is not a standard waveguide port, and the distance between adjacent ports is too close, so it must be connected to the standard  waveguide port of the network analyzer through a transition during testing; see Figure <ref type="figure" target="#fig_8">18</ref>. Te measured results of the comparator are shown in Figure <ref type="figure" target="#fig_9">19</ref>, and it can be seen from Figures <ref type="figure" target="#fig_9">19(a)</ref>-19(c) that when incident at ports Sum, Az., and Pit., respectively, the power distributed to ports 1∼4 is approximately −6.8 dB each, and this value is 0.8 dB lower than that of the simulated results, which is supposed to be caused by the conductor loss of the waveguide. Te in-phase or out-phase pattern of the measured results is consistent with the simulation results; however, due to the inclusion of transitions in the measuring, the length of the channel is increased, so the phase values in the simulation and test results are diferent. Port refection coefcients of the comparator are given in Figure <ref type="figure" target="#fig_9">19</ref>(d), better than −15 dB in the most frequency band.</p><formula xml:id="formula_1">f 1 f 2 f 3 f 4 f 5 0.038λ 0 0.238λ 0 0.33λ 0 0.035λ 0 0.063λ 0 S2,1 S3,1<label>S1</label></formula><p>In our previous paper <ref type="bibr" target="#b11">[12]</ref>, we presented a fabricated SWA. Due to the fne structure in the W-band, it is very difcult to process the waveguide slot, and the VP array is slightly damaged locally; see the area enclosed in the red dotted box in Figure <ref type="figure">20(a)</ref>. Te antenna has been reprocessed and has not sufered any damage this time; see Figure <ref type="figure">20(b)</ref>. Ten, by screwing the comparator and SWA together, a monopulse SWA is obtained. Radiation patterns of the monopulse antenna are measured in a microwave chamber. Te measured sum and diference patterns at the center frequency f 0 are given in Figure <ref type="figure" target="#fig_0">21</ref>. Te measured sum beam gains of the HP and VP are 35.9dBi and 35.6dBi, respectively, and the sum beam side lobe levels (SLLs) of HP and VP are −10.5 dB and −10 dB, respectively, and the 3dB sum beam widths of HP and VP are both 1.2 °; see Figures <ref type="figure" target="#fig_0">21(a</ref>) and 21(b). Te antenna we designed is used for  a radar prototype, mainly to verify the distance detection ability of the dual polarization antenna for complex targets (with polarization rotation), and this task mainly relies on two polarized sum beams to complete. Te radar prototype also needs to have a certain degree of direction-fnding ability. In order to reduce receiver costs, only the pitch diference and azimuth diference beams of a single polarization are used. Te horizontal polarization is selected, and the measured diference beams are shown in Figures <ref type="figure" target="#fig_0">21(c</ref>) and 21(d).</p><p>Te refection coefcients of the antenna are measured with a vector network analyzer, and the results are shown in Figure <ref type="figure">22</ref>; it can be seen that the refection characteristic (less than −15 dB at most frequencies) of the HP is better than that of the VP; the reason is supposed to be that edge wall inclined slots of the VP slotted waveguide array are smaller than the broad wall longitudinal slots of the HP slotted waveguide array, so the VP slots are more difcult to machine and a small machining error has a greater impact on the antenna performance including refection characteristics. It is very difcult to quantitatively determine the impact of machining errors on the antenna performance, but qualitatively speaking, the machining errors of the feeding network, especially the blockage caused by solder, will be clearly refected in the refection coefcient characteristics. Te machining errors of the gaps afect not only the refection coefcient but also the gain and side lobes, but have a relatively small impact on the 3 dB beam width.  </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.">Conclusion</head><p>A design of the monopulse feeding network for a dual polarization slotted waveguide array fabricated on an annular disk is presented in this paper. Te monopulse feeding network of each polarization is composed of a power distribution network and a comparator. Te power distribution network is irregular because the slotted waveguide array is arranged on an annular disk. Te design details and simulation results of the several key components of the power distribution network are presented. Quasiplanar magic tees were designed and used to construct the compact sum and diference comparator. Te antenna system consists of two comparators, which are used to generate sum and diference beams for horizontal polarization and vertical polarization, respectively. Finally, the monopulse slotted waveguide array antenna is divided into two modules, a comparator module and an antenna module (including the power distribution network) and fabricated with the layered processing and bonding process. Scattering parameters of the comparator are measured using the network analyzer, and the measured results agree with the simulated results. Screwing the comparator module and antenna module together, a monopulse slotted waveguide array antenna is obtained, and the sum beam and diference beam characteristics of the antenna are measured in a microwave chamber, which shows that the sum and diference performance of the antenna is satisfactory.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Data Availability</head><p>All data including key component parameters are given in the paper. </p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Figure 2 :Figure 1 :</head><label>21</label><figDesc>Figure 2: Dual polarization SWA and PDFN: (a) front of the slotted waveguide array, (b) feeding network on the back, and (c) 3D view of the interconnection between the feed network and the radiation waveguide.</figDesc><graphic coords="3,71.15,493.49,451.55,164.32" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>Figure 4 :Figure 3 :</head><label>43</label><figDesc>Figure 4: PDFN of vertical polarization.</figDesc><graphic coords="4,99.27,252.28,401.56,159.28" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head>Figure 5 :</head><label>5</label><figDesc>Figure 5: 1 to 4 power divider: (a) structural diagram and (b) simulated scattering parameters.</figDesc><graphic coords="5,72.69,79.93,201.23,165.76" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_5"><head>Figure 6 :</head><label>6</label><figDesc>Figure 6: Rectangular waveguide to ridged waveguide transition bend: (a) structural diagram and (b) simulated scattering parameters.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_6"><head>5 .</head><label>5</label><figDesc>Overall Performance of the VP PDFN. After the design of the key waveguide components mentioned above is completed, the PDFN can be formed through these components and some necessary waveguide connectors such as the 3 dB waveguide power divider and waveguide bend, and it is necessary to ensure that all path lengths from port 1 to other ports are equal. Here, we only give the simulation results of the overall structure of VP PDFN; the overall characteristics of the HP PDFN are similar. Te port number of the network is shown in Figure10(a), and the simulated amplitude-frequency characteristics and phase-frequency characteristics of the scattering parameters are shown in Figures10(b) and 10(c), respectively. Te refection coefcient is less than −25 dB at most frequencies, and the power is basically evenly distributed to each subport. It should be noted from Figure10(c) that the phases of neighboring output ports are out of phase, and this means that adjacent radiation waveguides of the VP array are excited by polarization inverted electromagnetic waves, so the slots of the VP antenna must be so designed that the slot inclination directions at the same positions of two adjacent waveguides must be opposite to each other, see Figure2(a).</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_7"><head>Figure 7 :</head><label>7</label><figDesc>Figure 7: Compact assembly of the 1 to 2 power divider and E-plane waveguide bend: (a) structural diagram and (b) simulated scattering parameters.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_8"><head>Figure 8 :</head><label>8</label><figDesc>Figure 8: Structural details of the 4 : 7 power divider.</figDesc><graphic coords="6,217.93,389.05,165.23,121.00" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_9"><head>Figure 9 :</head><label>9</label><figDesc>Figure 9: Simulated results of the 4 : 7 power divider: (a) scattering parameters and (b) phase-frequency characteristics.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_10"><head>Figure 10 :</head><label>10</label><figDesc>Figure 10: Simulated results of VP PDFN: (a) port number, (b) amplitude-frequency characteristics of the VP PDFN, and (c) phase-frequency characteristics of the VP PDFN.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_11"><head>Figure 11 :Figure 12 :</head><label>1112</label><figDesc>Figure 11: Structure of the QPMT.</figDesc><graphic coords="9,206.64,82.77,162.76,191.32" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_12"><head>Figure 13 :Figure 14 :Figure 15 :</head><label>131415</label><figDesc>Figure 13: Comparator for the VP array.</figDesc><graphic coords="10,193.70,73.66,210.89,142.60" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_13"><head>Figure 16 :Figure 17 :Figure 19 :Figure 20 :</head><label>16171920</label><figDesc>Figure 16: Comparator model.</figDesc><graphic coords="11,201.14,556.08,197.90,124.48" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_14"><head>Figure 21 :Figure 22 :</head><label>2122</label><figDesc>Figure 21: Measured results of the monopulse antenna: (a) sum beam of HP, (b) sum beam of VP, (c) pitch diference beam of HP, and (d) azimuth diference beam of HP.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_0"><head>Table 2 :</head><label>2</label><figDesc>Structural parameters of the rectangular waveguide to ridged waveguide transition bend.</figDesc><table /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_1"><head>Table 4 :</head><label>4</label><figDesc>Structure parameters of the 4:7 power divider.</figDesc><table /></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" xml:id="foot_0">International Journal of Antennas and Propagation</note>
+		</body>
+		<back>
+
+			<div type="acknowledgement">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Acknowledgments</head><p>Tis work was supported in part by the Natural Science Foundation for Excellent Young Scholars of Jiangsu Province (Grant no. BK20220128) and the National Key R&amp;D Program of China (Grant no. 2019YFE0120700). Tis work was also supported by Research Square https://www. researchsquare.com/article/rs-3214671/v1 <ref type="bibr" target="#b16">[17]</ref>.</p></div>
+			</div>
+
+			<div type="annex">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Conflicts of Interest</head><p>Te authors declare that they have no conficts of interest.</p></div>			</div>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">Teory and design of a ku-band TE/sub 21/-mode coupler</title>
+		<author>
+			<persName><forename type="first">Y</forename><forename type="middle">H</forename><surname>Choung</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">R</forename><surname>Goudey</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><forename type="middle">G</forename><surname>Bryans</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Microwave Teory and Techniques</title>
+		<imprint>
+			<biblScope unit="volume">30</biblScope>
+			<biblScope unit="issue">11</biblScope>
+			<biblScope unit="page" from="1862" to="1866" />
+			<date type="published" when="1982">1982</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">A dual polarised slotted waveguide antenna for satellite based wind scatterometer instruments</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Magnusson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">Di</forename><surname>Salvo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Scarchilli</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 7th European Conference on Antennas and Propagation (EuCAP)</title>
+				<meeting>the 7th European Conference on Antennas and Propagation (EuCAP)<address><addrLine>Gothenburg, Sweden</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2013-04">April 2013</date>
+			<biblScope unit="page" from="3449" to="3452" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<monogr>
+		<title level="m" type="main">Introduction to Radar Systems</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Skolnik</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2002">2002</date>
+			<publisher>McGraw-Hill Science</publisher>
+			<pubPlace>New York, NY, USA</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">Design of an efcient X-band waveguide-fed microstrip patch array</title>
+		<author>
+			<persName><forename type="first">W</forename><surname>Wu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Yin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Yuan</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Antennas and Propagation</title>
+		<imprint>
+			<biblScope unit="volume">55</biblScope>
+			<biblScope unit="issue">7</biblScope>
+			<biblScope unit="page" from="1933" to="1939" />
+			<date type="published" when="2007">2007</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">Low-cost, high-efciency quasi-planar array of waveguidefed circularly polarized microstrip antennas</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Shahabadi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Busuioc</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Borji</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Safavi-Naeini</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Antennas and Propagation</title>
+		<imprint>
+			<biblScope unit="volume">53</biblScope>
+			<biblScope unit="issue">6</biblScope>
+			<biblScope unit="page" from="2036" to="2043" />
+			<date type="published" when="2005">2005</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">Microstrip antenna array fed by a low-loss gap-waveguide feed network</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Sadri-Moshkenani</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Rashed-Mohassel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Shahabadi</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Antennas and Propagation</title>
+		<imprint>
+			<biblScope unit="volume">66</biblScope>
+			<biblScope unit="issue">8</biblScope>
+			<biblScope unit="page" from="4359" to="4363" />
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">A compact highly efcient hybrid antenna array for W-band applications</title>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Ding</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Xiao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M.-C</forename><surname>Tang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Liu</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Antennas and Wireless Propagation Letters</title>
+		<imprint>
+			<biblScope unit="volume">17</biblScope>
+			<biblScope unit="issue">8</biblScope>
+			<biblScope unit="page" from="1547" to="1551" />
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<monogr>
+		<author>
+			<persName><forename type="first">L</forename><surname>Josefsson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">R</forename><surname>Rengarajan</surname></persName>
+		</author>
+		<title level="m">Slotted Waveguide Array Antennas</title>
+				<meeting><address><addrLine>London, United Kingdom</addrLine></address></meeting>
+		<imprint>
+			<publisher>SciTech Publishing, an imprint of Te Institution of Engineering and Technology</publisher>
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">Substrate integrated waveguide (SIW) monopulse slot antenna array</title>
+		<author>
+			<persName><forename type="first">B</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Hong</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Kuai</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Antennas and Propagation</title>
+		<imprint>
+			<biblScope unit="volume">57</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="275" to="279" />
+			<date type="published" when="2009">2009</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">A compact single layer monopulse microstrip antenna array</title>
+		<author>
+			<persName><forename type="first">H</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D.-G</forename><surname>Fang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X</forename><forename type="middle">G</forename><surname>Chen</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Antennas and Propagation</title>
+		<imprint>
+			<biblScope unit="volume">54</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="503" to="509" />
+			<date type="published" when="2006">2006</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">Compact via-coupling fed monopulse antenna with orthogonal tracking capability in radiation pattern</title>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">A</forename><surname>Khatami</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Meiguni</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Amn-E-Elahi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Rezaei</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">IEEE Antennas and Wireless Propagation Letters</title>
+				<imprint>
+			<date type="published" when="2020">2020</date>
+			<biblScope unit="volume">19</biblScope>
+			<biblScope unit="page" from="1443" to="1446" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">Design of W-band dual polarized slotted waveguide array antenna on an annular disk</title>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Zeqin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Peng</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Infrared, Millimeter and Terahertz Waves</title>
+		<imprint>
+			<biblScope unit="volume">44</biblScope>
+			<biblScope unit="issue">1-2</biblScope>
+			<biblScope unit="page" from="1" to="16" />
+			<date type="published" when="2022">2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">A compact wideband planar magic tee for monopulse antenna array applications</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Nagaraju</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><forename type="middle">K</forename><surname>Verma</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Microwave and Wireless Components Letters</title>
+		<imprint>
+			<biblScope unit="volume">31</biblScope>
+			<biblScope unit="issue">5</biblScope>
+			<biblScope unit="page" from="429" to="432" />
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">Waveguide slotted antenna array with broadband, dual-polarization and low cross-polarization for X-band SAR applications</title>
+		<author>
+			<persName><forename type="first">W</forename><forename type="middle">Wangj</forename><surname>Jin</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the IEEE International Radar Conference</title>
+				<meeting>the IEEE International Radar Conference<address><addrLine>Arlington, VA, USA</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2005-05">May 2005</date>
+			<biblScope unit="page" from="653" to="656" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">Novel slotted waveguide antenna with polarimetric capabilities</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Derneryd</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Lagerstedt</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the Geoscience and Remote Sensing Symposium (IGARSS)</title>
+				<meeting>the Geoscience and Remote Sensing Symposium (IGARSS)<address><addrLine>Florence, Italy</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="1995-07">July 1995</date>
+			<biblScope unit="page" from="2054" to="2056" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<analytic>
+		<title level="a" type="main">A dual polarised slotted waveguide antenna for satellite-based wind scatterometer instruments</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Magnusson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">Di</forename><surname>Salvo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Scarchilli</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 7th European Conference on Antennas and Propagation (EuCAP)</title>
+				<meeting>the 7th European Conference on Antennas and Propagation (EuCAP)<address><addrLine>Gothenburg, Sweden</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2013-04">April 2013</date>
+			<biblScope unit="page" from="3449" to="3452" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<monogr>
+		<title level="m" type="main">Design of the monopulse feeding network of a slotted waveguide array on an annular disk</title>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Zhu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Chen</surname></persName>
+		</author>
+		<ptr target="https://www.researchsquare.com/article/rs-3214671/v1" />
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

@@ -1,0 +1,2772 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Supersolidity in ultra-cold dipolar gases</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+				<date type="published" when="2024-05-15">15 May 2024</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Alessio</forename><surname>Recati</surname></persName>
+							<email>alessio.recati@cnr.it</email>
+							<affiliation key="aff0">
+								<orgName type="department" key="dep1">Pitaevskii BEC Center</orgName>
+								<orgName type="department" key="dep2">Dipartimento di Fisica</orgName>
+								<orgName type="institution" key="instit1">CNR-INO</orgName>
+								<orgName type="institution" key="instit2">Universit à di Trento</orgName>
+								<address>
+									<addrLine>Via Sommarive 14</addrLine>
+									<postCode>I-38123</postCode>
+									<settlement>Trento</settlement>
+									<country key="IT">Italy</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Sandro</forename><surname>Stringari</surname></persName>
+							<email>sandro.stringari@unitn.it</email>
+							<affiliation key="aff0">
+								<orgName type="department" key="dep1">Pitaevskii BEC Center</orgName>
+								<orgName type="department" key="dep2">Dipartimento di Fisica</orgName>
+								<orgName type="institution" key="instit1">CNR-INO</orgName>
+								<orgName type="institution" key="instit2">Universit à di Trento</orgName>
+								<address>
+									<addrLine>Via Sommarive 14</addrLine>
+									<postCode>I-38123</postCode>
+									<settlement>Trento</settlement>
+									<country key="IT">Italy</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Supersolidity in ultra-cold dipolar gases</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date type="published" when="2024-05-15">15 May 2024</date>
+						</imprint>
+					</monogr>
+					<idno type="MD5">CC65F0042CC2186F11343142C53EF9BA</idno>
+					<idno type="arXiv">arXiv:2405.09537v1[cond-mat.quant-gas]</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.2" ident="GROBID" when="2024-05-16T18:04+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Can a gas behave like a crystal? Supersolidity is an intriguing and challenging state of matter which combines key features of superfluids and crystals. Predicted a long time ago, its experimental realization has been recently achieved in Bose-Einstein condensed (BEC) atomic gases inside optical resonators, spin-orbit coupled BEC's and atomic gases interacting with long range dipolar forces. The activity on dipolar gases has been particularly vibrant in the last few years. This perspective article summarizes the main experimental and theoretical achievements concerning supersolidity in the field of dipolar gases, like the observation of the density modulations caused by the spontaneous breaking of translational invariance, the effects of coherence and the occurrence of novel Goldstone modes. A series of important issues for the future experimental and theoretical research are outlined including, among others, the possible realization of quantized vortices inside these novel crystal structure, the role of dimensionality, the characterisation of the crystal properties and the nature of the phase transitions. At the end a brief overview on some other (mainly cold atomic) platforms, where supersolidity has been observed or where supersolidty is expected to emerge is provided.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>As we increase " dd and the groundto an independent droplet crystal, the the supersolid phase, for a value of " dd supersolid phase transition, the speed (figure <ref type="figure" target="#fig_0">3</ref>.5 panel h); increasing " dd , in the speed of sound associated with the as the mode itself tends to disappears in the higher energy Goldstone mode panels i-j). This is one of the key fac lower energy Goldstone mode as the p energy one as an acoustic phonon of study of the density and phase fluctua the context of Bogolyubov theory, can and = (u v ⇤ )/| 0 |) are more di always coupled.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.5">Static and dynam</head><p>Important insights on the excitation sp studying its linear response to a smal procedure is also known as Bragg sca As we increase " dd and the ground-state of the system evolves from to an independent droplet crystal, the excitation spectrum evolves too the supersolid phase, for a value of " dd close to the critical one for th supersolid phase transition, the speed of sound is very similar in the t (figure <ref type="figure" target="#fig_0">3</ref>.5 panel h); increasing " dd , instead, as the superfluid fractio the speed of sound associated with the lower energy Goldstone mode d as the mode itself tends to disappears (figure 3.5 panels h-i-j). The sp in the higher energy Goldstone mode tends instead to a constant valu panels i-j). This is one of the key factors that support the interpret lower energy Goldstone mode as the phase mode predicted in [23] e increase " dd and the ground-state of the system evolves from a supersolid ependent droplet crystal, the excitation spectrum evolves too. In fact, in rsolid phase, for a value of " dd close to the critical one for the superfluidid phase transition, the speed of sound is very similar in the two channels .5 panel h); increasing " dd , instead, as the superfluid fraction decreases, d of sound associated with the lower energy Goldstone mode decreases too ode itself tends to disappears (figure 3.5 panels h-i-j). The speed of sound gher energy Goldstone mode tends instead to a constant value (figure 3.5 j). This is one of the key factors that support the interpretation of the ergy Goldstone mode as the phase mode predicted in [23], and the higher ne as an acoustic phonon of the crystal. Other evidences based on the</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Introduction</head><p>Despite first being predicted back in the 1960s (refs. <ref type="bibr" target="#b0">1,</ref><ref type="bibr" target="#b1">2</ref> ) and 1970s (refs <ref type="bibr" target="#b2">3,</ref><ref type="bibr" target="#b3">4 )</ref>, supersolidity is now one of the most active research frontiers in the field of ultracold atoms. In this intriguing quantum phase of matter both superfluid and crystalline properties coexist as a consequence of the simultaneous breaking of phase and translational symmetry. Supersolidity is in general the result of interactions, which, under peculiar and special conditions, are able to ensure the co-existence of coherence, superfluidity and crystallization, giving rise to a new spectrum of elementary excitations (see Box).</p><p>After the unsuccessful experimental attempts in solid helium <ref type="bibr" target="#b4">5</ref> (see also Ref. <ref type="bibr" target="#b5">6</ref> ) it emerged clearly that supersolidity is more likely expected to occur when the modulations of the density, corresponding to the spontaneous breaking of translational symmetry, involve a large number of particles and not just single atoms as it would happen in traditional solids <ref type="bibr" target="#b6">[7]</ref><ref type="bibr" target="#b7">[8]</ref><ref type="bibr" target="#b8">[9]</ref> . Relevant examples are coherent droplets or stripes, where each droplet or stripe contains a mesoscopic number of atoms. For this 2/14 reason such states can be named cluster supersolids. Supersolidity was actually first experimentally realized in Bose-Einstein condensates (BECs) with spin-orbit coupling <ref type="bibr" target="#b9">10</ref> where supersolidity takes the form of stripes, inside optical resonators <ref type="bibr" target="#b10">11</ref> and in Bose gases interacting with long-range dipolar forces <ref type="bibr" target="#b11">[12]</ref><ref type="bibr" target="#b12">[13]</ref><ref type="bibr" target="#b13">[14]</ref> , where it takes the form of periodically arranged large clusters. This perspective article focuses on long-range dipolar gases, where compelling theoretical predictions and important experimental achievements have emerged in the recent years.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Background</head><p>A typical scenario for the occurrence of supersolidity is the existence of a roton-like spectrum -a spectrum with a local minimum (roton gap) at a finite momentum k rot -in the superfluid (homogeneous) phase. A small enough roton gap can trigger an instability towards a state characterised by a structure with period ∝ k −1 rot (see also Box 1). The observation that the presence of negative Fourier components in the two-body interaction can lead to a a rotonized spectrum and eventually to a periodically-modulated condensate state in interacting bosons <ref type="bibr" target="#b0">1</ref> , has been fundamental in the search for a supersolid phase in ultracold gases. Other model calculations of bosons interacting with soft core potentials have focused on this new phase of matter either using mean field <ref type="bibr" target="#b14">15,</ref><ref type="bibr" target="#b15">16</ref> and ab-initio Monte Carlo calculations <ref type="bibr" target="#b16">17</ref> .</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Precursor phenomena of supersolidity</head><p>Even in the superfluid (non supersolid) phase, dipolar Bose gases exhibit important differences with respect to usual Bose-Einstein condensed gases interacting solely with short range interactions (see the recent review <ref type="bibr" target="#b17">18</ref> ). This is due to the long range and anisotropic nature of the dipole force and its consequent tendency to favor instability and collapse if atoms are allowed to align head-to-tail along the direction of the external magnetic field. This tendency to collapse can be counteracted by imposing strong enough trapping confinement along the orientation of the dipole moment. In such trapping conditions the long range nature of the dipolar interaction is responsible for the occurrence of a rotonic structure in the excitation spectrum <ref type="bibr" target="#b18">19,</ref><ref type="bibr" target="#b19">20</ref> . The occurrence of the roton minimum and the corresponding sharp peak exhibited by the static structure factor and the static response <ref type="bibr" target="#b20">21</ref> reflects the intrinsic tendency to solidification exhibited by the system, in analogy with the transition to the solid phase exhibited by liquid <ref type="bibr" target="#b3">4</ref> He <ref type="bibr" target="#b21">22,</ref><ref type="bibr" target="#b22">23</ref> .</p><p>A first important step was the understanding of the crucial role played by the beyond mean field corrections -also known as Lee-Huang-Yang, shortly LHY, corrections <ref type="bibr" target="#b23">24</ref> -to the equation of state <ref type="bibr" target="#b24">25,</ref><ref type="bibr" target="#b25">26</ref> , which, in spite of their smallness, can play a crucial role in stabilizing the system <ref type="bibr" target="#b26">27,</ref><ref type="bibr" target="#b27">28</ref> , avoiding the collapse predicted by mean field theories, when the role of the attractive component of the force encompasses a critical value. A spectacular consequence, caused by beyond mean field effects, was the observation of self bound droplets (see Fig. <ref type="figure" target="#fig_5">1</ref>), both in dipolar gases <ref type="bibr" target="#b28">[29]</ref><ref type="bibr" target="#b29">[30]</ref><ref type="bibr" target="#b30">[31]</ref><ref type="bibr" target="#b31">[32]</ref> as well as in binary mixtures of BEC gases with attractive interparticle interaction <ref type="bibr" target="#b32">[33]</ref><ref type="bibr" target="#b33">[34]</ref><ref type="bibr" target="#b34">[35]</ref><ref type="bibr" target="#b35">[36]</ref> . The latter systems do not however exhibt a rotonic structure and consequently are not expected to show supersolid features.</p><p>A further major step towards the realization of supersolidity was the experimental observation in an elongated cloud <ref type="bibr" target="#b36">37,</ref><ref type="bibr" target="#b37">38</ref> of the predicted rotonic excitation of a dipolar BEC gas and the roton softening followed by the roton collapse, when the value of the s-wave scattering length is tuned to small enough values (see Fig. <ref type="figure">2</ref>). Signatures of the radial and angular roton excitations in two dimensional configurations and of their softening around a droplet crystallization transition have been also recently found <ref type="bibr" target="#b38">39</ref> . Finally, in the meantime, theorists were able to identify a tiny region of the relevant parameters in the phase-space diagram, where beyond mean field effects, are responsible for stabilizing coherent arrays of quantum droplets, yielding the long sought conditions for the realization of supersolidity in dipolar BEC gases <ref type="bibr" target="#b39">40</ref> .</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Experimental evidence of supersolidity</head><p>In the year 2019 the field was ready for a major breakthrough: three experimental groups reported on the evidence of coherence between dipolar droplets <ref type="bibr" target="#b11">[12]</ref><ref type="bibr" target="#b12">[13]</ref><ref type="bibr" target="#b13">[14]</ref> . As theoretically predicted <ref type="bibr" target="#b39">40</ref> , the range of ε dd in which coherence persists is very small. However it was clear that the system shows three distinct phases: a superfluid state, a coherent droplet (supersolid) state and an incoherent droplet (crystal) state (see Box). The number of droplets in these first experiments was limited to 2-4 in a linear configuration and the names supersolid or crystal are suggestive of the hypothetical bulk system corresponding to the thermodynamic limit. Presently larger chains, as well as two dimensional supersolid-like configurations have been realised in ultra-cold dipolar gases <ref type="bibr" target="#b40">41,</ref><ref type="bibr" target="#b41">42</ref> .</p><p>After the realisation of a spontaneously modulated BEC and the experimental proof of its coherence the efforts of experimentalists and theorists were devoted to get additional signatures of the supersolid nature of these systems and in particular to explore the different kinds of sound propagating in a dipolar supersolid. The presence of both crystalline order (standard long-range order) and superfluid order (off-diagonal long-range order), corresponding to the spontaneous breaking of continuous translational invariance and of the U(1) symmetry (particle conservation), respectively, is in fact expected to give rise to a novel series of Goldstone modes. Simulations on bulk atomic Bose gases interacting with soft-core potentials <ref type="bibr" target="#b14">15</ref> employing Monte-Carlo techniques <ref type="bibr" target="#b16">17</ref> and mean-field calculations <ref type="bibr" target="#b42">43,</ref><ref type="bibr" target="#b43">44</ref> have confirmed the predictions of the Goldstone theorem 3/14 and characterised the proper dispersion relation of the excitations in the three distinct phases, i.e., a single gapless mode in the superfluid phase, d modes in the crystal phase and d + 1 modes in the supersolid phase, where d is the number of dimensions in which traslational invariance is broken. It is important to notice that the presence of 3 + 1 phonon modes was already predicted in the seminal paper by Andreev and Lifshitz 2 for the hypothetical supersolid phase of <ref type="bibr" target="#b3">4</ref> He. In the case of a highly elongated linear supersolid the dispersion relation is expected to include a single gapless mode in the superfluid and in the crystal incoherent droplet phases, and two gapless modes in the supersolid phase (see Box "Superfluid, Supersolid and Crystal phases in ultra-cold dipolar gases"). As already pointed out by Andreev and Lifshitz the sound modes are hybridized, i.e, are neither purely crystal nor purely superfluid modes. In the case of a small superfluid density, the modes are expected to be essentially decoupled <ref type="bibr" target="#b1">2</ref> .</p><p>Quite remarkably, just a few months after the first evidence of the supersolid state, the Goldstone modes of supersolid dipolar gases were addressed in a series of joint experimental and theoretical works <ref type="bibr" target="#b44">[45]</ref><ref type="bibr" target="#b45">[46]</ref><ref type="bibr" target="#b46">[47]</ref><ref type="bibr" target="#b47">[48]</ref> . In harmonically trapped finite size systems -which is the typical situation of the presently available configurations -the continuous dispersion relation takes the form of a series of discretised energy levels. As a concrete example let us consider the response of a highly elongated system system to a longitudinal compression. The gas starts breathing and while in the superfluid and in the incoherent droplet phases the motion of the cloud is characterised by a single frequency, in the supersolid phase two frequencies can be instead clearly identified, as can be seen in Figure <ref type="figure" target="#fig_0">3</ref>. The eigenmodes of such frequencies can be shown to be dominated either by the relative motion of the droplets or by the change in amplitude of the droplets without a change in the position of the peaks. For completeness in Fig. <ref type="figure" target="#fig_0">3</ref> the theoretical results for the mean-field equation of state is also reported as a grey line. The crucial role 4/14 Figure <ref type="figure">2</ref>. Probing the existence of the roton mode and its softening using Bragg spectroscopy for a gas cloud of tens of thousands <ref type="bibr">166</ref> Er atoms schematically represented in the upper panel. In the lower panel the experimentally extracted spectra (white dots) are compared with the results obtained within Bogoliubov theory (solid line). The color scale represent the dynamic structure factor, which, as expected, shows a strong enhancement when the roton softens. [Adapted from Ref. <ref type="bibr" target="#b37">38</ref> ] played by beyond mean field contribution to the equation of state is clear. In the absence of such a term one would predict a collapse before reaching the transition from the superfluid to the density modulated phase.</p><p>As mentioned above an important recent breakthrough in the field of dipolar gases has been the realization of twodimensional supersolid structures, such as zig-zag and hexagonal configurations <ref type="bibr" target="#b41">42,</ref><ref type="bibr" target="#b48">49,</ref><ref type="bibr" target="#b49">50</ref> , paving the way for future investigations concerning the rotational properties and the role of dimensionality. The rotational properties of these 2D-like configurations have been already the object of first experimental and theoretical investigations. In particular it has been shown that the link between the frequency of the scissors mode, which is naturally excited by suddenly rotating the confining harmonic trap, and the value of the moment of inertia is not trivial <ref type="bibr" target="#b50">51</ref> , being strongly affected by the occurrence of additional low frequency rotational oscillations of the droplets <ref type="bibr" target="#b51">52</ref> . This differs from the case of elongated supersolid configurations, where the droplets are aligned in a 1D like geometry and the excitation of the scissors mode provides direct access to the value of the moment of inertia and to its deviations from the classical rigid value <ref type="bibr" target="#b52">53,</ref><ref type="bibr" target="#b53">54</ref> , in analogy with usual BEC gases <ref type="bibr" target="#b54">55,</ref><ref type="bibr" target="#b55">56</ref> (see also Ref. <ref type="bibr" target="#b56">57</ref> for the investigation of the scissor mode in dipolar droplets).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Open issues</head><p>The research activities on supersolidity are in continuous expansion. From a perspective point of view we envisage significant advances in the field concerning a series of relevant topics.</p><p>Quantized vortices. Quantized vortices are a key hallmark of superfluidity and superconductivity. They are topological defects of the order parameter, and therefore robust with respect to perturbations in the U(1) broken symmetry phase. Quantized vortices have been observed in type-II superconductors (the Abrikosov vortex lattice) <ref type="bibr" target="#b57">58</ref> , in liquid helium <ref type="bibr" target="#b58">59</ref> , in exciton-polariton superfluids <ref type="bibr" target="#b59">60</ref> and in ultra-cold atomic gases, where they have been realized both in Bose-Einstein condensates and in superfluid Fermi gases <ref type="bibr" target="#b60">61</ref> . Very recently they have been observed also in the superfluid phase of a dipolar gas <ref type="bibr" target="#b61">62</ref> . Their experimental observation in the supersolid phase of a dipolar gas would be important as a further undisputed proof of superfluidity. Furthermore the presence of density modulation reduces the superfluid density of the system and the droplets can have their own dynamics. Theoretically quantum vortices in the supersolid phase have been studied <ref type="bibr" target="#b52">53,</ref><ref type="bibr" target="#b62">63,</ref><ref type="bibr" target="#b63">64</ref> -as many other static and dynamic properties -by using a density functional theory, also known as extended Gross-Pitaevskii equation, which includes LHY correction in the equaton of state of the system <ref type="bibr" target="#b27">28</ref> . A number of peculiar properties have been already pointed out <ref type="bibr" target="#b52">53,</ref><ref type="bibr" target="#b62">63</ref> : (i) the vortex-core's size is of the same order as the modulation wavelength of the supersolid and present a deformed shape with respect to the usual circular one, as shown in Fig. <ref type="figure" target="#fig_7">4</ref> for typical experimental parameters; (ii) the angular momentum per particle carried by a single vortex in the bulk is smaller than ℏ, due to the superfluid density reduction and the droplets carry part of the angular moment in a rigid body fashion; (iii) finally in a trap geometry the critical rotation frequency for a vortex nucleation is significantly smaller than for a standard superfluid and is still given by the frequency of the superfluid quadrupole mode. Experimentally a possible route to generate vortices in the supersolid phase could be achieved by tilting a magnetic field towards a cylindrically symmetric pancake-shaped trap and setting it into rotation. This method has recently proven successful for generating quantized vortices in the superfluid phase of a dipolar gas <ref type="bibr" target="#b61">62</ref> . [Adapted from Ref. <ref type="bibr" target="#b44">45</ref> ] Dipolar gases in box potentials and edge supersolidity. Since the first realisation of an atomic BEC, ultra-cold gases have been trapped by means of electromagnetic fields, which give rise to approximated harmonic potentials. The sample inhomogeneity due to the trapping is often considered detrimental for the study of the thermodynamic properties. More recently, thanks to the use of digital mirror devices, box-like potentials have been also realised. In this respect strongly rotonized dipolar gases and, even more, dipolar supersolids show a rather peculiar behaviour. Actually in a box the gas tends to accumulate close to the border, which can be seen as an effect of a sharp potential in presence of a rotonized spectrum <ref type="bibr" target="#b64">65</ref> . The atoms on the border self-arrange in interesting structures <ref type="bibr" target="#b65">66</ref> as, e.g., one-dimensional edge supersolid states coexisting with a low-density bulk superfluid. In the case of very large density the bulk can sustain a supersolid phase. In an infinite system the bulk lattice is expected to be triangular at typical densities -as already experimentally shown even for small samples <ref type="bibr" target="#b48">49</ref> -or honeycomb for larger densities <ref type="bibr" target="#b66">67</ref> . In the presence of the box potential the geometry of the lattice is instead determined by the shape of the box itself, due to the long-range nature of the inter-atomic potential <ref type="bibr" target="#b65">66</ref> .</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>5/14</head><p>Nature of the phase transitions at zero and finite temperature. The nature of the superfluid/supersolid and supersolid/crystal phase transition in dipolar gases and the role of dimensionality are far from being fully explored, also due to the present experimental difficulties to realize configurations containing a significant number of droplets. Very recent works have provided first insight on the role of dimensionality of the superfluid/supersolid transition and the nature of the dimensional crossover controlled by the transverse confinement and the atom number <ref type="bibr" target="#b49">50,</ref><ref type="bibr" target="#b67">68</ref> . First theoretical and experimental papers have also shown that it is possible to reach the supersolid phase in 2D configurations using evaporative cooling techniques <ref type="bibr" target="#b41">42</ref> , paving the way for future investigations of supersolidity at finite temperature. In particular the role of temperature in establishing the nature of the phase transitions as well as the formation of the density modulations and the global phase coherence of the system are important issues to be further explored. Finally, the understanding of the nature of the supersolid/crystal phase transition in this systems has been the object of first investigations <ref type="bibr" target="#b68">69,</ref><ref type="bibr" target="#b69">70</ref> . In particular lowering the temperature one first form the droplets and eventually the coherence between the droplets is established. This behaviour confirm the naive intuition that thermal fluctuations can easily destroy the coherence when the inter-droplet density is very small. Experimentally such a study is complicated by the high value of the density of the droplets characterizing the crystal phase, which causes the instability of the system due to three-body recombinations. First hints of the superfluid-Mott insulator nature of the transition <ref type="bibr" target="#b16">17</ref> have been experimentally obtained in Ref. <ref type="bibr" target="#b70">71</ref> . In this work it has been shown that the main features resulting from a quench from the supersolid state to the indepedent droplet (i.e., insulating) phase are captured by a simple Josephson junction array model, well studied in the context of phase transition from a long-range ordered (coherent) phase to an insulating (incoherent) phase.</p><p>Superfluid density and propagation of sound. The relation between the quenching of superfluidity and the velocity of sound in spatially modulated superfluids has recently attracted experimental interest in the field of ultracold atomic gases (see Refs. <ref type="bibr" target="#b71">72,</ref><ref type="bibr" target="#b72">73</ref> for recent studies on Bose-Einstein condensates subject to an external periodic potential). The question is even 6/14 more intriguing when the density modulation is caused by the spontaneous breaking of translational invariance as happens in a supersolid. In this case an additional sound mode is predicted to occur at zero temperature and the relation between the superfluid density and the sound velocity of the two Goldstone modes involves both the bulk and the layer compressibility modulus <ref type="bibr" target="#b1">2,</ref><ref type="bibr" target="#b73">[74]</ref><ref type="bibr" target="#b74">[75]</ref><ref type="bibr" target="#b75">[76]</ref> . Experiments on the propagation of sound in supersolid dipolar gases are then expected to provide further light on their crystal nature and possibly give quantitative access to the quenching of the superfluid density. The identification of Josephson effects 71 in the propagation of sound in these density modulated systems is also expected to provide useful information on the role of the superfluid density <ref type="bibr" target="#b76">77</ref> .</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Dipolar gases mixtures and supersolidity</head><p>Similarly to the case of atomic gases interacting only with short range potentials, it has been recently possible to obtain mixtures of dipolar condensates <ref type="bibr" target="#b77">[78]</ref><ref type="bibr" target="#b78">[79]</ref><ref type="bibr" target="#b79">[80]</ref> . Such platforms open new perspectives concerning supersolidity. In general a two-component mixture presents a rich phase diagram and spectrum which is the consequence of the hybridization between the bare modes of the single constituents. For instance two coupled superfluids show two collisionless sound modes generated by the hybridization of the Goldstone modes due to the breaking of the U(1) ×U(1) symmetry of the system. The hybridized modes are related to the in-phase (total density) and the out-of-phase (longitudinal spin) dynamics. For a strongly dipolar system, where a supersolid phase can occur, the situation is more complex. For instance the modulation could occur in both components in the same way -due to the instability of the roton in the density sector -or out-of-phase -due to the instability of the roton in the spin sector <ref type="bibr" target="#b80">81,</ref><ref type="bibr" target="#b81">82</ref> . One of the main feature of the latter phase, in which the two component form alternating domains, is that it can be stabilized without quantum fluctuations, implying the possibility to realise larger systems with longer lifetimes. The theoretical analysis of such platforms is growing very fast and first experimental evidences of supersolid behaviour in such systems is expected to become available soon. An important goal will be the study of the excitations and the role of the density and spin branches in the various supersolid phases.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Supersolidity of dipolar gases in two dimensions</head><p>In two dimensions, and in the presence of a magnetic field orthogonal to the plane, the dipole interaction has a purely repulsive character. New scenarios can occur if one considers a slightly rotated magnetic field. First theoretical calculations, based on Monte Carlo simulations in the presence of tilting angles smaller than the critical value needed to generate attractive components in the dipole interactions, have revealed the occurrence of peculiar stripe configurations <ref type="bibr" target="#b82">83</ref> . The question of the stripe coherence is still debated <ref type="bibr" target="#b83">84,</ref><ref type="bibr" target="#b84">85</ref> . These stripes are formed only for high density configurations where three-body recombination plays a crucial role in destabilizing the system. In a recent paper the emergence of stripes has been explored increasing the tilting angle above the critical value <ref type="bibr" target="#b85">86</ref> , favouring the conditions for the formation of self-bound and striped phases. The density required to realize these stripes turns out to be significantly smaller with respect to the purely repulsive case, yielding more promising perspectives from the experimental point of view. A still unexplored question is whether the resulting stripes are coherently coupled and consequently whether these new configurations exhibit supersolidity. It is worth mentioning that striped phases have already been experimentally obtained in a pancake geometry, but coherence has not yet been observed <ref type="bibr" target="#b86">87</ref> .</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>7/14</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Other Platforms</head><p>In recent years, in addition to the dipolar atomic gases discussed in this perspective, other platforms have emerged, where supersolidity has already been observed, or which are expected to exhibit relevant supersolid features.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Raman Induced Spin-orbit coupled BEC gases.</head><p>By applying Raman laser beams, which couple different spin states of a Bose-Einsten condensed gas, it is possible to generate a spin-orbit Hamiltonian which exhibits translational invariance in the proper spin rotated frame. For proper values of the Raman coupling the translational symmetry is spontaneously broken <ref type="bibr" target="#b87">88,</ref><ref type="bibr" target="#b88">89</ref> and the novel supersolid phase is characterized by full miscibility of two spin states and by density modulations which take the form of stripes (for reviews see, e.g., Refs. <ref type="bibr" target="#b89">90,</ref><ref type="bibr" target="#b90">91</ref> ]. The phase transition to the miscible phase was first identified in the pioneering paper by the Spielman team <ref type="bibr" target="#b91">92</ref> , while the resulting modulations were first experimentally detected in 2016 using Bragg reflection <ref type="bibr" target="#b9">10</ref> and recently imaged using matterwave lensing techniques [Leticia Tarruell, private communication]. Similarly to the dipolar case, also in spin-orbit coupled BEC gases the first order phase transition from the superfluid to the supersolid phase is accompanied by the softenting of the energy gap of the roton excitation. A peculiar feature of the novel Goldstone mode exhibited by the the supersolid phase is given by its peculiar spin nature, which is the consequence of the hybridization between the density and the spin degrees of freedom <ref type="bibr" target="#b92">[93]</ref><ref type="bibr" target="#b93">[94]</ref><ref type="bibr" target="#b94">[95]</ref> . Spin is then expected to provide a natural tool to explore the crystal nature of the novel Goldstone modes occurring in the supersolid phase of spin-orbit coupled BEC's <ref type="bibr" target="#b95">96</ref> .</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>BEC gases confined in optical resonators</head><p>Another platform which has been shown to have a supersolid phase consists of an atomic BEC coupled to optical resonators. The second order phase transition to a supersolid state is driven by a superradiance instability, where the cavity field is coherently populated and determines in a selfconsistent way the modulation of the atomic cloud (see the recent review <ref type="bibr" target="#b96">97</ref> and reference therein). Two are the configurations which show supersolidity: 1) BEC's coupled to two non-collinear linear cavities, where the continuous spatial symmetry is related to the weight on the two coherent cavity fields <ref type="bibr" target="#b97">98,</ref><ref type="bibr" target="#b98">99</ref> ; 2) BEC's coupled to a ring cavity, where the contonuos symmetry is related to the phase of the modulation <ref type="bibr" target="#b99">100</ref> .</p><p>The spectrum of the system in the standard BEC and in the supersolid phase has been experimentally extracted, showing in particular the presence of a zero-energy mode in the supersolid phase and the closure of the Higgs mode at the transotion point <ref type="bibr" target="#b97">98,</ref><ref type="bibr" target="#b98">99</ref> . Due to the fact that the period is determined by the cavity field, which induces a infinite range potential among the atoms, the supersolid is in these platforms incompressible -as any crystal with infinite long range interaction -and therefore only the zero-momentum Goldstone mode is present, being all the finite momenta (crystal) excitations gapped. Such shortcoming has been very recently removed by realising a BEC coupled to a confocal optical resonator <ref type="bibr" target="#b100">101</ref> . Such a new platform exhibits lattice phonons and provides promising perspectives for supersolidity.</p><p>A transition to an independent cluster phase should also be present in these systems. Indeed in the more standard case of superradiance crystallization breaking only a Z 2 symmetry (and not a continuous symmetry required for a system to be supersolid) a transition to the Mott phase has already been observed <ref type="bibr" target="#b101">102</ref> .</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Supersolidity in moving atomic condensates</head><p>We believe it is relevant to include in this Section a rather peculiar state of matter very much related to a supersolid, predicted by L. P. Pitaevskii in 1984 and which could be observed using ultra-cold gases. The main idea is that a system of bosons moving faster than the Landau critical velocity can form a periodically modulated superfluid <ref type="bibr" target="#b102">103</ref> . Pitaevskii considered the case of roton condensation in <ref type="bibr" target="#b3">4</ref> He -more recently confirmed by means of density functional theory <ref type="bibr" target="#b103">104</ref> . The same physics can be observed in ultra-cold Bose gases due again to roton-like condensation ("levons") <ref type="bibr" target="#b104">105</ref> or cnoidal-wave formation <ref type="bibr" target="#b105">106</ref> . In many respects (superfluid density, excitation spectrum) these states can be seen as supersolid states <ref type="bibr" target="#b106">107</ref> .</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Ultra-cold gases in optical lattices and 4 He on substrate</head><p>Another platform where the search of a supersolid phase has been very intense consists of ultra-cold gases in optical lattices. The idea of extending the concept of supersolidity to a lattice model dates back to the work of Matsuda and Tsuneto in 1970 <ref type="bibr" target="#b107">108</ref> , where an analogy between a supersolid phase for hard-core bosons and the anti-ferromagnetic state of a spin model was already pointed out. Such a phase is sometimes named "lattice supersolid" to specify that the state does not break any contiouns symmetry but only a descrete symmetry (see, Ref. <ref type="bibr" target="#b8">9,</ref><ref type="bibr" target="#b108">109</ref> and reference therein). An experimental realisation of lattice supersolid breaking a Z 2 symmetry has been realised again by means of a BEC in a single linear optical cavity <ref type="bibr" target="#b109">110,</ref><ref type="bibr" target="#b110">111</ref> .</p><p>Recent result on lattice supersolidity have also been recently explored in <ref type="bibr" target="#b3">4</ref> He on graphene layers <ref type="bibr" target="#b111">[112]</ref><ref type="bibr" target="#b112">[113]</ref><ref type="bibr" target="#b113">[114]</ref> .</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>The Larkin-Ovchinnikov state</head><p>In fermionic spin unbalanced systems superfluidity (or superconductivity in solid state platform) can occur in different ways. Among them the Larkin-Ovchinikov (LO) phase in which the order parameter remains real, but oscillates in sign with a period 8/14</p><p>inversely proportional to the Fermi momentum unbalance can be considered as an example of supersolidity. The LO state indeed breaks simultaneously both the U(1) and the translational symmetry, presenting two Goldstone mode <ref type="bibr" target="#b114">115</ref> . Such a state it has been the object of systematic investigations in the context of superconductors in high magnetic field <ref type="bibr" target="#b115">116</ref> . The LO state is particularly favoured in one-dimensional system <ref type="bibr" target="#b116">117</ref> and, in the context of ultra-cold gases, first signatures of this phase in the context of atomic physics has been pointed out in <ref type="bibr" target="#b117">118,</ref><ref type="bibr" target="#b118">119</ref> . Many more experimental evidences of such a state have been reported in layered superconducting materials (see the recent perspective <ref type="bibr" target="#b119">120</ref> ) and in particular in layered organic superconductors <ref type="bibr" target="#b120">121</ref> .</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Crust of neutron stars</head><p>In the context of nuclear physics another quantum phase which exhibits a supersolid behavior is the pasta phase in the inner crust of neutron stars <ref type="bibr" target="#b121">122</ref> . In particular the question of the effects of the band structure on the neutron superfluid density has been recently addressed in <ref type="bibr" target="#b122">123</ref> , where the crucial role of two body interactions in limiting the reduction of the superfluid density has been pointed out, thereby renewing interest for pulsar glitch models.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Key points:</head><p>• Supersolidity is a subtle peculiar state, which combines superfluid and solid properties, predicted more than 50 years ago in the context of solid Helium-4.</p><p>• Ultra-Cold gases are clean and flexible platforms, where both the 2-body interaction and the single particle term can be engineer in order to obtain new phase of matter.</p><p>• While for Heluim-4 a supersolid phase does not seem to exist, a few years ago a number of experimental groups reported on evidence of supersolid features in spin-orbit coupled gases, in BEC gases inside optical resonators and in dipolar gases.</p><p>• The dipolar gas platforms have been proven appropriate to map out a number of properties of the supersolid phase.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Website Summary:</head><p>Supersolidity is an intriguing state of matter which combines superfluid and crystal features. Never observed before, atomic gases have recently been proven to exhibit typical supersolid properties like spontaneous density modulations combined with coherence effects and the occurrence of novel Goldstone modes.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Figure 3</head><label>3</label><figDesc>Figure 3.3: a,c,e) Iso-density contours of the ground state density profiles of a dipolar BEC of N = 80000 atoms of 164 Dy confined by a harmonic potential of frequencies ! y,z = 2⇡(100)Hz in the y-z plane, and unconfined along the x-direction. Along x, periodic boundary conditions are set at x = ±24µm. b,c,f) Corresponding density cuts along the x-axis. Panels (a)-(b),(c)-(d) and (e)-(f) correspond, respectively, to " dd = 1.2 (homogeneous superfluid), " dd = 1.39 (supersolid) and 1.5 (independent droplets).</figDesc><graphic coords="2,381.19,332.49,103.37,81.01" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>44</head><label>44</label><figDesc></figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head>Figure 3 . 5 :</head><label>35</label><figDesc>Figure 3.5: a-b) Ground state density atoms of 164 Dy, in the superfluid pha in the supersolid phase at " dd = 1.404 are confined by a transverse harmonic free in the x-direction, where periodic Panels f to h show the corresponding</figDesc><graphic coords="2,385.97,209.28,102.28,80.54" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head>Figure 3</head><label>3</label><figDesc>Figure 3.5: a-b) Ground state density profiles along x of a dipolar B atoms of 164 Dy, in the superfluid phase at " dd = 1.2 and 1, 32 (pane in the supersolid phase at " dd = 1.404, 1.435 and 1.466 (panels c-d-e) are confined by a transverse harmonic trap of frequencies ! y,z = 2⇡(1 free in the x-direction, where periodic boundary conditions are set at Panels f to h show the corresponding excitation spectra.</figDesc><graphic coords="2,99.31,323.13,243.68,110.43" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_4"><head></head><label></label><figDesc>, an energy one as an acoustic phonon of the crystal. Other evidences b study of the density and phase fluctuations associated with each mod the context of Bogolyubov theory, can be written respectively as ⇢ = and = (u v ⇤ )/| 0 |) are more di cult to interpret, since the tw always coupled. a-b) Ground state density profiles along x of a dipolar BEC of 80000 f 164 Dy, in the superfluid phase at " dd = 1.2 and 1, 32 (panels a-b), and persolid phase at " dd = 1.404, 1.435 and 1.466 (panels c-d-e). The atoms ned by a transverse harmonic trap of frequencies ! y,z = 2⇡(100)Hz, and e x-direction, where periodic boundary conditions are set at x = ±24µm. to h show the corresponding excitation spectra.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_5"><head>Figure 1 .</head><label>1</label><figDesc>Figure 1. Observation of crystallization of droplets in a superfluid dipolar gas. a: Schematic of the experimental procedure: A stable, strongly dipolar BEC of dysprosium atoms in a pancake-shaped trap is prepared (left). By decreasing the scattering length a, an instability (a.k.a. Rosensweig instability) is induced. Following this instability, the atoms clustered to droplets in a triangular pattern (right). b: Representative single samples of droplet patterns imaged in situ, with droplet numbers ranging from two to ten. [Adapted from Ref. 30 ]</figDesc><graphic coords="4,191.68,63.78,228.63,352.59" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_6"><head>Figure 3 .</head><label>3</label><figDesc>Figure 3. Longitudinal breathing mode frequency ω of a dipolar gas in the superfluid (BEC, blue-shaded region), supersolid (SS, white region) and crystal (red-shaded region) phases. The frequency is renormalised with respect to the longitudinal trapping frequency ω x . Filled points and continuos lines are the numerically extracted values, circles and squares the experimental values. The grey line show the theoretical result for a BEC in absence of the Lee-Huang-Yang correction. [Adapted from Ref. 45 ]</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_7"><head>Figure 4 .</head><label>4</label><figDesc>Figure 4. Density plots of the vortical configurations in the case of a single-triangular cell structure (left) for ε dd = 1.334 and in the case of a double-triangular cell (right) structure obtained for ε = 1.351. The harmonic oscillator length along the strongly confinrd direction z is a z = 0.87µm and a total number of 4 × 10 4 164 Dy atoms has been considered. [Adapted from Ref. 53 ]</figDesc><graphic coords="7,181.35,63.78,213.63,203.46" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="5,119.02,63.78,373.96,169.14" type="bitmap" /></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="14" xml:id="foot_0">/14</note>
+		</body>
+		<back>
+
+			<div type="acknowledgement">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Acknowledgements</head><p>We acknowledge fruitful and stimulating discussions and collaborations during the last few years with Francesca Ferlaino, Albert Gallemí, Kevin Geier, Philipp Hauke, Wolfgang Ketterle, Giovanni Martone, Giovanni Modugno, Tilman Pfau, Francesco Piazza, Santo Roccuzzo, Luis Santos and Leticia Tarruell.</p><p>We acknowledge funding from Provincia Autonoma di Trento, from the Italian MIUR under the PRIN2017 project CEnTraL (Protocol Number 20172H2SC4), and from PNRR MUR project PE0000023-NQSTI.</p></div>
+			</div>
+
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">Quantum theory of interacting bosons</title>
+		<author>
+			<persName><forename type="first">E</forename><forename type="middle">P</forename><surname>Gross</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/0003-4916(60)90033-6</idno>
+		<ptr target="https://doi.org/10.1016/0003-4916(60" />
+	</analytic>
+	<monogr>
+		<title level="j">Annals Phys</title>
+		<imprint>
+			<biblScope unit="volume">9</biblScope>
+			<biblScope unit="page" from="90033" to="90036" />
+			<date type="published" when="1960">1960</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">Quantum theory of defects in crystals</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">F</forename><surname>Andreev</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><forename type="middle">M</forename><surname>Lifshitz</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Sov. Phys. JETP</title>
+		<imprint>
+			<biblScope unit="volume">29</biblScope>
+			<biblScope unit="page">1107</biblScope>
+			<date type="published" when="1969">1969</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">Speculations on bose-einstein condensation and quantum crystals</title>
+		<author>
+			<persName><forename type="first">G</forename><forename type="middle">V</forename><surname>Chester</surname></persName>
+		</author>
+		<idno type="DOI">10.1103/PhysRevA.2.256</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. A</title>
+		<imprint>
+			<biblScope unit="volume">2</biblScope>
+			<biblScope unit="page" from="256" to="258" />
+			<date type="published" when="1970">1970</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">Can a solid be &quot;superfluid&quot;?</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">J</forename><surname>Leggett</surname></persName>
+		</author>
+		<idno type="DOI">10.1103/PhysRevLett.25.1543</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. Lett</title>
+		<imprint>
+			<biblScope unit="volume">25</biblScope>
+			<biblScope unit="page" from="1543" to="1546" />
+			<date type="published" when="1970">1970</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">Absence of supersolidity in solid helium in porous vycor glass</title>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">Y</forename><surname>Kim</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">H W</forename><surname>Chan</surname></persName>
+		</author>
+		<idno type="DOI">10.1103/PhysRevLett.109.155301</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. Lett</title>
+		<imprint>
+			<biblScope unit="volume">109</biblScope>
+			<biblScope unit="page">155301</biblScope>
+			<date type="published" when="2012">2012</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">The enigma of supersolidity</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Balibar</surname></persName>
+		</author>
+		<idno type="DOI">10.1038/nature08913</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Nature</title>
+		<imprint>
+			<biblScope unit="volume">464</biblScope>
+			<biblScope unit="page" from="176" to="182" />
+			<date type="published" when="2010">2010</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">Coherent crystallization of quantum liquid</title>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">A</forename><surname>Kirzhnits</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><forename type="middle">A</forename><surname>Nepomnyashchii</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Sov. Phys. JETP</title>
+		<imprint>
+			<biblScope unit="volume">32</biblScope>
+			<date type="published" when="1971">1971</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">Coexistence of ordinary elasticity and superfluidity in a model of a defect-free supersolid</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Josserand</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Pomeau</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Rica</surname></persName>
+		</author>
+		<idno type="DOI">10.1103/PhysRevLett.98.195301</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. Lett</title>
+		<imprint>
+			<biblScope unit="volume">98</biblScope>
+			<date type="published" when="2007">195301. 2007</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">Colloquium: Supersolids: What and where are they?</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Boninsegni</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><forename type="middle">V</forename><surname>Prokof'ev</surname></persName>
+		</author>
+		<idno type="DOI">10.1103/RevModPhys.84.759</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Rev. Mod. Phys</title>
+		<imprint>
+			<biblScope unit="volume">84</biblScope>
+			<biblScope unit="page" from="759" to="776" />
+			<date type="published" when="2012">2012</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">A stripe phase with supersolid properties in spin-orbit-coupled bose-einstein condensates</title>
+		<author>
+			<persName><forename type="first">J.-R</forename><surname>Li</surname></persName>
+		</author>
+		<idno type="DOI">10.1038/nature21431</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Nature</title>
+		<imprint>
+			<biblScope unit="volume">543</biblScope>
+			<biblScope unit="page" from="91" to="94" />
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">Supersolid formation in a quantum gas breaking a continuous translational symmetry</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Léonard</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Morales</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Zupancic</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Esslinger</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Donner</surname></persName>
+		</author>
+		<idno type="DOI">10.1038/nature21067</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Nature</title>
+		<imprint>
+			<biblScope unit="volume">543</biblScope>
+			<biblScope unit="page" from="87" to="90" />
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">Observation of a dipolar quantum gas with metastable supersolid properties</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Tanzi</surname></persName>
+		</author>
+		<idno type="DOI">10.1103/PhysRevLett.122.130405</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. Lett</title>
+		<imprint>
+			<biblScope unit="volume">122</biblScope>
+			<biblScope unit="page">130405</biblScope>
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">Transient supersolid properties in an array of dipolar quantum droplets</title>
+		<author>
+			<persName><forename type="first">F</forename><surname>Böttcher</surname></persName>
+		</author>
+		<idno type="DOI">10.1103/PhysRevX.9.011051</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. X</title>
+		<imprint>
+			<biblScope unit="volume">9</biblScope>
+			<biblScope unit="page">11051</biblScope>
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">Long-lived and transient supersolid behaviors in dipolar quantum gases</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Chomaz</surname></persName>
+		</author>
+		<idno type="DOI">10.1103/PhysRevX.9.021012</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. X</title>
+		<imprint>
+			<biblScope unit="volume">9</biblScope>
+			<biblScope unit="page">21012</biblScope>
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">Model of superflow with rotons</title>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Pomeau</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Rica</surname></persName>
+		</author>
+		<idno type="DOI">10.1103/PhysRevLett.71.247</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. Lett</title>
+		<imprint>
+			<biblScope unit="volume">71</biblScope>
+			<biblScope unit="page" from="247" to="250" />
+			<date type="published" when="1993">1993</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<analytic>
+		<title level="a" type="main">Dynamics of a model of supersolid</title>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Pomeau</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Rica</surname></persName>
+		</author>
+		<idno type="DOI">10.1103/PhysRevLett.72.2426</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. Lett</title>
+		<imprint>
+			<biblScope unit="volume">72</biblScope>
+			<biblScope unit="page" from="2426" to="2429" />
+			<date type="published" when="1994">1994</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<analytic>
+		<title level="a" type="main">Excitation spectrum of a supersolid</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Saccani</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Moroni</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Boninsegni</surname></persName>
+		</author>
+		<idno type="DOI">10.1103/PhysRevLett.108.175301</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. Lett</title>
+		<imprint>
+			<biblScope unit="volume">108</biblScope>
+			<biblScope unit="page">175301</biblScope>
+			<date type="published" when="2012">2012</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<analytic>
+		<title level="a" type="main">Dipolar physics: a review of experiments with magnetic quantum gases</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Chomaz</surname></persName>
+		</author>
+		<idno type="DOI">10.1088/1361-6633/aca814</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Reports on Prog. Phys</title>
+		<imprint>
+			<biblScope unit="volume">86</biblScope>
+			<biblScope unit="page">26401</biblScope>
+			<date type="published" when="2022">2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<analytic>
+		<title level="a" type="main">Roton-maxon spectrum and stability of trapped dipolar bose-einstein condensates</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Santos</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><forename type="middle">V</forename><surname>Shlyapnikov</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Lewenstein</surname></persName>
+		</author>
+		<idno type="DOI">10.1103/PhysRevLett.90.250403</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. Lett</title>
+		<imprint>
+			<biblScope unit="volume">90</biblScope>
+			<biblScope unit="page">250403</biblScope>
+			<date type="published" when="2003">2003</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<analytic>
+		<title level="a" type="main">Rotons in gaseous bose-einstein condensates irradiated by a laser</title>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">H J</forename><surname>O'dell</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Giovanazzi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Kurizki</surname></persName>
+		</author>
+		<idno type="DOI">10.1103/PhysRevLett.90.110402</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. Lett</title>
+		<imprint>
+			<biblScope unit="volume">90</biblScope>
+			<biblScope unit="page">110402</biblScope>
+			<date type="published" when="2003">2003</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<analytic>
+		<title level="a" type="main">Static-response theory and the roton-maxon spectrum of a flattened dipolar bose-einstein condensate</title>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">N</forename><surname>Bisset</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">B</forename><surname>Blakie</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Stringari</surname></persName>
+		</author>
+		<idno type="DOI">10.1103/PhysRevA.100.013620</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. A</title>
+		<imprint>
+			<biblScope unit="volume">100</biblScope>
+			<biblScope unit="page">13620</biblScope>
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<analytic>
+		<title level="a" type="main">Theory of the liquid-solid phase transition in helium ii</title>
+		<author>
+			<persName><forename type="first">V</forename><surname>Celli</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Ruvalds</surname></persName>
+		</author>
+		<idno type="DOI">10.1103/PhysRevLett.28.539</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. Lett</title>
+		<imprint>
+			<biblScope unit="volume">28</biblScope>
+			<biblScope unit="page" from="539" to="542" />
+			<date type="published" when="1972">1972</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">S</forename><surname>Balibar</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Rotons</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Helium</forename><surname>Superfluidity</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Crystals</surname></persName>
+		</author>
+		<idno type="DOI">10.1063/1.2354593</idno>
+		<ptr target="https://pubs.aip.org/aip/acp/article-pdf/850/1/18/11577074/18_1_online.pdf" />
+	</analytic>
+	<monogr>
+		<title level="j">AIP Conf. Proc</title>
+		<imprint>
+			<biblScope unit="volume">850</biblScope>
+			<biblScope unit="page" from="18" to="25" />
+			<date type="published" when="2006">2006</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b23">
+	<analytic>
+		<title level="a" type="main">Eigenvalues and eigenfunctions of a bose system of hard spheres and its lowtemperature properties</title>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">D</forename><surname>Lee</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Huang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">N</forename><surname>Yang</surname></persName>
+		</author>
+		<idno type="DOI">10.1103/PhysRev.106.1135</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev</title>
+		<imprint>
+			<biblScope unit="volume">106</biblScope>
+			<biblScope unit="page" from="1135" to="1145" />
+			<date type="published" when="1957">1957</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b24">
+	<analytic>
+		<title level="a" type="main">Mean-field expansion in Bose-Einstein condensates with finite-range interactions</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Schützhold</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Uhlmann</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Xu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">U</forename><forename type="middle">R</forename><surname>Fischer</surname></persName>
+		</author>
+		<idno type="DOI">10.1142/S0217979206035631</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Int. J. Mod. Phys. B</title>
+		<imprint>
+			<biblScope unit="volume">20</biblScope>
+			<biblScope unit="page" from="3555" to="3565" />
+			<date type="published" when="2006">2006</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b25">
+	<analytic>
+		<title level="a" type="main">Beyond mean-field low-lying excitations of dipolar bose gases</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">R P</forename><surname>Lima</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Pelster</surname></persName>
+		</author>
+		<idno type="DOI">10.1103/PhysRevA.86.063609</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. A</title>
+		<imprint>
+			<biblScope unit="volume">86</biblScope>
+			<biblScope unit="page">63609</biblScope>
+			<date type="published" when="2012">2012</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b26">
+	<analytic>
+		<title level="a" type="main">Quantum mechanical stabilization of a collapsing bose-bose mixture</title>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">S</forename><surname>Petrov</surname></persName>
+		</author>
+		<idno type="DOI">10.1103/PhysRevLett.115.155302</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. Lett</title>
+		<imprint>
+			<biblScope unit="volume">115</biblScope>
+			<biblScope unit="page">155302</biblScope>
+			<date type="published" when="2015">2015</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b27">
+	<analytic>
+		<title level="a" type="main">Quantum filaments in dipolar bose-einstein condensates</title>
+		<author>
+			<persName><forename type="first">F</forename><surname>Wächtler</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Santos</surname></persName>
+		</author>
+		<idno type="DOI">10.1103/PhysRevA.93.061603</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. A</title>
+		<imprint>
+			<biblScope unit="volume">93</biblScope>
+			<biblScope unit="page">61603</biblScope>
+			<date type="published" when="2016">2016</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b28">
+	<analytic>
+		<title level="a" type="main">Observation of quantum droplets in a strongly dipolar bose gas</title>
+		<author>
+			<persName><forename type="first">I</forename><surname>Ferrier-Barbut</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Kadau</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Schmitt</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Wenzel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Pfau</surname></persName>
+		</author>
+		<idno type="DOI">10.1103/PhysRevLett.116.215301</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. Lett</title>
+		<imprint>
+			<biblScope unit="volume">116</biblScope>
+			<biblScope unit="page">215301</biblScope>
+			<date type="published" when="2016">2016</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b29">
+	<analytic>
+		<title level="a" type="main">Observing the rosensweig instability of a quantum ferrofluid</title>
+		<author>
+			<persName><forename type="first">H</forename><surname>Kadau</surname></persName>
+		</author>
+		<idno type="DOI">10.1038/nature16485</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Nature</title>
+		<imprint>
+			<biblScope unit="volume">530</biblScope>
+			<biblScope unit="page" from="194" to="197" />
+			<date type="published" when="2016">2016</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b30">
+	<analytic>
+		<title level="a" type="main">Self-bound droplets of a dilute magnetic quantum liquid</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Schmitt</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Wenzel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Böttcher</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Ferrier-Barbut</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Pfau</surname></persName>
+		</author>
+		<idno type="DOI">10.1038/nature20126</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Nature</title>
+		<imprint>
+			<biblScope unit="volume">539</biblScope>
+			<biblScope unit="page" from="259" to="262" />
+			<date type="published" when="2016">2016</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b31">
+	<analytic>
+		<title level="a" type="main">Quantum-fluctuation-driven crossover from a dilute bose-einstein condensate to a macrodroplet in a dipolar quantum fluid</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Chomaz</surname></persName>
+		</author>
+		<idno type="DOI">10.1103/PhysRevX.6.041039</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. X</title>
+		<imprint>
+			<biblScope unit="volume">6</biblScope>
+			<biblScope unit="page">41039</biblScope>
+			<date type="published" when="2016">2016</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b32">
+	<analytic>
+		<title level="a" type="main">Self-bound quantum droplets of atomic mixtures in free space</title>
+		<author>
+			<persName><forename type="first">G</forename><surname>Semeghini</surname></persName>
+		</author>
+		<idno type="DOI">10.1103/PhysRevLett.120.235301</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. Lett</title>
+		<imprint>
+			<biblScope unit="volume">120</biblScope>
+			<biblScope unit="page">235301</biblScope>
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b33">
+	<analytic>
+		<title level="a" type="main">Quantum liquid droplets in a mixture of bose-einstein condensates</title>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">R</forename><surname>Cabrera</surname></persName>
+		</author>
+		<idno type="DOI">10.1126/science.aao5686</idno>
+		<ptr target="https://science.sciencemag.org/content/359/6373/301.full.pdf.10/14" />
+	</analytic>
+	<monogr>
+		<title level="j">Science</title>
+		<imprint>
+			<biblScope unit="volume">359</biblScope>
+			<biblScope unit="page" from="301" to="304" />
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b34">
+	<analytic>
+		<title level="a" type="main">Bright soliton to quantum droplet transition in a mixture of bose-einstein condensates</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Cheiney</surname></persName>
+		</author>
+		<idno type="DOI">10.1103/PhysRevLett.120.135301</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. Lett</title>
+		<imprint>
+			<biblScope unit="volume">120</biblScope>
+			<biblScope unit="page">135301</biblScope>
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b35">
+	<analytic>
+		<title level="a" type="main">Collisions of self-bound quantum droplets</title>
+		<author>
+			<persName><forename type="first">G</forename><surname>Ferioli</surname></persName>
+		</author>
+		<idno type="DOI">10.1103/PhysRevLett.122.090401</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. Lett</title>
+		<imprint>
+			<biblScope unit="volume">122</biblScope>
+			<biblScope unit="page">90401</biblScope>
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b36">
+	<analytic>
+		<title level="a" type="main">Observation of roton mode population in a dipolar quantum gas</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Chomaz</surname></persName>
+		</author>
+		<idno type="DOI">10.1038/s41567-018-0054-7</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Nat. Phys</title>
+		<imprint>
+			<biblScope unit="volume">14</biblScope>
+			<biblScope unit="page" from="442" to="446" />
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b37">
+	<analytic>
+		<title level="a" type="main">Probing the roton excitation spectrum of a stable dipolar bose gas</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Petter</surname></persName>
+		</author>
+		<idno type="DOI">10.1103/PhysRevLett.122.183401</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. Lett</title>
+		<imprint>
+			<biblScope unit="volume">122</biblScope>
+			<biblScope unit="page">183401</biblScope>
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b38">
+	<analytic>
+		<title level="a" type="main">Roton excitations in an oblate dipolar quantum gas</title>
+		<author>
+			<persName><forename type="first">J.-N</forename><surname>Schmidt</surname></persName>
+		</author>
+		<idno type="DOI">10.1103/PhysRevLett.126.193002</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. Lett</title>
+		<imprint>
+			<biblScope unit="volume">126</biblScope>
+			<biblScope unit="page">193002</biblScope>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b39">
+	<analytic>
+		<title level="a" type="main">Supersolid behavior of a dipolar bose-einstein condensate confined in a tube</title>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">M</forename><surname>Roccuzzo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Ancilotto</surname></persName>
+		</author>
+		<idno type="DOI">10.1103/PhysRevA.99.041601</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. A</title>
+		<imprint>
+			<biblScope unit="volume">99</biblScope>
+			<biblScope unit="page">41601</biblScope>
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b40">
+	<analytic>
+		<title level="a" type="main">Two-dimensional supersolidity in a dipolar quantum gas</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">A</forename><surname>Norcia</surname></persName>
+		</author>
+		<idno type="DOI">10.1038/s41586-021-03725-7</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Nature</title>
+		<imprint>
+			<biblScope unit="volume">596</biblScope>
+			<biblScope unit="page" from="357" to="361" />
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b41">
+	<analytic>
+		<title level="a" type="main">Two-dimensional supersolid formation in dipolar condensates</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Bland</surname></persName>
+		</author>
+		<idno type="DOI">10.1103/PhysRevLett.128.195302</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. Lett</title>
+		<imprint>
+			<biblScope unit="volume">128</biblScope>
+			<biblScope unit="page">195302</biblScope>
+			<date type="published" when="2022">2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b42">
+	<analytic>
+		<title level="a" type="main">Elementary excitations of ultracold soft-core bosons across the superfluidsupersolid phase transition</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Macrì</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Maucher</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Cinti</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Pohl</surname></persName>
+		</author>
+		<idno type="DOI">10.1103/PhysRevA.87.061602</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. A</title>
+		<imprint>
+			<biblScope unit="volume">87</biblScope>
+			<biblScope unit="page">61602</biblScope>
+			<date type="published" when="2013">2013</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b43">
+	<analytic>
+		<title level="a" type="main">Supersolid structure and excitation spectrum of soft-core bosons in three dimensions</title>
+		<author>
+			<persName><forename type="first">F</forename><surname>Ancilotto</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Rossi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Toigo</surname></persName>
+		</author>
+		<idno type="DOI">10.1103/PhysRevA.88.033618</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. A</title>
+		<imprint>
+			<biblScope unit="volume">88</biblScope>
+			<biblScope unit="page">33618</biblScope>
+			<date type="published" when="2013">2013</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b44">
+	<analytic>
+		<title level="a" type="main">Supersolid symmetry breaking from compressional oscillations in a dipolar quantum gas</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Tanzi</surname></persName>
+		</author>
+		<idno type="DOI">10.1038/s41586-019-1568-6</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Nature</title>
+		<imprint>
+			<biblScope unit="volume">574</biblScope>
+			<biblScope unit="page">382</biblScope>
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b45">
+	<analytic>
+		<title level="a" type="main">The low-energy Goldstone mode in a trapped dipolar supersolid</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Guo</surname></persName>
+		</author>
+		<idno type="DOI">10.1038/s41586-019-1569-5</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Nature</title>
+		<imprint>
+			<biblScope unit="volume">574</biblScope>
+			<biblScope unit="page">386</biblScope>
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b46">
+	<analytic>
+		<title level="a" type="main">Sounds of a supersolid detected in dipolar atomic gases for the first time</title>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">M</forename><surname>Mossman</surname></persName>
+		</author>
+		<idno type="DOI">10.1038/d41586-019-03045-x</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Nature</title>
+		<imprint>
+			<biblScope unit="volume">574</biblScope>
+			<biblScope unit="page">382</biblScope>
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b47">
+	<analytic>
+		<title level="a" type="main">Excitation spectrum of a trapped dipolar supersolid and its experimental evidence</title>
+		<author>
+			<persName><forename type="first">G</forename><surname>Natale</surname></persName>
+		</author>
+		<idno type="DOI">10.1103/PhysRevLett.123.050402</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. Lett</title>
+		<imprint>
+			<biblScope unit="volume">123</biblScope>
+			<biblScope unit="page">50402</biblScope>
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b48">
+	<analytic>
+		<title level="a" type="main">Two-dimensional supersolidity in a dipolar quantum gas</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">A</forename><surname>Norcia</surname></persName>
+		</author>
+		<idno type="DOI">10.1038/s41586-021-03725-7</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Nature</title>
+		<imprint>
+			<biblScope unit="volume">596</biblScope>
+			<biblScope unit="page" from="357" to="361" />
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b49">
+	<analytic>
+		<title level="a" type="main">Dimensional crossover in the superfluid-supersolid quantum phase transition</title>
+		<author>
+			<persName><forename type="first">G</forename><surname>Biagioni</surname></persName>
+		</author>
+		<idno type="DOI">10.1103/PhysRevX.12.021019</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. X</title>
+		<imprint>
+			<biblScope unit="volume">12</biblScope>
+			<biblScope unit="page">21019</biblScope>
+			<date type="published" when="2022">2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b50">
+	<analytic>
+		<title level="a" type="main">Can angular oscillations probe superfluidity in dipolar supersolids?</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">A</forename><surname>Norcia</surname></persName>
+		</author>
+		<idno type="DOI">10.1103/PhysRevLett.129.040403</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. Lett</title>
+		<imprint>
+			<biblScope unit="volume">129</biblScope>
+			<biblScope unit="page">40403</biblScope>
+			<date type="published" when="2022">2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b51">
+	<analytic>
+		<title level="a" type="main">Moment of inertia and dynamical rotational response of a supersolid dipolar gas</title>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">M</forename><surname>Roccuzzo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Recati</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Stringari</surname></persName>
+		</author>
+		<idno type="DOI">10.1103/PhysRevA.105.023316</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. A</title>
+		<imprint>
+			<biblScope unit="volume">105</biblScope>
+			<biblScope unit="page">23316</biblScope>
+			<date type="published" when="2022">2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b52">
+	<analytic>
+		<title level="a" type="main">Rotating a supersolid dipolar gas</title>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">M</forename><surname>Roccuzzo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Gallemí</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Recati</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Stringari</surname></persName>
+		</author>
+		<idno type="DOI">10.1103/PhysRevLett.124.045702</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. Lett</title>
+		<imprint>
+			<biblScope unit="volume">124</biblScope>
+			<biblScope unit="page">45702</biblScope>
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b53">
+	<analytic>
+		<title level="a" type="main">Evidence of superfluidity in a dipolar supersolid from nonclassical rotational inertia</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Tanzi</surname></persName>
+		</author>
+		<idno type="DOI">10.1126/science.aba4309</idno>
+		<ptr target="https://www.science.org/doi/pdf/10.1126/science.aba4309" />
+	</analytic>
+	<monogr>
+		<title level="j">Science</title>
+		<imprint>
+			<biblScope unit="volume">371</biblScope>
+			<biblScope unit="page" from="1162" to="1165" />
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b54">
+	<analytic>
+		<title level="a" type="main">Scissors mode and superfluidity of a trapped bose-einstein condensed gas</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Guéry-Odelin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Stringari</surname></persName>
+		</author>
+		<idno type="DOI">10.1103/PhysRevLett.83.4452</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. Lett</title>
+		<imprint>
+			<biblScope unit="volume">83</biblScope>
+			<biblScope unit="page" from="4452" to="4455" />
+			<date type="published" when="1999">1999</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b55">
+	<analytic>
+		<title level="a" type="main">Observation of the scissors mode and evidence for superfluidity of a trapped bose-einstein condensed gas</title>
+		<author>
+			<persName><forename type="first">O</forename><forename type="middle">M</forename><surname>Maragò</surname></persName>
+		</author>
+		<idno type="DOI">10.1103/PhysRevLett.84.2056</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. Lett</title>
+		<imprint>
+			<biblScope unit="volume">84</biblScope>
+			<biblScope unit="page" from="2056" to="2059" />
+			<date type="published" when="2000">2000</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b56">
+	<analytic>
+		<title level="a" type="main">Scissors mode of dipolar quantum droplets of dysprosium atoms</title>
+		<author>
+			<persName><forename type="first">I</forename><surname>Ferrier-Barbut</surname></persName>
+		</author>
+		<idno type="DOI">10.1103/PhysRevLett.120.160402</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. Lett</title>
+		<imprint>
+			<biblScope unit="volume">120</biblScope>
+			<biblScope unit="page">160402</biblScope>
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b57">
+	<analytic>
+		<title level="a" type="main">Nobel lecture: Type-ii superconductors and the vortex lattice</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">A</forename><surname>Abrikosov</surname></persName>
+		</author>
+		<idno type="DOI">10.1103/RevModPhys.76.975</idno>
+		<idno>11/14</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Rev. Mod. Phys</title>
+		<imprint>
+			<biblScope unit="volume">76</biblScope>
+			<biblScope unit="page" from="975" to="979" />
+			<date type="published" when="2004">2004</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b58">
+	<monogr>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">R</forename><surname>Donnelly</surname></persName>
+		</author>
+		<title level="m">Quantized Vortices in Heluim II</title>
+				<imprint>
+			<publisher>Cambridge University Press</publisher>
+			<date type="published" when="1991">1991</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b59">
+	<analytic>
+		<title level="a" type="main">Quantum fluids of light</title>
+		<author>
+			<persName><forename type="first">I</forename><surname>Carusotto</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Ciuti</surname></persName>
+		</author>
+		<idno type="DOI">10.1103/RevModPhys.85.299</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Rev. Mod. Phys</title>
+		<imprint>
+			<biblScope unit="volume">85</biblScope>
+			<biblScope unit="page" from="299" to="366" />
+			<date type="published" when="2013">2013</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b60">
+	<monogr>
+		<author>
+			<persName><forename type="first">L</forename><surname>Pitaevskii</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Stringari</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Bose</surname></persName>
+		</author>
+		<title level="m">Einstein condensation and superfluidity</title>
+				<imprint>
+			<publisher>Oxford University Press</publisher>
+			<date type="published" when="2016">2016</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b61">
+	<analytic>
+		<title level="a" type="main">Observation of vortices and vortex stripes in a dipolar condensate</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Klaus</surname></persName>
+		</author>
+		<idno type="DOI">10.1038/s41567-022-01793-8</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Nat. Phys</title>
+		<imprint>
+			<biblScope unit="volume">18</biblScope>
+			<biblScope unit="page" from="1453" to="1458" />
+			<date type="published" when="2022">2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b62">
+	<analytic>
+		<title level="a" type="main">Quantized vortices in dipolar supersolid bose-einstein-condensed gases</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Gallemí</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">M</forename><surname>Roccuzzo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Stringari</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Recati</surname></persName>
+		</author>
+		<idno type="DOI">10.1103/PhysRevA.102.023322</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. A</title>
+		<imprint>
+			<biblScope unit="volume">102</biblScope>
+			<biblScope unit="page">23322</biblScope>
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b63">
+	<analytic>
+		<title level="a" type="main">Vortex properties in the extended supersolid phase of dipolar bose-einstein condensates</title>
+		<author>
+			<persName><forename type="first">F</forename><surname>Ancilotto</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Barranco</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Pi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Reatto</surname></persName>
+		</author>
+		<idno type="DOI">10.1103/PhysRevA.103.033314</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. A</title>
+		<imprint>
+			<biblScope unit="volume">103</biblScope>
+			<biblScope unit="page">33314</biblScope>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b64">
+	<analytic>
+		<title level="a" type="main">Spatial density oscillations in trapped dipolar</title>
+		<author>
+			<persName><forename type="first">H.-Y</forename><surname>Lu</surname></persName>
+		</author>
+		<idno type="DOI">10.1103/PhysRevA.82.023622</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. A</title>
+		<imprint>
+			<biblScope unit="volume">82</biblScope>
+			<biblScope unit="page">23622</biblScope>
+			<date type="published" when="2010">2010</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b65">
+	<analytic>
+		<title level="a" type="main">Supersolid edge and bulk phases of a dipolar quantum gas in a box</title>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">M</forename><surname>Roccuzzo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Stringari</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Recati</surname></persName>
+		</author>
+		<idno type="DOI">10.1103/PhysRevResearch.4.013086</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. Res</title>
+		<imprint>
+			<biblScope unit="volume">4</biblScope>
+			<biblScope unit="page">13086</biblScope>
+			<date type="published" when="2022">2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b66">
+	<analytic>
+		<title level="a" type="main">Supersolidity around a critical point in dipolar bose-einstein condensates</title>
+		<author>
+			<persName><forename type="first">Y.-C</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Maucher</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Pohl</surname></persName>
+		</author>
+		<idno type="DOI">10.1103/PhysRevLett.123.015301</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. Lett</title>
+		<imprint>
+			<biblScope unit="volume">123</biblScope>
+			<biblScope unit="page">15301</biblScope>
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b67">
+	<analytic>
+		<title level="a" type="main">Supersolidity in an elongated dipolar condensate</title>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">B</forename><surname>Blakie</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Baillie</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Chomaz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Ferlaino</surname></persName>
+		</author>
+		<idno type="DOI">10.1103/PhysRevResearch.2.043318</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. Res</title>
+		<imprint>
+			<biblScope unit="volume">2</biblScope>
+			<biblScope unit="page">43318</biblScope>
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b68">
+	<analytic>
+		<title level="a" type="main">Birth, life, and death of a dipolar supersolid</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Sohmen</surname></persName>
+		</author>
+		<idno type="DOI">10.1103/PhysRevLett.126.233401</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. Lett</title>
+		<imprint>
+			<biblScope unit="volume">126</biblScope>
+			<biblScope unit="page">233401</biblScope>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b69">
+	<analytic>
+		<title level="a" type="main">Heating a dipolar quantum fluid into a solid</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Sánchez-Baena</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Politi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Maucher</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Ferlaino</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Pohl</surname></persName>
+		</author>
+		<idno type="DOI">10.1038/s41467-023-37207-3</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Nat. Commun</title>
+		<imprint>
+			<biblScope unit="volume">14</biblScope>
+			<biblScope unit="page">1868</biblScope>
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b70">
+	<analytic>
+		<title level="a" type="main">Phase coherence in out-of-equilibrium supersolid states of ultracold dipolar atoms</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Ilzhöfer</surname></persName>
+		</author>
+		<idno type="DOI">10.1038/s41567-020-01100-3</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Nat. Phys</title>
+		<imprint>
+			<biblScope unit="volume">17</biblScope>
+			<biblScope unit="page" from="356" to="361" />
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b71">
+	<monogr>
+		<title level="m" type="main">Observation of anisotropic superfluid density in an artificial crystal</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Tao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Zhao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Spielman</surname></persName>
+		</author>
+		<idno type="DOI">10.48550/ARXIV.2301.01258</idno>
+		<imprint>
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b72">
+	<monogr>
+		<title level="m" type="main">Superfluid fraction in an interacting spatially modulated bose-einstein condensate</title>
+		<author>
+			<persName><forename type="first">G</forename><surname>Chauveau</surname></persName>
+		</author>
+		<idno type="DOI">10.48550/ARXIV.2302.01776</idno>
+		<imprint>
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b73">
+	<analytic>
+		<title level="a" type="main">Microscopic and hydrodynamic theory of superfluidity in periodic solids</title>
+		<author>
+			<persName><forename type="first">W</forename><forename type="middle">M</forename><surname>Saslow</surname></persName>
+		</author>
+		<idno type="DOI">10.1103/PhysRevB.15.173</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. B</title>
+		<imprint>
+			<biblScope unit="volume">15</biblScope>
+			<biblScope unit="page" from="173" to="186" />
+			<date type="published" when="1977">1977</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b74">
+	<analytic>
+		<title level="a" type="main">Hydrodynamic theory of supersolids: Variational principle, effective lagrangian, and density-density correlation function</title>
+		<author>
+			<persName><forename type="first">C.-D</forename><surname>Yoo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">T</forename><surname>Dorsey</surname></persName>
+		</author>
+		<idno type="DOI">10.1103/PhysRevB.81.134518</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. B</title>
+		<imprint>
+			<biblScope unit="volume">81</biblScope>
+			<biblScope unit="page">134518</biblScope>
+			<date type="published" when="2010">2010</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b75">
+	<analytic>
+		<title level="a" type="main">Hydrodynamics of a superfluid smectic</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Hofmann</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Zwerger</surname></persName>
+		</author>
+		<idno type="DOI">10.1088/1742-5468/abe598</idno>
+	</analytic>
+	<monogr>
+		<title level="j">J. Stat. Mech</title>
+		<imprint>
+			<biblScope unit="volume">033104</biblScope>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b76">
+	<analytic>
+		<title level="a" type="main">Josephson effect between trapped bose-einstein condensates</title>
+		<author>
+			<persName><forename type="first">I</forename><surname>Zapata</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Sols</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">J</forename><surname>Leggett</surname></persName>
+		</author>
+		<idno type="DOI">10.1103/PhysRevA.57.R28</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. A</title>
+		<imprint>
+			<biblScope unit="volume">57</biblScope>
+			<biblScope unit="page" from="R28" to="R31" />
+			<date type="published" when="1998">1998</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b77">
+	<analytic>
+		<title level="a" type="main">Dipolar quantum mixtures of erbium and dysprosium atoms</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Trautmann</surname></persName>
+		</author>
+		<idno type="DOI">10.1103/PhysRevLett.121.213601</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. Lett</title>
+		<imprint>
+			<biblScope unit="volume">121</biblScope>
+			<biblScope unit="page">213601</biblScope>
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b78">
+	<analytic>
+		<title level="a" type="main">Feshbach resonances in an erbium-dysprosium dipolar mixture</title>
+		<author>
+			<persName><forename type="first">G</forename><surname>Durastante</surname></persName>
+		</author>
+		<idno type="DOI">10.1103/PhysRevA.102.033330</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. A</title>
+		<imprint>
+			<biblScope unit="volume">102</biblScope>
+			<biblScope unit="page">33330</biblScope>
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b79">
+	<analytic>
+		<title level="a" type="main">Interspecies interactions in an ultracold dipolar mixture</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Politi</surname></persName>
+		</author>
+		<idno type="DOI">10.1103/PhysRevA.105.023304</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. A</title>
+		<imprint>
+			<biblScope unit="volume">105</biblScope>
+			<biblScope unit="page">23304</biblScope>
+			<date type="published" when="2022">2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b80">
+	<analytic>
+		<title level="a" type="main">Long-lifetime supersolid in a two-component dipolar bose-einstein condensate</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">U</forename><forename type="middle">N</forename><surname>Le</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Saito</surname></persName>
+		</author>
+		<idno type="DOI">10.1103/PhysRevA.105.L061302</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. A</title>
+		<imprint>
+			<biblScope unit="volume">105</biblScope>
+			<biblScope unit="page">L061302</biblScope>
+			<date type="published" when="2022">2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b81">
+	<analytic>
+		<title level="a" type="main">Alternating-domain supersolids in binary dipolar condensates</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Bland</surname></persName>
+		</author>
+		<idno type="DOI">10.1103/PhysRevA.106.053322</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. A</title>
+		<imprint>
+			<biblScope unit="volume">106</biblScope>
+			<biblScope unit="page">53322</biblScope>
+			<date type="published" when="2022">2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b82">
+	<analytic>
+		<title level="a" type="main">Dipolar bose supersolid stripes</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Bombin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Boronat</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Mazzanti</surname></persName>
+		</author>
+		<idno type="DOI">10.1103/PhysRevLett.119.250402</idno>
+		<idno>12/14</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. Lett</title>
+		<imprint>
+			<biblScope unit="volume">119</biblScope>
+			<biblScope unit="page">250402</biblScope>
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b83">
+	<analytic>
+		<title level="a" type="main">Absence of superfluidity in 2d dipolar bose striped crystals</title>
+		<author>
+			<persName><forename type="first">F</forename><surname>Cinti</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Boninsegni</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/s10909-019-02209-3</idno>
+	</analytic>
+	<monogr>
+		<title level="j">J. Low Temp. Phys</title>
+		<imprint>
+			<biblScope unit="volume">196</biblScope>
+			<biblScope unit="page" from="413" to="422" />
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b84">
+	<analytic>
+		<title level="a" type="main">Berezinskii-Kosterlitz-Thouless transition in two-dimensional dipolar stripes</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Bombín</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Mazzanti</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Boronat</surname></persName>
+		</author>
+		<idno type="DOI">10.1103/PhysRevA.100.063614</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. A</title>
+		<imprint>
+			<biblScope unit="volume">100</biblScope>
+			<biblScope unit="page">63614</biblScope>
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b85">
+	<monogr>
+		<title level="m" type="main">Striped ultradilute liquid of dipolar bosons in two dimensions</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Staudinger</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Hufnagl</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Zillich</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">E</forename></persName>
+		</author>
+		<idno type="DOI">10.48550/ARXIV.2208.05028</idno>
+		<imprint>
+			<date type="published" when="2022">2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b86">
+	<analytic>
+		<title level="a" type="main">Striped states in a many-body system of tilted dipoles</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Wenzel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Böttcher</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Langen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Ferrier-Barbut</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Pfau</surname></persName>
+		</author>
+		<idno type="DOI">10.1103/PhysRevA.96.053630</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. A</title>
+		<imprint>
+			<biblScope unit="volume">96</biblScope>
+			<biblScope unit="page">53630</biblScope>
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b87">
+	<analytic>
+		<title level="a" type="main">Bose-einstein condensates with spin-orbit interaction</title>
+		<author>
+			<persName><forename type="first">T.-L</forename><surname>Ho</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Zhang</surname></persName>
+		</author>
+		<idno type="DOI">10.1103/PhysRevLett.107.150403</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. Lett</title>
+		<imprint>
+			<biblScope unit="volume">107</biblScope>
+			<biblScope unit="page">150403</biblScope>
+			<date type="published" when="2011">2011</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b88">
+	<analytic>
+		<title level="a" type="main">Quantum tricriticality and phase transitions in spin-orbit coupled bose-einstein condensates</title>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><forename type="middle">P</forename><surname>Pitaevskii</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Stringari</surname></persName>
+		</author>
+		<idno type="DOI">10.1103/PhysRevLett.108.225301</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. Lett</title>
+		<imprint>
+			<biblScope unit="volume">108</biblScope>
+			<biblScope unit="page">225301</biblScope>
+			<date type="published" when="2012">2012</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b89">
+	<analytic>
+		<title level="a" type="main">Degenerate quantum gases with spin-orbit coupling: a review</title>
+		<author>
+			<persName><forename type="first">H</forename><surname>Zhai</surname></persName>
+		</author>
+		<idno type="DOI">10.1088/0034-4885/78/2/026001</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Reports on Prog. Phys</title>
+		<imprint>
+			<biblScope unit="volume">78</biblScope>
+			<biblScope unit="page">26001</biblScope>
+			<date type="published" when="2015">2015</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b90">
+	<monogr>
+		<title/>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><forename type="middle">I</forename><surname>Martone</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Stringari</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">-Orbit-Coupled Bose-Einstein</forename><surname>Spin</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Condensates</surname></persName>
+		</author>
+		<idno type="DOI">10.1142/9789814667746_0005</idno>
+		<ptr target="https://www.worldscientific.com/doi/pdf/10.1142/9789814667746_0005" />
+		<imprint>
+			<biblScope unit="volume">5</biblScope>
+			<biblScope unit="page" from="201" to="250" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b91">
+	<analytic>
+		<title level="a" type="main">Spin-orbit-coupled bose-einstein condensates</title>
+		<author>
+			<persName><forename type="first">Y</forename><forename type="middle">J</forename><surname>Lin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Jiménez-García</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><forename type="middle">B</forename><surname>Spielman</surname></persName>
+		</author>
+		<idno type="DOI">10.1038/nature09887</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Nature</title>
+		<imprint>
+			<biblScope unit="volume">471</biblScope>
+			<biblScope unit="page" from="83" to="86" />
+			<date type="published" when="2011">2011</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b92">
+	<analytic>
+		<title level="a" type="main">Superstripes and the excitation spectrum of a spin-orbit-coupled bose-einstein condensate</title>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><forename type="middle">I</forename><surname>Martone</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><forename type="middle">P</forename><surname>Pitaevskii</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Stringari</surname></persName>
+		</author>
+		<idno type="DOI">10.1103/PhysRevLett.110.235302</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. Lett</title>
+		<imprint>
+			<biblScope unit="volume">110</biblScope>
+			<biblScope unit="page">235302</biblScope>
+			<date type="published" when="2013">2013</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b93">
+	<analytic>
+		<title level="a" type="main">Collective excitation of a trapped bose-einstein condensate with spin-orbit coupling</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Chen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Pu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z.-Q</forename><surname>Yu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Zhang</surname></persName>
+		</author>
+		<idno type="DOI">10.1103/PhysRevA.95.033616</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. A</title>
+		<imprint>
+			<biblScope unit="volume">95</biblScope>
+			<biblScope unit="page">33616</biblScope>
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b94">
+	<analytic>
+		<title level="a" type="main">Exciting the goldstone modes of a supersolid spin-orbit-coupled bose gas</title>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">T</forename><surname>Geier</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><forename type="middle">I</forename><surname>Martone</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Hauke</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Stringari</surname></persName>
+		</author>
+		<idno type="DOI">10.1103/PhysRevLett.127.115301</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. Lett</title>
+		<imprint>
+			<biblScope unit="volume">127</biblScope>
+			<biblScope unit="page">115301</biblScope>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b95">
+	<monogr>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">T</forename><surname>Geier</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><forename type="middle">I</forename><surname>Martone</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Hauke</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Ketterle</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Stringari</surname></persName>
+		</author>
+		<idno type="DOI">10.48550/ARXIV.2210.10064</idno>
+		<title level="m">Dynamics of stripe patterns in supersolid spin-orbitcoupled bose gases</title>
+				<imprint>
+			<date type="published" when="2022">2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b96">
+	<analytic>
+		<title level="a" type="main">Cavity qed with quantum gases: new paradigms in many-body physics</title>
+		<author>
+			<persName><forename type="first">F</forename><surname>Mivehvar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Piazza</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Donner</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Ritsch</surname></persName>
+		</author>
+		<idno type="DOI">10.1080/00018732.2021.1969727</idno>
+		<ptr target="https://doi.org/10.1080/00018732.2021.1969727" />
+	</analytic>
+	<monogr>
+		<title level="j">Adv. Phys</title>
+		<imprint>
+			<biblScope unit="volume">70</biblScope>
+			<biblScope unit="page" from="1" to="153" />
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b97">
+	<analytic>
+		<title level="a" type="main">Supersolid formation in a quantum gas breaking a continuous translational symmetry</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Léonard</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Morales</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Zupancic</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Esslinger</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Donner</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Nature</title>
+		<imprint>
+			<biblScope unit="volume">543</biblScope>
+			<biblScope unit="page">87</biblScope>
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b98">
+	<analytic>
+		<title level="a" type="main">Monitoring and manipulating higgs and goldstone modes in a supersolid quantum gas</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Léonard</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Morales</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Zupancic</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Donner</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Esslinger</surname></persName>
+		</author>
+		<idno type="DOI">10.1126/science.aan2608</idno>
+		<ptr target="https://science.sciencemag.org/content/358/6369/1415.full.pdf" />
+	</analytic>
+	<monogr>
+		<title level="j">Science</title>
+		<imprint>
+			<biblScope unit="volume">358</biblScope>
+			<biblScope unit="page" from="1415" to="1418" />
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b99">
+	<analytic>
+		<title level="a" type="main">Supersolid properties of a bose-einstein condensate in a ring resonator</title>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">C</forename><surname>Schuster</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Wolf</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Ostermann</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Slama</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Zimmermann</surname></persName>
+		</author>
+		<idno type="DOI">10.1103/PhysRevLett.124.143602</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. Lett</title>
+		<imprint>
+			<biblScope unit="volume">124</biblScope>
+			<biblScope unit="page">143602</biblScope>
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b100">
+	<analytic>
+		<title level="a" type="main">An optical lattice with sound</title>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Guo</surname></persName>
+		</author>
+		<idno type="DOI">10.1038/s41586-021-03945-x</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Nature</title>
+		<imprint>
+			<biblScope unit="volume">599</biblScope>
+			<biblScope unit="page" from="211" to="215" />
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b101">
+	<analytic>
+		<title level="a" type="main">Observation of a superradiant mott insulator in the dicke-hubbard model</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Klinder</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Keßler</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">R</forename><surname>Bakhtiari</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Thorwart</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Hemmerich</surname></persName>
+		</author>
+		<idno type="DOI">10.1103/PhysRevLett.115.230403</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. Lett</title>
+		<imprint>
+			<biblScope unit="volume">115</biblScope>
+			<biblScope unit="page">230403</biblScope>
+			<date type="published" when="2015">2015</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b102">
+	<analytic>
+		<title level="a" type="main">Layered structure of superfluid helium-4 with supercritical motion</title>
+		<author>
+			<persName><forename type="first">L</forename><forename type="middle">P</forename><surname>Pitaevskii</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">JETP Lett</title>
+		<imprint>
+			<biblScope unit="volume">39</biblScope>
+			<biblScope unit="page" from="511" to="514" />
+			<date type="published" when="1984">1984</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b103">
+	<analytic>
+		<title level="a" type="main">Density pattern in supercritical flow of liquid 4 He</title>
+		<author>
+			<persName><forename type="first">F</forename><surname>Ancilotto</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Dalfovo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><forename type="middle">P</forename><surname>Pitaevskii</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Toigo</surname></persName>
+		</author>
+		<idno type="DOI">10.1103/PhysRevB.71.104530</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. B</title>
+		<imprint>
+			<biblScope unit="volume">71</biblScope>
+			<biblScope unit="page">104530</biblScope>
+			<date type="published" when="2005">2005</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b104">
+	<analytic>
+		<title level="a" type="main">Landau critical velocity in weakly interacting bose gases</title>
+		<author>
+			<persName><forename type="first">G</forename><surname>Baym</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">J</forename><surname>Pethick</surname></persName>
+		</author>
+		<idno type="DOI">10.1103/PhysRevA.86.023602</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. A</title>
+		<imprint>
+			<biblScope unit="volume">86</biblScope>
+			<biblScope unit="page">23602</biblScope>
+			<date type="published" when="2012">2012</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b105">
+	<analytic>
+		<title level="a" type="main">on the change of form of long waves advancing in a rectangular canal, and on a new type of long stationary waves. The London, Edinburgh, Dublin Philos. Mag</title>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">D J</forename><surname>Korteweg</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">G</forename><surname>De Vries</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Xli</surname></persName>
+		</author>
+		<idno type="DOI">10.1080/14786449508620739</idno>
+		<ptr target="https://doi.org/10.1080/14786449508620739" />
+	</analytic>
+	<monogr>
+		<title level="j">J. Sci</title>
+		<imprint>
+			<biblScope unit="volume">39</biblScope>
+			<biblScope unit="page" from="422" to="443" />
+			<date type="published" when="1895">1895</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b106">
+	<analytic>
+		<title level="a" type="main">Supersolidity of cnoidal waves in an ultracold bose gas</title>
+		<author>
+			<persName><forename type="first">G</forename><forename type="middle">I</forename><surname>Martone</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Recati</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Pavloff</surname></persName>
+		</author>
+		<idno type="DOI">10.1103/PhysRevResearch.3.013143</idno>
+		<idno>13/14</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. Res</title>
+		<imprint>
+			<biblScope unit="volume">3</biblScope>
+			<biblScope unit="page">13143</biblScope>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b107">
+	<analytic>
+		<title level="a" type="main">Off-Diagonal Long-Range Order in Solids*)</title>
+		<author>
+			<persName><forename type="first">H</forename><surname>Matsuda</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Tsuneto</surname></persName>
+		</author>
+		<idno type="DOI">10.1143/PTPS.46.411/5303982/46-411.pdf</idno>
+		<ptr target="https://academic.oup.com/ptps/article-pdf/doi/10.1143/PTPS.46.411/5303982/46-411.pdf" />
+	</analytic>
+	<monogr>
+		<title level="j">Prog. Theor. Phys. Suppl</title>
+		<imprint>
+			<biblScope unit="volume">46</biblScope>
+			<biblScope unit="page" from="411" to="436" />
+			<date type="published" when="1970">1970</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b108">
+	<analytic>
+		<title level="a" type="main">Supersolid-superfluid phase separation in the extended bose-hubbard model</title>
+		<author>
+			<persName><forename type="first">K</forename><surname>Kottmann</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Haller</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Acín</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><forename type="middle">E</forename><surname>Astrakharchik</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Lewenstein</surname></persName>
+		</author>
+		<idno type="DOI">10.1103/PhysRevB.104.174514</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. B</title>
+		<imprint>
+			<biblScope unit="volume">104</biblScope>
+			<biblScope unit="page">174514</biblScope>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b109">
+	<analytic>
+		<title level="a" type="main">Dicke quantum phase transition with a superfluid gas in an optical cavity</title>
+		<author>
+			<persName><forename type="first">K</forename><surname>Baumann</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Guerlin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Brennecke</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Esslinger</surname></persName>
+		</author>
+		<idno type="DOI">10.1038/nature09009</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Nature</title>
+		<imprint>
+			<biblScope unit="volume">464</biblScope>
+			<biblScope unit="page" from="1301" to="1306" />
+			<date type="published" when="2010">2010</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b110">
+	<analytic>
+		<title level="a" type="main">Roton-type mode softening in a quantum gas with cavity-mediated long-range interactions</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Mottl</surname></persName>
+		</author>
+		<idno type="DOI">10.1126/science.1220314</idno>
+		<ptr target="https://www.science.org/doi/pdf/10.1126/science.1220314" />
+	</analytic>
+	<monogr>
+		<title level="j">Science</title>
+		<imprint>
+			<biblScope unit="volume">336</biblScope>
+			<biblScope unit="page" from="1570" to="1573" />
+			<date type="published" when="2012">2012</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b111">
+	<analytic>
+		<title level="a" type="main">Layering transition in superfluid helium adsorbed on a carbon nanotube mechanical resonator</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Noury</surname></persName>
+		</author>
+		<idno type="DOI">10.1103/PhysRevLett.122.165301</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. Lett</title>
+		<imprint>
+			<biblScope unit="volume">122</biblScope>
+			<biblScope unit="page">165301</biblScope>
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b112">
+	<analytic>
+		<title level="a" type="main">Spatially modulated superfluid state in two-dimensional 4 He films</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Choi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">A</forename><surname>Zadorozhko</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Choi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Kim</surname></persName>
+		</author>
+		<idno type="DOI">10.1103/PhysRevLett.127.135301</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. Lett</title>
+		<imprint>
+			<biblScope unit="volume">127</biblScope>
+			<biblScope unit="page">135301</biblScope>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b113">
+	<analytic>
+		<title level="a" type="main">Seeking supersolidity in helium layers</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Rao</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Physics</title>
+		<imprint>
+			<biblScope unit="volume">14</biblScope>
+			<biblScope unit="page">114</biblScope>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b114">
+	<analytic>
+		<title level="a" type="main">Quantum liquid crystals in an imbalanced fermi gas: Fluctuations and fractional vortices in larkin-ovchinnikov states</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Radzihovsky</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Vishwanath</surname></persName>
+		</author>
+		<idno type="DOI">10.1103/PhysRevLett.103.010404</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. Lett</title>
+		<imprint>
+			<biblScope unit="volume">103</biblScope>
+			<biblScope unit="page">10404</biblScope>
+			<date type="published" when="2009">2009</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b115">
+	<analytic>
+		<title level="a" type="main">Inhomogeneous superconductivity in condensed matter and qcd</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Casalbuoni</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Nardulli</surname></persName>
+		</author>
+		<idno type="DOI">10.1103/RevModPhys.76.263</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Rev. Mod. Phys</title>
+		<imprint>
+			<biblScope unit="volume">76</biblScope>
+			<biblScope unit="page" from="263" to="320" />
+			<date type="published" when="2004">2004</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b116">
+	<analytic>
+		<title level="a" type="main">Inhomogeneous superconducting state in quasi-one-dimensional systems</title>
+		<author>
+			<persName><forename type="first">K</forename><surname>Yang</surname></persName>
+		</author>
+		<idno type="DOI">10.1103/PhysRevB.63.140511</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. B</title>
+		<imprint>
+			<biblScope unit="volume">63</biblScope>
+			<biblScope unit="page">140511</biblScope>
+			<date type="published" when="2001">2001</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b117">
+	<analytic>
+		<title level="a" type="main">Attractive fermi gases with unequal spin populations in highly elongated traps</title>
+		<author>
+			<persName><forename type="first">G</forename><surname>Orso</surname></persName>
+		</author>
+		<idno type="DOI">10.1103/PhysRevLett.98.070402</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. Lett</title>
+		<imprint>
+			<biblScope unit="volume">98</biblScope>
+			<biblScope unit="page">70402</biblScope>
+			<date type="published" when="2007">2007</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b118">
+	<analytic>
+		<title level="a" type="main">Spin-imbalance in a one-dimensional fermi gas</title>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Liao</surname></persName>
+		</author>
+		<idno type="DOI">10.1038/nature09393</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Nature</title>
+		<imprint>
+			<biblScope unit="volume">467</biblScope>
+			<biblScope unit="page" from="567" to="569" />
+			<date type="published" when="2010">2010</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b119">
+	<analytic>
+		<title level="a" type="main">Superconductors gain momentum</title>
+		<author>
+			<persName><forename type="first">E</forename><surname>Pavarini</surname></persName>
+		</author>
+		<idno type="DOI">10.1126/science.abn3794</idno>
+		<ptr target="https://www.science.org/doi/pdf/10.1126/science.abn3794" />
+	</analytic>
+	<monogr>
+		<title level="j">Science</title>
+		<imprint>
+			<biblScope unit="volume">376</biblScope>
+			<biblScope unit="page" from="350" to="351" />
+			<date type="published" when="2022">2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b120">
+	<analytic>
+		<title level="a" type="main">Spatially nonuniform superconductivity in quasi-two-dimensional organic charge-transfer salts</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Wosnitza</surname></persName>
+		</author>
+		<idno type="DOI">10.3390/cryst8050183</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Crystals</title>
+		<imprint>
+			<biblScope unit="volume">8</biblScope>
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b121">
+	<analytic>
+		<title level="a" type="main">Physics of neutron star crusts</title>
+		<author>
+			<persName><forename type="first">N</forename><surname>Chamel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Haensel</surname></persName>
+		</author>
+		<idno type="DOI">10.12942/lrr-2008-10</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Living Rev. Relativ</title>
+		<imprint>
+			<biblScope unit="volume">11</biblScope>
+			<date type="published" when="2008">2008</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b122">
+	<analytic>
+		<title level="a" type="main">Superfluid density of neutrons in the inner crust of neutron stars: New life for pulsar glitch models</title>
+		<author>
+			<persName><forename type="first">G</forename><surname>Watanabe</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">J</forename><surname>Pethick</surname></persName>
+		</author>
+		<idno type="DOI">10.1103/PhysRevLett.119.062701</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. Lett</title>
+		<imprint>
+			<biblScope unit="volume">119</biblScope>
+			<biblScope unit="page">62701</biblScope>
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

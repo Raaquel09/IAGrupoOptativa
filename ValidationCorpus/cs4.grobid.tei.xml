@@ -1,0 +1,1780 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Rotated reference frames in radiative transport theory</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author role="corresp">
+							<persName><forename type="first">Manabu</forename><surname>Machida</surname></persName>
+							<email>machida@hiro.kindai.ac.jp</email>
+							<affiliation key="aff0">
+								<orgName type="department" key="dep1">Department of Informatics</orgName>
+								<orgName type="department" key="dep2">Faculty of Engineering</orgName>
+								<orgName type="institution">Kindai University</orgName>
+								<address>
+									<settlement>Higashi-Hiroshima</settlement>
+									<country key="JP">Japan</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Rotated reference frames in radiative transport theory</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+					<idno type="MD5">EDC8B6FA4E59289C433E0B473190381F</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.2" ident="GROBID" when="2024-05-16T18:04+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Rotated reference frames offer fast algorithms for the radiative transport equation (RTE). We review the singular-eigenfunction approach and related numerical methods for the multidimensional RTE with rotated reference frames.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Contents</head><p>1. Introduction 2. Radiative transport equation 3. The first example of rotated reference frames for the RTE 4. Fundamental solution to the three-dimensional RTE 5. Fundamental solution in flatland 6. Rotation of reference frames 7. Three-dimensional 𝐹 ! method 8. Three-dimensional analytical discrete ordinates 9. Rotated reference frames with the spherical-harmonic expansion 10. Applications 11. Concluding remarks Acknowledgments References A. Singular eigenfunctions B. Eq. (6.4) Keywords Radiative transport equation, singular eigenfunctions, waves in random media, Wigner's Dmatrices, Chandrasekhar's polynomials * | 𝛽 8 𝑔 8 * (𝜉 h * )𝑑 ** 8 [𝑖𝜏(𝜉 h * 𝑞)] 8 #$% 89* +Θ(𝑧) 𝑒 01 " - 𝑘 k -(𝜉 h * 𝑞) + 𝜉 h * | (−1) 8 𝛽 8 𝑔 8 * (𝜉 h * )𝑑 ** 8 [𝑖𝜏(𝜉 h * 𝑞)] 8 #$% 89* +y1 − Θ(𝑧)z 𝑒 H I ' Yf 6 -PZ1 " -/f 6 - 𝑘 k -(𝜉 h * 𝑞) + 𝜉 h * | (−1) 8 𝛽 8 𝑔 8 * (𝜉 h * )𝑑 ** 8 [𝑖𝜏(𝜉 h * 𝑞)]</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.">Introduction</head><p>In this review, we consider the radiative transport equation (RTE). The equation governs transport phenomena in which particles are scattered and absorbed in a medium but the scattering among the particles can be neglected. The RTE is a type of the linear Boltzmann equation. In the RTE, the speed of particles is quite often assumed to be a constant. Light propagation in random media is governed by the RTE since the light propagation can be viewed as moving particles which undergo scattering and absorption <ref type="bibr">(Ishimaru, 1978)</ref>. See <ref type="bibr" target="#b9">Carminati and Schotland, 2021</ref> for the relation between Maxwell's equations and the RTE. Random media (i.e., media in which scattering and absorption occur randomly) include fog, cloud, biological tissue, and the interstellar medium. Moreover, neutrons in a reactor obey the RTE <ref type="bibr" target="#b17">(Duderstadt and Martin, 1979)</ref>. In most parts of this review, we assume that the absorption coefficient 𝜇 " and scattering coefficient 𝜇 # are constants.</p><p>The singular-eigenfunction approach was explored as early as 1945 by <ref type="bibr" target="#b13">Davison, 1945</ref>. After some further efforts such as <ref type="bibr" target="#b74">Van Kampen, 1955</ref><ref type="bibr" target="#b14">, Davison, 1957</ref><ref type="bibr" target="#b75">, and Wigner, 1961</ref>, Case established a way of finding solutions with separation of variables <ref type="bibr" target="#b10">(Case, 1959;</ref><ref type="bibr" target="#b11">Case, 1960)</ref>. In 1960, Case considered the time-independent one-dimensional radiative transport equation with isotropic scattering and solved the equation with separation of variables by finding singular eigenfunctions <ref type="bibr" target="#b11">(Case, 1960)</ref>. The method was soon extended to the case of anisotropic scattering without <ref type="bibr">(McCormick and Kuscer, 1965;</ref><ref type="bibr" target="#b63">Mika, 1961)</ref> and with <ref type="bibr">(McCormick and Kuscer, 1966)</ref> azimuthal dependence. In this singular-eigenfunction approach, solutions to the one-dimensional radiative transport equation are given by a superposition of singular eigenfunctions. The existence and uniqueness of such solutions were proved <ref type="bibr" target="#b37">(Larsen, 1974;</ref><ref type="bibr" target="#b38">Larsen, 1975;</ref><ref type="bibr" target="#b39">Larsen and Habetler, 1973;</ref><ref type="bibr" target="#b41">Larsen, Sancaktar, and Zweifel, 1975</ref>). Case's approach was revisited recently and the RTE for isotropic scattering was considered in half spaces of arbitrary dimension <ref type="bibr">(d'Eon and McCormick, 2019)</ref>.</p><p>In 1964, Dede used rotated reference frames to solve the three-dimensional radiative transport equation with the spherical-harmonic approximation (cf., the 𝑃 ! method) <ref type="bibr" target="#b15">(Dede, 1964)</ref>. Dede pointed out that equations in three dimensions reduce to one-dimensional equations if reference frames are rotated in the direction of the Fourier vector. Kobayashi developed Dedeʼs calculation and computed coefficients in the spherical-harmonic expansion by solving a threeterm recurrence relation recursively starting with the initial term <ref type="bibr" target="#b36">(Kobayashi, 1977)</ref>. Numerical calculation was performed for a two-dimensional rectangular domain in <ref type="bibr" target="#b36">Kobayashi, 1977.</ref> In 2004, Markel independently arrived at rotated reference frames and obtained the coefficients in terms of eigenvalues and eigenvectors of the tridiagonal matrix originating from the three-term recurrence relation <ref type="bibr" target="#b58">(Markel, 2004)</ref>. By computing the specific intensity for a three-dimensional infinite medium, in <ref type="bibr" target="#b58">Markel, 2004</ref>, it was showed that the algorithm is efficient <ref type="bibr" target="#b58">(Markel, 2004)</ref>. Moreover it was found that complex unit vectors can be used to rotate reference frames <ref type="bibr" target="#b67">(Panasyuk, Schotland, and Markel, 2006)</ref>. The new formulation can be viewed as separation of variables in which the eigenvalues are separation constants <ref type="bibr" target="#b69">(Schotland and Markel, 2007)</ref>. This generalization made it possible to solve boundary value problems in the form of plane-wave decomposition <ref type="bibr" target="#b56">(Machida, Panasyuk, Schotland, and Markel, 2010)</ref>. The series of numerical algorithms started with <ref type="bibr" target="#b58">Markel, 2004</ref> was named the method of rotated reference frames.</p><p>Until this point, the notion of rotated reference frames had always come together with the spherical-harmonic expansion of the specific intensity. Then it was realized that the technique of rotated reference frames is not necessarily linked to spherical harmonics, and singular eigenfunctions in the one-dimensional transport theory were extended to three dimensions <ref type="bibr" target="#b50">(Machida, 2014)</ref>. In particular, the fundamental solution with singular eigenfunctions of the onedimensional RTE for anisotropic scattering could be extended to three dimensions. Indeed, the method of rotated reference frames is a three-dimensional extension of the spherical-harmonic expansion <ref type="bibr" target="#b4">(Barichello, Garcia, and Siewert, 1998;</ref><ref type="bibr" target="#b68">Sanchez and McCormick, 1982)</ref> in Caseology (the singular-eigenfunction approach started by Case). Using singular eigenfunctions, the fundamental solution of the RTE was obtained in flatland (i.e., two-dimensional space) <ref type="bibr" target="#b52">(Machida, 2016b)</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.">Radiative transport equation</head><p>Let 𝐫 be the position vector in three dimensions and 𝐬 &amp; be a unit vector which specifies the direction of light that propagates in a random medium. We used the hat symbol ' to indicate that 𝐬 &amp; is a unit vector (𝐬 &amp; • 𝐬 &amp; = 1). In this article, a vector with the hat symbol is a unit vector. The vector 𝐫 is written as</p><formula xml:id="formula_0">𝐫 = + 𝑥 𝑦 𝑧 / , − ∞ &lt; 𝑥 &lt; ∞, − ∞ &lt; 𝑦 &lt; ∞, − ∞ &lt; 𝑧 &lt; ∞ .</formula><p>(2.1)</p><p>The vector 𝐬 &amp; is given by 𝐬 &amp; = 9 𝛚 cos 𝜃 ? , 𝛚 = @ sin 𝜃 cos 𝜑 sin 𝜃 sin 𝜑 D , 0 ≤ θ ≤ π , 0 ≤ φ &lt; 2π .</p><p>(2.2)</p><p>In addition to the set ℝ of real numbers and the sets ℝ $ of 𝑑-dimensional real vectors (𝑑 = 2,3), we will use notation: 𝕊 % = {(θ, φ); 0 ≤ θ ≤ π , 0 ≤ φ &lt; 2π} .</p><p>(2.</p><p>3)</p><p>The RTE is written as where 𝑡 is time and 𝐼(𝐫, 𝐬 &amp;, 𝑡) is the specific intensity at position 𝐫 in direction 𝐬 &amp; at time 𝑡. The speed of light in the medium, which is assumed to be a positive constant, is denoted by 𝑐. In the second term on the left-hand side, the nabla ∇ means ∇= \ 𝜕/𝜕𝑥 𝜕/𝜕𝑦 𝜕/𝜕𝑧 ^ .</p><p>(2.5)</p><p>In general, the absorption coefficient 𝜇 " and scattering coefficient 𝜇 # are functions of 𝐫, 𝐬 &amp;. As described above, we will assume that 𝜇 " , 𝜇 # are constants unless otherwise stated. The sum of these optical parameters is called the total attenuation 𝜇 ( = 𝜇 " + 𝜇 # . The scattering phase function 𝑝(𝐬 &amp;, 𝐬 &amp; &amp; ), described below, can depend on 𝐫 but this dependence is neglected. On the right-hand side, 𝑆(𝐫, 𝐬 &amp;, 𝑡) is the source term. The RTE (2.4) satisfies suitable boundary conditions and an initial condition. In the time-independent case, the RTE is written as</p><formula xml:id="formula_1">𝐬 &amp; • ∇𝐼(𝐫, 𝐬 &amp;) + 𝜇 ( 𝐼(𝐫, 𝐬 &amp;) = 𝜇 # W 𝑝(𝐬 &amp;, 𝐬 &amp; &amp; )𝐼(𝐫, 𝐬 &amp; &amp; )𝑑𝐬 &amp; &amp; 𝕊 ! + 𝑆(𝐫, 𝐬 &amp;) .</formula><p>(2.6)</p><p>The stationary propagation is governed by (2.6). The time-dependent RTE (2.4) is reduced to the RTE (2.6) by the Fourier transform or Laplace transform. In this sense, it is crucial to solve (2.6).</p><p>The main target of this review is the RTE in (2.6). Boundary conditions are imposed when (2.6) is solved.</p><p>The scattering phase function 𝑝(𝐬 &amp;, 𝐬 &amp;′) describes the probability that light propagating in direction 𝐬 &amp;′ changes its direction to 𝐬 &amp; by scattering. We have</p><formula xml:id="formula_2">W 𝑝(𝐬 &amp;, 𝐬 &amp; &amp; )𝑑𝐬 &amp; 𝕊 ! = W W 𝑝(𝐬 &amp;, 𝐬 &amp; &amp; ) sin 𝜃 𝑑𝜃 ) * 𝑑𝜑 %) * = 1 .</formula><p>(2.7)</p><p>The anisotropic factor or scattering asymmetry parameter g ∈ [−1,1] is introduced as the average of 𝐬 &amp; • 𝐬 &amp;′:</p><formula xml:id="formula_3">g = W 𝐬 &amp; • 𝐬 &amp; &amp; 𝑝(𝐬 &amp;, 𝐬 &amp; &amp; )𝑑𝐬 &amp; &amp; 𝕊 ! .</formula><p>(2.8)</p><p>In the case of isotropic scattering, where a particle is scattered in all directions with equal probability, 𝑝(𝐬 &amp;, 𝐬 &amp; &amp; ) = 1/(4𝜋). For a unit vector 𝐤 i (i.e., 𝐤 i • 𝐤 i = 𝑘 k + % + 𝑘 k , % + 𝑘 k - % = 1), we introduce an operator ℛ 𝐤 / that rotates the reference frame so that the 𝑧-axis lies in the direction of 𝐤 i . For example, we can write</p><formula xml:id="formula_4">ℛ 𝐤 / cos 𝜃 = ℛ 𝐤 / 𝐬 &amp; • 𝐳 &amp; = 𝐬 &amp; • 𝐤 i ,</formula><p>(2.9) where 𝐳 &amp; is a unit vector in the direction of the positive 𝑧-axis. Later, we will define the operator ℛ 𝐤 / using Wigner's 𝐷-matrices. But for now, let us understand ℛ 𝐤 / rather intuitively.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.">The first example of rotated reference frames for the RTE</head><p>Let us begin with the following homogeneous RTE. We assume that 𝜇 ( , 𝜇 # are positive constants. To find the solution to (3.1), we assume the separated form as <ref type="bibr" target="#b53">(Machida, 2016c</ref>) 𝐼(𝐫, 𝐬 &amp;) = 𝑒 01 " 𝐤 / •𝐫/5 ℛ 𝐤 / Φ 5 (𝐬 &amp;), (3.2) where 𝐤 i is a unit vector and 𝜈 is a separation constant. Recall that ℛ 𝐤 / was introduced in the end of Sec. 2. Here, Φ 5 (𝐬 &amp;) is some function which depends on 𝐬 &amp; but is independent of 𝐫. We impose the normalization condition as</p><formula xml:id="formula_5">W Φ 5 (𝐬 &amp;)𝑑𝐬 &amp; 𝕊 ! = 2𝜋 .</formula><p>(3.3)</p><p>Since the integral over all angles does not change by the choice of reference frames, we have</p><formula xml:id="formula_6">W ℛ 𝐤 / Φ 5 (𝐬 &amp;)𝑑𝐬 &amp; 𝕊 ! = 2𝜋 . (3.4)</formula><p>By substituting the separated form (3.2) for 𝐼 in the homogeneous equation (3.1), we obtain</p><formula xml:id="formula_7">𝜇 ( +1 − 𝐬 &amp; • 𝐤 i 𝜈 / ℛ 𝐤 / Φ 5 (𝐬 &amp;) = 𝜇 # 2 .</formula><p>(3.5)</p><p>The left-hand side of (3.5) can be rewritten as</p><formula xml:id="formula_8">𝜇 ( +1 − 𝐬 &amp; • 𝐤 i 𝜈 / ℛ 𝐤 / Φ 5 (𝐬 &amp;) = 𝜇 ( @1 − ℛ 𝐤 / cos 𝜃 𝜈 D ℛ 𝐤 / Φ 5 (𝐬 &amp;) = ℛ 𝐤 / 𝜇 ( @1 − cos 𝜃 𝜈 D Φ 5 (𝐬 &amp;) , (3.6)</formula><p>where we used (2.9). Hence by the inverse rotation,</p><formula xml:id="formula_9">𝜇 ( @1 − cos 𝜃 𝜈 D Φ 5 (𝐬 &amp;) = 𝜇 # 2 . (3.7)</formula><p>Let us introduce the notation</p><formula xml:id="formula_10">𝜇 = cos 𝜃 , 𝜛 = 𝜇 # 𝜇 ( . (3.8)</formula><p>Then we arrive at</p><formula xml:id="formula_11">91 − 𝜇 𝜈 ? Φ 5 (𝐬 &amp;) = 𝜛 2 .</formula><p>(3.9)</p><p>This equation (3.9) has been intensively studied in the one-dimensional transport theory and Φ 5 (𝐬 &amp;) is called the singular eigenfunction (see Appendix A). The separation constant 𝜈 is known to be continuous in (−1,1) and has two discrete values ±𝜈 * (𝜈 * &gt; 1), where they are solutions to the following transcendental equation <ref type="bibr">(Case and Zweifel, 1967)</ref>.</p><formula xml:id="formula_12">1 − 𝜛𝜈 * tanh 06 1 𝜈 * = 0 . (3.10)</formula><p>Thus, for each pair of y𝐤 i , 𝜈z, we obtain the solution 𝐼(𝐫, 𝐬 &amp;) in (3.2) of the threedimensional RTE in (3.1) using the knowledge of the one-dimensional transport theory. The choice of the unit vector 𝐤 i is arbitrary at this moment. Later, when we obtain the fundamental solution or solve boundary-value problems, suitable 𝐤 i will be chosen. The unit vector 𝐤 i is not necessarily a real vector. Indeed, as described in Sec. 4, we will consider complex vectors 𝐤 i ∈ ℂ 7 (ℂ denotes the set of complex numbers).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.">Fundamental solution to the three-dimensional RTE</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.1.">Separated solution</head><p>Let us consider the case of anisotropic scattering, i.e., 𝑝(𝐬 &amp;, 𝐬 &amp;′) is not a constant. We assume that scatterers are spherically symmetric and model 𝑝(𝐬 &amp;, 𝐬 &amp;′) as</p><formula xml:id="formula_13">𝑝(𝐬 &amp;, 𝐬 &amp; &amp; ) = 1 4𝜋 | 𝛽 8 𝑃 8 (𝐬 &amp; • 𝐬 &amp;′) 8 #$% 89* = | | 𝛽 8 2𝑙 + 1 𝑌 8: (𝐬 &amp;)𝑌 8: * (𝐬 &amp;′) 8 :908 8 #$% 89* , (4.1)</formula><p>where 𝛽 8 are coefficients. Here, * means complex conjugate. We note the orthogonality relation for Legendre polynomials:</p><formula xml:id="formula_14">W 𝑃 8 (𝜇)𝑃 8 &amp; (𝜇) 𝑑𝜇 6 06 = 2 2𝑙 + 1 𝛿 88 &amp; , (4.2)</formula><p>where 𝛿 88 &amp; is the Kronecker delta. We see 𝛽 * = 1 from the calculation,</p><formula xml:id="formula_15">1 = W 𝑝(𝐬 &amp;, 𝐬 &amp; &amp; ) 𝑑𝐬 &amp;′ 𝕊 ! = 1 4𝜋 | 𝛽 8 8 #$% 89* W 𝑃 8 (𝐬 &amp; • 𝐬 &amp;′)𝑑𝐬 &amp;′ 𝕊 ! = 𝛽 * . (4.3) Moreover since 𝑝(𝐬 &amp;, 𝐬 &amp; &amp;</formula><p>) is a probability density and has to be nonnegative,</p><formula xml:id="formula_16">1 = W 𝑝(𝐬 &amp;, 𝐬 &amp; &amp; ) 𝑑𝐬 &amp;′ 𝕊 ! ≥ ‚W 𝑝(𝐬 &amp;, 𝐬 &amp; &amp; )𝑃 8 (𝐬 &amp; • 𝐬 &amp;′)𝑑𝐬 &amp;′ 𝕊 ! ‚ = |𝛽 8 | 2𝑙 + 1 , 1 ≤ 𝑙 ≤ 𝑙 &lt;=&gt; . (4.4) That is, |𝛽 8 | ≤ 2𝑙 + 1 . (4.5)</formula><p>We can write 𝛽 6 = 3g, where g was given in (2.8). In the case of isotropic scattering, 𝛽 * = 1 and 𝛽 8 = 0 for 𝑙 ≥ 1. (𝜇) = (−1) : (2𝑚 − 1)!! (1 − 𝜇 % ) :/% , 𝑃 :A6 : (𝜇) = (2𝑚 + 1)𝜇𝑃 : : (𝜇) , 𝑚 ≥ 0 . (4.9) The Henyey-Greenstein phase function 𝑝 B0C is given by <ref type="bibr" target="#b32">(Henyey and Greenstein, 1941</ref>)</p><formula xml:id="formula_17">𝛽 8 = (2𝑙 + 1)g 8 , 𝑙 &lt;=&gt; = ∞ . (4.10) That is, 𝑝 B0C (𝐬 &amp;, 𝐬 &amp; &amp; ) = | | g 8 𝑌 8: (𝐬 &amp;)𝑌 8: * (𝐬 &amp;′) 8 :908 D 89* = 1 4𝜋 1 − g % (1 + g % − 2g𝐬 &amp; • 𝐬 &amp;′) 7/% . (4.11)</formula><p>Let us consider the homogeneous RTE:</p><formula xml:id="formula_18">𝐬 &amp; • ∇𝐼(𝐫, 𝐬 &amp;) + 𝜇 ( 𝐼(𝐫, 𝐬 &amp;) = 𝜇 # W 𝑝(𝐬 &amp;, 𝐬 &amp; &amp; )𝐼(𝐫, 𝐬 &amp; &amp; )𝑑𝐬 &amp; &amp; 𝕊 ! . (4.12)</formula><p>We assume the following separated solution. (4.15)</p><formula xml:id="formula_19">𝐼(𝐫, 𝐬 &amp;) = 𝑒 01 " 𝐤 / •𝐫/5 ℛ 𝐤 / Φ 5 : (𝐬 &amp;). (<label>4</label></formula><p>The assumed form (4.13) has a similar structure to the separated solution in the one-dimensional transport theory by <ref type="bibr" target="#b11">(Case, 1960;</ref><ref type="bibr" target="#b60">McCormick and Kuščer, 1966;</ref><ref type="bibr" target="#b63">Mika, 1961)</ref>. For the singular eigenfunctions, not only orthogonality relations but also biorthogonality relations are known <ref type="bibr" target="#b60">(McCormick and Kuščer, 1966)</ref>. We refer the reader to <ref type="bibr">McCormick and</ref><ref type="bibr" target="#b61">Kuščer, 1973 and</ref><ref type="bibr">Kuščer and</ref><ref type="bibr" target="#b36">McCormick, 1991</ref> (the Busbridge polynomials were used). By substituting the separated solution (4.13) for 𝐼(𝐫, 𝐬 &amp;) in the homogeneous equation (4.12), we obtain Here, 𝛩 is the step function defined as 𝛩(𝑥) = 1 for 𝑥 ≥ 0 and 𝛩(𝑥) = 0 for 𝑥 &lt; 0. By using (4.9),</p><formula xml:id="formula_20">@1 − ℛ 𝐤 / 𝜇 𝜈 D ℛ 𝐤 / Φ 5 : (𝐬 &amp;) = 𝜛 W 𝑝(𝐬 &amp;, 𝐬 &amp; &amp; )ℛ 𝐤 / Φ 5 : (𝐬 &amp; &amp; )𝑑𝐬 &amp; &amp; 𝕊 ! . (<label>4</label></formula><formula xml:id="formula_21">𝑔 :A6 : (𝜈) = 𝜈ℎ : √2𝑙 + 1 𝑔 : : (𝜈) , 𝑚 ≥ 0. (4.22)</formula><p>Moreover, by (4.9), (4.15), (4.21), we have</p><formula xml:id="formula_22">𝑔 : : (𝜈) = (2𝑚 − 1)!! ‰(2𝑚)! = ‰(2𝑚)! 2 : 𝑚! , 𝑚 ≥ 0 . (4.23)</formula><p>The polynomials which are defined by the three-term recurrence relation (4.19) are called the normalized Chandrasekhar polynomials <ref type="bibr" target="#b26">(Garcia and Siewert, 1989;</ref><ref type="bibr" target="#b27">Garcia and Siewert, 1990)</ref>. See Chandrasekhar, 1950 for the Chandrasekhar polynomials. We note that 𝑔 8 0: (𝜈) = (−1) : 𝑔 8 : (𝜈) , 𝑔 8 : (−𝜈) = (−1) 8A: 𝑔 8 : (𝜈) . (4.24) See <ref type="bibr" target="#b21">Ganapol, 2014 and</ref><ref type="bibr" target="#b22">Garcia and</ref><ref type="bibr" target="#b27">Siewert, 1990</ref>  </p><formula xml:id="formula_23">𝑝 8 : (𝜇) = (−1) : " (𝑙 − 𝑚)! (𝑙 + 𝑚)! 𝑃 8 : (𝜇)(1 − 𝜇 % ) 0|:|/% . (4.27)</formula><p>The polynomials 𝑝 8 : (𝜇) satisfy the following three-term recurrence relation.</p><formula xml:id="formula_24">‰(𝑙 + 1) % − 𝑚 % 𝑝 8A6 : (𝜇) + ‰ 𝑙 % − 𝑚 % 𝑝 806 : (𝜇) = (2𝑙 + 1)𝜇𝑝 8 : (𝜇) (4.28) with initial terms, 𝑝 : : (𝜇) = (2𝑚 − 1)!! ‰(2𝑚)! = ‰(2𝑚)! 2 : 𝑚! , 𝑝 :A6 : (𝜇) = √2𝑙 + 1𝜇𝑝 : : (𝜇) , 𝑚 ≥ 0. (4.29)</formula><p>The relation 𝑝 8 0: (𝜇) = (−1) : 𝑝 8 : (𝜇) can be used to derive formulae for 𝑝 8 : (𝜇), 𝑚 &lt; 0. Let us call the separated solutions (4.13) eigenmodes.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.2.">Complex unit vectors</head><p>So far, 𝐤 i has been an arbitrary unit vector. To proceed further, we specify the unit vector 𝐤 i . We write 𝛒 = 9 𝑥 𝑦 ? , (4.30)</p><p>and introduce</p><formula xml:id="formula_25">𝐪 = 9 𝑞 + 𝑞 , ? = 𝑞 @ cos 𝜑 𝐪 sin 𝜑 𝐪 D (4.31)</formula><p>for −∞ &lt; 𝑞 + &lt; ∞, −∞ &lt; 𝑞 , &lt; ∞, 𝑞 ≥ 0, and 0 ≤ 𝜑 𝐪 &lt; 2𝜋. We set</p><formula xml:id="formula_26">𝐤 i = 𝐤 i (𝜈, 𝐪) = @ −𝑖𝜈𝐪 𝑘 k - D . (4.32)</formula><p>By this, eigenmodes have the form of plane-wave decomposition:</p><formula xml:id="formula_27">𝐼(𝐫, 𝐬 &amp;) = 𝑒 ?1 " 𝐪•𝛒 𝑒 01 " H I ' -/5 ℛ 𝐤 / (5,𝐪) Φ 5 : (𝐬 &amp;). (4.33) By the relation 𝐤 i • 𝐤 i = 1, we obtain 𝑘 k -= 𝑘 k -(𝜈𝑞) = ‰1 + (𝜈𝑞) % . (4.34) That is, 𝑘 k -is real.</formula><p>The eigenmodes decay in the 𝑧 direction as 𝑒 01 " H I ' -/5 if 𝜈 is positive and they grow if 𝜈 is negative. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.3.">Orthogonality relations</head><formula xml:id="formula_28">@1 − ℛ 𝐤 / 𝜇 𝜈 D ℛ 𝐤 / Φ 5 : (𝐬 &amp;) = 𝜛 | | 𝛽 8 2𝑙 + 1 𝑌 8: (𝐬 &amp;) 8 :908 W 𝑌 8: * (𝐬 &amp; &amp; )ℛ 𝐤 / Φ 5 : (𝐬 &amp; &amp; )𝑑𝐬 &amp; &amp; 𝕊 ! 8 #$% 89* . (4.39)</formula><p>Using the above equation we can write two equations: Suppose that 𝜈 = 𝜈 6 = 𝜈 % , 𝐤 i = 𝐤 i 6 = 𝐤 i % , 𝑚 6 ≠ 𝑚 % . In this case, we have </p><formula xml:id="formula_29">9ℛ 𝐤 / ! Φ 5 ! : ! (𝐬 &amp;)? +1 − ℛ 𝐤 / ( 𝜇 𝜈 6 / ℛ 𝐤 / ( Φ 5 ( : ( (𝐬 &amp;) = 𝜛 | | 𝛽 8 2𝑙 + 1 𝑌 8: (𝐬 &amp;) 8 :908 9ℛ 𝐤 / ! Φ 5 ! : ! (𝐬 &amp;)? W 𝑌 8: * (𝐬 &amp; &amp; )ℛ 𝐤 / ( Φ 5 ( : ( (𝐬 &amp; &amp; )𝑑𝐬 &amp;</formula><formula xml:id="formula_30">W 𝜇 9ℛ 𝐤 / Φ 5 : ( (𝐬 &amp;)? 9ℛ 𝐤 / Φ 5 : ! (𝐬 &amp;)? 𝑑𝐬 &amp; 𝕊 ! = W yℛ 𝐤 / 06 𝜇zΦ 5 : ( (𝐬 &amp;)Φ 5 : ! (𝐬 &amp;)𝑑𝐬 &amp; 𝕊 ! = 𝑘 k -(𝜈𝑞) W 𝜇Φ 5 : ( (𝐬 &amp;)Φ 5 : ! (𝐬 &amp;)𝑑𝐬 &amp; 𝕊 ! = 2𝜋𝑘 k -(</formula></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.4.">Separation constant</head><p>From the one-dimensional transport theory, the separation constant 𝜈 is known to be real, and an eigenvalue (𝜈 ∉ [−1,1]) or in the continuous spectrum (𝜈 ∈ (−1,1)). If 𝜈 is an eigenvalue, then −𝜈 is also an eigenvalue. The number 2𝑀 : of eigenvalues (−𝑙 &lt;=&gt; ≤ 𝑚 ≤ 𝑙 &lt;=&gt; ) is determined by 𝜛 and 𝑝(𝐬 &amp;, 𝐬 &amp; &amp; ). For example, when 𝑝(𝐬 &amp;, 𝐬 &amp; &amp; ) = 1/(4𝜋) for isotropic scattering (𝑙 &lt;=&gt; = 0), 𝑀 * = 1 and there are two eigenvalues ±𝜈 * (𝜈 * &gt; 1), which are the solutions to <ref type="bibr">(Case and Zweifel, 1967</ref>)</p><formula xml:id="formula_31">1 − 𝜛𝜈 tanh 06 1 𝜈 = 0 . (4.46)</formula><p>In general, an eigenvalue is a solution to Λ : (𝜈) = 0 , (4.47) where </p><formula xml:id="formula_32">Λ : (𝜈) = 1 − 𝜛𝜈 2 W 𝑔 : (𝜈, 𝜇) 𝜈 − 𝜇 6 06 (1 − 𝜇 % ) |:| 𝑑𝜇 , 𝜈 ∉ [−1,1] . (<label>4</label></formula><formula xml:id="formula_33">(𝑤) = 0 , 𝑤 ∉ [−1,1] ,</formula><p>where 𝑄 8 : is the associated Legendre polynomial of the second kind. Therefore we obtain <ref type="bibr" target="#b24">(Garcia and Siewert, 1982</ref>) .</p><formula xml:id="formula_34">Λ : (𝜈) = lim</formula><p>Hence, 𝜈 M : can be numerically obtained as eigenvalues of 𝐴(𝑚) for sufficiently large 𝑙 N . In <ref type="bibr" target="#b26">Garcia and Siewert, 1989</ref>, numerical techniques to accurately compute 𝜈 M : were developed.  </p><formula xml:id="formula_35">𝐺(𝐫, 𝐬 &amp;; 𝐫 * , 𝐬 &amp; * ) = | 8 #$% :908 #$% × ⎩ ⎪ ⎨ ⎪ ⎧ W W 𝐴 : (𝜈, 𝐪)𝑒 ?1 " 𝐪•𝛒 𝑒 01 " H I ' (5P)(-0--)/5 ℛ 𝐤 / (5,𝐪) Φ 5 : (𝐬 &amp;)𝑑𝜈 A ℝ ! 𝑑𝐪 , 𝑧 &gt; 𝑧 * , W W 𝐵 : (𝜈, 𝐪)𝑒 ?1 " 𝐪•𝛒 𝑒 1 " H I ' (5P)(-0--)/</formula><formula xml:id="formula_36">* ) = 𝑒 0?1 " 𝐪•𝛒 -| W 𝑒 01 " H I ' (5P)|-0--|/5 2𝜋𝑘 k -(𝜈𝑞)𝒩 : (𝜈) ℛ 𝐤 / (±5,𝐪) Φ ±5 : (𝐬 &amp;)Φ ±5 : * (𝐬 &amp; * )𝑑𝜈 A 8 #$% :908 #$% . (4.71)</formula><p>Here, upper signs are chosen for 𝑧 &gt; 𝑧 * and lower signs are chosen for 𝑧 &lt; 𝑧 * . Since singular eigenfunctions 𝜙 : (𝜈, 𝜇) contain generalized functions and direct computation of 𝐺(𝐫, 𝐬 &amp;; 𝐫 * , 𝐬 &amp; * ) is complicated, we will rather try to find numerical solutions to the RTE making use of rotated reference frames.</p><p>From the fundamental solution in (4.66), (4.71), we can obtain the energy density 𝑈(𝐫) of the specific intensity 𝐼(𝐫, 𝐬 &amp;) which satisfies the following RTE.</p><formula xml:id="formula_37">𝐬 &amp; • ∇𝐼(𝐫, 𝐬 &amp;) + 𝜇 ( 𝐼(𝐫, 𝐬 &amp;) = 𝜇 # W 𝑝(𝐬 &amp;, 𝐬 &amp; &amp; )𝐼(𝐫, 𝐬 &amp; &amp; ) 𝑑𝐬 &amp; &amp; 𝕊 ! + 𝛿(𝐫−𝐫 * ) .</formula><p>(4.72)</p><p>The energy density is given by</p><formula xml:id="formula_38">𝑈(𝐫) = 1 𝑐 W 𝐼(𝐫, 𝐬 &amp;) 𝑑𝐬 &amp; 𝕊 ! . (4.73)</formula><p>We can calculate 𝑈(𝐫) as</p><formula xml:id="formula_39">𝑈(𝐫) = 1 𝑐 W W 𝐺(𝐫, 𝐬 &amp;; 𝐫 * , 𝐬 &amp; * ) 𝑑𝐬 &amp;𝑑𝐬 &amp; * 𝕊 ! 𝕊 ! = 𝜇 ( % 2𝜋𝑐 W 𝑒 ?1 " 𝐪•(𝛒0𝛒 -) W 𝑒 01 " H I ' (5P)|-0--|/5 𝑘 k -(𝜈𝑞)𝒩 * (𝜈) 𝑑𝜈 A 𝑑𝐪 ℝ ! . (4.74)</formula><p>By noticing the Hansen-Bessel formula,</p><formula xml:id="formula_40">𝐽 * (𝑥) = 1 2𝜋 W 𝑒 ?+ TUV @ 𝑑𝜑 %) * , 𝑥 ≥ 0 , (4.75)</formula><p>where 𝐽 * is the Bessel function of order 0, we obtain</p><formula xml:id="formula_41">𝑈(𝐫) = 𝜇 ( % 𝑐 W 𝑞𝐽 * (𝜇 ( 𝑞|𝛒 − 𝛒 * |) W 𝑒 01 " H I ' (5P)|-0--|/5 𝑘 k -(𝜈𝑞)𝒩 * (𝜈) 𝑑𝜈 A 𝑑𝑞 D * . (4.76)</formula><p>Since the source is isotropic, without loss of generality we can set 𝐫 = 9 𝛒 * 𝑧 ? .</p><p>(4.77)</p><formula xml:id="formula_42">By setting 𝑄 = 𝑘 k -(𝜈𝑞), 𝑈(𝑧) = 𝑈(𝐫) = 𝜇 ( % 𝑐 W W 𝑒 01 " W|-0--|/5 𝜈 % 𝒩 * (𝜈) 𝑑𝑄 D 6 𝑑𝜈 A . (4.78)</formula><p>Thus we obtain the following expression, which holds for general anisotropic scattering <ref type="bibr" target="#b2">(Avram and Machida, 2013)</ref>.</p><formula xml:id="formula_43">𝑈(𝑧) = 𝜇 ( 𝑐|𝑧 − 𝑧 * | \ | 𝑒 01 " |-0--|/5 . - 𝜈 M * 𝒩 * y𝜈 M * z R -06 M9* + W 𝑒 01 " |-0--|/5 𝜈𝒩 * (𝜈) 𝑑𝜈 6 * ^ . (4.79)</formula><p>In the case of the linear scattering:</p><formula xml:id="formula_44">𝑝(𝐬 &amp;, 𝐬 &amp; &amp; ) = 1 4𝜋 + 3g 4𝜋 𝐬 &amp; • 𝐬 &amp; &amp; , (4.80)</formula><p>the positive eigenvalue 𝜈 * * can be obtained from the matrix 𝐴(0) in (4.50) <ref type="bibr" target="#b77">(Zhang, Avram, and Machida, 2022)</ref>. In the case of isotropic scattering, the formula (4.79) was obtained by <ref type="bibr">Ganapol and Kornreich, 1995.</ref> We admit that the operator ℛ 𝐤 / (5,𝐪)</p><p>is not yet fully explained. Before exploring ℛ 𝐤 / (5,𝐪) in Sec. 6, let us consider the fundamental solution in the two-dimensional space (flatland).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.">Fundamental solution in flatland</head><p>In transport theory, the one-dimensional RTE means the RTE with one spatial variable and two angular variables, whereas the three-dimensional RTE has three spatial variables and two angular variables. In this sense, the two-dimensional RTE is an equation with two spatial variables and two angular variables. Here, we consider light propagation in two-dimensional space. This RTE with two spatial variables and one angular variable is often called the RTE in flatland, which was named after a novel by Edwin A. Abbott <ref type="bibr" target="#b0">(Abbott, 1884)</ref>.</p><p>Let us consider the following RTE in flatland:</p><formula xml:id="formula_45">»9 cos 𝜑 sin 𝜑 ? • @ 𝜕/𝜕𝑥 𝜕/𝜕𝑦 D + 𝜇 ( ¼ 𝐺(𝛒, 𝜑; 𝜑 * ) = 𝜇 # W 𝑝(𝜑, 𝜑′)𝐺(𝛒, 𝜑′; 𝜑 * ) 𝑑𝜑′ %) * + 𝛿(𝛒)𝛿(𝜑 − 𝜑 * ) , (5.1)</formula><p>where 𝐺(𝛒, 𝜑; 𝜑 * ) → 0 as |𝛒| → ∞. We give the scattering phase function as</p><formula xml:id="formula_46">𝑝(𝜑, 𝜑 &amp; ) = 1 2𝜋 | 𝛽 : (%X) 𝑒 ?:Y@0@ &amp; Z 8 #$% :908 #$% = 1 2𝜋 + 1 𝜋 | 𝛽 : (%X) cos[𝑚(𝜑 − 𝜑 &amp; )] 8 #$% :908 #$% .</formula><p>(5.2)</p><formula xml:id="formula_47">Here, 𝛽 * (%X) = 1, 𝛽 : (%X) ∈ [−1,1],</formula><p>and 𝛽 0:</p><p>(%X) = 𝛽 : (%X) . We obtain <ref type="bibr" target="#b52">(Machida, 2016b</ref>)</p><formula xml:id="formula_48">𝐺(𝛒, 𝜑; 𝜑 * ) = 𝜇 ( 2𝜋 W 𝑒 ?1 " P, ½ | 𝜙 (%X) @±𝜈 M (%X) , 𝜑 − 𝜑 𝐤 / [±5 . (!0) P\ D R (!0) 06 M9* D 0D × 𝜙 (%X) @±𝜈 M (%X) , 𝜑 * − 𝜑 𝐤 / [±5 . (!0) P\ D 𝑒 0 ] 6A[5 . (!0) P\ ! |+|/5 . (!0) ¾ 1 + 9𝜈 M (%X) 𝑞? % 𝒩 (%X) 9𝜈 M (%X) ? + W 𝜙 (%X) @±𝜈 M (%X) , 𝜑 − 𝜑 𝐤 / [±5 . (!0) P\ D 𝜙 (%X) @±𝜈 M (%X) , 𝜑 * − 𝜑 𝐤 / [±5 . (!0) P\ D 6 * × 𝑒 0 ] 6AY5 (!0) PZ ! |+|/5 (!0) ‰1 + (𝜈 (%X) 𝑞) % 𝒩 (%X) (𝜈 (%X) ) 𝑑𝜈¿ 𝑑𝑞 , (5.3)</formula><p>where upper signs are used for 𝑥 &gt; 0 and lower signs are used for 𝑥 &lt; 0. The notations are described below.</p><p>The separation constant 𝜈 (%X) is continuous in (−1,1) and it can be written for</p><formula xml:id="formula_49">𝜈 (%X) ≠ [−1,1] as 𝜈 (%X) = ±𝜈 M (%X) (𝑗 = 0, ⋯ , 𝑀 (%X) − 1).</formula><p>Here, 𝜈 M (%X) are positive roots of</p><formula xml:id="formula_50">Λ (%X) 9𝜈 M (%X) ? = 0,<label>where</label></formula><formula xml:id="formula_51">Λ (%X) (𝑧) = 1 − 𝜛𝑧 2𝜋 W 𝑔 (%X) (𝑧, 𝜑) 𝑧 − cos 𝜑 𝑑𝜑 %) * , 𝑧 ∈ ℂ ∖ [−1,1] .</formula><p>(5.4)</p><p>We note that 𝑀 (%X) is the number of positive roots and the function 𝑔 (%X) (𝑧, 𝜑) is given by</p><formula xml:id="formula_52">𝑔 (%X) (𝑧, 𝜑) = 1 + 2 | 𝛽 : (%X) 𝛾 : (𝑧) cos 𝑚𝜑 8 #$% :96 , (<label>5.5)</label></formula><p>where the polynomials 𝛾 : (𝑧) satisfy the following three-term recurrence relation <ref type="bibr" target="#b52">(Machida, 2016b)</ref>:</p><formula xml:id="formula_53">2𝑧ℎ : (%X) 𝛾 : (𝑧) − 𝛾 :A6 (𝑧) − 𝛾 :06 (𝑧) = 0 (5.6) with initial terms, 𝛾 * (𝑧) = 1 , 𝛾 6 (𝑧) = (1 − 𝜛)𝑧 ,</formula><p>(5.7) and ℎ :</p><p>(%X) = 1 − 𝜛𝛽 : (%X) .</p><p>(5.8) In flatland, singular eigenfunctions are given by <ref type="bibr" target="#b52">(Machida, 2016b</ref>)</p><formula xml:id="formula_54">𝜙 (%X) y𝜈 (%X) , 𝜑z = 𝜛𝜈 (%X) 2𝜋 𝒫 𝑔 (%X) y𝜈 (%X) , 𝜑z 𝜈 (%X) − cos 𝜑 + ‰ 1 − 𝜈 (%X)% 2 𝜆 (%X) y𝜈 (%X) z𝛿y𝜈 (%X) − cos 𝜑z , (5.9)</formula><p>where 𝒫 denotes Cauchy's principal value and</p><formula xml:id="formula_55">𝜆 (%X) y𝜈 (%X) z = 1 − 𝜛𝜈 (%X) 2𝜋 𝒫 W 𝑔 (%X) y𝜈 (%X) , 𝜑z 𝜈 (%X) − cos 𝜑 𝑑𝜑 %) * , 𝜈 (%X) ∈ (−1,1) .</formula><p>(5.10)</p><p>Singular eigenfunctions satisfy the orthogonality relation <ref type="bibr" target="#b52">(Machida, 2016b)</ref>:</p><formula xml:id="formula_56">W 𝜙 (%X) (𝜈, 𝜑)𝜙 (%X) (𝜈 &amp; , 𝜑) cos 𝜑 𝑑𝜑 %) * = 𝒩 (%X) (𝜈)𝛿(𝜈 − 𝜈 &amp; ) .</formula><p>(5.11)</p><p>The normalization factor is given by</p><formula xml:id="formula_57">𝒩 (%X) (𝜈) = ⎩ ⎪ ⎨ ⎪ ⎧ 2𝜈 √1 − 𝜈 % »9 𝜛𝜈 2 ? % 𝑔 (%X) (𝜈, 𝜑 5 ) % + 𝜆 (%X) (𝜈) % ¼ , 𝜈 ∈ (−1,1) , 9 𝜛𝜈 2 ? % 𝑔 (%X) (𝜈, 𝜑 5 ) 𝑑Λ (%X) (𝜈) 𝑑𝜈 , 𝜈 ∉ [−1,1] ,</formula><p>(5.12)</p><p>where</p><formula xml:id="formula_58">𝜑 5 = Â cos 06 𝜈 , 𝜈 ∈ [−1,1] , 𝑖 cosh 06 𝜈 , 𝜈 &gt; 1 , 𝜋 + 𝑖 cosh 06 |𝜈| , 𝜈 &lt; −1 .</formula><p>(5.13)</p><p>We note that 0 ≤ cos 06 𝜈 ≤ 𝜋 for 𝜈 ∈ [−1,1] and cosh 06 |𝜈| = lny|𝜈| + √𝜈 % − 1z for |𝜈| &gt; 1.</p><p>In singular eigenfunctions in the expression of the fundamental solution (5.3), 𝜑 𝐤 / [±5 .</p><p>(!0) P\ appears in the forms of cos 𝜑 𝐤 / [±5 .</p><p>(!0) P\ and sin 𝜑 𝐤 / [±5 . (!0) P\ . We obtain</p><formula xml:id="formula_59">cos 𝜑 𝐤 / [±5 . (!0) P\ = ¾ 1 + 9𝜈 M (%X) 𝑞? % , sin 𝜑 𝐤 / [±5 . (!0) P\ = ∓𝑖𝜈 M (%X) 𝑞 . (5.14)</formula><p>It should be mentioned that for isotropic scattering (𝑙 &lt;=&gt; = 0) in flatland, the positive eigenvalue is obtained as <ref type="bibr" target="#b52">(Machida, 2016b</ref>)</p><formula xml:id="formula_60">𝜈 * (%X) = 1 √1 − 𝜛 % , (5.15)</formula><p>whereas the one-dimensional RTE (three spatial dimensions with planar symmetry) with isotropic scattering has the largest eigenvalue 𝜈 * which is a solution of the transcendental equation (4.46) but cannot be explicitly written down.</p><p>Let us calculate the energy density 𝑢 (%X) (up to a constant) for an isotropic source 𝛿(𝛒):</p><formula xml:id="formula_61">𝑢 (%X) = W W 𝐺(𝛒, 𝜑; 𝜑 * ) 𝑑𝜑𝑑𝜑 * %) * %) * .</formula><p>(5.16)</p><p>We can set 𝑦 = 0 without loss of generality. Assume 𝑥 &gt; 0. We obtain</p><formula xml:id="formula_62">𝑢 (%X) = 𝜇 ( 𝜋 ½ | 𝐾 * 9𝑥/𝜈 M (%X) ? 𝜈 M (%X) 𝒩 (%X) 9𝜈 M (%X) ? R (!0) 06 M9* + W 𝐾 * (𝑥/𝜈) 𝜈𝒩 (%X) (𝜈) 𝑑𝜈 6 * AE , (5.17)</formula><p>where 𝐾 * is the modified Bessel function of the second kind of order zero. The formula (5.17) is the general result. In particular, for isotropic scattering (𝑙 &lt;=&gt; = 0), we have <ref type="bibr">(5.18)</ref> where 𝜈 * (%X) is given in (5.15). In the case of isotropic scattering, it is also possible to obtain 𝑢 (%X) with the Fourier transform. It is expected that the relation between (5.18) and the expression via the Fourier transform can be shown similar to the three-dimensional case <ref type="bibr" target="#b52">(Machida, 2016a)</ref>. See also <ref type="bibr" target="#b20">Ganapol, 2000 and</ref><ref type="bibr">Ganapol, 2015. In Fig. 5</ref>.1, 𝑢 (%X) in (5.18) is compared to the result from finite-difference method <ref type="bibr" target="#b19">(Fujii, 2017)</ref>.</p><formula xml:id="formula_63">𝑢 (%X) = 𝜇 ( 𝜋 ½ 𝐾 * 9𝑥/𝜈 * (%X) ? 𝜈 * (%X) 𝒩 (%X) 9𝜈 * (%X) ? + W 𝐾 * (𝑥/𝜈) 𝜈𝒩 (%X) (𝜈) 𝑑𝜈 6 * AE ,</formula><p>Figure <ref type="figure" target="#fig_25">5</ref>.1. The energy density 𝑢 (%X) in (5.18) is plotted with the result by finite difference method (purple open square) <ref type="bibr" target="#b19">(Fujii, 2017)</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6.">Rotation of reference frames</head><p>Let us assume that function 𝑓(𝐬 &amp;) = 𝑓(𝜃, 𝜑) can be expanded by spherical harmonics:</p><formula xml:id="formula_64">𝑓(𝐬 &amp;) = | | 𝑓 8: 𝑌 8: (𝐬 &amp;) 8 :908 D 89* , (<label>6.1)</label></formula><p>where 𝑓 8: ∈ ℂ are coefficients given by</p><formula xml:id="formula_65">𝑓 8: = W 𝑓(𝐬 &amp;)𝑌 8: * (𝐬 &amp;)𝑑𝐬 &amp; 𝕊 ! . (6.2)</formula><p>For a unit vector 𝐤 i ∈ ℂ 7 , 𝐤 i • 𝐤 i = 1, the operator ℛ 𝐤 / is defined as  <ref type="bibr">-and d-matrices, respectively (Varshalovich, Moskalev, and Khersonskii, 1988)</ref>. The rotation of the reference frame so that the 𝑧-axis coincides with the direction of 𝐤 i is not unique. In (6.3), we defined the rotation by setting three Euler angles of 𝐷 :&amp;: 8 (𝛼, 𝛽, 𝛾) as 𝛼 = 𝜑 𝐤 / , 𝛽 = 𝜃 𝐤 / , and 𝛾 = 0 <ref type="bibr" target="#b58">(Markel, 2004)</ref>.</p><formula xml:id="formula_66">ℛ 𝐤 / 𝑓(𝐬 &amp;) = | | 𝑓 8: ℛ 𝐤 / 𝑌 8: (𝐬 &amp;)</formula><p>By direct calculation we can show (Appendix B)</p><formula xml:id="formula_67">9ℛ 𝐤 / 𝑌 8 ( : ( (𝐬 &amp;)? 9ℛ 𝐤 / 𝑌 8 ! : ! (𝐬 &amp;)? = ℛ 𝐤 / 9𝑌 8 ( : ( (𝐬 &amp;)𝑌 8 ! : ! (𝐬 &amp;)? . (6.4)</formula><p>This implies the homomorphism:</p><formula xml:id="formula_68">9ℛ 𝐤 / 𝑓(𝐬 &amp;)?9ℛ 𝐤 / 𝑔(𝐬 &amp;)? = ℛ 𝐤 / y𝑓(𝐬 &amp;)𝑔(𝐬 &amp;)z . (6.5)</formula><p>The inverse ℛ 𝐤 / 06 is given as follows. Indeed, we have <ref type="bibr" target="#b51">(Machida, 2015</ref>) Let us consider 𝜃 𝐤 / , 𝜑 𝐤 / for 𝐤 i = 𝐤 i (𝜈, 𝐪), which is a complex vector that satisfies 𝐤 i • 𝐤 i = 1. We take the the branch cut of a square root along the positive real axis in the complex plane. Then for 𝑧 ∈ ℂ, we have 0 ≤ argy√𝑧z &lt; 𝜋. We have for 𝜃 𝐤 / ,</p><formula xml:id="formula_69">ℛ 𝐤 / 06 ℛ 𝐤 / 𝑌 8: (𝐬 &amp;) = | 𝑒 0?:&amp;@ 𝐤</formula><formula xml:id="formula_70">cos 𝜃 𝐤 / (5,𝐪) = 𝐳 &amp; • 𝐤 i = 𝑘 k -(𝜈𝑞), sin 𝜃 𝐤 / (5,𝐪) = ¾1 − ycos 𝜃 𝐤 / (5,𝐪) z % = ¾𝑘 k + % + 𝑘 k , % = 𝑖|𝜈𝑞| . (6.9)</formula><p>We note that 𝜃 𝐤 / (5,𝐪) depends on 𝜈, 𝐪 as 𝜈𝑞. Since 𝜃 𝐤 / (5,𝐪) is complex, we write the complex angle as 𝜃 𝐤 / (5,𝐪) = 𝑖𝜏(𝜈𝑞) <ref type="bibr" target="#b67">(Panasyuk, Schotland, and Markel, 2006)</ref>  <ref type="bibr" target="#b8">(Blanco, Flórez, and Bermejo, 1997;</ref><ref type="bibr" target="#b12">Courant and Hilbert, 1953;</ref><ref type="bibr">Edmonds, 1957;</ref><ref type="bibr" target="#b56">Machida, Panasyuk, Schotland, and Markel, 2010)</ref>. For 𝜑 𝐤 / , we have</p><formula xml:id="formula_71">cos 𝜑 𝐤 / (5,𝐪) = 𝑘 k + ¾𝑘 k + % + 𝑘 k , % = − 𝜈 |𝜈| cos 𝜑 𝐪 , sin 𝜑 𝐤 / (5,𝐪) = 𝑘 k , ¾𝑘 k + % + 𝑘 k , % = − 𝜈 |𝜈| sin 𝜑 𝐪 . (6.15)</formula><p>Thus we obtain 𝜑 𝐤 / (5,𝐪) = É 𝜑 𝐪 + 𝜋, 𝜈 &gt; 0, 𝜑 𝐪 , 𝜈 &lt; 0. (6.16)</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="7.">Three-dimensional 𝑭 𝑵 method</head><p>The letter F in 𝐹 ! means facile <ref type="bibr" target="#b70">(Siewert, 1978)</ref>. The 𝐹 ! method has been developed in the one-dimensional transport theory. Here, we explore how the 𝐹 ! method is extended to three dimensions by using rotated reference frames.</p><p>In the 𝐹 ! method, there is no need to evaluate singular functions although the fact that the specific intensity consists of singular eigenfunctions is used. In one dimension, the RTE was solved by the 𝐹 ! method in the slab geometry for isotropic scattering <ref type="bibr" target="#b31">(Grandjean and Siewert, 1979;</ref><ref type="bibr" target="#b72">Siewert and Benoist, 1979)</ref> and anisotropic scattering without <ref type="bibr" target="#b16">(Devaux and Siewert, 1980;</ref><ref type="bibr" target="#b25">Garcia and Siewert, 1985;</ref><ref type="bibr" target="#b70">Siewert, 1978)</ref> and with <ref type="bibr" target="#b28">(Garcia and Siewert, 1992;</ref><ref type="bibr" target="#b29">Garcia and Siewert, 1998)</ref> azimuthal dependence. The method was also extended to multigroup <ref type="bibr" target="#b23">(Garcia and Siewert, 1981)</ref>. After finding the specific intensity on the boundary, we can further calculate the specific intensity inside the medium <ref type="bibr" target="#b25">(Garcia and Siewert, 1985)</ref>. The uniqueness of the solution to the key 𝐹 ! equation was proved <ref type="bibr" target="#b40">(Larsen, 1982)</ref>. For isotropic scattering, the three dimensional RTE was solved with the 𝐹 ! method <ref type="bibr" target="#b18">(Dunn and Siewert, 1985;</ref><ref type="bibr" target="#b73">Siewert and Dunn, 1983</ref>) using the pseudo-problem <ref type="bibr" target="#b76">(Williams, 1982)</ref>, which is based on plane-wave decomposition. See the review article by Garcia <ref type="bibr" target="#b22">(Garcia, 1985)</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="7.1.">Half-space in three dimensions</head><p>Let us consider light propagation in the half-space which is occupied by a homogeneous random medium (i.e., the absorption and scattering coefficients are constant). The specific intensity 𝐼(𝐫, 𝐬 &amp;) of light is governed by the following RTE.</p><formula xml:id="formula_72">⎩ ⎪ ⎨ ⎪ ⎧ 𝐬 &amp; • ∇𝐼(𝐫, 𝐬 &amp;) + 𝜇 ( 𝐼(𝐫, 𝐬 &amp;) = 𝜇 # W 𝑝(𝐬 &amp;, 𝐬 &amp; &amp; )𝐼(𝐫, 𝐬 &amp; &amp; )𝑑𝐬 &amp; &amp; 𝕊 ! + 𝑆(𝐫, 𝐬 &amp;) , 𝑧 &gt; 0 , 𝐼(𝐫, 𝐬 &amp;) = 0 , 𝑧 = 0 , 0 &lt; 𝜇 ≤ 1 , 𝐼(𝐫, 𝐬 &amp;) → 0 , 𝑧 → ∞ . (7.1)</formula><p>We assume that the internal source 𝑆(𝐫, 𝐬 &amp;) is compact and smooth such that the solution 𝐼(𝐫, 𝐬 &amp;) of the RTE can be expanded by a finite number of spherical harmonics to a good approximation. By the Placzek lemma <ref type="bibr" target="#b12">(Case, de Hoffmann, and Placzek, 1953)</ref>, we can consider the following RTE for the whole space.</p><formula xml:id="formula_73">Â 𝐬 &amp; • ∇𝜓(𝐫, 𝐬 &amp;) + 𝜇 ( 𝜓(𝐫, 𝐬 &amp;) = 𝜇 # W 𝑝(𝐬 &amp;, 𝐬 &amp; &amp; )𝜓(𝐫, 𝐬 &amp; &amp; )𝑑𝐬 &amp; &amp; 𝕊 ! + Θ(𝑧 − 0 A )𝑆(𝐫, 𝐬 &amp;) + 𝜇𝐼(𝐫, 𝐬 &amp;)𝛿(𝑧), 𝑧 ∈ ℝ , 𝜓(𝐫, 𝐬 &amp;) → 0 , |𝑧| → ∞ . (7.2)</formula><p>We have the relation:</p><formula xml:id="formula_74">𝜓(𝐫, 𝐬 &amp;) = É 𝐼(𝐫, 𝐬 &amp;), 𝑧 &gt; 0 , 0 , 𝑧 &lt; 0 . (7.3)</formula><p>We note that the jump condition below is derived from the above RTE.</p><formula xml:id="formula_75">𝜓(𝛒, 0 A , 𝐬 &amp;) − 𝜓(𝛒, 0 0 , 𝐬 &amp;) = 𝐼(𝛒, 0, 𝐬 &amp;).</formula><p>(7.4) Using the fundamental solution in (4.66), (4.71), we obtain</p><formula xml:id="formula_76">𝜓(𝐫, 𝐬 &amp;) = W W 𝐺(𝐫, 𝐬 &amp;; 𝛒′, 0, 𝐬 &amp;′)𝜇′𝐼(𝛒′, 0, 𝐬 &amp;′) 𝑑𝛒′𝑑𝐬 &amp;′ ℝ ! 𝕊 ! + W W W 𝐺(𝐫, 𝐬 &amp;; 𝛒 &amp; , 𝑧 &amp; , 𝐬 &amp; &amp; )𝑆(𝛒 &amp; , 𝑧 &amp; , 𝐬 &amp; &amp; )𝑑𝛒 &amp; 𝑑𝑧 &amp; 𝑑𝐬 &amp; &amp; ℝ ! D * 𝕊 ! (7.5) for 𝐫 ∈ ℝ 7 , 𝐬 &amp; ∈ 𝕊 % . By letting 𝑧 → 0 A , we have 𝐼(𝛒, 0, 𝐬 &amp;) = W W 𝐺(𝛒, 0 A , 𝐬 &amp;; 𝛒′, 0, 𝐬 &amp;′)𝜇′𝐼(𝛒′, 0, 𝐬 &amp;′) 𝑑𝛒′𝑑𝐬 &amp;′ ℝ ! 𝕊 ! + W W W 𝐺(𝛒, 0, 𝐬 &amp;; 𝛒 &amp; , 𝑧 &amp; , 𝐬 &amp; &amp; )𝑆(𝛒 &amp; , 𝑧 &amp; , 𝐬 &amp; &amp; )𝑑𝛒 &amp; 𝑑𝑧 &amp; 𝑑𝐬 &amp; &amp; ℝ ! D * 𝕊 ! . (7.6)</formula><p>In the Fourier space,</p><formula xml:id="formula_77">𝐼 Ë (𝐪, 0, 𝐬 &amp;) = W 𝐺 µ (𝐪; 0 A , 𝐬 &amp;; 0, 𝐬 &amp;′)𝜇′𝐼 Ë (𝐪; 0, 𝐬 &amp;′) 𝑑𝐬 &amp;′ 𝕊 ! + W W 𝐺 µ (𝐪; 0, 𝐬 &amp;; 𝑧 &amp; , 𝐬 &amp; &amp; )𝑆 Ë (𝐪; 𝑧 &amp; , 𝐬 &amp; &amp; )𝑑𝑧 &amp; 𝑑𝐬 &amp; &amp; D * 𝕊 ! , (7.7)</formula><p>where 𝐼 Ë , 𝑆 Ë were introduced similar to 𝐺 µ in (4.66). We note that 𝐺 µ (𝐪; 0  where 𝑁 is the largest degree of spherical harmonics used in the expansion in (7.10). In general, 𝑁 is taken to be much greater than 𝑙 &lt;=&gt; . Furthermore, 𝑁 can be chosen depending on 𝑚. See <ref type="bibr" target="#b29">Garcia and Siewert, 1998.</ref> In this section, we set 𝑁 = 𝑙 &lt;=&gt; . In (7.10), only same-parity degrees are taken because the three-term recurrence relation of associated Legendre polynomials implies that 𝑌 8: (𝐬 &amp;) of opposite-parity 𝑙 are not independent. By substituting this approximate form for 𝐼 Ë (𝐪, 0, −𝐬 &amp;) in (7.9), we arrive at the following key 𝐹 ! equation: : &amp; (𝜈, 𝑞) is given as follows.</p><formula xml:id="formula_78">| | 𝐴 8: : &amp; (𝜈, 𝐪)𝑐 8: (𝐪) = 𝐾 : &amp; (𝜈, 𝐪) 89|:|,|:|A%,⋯ 8 #$% :908 #$% , (<label>7</label></formula><p>𝐴 8:</p><formula xml:id="formula_79">: &amp; (𝜈, 𝑞) = (−1) : 𝑘 k -(𝜈𝑞)¾ 𝜋 2𝑙 + 1 𝑑 ::&amp; 8 [𝑖𝜏(𝜈𝑞)] × @‰(𝑙 + 1) % − 𝑚′ % 𝑔 8A6 :&amp; (𝜈) + ‰ 𝑙 % − 𝑚′ % 𝑔 806 :&amp; (𝜈)D −𝑖 |𝜈𝑞| 2 ¾ 𝜋 2𝑙 + 1 (−1) : | 𝑑 ::&amp;&amp; 8 [𝑖𝜏(𝜈𝑞)] 8 :&amp;&amp;908 × Î𝛿 :&amp;&amp;,:&amp;06 @‰(𝑙 − 𝑚′′)(𝑙 − 𝑚′)𝑔 806 :&amp; (𝜈) − ‰(𝑙 + 𝑚′ + 1)(𝑙 + 𝑚′)𝑔 8A6 :&amp; (𝜈)D 𝛿 :&amp;&amp;,:&amp;A6 @‰(𝑙 − 𝑚′ + 1)(𝑙 − 𝑚′)𝑔 8A6 :&amp; (𝜈) − ‰(𝑙 + 𝑚′′)(𝑙 + 𝑚′)𝑔 806 :&amp; (𝜈)DÏ + 𝜛𝜈 2 (−1) 8 " 2𝑙 + 1 4𝜋 (𝑙 − 𝑚)! (𝑙 + 𝑚)! [sgn(𝑚′)] :&amp; ‰(2|𝑚′|)! (2|𝑚′| − 1)!! × | (−1) :&amp;&amp; " (|𝑚′| − 𝑚′′)! (|𝑚′| + 𝑚′′)! 𝑑 :&amp;&amp;,0:&amp; |:&amp;| [𝑖𝜏(𝜈𝑞)] |:&amp;| :&amp;&amp;90|:&amp;| × W 𝑔 : &amp; 9−𝜈, 𝑘 k -(𝜈𝑞)𝜇 − 𝑖𝜈𝑞‰1 − 𝜇 % cos 𝜑? 𝜈 + 𝑘 k -(𝜈𝑞)𝜇 − 𝑖𝜈𝑞‰1 − 𝜇 % cos 𝜑 𝜇𝑃 b: &amp; b : &amp;&amp; (𝜇)𝑃 8 : (𝜇)𝑒 ?Y:A: &amp;&amp; Z@ 𝑑𝐬 &amp; 𝕊 4 ! . (7.15)</formula><p>The number of columns of 𝐴 8: : &amp; (𝜈, 𝑞) is 𝑁 cUc , where 𝑁 cUc = É (𝑙 &lt;=&gt; + 2) % /4, 𝑙 &lt;=&gt; even , (𝑙 &lt;=&gt; + 1)(𝑙 &lt;=&gt; + 3)/4, 𝑙 &lt;=&gt; odd .</p><p>(7.16)</p><p>We choose the number of rows so that 𝐴 8: : &amp; (𝜈, 𝑞) becomes square. For this purpose, different collocation schemes have been proposed <ref type="bibr" target="#b23">(Garcia and Siewert, 1981;</ref><ref type="bibr" target="#b25">Garcia and Siewert, 1985;</ref><ref type="bibr" target="#b29">Garcia and Siewert, 1998;</ref><ref type="bibr" target="#b62">McCormick and Sanchez, 1981)</ref>.</p><p>Let 𝜉 be one of 𝑁 cUc chosen values for 𝜈. If 𝐾 :&amp; (𝜉, 𝐪) is independent of 𝜑 𝐪 and 𝐾 0:&amp; = 𝐾 :&amp; , then 𝑐 8: (𝐪) = 𝑐 8: (𝑞)𝑒 0?:@ 𝐪 , 𝑐 8,0: (𝑞) = (−1) : 𝑐 8: (𝑞). (7.17) After calculating 𝐼(𝛒, 0, 𝐬 &amp;), we can obtain the specific intensity 𝐼(𝛒, 𝑧, 𝐬 &amp;) inside the medium (𝑧 &gt; 0) by using 𝐼(𝛒, 0, 𝐬 &amp;). In this way, 𝐼(𝐫, 𝐬 &amp;) for the half-space can be computed by the three-dimensional 𝐹 ! method. It is also possible to consider the slab geometry.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="7.2.">Light from a spatially modulated source</head><p>Let us consider the following problem.</p><formula xml:id="formula_80">⎩ ⎪ ⎨ ⎪ ⎧ 𝐬 &amp; • ∇𝐼(𝐫, 𝐬 &amp;) + 𝜇 ( 𝐼(𝐫, 𝐬 &amp;) = 𝜇 # W 𝑝(𝐬 &amp;, 𝐬 &amp; &amp; )𝐼(𝐫, 𝐬 &amp; &amp; )𝑑𝐬 &amp; &amp; 𝕊 ! , 𝑧 &gt; 0 , 𝐼(𝐫, 𝐬 &amp;) = 𝑓(𝐫, 𝐬 &amp;) , 𝑧 = 0 , 0 &lt; 𝜇 ≤ 1 , 𝐼(𝐫, 𝐬 &amp;) → 0 , 𝑧 → ∞ . (7.18)</formula><p>Here, the incident beam is given by We obtain</p><formula xml:id="formula_81">𝑓(𝐫, 𝐬 &amp;) = 𝑒 0?1 " 𝐪 -•𝛒 𝛿(𝐬 &amp; − 𝐬 &amp; * ) , (<label>7</label></formula><formula xml:id="formula_82">𝐽 A (𝛒; 𝐪 * ) = 1 4𝜋 7/% 𝑒 0?P -+ | √2𝑙 + 1(−1) 8 % A6 𝑙! 2 8 (𝑙 − 1)(𝑙 + 2) Î9 𝑙 2 ? !Ï % 𝑐̌8 * (𝑞 * ) 89*,%,⋯ . (7.34)</formula><p>See Machida, 2015 for more details.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="8.">Three-dimensional analytical discrete ordinates</head><p>One way to approximate the fundamental solution in (4.66), (4.71) is to approximate the RTE from the beginning instead of finding approximate solutions to the RTE. Here, we replace the integral in the RTE by a sum. That is, we apply rotated reference frames to the discrete ordinates method.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="8.1.">Gauss-Legendre quadrature</head><p>Let 𝑤 ? (𝑖 = 1, ⋯ , 𝑁) be weights of the Gauss-Legendre quadrature. We discretize 𝜇 = cos 𝜃 as 0 &lt; 𝜇 6 &lt; 𝜇 % &lt; ⋯ &lt; 𝜇 ! &lt; 1 , − 1 &lt; 𝜇 %! &lt; ⋯ &lt; 𝜇 !A% &lt; 𝜇 !A6 &lt; 0 , (8.1) where 𝜇 !A? = −𝜇 ? (𝑖 = 1, ⋯ , 𝑁). The pairs (𝑤 ? , 𝜇 ? ) can be calculated, for example, using the Golub-Welsch algorithm <ref type="bibr" target="#b30">(Golub and Welsch, 1969)</ref> </p><formula xml:id="formula_83">𝐬 &amp; • ∇𝐼 # (𝐫, 𝐬 &amp;) + 𝜇 ( 𝐼 # (𝐫, 𝐬 &amp;) = 𝜇 # W 𝑝(𝐬 &amp;, 𝐬 &amp; &amp; )𝐼 # (𝐫, 𝐬 &amp; &amp; )𝑑𝐬 &amp; &amp; 𝕊 ! + 𝑆[𝐼 e ](𝐫, 𝐬 &amp;) .</formula><p>(8.7)</p><p>Here, 𝑆[𝐼 e ](𝐫, 𝐬 &amp;) was given in (7.24) but the ballistic term is obtained as</p><formula xml:id="formula_84">𝐼 e (𝐫, 𝐬 &amp;) = 𝛩y𝜇 * (𝑧 − 𝑧 * )z 𝜇 ( |𝜇 * | 𝛿 @𝛒 − 𝛒 * − 𝑧 − 𝑧 * 𝜇 * 𝛚 * D 𝑒 01 " (-0--)/1 -𝛿(𝐬 &amp; − 𝐬 &amp; * ) , (8.8)</formula><p>where 𝛚 * , 𝜇 * are components of 𝐬 &amp; * . Alternatively, 𝐼 e (𝐫, 𝐬 &amp;) can be expressed as</p><formula xml:id="formula_85">𝐼 e (𝐫, 𝐬 &amp;) = 1 |𝐫 − 𝐫 * | % 𝑒 01 " |𝐫0𝐫 -| 𝛿 @ 𝐫 − 𝐫 * |𝐫 − 𝐫 * | − 𝐬 &amp; * D 𝛿(𝐬 &amp; − 𝐬 &amp; * ) . (8.9)</formula><p>Let us set 𝐫 * = 𝟎. (8.10) We obtain</p><formula xml:id="formula_86">𝑆[𝐼 e ](𝐫, 𝐬 &amp;) = 𝛩(𝜇 * 𝑧) 𝜇 # |𝜇 * | 𝑝(𝐬 &amp;, 𝐬 &amp; * )𝛿 @𝛒 − 𝑧 𝜇 * 𝛚 * D 𝑒 01 " -/1 -. (8.11)</formula><p>Let us consider the Fourier transform of the scattering part: The separation constant 𝜉 is not necessarily the same as 𝜉 used in Sec. 7. We will determine 𝜉 below. We impose the normalization condition:</p><formula xml:id="formula_87">𝐼 Ë # (𝐪, 𝑧, 𝐬 &amp;) = W 𝑒 0?1 " 𝐪•𝛒 𝐼 # (𝐫, 𝐬 &amp;) 𝑑𝛒 ℝ ! . (<label>8</label></formula><formula xml:id="formula_88">| 𝑤 ? 𝜙 â : (𝜉, 𝜇 ? )(1 − 𝜇 ? % ) |:|/% %! ?96 = 1 . (8.19)</formula><p>A remark is necessary. The normalization condition implies that the following equality numerically holds for a unit vector 𝐤 i ∈ ℂ.</p><formula xml:id="formula_89">1 2𝜋 | 𝑤 ? W 𝜙 â : y𝜉, 𝐬 &amp; ? • 𝐤 i z Î1 − y𝐬 &amp; ? • 𝐤 i z % Ï |:| 𝑑𝜑 %) * %! ?96 = 1 . (8.20)</formula><p>Similar to the calculation in Sec. 4, we arrive at the following equation within the approximation of discrete ordinates.</p><formula xml:id="formula_90">@1 − 𝜇 ? 𝜉 D Φ Ö f : (𝐬 &amp; ? ) = 𝜛 | | 𝛽 8 &amp; 2𝑙 &amp; + 1 𝑌 8 &amp; : &amp; (𝐬 &amp; ? ) 8 &amp; : &amp; 908 &amp; 8 #$% 8 &amp; 9* | 𝑤 ? &amp; W 𝑌 8 &amp; : &amp; * (𝐬 &amp; ? &amp; )Φ Ö f : (𝐬 &amp; ? &amp; ) 𝑑𝜑 &amp; %) * %! ? &amp; 96</formula><p>(8.21)</p><p>for 𝑖 = 1, ⋯ ,2𝑁. By a straightforward calculation, we can show The separation constant 𝜉 is shown to be an eigenvalue of a matrix. We can calculate 𝜉 as follows. For this purpose we rewrite (8.24) as the following two equations:</p><formula xml:id="formula_91">| 𝑤 ? &amp; W 𝑌 8 &amp; : &amp; * (𝐬 &amp; ? &amp; )Φ Ö f : (𝐬 &amp; ? &amp; )𝑑𝜑 &amp; %) * %! ? &amp; 96 = 𝛿 :: &amp; (−1) : ‰(2𝑙 &amp; + 1)𝜋𝑔 8 &amp; :<label>(</label></formula><formula xml:id="formula_92">@1 − 𝜇 ? 𝜉 D 𝜙 â : (𝜉, 𝜇 ? ) = 𝜛 2 | 𝛽 8&amp; 𝑝 8&amp; : (𝜇 ? ) | 𝑤 ?&amp; 𝑝 8&amp; : (𝜇 ?&amp; )(1 − 𝜇 ?&amp; % ) |:| ! ?&amp;96 8 #$% 8&amp;9|:| × ã𝜙 â : (𝜉, 𝜇 ? &amp; ) + (−1) 8 &amp; A: 𝜙 â : (𝜉, −𝜇 ? &amp; )ä , (8.27) @1 + 𝜇 ? 𝜉 D 𝜙 â : (𝜉, −𝜇 ? ) = 𝜛 2 | 𝛽 8&amp; 𝑝 8&amp; : (𝜇 ? ) | 𝑤 ?&amp; 𝑝 8&amp; : (𝜇 ?&amp; )(1 − 𝜇 ?&amp; % ) |:| ! ?&amp;96 8 #$% 8&amp;9|:| × ã(−1) 8 &amp; A: 𝜙 â : (𝜉, 𝜇 ? &amp; ) + 𝜙 â : (𝜉, −𝜇 ? &amp; )ä (8.28)</formula><p>for 𝑖 = 1, ⋯ , 𝑁. Thus we arrive at matrix-vector equations:</p><formula xml:id="formula_93">@𝕀 ! − 1 𝜈 ΞD 𝚽 A : (𝜉) = 𝜛 2 [𝑊 A : 𝚽 A : (𝜉) + 𝑊 0 : 𝚽 0 : (𝜉)] , @𝕀 ! + 1 𝜈 ΞD 𝚽 0 : (𝜉) = 𝜛 2 [𝑊 0 : 𝚽 A : (𝜉) + 𝑊 A : 𝚽 0 : (𝜉)] , (8.29)</formula><p>where 𝕀 ! is the 𝑁-dimensional identity matrix. Matrix Ξ and vectors 𝚽 ± : (𝜉) are defined as</p><formula xml:id="formula_94">Ξ = \ 𝜇 6 ⋱ 𝜇 ! ^ , 𝚽 ± : (𝜉) = \ 𝜙 â : (𝜉, ±𝜇 6 ) ⋮ 𝜙 â : (𝜉, ±𝜇 ! ) ^ .</formula><p>(8.30)</p><p>Elements of the matrices 𝑊 ± : are given by</p><formula xml:id="formula_95">ê𝑊 ± : ë ?M = 𝑤 M | 𝛽 8 𝑝 : 8 (±𝜇 ? )𝑝 : 8 y𝜇 M zy1 − 𝜇 M % z |:| 8 #$% 89|:| . (8.31)</formula><p>The fact that 𝚽 ± : (−𝜉) = 𝚽 ∓ : (𝜉) implies that −𝜉 is an eigenvalue if 𝜉 is an eigenvalue. According to <ref type="bibr" target="#b3">Barichello, 2011;</ref><ref type="bibr" target="#b71">Siewert, 2000,</ref>  The eigenvalues 𝜉 can be calculated using (8.35): 𝜉 = 𝜉 h : &gt; 0 , 𝑛 = 1, ⋯ , 𝑁 , 𝑚 = 0, ⋯ , 𝑙 &lt;=&gt; . (8.37) We have 𝜉 h 0: = 𝜉 h : . In the case of isotropic scattering, it is proved that 𝜉 h * never coincide with 𝜇 ? <ref type="bibr">(Siewert and Wright, 1999)</ref>.</p><p>We note that the orthogonality relation (4.35) holds within the approximation of discrete ordinates. This implies that the fundamental solution (4.71) is obtained in the same manner: where</p><formula xml:id="formula_96">𝐺 µ y𝐪; 𝑧, 𝐬 &amp;; 𝑧 * , 𝐬 &amp; ? -z = | | 𝑤 ? - 2𝜋𝑘 k -(𝜉 h : 𝑞)𝒩(𝜉 h : , 𝑞) 𝑒 0H I ' (f 6 ) P)|-0--|/f 6 ) ! h96 8 #$% :908 #$% × ℛ 𝐤 / (±f 6 ) ,𝐪) Φ Ö ±f 6 ) : (𝐬 &amp; ? )Φ Ö ±f 6 ) : * y𝐬 &amp; ? -z. (<label>8</label></formula><formula xml:id="formula_97">𝐹(𝑞, 𝑧) = | 𝜉 h * 𝒩(𝜉 h * , 𝑞) ! h96 ½Θ(𝑧) 𝑒 01 " -− 𝑒 0H I ' Yf 6 -PZ1 " -/f 6 - 𝑘 k -(𝜉 h * 𝑞) − 𝜉 h</formula><p>To numerically evaluate 𝑈(𝜌, 𝑧), we can rewrite the integral in (8.48) using the asymptotic expression of the Bessel function 𝐽 * (Machida and Das). The integrals of sinusoidally oscillating integrands can be evaluated with the double-exponential formula <ref type="bibr" target="#b66">(Ooura and Mori, 1991;</ref><ref type="bibr" target="#b66">Ooura and Mori, 1999;</ref><ref type="bibr" target="#b65">Ogata, 2005)</ref>.</p><p>Let us set 𝜇 " = 0.01 mm 06 , 𝜇 # = 10 mm 06 . (8.50) Moreover, in the scattering phase function we set 𝛽 8 = (2𝑙 + 1)g 8 (8.51) with g = 0.0 or 0.9 . (8.52)  </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="8.5.">Remarks</head><p>It is possible to develop the three-dimensional ADO in the presence of boundaries. In particular, by the three-dimensional ADO we can solve the RTE for the half space of ℝ 7 , that is, for the domain {𝐫 ∈ ℝ 7 ; −∞ &lt; 𝑥 &lt; ∞ , − ∞ &lt; 𝑦 &lt; ∞ , 0 &lt; 𝑧 &lt; ∞}. In this case, the specific intensity𝐼 á (𝐫, 𝐬 &amp; ? ) satisfies</p><formula xml:id="formula_98">𝐬 &amp; • ∇𝐼 á (𝐫, 𝐬 &amp; ? ) + 𝜇 ( 𝐼 á (𝐫, 𝐬 &amp; ? ) = 𝜇 # | 𝑤 ? &amp; W 𝑝(𝐬 &amp; ? , 𝐬 &amp; ? &amp; )𝐼 á (𝐫, 𝐬 &amp; ? &amp; )𝑑𝜑 &amp; %) * %! ? &amp; 96 (8.53)</formula><p>for 𝑖 = 1, ⋯ ,2𝑁, 0 ≤ 𝜑 &lt; 2𝜋 with the boundary at 𝑧 = 0, 𝐼 á (𝐫, 𝐬 &amp; ? ) = 𝑔(𝐫, 𝐬 &amp; ? ) (8.54) for 𝑖 = 1, ⋯ , 𝑁, 0 ≤ 𝜑 &lt; 2𝜋. Here, 𝑔(𝐫, 𝐬 &amp; ? ) is the incident beam. Note that 𝐼 á → 0 as |𝐫| → ∞.</p><p>The solutions with the three-dimensional ADO have the form of plane-wave decomposition. That is, the solutions depend on 𝑥, 𝑦 through the factor 𝑒 ?1 " 𝐪•𝛒 . <ref type="bibr" target="#b33">Kim, 2004</ref><ref type="bibr" target="#b34">, Kim and Keller, 2003</ref><ref type="bibr" target="#b35">, and Kim and Moscoso, 2004</ref> established a numerical method of discreteordinates with plane-wave decomposition for the three-dimensional RTE. Their method can be viewed as separation of variable assuming the form 𝐼 𝐪,l (𝐫, 𝐬 &amp; ? ) = 𝑒 ?1 " 𝐪•𝛒 𝑒 0l(𝐪)-𝑉 l(𝐪) (𝐬 &amp; ? ) , (8.55) where 𝜆(𝐪) is a separation constant for a given 𝐪 ∈ ℝ % and 𝑉 l(𝐪) is a function labeled by 𝜆(𝐪). These 𝜆, 𝑉 l are obtained as eigenvalues and eigenvectors of a matrix which depends on 𝐪. By the comparison to the three-dimensional ADO, we notice that 𝜆 is not necessarily calculated for each 𝐪 because the 𝐪-dependence of the matrix can be eliminated as the matrices 𝐸 ± : in (8.36) are independent of 𝐪. Indeed, we have the relation:</p><formula xml:id="formula_99">𝜆(𝐪) = 𝜇 ( 𝑘 k -(𝜉𝑞) 𝜉 , (8.56)</formula><p>where 𝜉 is obtained from just one diagonalization. Finally, we note that the use of rotated reference frames is not the only way to extend ADO in the one-dimensional transport theory to multidimensions with anisotropic scattering. The ADO-Nodal formulation makes it possible to solve the two-dimensional RTE for anisotropic scattering. See <ref type="bibr" target="#b5">Barichello, Pazinatto, and</ref><ref type="bibr" target="#b5">Rui, 2020, Barichello, Rui, da Cunha, 2022</ref>, and references therein. An inverse source problem for the two-dimensional RTE was solved with the ADO-Nodal method (Pazinatto and <ref type="bibr">Barichello, 2021)</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="9.">Rotated reference frames with the spherical-harmonic expansion</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="9.1.">Rotated spherical harmonics</head><p>The 𝑃 ! method is a well-known numerical scheme for the RTE. For the one-dimensional RTE, the numerical solution is given in terms of Legendre polynomials:  <ref type="bibr">Case and Zweifel, 1967)</ref>. The trick to use spherical harmonics for three dimensions is to use them in rotated reference frames. Let us write</p><formula xml:id="formula_100">𝐼(𝑧, 𝜇) = | 2𝑙 + 1 4𝜋 𝜓 8 (𝑧)𝑃 8 (𝜇) 8 #$% 89* , (<label>9</label></formula><formula xml:id="formula_101">𝐼(𝐫, 𝐬 &amp;) = 𝜇 ( % (2𝜋) % | W 𝑒 ?1 " 𝐪•𝛒 𝐼 Ë : (𝐪, 𝑧, 𝐬 &amp;) 𝑑𝐪 ℝ ! 8 #$% :908 #$% , (9.4)</formula><p>where</p><formula xml:id="formula_102">𝐼 Ë : (𝐪, 𝑧, 𝐬 &amp;) = | | | 𝜓 8 &amp; : &amp; (l,:) (𝐪, 𝑧)ℛ 𝐤 / (l,𝐪) 𝑌 8 &amp; : &amp; (𝐬 &amp;) l 8 &amp; : &amp; 908 &amp; 8 #$% 8 &amp; 9* . (9.5)</formula><p>The parameter 𝜆 and the sum Σ l will become clear below.</p><p>The expansion by ℛ 𝐤 / 𝑌 8: (𝐬 &amp;) was first done by Dede in 1964 <ref type="bibr" target="#b15">(Dede, 1964)</ref>. Then Kobayashi extended Dede's calculation <ref type="bibr" target="#b36">(Kobayashi, 1977)</ref>. However, until 2004, the expansion by ℛ 𝐤 / 𝑌 8: (𝐬 &amp;) did not bring efficient numerical methods even though the expansion was interesting. In 2004, Markel independently arrived at ℛ 𝐤 / 𝑌 8: (𝐬 &amp;) <ref type="bibr" target="#b58">(Markel, 2004)</ref>. He derived an eigenvalue problem and devised an efficient algorithm for the three-dimensional RTE.</p><p>Since then, as a numerical method to solve the three-dimensional RTE, the usefulness of the method of rotated reference frames has been numerically justified for an infinite medium <ref type="bibr" target="#b58">(Markel, 2004;</ref><ref type="bibr" target="#b67">Panasyuk, Schotland, and Markel, 2006)</ref> , the slab geometry <ref type="bibr" target="#b56">(Machida, Panasyuk, Schotland, and Markel, 2010)</ref>, the half-space geometry <ref type="bibr" target="#b42">(Liemert and Kienle, 2012b;</ref><ref type="bibr" target="#b43">Liemert and Kienle, 2012c;</ref><ref type="bibr" target="#b45">Liemert and Kienle, 2013b;</ref><ref type="bibr" target="#b46">Liemert and Kienle, 2013c)</ref>. The method was developed for the three-dimensional time-dependent RTE for an infinite medium <ref type="bibr" target="#b44">(Liemert and Kienle, 2012d;</ref><ref type="bibr" target="#b44">Liemert and Kienle, 2012e)</ref>. The spherical-harmonic expansion was applied to the RTE in two dimensions <ref type="bibr" target="#b41">(Liemert and Kienle, 2011;</ref><ref type="bibr" target="#b41">Liemert and Kienle, 2012a;</ref><ref type="bibr" target="#b44">Liemert and Kienle, 2012f;</ref><ref type="bibr" target="#b44">Liemert and Kienle, 2013a)</ref>. The method was also used to experimentally determine optical properties of turbid media <ref type="bibr">(Xu and Patterson, 2006a;</ref><ref type="bibr">Xu and Patterson, 2006b)</ref>. The usefulness of the method of rotated reference frames has also been numerically justified in flatland <ref type="bibr" target="#b41">(Liemert and Kienle, 2011;</ref><ref type="bibr" target="#b41">Liemert and Kienle, 2012a;</ref><ref type="bibr" target="#b44">Liemert and Kienle, 2012f;</ref><ref type="bibr" target="#b44">Liemert and Kienle, 2013a)</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="9.2.">Separated solutions</head><p>Let us give 𝜓 8 &amp; : &amp; (l,:) (𝐪, 𝑧) in (9.5) as</p><formula xml:id="formula_103">𝜓 8 &amp; : &amp; (l,:) (𝐪, 𝑧) = 𝑐 8 &amp; : &amp; : (𝜆)𝑒 01 " H I ' (lP)-/l .</formula><p>(9.6) We take the Fourier transform for the homogeneous RTE (4.12) and substitute 𝐼 Ë (𝐪, 𝑧, 𝐬 &amp;) in (9.5). By this, we arrive at an eigenvalue problem. We obtain 𝜆 after diagonalizing the resulting matrix.</p><p>Since we already know the analytical solution from Sec. 4, we see the relation, can be calculated as follows <ref type="bibr" target="#b51">(Machida, 2015)</ref>. We multiply ℛ 𝐤 / (l,𝐪) 𝑌 8 &amp;&amp; :&amp;&amp; * (𝐬 &amp;) (0 ≤ 𝑙′′ ≤ 𝑙 &lt;=&gt; , −𝑙′′ ≤ 𝑚′′ ≤ 𝑙′′) on both sides of (9.7) and integrate over 𝐬 &amp;. We have</p><formula xml:id="formula_104">| | 𝑐 8 &amp; : &amp; : ℛ 𝐤 / (l,𝐪) 𝑌 8 &amp; : &amp; (𝐬 &amp;) 8 &amp; : &amp; 908 &amp; 8 #$% 8 &amp; 9* = ℛ 𝐤 / (l,𝐪) | | 𝑐 8 &amp; : &amp; : 𝑌 8 &amp; : &amp; (𝐬 &amp;) 8 &amp; : &amp; 908 &amp; 8 #$% 8 &amp; 9* ≈ ℛ 𝐤 / (l,</formula><formula xml:id="formula_105">W ℛ 𝐤 / (l,𝐪) 𝑌 8 &amp;&amp; :&amp;&amp; * (𝐬 &amp;) | | 𝑐 8&amp;:&amp; : ℛ 𝐤 / (l,𝐪) 𝑌 8&amp;:&amp; (𝐬 &amp;) 8&amp; :&amp;908&amp; 8 #$% 8&amp;9* 𝑑𝐬 &amp; 𝕊 ! = W ℛ 𝐤 / (l,𝐪) 𝑌 8 &amp;&amp; : &amp;&amp; * (𝐬 &amp;)ℛ 𝐤 / (l,𝐪) Φ l : (𝐬 &amp;)𝑑𝐬 &amp; 𝕊 ! . (9.8)</formula><p>The left-hand side is computed as (9.11) One remark is necessary for the case that 𝑙 &lt;=&gt; → ∞ in (9.7). Unlike the one-dimensional transport theory, which corresponds to the case of 𝐤 i = 𝐳 &amp;, the first equality in (9.7) does not hold if 𝑙 &lt;=&gt; = ∞ because the leftmost side diverges as 𝑙 &lt;=&gt; → ∞. To see this, we begin with the following Legendre expansion:</p><formula xml:id="formula_106">LHS of (9.8) = W 𝑌 8 &amp;&amp; : &amp;&amp; * (𝐬 &amp;) | | 𝑐 8 &amp; : &amp; : (𝜆)𝑌 8 &amp; : &amp; (𝐬 &amp;) 8 &amp; : &amp; 908 &amp; 8 #$% 8 &amp; 9* 𝑑𝐬 &amp; 𝕊 ! = 𝑐</formula><formula xml:id="formula_107">1 𝜈 − 𝜇 = | 𝑐 8 (𝜈)𝑃 8 (𝜇) D 89* , 𝜈 &gt; 1 , − 1 ≤ 𝜇 ≤ 1 , (9.12)</formula><p>where the first a few 𝑐 8 (𝜈) are obtained as</p><formula xml:id="formula_108">𝑐 * = 1 2 log 𝜈 + 1 𝜈 − 1 , 𝑐 6 = 3𝜈 coth 06 (𝜈) − 3 , 𝑐 % = 5 2 ((3𝜈 % − 1)coth 06 (𝜈) − 3𝜈) . (9.13)</formula><p>Now, suppose |𝜇| &gt; 1. Since Legendre polynomials are given by <ref type="bibr">(9.14)</ref> the right-hand side of (9.12) diverges if |𝜇| &gt; 1 although the left-hand side remains finite. For simplicity, let us consider the case of isotropic scattering. For 𝜈 ∉ [−1,1], we have <ref type="bibr">(9.16</ref>) where 𝑘 k -(𝜈𝑞) is given in (4.34). Since 𝑘 k -(𝜈𝑞) is greater than 1, the Legendre expansion of ℛ 𝐤 / (5,𝐪) Φ 5 * (𝐬 &amp;) does not converge. In the spherical-harmonic expansion for the three-dimensional RTE, usually 𝑙 &lt;=&gt; around 10 gives good numerical solutions. In Fig. <ref type="figure" target="#fig_12">9</ref>.1, the hemispheric flux (7.33) is computed with the 𝐹 ! method (see (7.34)) and the spherical-harmonic expansion.</p><formula xml:id="formula_109">𝑃 * (𝜇) = 1 , 𝑃 6 (𝜇) = 𝜇 , 𝑃 % (𝜇) = 1 2 (3𝜇 % − 1) , ⋯ ,</formula><formula xml:id="formula_110">ℛ 𝐤 / (5,𝐪) Φ 5 * (𝐬 &amp;) = 𝜛𝜈 2 1 𝜈 − 𝐬 &amp; • 𝐤 i (𝜈, 𝐪) . (9.15) Recall 𝐬 &amp; • 𝐤 i (𝜈, 𝐪) = −𝑖𝜈𝑞‰1 − 𝜇 % cosy𝜑 − 𝜑 𝐪 z + 𝜇𝑘 k -(𝜈𝑞),</formula><p>In one dimension, it is known that the discrete ordinates and spherical harmonics methods are equivalent <ref type="bibr">(Barichello and Siewert, 1998)</ref>. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="9.3.">Green's function for an infinite medium</head><p>Let us compute the Green's function for an infinite medium or the fundamental solution for the <ref type="bibr">RTE (4.62)</ref>  and We have The relation (9.7) implies</p><formula xml:id="formula_111">* ) = 1 2𝜋 𝑒 0?1 " 𝐪•𝛒 -| | 𝑒 01 " H I ' (lP)|-0--|/l 𝑘 k -(𝜆𝑞)𝒩 : (𝜆) lm* 8 #$% :908 #$% ½ | ‰(2𝑙 + 1)𝜋𝑔 8 : (𝜆)ℛ 𝐤 / (±l,𝐪) 𝑌 8: (𝐬 &amp;) 8 #$% 89|:| AE × ½ | ‰(2𝑙 &amp; + 1)𝜋𝑔 8 &amp; : (𝜆)ℛ 𝐤 / (±l,𝐪) 𝑌 8 &amp; : * (𝐬 &amp; * ) 8 #$% 8 &amp; 9|:| AE . (<label>9</label></formula><formula xml:id="formula_112">𝐼 l (0): (𝐫, 𝐬 &amp;; 𝐪) = 𝑒 ?1 " 𝐪•𝛒 𝑒 1 " H I ' (lP)-/l | 𝜓 8 : (𝜆) ‰𝜎 8 ℛ 𝐤 / (l,0𝐪) 𝑌 8: * (−𝐬 &amp;) 8 #$% 89|:| = 𝑒 ?1 " 𝐪•𝛒 𝑒 1 " H I ' (lP)-/l | 𝜓 8 : (𝜆) ‰𝜎 8 (−1) 8A: ℛ 𝐤 / (l,0𝐪) 𝑌 8,0: (𝐬 &amp;) 8 #$% 89|:| = (−1) : 𝑒 ?1 " 𝐪•𝛒 𝑒 1 " H I ' (lP)-/</formula><formula xml:id="formula_113">2𝜋𝒩 : (𝜆) = W 𝜇|Φ l : (𝐬 &amp;)| % 𝑑𝐬 &amp; 𝕊 ! = 2𝜋𝒩 : (𝜆)𝜇 ( 𝜆 | | 𝜓 8 : (𝜆)𝜓 8 &amp; : (𝜆) ‰𝜎 8 𝜎 8 &amp; W 𝜇𝑌 8: (𝐬 &amp;)𝑌 8 &amp; : * (𝐬 &amp;) 𝑑𝐬 &amp; 𝕊 ! 8 #$% 8 &amp; 9|:| 8 #$% 89|:| . (<label>9</label></formula><formula xml:id="formula_114">| | 8 &amp; : &amp; : (𝜆)𝑌 8 &amp; : &amp; (𝐬 &amp;) 8 &amp; : &amp; 908 &amp; D 8 &amp; 9* = Φ l : (𝐬 &amp;). (9.34)</formula><p>Then using 𝜆 instead of 𝜈, (4.17) can be rewritten as</p><formula xml:id="formula_115">91 − 𝜇 𝜆 ? | | 𝑐 8 &amp; : &amp; : (𝜆)𝑌 8 &amp; : &amp; (𝐬 &amp;) 8 &amp; : &amp; 908 &amp; D 8 &amp; 9* = 𝜛 | | 𝛽 8 &amp; 2𝑙 &amp; + 1 𝑐 8 &amp; : &amp; : (𝜆)𝑌 8 &amp; : &amp; (𝐬 &amp;) 8 &amp; : &amp; 908 &amp; D 8 &amp; 9* . (9.35)</formula><p>Thus for |𝑀| ≤ 𝑙 &lt;=&gt; , we have</p><formula xml:id="formula_116">𝑐 8: R (𝜆) − 1 𝜆 | | 𝑐 8 &amp; : &amp; R (𝜆) 8 &amp; : &amp; 908 &amp; D 8 &amp; 9* W 𝜇𝑌 8 &amp; : &amp; (𝐬 &amp;)𝑌 8: * (𝐬 &amp;) 𝑑𝐬 &amp; 𝕊 ! = 𝜛𝛽 8 2𝑙 + 1 𝑐 8: R<label>(</label></formula></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>𝜆) . (9.36)</head><p>The right-hand side of (9.36) vanishes if 𝑙 &gt; 𝑙 &lt;=&gt; (Recall that 𝑙 &lt;=&gt; was introduced in (4.1)).</p><p>Using the orthogonality relation for associated Legendre polynomials (4.8), we obtain <ref type="bibr" target="#b67">(Panasyuk, Schotland, and Markel, 2006</ref>) We can readily see that (9.36) is equivalent to (4.61) and we have the relation</p><formula xml:id="formula_117">| 𝐵 88 &amp; (𝑀) ‰𝜎 8 &amp; 𝑐 8 &amp; R R (𝜆) 8 #$% 8 &amp; 9|R| = 𝜆 𝜇 ( ‰𝜎 8 𝑐 8R R<label>(</label></formula><formula xml:id="formula_118">𝐵(𝑀) = 1 𝜇 ( 𝐴(𝑀) ,<label>(9.40)</label></formula><p>where 𝐴(𝑀) was introduced in (4.50). Hence, 𝜆 is obtained using the tridiagonal matrices.</p><p>Let us look at the fundamental solution more carefully. The expression (9.21) can be rewritten as</p><formula xml:id="formula_119">𝐺(𝐫, 𝐬 &amp;; 𝐫 * , 𝐬 &amp; * ) = 1 (2𝜋) % | | | | 8&amp; :&amp;908&amp; 8 #$% 8&amp;9* 8 :908 8 #$% 89* W 𝑒 ?1 " 𝐪•(𝛒0𝛒 -) 𝑌 8: (𝐬 &amp;)𝜅 8 &amp; : &amp; 8: (𝐪, 𝑧 − 𝑧 * )𝑌 8 &amp; : &amp; * (𝐬 &amp; * ) 𝑑𝐪 ℝ ! . (<label>9.41)</label></formula><p>where</p><formula xml:id="formula_120">𝜅 8&amp;:&amp; 8: (𝐪, 𝑧 − 𝑧 * ) = 𝑒 0?(:0:&amp;)@ 𝐪 ‰𝜎 8 𝜎 8&amp; [sgn(𝑧 − 𝑧 * )] 8A8&amp;A:A:&amp; | | | 𝑑 :: ( 8 [𝑖𝜏(𝜆𝑞)] lm* 8&amp; : ! 908&amp; 8 : ( 908 × 𝜓 8 : ( (𝜆) 𝑒 01 " H I ' (5P)|-0--|/l 𝜆𝑘 k -(𝜆𝑞) 𝜓 8 &amp; : ! (𝜆) * 𝑑 : &amp; : ! 8 &amp; [𝑖𝜏(𝜆𝑞)] (9.42)</formula><p>An alternative way of computing the fundamental solution is to express it as</p><formula xml:id="formula_121">𝐺(𝐫, 𝐬 &amp;; 𝐫 * , 𝐬 &amp; * ) = 1 (2𝜋) 7 | | | | W 𝑘 % D * 8&amp; :&amp;908&amp; 8 #$% 8&amp;9* 8 :908 8 #$% 89* × W 𝑒 ?H𝐤 / •(𝐫0𝐫 -) 9ℛ 𝐤 / 𝑌 8: (𝐬 &amp;)?𝐾 8 &amp; : &amp; 8: (𝑘) 9ℛ 𝐤 / 𝑌 8 &amp; : &amp; * (𝐬 &amp; * )? 𝑑𝐤 i ℝ ! 𝑑𝑘 ,<label>(9.43)</label></formula><p>where 𝐾 8&amp;:&amp; 8: (𝑘) will be derived below. We note that the matrix 𝑊 has a block-diagonal structure:</p><formula xml:id="formula_122">𝑊 8 &amp; : &amp; 8: = 1 ‰𝜎 8 𝑅 8 &amp; : &amp; 8: 1 ‰𝜎 8 &amp; = 𝐵 88 &amp; (𝑚)𝛿 :: &amp; . (9.50)</formula><p>Recall that 𝜆/𝜇 ( and 𝜓 8 : (𝜆) are eigenvalues and eigenvectors of 𝐵. We obtain</p><formula xml:id="formula_123">𝐾 8 &amp; : &amp; 8: (𝑘) = | | | | 𝜓 8 : (𝜆)𝜓 8 &amp; : (𝜆) * ‰𝜎 8 91 + 𝑖𝑘𝜆 𝜇 ( ? ‰𝜎 8 &amp; 8 #$% 8 &amp; 9|:| 8 #$% 89|:| l 8 #$% :908 #$% .</formula><p>(9.51)</p><p>For the relation between 𝜅 8&amp;:&amp; 8: and 𝐾 8&amp;:&amp; 8: , we refer the reader to <ref type="bibr" target="#b67">Panasyuk, Schotland, and Markel, 2006.</ref> We will use the notation</p><formula xml:id="formula_124">𝐑 = 𝐫 − 𝐫 * , 𝑅 = |𝐫 − 𝐫 * | , 𝐑 ' = 𝐫 − 𝐫 * |𝐫 − 𝐫 * | . (9.52)</formula><p>Let us write (9.43) as</p><formula xml:id="formula_125">𝐺(𝐫, 𝐬 &amp;; 𝐫 * , 𝐬 &amp; * ) = | | | | 𝑌 8: (𝐬 &amp;)𝜒 8 &amp; : &amp; 8: (𝐑)𝑌 8 &amp; : &amp; * (𝐬 &amp; * ) 8 &amp; : &amp; 908 &amp; 8 #$% 8 &amp; 9* 8 :908 8 #$% 89* (9.53)</formula><p>with function 𝜒 8&amp;:&amp; 8: (𝐑). In the case of 𝐑 ' = 𝐳 &amp;, we obtain</p><formula xml:id="formula_126">𝜒 8&amp;:&amp; 8: (𝐑) = 𝜇 ( 7 2𝜋‰𝜎 8 𝜎 8&amp; 𝛿 ::&amp; | (−1) R &lt;no(8,8&amp;) R90&lt;no(8,8&amp;) × | 𝐶 8,R,8 &amp; ,0R b808 &amp; b0%M,* 𝐶 8,:,8 &amp; ,0: b808 &amp; bA%M,* &lt;noY8,8 &amp; Z M9* | 𝜓 8 R (𝜆)𝜓 8 &amp; R (𝜆) * 𝜆 7 𝑘 b808 &amp; bA%M @ 𝜇 ( 𝑅 𝜆 D lm* ,<label>(9.54)</label></formula><p>where 𝑘 h is the modified spherical Bessel function of the second kind (defined without the factor of 𝜋/2), 𝐶 M ( : ( M ! : ! M ; : ; are the Clebsch-Gordan coefficients. To show this, we set 𝐫 * = 𝟎 and introduce the notation</p><formula xml:id="formula_127">𝐫 &amp; = 𝐫 |𝐫| . (9.55)</formula><p>In general, we have</p><formula xml:id="formula_128">𝜒 8 &amp; : &amp; 8: (𝐫) = 1 (2𝜋) 7 ‰𝜎 8 𝜎 8 &amp; | | W 𝑘 % W 𝑒 ?H𝐤 / •𝐫 𝑒 0?Y:0: &amp; Z@ 𝐤 3 𝑑 :: ( 8 (𝜃 𝐤 / )𝑑 : &amp; : ! 8 &amp; (𝜃 𝐤 / ) 𝑑𝐤 i ℝ ! D * 8 &amp; : ! 908 &amp; 8 : ( 908 × | 𝜓 8 : ( (𝜆)𝜓 8 &amp; : ! (𝜆) * 1 + 𝑖𝑘𝜆/𝜇 ( l 𝑑𝑘 . (9.56) Since 𝐫 &amp; = 𝐳 &amp;, we have 𝐤 i • 𝐫 &amp; = cos 𝜃 𝐤 / . In this case, 𝜒 8 &amp; : &amp; 8: (𝐫) = 1 (2𝜋) % ‰𝜎 8 𝜎 8 &amp; | W 𝑘 % | 𝜓 8 R (𝜆)𝜓 8 &amp; R (𝜆) * 1 + 𝑖𝑘𝜆/𝜇 ( l 𝐼 𝑑𝑘 D * &lt;noY8,8 &amp; Z R90&lt;no(8,8 &amp; ) ,<label>(9.57)</label></formula><p>where 𝐼 = 1 2𝜋 W W 𝑒 0?Y:0: &amp; Z@ 𝑒 ?Hp TUV q 𝑑 :R In this way, we arrive at</p><formula xml:id="formula_129">𝜒 8 &amp; : &amp; 8: (𝐫) = 2(−1) : (2𝜋) % ‰𝜎 8 𝜎 8 &amp; 𝛿 :: &amp; | (−1) R | 𝑖 r 𝐶 8,:,8 &amp; ,0: r,* 𝐶 8,R,8 &amp; ,0R r,* 8A8 &amp; r9|808 &amp; | &lt;noY8,8 &amp; Z R90&lt;no(8,8 &amp; ) × | 𝜓 8 R (𝜆)𝜓 8&amp; R (𝜆) * W 𝑘 % 𝑗 r (𝑘𝑟) 1 + 𝑖𝑘𝜆/𝜇 ( 𝑑𝑘 D * l = 2(−1) : ‰𝜎 8 𝜎 8 &amp; 𝛿 :: &amp; | (−1) R | 𝑖 b808 &amp; bA%M 𝐶 8,:,8 &amp; ,0: b808 &amp; bA%M,* 𝐶 8,R,8 &amp; ,0R b808 &amp; bA%M,* &lt;noY8,8 &amp; Z M9* &lt;noY8,8 &amp; Z R90&lt;no(8,8 &amp; ) × | 𝜓 8 R (𝜆)𝜓 8 &amp; R (𝜆) * 𝐽 lm* ,<label>(9.62)</label></formula><p>where</p><formula xml:id="formula_130">𝐽 = 1 (2𝜋) % W 𝑘 % 𝑗 b808 &amp; bA%M (𝑘𝑟) 1 + (−1) 8A8 &amp; − 𝑖𝑘(𝜆/𝜇 ( )ã1 − (−1) 8A8 &amp; ä 1 + (𝑘𝜆/𝜇 ( ) % 𝑑𝑘 D * . (9.63)</formula><p>We can perform the integral as</p><formula xml:id="formula_131">𝐽 = 𝜋𝑖 0Yb808 &amp; bA%MZ 9 𝜇 ( 𝜆 ? 7 𝑘 b808 &amp; bA%M 9 𝜇 ( 𝑟 𝜆 ? . (9.64) Thus, 𝜒 8 &amp; : &amp; 8: (𝐫) is obtained. In the case of 𝐬 &amp; * = 𝐳 &amp;, we obtain 𝜒 8 &amp; : &amp; 8: (𝐫 − 𝐫 * ) = 𝜇 ( 7 (−1) 8 ‰𝜋(2𝑙 &amp; + 1)𝜎 8 𝜎 8 &amp; 𝛿 : &amp; * | | 'ℛ 𝐬 t -𝑌 b808 &amp; bA%M,: * @ 𝐫 − 𝐫 * |𝐫 − 𝐫 * | D( 𝐶 8,R,b808 &amp; bA%M,* × | 𝜓 8 R (𝜆)𝜓 8 &amp; R (𝜆) * 𝜆 7 𝑘 b808 &amp; bA%M + 𝜇 ( |𝐫 − 𝐫 * | 𝜆 / lm* . (9.65)</formula><p>See <ref type="bibr" target="#b67">Panasyuk, Schotland, and Markel, 2006</ref> for detail calculations.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="9.4.">Ballistic subtraction</head><p>As seen in Secs. 7 and 8, numerical instability can be reduced by the ballistic subtraction. We will explore an alternative way of the ballistic subtraction <ref type="bibr" target="#b67">(Panasyuk, Schotland, and Markel, 2006)</ref>.</p><p>One way to subtract the ballistic term is to decompose the specific intensity into two terms (see Sec. 8.2 and also <ref type="bibr" target="#b49">Liemert and Kienle, 2015)</ref>. The other way is to subtract the ballistic component term by term.</p><p>Let  in the expression of 𝐺(𝐫, 𝐬 &amp;; 𝐫 * , 𝐬 &amp; * ) in (9.53). Since the expansion by spherical harmonics diverges in rotated reference frames as described in Sec. 9.2, the two ballistic subtractions are not equivalent.</p><formula xml:id="formula_132">(𝐫 − 𝐫 * ) = ‰(2𝑙 + 1)(2𝑙 &amp; + 1) 4𝜋|𝐫 − 𝐫 * | % 𝛿 :* 𝑒 01 " |𝐫0𝐫 -| . (<label>9</label></formula><p>We We close this subsection by numerical examples. In Fig. <ref type="figure" target="#fig_12">9</ref>.2, the computed specific intensity in (9.53) is shown for different 𝑙 &lt;=&gt; . In addition, the effect of the ballistic subtraction is illustrated. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="9.5.">Green's function for the slab geometry</head><p>Let us consider the RTE in the presence of boundaries. Here we compute the Green's function 𝐼(𝐫, 𝐬 &amp;; 𝐫 * , 𝐬 &amp; * ) for a slab of width 𝐿. The RTE is written as  Coefficients 𝑓 l (±): are determined using (9.80) and (9.81). Noting that (9.80) and (9.81) are invariant with respect to the substitution 𝑚′ → −𝑚′, we have 𝑓 l (±)0: (𝑞) = (−1) : 𝑓 l (±): (𝑞). ( <ref type="formula" target="#formula_100">9</ref>.82) Hence we can consider only nonnegative 𝑚′ ≥ 0 and 𝑚 ≥ 0. We have is the number of pairs (𝑙′, 𝑚′). The number of columns of these matrices is the number of pairs (𝑚, 𝜆). We note that equations with only odd 𝑙′ (or even 𝑙′) are linearly independent because of the three-term recurrence relations of associated Legendre polynomials (see (7.10)) <ref type="bibr" target="#b42">(Liemert and Kienle, 2012b)</ref>. Thus the numbers of equations and unknowns are equal in (9.83).</p><formula xml:id="formula_133">𝐬 &amp; • ∇𝐼(𝐫, 𝐬 &amp;; 𝐫 * , 𝐬 &amp; * ) + 𝜇 ( 𝐼(𝐫, 𝐬 &amp;; 𝐫 * , 𝐬 &amp; * ) = 𝜇 # W 𝑝(𝐬 &amp;, 𝐬 &amp; &amp; )𝐼(𝐫, 𝐬 &amp; &amp; ; 𝐫 * , 𝐬 &amp; * )𝑑𝐬 &amp; &amp; 𝕊 ! , 0 &lt; 𝑧 &lt; 𝐿 . (9.</formula><formula xml:id="formula_134">8 #$% 89|:| l 8 #$% :908 #$% +𝐹 l (0): (𝐪)(−1) 8A: &amp; 𝑑 : &amp; ,0: 8 [𝑖𝜏(𝜆𝑞)]Ï = 𝐼 * 𝑒 0?1 " 𝐪•𝛒 -| ℬ 8 &amp; 8 : &amp; 𝑌 8: &amp; * (𝐬 &amp; * ) 8 #$% 89|:| , (9.74) | | | ℬ 8 &amp; 8 : &amp; (−1) 8A8 &amp; 𝜓 8 : (𝜆) ‰𝜎 8 𝑒 0?: &amp; Y@ 𝐪 A)Z Î𝐹 l (A): (𝐪)𝑒 01 " H I ' (lP)r/l 𝑑 : &amp; ,: 8 [𝑖𝜏(𝜆𝑞)]</formula><formula xml:id="formula_135">+ ℳ (AA) (𝑞) ℳ (A0) (𝑞) ℳ (0A) (𝑞) ℳ (00) (𝑞) / + 𝑓 (A) (𝑞) 𝑓 (0) (𝑞) / = @ v (A) v (0) D , (<label>9</label></formula><p>The specific intensity can be expressed as The specific intensity for the half-space geometry is obtained in the limit of 𝐿 → ∞. In the half space, the ballistic subtraction can be performed as follows. First we decompose the specific intensity into the ballistic and scattering terms as given in (7. The specific intensity was explicitly calculated in the case of 𝑙 &lt;=&gt; = 3 (Liemert and Kienle, 2014).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="9.6.">Time-dependent case</head><p>Based on the spherical-harmonic expansion, solutions to the time-dependent threedimensional RTE were obtained by <ref type="bibr">Liemert and</ref><ref type="bibr" target="#b44">Kienle, 2012d and</ref><ref type="bibr">Liemert and</ref><ref type="bibr" target="#b44">Kienle, 2012e.</ref> In this section we solve the time-dependent RTE following Liemert and Kienle, 2012e. Let us consider the Green's function 𝐺(𝐫, 𝐬 &amp;, 𝑡; 𝐫 * , 𝐬 &amp; * ) in the whole space, which obeys where matrix 𝑄 : (𝑘) and vector 𝐪 : (𝐤, 𝑡) are given by</p><formula xml:id="formula_136">𝑄 : (𝑘) = ⎝ ⎜ ⎜ ⎜ ⎛ 𝜎 8 𝑖𝑘𝑏 8 (𝑚) 𝑖𝑘𝑏 8 (𝑚) 𝜎 8A6 0 0 𝑖𝑘𝑏 8A6 (𝑚) 0 ⋯ 0 ⋯ ⋮ 0 𝑖𝑘𝑏 8A6 (𝑚) 0 0 ⋱ ⋱ ⋱ ⋱ 0 0 ⋮ 0 ⋯ 0 0 𝜎 8 #$% 06 𝑏 8 #$% (𝑚) 𝑏 8 #$% (𝑚) 𝜎 8 #$% ⎠ ⎟ ⎟ ⎟ ⎞ , (9.103)</formula><p>where 𝑏 8 (𝑚) was given in (9.31) and</p><formula xml:id="formula_137">𝐪 : (𝐤, 𝑡) = ⎝ ⎜ ⎜ ⎛ 𝑒 0?𝐤•𝐫 -ℛ 𝐤 / 𝑌 |:|,: * (𝐬 &amp; * )𝛿(𝑡) ⋮ 𝑒 0?𝐤•𝐫 -ℛ 𝐤 / 𝑌 8: * (𝐬 &amp; * )𝛿(𝑡) ⋮ 𝑒 0?𝐤•𝐫 -ℛ 𝐤 / 𝑌 8 #$% ,: * (𝐬 &amp; * )𝛿(𝑡) ⎠ ⎟ ⎟ ⎞ . (9.104)</formula><p>The solution of the above matrix-vector equation is obtained as  Although the time-dependent RTE has not been solved in the presence of boundaries, Liemert and Kienle, 2013d approximately solved the time-dependent RTE in the half space using the Green's function for an infinite medium. </p><formula xml:id="formula_138">𝐟 : (𝐤, 𝑡) = 𝑐𝑒 0W ) (H)</formula><formula xml:id="formula_139">𝐪 : (𝐤) = ⎝ ⎜ ⎜ ⎛ 𝑒 0?𝐤•𝐫 -ℛ 𝐤 / 𝑌 |:|,: * (𝐬 &amp; * ) ⋮ 𝑒 0?𝐤•𝐫 -ℛ 𝐤 / 𝑌 8: * (𝐬 &amp; * ) ⋮ 𝑒 0?𝐤•𝐫 -ℛ 𝐤 / 𝑌 8 #$% ,: * (𝐬 &amp; * ) ⎠ ⎟ ⎟ ⎞ . (<label>9</label></formula></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="10.">Applications</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="10.1.">Optical tomography</head><p>Light propagation in biological tissue is governed by the RTE. On a large scale, say the propagation distance is 1cm when the transport mean free path is 1mm, the solution to the diffusion equation becomes almost identical to the solution of the RTE. Optical tomography is formulated as inverse problems which determine coefficients of the RTE or diffusion equation. The diffusion equation is usually used for optical tomography because the equation is easier to solve. Hence the tomography is often called diffuse optical tomography <ref type="bibr" target="#b1">(Arridge, 1999;</ref><ref type="bibr" target="#b8">Boas, et al., 2001)</ref>. The use of the RTE is difficult in general because the forward problem must be solved repeatedly when the inverse problem is solved in any ways <ref type="bibr" target="#b1">(Arridge, 1999;</ref><ref type="bibr" target="#b1">Arridge and Schotland, 2009)</ref>. Although the numerical cost of algorithms such as finite-difference and finiteelement methods, and Monte Carlo simulation is high, one way to achieve optical tomography based on the RTE is to use rotated reference frames.</p><p>Here, we consider the reconstruction of 𝜇 " in the RTE from boundary measurements <ref type="bibr" target="#b57">(Machida, et al., 2016)</ref>. When the reconstruction is performed, direct reconstruction methods offer an alternative approach to iterative algorithms <ref type="bibr" target="#b1">(Arridge and Schotland, 2009)</ref>. By direct reconstruction, we mean the use of inversion formulas and associated fast algorithms. In particular, we will employ the Rytov approximation.</p><p>In the experiment, the target (a lemon slice or a lotus root slice of thickness approximately 4mm) was placed in the middle of a sample chamber of width 𝐿 =1cm. The background medium consists of 0.7% Intralipid plus 0.07% India ink. Near-infrared light in this box obeys the RTE for the slab geometry. We assume that 𝜇 # is constant everywhere in the medium but 𝜇 " varies with position. Considering the Fresnel reflection on the boundaries, we write the RTE as </p><formula xml:id="formula_140">𝐬 &amp; • ∇𝐼(𝐫, 𝐬 &amp;) + (𝜇 " (𝐫) + 𝜇 # )𝐼(𝐫, 𝐬 &amp;) = 𝜇 # W 𝑝(𝐬 &amp;, 𝐬 &amp; &amp; )𝐼(𝐫, 𝐬 &amp; &amp; )𝑑𝐬 &amp; &amp; 𝕊 ! + 𝑆(𝐫, 𝐬 &amp;) (<label>10</label></formula><formula xml:id="formula_141">Γ 0 = {𝐫 ∈ ℝ 7 , 𝐬 &amp; ∈ 𝕊 % ; 𝑧 = 0 or 𝐿, 𝐬 &amp; • 𝛎 &amp; &lt; 0} , (<label>10</label></formula><p>.3) where 𝛎 &amp; is the outer unit normal vector on the boundary of the slab. We note that the laser beam which illuminates the sample chamber is described by the source term 𝑆(𝐫, 𝐬 &amp;). Let 𝔫 be the refractive index of the slab and we assume that there is air outside the slab. Assuming unpolarized light, the reflection coefficient 𝑅(𝑥) is given by</p><formula xml:id="formula_142">𝑅(𝑥) = Â 1 2 2@ 𝑥 − 𝔫𝑥 * 𝑥 + 𝔫𝑥 * D % + @ 𝑥 * − 𝔫𝑥 𝑥 * + 𝔫𝑥 D % 3 , 𝑥 ≥ 𝑥 x , 1 , 𝑥 &lt; 𝑥 x ,<label>(10.4)</label></formula><p>where where 𝐫 = (𝛒, 𝑧) and</p><formula xml:id="formula_143">𝑥 * = ‰1 − 𝔫 % (1 − 𝑥 % ) , 𝑥 x = √𝔫 % − 1 𝔫 . (<label>10</label></formula><formula xml:id="formula_144">𝑘 8: (𝐪, 𝑧) = (−1) : 𝑒 0?:@ &gt; | | 𝜓 8 R (𝜆 h R ) ‰𝜎 8 h 8 #$% R9* ã𝑒 01 } " H I ' Yl 6 ? PZ-/l 6 ? 𝑓 (A) (𝜆 h R , 𝑞) + (−1) 8A:AR 𝑒 01 } " H I ' Yl 6 ? PZ(r0-)/l 6 ? 𝑓 (0) (𝜆 h R , 𝑞)ä × Î𝑑 :R 8 [𝑖𝜏(𝜆 h R 𝑞)] + (1 − 𝛿 R* )(−1) R 𝑑 :,0R 8 [𝑖𝜏(𝜆 h R 𝑞)]Ï .</formula><p>(10.10)</p><p>Let 𝐼 * (𝐫, 𝐬 &amp;) be the solution to (10.1) in which 𝜇 " (𝐫) is replaced by 𝜇̅ " . We note the identity,</p><formula xml:id="formula_145">𝐼(𝐫, 𝐬 &amp;) = 𝐼 * (𝐫, 𝐬 &amp;) − W W 𝐺(𝐫, 𝐬 &amp;; 𝐫 &amp; , 𝐬 &amp; &amp; )𝛿𝜇 " (𝐫 &amp; )𝐼(𝐫 &amp; , 𝐬 &amp; &amp; )𝑑𝐫 &amp; 𝑑𝐬 &amp; &amp; S!</formula><p>.</p><p>(10.11)</p><p>Then the first-order Rytov approximation is given by</p><formula xml:id="formula_146">− ln + 𝐼(𝐫, 𝐬 &amp;) 𝐼 * (𝐫, 𝐬 &amp;) / = 1 𝐼 * (𝐫, 𝐬 &amp;) W W 𝐺(𝐫, 𝐬 &amp;; 𝐫 &amp; , 𝐬 &amp; &amp; )𝛿𝜇 " (𝐫 &amp; )𝐼 * (𝐫 &amp; , 𝐬 &amp; &amp; )𝑑𝐫 &amp; 𝑑𝐬 &amp; &amp; S!</formula><p>.</p><p>(10.12)</p><p>Hereafter we assume a point source oriented in the inward normal direction located on the 𝑧 = 0 A plane. Thus, We have</p><formula xml:id="formula_147">𝐼 * (𝐫, 𝐬 &amp;) = 𝐺(𝐫, 𝐬 &amp;; 𝐫 # , 𝐳 &amp;), 𝐫 # = 9 𝛒 # 0 A ? . (<label>10</label></formula><formula xml:id="formula_148">𝒟(𝛒 # , 𝛒 $ ) = W W 𝐺(𝐫 $ , 𝐳 &amp;; 𝐫 &amp; , 𝐬 &amp; &amp; )𝐺(𝐫 &amp; , 𝐬 &amp; &amp; ; 𝐫 $ , −𝐳 &amp;)𝛿𝜇 " (𝐫 &amp; ) 𝑑𝐫 &amp; 𝑑𝐬 &amp; &amp; S! . (10.16)</formula><p>The data function is written as 𝒟(𝛒 # 𝛒 $ ) = 1 (2𝜋) • W W W 𝑒 ?(𝐪 ( 0𝐪 ! )•𝛒 𝑒 0?(𝐪 ( •𝛒 @ 0𝐪 ! •𝛒 A ) ℝ ! ℝ ! ~ × 𝜅(𝐪 6 , 𝐪 % , 𝑧)𝛿𝜇 " (𝐫) 𝑑𝐪 6 𝑑𝐪 % 𝑑𝐫 .</p><p>(10.17 Now we have a linear inverse problem to reconstruct 𝛿𝜇 " (𝐫) using measured data 𝒟(𝛒 # , 𝛒 $ ). After moving to the Fourier space for (𝛒 # , 𝛒 $ ), the inversion can be done with singular value decomposition (SVD). When the inverse problem is solved, regularization is necessary to obtain stable solutions 𝛿𝜇 " (𝐫). We employ the step function as the regularizer (truncated SVD).</p><p>In Figure <ref type="figure" target="#fig_27">10</ref>.1, reconstructed 𝛿𝜇 " (𝐫) is shown for (upper panels) a lemon slice and (lower panels) a lotus root slice. The field of view is 9 cm × 9 cm. The number above each panel shows the distance from the source plane. The parameters were set to 𝜇̅ " = 0.4 cm 06 , 𝜇 # = 20 cm 06 , g = 0.65 . (10.19) Datasets were acquired by raster scanning the beam over a 29 × 29 square lattice with a lattice spacing 3.21 mm (841 source positions). For each source, a 397 × 397 pixel region of interest is read out from the CCD (157609 detectors). In total, a dataset of 1.3 × 10 | source-detector pairs was acquired. In the numerical calculation, we set 𝑙 &lt;=&gt; = 9.</p><p>The transport-based optical tomography was also formulated with the three-dimensional 𝐹 ! method <ref type="bibr" target="#b53">(Machida, 2019)</ref>.  <ref type="bibr" target="#b57">Machida, et al., 2016)</ref>. Reconstructions of a lemon slice (upper panels) and a lotus root slice (lower panels). The number above each panel shows the distance from the source plane.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="10.2.">Parameter identification</head><p>We here consider the spatial-frequency domain imaging (SFDI), for which light illumination in the spatial-frequency domain is used. We first explain that the penetration distance becomes shorter as the spatial frequency 𝑞 * gets larger.</p><p>Let us begin with the following expression of the specific intensity for the half space (see (7.18), (7.19)). We can estimate 𝜈 * as <ref type="bibr" target="#b56">(Machida, et al., 2009</ref> (10.27) Thus, if 𝜇 " is small, the specific intensity decays as</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>𝐼(𝐫, 𝐬 &amp;) = 𝑒</head><formula xml:id="formula_149">𝐼 ∼ 𝑒 0-]71 * 1 @ &amp; A(1 " P -) ! .</formula><p>(10.28) That is, the penetration depth becomes shallow for nonzero 𝑞 * . This facts motivates us to investigate optical properties of the top layer of a layered medium by SFDI.</p><p>In <ref type="bibr" target="#b55">Machida, et al., 2020</ref>, 𝜇 " and 𝜇 # of the top layer of a four-layer solid phantom was experimentally determined using the specific intensity (10.20). In <ref type="bibr" target="#b64">Nothelfer, et al., 2019</ref>, the correction for surface scattering in SFDI was considered based on (10.20) for precise retrieval of the bulk optical properties. The method was validated using phantoms with different surface roughness.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="11.">Concluding remarks</head><p>When the three-dimensional RTE is solved by separation of variables, separated solutions have a connection to separated solutions for the one-dimensional RTE via rotated reference frames. By making use of this connection, the three-dimensional RTE can be solved using the knowledge of the one-dimensional transport theory.</p><p>It is certainly a limitation that coefficients 𝜇 " , 𝜇 # must be constant. One of the reasons that the RTE with constant coefficients is still worth being studied is benchmark <ref type="bibr" target="#b21">(Ganapol, 2008)</ref>. Since the analytical and numerical solutions presented in this review are quite accurate, they can be used for benchmark. When absorption and scattering coefficients spatially vary, it is possible to treat the spatially varying part as perturbation. In 10.1, 𝜇 " (𝐫) is reconstructed using solutions of the RTE obtained with rotated reference frames.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>A. Singular eigenfunctions</head><p>In this Appendix, we take 1/𝜇 ( as the unit of length. Then the one-dimensional homogeneous RTE is written as where 𝑧 ∈ ℝ, 𝐬 &amp; ∈ 𝕊 % . Separated solutions to (A.1) are given by <ref type="bibr" target="#b11">(Case, 1960;</ref><ref type="bibr" target="#b60">McCormick and Kuščer, 1966;</ref><ref type="bibr" target="#b63">Mika, 1961)</ref> 𝐼(𝑧, 𝐬 &amp;) = Φ 5 : (𝐬 &amp;)𝑒 0-/5 , (𝐴. 2) where 𝜈 ∈ ℝ is a separation constant and Φ 5 : (𝐬 &amp;) is introduced (4.14). We note −𝑙 &lt;=&gt; ≤ 𝑚 ≤ 𝑙 &lt;=&gt; . For Φ 5 : (𝐬 &amp;), (4.17) is derived. We can rewrite (4.17  </p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head></head><label></label><figDesc>, 𝐬 &amp;, 𝑡) + 𝐬 &amp; • ∇𝐼(𝐫, 𝐬 &amp;, 𝑡) + (𝜇 " + 𝜇 # )𝐼(𝐫, 𝐬 &amp;, 𝑡) = 𝜇 # W 𝑝(𝐬 &amp;, 𝐬 &amp; &amp; )𝐼(𝐫, 𝐬 &amp;′, 𝑡)𝑑𝐬 &amp; &amp; 𝕊 ! + 𝑆(𝐫, 𝐬 &amp;, 𝑡) , (2.4)</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head></head><label></label><figDesc>𝐬 &amp; • ∇𝐼(𝐫, 𝐬 &amp;) + 𝜇 ( 𝐼(𝐫, 𝐬 &amp;</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head></head><label></label><figDesc>&amp;) = 𝜙 : (𝜈, 𝜇)(1 − 𝜇 % ) |:|/% 𝑒 ?:@ , (4.14) where 𝜙 : (𝜈, 𝜇) satisfies W 𝜙 : (𝜈, 𝜇)(1 − 𝜇 % ) |:| 𝑑𝜇</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head></head><label></label><figDesc>𝜈𝑞)𝛿 : ( ,0: ! W 𝜇𝜙 : ( (𝜈, 𝜇)𝜙 0: ( (𝜈, 𝜇)(1 − 𝜇 % ) |: (</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_4"><head></head><label></label><figDesc>Let us consider the fundamental solution 𝐺(𝐫, 𝐬 &amp;; 𝐫 * , 𝐬 &amp; * ) or the Green's function for the whole space, which satisfies 𝐬 &amp; • ∇𝐺(𝐫, 𝐬 &amp;; 𝐫 * , 𝐬 &amp; * ) + 𝜇 ( 𝐺(𝐫, 𝐬 &amp;; 𝐫 * , 𝐬 &amp; * ) = 𝜇 # W 𝑝(𝐬 &amp;, 𝐬 &amp; &amp; )𝐺(𝐫, 𝐬 &amp; &amp; ; 𝐫 * , 𝐬 &amp; * )𝑑𝐬 &amp; &amp; 𝕊 ! +𝛿(𝐫−𝐫 * )𝛿(𝐬 &amp; − 𝐬 &amp; * ) (4.62) for 𝐫, 𝐫 * ∈ ℝ 7 and 𝐬 &amp;, 𝐬 &amp; * ∈ 𝕊 % . Note that 𝐺(𝐫, 𝐬 &amp;; 𝐫 * , 𝐬 &amp; * ) → 0 as |𝐫| → ∞. Here, multi-dimensional Dirac's delta functions were introduced as 𝛿(𝐫−𝐫 * ) = 𝛿(𝑥−𝑥 * )𝛿(𝑦−𝑦 * )𝛿(𝑧−𝑧 * ) , 𝛿(𝐬 &amp; − 𝐬 &amp; * ) = 𝛿(𝜇−𝜇 * )𝛿(𝜑−𝜑 * ) . (4.63) We express 𝐺(𝐫, 𝐬 &amp;; 𝐫 * , 𝐬 &amp; * ) as</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_5"><head>(</head><label></label><figDesc>𝜑 𝐤 / , 𝜃 𝐤 / , 0)𝑌 8:&amp; (𝐬 &amp;) 𝑓 8: | 𝑒 0?:&amp;@ 𝐤 3 𝑑 : &amp; : 8 (𝜃 𝐤 / )𝑌 8: &amp; (𝐬 &amp;)where 𝜃 𝐤 / , 𝜑 𝐤 / are the polar and azimuthal angles of 𝐤 i , respectively. Here, 𝐷 :</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_6"><head></head><label></label><figDesc>−𝜃 𝐤 / , −𝜑 𝐤 / )𝑌 8: &amp; (𝐬 &amp;)</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_7"><head></head><label></label><figDesc>Φ 05 : * (−𝐬 &amp;) z𝐼 Ë (𝐪, 0, −𝐬 &amp;) 𝑑𝐬 &amp; 𝕊 4 ! = − W W 9ℛ 𝐤 / (05,𝐪) Φ 05 : * (𝐬 &amp;)? 𝑒 01 " H I ' (5P)-/5 𝑆 Ë (𝐪; 𝑧, 𝐬 &amp;)𝑑𝑧𝑑𝐬 &amp; Let us approximate 𝐼 Ë (𝐪, 0, −𝐬 &amp;) as 𝐼 Ë (𝐪, 0, −𝐬 &amp;) ≈ | | 𝑐 |:|A%^,: (𝐪)𝑌 |:|A%^,: (𝐬 &amp;)</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_8"><head></head><label></label><figDesc>.19) where 𝐪 * ∈ ℝ % is a given two-dimensional real vector. The cosine 𝜇 * of the polar angle of 𝐬 &amp; * is assumed to be positive. Although the formulation for general 𝐪 * , 𝐬 &amp; * is possible, in particular we set 𝐪 * = 𝜇 ( 𝑞 * 𝐱 &amp; , 𝐬 &amp; * = 𝐳 &amp; , (7.20) where 𝐱 &amp; = (1,0,0) d . Here, 𝑇 means transpose. We begin by decomposing 𝐼(𝐫, 𝐬 &amp;) as 𝐼(𝐫, 𝐬 &amp;) = 𝐼 e (𝐫, 𝐬 &amp;) + 𝐼 # (𝐫, 𝐬 &amp;), (7.21) where É 𝐬 &amp; • ∇𝐼 e (𝐫, 𝐬 &amp;) + 𝜇 ( 𝐼 e (𝐫, 𝐬 &amp;) = 0 , 𝑧 &gt; 0 , 𝐼 e (𝐫, 𝐬 &amp;) = 𝑓(𝐫, 𝐬 &amp;), 𝑧 = 0 , 0 &lt; 𝜇 ≤ 1 , (7.22) Â 𝐬 &amp; • ∇𝐼 # (𝐫, 𝐬 &amp;) + 𝜇 ( 𝐼 # (𝐫, 𝐬 &amp;) = 𝜇 # W 𝑝(𝐬 &amp;, 𝐬 &amp; &amp; )𝐼 # (𝐫, 𝐬 &amp; &amp; )𝑑𝐬 &amp; &amp; 𝕊 ! + 𝑆[𝐼 e ](𝐫, 𝐬 &amp;), 𝑧 &gt; 0 , 𝐼 # (𝐫, 𝐬 &amp;) = 0 , 𝑧 = 0 , 0 &lt; 𝜇 ≤ 1 .(7.23) Here, the source term for 𝐼 # (𝐫, 𝐬 &amp;) is given by 𝑆[𝐼 e ](𝐫, 𝐬 &amp;) = 𝜇 # W 𝑝(𝐬 &amp;, 𝐬 &amp; &amp; )𝐼 e (𝐫, 𝐬 &amp; &amp; )𝑑𝐬 &amp; Since the ballistic term 𝐼 e (𝐫, 𝐬 &amp;) is obtained as 𝐼 e (𝐫, 𝐬 &amp;) = 𝑒 0?1 " P -+ 𝛿(𝐬 &amp; − 𝐳 &amp; ), (7.25) we have 𝑆[𝐼 e ](𝐫, 𝐬 &amp;) = 𝜇 # 4𝜋 𝑒 0?1 " P -+ 𝑒 01 " -| 𝛽 8 𝑃 8 (𝜇) Let us consider how 𝐼 # (𝐫, 𝐬 &amp;) is computed. In this case of the spatially modulated source, we obtain 𝐾 : &amp; (𝜉, 𝐪) = 𝐾 Ö : &amp; (𝜉, 𝐪 * )𝛿(𝐪 − 𝐪 * ) , (7.27) where 𝐾 Ö : &amp; (𝜉, 𝐪 * ) = −2𝜋 % 𝜛𝜉 𝜉 + 𝑘 k -(𝜉𝑞 * ) | (−1) 8 𝛽 8 𝑑 *: Correspondingly we define 𝑐8 : (𝐪 * ) as 𝑐 8: (𝐪) = 𝑐8 : (𝐪 * )𝛿(𝐪 − 𝐪 * ) . (7.29) Then the key 𝐹 ! equation is written as | | 𝐴 8: : &amp; (𝜉, 𝐪 * )𝑐̌8 : (𝐪 * ) = 𝐾 Ö : &amp; (𝜉, 𝐪 * ) To establish the key 𝐹 ! equation, we need to take ⌊(𝑙 &lt;=&gt; − 𝑚)/2⌋ + 1 values for 𝜈 for each 𝑚 (𝑁 cUc values in total). In addition to eigenvalues 𝜉 M = 𝜈 M06 : , 𝑗 = 1, ⋯ , 𝑀 : Thus 𝐼 # (𝐫, 𝐬 &amp;) is obtained using the formulation which was developed in Sec. 7.1. Let us calculate the hemispheric flux: 𝐽 A (𝛒; 𝐪 * ) = W W 𝜇𝐼(𝐫, −𝐬 &amp;)𝑑𝜇𝑑𝜑</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_9"><head>Figure 8</head><label>8</label><figDesc>Figure 8.1. (Fig. 3 in Machida and Das) The energy density 𝑈(𝜌, 𝑧) in (8.48) is plotted (the factor 𝑐 is multiplied). Results are compared to Monte Carlo simulation. From the top, 𝜌 = 5, 10, 15, and 20 mm. The parameters are 𝜇 " = 0.01 mm 06 , 𝜇 # = 10 mm 06 , g = 0.9.</figDesc><graphic coords="27,148.27,329.39,300.57,217.98" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_10"><head>Figure 8</head><label>8</label><figDesc>Figure 8.2. (Fig. 4 in Machida and Das) The energy density 𝑈(𝜌, 𝑧) in (8.48) is plotted (the factor 𝑐 is multiplied). Results are compared to Monte Carlo simulation. From the top, 𝜌 = 1, 2, and 3 mm. The parameters are 𝜇 " = 0.01 mm 06 , 𝜇 # = 10 mm 06 , g = 0.0.</figDesc><graphic coords="28,96.23,147.96,404.61,224.70" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_11"><head></head><label></label><figDesc>The right-hand side is obtained asRHS of (9.8) = W 𝑌 8 &amp;&amp; : &amp;&amp; * (𝐬 &amp;)Φ l : (𝐬 &amp;)𝑑𝐬 &amp; 𝕊 ! = (−1) : 𝛿 :: &amp;&amp; ‰(2𝑙 &amp;&amp; + 1)𝜋𝑔 8 &amp;&amp; : (𝜆) . (9.10) Thus we obtain 𝑐 8 &amp; : &amp; : (𝜆) = (−1) : 𝛿 :: &amp; ‰(2𝑙 + 1)𝜋𝑔 8 : (𝜆) .</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_12"><head>Figure 9</head><label>9</label><figDesc>Figure 9.1. (Fig.1 in Machida, 2015) The exitance |𝐽 A (𝛒; 𝐪 * )|, where 𝐽 A (𝛒; 𝐪 * ) given in (7.33), is plotted as a function of 𝑙 &lt;=&gt; . The parameters are set to 𝜇 " = 0.05, 𝜇 # = 100, g = 0.001. The unit of length is normalized using 𝜇 ( . MRRF means the spherical-harmonic expansion in (9.4), (9.5).</figDesc><graphic coords="32,154.12,126.13,288.91,199.60" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_13"><head>. 20 )</head><label>20</label><figDesc>Hence the Green's function is written as 𝐺(𝐫, 𝐬 &amp;; 𝐫 * , 𝐬 &amp; * ) : (𝐫, 𝐬 &amp;; 𝐪)𝐼 l (∓): (𝐫 * , −𝐬 &amp; * ; −𝐪) : (𝐫, 𝐬 &amp;; 𝐪) = 𝑒 ?1 " 𝐪•𝛒 𝑒 01 " H I ' (lP)-</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_14"><head></head><label></label><figDesc>TUV q = | 𝑖 r (2𝐿 + 1)𝑗 r (𝑘𝑟)𝑑 ** r (𝜃) where 𝑗 r is the spherical Bessel function of the first kind, and W 𝑑 :R 8 (𝜃)𝑑 :R 8 &amp; (𝜃)𝑑 ** r (𝜃) sin 𝜃 𝑑𝜃 :: &amp; (−1) :0R | 𝑖 r 𝑗 r (𝑘𝑟)𝐶 8,:,8 &amp; ,0:</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_15"><head></head><label></label><figDesc>note that the expression of 𝐺(𝐫, 𝐬 &amp;; 𝐫 * , 𝐬 &amp; * ) in (9.53) with 𝜒 8 &amp; : &amp; 8: (𝐫 − 𝐫 * ) in (9.65) is numerically more stable than the naive superposition of eigenmodes given in (9.21). The reason is that in (9.65) reference frames are rotated about the unit vector 𝐬 &amp; * instead of 𝐤 i (𝜆, 𝐪), for which analytically-continued Wigner's 𝑑-matrices appear when reference frames are rotated. The use of the function 𝜒 8 &amp; : &amp; 8: (𝐫 − 𝐫 * ) is possible for the whole space. When the solution of the RTE is expressed as a superposition of eigenmodes in the presence of boundaries, the expansion by ℛ 𝐤 / 𝑌 8: (𝐬 &amp;) gets unstable when 𝑙 &lt;=&gt; becomes large.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_16"><head>Figure 9</head><label>9</label><figDesc>Figure 9.2. (Fig. 2 in Panasyuk, Schotland, and Markel, 2006). Angular dependence of the specific intensity (9.53) for forward propagation at the distance 𝑧 from the source. Left column (a), (c): convergence with parameter 𝑙 &lt;=&gt; . Right column (b), (d): solid line shows the converged result obtained with subtraction of the ballistic term; dashed line: result obtained without subtraction of the ballistic term for the same 𝑙 &lt;=&gt; . Top row (a), (b): g = 0.5, 𝜇 " /𝜇 # = 0.5, 𝑧 = 20ℓ * (ℓ * = 𝜇 " + (1 − g)𝜇 # ). Bottom row (c), (d): g = 0.2, 𝜇 " /𝜇 # = 0.01, 𝑧 = 10ℓ * .</figDesc><graphic coords="39,106.85,141.70,384.22,260.18" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_17"><head></head><label></label><figDesc>68) The boundary conditions are given by 𝐼(𝐫, 𝐬 &amp;; 𝐫 * , 𝐬 &amp; * ) = 𝐼 * 𝛿(𝛒 − 𝛒 * )𝛿(𝐬 &amp; − 𝐬 &amp; * ) , 𝑧 = 0 , 𝐬 &amp; • 𝐳 &amp; &gt; 0 , (9.69) and 𝐼(𝐫, 𝐬 &amp;; 𝐫 * , 𝐬 &amp; * ) = 0 , 𝑧 = 𝐿 , 𝐬 &amp; • 𝐳 &amp; &lt; 0 . (9.70) The solution 𝐼(𝐫, 𝐬 &amp;; 𝐫 * , 𝐬 &amp; * ) can be written as a superposition of the eigenmodes (9.22), (9.23): 𝐼(𝐫, 𝐬 &amp;; 𝐫 * , 𝐬 &amp; * ) : will be determined so that 𝐼(𝐫, 𝐬 &amp;; 𝐫 * , 𝐬 &amp; * ) satisfies the boundary conditions. By approximating the delta function for angles using spherical harmonics, we rewrite the boundary conditions as 𝐼(𝐫, 𝐬 &amp;; 𝐫 * , 𝐬 &amp; * ) = Θ(𝐬 &amp; • 𝐳 &amp;)𝐼 * 𝛿(𝛒 − 𝛒 * ) | | 𝑌 8: (𝐬 &amp;)𝑌 8: * (𝐬 &amp; * ) &amp; • 𝐳 &amp;)𝐼(𝐫, 𝐬 &amp;; 𝐫 * , 𝐬 &amp; * ), 𝑧 = 0 , (9.72) 𝐼(𝐫, 𝐬 &amp;; 𝐫 * , 𝐬 &amp; * ) = Θ(𝐬 &amp; • 𝐳 &amp;)𝐼(𝐫, 𝐬 &amp;; 𝐫 * , 𝐬 &amp; * ), 𝑧 = 𝐿 (9.73) for 𝐬 &amp; ∈ 𝕊 % . We multiply 𝑌 8&amp;:&amp; * (𝐬 &amp;)𝑒 0?1 " 𝐪•𝛒 on both sides of the boundary conditions and integrate both sides over 𝐬 &amp; and 𝛒. We obtain | | | ℬ 8&amp;8 :&amp; 𝜓 8 : (𝜆) ‰𝜎 8 𝑒 0?:&amp;Y@ 𝐪 A)Z Î𝐹 l (A): (𝐪)𝑑 :&amp;,: 8 [𝑖𝜏(𝜆𝑞)]</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_18"><head>%</head><label></label><figDesc>: (𝐪)𝑒 1 " H I ' (lP)r/l (−1) 8A: &amp; 𝑑 : &amp; 8: (𝐬 &amp;)𝑌 8 &amp; : &amp; * (𝐬 &amp;) sin 𝜃 𝑑𝜃𝑑𝜑 8: (𝐬 &amp;)𝑌 8 &amp; : &amp; * (𝐬 &amp;) sin 𝜃 𝑑𝜃𝑑𝜑 ) 𝛿 88&amp; if 𝑙 and 𝑙′ have the same parity. The coefficients 𝐹 5 (±): (𝐪) can be obtained using (9.74) and (9.75).In what follows, we restrict ourselves to the case of 𝐬 &amp; * = 𝐳 &amp;. Let us write 𝐹 l (±): (𝐪) as𝐹 l (A): (𝐪) = 𝐼 * 𝑓 l (A): (𝑞)𝑒 0?1 " 𝐪•𝛒 -, 𝐹 l (0): (𝐪) = 𝐼 * 𝑓 l (0): (𝑞)𝑒 0?1 " 𝐪•𝛒 -𝑒 01 " H I ' (5P)r/l . (9.79) : (𝑞)𝑒 01 " H I ' (lP)r/l (−1) 8A: &amp; 𝑑 : &amp; ,0: 8 [𝑖𝜏(𝜆𝑞)]Ï = 𝛿 : &amp; * | ℬ 8 8A8&amp; Î𝑓 l (A):(𝑞)𝑒 01 " H I ' (lP)r/l 𝑑 :</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_19"><head></head><label></label><figDesc>.83)whereℳ 8 &amp; : &amp; ,:5 (AA) (𝑞) = | 𝑐 88 &amp; : &amp; ,(𝑞) = 𝑒 01 " H I ' (lP)r/l (−1) :A: &amp; | (−1) 8 𝑐 88 &amp; : &amp; ,(𝑞) = 𝑒 01 " H I ' (lP)r/l | (−1) 8A8 &amp; 𝑐 88 &amp; : &amp; ,(𝑞) = (−1) 8 &amp; A: &amp; A: | 𝑐 88 &amp; : &amp; ,</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_20"><head></head><label></label><figDesc>:@ 𝛒=𝛒 -𝑌 8: (𝐬 &amp;)𝐾 8: (|𝛒 − 𝛒 * |, 𝑧) where 𝜑 𝛒0𝛒 -is the polar angle of the two-dimensional vector 𝛒 − 𝛒 * and 𝐾 8: (|𝛒 − 𝛒 * |, 𝑧) = W 𝑞𝐽 : (𝜇 ( 𝑞|𝛒 − 𝛒 * |) | 𝜓 8 : H I ' (lP)-/l 𝑓 l (A): (𝑞) +(−1) 8A:&amp;A: 𝑒 01 " H I ' (lP)(r0-)/l 𝑓 l (0): (𝑞)Ï × Î𝑑 : &amp; ,: 8 [𝑖𝜏(𝜆𝑞)] + (1 − 𝛿 :* )(−1) : 𝑑 : &amp; with 𝐽 : the Bessel function of the first kind of order 𝑚. Hence the energy density 𝑈 is written as 𝑈(𝐫; 𝐫 * , 𝐬 &amp; * ) = 1 𝑐 W 𝐼(𝐫, 𝐬 &amp;; 𝐫 * , 𝐬 &amp; * )𝑑𝐬 &amp; Numerical results are shown below in Fig. 9.3. By setting 𝐫 * = 𝟎, 𝐬 &amp; * = 𝐳 &amp;, we can write 𝑈(𝐫; 𝐫 * , 𝐬 &amp; * ) = 𝑢(𝜌, 𝑧) with 𝜌 = ‰𝑥 % + 𝑦 % . In Fig. 9.3, the energy density 𝑢(𝜌, 𝑧) is compared to Monte Carlo simulation.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_21"><head></head><label></label><figDesc>21): 𝐼(𝐫, 𝐬 &amp;) = 𝐼 e (𝐫, 𝐬 &amp;) + 𝐼 # (𝐫, 𝐬 &amp;). Then we further split 𝐼 # (𝐫, 𝐬 &amp;) as 𝐼 # (𝐫, 𝐬 &amp;) = 𝐼 v (𝐫, 𝐬 &amp;) + 𝜓(𝐫, 𝐬 &amp;) , (9.95) where the particular solution 𝐼 v (𝐫, 𝐬 &amp;) is defined for the whole space as𝐬 &amp; • ∇𝐼 v (𝐫, 𝐬 &amp;) + 𝜇 ( 𝐼 v (𝐫, 𝐬 &amp;) = 𝜇 # W 𝑝(𝐬 &amp;, 𝐬 &amp; &amp; )𝐼 v (𝐫, 𝐬 &amp; &amp; )𝑑𝐬 &amp; &amp; 𝕊 ! + Θ(𝑧)𝑆[𝐼 e ](𝐫, 𝐬 &amp;) (9.96) for (𝐫, 𝐬 &amp;) ∈ ℝ 7 × 𝕊 % .Here, 𝑆[𝐼 e ](𝐫, 𝐬 &amp;) was defined in (7.24). It is possible to find 𝐼 v (𝐫, 𝐬 &amp;) depending on the source term in the RTE for 𝐼 e (𝐫, 𝐬 &amp;) (Liemert and Kienle, 2013b; Machida, Hoshi, Kagawa, and Takada, 2020). Since the RTE for the general solution 𝜓(𝐫, 𝐬 &amp;) does not have the internal source term, 𝜓(𝐫, 𝐬 &amp;) can be given as a superposition of eigenmodes. The coefficients of the superposition are determined using the boundary conditions. Thus, the specific intensity is obtained as 𝐼(𝐫, 𝐬 &amp;) = 𝐼 e (𝐫, 𝐬 &amp;) + 𝐼 v (𝐫, 𝐬 &amp;) + 𝜓(𝐫, 𝐬 &amp;).</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_22"><head>Figure 9</head><label>9</label><figDesc>Figure 9.3. (Corrigendum: Machida, Panasyuk, Schotland, and Markel, 2010). The energy density 𝑢(𝜌, 𝑧) (see (9.92)) is plotted with open circles from Monte Carlo simulation. The width of the slab is 𝐿 = 10ℓ * , where ℓ * = (𝜇 " + (1 − g)𝜇 # ) 06 . From the top to bottom, 𝜌 = 4ℓ * , 7ℓ * , and 10ℓ * . Normalization factor: 𝑍 = (ℓ * ) 0% .</figDesc><graphic coords="43,198.10,140.79,200.90,142.90" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_23"><head>Figure 9</head><label>9</label><figDesc>Figure 9.4. (Fig. 3 in Liemert and Kienle, 2012e). Time-resolved Green's function Ψ = 𝐺(𝐫, 𝐬 &amp;, 𝑡; 𝐫 * , 𝐬 &amp; * ) is shown for (𝜃 * , 𝜑 * ) = (𝜋/4,0). The observed position was chosen at 𝑟 = 3 mm and 𝐫 &amp; = 𝐳 &amp;. Optical parameters were set to 𝜇 " = 0.1 mm 06 , 𝜇 # = 10 mm 06 , and g = 0.9. Furthermore, 𝑐 = 3 × 10 | 𝑚/s.</figDesc><graphic coords="46,171.06,140.33,254.99,205.29" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_24"><head></head><label></label><figDesc>.1) with the boundary condition 𝐼(𝐫, 𝐬 &amp;) = 𝑅(|𝐬 &amp; • 𝐬 &amp;′|)𝐼(𝐫, 𝐬 &amp; &amp; ), (𝐫, 𝐬 &amp;) ∈ Γ 0 , (10.2) where 𝑅(|𝐬 &amp; • 𝐬 &amp;′|) is the reflection coefficient and 𝐬 &amp;′ is the incident direction corresponding to the reflected direction 𝐬 &amp;. The notation Γ 0 means the set of incoming light:</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_25"><head>. 5 )</head><label>5</label><figDesc>Let us write𝜇 " (𝐫) = 𝜇̅ " + 𝛿𝜇 " (𝐫) . (10.6) We introduce the Green's function 𝐺(𝐫, 𝐬 &amp;; 𝐫′, 𝐬 &amp;′) as 𝐬 &amp; • ∇𝐺(𝐫, 𝐬 &amp;; 𝐫′, 𝐬 &amp;′) + 𝜇̅ ( 𝐺(𝐫, 𝐬 &amp;; 𝐫′, 𝐬 &amp;′) = 𝜇 # W 𝑝(𝐬 &amp;, 𝐬 &amp;′′)𝐺(𝐫, 𝐬 &amp;′′; 𝐫′, 𝐬 &amp;′) 𝑑𝐬 &amp;′′ 𝕊 ! +𝛿(𝐫 − 𝐫 &amp; )𝛿(𝐬 &amp; − 𝐬 &amp;′) , (10.7) where 𝜇̅ ( = 𝜇̅ " + 𝜇 # . The boundary condition is given by 𝐺(𝐫, 𝐬 &amp;; 𝐫 &amp; , 𝐬 &amp; &amp; ) = 𝑅(|𝐬 &amp; • 𝐬 &amp; &amp;&amp; |)𝐺(𝐫, 𝐬 &amp; &amp;&amp; ; 𝐫 &amp; , 𝐬 &amp; &amp; ), (𝐫, 𝐬 &amp;) ∈ Γ 0 , (10.8) where 𝐬 &amp;′′ is the incident direction corresponding to the reflected direction 𝐬 &amp;. By the sphericalharmonic expansion in rotated reference frames, the Green's function is given by (see (9.21) and (9.90)) 𝐺(𝐫, 𝐬 &amp;; 𝐫 &amp; , 𝐬 &amp; &amp; ) = 1 (2𝜋) % 𝑒 0?𝐪•Y𝛒0𝛒 &amp; Z | | 𝑘 8: (𝐪, 𝑧)𝑌 8: (𝐬 &amp;)𝑌 8</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_26"><head></head><label></label><figDesc>) where 𝜅(𝐪 6 , 𝐪 % , 𝑧) = | | (−1) : 𝑘 8: (𝐪 6 , 𝑧)𝑘 8: * (𝐪 % , 𝐿 − 𝑧)</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_27"><head>Figure 10</head><label>10</label><figDesc>Figure 10.1(Figs. 7 and 8 in Machida, et al., 2016). Reconstructions of a lemon slice (upper panels) and a lotus root slice (lower panels). The number above each panel shows the distance from the source plane.</figDesc><graphic coords="49,175.26,272.87,246.47,121.94" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_28"><head></head><label></label><figDesc>?1 " 𝐪 -•𝛒 | ½ | 𝑎 M R Ψ 5 . (R) R (𝐬 &amp;, 𝐪 * )𝑒 01 " H I ' Y5 . (R)P -Z-/5 . R (𝜈)Ψ 5 R (𝐬 &amp;, 𝐪 * )𝑒 01 " H I ' (5P-and 𝑎 R (𝜈) are coefficients which depend on the boundary conditions. Here, Ψ 5 . (R) R (𝐬 &amp;, 𝐪 * ) and Ψ 5 R (𝐬 &amp;, 𝐪 * ) are three-dimensional singular eigenfunctions: Ψ 5 R (𝐬 &amp;, 𝐪 * ) = ℛ 𝐤 / (5,𝐪 -) Φ 5 R (𝐬 &amp;). (10.21) We note that 𝜈 * = 𝜈 * * &gt; 1 is the largest eigenvalue. Let us define 𝐼 =V (𝐫, 𝐬 &amp;) = 𝑒 0?1 " 𝐪 -•𝛒 𝑎 * * Ψ 5 - R (𝐬 &amp;, 𝐪 * )𝑒 01 " H I ' (5 -P -)-/5 -. (10.22) For large 𝑧, the behavior of 𝐼(𝐫, 𝐬 &amp;) can be investigated using 𝐼 =V (𝐫, 𝐬 &amp;) because as 𝑧 → ∞, W W |𝐼(𝐫, 𝐬 &amp;) − 𝐼 =V (𝐫, 𝐬 &amp;)| 𝑑𝐬 &amp;𝑑𝛒 𝕊 ! ℝ ! = 𝑜 'exp +−𝜇 ( 𝑧¾𝜈 * 0% + 𝑞 * % /( .(10.23)    </figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_29"><head></head><label></label><figDesc>, 𝐬 &amp;) + 𝐼(𝑧, 𝐬 &amp;) = 𝜛 W 𝑝(𝐬 &amp;, 𝐬 &amp;′)𝐼(𝑧, 𝐬 &amp;′) 𝑑𝐬 &amp;′</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_30"><head></head><label></label><figDesc>𝜓(𝐬 &amp;). The operator 𝒦 was introduced in Larsen, 1974. As described in Sec. 4.4, the separation constant 𝜈 takes discrete values ±𝜈 M : (𝜈 M : &gt; 1, 𝑗 = 0,1, ⋯ , 𝑀 : ) and real numbers in the interval between −1 and 1. Singular eigenfunctions are given by (4.25). The function 𝜆 : (𝜈) is given by 𝜆 : : (𝜈) = 𝜈Λ :A (𝜈)Λ :0 (𝜈)(1 − 𝜈 % ) 0|:| , (𝐴. 7) where Λ :± (𝜈) = lim ‚→* 4 Λ : (𝜈 ± 𝑖𝜖) . (𝐴. 8)</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_0"><head></head><label></label><figDesc>Spherical harmonics 𝑌 8: (𝐬 &amp;) are given by</figDesc><table><row><cell cols="2">𝑌 8: (𝐬 &amp;) = " 2𝑙 + 1 4𝜋</cell><cell>(𝑙 − 𝑚)! (𝑙 + 𝑚)!</cell><cell>𝑃 8 : (𝜇)𝑒 ?:@ ,</cell><cell>(4.6)</cell></row><row><cell cols="4">where 𝑃 8 : (𝜇) are associated Legendre polynomials. They satisfy</cell></row><row><cell>𝜇𝑃 8 : (𝜇) = W 𝑃 8 : (𝜇)𝑃 8 &amp; 𝑙 − 𝑚 + 1 2𝑙 + 1 : (𝜇) 𝑑𝜇 6 06</cell><cell cols="3">𝑃 8A6 : (𝜇) + = 2(𝑙 + 𝑚)! 𝑙 + 𝑚 2𝑙 + 1 (2𝑙 + 1)(𝑙 − 𝑚)! 𝑃 806 : (𝜇) , 𝛿 88 &amp; .</cell><cell>(4.7) (4.8)</cell></row><row><cell>Moreover,</cell><cell></cell><cell></cell><cell></cell></row><row><cell>𝑃 : :</cell><cell></cell><cell></cell><cell></cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_3"><head></head><label></label><figDesc>Rotated singular eigenfunctions ℛ 𝐤 / Φ 5</figDesc><table><row><cell></cell><cell>6</cell><cell></cell></row><row><cell></cell><cell>.</cell><cell>(4.36)</cell></row><row><cell></cell><cell>06</cell><cell></cell></row><row><cell></cell><cell></cell><cell>(4.37)</cell></row><row><cell>and</cell><cell></cell><cell></cell></row><row><cell>ℛ 𝐤 / (5,𝐪) 06</cell><cell>𝜇 = 𝑘 k -(𝜈𝑞)𝜇 − 𝑖|𝜈𝑞|‰1 − 𝜇 % cos 𝜑 .</cell><cell>(4.38)</cell></row><row><cell cols="2">We note that the homogeneous equation (4.16) can be expressed as</cell><cell></cell></row></table><note>: (𝐬 &amp;) satisfy the following orthogonality relations. W 𝜇 9ℛ 𝐤 / ( Φ 5 ( : ( (𝐬 &amp;)? 9ℛ 𝐤 / ! Φ 5 ! : ! * (𝐬 &amp;)? 𝑑𝐬 &amp; 𝕊 ! = 2𝜋𝑘 k -(𝜈 6 𝑞)𝒩 : (𝜈 6 )𝛿 5 ( 5 ! 𝛿 : ( : ! . (4.35) Here, 𝒩 : (𝜈) is the normalization factor from the one-dimensional transport theory (see Appendix A): 𝒩 : (𝜈) = W 𝜇 [𝜙 : (𝜈, 𝜇)] % (1 − 𝜇 % ) |:| 𝑑𝜇 The orthogonality relation (4.35) can be derived as follows. First, we can show by direct calculation, ℛ 𝐤 / (5,𝐪) 𝜇 = 𝑘 k -(𝜈𝑞)𝜇 − 𝑖𝜈𝑞‰1 − 𝜇 % cosy𝜑 − 𝜑 𝐪 z ,</note></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_6"><head></head><label></label><figDesc>That is, if 𝜈 is an eigenvalue of the matrix 𝐴(𝑚), it means 𝑔 8 , A6 : (𝜈) = 0, i.e., 𝜈 is a zero of 𝑔 8 , A6 :</figDesc><table><row><cell>8 , →D : as 𝑙 → ∞. Hence, eigenvalues are zeros of 𝑔 8</cell><cell>𝑔 8 , A6 : (𝜈) : (𝜈) 𝑝 8 , A6</cell><cell>.</cell><cell>(4.60)</cell></row><row><cell>Let us rewrite (4.19) as</cell><cell></cell><cell></cell><cell></cell></row><row><cell cols="3">𝑎 8 (𝑚)‰ℎ 806 𝑔 806 : (𝜈) + 𝑎 8A6 (𝑚)‰ℎ 8A6 𝑔 8A6 : (𝜈) = 𝜈‰ℎ 8 𝑔 8 : (𝜈) . The recurrence relation (4.61) can be further rewritten in a matrix-vector form if 𝑔 8 , A6 :</cell><cell>(4.61) = 0.</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_7"><head></head><label></label><figDesc>𝐴 : (𝜈, 𝐪), 𝐵 : (𝜈, 𝐪) will be determined so that 𝐺(𝐫, 𝐬 &amp;; 𝐫 * , 𝐬 &amp; * ) satisfies the RTE.</figDesc><table><row><cell cols="6">In (4.64), Let us consider the Fourier transform:</cell></row><row><cell cols="6">⎩ ⎪ ⎨ ⎪ ⎧ 𝐺 µ (𝐪; z, 𝐬 &amp;; 𝐫 * , 𝐬 &amp; * ) = W 𝑒 0?1 " 𝐪•𝛒 𝐺(𝐫, 𝐬 &amp;; 𝐫 * , 𝐬 &amp; * )𝑑𝛒 ℝ ! 𝐺(𝐫, 𝐬 &amp;; 𝐫 * , 𝐬 &amp; * ) = % 𝜇 ( (2𝜋) % W 𝑒 ?1 " 𝐪•𝛒 𝐺 µ (𝐪; 𝑧, 𝐬 &amp;; 𝐫 * , 𝐬 &amp; * ) 𝑑𝐪 , ℝ ! Here the Fourier transform 𝐺 µ (𝐪; z, 𝐬 &amp;; 𝐫 * , 𝐬 &amp; * ) satisfies</cell><cell>.</cell><cell>(4.66)</cell></row><row><cell></cell><cell>𝜇</cell><cell>𝜕 𝜕𝑧</cell><cell cols="3">𝐺 µ (𝐪; z, 𝐬 &amp;; 𝐫 * , 𝐬 &amp; * ) + (1 + 𝑖𝝎 • 𝒒)𝜇 ( 𝐺 µ (𝐪; z, 𝐬 &amp;; 𝐫 * , 𝐬 &amp; * )</cell></row><row><cell cols="6">= 𝜇 # W 𝑝(𝐬 &amp;, 𝐬 &amp; &amp; )𝐺 µ (𝐪; z, 𝐬 &amp; &amp; ; 𝐫 * , 𝐬 &amp; * )𝑑𝐬 &amp; &amp; 𝕊 !</cell><cell>+ 𝑒 0?1 " 𝐪•𝛒 -𝛿(𝑧 − 𝑧 * )𝛿(𝐬 &amp; − 𝐬 &amp; * ) .</cell><cell>(4.67)</cell></row><row><cell cols="6">If we integrate (4.67) from 𝑧 = 𝑧 * − 0 to 𝑧 = 𝑧 * + 0, we obtain the jump condition:</cell></row><row><cell cols="6">𝜇y𝐺 µ (𝐪; 𝑧 * + 0, 𝐬 &amp;; 𝐫 * , 𝐬 &amp; * ) − 𝐺 µ (𝐪; 𝑧 * − 0, 𝐬 &amp;; 𝐫 * , 𝐬 &amp; * )z = 𝑒 0?1 " 𝐪•𝛒 -𝛿(𝐬 &amp; − 𝐬 &amp; * ) .</cell><cell>(4.68)</cell></row><row><cell cols="6">Using the orthogonality relation (4.35), we obtain</cell></row><row><cell></cell><cell></cell><cell cols="2">𝐴 : (𝜈, 𝐪) =</cell><cell cols="2">𝜇 ( 2𝜋𝑘 k -(𝜈𝑞)𝒩 : (𝜈) % 𝑒 0?1 " 𝐪•𝛒 -</cell><cell>ℛ 𝐤 / (5,𝐪) Φ 5 : *  (𝐬 &amp; * ),</cell><cell>(4.69)</cell></row><row><cell></cell><cell></cell><cell cols="2">𝐵 : (𝜈, 𝐪) =</cell><cell cols="2">𝜇 ( 2𝜋𝑘 k -(𝜈𝑞)𝒩 : (𝜈) % 𝑒 0?1 " 𝐪•𝛒 -</cell><cell>ℛ 𝐤 / (05,𝐪) Φ 05 : *  (𝐬 &amp; * ).</cell><cell>(4.70)</cell></row><row><cell>Hence,</cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell>𝐺 µ (𝐪; 𝑧, 𝐬 &amp;; 𝐫</cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell>(4.64)</cell></row><row><cell>ℝ !</cell><cell>A</cell><cell></cell><cell></cell><cell></cell><cell>5 ℛ 𝐤 / (05,𝐪) Φ 05 : (𝐬 &amp;)𝑑𝜈</cell><cell>𝑑𝐪 , 𝑧 &lt; 𝑧 * .</cell></row><row><cell cols="6">Here, for a function 𝑓 : (𝜈), the notation ∫ 𝑓 : (𝜈) 𝑑𝜈 A R ) 06</cell><cell>means, 6</cell></row><row><cell></cell><cell></cell><cell cols="3">W 𝑓 : (𝜈) 𝑑𝜈</cell><cell>= | 𝑓y𝜈 M : z</cell><cell>+ W 𝑓 : (𝜈) 𝑑𝜈</cell><cell>.</cell><cell>(4.65)</cell></row><row><cell></cell><cell></cell><cell></cell><cell>A</cell><cell></cell><cell>M9*</cell><cell>*</cell></row></table><note>* , 𝐬 &amp;</note></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_10"><head></head><label></label><figDesc>A , 𝐬 &amp;; 0, 𝐬 &amp;′) contains only eigenmodes whose eigenvalues are positive and 𝐺 µ (𝐪; 0, 𝐬 &amp;; 𝑧′, 𝐬 &amp;′) contains only eigenmodes whose eigenvalues are negative. Hence, if we multiply (7.7) by 𝜇ℛ 𝐤 / (05,𝐪) Φ 05 :</figDesc><table><row><cell></cell><cell>D</cell></row><row><cell></cell><cell>.</cell><cell>(7.8)</cell></row><row><cell>𝕊 !</cell><cell>*</cell></row></table><note>* (𝐬 &amp;), where 𝜈 &gt; 0, and integrate over 𝐬 &amp;, we obtain W 𝜇yℛ 𝐤 / (05,𝐪) Φ 05 : * (𝐬 &amp;) z𝐼 Ë (𝐪, 0, 𝐬 &amp;) 𝑑𝐬 &amp; 𝕊 ! = W W 9ℛ 𝐤 / (05,𝐪) Φ 05 : * (𝐬 &amp;)? 𝑒 01 " H I ' (5P)-/5 𝑆 Ë (𝐪; 𝑧, 𝐬 &amp;)𝑑𝑧𝑑𝐬 &amp; By slightly rewriting (7.8), we obtain W 𝜇yℛ 𝐤 / (05,𝐪)</note></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_12"><head></head><label></label><figDesc>. Instead of 𝐬 &amp;, we introduce 𝐬 &amp; ? as Let us consider the numerical evaluation of the fundamental solution (4.66), (4.71). We begin by performing the ballistic subtraction for the RTE (4.62): 𝐼 # (𝐫, 𝐬 &amp;) = 𝐺(𝐫, 𝐬 &amp;; 𝐫 * , 𝐬 &amp; * ) − 𝐼 e (𝐫, 𝐬 &amp;).</figDesc><table><row><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell>(8.5)</cell></row><row><cell>We have</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell></cell><cell></cell><cell cols="3">𝐬 &amp; • ∇𝐼 e (𝐫, 𝐬 &amp;) + 𝜇 ( 𝐼 e (𝐫, 𝐬 &amp;) = 𝛿(𝐫 − 𝐫 * )𝛿(𝐬 &amp; − 𝐬 &amp; * ) ,</cell><cell>(8.6)</cell></row><row><cell>and</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell>𝐬 &amp; ? = 9</cell><cell>𝛚 ? 𝜇 ?</cell><cell>?, 𝛚 ? =</cell><cell>⎝ ⎛</cell><cell>¾1 − 𝜇 ? % sin 𝜑 ⎠ % cos 𝜑 ¾1 − 𝜇 ? ⎞ , 0 ≤ φ &lt; 2π , 𝑖 = 1, ⋯ ,2𝑁 .</cell><cell>(8.2)</cell></row><row><cell>Then we have</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell></cell><cell></cell><cell cols="3">𝛚 ? • 𝐪 = 𝑞¾1 − 𝜇 ? % cosy𝜑 − 𝜑 𝐪 z .</cell><cell>(8.3)</cell></row><row><cell>We define</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell></cell><cell></cell><cell></cell><cell cols="2">𝜔 ? * (𝑞, 𝜑) = 𝑞¾1 − 𝜇 ? % cos 𝜑 .</cell><cell>(8.4)</cell></row><row><cell cols="3">8.2. Discrete ordinates</cell><cell></cell><cell></cell><cell></cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_13"><head></head><label></label><figDesc>𝑖𝝎 ? • 𝒒)𝜇 ( D 𝐼 á (𝐪, 𝑧, 𝐬 &amp; ? ) = 𝜇 # | 𝑤 ? &amp; W 𝑝(𝐬 &amp; ? , 𝐬 &amp; ? &amp; )𝐼 á (𝐪, 𝑧, 𝐬 &amp; ? &amp; )𝑑𝜑 &amp;</figDesc><table><row><cell cols="6">@𝜇 + (1 + 𝑖𝝎 • 𝒒)𝜇 @𝜇 ? 𝜕 𝜕𝑧 𝜕 𝜕𝑧 + (1 + 𝑖𝝎 (8.15)</cell></row><row><cell cols="3">8.3. Eigenmodes</cell><cell></cell><cell></cell></row><row><cell cols="3">Let us consider the homogeneous equation:</cell><cell></cell><cell></cell></row><row><cell>@𝜇 ?</cell><cell>𝜕 𝜕𝑧</cell><cell cols="2">* + (1 + %) ? &amp; 96 %!</cell><cell>.</cell><cell>(8.16)</cell></row><row><cell cols="6">As seen below, 𝐼 á (𝐪, 𝑧, 𝐬 &amp; ? ) does not contain generalized functions. Let us assume the following</cell></row><row><cell cols="3">separated solution.</cell><cell></cell><cell></cell></row><row><cell></cell><cell></cell><cell cols="2">𝐼 á (𝐪, 𝑧, 𝐬 &amp; ? ) = 𝑒 01 " H I ' (fP)-/f ℛ 𝐤 / (f,𝐪) Φ Ö f : (𝐬 &amp; ? ),</cell><cell></cell><cell>(8.17)</cell></row><row><cell>where</cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell></cell><cell></cell><cell>Φ Ö f : (𝐬 &amp; ? ) = 𝜙 â : (𝜉, 𝜇 ? )(1 − 𝜇 ?</cell><cell>% ) |:|/% 𝑒 ?:@ .</cell><cell></cell><cell>(8.18)</cell></row></table><note>.12)This 𝐼 Ë # (𝐪, 𝑧, 𝐬 &amp;) satisfies ( D 𝐼 Ë # (𝐪, 𝑧, 𝐬 &amp;) = 𝜇 # W 𝑝(𝐬 &amp;, 𝐬 &amp; &amp; )𝐼 Ë # (𝐪, 𝑧, 𝐬 &amp; &amp; )𝑑𝐬 &amp; &amp; 𝕊 ! + 𝑆 Ë [𝐼 e ](𝐪, 𝑧, 𝐬 &amp;) , (8.13) where 𝑆 Ë [𝐼 e ](𝐪, 𝑧, 𝐬 &amp;) is the Fourier transform of 𝑆[𝐼 e ](𝐫, 𝐬 &amp;) which is defined similar to (8.12). Now we replace the integral in (8.13) with a sum: ? • 𝒒)𝜇 ( D 𝐼 á # (𝐪, 𝑧, 𝐬 &amp; ? ) = 𝜇 # | 𝑤 ?&amp; %! ?&amp;96 W 𝑝(𝐬 &amp; ? , 𝐬 &amp; ?&amp; )𝐼 á # (𝐪, 𝑧, 𝐬 &amp; ?&amp; )𝑑φ′ %) * + 𝑆 Ë (𝐪, 𝑧, 𝐬 &amp; ? ) . (8.14) The following equality numerically holds for sufficiently large 𝑁. 𝐼 Ë # (𝐪, 𝑧, 𝐬 &amp;) = 𝐼 á # (𝐪, 𝑧, 𝐬 &amp; ? ) .</note></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_19"><head></head><label></label><figDesc>. It is convenient to introduce</figDesc><table><row><cell>𝜎 8 =</cell><cell>𝜇 ( ℎ 8 2𝑙 + 1</cell><cell>,</cell><cell></cell><cell>(9.17)</cell></row><row><cell cols="2">where ℎ 8 was defined in (4.20). We also introduce</cell><cell></cell><cell></cell></row><row><cell cols="3">𝜓 8 : (𝜆) = " (2𝑙 + 1)𝜎 8 𝜆 2𝒩 : (𝜈)𝜇 (</cell><cell>𝑔 8 : (𝜆) .</cell><cell>(9.18)</cell></row><row><cell cols="5">Recall that (4.67) is the RTE in the Fourier space. Let us substitute the expression on the leftmost</cell></row><row><cell cols="4">side of (9.7) for ℛ 𝐤 / (5,𝐪) Φ 5 : (𝐬 &amp;) in the fundamental solution in (4.66), (4.71). Within the</cell></row><row><cell cols="4">approximation of the spherical-harmonic expansion, we obtain</cell></row><row><cell>𝐺 µ (𝐪; 𝑧, 𝐬 &amp;; 𝐫</cell><cell></cell><cell></cell><cell></cell></row></table><note>* , 𝐬 &amp;</note></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_21"><head></head><label></label><figDesc>.27)</figDesc><table><row><cell></cell><cell></cell><cell cols="11">= 𝛿 :: &amp; \" (𝑙 + 1) % − 𝑚 % 4(𝑙 + 1) % − 1</cell><cell>𝛿 8A6,8 &amp; + "</cell><cell>𝑙 % − 𝑚 % 4𝑙 % − 1</cell><cell>𝛿 806,8 &amp; ^ .</cell><cell>(9.28)</cell></row><row><cell>We obtain</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell>1 =</cell><cell>𝜇 ( 𝜆</cell><cell cols="2">| 89|:|</cell><cell cols="4">𝜓 8 : (𝜈) √𝜎 8</cell><cell>\</cell><cell cols="4">𝜓 8A6 : (𝜆) ‰𝜎 8A6</cell><cell>" (𝑙 + 1) % − 𝑚 % 4(𝑙 + 1) % − 1</cell><cell>+</cell><cell>𝜓 806 : (𝜆) ‰𝜎 806</cell><cell>"</cell><cell>𝑙 % − 𝑚 % 4𝑙 % − 1</cell><cell>8#$%</cell></row><row><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell cols="2">=</cell><cell cols="5">1 2𝒩 : (𝜆)</cell><cell>8 #$% | √2𝑙 + 1𝑔 8 : (𝜆) 89*</cell></row><row><cell cols="13">× \√2𝑙 + 3𝑔 8A6 : (𝜆)" (𝑙 + 1) % − 𝑚 % 4(𝑙 + 1) % − 1</cell><cell>+ √2𝑙 − 1𝑔 806 : (𝜆) " 𝑙 % − 𝑚 % 4𝑙 % − 1</cell><cell>^ .</cell><cell>(9.29)</cell></row><row><cell cols="8">We have (see (4.19) and (4.61))</cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell cols="13">𝑏 8A6 (𝑚)‰2(𝑙 + 1) + 1𝑔 8A6 : (𝜆) + 𝑏 8 (𝑚)‰2(𝑙 − 1) + 1𝑔 806 : (𝜆)</cell></row><row><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell cols="2">=</cell><cell cols="2">𝜆ℎ 8 2𝑙 + 1</cell><cell>√2𝑙 + 1𝑔 8 : (𝜆) ,</cell><cell>(9.30)</cell></row><row><cell>where</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell cols="2">𝑏 8 (𝑚) = " 𝑙 % − 𝑚 % 4𝑙 % − 1</cell><cell>.</cell><cell>(9.31)</cell></row><row><cell>Hence we obtain</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell cols="3">1 =</cell><cell cols="3">𝜆 2𝒩 : (𝜆)</cell><cell>8 #$% 89|:| | ℎ 8 𝑔 8 : (𝜆) %</cell><cell>.</cell><cell>(9.32)</cell></row><row><cell>Therefore,</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell cols="2">8 #$%</cell></row><row><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell cols="2">| |𝜓 8 : (𝜆)| %</cell><cell>= 1 .</cell><cell>(9.33)</cell></row><row><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell cols="2">89|:|</cell></row><row><cell>We note that</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell cols="3">W 𝜇𝑌 8:  *  (𝐬 &amp;)𝑌 8&amp;:&amp; (𝐬 &amp;)𝑑𝐬 &amp; 𝕊 !</cell><cell cols="2">=</cell><cell>1 2</cell><cell cols="7">𝛿 ::&amp; "(2𝑙 + 1)(2𝑙′ + 1)</cell><cell>(𝑙 − 𝑚)! (𝑙 + 𝑚)!</cell><cell>(𝑙′ − 𝑚)! (𝑙′ + 𝑚)!</cell><cell>6 W 𝜇𝑃 8 : (𝜇)𝑃 8&amp; : (𝜇) 𝑑𝜇 06</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_26"><head></head><label></label><figDesc>x( 𝐪 : (𝐤, 𝑡) . ) = 𝜇 # W 𝑝(𝐬 &amp;, 𝐬 &amp;′)𝐼 { (𝐫, 𝐬 &amp;′; 𝐫 * , 𝐬 &amp; * ) 𝑑𝐬 &amp;′</figDesc><table><row><cell>Let us define</cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell></cell><cell></cell><cell></cell><cell cols="3">𝜎 8 (𝜔) = 𝜇 " + @1 −</cell><cell>𝛽 8 2𝑙 + 1 D 𝜇 # + 𝑖</cell><cell>𝜔 𝑐</cell><cell>.</cell><cell>(9.113)</cell></row><row><cell cols="6">We obtain where matrix 𝑄 : (𝑘; 𝜔) is given in (9.103) but now 𝜎 8 (𝜔) are complex numbers. Vectors 𝐪 : (𝐤) 9𝐴 : (𝑘; 𝜔) + 𝑖 𝜔 𝕀 : ? 𝐟 : (𝐤; 𝜔) = 𝐪 : (𝐤) , (9.114) 𝑐</cell></row><row><cell>are given by</cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell>(9.105)</cell></row><row><cell>Hence,</cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell cols="6">𝐺 µ (𝐤, 𝐬 &amp;, 𝑡) = 𝑐𝑒 0?𝐤•𝐫 -| 8 #$%</cell><cell>| 9ℛ 𝐤 / 𝑌 8 8 #$%</cell><cell>.</cell><cell>(9.106)</cell></row><row><cell></cell><cell></cell><cell cols="4">:908 #$%</cell><cell>8 &amp; 9|:|</cell></row><row><cell>We obtain</cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell cols="6">8 #$% 𝐺(𝐫, 𝐬 &amp;, 𝑡; 𝐫 8 #$%</cell><cell>.</cell><cell>(9.107)</cell></row><row><cell></cell><cell></cell><cell cols="4">:908 #$%</cell><cell>8 &amp; 9|:|</cell></row><row><cell>Here,</cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell>&lt;no(8,8&amp;)</cell><cell>8A8&amp;</cell></row><row><cell cols="6">𝜓 88&amp; : (𝑅, 𝑡) = 𝑐(−1) :</cell><cell>|</cell><cell>(−1) :&amp;</cell><cell>| 𝐶 8,:,8&amp;,0: r,*</cell><cell>𝐶 8,:&amp;,8&amp;,0:&amp; r,*</cell></row><row><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell>:&amp;90&lt;no(8,8&amp;)</cell><cell>r9|808&amp;|</cell></row><row><cell></cell><cell></cell><cell cols="2">×</cell><cell cols="2">𝑖 r 2𝜋 % W ê𝑒 0W ) (H)x( ë D * 88 &amp; 𝑗 r (𝑘𝑅)𝑘 % 𝑑𝑘</cell><cell>,</cell><cell>(9.108)</cell></row><row><cell cols="6">where 𝑗 r is the spherical Bessel function of the first kind. The ballistic subtraction is possible</cell></row><row><cell cols="6">making use of this expression (Liemert and Kienle, 2012e).</cell></row><row><cell cols="6">Let us consider light propagation from a time-harmonic source:</cell></row><row><cell>@ 1 𝑐</cell><cell>𝜕 𝜕𝑡</cell><cell cols="4">+ 𝐬 &amp; • ∇ + 𝜇 𝕊 !</cell></row><row><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell>+𝛿(𝐫 − 𝐫 * )𝛿(𝐬 &amp; − 𝐬 &amp; * )𝑒 ?{( .</cell><cell>(9.109)</cell></row><row><cell cols="4">The solution can be written as</cell><cell></cell></row><row><cell></cell><cell></cell><cell></cell><cell cols="3">𝐺(𝐫, 𝐬 &amp;, 𝑡; 𝐫 (9.110)</cell></row><row><cell cols="2">This 𝐼 { satisfies</cell><cell></cell><cell></cell><cell></cell></row><row><cell cols="3">9𝐬 &amp; • ∇ + 𝜇 ( + 𝑖</cell><cell cols="2">𝜔 𝑐</cell><cell>? 𝐼 { (𝐫, 𝐬 &amp;; 𝐫 𝕊 !</cell></row><row><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell>+𝛿(𝐫 − 𝐫 * )𝛿(𝐬 &amp; − 𝐬 &amp; * ).</cell><cell>(9.111)</cell></row><row><cell cols="6">Thus the problem reduces to a time-independent problem. Let us introduce</cell></row><row><cell></cell><cell></cell><cell cols="4">𝕊 ! 𝑓 8: (𝐤; 𝜔) = W 𝐼 { (𝐫, 𝐬 &amp;; 𝐫 * , 𝐬 &amp; * )ℛ 𝐤 / 𝑌 8:  *  (𝐬 &amp;) 𝑑𝐬 &amp;</cell><cell>.</cell><cell>(9.112)</cell></row></table><note>&amp; : * (𝐬 &amp; * )? ê𝑒 0W ) (H)x( ë 88 &amp; 9ℛ 𝐤 / 𝑌 8: (𝐬 &amp;)? * , 𝐬 &amp; * ) = | | 9ℛ 𝐑 z 𝑌 8 &amp; : * (𝐬 &amp; * )? 𝜓88 &amp; : (𝑅, 𝑡)yℛ 𝐑 z 𝑌 8: (𝐬 &amp;)z ( D 𝐺(𝐫, 𝐬 &amp;, 𝑡; 𝐫 * , 𝐬 &amp; * ) = 𝜇 # W 𝑝(𝐬 &amp;, 𝐬 &amp;′)𝐺(𝐫, 𝐬 &amp;′, 𝑡; 𝐫 * , 𝐬 &amp; * ) 𝑑𝐬 &amp;′ * , 𝐬 &amp; * ) = 𝐼 { (𝐫, 𝐬 &amp;; 𝐫 * , 𝐬 &amp; * )𝑒 ?{( . * , 𝐬 &amp; *</note></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_27"><head></head><label></label><figDesc>.115)Here, the matrix 𝐵(𝑚; 𝜔) was introduced in (9.38) but now it depends on 𝜔 because 𝜎 8 (𝜔) in 𝛽 8 (𝑚) in (9.39) depends on 𝜔. We obtain Similar to the calculation by<ref type="bibr" target="#b67">Panasyuk, Schotland, and Markel, 2006</ref> for 𝜔 = 0, the specific intensity (𝜔 ≠ 0) can be expressed as 𝐼 { (𝐫, 𝐬 &amp;; 𝐫 * , 𝐬 &amp; * ) = | | 9ℛ 𝐑 z 𝑌 8</figDesc><table><row><cell cols="7">Let us consider the homogeneous equation. We have</cell></row><row><cell></cell><cell></cell><cell cols="2">8 #$%</cell><cell></cell><cell></cell></row><row><cell></cell><cell></cell><cell cols="5">| 𝐵 88&amp; (𝑚; 𝜔)𝜓 8&amp; : (𝜆)</cell><cell>= 𝜆𝜓 8 : (𝜆).</cell><cell>(9.116)</cell></row><row><cell></cell><cell></cell><cell cols="2">8&amp;9|:|</cell><cell></cell><cell></cell></row><row><cell cols="7">𝑓 8 : (𝐤; 𝜔) = 𝑒 0?𝐤•𝐫 -| | 8 #$% 8 &amp; 9|:| : (𝜆)𝜓 8 l 𝜓 8</cell><cell>.</cell><cell>(9.117)</cell></row><row><cell></cell><cell cols="2">8 #$%</cell><cell cols="2">8 #$%</cell><cell></cell></row><row><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell>,</cell><cell>(9.118)</cell></row><row><cell></cell><cell cols="2">:908 #$%</cell><cell cols="2">8 &amp; 9|:|</cell><cell></cell></row><row><cell>where</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell>𝜓 88 &amp; : (𝑅, 𝜔) =</cell><cell>𝑐(−1) : 2𝜋𝜎 8 (𝜔)𝜎 8 &amp; (𝜔)</cell><cell cols="3">&lt;noY8,8 &amp; Z | R90&lt;no(8,8 &amp; ) (−1) R</cell><cell cols="2">8A8 &amp; | 𝐶 8,:,8 &amp; ,0: r,* r9|808 &amp; |</cell><cell>r,* 𝐶 8,R,8 &amp; ,0R</cell></row><row><cell></cell><cell></cell><cell cols="2">× | lm*</cell><cell cols="2">𝜓 8 R (𝜆)𝜓 8 &amp; R (𝜆)  *  𝜆 7</cell><cell>𝑘 r @ 𝜇 ( 𝑅 𝜆</cell><cell>D</cell><cell>.</cell><cell>(9.119)</cell></row><row><cell cols="5">In Fig. 9.4, the Green's function 𝐺(𝐫, 𝐬 &amp;, 𝑡; 𝐫</cell><cell></cell></row></table><note>&amp; : (𝜆) * (1 + 𝑖𝑘𝜆)‰𝜎 8 (𝜔)𝜎 8 &amp; (𝜔) ℛ 𝐤 / 𝑌 8 &amp; : * (𝐬 &amp; * ) &amp; : * (𝐬 &amp; * )? 𝜓 88 &amp; : (𝑅, 𝜔)yℛ 𝐑 z 𝑌 8: (𝐬 &amp;)z * , 𝐬 &amp; * ) in (9.107) is plotted. Results were compared to Monte Carlo simulation.</note></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_28"><head></head><label></label><figDesc>.13) Light exiting the slab in the outward normal direction is collected by a point detector that is located on the plane 𝑧 = 𝐿. Suppose that the outgoing light is detected at 𝐫 $ , where 𝐫 It will prove convenient to introduce the data function 𝒟(𝛒 # , 𝛒 $ ), which is given by</figDesc><table><row><cell>$ = 9</cell><cell>𝛒 $ 𝐿</cell><cell>? .</cell><cell></cell><cell>(10.14)</cell></row><row><cell cols="3">𝒟(𝛒 # , 𝛒 $ ) = −𝐼 * (𝐫, 𝐬 &amp;) ln + 𝐼 * (𝐫, 𝐬 &amp;) 𝐼(𝐫, 𝐬 &amp;)</cell><cell>/ .</cell><cell>(10.15)</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_29"><head></head><label></label><figDesc>For 𝜇 " ≪ 𝜇 # , which is typical in biological tissue, we have</figDesc><table><row><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell>)</cell><cell></cell><cell></cell></row><row><cell>¾3</cell><cell cols="3">‰1 + 𝜂 𝜇 " 𝜇 ( 91 − g</cell><cell cols="2">𝜇 # 𝜇 (</cell><cell cols="2">?</cell><cell>≤ 𝜈 * ≤</cell><cell cols="2">¾3</cell><cell>1 + ‰𝜂 𝜇 " 𝜇 ( 91 + g</cell><cell>𝜇 ( 𝜇 #</cell><cell>?</cell><cell>,</cell><cell>(10.24)</cell></row><row><cell>where</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell></cell><cell></cell><cell cols="3">𝜂 =</cell><cell cols="2">4 5</cell><cell cols="5">𝜇 " 𝜇 " + 𝜇 # (1 − g % )</cell><cell>.</cell><cell>(10.25)</cell></row><row><cell></cell><cell>1 𝜈 *</cell><cell>≈ "</cell><cell cols="3">3𝜇 " 𝜇 (</cell><cell cols="4">(1 − 𝜛g) ≈</cell><cell cols="2">1 𝜇 (</cell><cell>‰3𝜇 " 𝜇 # &amp; ,</cell><cell>(10.26)</cell></row><row><cell>where</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell cols="2">𝜇 #</cell><cell></cell><cell></cell><cell></cell><cell></cell></row></table><note>&amp; = (1 − g)𝜇 # .</note></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_30"><head></head><label></label><figDesc>𝐶 8 ( : ( &amp; 8 ! : ! &amp;where we used(Sec. 5.6 of Varshalovich, Moskalev, and Khersonskii, 1988)𝑌 8 ( : ( &amp; (𝐬 &amp;)𝑌 8 ! : ! &amp; (𝐬 &amp;) = | | " (2𝑙 6 + 1)(2𝑙 % + 1) 4𝜋(2𝑙 + 1)Thus we can write 9ℛ 𝐤 / 𝑌 8 ( : ( (𝐬 &amp;)? 9ℛ 𝐤 / 𝑌 8 ! : ! (𝐬 &amp;)? = | | 𝑓 8 ( : ( ,8 ! : ! (𝜑 𝐤 / , 𝜃 𝐤 / , 0)𝐷 : ! &amp; : ! 8 ! (𝜑 𝐤 / , 𝜃 𝐤 / , 0)𝐶 8 ( *8 ! * 8* 𝐶 8 ( : ( &amp; 8 ! : ! &amp; We note that (see Sec. 4.6 of Varshalovich, Moskalev, and Khersonskii, 1988) 𝐷 : ( &amp; : ( 8 ( (𝜑 𝐤 / , 𝜃 𝐤 / , 0)𝐷 : ! &amp; : ! 8 ! (𝜑 𝐤 / , 𝜃 𝐤 / , 0) = | | | 𝐶 8 ( : ( &amp; 8 ! : ! &amp; 𝐤 / , 𝜃 𝐤 / , 0)𝐶 8 ( : ( 8 ! : ! (𝜑 𝐤 / , 𝜃 𝐤 / , 0)𝐶 8 ( : ( 8 ! : ! We note that 𝐶 8 ( *8 ! * 8* vanishes unless |𝑙 6 − 𝑙 % | ≤ 𝑙 ≤ 𝑙 6 + 𝑙 % and moreover (Sec. 8.1 of Varshalovich, Moskalev, and Khersonskii, 1988), | | 𝐶 8 ( : ( &amp; 8 ! : ! &amp; rR 𝐶 8 ( : ( &amp; 8 ! : ! &amp; (𝜑 𝐤 / , 𝜃 𝐤 / , 0)𝐶 8 ( : ( 8 ! : ! Thus we arrive at 9ℛ 𝐤 / 𝑌 8 ( : ( (𝐬 &amp;)? 9ℛ 𝐤 / 𝑌 8 ! : ! (𝐬 &amp;)? = | | | " 𝐤 / , 𝜃 𝐤 / , 0)𝑌 8: &amp; (𝐬 &amp;) 9ℛ 𝐤 / 𝑌 8 ( : ( (𝐬 &amp;)? 9ℛ 𝐤 / 𝑌 8 ! : ! (𝐬 &amp;)? = ℛ 𝐤 / 9𝑌 8 ( : ( (𝐬 &amp;)𝑌 8</figDesc><table><row><cell></cell><cell></cell><cell></cell><cell>8 (</cell><cell></cell><cell>8 !</cell><cell></cell><cell></cell><cell></cell></row><row><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell>8:</cell><cell>= 𝛿 r8 𝛿 R: .</cell><cell>(𝐵. 7)</cell></row><row><cell></cell><cell></cell><cell></cell><cell>: ( &amp; 908 (</cell><cell cols="3">: ! &amp; 908 !</cell><cell></cell><cell></cell></row><row><cell cols="2">Hence we obtain</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell cols="2">𝑓 8 ( : ( ,8 ! : ! 8:</cell><cell>= "</cell><cell cols="5">(2𝑙 6 + 1)(2𝑙 % + 1) 4𝜋(2𝑙 + 1)</cell><cell cols="2">𝐶 8 ( *8 ! * 8*</cell><cell>8 R &amp; 908 | 𝐷 :R &amp; 8</cell><cell>rR &amp;</cell><cell>.</cell><cell>(𝐵. 8)</cell></row><row><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell cols="2">8 ( A8 !</cell><cell>8</cell><cell>8</cell><cell>(2𝑙 6 + 1)(2𝑙 % + 1)</cell></row><row><cell></cell><cell cols="9">: ( &amp; 908 ( × | | " 8 8 ( A8 ! :908 89|8 ( 08 ! | 8 ( A8 ! × 𝐶 8 ( *8 ! * (2𝑙 6 + 1)(2𝑙 % + 1) :&amp;908 89|8 ( 08 ! | 4𝜋(2𝑙 + 1) 𝐶 8 ( *8 ! * :908 8* 8 8* 𝐶 8 = | | " (2𝑙 6 + 1)(2𝑙 % + 1) :908 89|8 ( 08 ! | 4𝜋(2𝑙 + 1) 8 𝐶 8 ( *8 ! * 8* 𝐶 8 8 ( A8 !</cell><cell>8:</cell><cell>4𝜋(2𝑙 + 1) 𝑌 8: (𝐬 &amp;) , .</cell><cell>(𝐵. 1) (𝐵. 9)</cell></row><row><cell>Using (B.2),</cell><cell></cell><cell></cell><cell cols="2">89|8 ( 08 ! |</cell><cell cols="2">:908</cell><cell></cell><cell></cell><cell>8 ( A8 !</cell><cell>8</cell><cell>𝐶 8 ( *8 ! * 8* 𝐶 8 8:</cell><cell>𝑌 8: (𝐬 &amp;)</cell><cell>,</cell><cell>(𝐵. 3)</cell></row><row><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell>89|8 ( 08 ! |</cell><cell>:908</cell></row><row><cell>where</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell></cell><cell></cell><cell></cell><cell cols="4">𝑓 8 ( : ( ,8 ! : ! 8:</cell><cell cols="3">(2𝑙 6 + 1)(2𝑙 % + 1) = " 4𝜋(2𝑙 + 1)</cell></row><row><cell></cell><cell></cell><cell>8 (</cell><cell>8 !</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell cols="3">× | : ( &amp; 908 (</cell><cell cols="3">: ! &amp; 908 ! | 𝐷 : ( &amp; : ( 8 (</cell><cell></cell><cell></cell><cell></cell><cell>8:</cell><cell>.</cell><cell>(𝐵. 4)</cell></row><row><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell>8 ( A8 !</cell><cell>r</cell><cell>r</cell></row><row><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell>rR</cell></row><row><cell></cell><cell></cell><cell></cell><cell></cell><cell cols="3">× 𝐷 RR &amp;</cell><cell></cell><cell></cell><cell>r9|8 ( 08 ! | rR &amp;</cell><cell>R90r .</cell><cell>R&amp;90r</cell><cell>(𝐵. 5)</cell></row><row><cell>We can write</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell></row><row><cell>𝑓 8 ( : ( ,8 ! : ! 8:</cell><cell cols="5">= " (2𝑙 6 + 1)(2𝑙 % + 1) 4𝜋(2𝑙 + 1)</cell><cell cols="3">𝐶 8 ( *8 ! * 8*</cell><cell>r | | | 𝐷 RR&amp; r 8 ( A8 ! r R&amp;90r R90r r9|8 ( 08 ! |</cell><cell>rR&amp;</cell></row><row><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell>8 (</cell><cell></cell><cell cols="2">8 !</cell></row><row><cell></cell><cell></cell><cell></cell><cell cols="3">× |</cell><cell cols="4">| 𝐶 8 ( : ( &amp; 8 ! : ! &amp; rR</cell><cell>𝐶 8 ( : ( &amp; 8 ! : ! &amp; 8:</cell><cell>.</cell><cell>(𝐵. 6)</cell></row><row><cell></cell><cell></cell><cell></cell><cell cols="3">: ( &amp; 908 (</cell><cell cols="3">: ! &amp; 908 !</cell></row></table><note>( : ( &amp; 8 ! : ! &amp; 8: 𝑌 8: (𝐬 &amp;) . (𝐵. 2) r (𝜑 ( : ( 8 ! : ! r: 𝐷 : &amp; : 8 (𝜑 ( : ( 8 ! : ! r: ℛ 𝐤 / 𝑌 8: (𝐬 &amp;) ! : ! (𝐬 &amp;)? .</note></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="8" xml:id="foot_0">&amp; ,R 𝐶 8,:,8 &amp; ,* b808 &amp; bA%M,: &lt;noY8,8 &amp; Z M9* &lt;noY8,8 &amp; Z R90&lt;no(8,8 &amp; )</note>
+		</body>
+		<back>
+
+			<div type="acknowledgement">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Acknowledgements</head><p>The author started the research on the RTE and rotated reference frames when he was a postdoc of John C. Schotland and Vadim A. Markel, which he greatly appreciates. To deepen the theory on the RTE with rotated reference frames, fruitful discussion on the occasion of the International Conference on Transport Theory (ICTT), which have been held every other year, was crucial. This work was supported by JSPS KAKENHI Grant Number JP17K05572 and JST PRESTO Grant Number JPMJPR2027.</p></div>
+			</div>
+
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<monogr>
+		<title level="m" type="main">Flatland: A Romance of Many Dimensions</title>
+		<author>
+			<persName><forename type="first">E</forename><forename type="middle">A</forename><surname>Abbott</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="1884">1884</date>
+			<publisher>Dover Thrift Edition</publisher>
+			<pubPlace>New York</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">Optical tomography in medical imaging. Inverse Problems, 15, R41</title>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">R ;</forename><surname>Arridge</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">R</forename><surname>Arridge</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">C</forename><surname>Schotland</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Optical tomography: forward and inverse problems. Inverse Problems</title>
+				<imprint>
+			<date type="published" when="1999">1999. 2009</date>
+			<biblScope unit="page">123010</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<monogr>
+		<title level="m" type="main">A fast algorithm to the radiative transport equation and implementation of theory into an applet</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">V</forename><surname>Avram</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Machida</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2013">2013</date>
+			<pubPlace>Ann Arbor</pubPlace>
+		</imprint>
+		<respStmt>
+			<orgName>Research Experience for Undergraduates, University of Michigan</orgName>
+		</respStmt>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">Explicit formulations for radiative transfer problems</title>
+		<author>
+			<persName><forename type="first">L</forename><forename type="middle">B</forename><surname>Barichello</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><forename type="middle">R B</forename><surname>Orlande</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">O</forename><surname>Fudym</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Maillet</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Thermal measurements and inverse techniques</title>
+				<meeting><address><addrLine>Boca Raton (FL)</addrLine></address></meeting>
+		<imprint>
+			<publisher>CRC Press</publisher>
+			<date type="published" when="2011">2011</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">A spherical-harmonics solution for radiative-transfer problems with reflecting boundaries and internal sources</title>
+		<author>
+			<persName><forename type="first">L</forename><forename type="middle">B</forename><surname>Barichello</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">D M</forename><surname>Garcia</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">E</forename><surname>Siewert</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Quantitative Spectroscopy and Radiative Transfer</title>
+		<imprint>
+			<biblScope unit="volume">60</biblScope>
+			<biblScope unit="page">247</biblScope>
+			<date type="published" when="1998">1998</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">On the application of the ADO method to the solution of two-dimensional radiative transfer problems in anisotropic scattering media</title>
+		<author>
+			<persName><forename type="first">L</forename><forename type="middle">B</forename><surname>Barichello</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">B</forename><surname>Pazinatto</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Rui</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><forename type="middle">B</forename><surname>Barichello</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Rui</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">D</forename><surname>Da Cunha</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">International Journal of Thermal Sciences</title>
+		<imprint>
+			<biblScope unit="volume">135</biblScope>
+			<biblScope unit="page">107685</biblScope>
+			<date type="published" when="2020">2020. 106959. 2022</date>
+		</imprint>
+	</monogr>
+	<note>Annals of Nuclear Energy</note>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">On the Equivalence Between the Discrete Ordinates and the Spherical Harmonics Methods in Radiative Transfer</title>
+		<author>
+			<persName><forename type="first">L</forename><forename type="middle">B</forename><surname>Barichello</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">E</forename><surname>Siewert</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Nuclear Science and Engineering</title>
+		<imprint>
+			<biblScope unit="volume">130</biblScope>
+			<biblScope unit="page">79</biblScope>
+			<date type="published" when="1998">1998</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">The searchlight problem for radiative transfer in a finite slab</title>
+		<author>
+			<persName><forename type="first">L</forename><forename type="middle">B</forename><surname>Barichello</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">E</forename><surname>Siewert</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Computational Physics</title>
+		<imprint>
+			<biblScope unit="volume">157</biblScope>
+			<biblScope unit="page">707</biblScope>
+			<date type="published" when="2000">2000</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">Evaluation of the rotation matrices in the basis of real spherical harmonics</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">A</forename><surname>Blanco</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Flórez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Bermejo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">A</forename><surname>Boas</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">H</forename><surname>Brooks</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><forename type="middle">L</forename><surname>Miller</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">A</forename><surname>Dimarzio</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Kilmer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">J</forename><surname>Gaudette</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Q</forename><surname>Zhang</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Molecular Structure: THEOCHEM</title>
+		<imprint>
+			<biblScope unit="volume">419</biblScope>
+			<biblScope unit="page">57</biblScope>
+			<date type="published" when="1997">1997. 2001</date>
+		</imprint>
+	</monogr>
+	<note>IEEE Signal Processing Magazine</note>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<monogr>
+		<title level="m" type="main">Principles of Scattering and Transport of Light</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Carminati</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">C</forename><surname>Schotland</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2021">2021</date>
+			<publisher>Cambridge University Press</publisher>
+			<pubPlace>New York</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">M</forename><surname>Case</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Annals of Physics</title>
+		<imprint>
+			<biblScope unit="volume">7</biblScope>
+			<biblScope unit="page">349</biblScope>
+			<date type="published" when="1959">1959</date>
+		</imprint>
+	</monogr>
+	<note>Plasma oscillations</note>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">Elementary solutions of the transport equation and their applications</title>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">M</forename><surname>Case</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Annals of Physics</title>
+		<imprint>
+			<biblScope unit="volume">9</biblScope>
+			<biblScope unit="page">1</biblScope>
+			<date type="published" when="1960">1960</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">M</forename><surname>Case</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>De Hoffmann</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Placzek</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Courant</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Hilbert</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Introduction to the Theory of Neutron Diffusion</title>
+		<title level="s">Methods of Mathematical Physics</title>
+		<editor>
+			<persName><forename type="first">U</forename><forename type="middle">S</forename><surname>Government</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">Printing</forename><surname>Office</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">K</forename><forename type="middle">M</forename><surname>Case</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">P</forename><forename type="middle">F</forename><surname>Zweifel</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Washington, DC; Reading, Mass; London; New York</addrLine></address></meeting>
+		<imprint>
+			<publisher>Interscience</publisher>
+			<date type="published" when="1950">1953. 1967. 1950. 1953</date>
+			<biblScope unit="volume">1</biblScope>
+		</imprint>
+	</monogr>
+	<note>Linear transport theory. Radiative transfer</note>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<monogr>
+		<title level="m" type="main">Angular distribution due to an isotropic point source and spherically symmetrical eigensolutions of the transport equation</title>
+		<author>
+			<persName><forename type="first">B</forename><surname>Davison</surname></persName>
+		</author>
+		<idno>No. MT-112</idno>
+		<imprint>
+			<date type="published" when="1945">1945</date>
+		</imprint>
+		<respStmt>
+			<orgName>National Research Council of Canada, Division of Atomic Energy</orgName>
+		</respStmt>
+	</monogr>
+	<note type="report_type">Canadian Report</note>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<monogr>
+		<author>
+			<persName><forename type="first">B</forename><surname>Davison</surname></persName>
+		</author>
+		<title level="m">Neutron Transport Theory</title>
+				<meeting><address><addrLine>London</addrLine></address></meeting>
+		<imprint>
+			<publisher>Oxford University Press</publisher>
+			<date type="published" when="1957">1957</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<analytic>
+		<title level="a" type="main">An explicit solution of the one velocity multi-dimensional Boltzmannequation in 𝑃 ! approximation. Nukleonik, 6, 267</title>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">M</forename><surname>Dede</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Eon</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><forename type="middle">J</forename><surname>Mccormick</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Computational and Theoretical Transport</title>
+		<imprint>
+			<biblScope unit="volume">48</biblScope>
+			<biblScope unit="page">280</biblScope>
+			<date type="published" when="1964">1964. 2019</date>
+		</imprint>
+	</monogr>
+	<note>Radiative transfer in half spaces of arbitrary dimension</note>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<analytic>
+		<title level="a" type="main">The 𝐹 ! method for radiative transfer problems without azimuthal symmetry</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Devaux</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">E</forename><surname>Siewert</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Applied Mathematics and Physics</title>
+		<imprint>
+			<biblScope unit="page">592</biblScope>
+			<date type="published" when="1980">1980</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<monogr>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">J</forename><surname>Duderstadt</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><forename type="middle">R</forename><surname>Martin</surname></persName>
+		</author>
+		<title level="m">Transport Theory</title>
+				<meeting><address><addrLine>New York</addrLine></address></meeting>
+		<imprint>
+			<publisher>John Wiley &amp; Sons, Inc</publisher>
+			<date type="published" when="1979">1979</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<analytic>
+		<title level="a" type="main">The searchlight problem in radiation transport some analytical and computational results</title>
+		<author>
+			<persName><forename type="first">W</forename><forename type="middle">L</forename><surname>Dunn</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">E</forename><surname>Siewert</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Angular Momentum in Quantum Mechanics</title>
+				<editor>
+			<persName><forename type="first">A</forename><forename type="middle">R</forename><surname>Edmonds</surname></persName>
+		</editor>
+		<meeting><address><addrLine>New York</addrLine></address></meeting>
+		<imprint>
+			<publisher>Princeton University Press</publisher>
+			<date type="published" when="1957">1985. 1957</date>
+			<biblScope unit="volume">36</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<monogr>
+		<title/>
+		<author>
+			<persName><forename type="first">H</forename><surname>Fujii</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+	<note>Private communication</note>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<analytic>
+		<title level="a" type="main">A consistent theory of neutral particle transport in an infinite medium</title>
+		<author>
+			<persName><forename type="first">B</forename><forename type="middle">D</forename><surname>Ganapol</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Transport Theory and Statistical Physics</title>
+		<imprint>
+			<biblScope unit="volume">29</biblScope>
+			<biblScope unit="page">43</biblScope>
+			<date type="published" when="2000">2000</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<analytic>
+		<title level="a" type="main">The infinite medium Green&apos;s function of monoenergetic neutron transport theory via Fourier transform</title>
+		<author>
+			<persName><forename type="first">B</forename><forename type="middle">D</forename><surname>Ganapol</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Computational and Theoretical Transport</title>
+		<editor>B. D. and Kornreich, D. E.</editor>
+		<imprint>
+			<biblScope unit="volume">43</biblScope>
+			<biblScope unit="page">89</biblScope>
+			<date type="published" when="1995">2008. 2014. 2015. 1995</date>
+		</imprint>
+	</monogr>
+	<note>Transport Theory and Statistical Physics</note>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<analytic>
+		<title level="a" type="main">A review of the Facile (𝐹 ! ) method in particle transport theory</title>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">D M</forename><surname>Garcia</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Transport Theory and Statistical Physics</title>
+		<imprint>
+			<biblScope unit="volume">14</biblScope>
+			<biblScope unit="page">391</biblScope>
+			<date type="published" when="1985">1985</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b23">
+	<analytic>
+		<title level="a" type="main">Multigroup transport theory: II. Numerical results</title>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">D M</forename><surname>Garcia</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">E</forename><surname>Siewert</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Nuclear Science and Engineering</title>
+		<imprint>
+			<biblScope unit="volume">78</biblScope>
+			<biblScope unit="page">315</biblScope>
+			<date type="published" when="1981">1981</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b24">
+	<analytic>
+		<title level="a" type="main">On the dispersion function in particle transport theory</title>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">D M</forename><surname>Garcia</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">E</forename><surname>Siewert</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Zeitschrift für angewandte Mathematik und Physik</title>
+		<imprint>
+			<biblScope unit="volume">33</biblScope>
+			<biblScope unit="page">801</biblScope>
+			<date type="published" when="1982">1982</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b25">
+	<analytic>
+		<title level="a" type="main">Benchmark results in radiative transfer</title>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">D M</forename><surname>Garcia</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">E</forename><surname>Siewert</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Transport Theory and Statistical Physics</title>
+		<imprint>
+			<biblScope unit="volume">14</biblScope>
+			<biblScope unit="page">437</biblScope>
+			<date type="published" when="1985">1985</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b26">
+	<analytic>
+		<title level="a" type="main">On discrete spectrum calculations in radiative transfer</title>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">D M</forename><surname>Garcia</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">E</forename><surname>Siewert</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Quantitative Spectroscopy and Radiative Transfer</title>
+		<imprint>
+			<biblScope unit="volume">42</biblScope>
+			<biblScope unit="page">385</biblScope>
+			<date type="published" when="1989">1989</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b27">
+	<analytic>
+		<title level="a" type="main">On computing the Chandrasekhar polynomials in high order and high degree</title>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">D M</forename><surname>Garcia</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">E</forename><surname>Siewert</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Quantitative Spectroscopy and Radiative Transfer</title>
+		<imprint>
+			<biblScope unit="page">43</biblScope>
+			<date type="published" when="1990">1990</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b28">
+	<analytic>
+		<title level="a" type="main">Improvements in the 𝐹 ! method for radiative transfer calculations in clouds</title>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">D M</forename><surname>Garcia</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">E</forename><surname>Siewert</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. 11th Int. Conf. on Clouds and Precipitation</title>
+				<meeting>11th Int. Conf. on Clouds and Precipitation</meeting>
+		<imprint>
+			<date type="published" when="1992">1992</date>
+			<biblScope unit="volume">2</biblScope>
+			<biblScope unit="page">813</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b29">
+	<analytic>
+		<title level="a" type="main">The 𝐹 ! method in atmospheric radiative transfer</title>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">D M</forename><surname>Garcia</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">E</forename><surname>Siewert</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">International Journal of Engineering Science</title>
+		<imprint>
+			<biblScope unit="volume">36</biblScope>
+			<biblScope unit="page">1623</biblScope>
+			<date type="published" when="1998">1998</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b30">
+	<analytic>
+		<title level="a" type="main">Calculation of Gauss quadrature rules</title>
+		<author>
+			<persName><forename type="first">G</forename><forename type="middle">H</forename><surname>Golub</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">H</forename><surname>Welsch</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Mathematics of Computation</title>
+		<imprint>
+			<biblScope unit="volume">23</biblScope>
+			<biblScope unit="page">221</biblScope>
+			<date type="published" when="1969">1969</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b31">
+	<analytic>
+		<author>
+			<persName><forename type="first">P</forename><surname>Grandjean</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">E</forename><surname>Siewert</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">The 𝐹 ! method in neutron-transport theory. Part II: Applications and numerical results</title>
+				<imprint>
+			<date type="published" when="1979">1979</date>
+			<biblScope unit="volume">69</biblScope>
+			<biblScope unit="page">161</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b32">
+	<analytic>
+		<title level="a" type="main">Wave Propagation and Scattering in Random Media</title>
+		<author>
+			<persName><forename type="first">L</forename><forename type="middle">G</forename><surname>Henyey</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">L</forename><surname>Greenstein</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Diffuse radiation in the Galaxy</title>
+				<meeting><address><addrLine>New York</addrLine></address></meeting>
+		<imprint>
+			<publisher>Academic</publisher>
+			<date type="published" when="1941">1941. 1978</date>
+			<biblScope unit="volume">93</biblScope>
+		</imprint>
+	</monogr>
+	<note>70. Ishimaru, A.</note>
+</biblStruct>
+
+<biblStruct xml:id="b33">
+	<analytic>
+		<title level="a" type="main">Transport theory for light propagation in biological tissue</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">D</forename><surname>Kim</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of the Optical Society of America A</title>
+		<imprint>
+			<biblScope unit="volume">21</biblScope>
+			<biblScope unit="page">820</biblScope>
+			<date type="published" when="2004">2004</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b34">
+	<analytic>
+		<title level="a" type="main">Light propagation in biological tissue</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">D</forename><surname>Kim</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">B</forename><surname>Keller</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of the Optical Society of America A</title>
+		<imprint>
+			<biblScope unit="volume">20</biblScope>
+			<biblScope unit="page">92</biblScope>
+			<date type="published" when="2003">2003</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b35">
+	<analytic>
+		<title level="a" type="main">Beam propagation in sharply peaked forward scattering media</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">D</forename><surname>Kim</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Moscoso</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of the Optical Society of America A</title>
+		<imprint>
+			<biblScope unit="volume">21</biblScope>
+			<biblScope unit="page">797</biblScope>
+			<date type="published" when="2004">2004</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b36">
+	<analytic>
+		<title level="a" type="main">Spherical harmonics solutions of multi-dimensional neutron transport equation by finite Fourier transformation</title>
+		<author>
+			<persName><forename type="first">K</forename><surname>Kobayashi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Kuščer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><forename type="middle">J</forename><surname>Mccormick</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Nuclear Science and Technology</title>
+		<imprint>
+			<biblScope unit="volume">14</biblScope>
+			<biblScope unit="page">351</biblScope>
+			<date type="published" when="1977">1977. 1991</date>
+		</imprint>
+	</monogr>
+	<note>Transport Theory and Statistical Physics</note>
+</biblStruct>
+
+<biblStruct xml:id="b37">
+	<analytic>
+		<title level="a" type="main">A functional-analytic approach to the steady, one-speed neutron transport equation with anisotropic scattering</title>
+		<author>
+			<persName><forename type="first">E</forename><forename type="middle">W</forename><surname>Larsen</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Communications on Pure and Applied Mathematics</title>
+		<imprint>
+			<biblScope unit="volume">27</biblScope>
+			<biblScope unit="page">523</biblScope>
+			<date type="published" when="1974">1974</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b38">
+	<analytic>
+		<title level="a" type="main">Solution of neutron transport problem in 𝐿 6</title>
+		<author>
+			<persName><forename type="first">E</forename><forename type="middle">W</forename><surname>Larsen</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Communications on Pure and Applied Mathematics</title>
+		<imprint>
+			<biblScope unit="volume">28</biblScope>
+			<biblScope unit="page">729</biblScope>
+			<date type="published" when="1975">1975</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b39">
+	<analytic>
+		<title level="a" type="main">A functional-analytic derivation of Caseʼs full and half-range formulas</title>
+		<author>
+			<persName><forename type="first">E</forename><forename type="middle">W</forename><surname>Larsen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><forename type="middle">J</forename><surname>Habetler</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Communications on Pure and Applied Mathematics</title>
+		<imprint>
+			<biblScope unit="volume">26</biblScope>
+			<biblScope unit="page">525</biblScope>
+			<date type="published" when="1973">1973</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b40">
+	<analytic>
+		<title level="a" type="main">On a singular integral equation arising in the 𝐹 ! method</title>
+		<author>
+			<persName><forename type="first">E</forename><forename type="middle">W</forename><surname>Larsen</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Transport Theory and Statistical Physics</title>
+		<imprint>
+			<biblScope unit="page">97</biblScope>
+			<date type="published" when="1982">1982</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b41">
+	<analytic>
+		<title level="a" type="main">Analytical approach for solving the radiative transfer equation in two-dimensional layered media</title>
+		<author>
+			<persName><forename type="first">E</forename><forename type="middle">W</forename><surname>Larsen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Sancaktar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">F</forename><surname>Zweifel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Liemert</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Kienle</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Quantitative Spectroscopy and Radiative Transfer</title>
+		<editor>Liemert, A. and Kienle, A.</editor>
+		<imprint>
+			<biblScope unit="volume">16</biblScope>
+			<biblScope unit="page">559</biblScope>
+			<date type="published" when="1117">1975. 1117. 2011. 2012a</date>
+		</imprint>
+	</monogr>
+	<note>Journal of Physics A: Mathematical and Theoretical</note>
+</biblStruct>
+
+<biblStruct xml:id="b42">
+	<analytic>
+		<title level="a" type="main">Light transport in three-dimensional semi-infinite scattering media</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Liemert</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Kienle</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of the Optical Society of America A</title>
+		<imprint>
+			<biblScope unit="volume">29</biblScope>
+			<biblScope unit="page">1475</biblScope>
+			<date type="published" when="2012">2012b</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b43">
+	<analytic>
+		<title level="a" type="main">Spatially modulated light source obliquely incident on a semi-infinite scattering medium</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Liemert</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Kienle</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Optics Letters</title>
+		<imprint>
+			<biblScope unit="page">4158</biblScope>
+			<date type="published" when="2012">2012c</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b44">
+	<analytic>
+		<title level="a" type="main">Greenʼs function of the time-dependent radiative transport equation in terms of rotated spherical harmonics</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Liemert</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Kienle</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Waves in Random and Complex Media</title>
+				<editor>
+			<persName><forename type="first">A</forename><surname>Liemert</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">A</forename><surname>Kienle</surname></persName>
+		</editor>
+		<imprint>
+			<date type="published" when="2012">2012d. 2012e. 2012f. 175201. 2013a</date>
+			<biblScope unit="volume">86</biblScope>
+			<biblScope unit="page">461</biblScope>
+		</imprint>
+	</monogr>
+	<note>Two-dimensional radiative transfer due to curved Dirac delta line sources</note>
+</biblStruct>
+
+<biblStruct xml:id="b45">
+	<analytic>
+		<title level="a" type="main">Exact and efficient solution of the radiative transport equation for the semi-infinite medium</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Liemert</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Kienle</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Scientific Reports</title>
+		<imprint>
+			<biblScope unit="volume">3</biblScope>
+			<date type="published" when="2013">2013b. 2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b46">
+	<analytic>
+		<title level="a" type="main">The line source problem in anisotropic neutron transport with internal reflection</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Liemert</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Kienle</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Annals of Nuclear Energy</title>
+		<imprint>
+			<biblScope unit="volume">60</biblScope>
+			<biblScope unit="page">206</biblScope>
+			<date type="published" when="2013">2013c</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b47">
+	<analytic>
+		<title level="a" type="main">Hybrid Green&apos;s function of the time-dependent radiative transfer equation for anisotropically scattering semi-infinite media</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Liemert</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Kienle</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Biomedical Optics</title>
+		<imprint>
+			<biblScope unit="volume">18</biblScope>
+			<biblScope unit="page">15001</biblScope>
+			<date type="published" when="2013">2013d</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b48">
+	<analytic>
+		<title level="a" type="main">Explicit solutions of the radiative transport equation in the 𝑃 7 approximation</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Liemert</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Kienle</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Medical Physics</title>
+		<imprint>
+			<biblScope unit="page">111916</biblScope>
+			<date type="published" when="2014">2014</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b49">
+	<analytic>
+		<title level="a" type="main">Novel analytical solution for the radiance in an anisotropically scattering medium</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Liemert</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Kienle</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Applied Optics</title>
+		<imprint>
+			<biblScope unit="volume">54</biblScope>
+			<date type="published" when="1963">2015. 1963</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b50">
+	<analytic>
+		<title level="a" type="main">Singular eigenfunctions for the three-dimensional radiative transport equation</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Machida</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of the Optical Society of America A</title>
+		<imprint>
+			<biblScope unit="volume">31</biblScope>
+			<biblScope unit="page">67</biblScope>
+			<date type="published" when="2014">2014</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b51">
+	<analytic>
+		<title level="a" type="main">An FN method for the radiative transport equation in three dimensions</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Machida</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Physics A: Mathematical and Theoretical</title>
+		<imprint>
+			<biblScope unit="volume">48</biblScope>
+			<biblScope unit="page">325001</biblScope>
+			<date type="published" when="2015">2015</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b52">
+	<analytic>
+		<title level="a" type="main">The Green&apos;s function for the three-dimensional linear Boltzmann equation via Fourier transform</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Machida</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Physics A: Mathematical and Theoretical</title>
+		<editor>Machida, M.</editor>
+		<imprint>
+			<biblScope unit="volume">49</biblScope>
+			<biblScope unit="page">73301</biblScope>
+			<date type="published" when="2016">2016a. 175001. 2016b</date>
+		</imprint>
+	</monogr>
+	<note>Journal of Mathematical Physics</note>
+</biblStruct>
+
+<biblStruct xml:id="b53">
+	<analytic>
+		<title level="a" type="main">Numerical algorithms of the radiative transport equation using rotated reference frames for optical tomography with structured illumination</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Machida</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Quantitative Spectroscopy and Radiative Transfer</title>
+		<editor>Machida, M.</editor>
+		<imprint>
+			<biblScope unit="volume">45</biblScope>
+			<biblScope unit="page">124</biblScope>
+			<date type="published" when="2016">2016c. 2019</date>
+		</imprint>
+	</monogr>
+	<note>Journal of Computational and Theoretical Transport.</note>
+</biblStruct>
+
+<biblStruct xml:id="b54">
+	<analytic>
+		<title level="a" type="main">Three-dimensional analytical discrete-ordinates method for the radiative transport equation</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Machida</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Das</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Waves in Random and Complex Media</title>
+				<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b55">
+	<analytic>
+		<title level="a" type="main">Decay behavior and optical parameter identification for spatial-frequency domain imaging by the radiative transport equation</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Machida</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Hoshi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Kagawa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Takada</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of the Optical Society of America A</title>
+		<imprint>
+			<biblScope unit="volume">37</biblScope>
+			<date type="published" when="2020">2020. 2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b56">
+	<analytic>
+		<title level="a" type="main">The Greenʼs function for the radiative transport equation in the slab geometry</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Machida</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Panasyuk</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Yu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">C</forename><surname>Schotland</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><forename type="middle">A ;</forename><surname>Markel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Machida</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><forename type="middle">Y</forename><surname>Panasyuk</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">C</forename><surname>Schotland</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><forename type="middle">A</forename><surname>Markel</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Physics A: Mathematical and General</title>
+		<imprint>
+			<biblScope unit="volume">26</biblScope>
+			<biblScope unit="page">65402</biblScope>
+			<date type="published" when="1291">2009. 1291. 2010</date>
+		</imprint>
+	</monogr>
+	<note>Journal of the Optical Society of America A</note>
+</biblStruct>
+
+<biblStruct xml:id="b57">
+	<analytic>
+		<title level="a" type="main">Radiative transport and optical tomography with large datasets</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Machida</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><forename type="middle">Y</forename><surname>Panasyuk</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z.-M</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><forename type="middle">A</forename><surname>Markel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">C</forename><surname>Schotland</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of the Optical Society of America A</title>
+		<imprint>
+			<biblScope unit="volume">33</biblScope>
+			<biblScope unit="page">551</biblScope>
+			<date type="published" when="2016">2016</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b58">
+	<analytic>
+		<title level="a" type="main">Modified spherical harmonics method for solving the radiative transport equation</title>
+		<author>
+			<persName><forename type="first">V</forename><forename type="middle">A</forename><surname>Markel</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Waves Random Media</title>
+				<imprint>
+			<date type="published" when="2004">2004</date>
+			<biblScope unit="volume">14</biblScope>
+			<biblScope unit="page">L13</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b59">
+	<analytic>
+		<title level="a" type="main">Half-space neutron transport with linearly anisotropic scattering</title>
+		<author>
+			<persName><forename type="first">N</forename><forename type="middle">J</forename><surname>Mccormick</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Kuščer</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Mathematical Physics</title>
+		<imprint>
+			<biblScope unit="volume">6</biblScope>
+			<date type="published" when="1939">1965. 1939</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b60">
+	<analytic>
+		<title level="a" type="main">Bi-orthogonality relations for solving half-space transport problems</title>
+		<author>
+			<persName><forename type="first">N</forename><forename type="middle">J</forename><surname>Mccormick</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Kuščer</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Mathematical Physics</title>
+		<imprint>
+			<biblScope unit="volume">7</biblScope>
+			<biblScope unit="page">2036</biblScope>
+			<date type="published" when="1966">1966</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b61">
+	<analytic>
+		<title level="a" type="main">Singular eigenfunction expansions in neutron transport theory</title>
+		<author>
+			<persName><forename type="first">N</forename><forename type="middle">J</forename><surname>Mccormick</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Kuščer</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Advances in Nuclear Science and Technology</title>
+				<editor>
+			<persName><forename type="first">E</forename><forename type="middle">J</forename><surname>Henley</surname></persName>
+		</editor>
+		<editor>
+			<persName><surname>Lewins</surname></persName>
+		</editor>
+		<meeting><address><addrLine>J. New York</addrLine></address></meeting>
+		<imprint>
+			<publisher>Academic Press</publisher>
+			<date type="published" when="1973">1973</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b62">
+	<analytic>
+		<title level="a" type="main">Inverse problem transport calculations for anisotropic scattering coefficients</title>
+		<author>
+			<persName><forename type="first">N</forename><forename type="middle">J</forename><surname>Mccormick</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Sanchez</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Mathematical Physics</title>
+		<imprint>
+			<biblScope unit="volume">22</biblScope>
+			<biblScope unit="page">199</biblScope>
+			<date type="published" when="1981">1981</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b63">
+	<analytic>
+		<title level="a" type="main">Neutron transport with anisotropic scattering</title>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">R</forename><surname>Mika</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Nuclear Science and Engineering</title>
+		<imprint>
+			<biblScope unit="volume">11</biblScope>
+			<biblScope unit="page">415</biblScope>
+			<date type="published" when="1961">1961</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b64">
+	<analytic>
+		<title level="a" type="main">Spatial frequency domain imaging using an analytical model for separation of surface and volume scattering</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Nothelfer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Bergmann</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Liemert</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Reitzle</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Kienle</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Biomedical Optics</title>
+		<imprint>
+			<biblScope unit="volume">24</biblScope>
+			<biblScope unit="page">71604</biblScope>
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b65">
+	<analytic>
+		<title level="a" type="main">A numerical integration formula based on the Bessel functions</title>
+		<author>
+			<persName><forename type="first">H</forename><surname>Ogata</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Publ. RIMS, Kyoto Univ</title>
+		<imprint>
+			<biblScope unit="volume">41</biblScope>
+			<biblScope unit="page">949</biblScope>
+			<date type="published" when="2005">2005</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b66">
+	<analytic>
+		<title level="a" type="main">The double exponential formula for oscillatory functions over the half infinite interval</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Ooura</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Mori</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Computational and Applied Mathematics</title>
+		<editor>Ooura, T. and Mori, M.</editor>
+		<imprint>
+			<biblScope unit="volume">38</biblScope>
+			<biblScope unit="page">229</biblScope>
+			<date type="published" when="1991">1991. 1999</date>
+		</imprint>
+	</monogr>
+	<note>Journal of Computational and Applied Mathematics</note>
+</biblStruct>
+
+<biblStruct xml:id="b67">
+	<analytic>
+		<title level="a" type="main">Two-dimensional source estimation problems using an ADO-Nodal solution to the adjoint transport equation</title>
+		<author>
+			<persName><forename type="first">G</forename><surname>Panasyuk</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">C</forename><surname>Schotland</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><forename type="middle">A</forename><surname>Markel</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Physics A: Mathematical and General</title>
+		<editor>Pazinatto, C. B. and Barichello, L. B.</editor>
+		<imprint>
+			<biblScope unit="volume">39</biblScope>
+			<date type="published" when="2006">2006. 2021</date>
+		</imprint>
+	</monogr>
+	<note>Radiative transport equation in rotated reference frames. Advanced Discretization Methods for Particle Transport III, ANS M&amp;C 2021</note>
+</biblStruct>
+
+<biblStruct xml:id="b68">
+	<analytic>
+		<title level="a" type="main">A review of neutron transport approximations</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Sanchez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><forename type="middle">J</forename><surname>Mccormick</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Nuclear Science and Engineering</title>
+		<imprint>
+			<biblScope unit="volume">80</biblScope>
+			<biblScope unit="page">481</biblScope>
+			<date type="published" when="1982">1982</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b69">
+	<analytic>
+		<title level="a" type="main">Fourier-Laplace structure of the inverse scattering problem for the radiative transport equation</title>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">C</forename><surname>Schotland</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><forename type="middle">A</forename><surname>Markel</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Inverse Problems and Imaging</title>
+		<imprint>
+			<biblScope unit="volume">1</biblScope>
+			<biblScope unit="page">181</biblScope>
+			<date type="published" when="2007">2007</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b70">
+	<analytic>
+		<title level="a" type="main">The 𝐹 ! method for solving radiative-transfer problems in plane geometry</title>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">E</forename><surname>Siewert</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Astrophysics and Space Science</title>
+		<imprint>
+			<biblScope unit="volume">58</biblScope>
+			<biblScope unit="page">131</biblScope>
+			<date type="published" when="1978">1978</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b71">
+	<analytic>
+		<title level="a" type="main">A concise and accurate solution to Chandrasekhar&apos;s basic problem in radiative transfer</title>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">E</forename><surname>Siewert</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Quantitative Spectroscopy and Radiative Transfer</title>
+		<imprint>
+			<biblScope unit="volume">64</biblScope>
+			<biblScope unit="page">109</biblScope>
+			<date type="published" when="2000">2000</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b72">
+	<analytic>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">E</forename><surname>Siewert</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Benoist</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">The 𝐹 ! method in neutron-transport theory. Part I: Theory and applications</title>
+				<imprint>
+			<date type="published" when="1979">1979</date>
+			<biblScope unit="volume">69</biblScope>
+			<biblScope unit="page">156</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b73">
+	<analytic>
+		<title level="a" type="main">Radiation transport in plane-parallel media with nonuniform surface illumination</title>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">E</forename><surname>Siewert</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><forename type="middle">L</forename><surname>Dunn</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Quantitative Spectroscopy and Radiative Transfer</title>
+		<editor>627. Siewert, C. E. and Wright, S. J.</editor>
+		<imprint>
+			<biblScope unit="volume">34</biblScope>
+			<biblScope unit="page">685</biblScope>
+			<date type="published" when="1983">1983. 1999</date>
+		</imprint>
+	</monogr>
+	<note>Zeitschrift für angewandte Mathematik und Physik</note>
+</biblStruct>
+
+<biblStruct xml:id="b74">
+	<analytic>
+		<title level="a" type="main">On the theory of stationary waves in plasmas. Physica, 21, 949</title>
+		<author>
+			<persName><forename type="first">N</forename><forename type="middle">G</forename><surname>Van Kampen</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Quantum Theory of Angular Momentum</title>
+				<editor>
+			<persName><forename type="first">D</forename><forename type="middle">A</forename><surname>Varshalovich</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">A</forename><forename type="middle">N</forename><surname>Moskalev</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">V</forename><forename type="middle">K</forename><surname>Khersonskii</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Singapore</addrLine></address></meeting>
+		<imprint>
+			<publisher>World Scientific</publisher>
+			<date type="published" when="1955">1955. 1988</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b75">
+	<monogr>
+		<title level="m" type="main">Mathematical problems of nuclear reactor theory. Nuclear Reactor Theory</title>
+		<author>
+			<persName><forename type="first">E</forename><forename type="middle">P</forename><surname>Wigner</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="1961">1961</date>
+			<biblScope unit="page">89</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b76">
+	<analytic>
+		<title level="a" type="main">Determination of the optical properties of tissuesimulating phantoms from interstitial frequency domain measurements of relative fluence and phase difference</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">M R</forename><surname>Williams</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Physics A: Mathematical and General</title>
+		<editor>Xu, H. and Patterson, M. S.</editor>
+		<imprint>
+			<biblScope unit="volume">15</biblScope>
+			<biblScope unit="page">6485</biblScope>
+			<date type="published" when="1982">1982. 2006a. 2006b</date>
+		</imprint>
+	</monogr>
+	<note>Optics Express</note>
+</biblStruct>
+
+<biblStruct xml:id="b77">
+	<monogr>
+		<title/>
+		<author>
+			<persName><forename type="first">C</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">V</forename><surname>Avram</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Machida</surname></persName>
+		</author>
+		<ptr target="http://www.mmachida.com/ezrte/" />
+		<imprint>
+			<date type="published" when="2022">2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

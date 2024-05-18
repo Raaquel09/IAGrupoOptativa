@@ -1,0 +1,727 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">A minimal dynamical system and analog circuit for non-associative learning</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+				<date type="published" when="2024-05-10">May 10, 2024</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Matthew</forename><surname>Smart</surname></persName>
+							<email>msmart@flatironinstitute.org</email>
+							<affiliation key="aff0">
+								<orgName type="department" key="dep1">Center for Computational Biology</orgName>
+								<orgName type="department" key="dep2">Flatiron Institute</orgName>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Stanislav</forename><forename type="middle">Y</forename><surname>Shvartsman</surname></persName>
+							<affiliation key="aff1">
+								<orgName type="department">Department of Molecular Biology and the Lewis-Sigler Institute of Integrative Genomics</orgName>
+								<orgName type="institution">Prince-ton University</orgName>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Martin</forename><surname>Mönnigmann</surname></persName>
+							<email>martin.moennigmann@rub.de.</email>
+							<affiliation key="aff2">
+								<orgName type="institution">Ruhr University Bochum</orgName>
+								<address>
+									<country key="DE">Germany</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">A minimal dynamical system and analog circuit for non-associative learning</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date type="published" when="2024-05-10">May 10, 2024</date>
+						</imprint>
+					</monogr>
+					<idno type="MD5">D6912B2FE6B91AC2605EADF9C11ADC0B</idno>
+					<idno type="arXiv">arXiv:2405.05770v1[q-bio.NC]</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.2" ident="GROBID" when="2024-05-16T18:04+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Learning in living organisms is typically associated with networks of neurons. The use of large numbers of adjustable units has also been a crucial factor in the continued success of artificial neural networks. In light of the complexity of both living and artificial neural networks, it is surprising to see that very simple organisms -even unicellular organisms that do not possess a nervous system -are capable of certain forms of learning. Since in these cases learning may be implemented with much simpler structures than neural networks, it is natural to ask how simple the building blocks required for basic forms of learning may be. The purpose of this study is to discuss the simplest dynamical systems that model a fundamental form of non-associative learning, habituation, and to elucidate technical implementations of such systems, which may be used to implement non-associative learning in neuromorphic computing and related applications.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1">INTRODUCTION</head><p>A fascinating aspect of all living systems is their capacity to learn. One of the most basic forms of non-associative learning is habituation, which is characterized by a progressively diminishing response to repetitive stimulation. This ability allows organisms, which are typically immersed in rich environments filled with benign, repeti-tive stimuli, to "tune out" neutral signals and thus preserve limited cognitive resources and energy for responding to more salient ones (e.g. potential predators, prey, and mates). Despite its prevalence, dynamical mechanisms underlying habituation remain poorly understood.</p><p>Although habituation is classically associated with animal (i.e. neuronal) learning, it has been observed across different kingdoms of life <ref type="bibr" target="#b6">[7,</ref><ref type="bibr" target="#b2">3,</ref><ref type="bibr" target="#b3">4]</ref>. Thus, nervous systems are not a necessary ingredient for this fundamental form of learning. Remarkably, it has also been reported in various unicellular organisms <ref type="bibr" target="#b8">[9,</ref><ref type="bibr" target="#b5">6,</ref><ref type="bibr" target="#b10">11]</ref> and in certain nonliving systems <ref type="bibr" target="#b20">[20,</ref><ref type="bibr" target="#b19">19]</ref>. In the latter works, which report the first technical implementations of habituation to the authors' knowledge, habituation of material conductance is mediated by repeated exposure to hydrogen gas, which transiently alters the electronic properties of the material (perovskite nickelate SmNiO 3 <ref type="bibr" target="#b20">[20]</ref> or the Mott insulator nickel oxide <ref type="bibr" target="#b19">[19]</ref>).</p><p>Artificial implementations of non-associative learning are of practical interest because of their potential use in neuromorphic computing <ref type="bibr" target="#b18">[18]</ref> and generalized physical learning <ref type="bibr" target="#b16">[16]</ref>. In particular, Zuo et al. <ref type="bibr" target="#b20">[20]</ref> showed that a habituation-inspired extension of spiking artificial neural networks (ANNs) mitigates the phenomenon of catastrophic forgetting and outperforms the standard ANN in pattern recognition. Similarly, Zhang et al. <ref type="bibr" target="#b19">[19]</ref> demonstrated an artificial network inspired by non-associative learning has advantages for unsupervised clustering.</p><p>In the present paper, we present a simple analog circuit that implements hallmarks of non-associative learning, which essentially resulted from the authors' effort to find the simplest possible dynamical systems for habituation. Due to its simplicity, this circuit may ultimately help improve analog implementations of artificial learning sys-tems, which are of interest, among other reasons, because they help close the gap in energy efficiency between living learning systems and their artificial counterparts (see, e.g., <ref type="bibr" target="#b18">[18,</ref><ref type="bibr" target="#b7">8]</ref>).</p><p>Non-associative learning is typically understood to comprise both habituation and sensitization, the progressive attenuation and amplification of a response to a repeated stimulus, respectively. We focus on habituation because it is the more complicated of the two processes (as will be obvious from the proposed circuit). A seminal review by <ref type="bibr">Thompson and Spencer [17]</ref> outlined nine characteristic features associated with habituation in living systems. These features have since been revisited and refined <ref type="bibr" target="#b11">[12]</ref> and are commonly known as the "hallmarks of habituation". A starting point for our work is to restate these observational hallmarks in a mathematical setting (see Table <ref type="table" target="#tab_0">1</ref>). It is evident from their original statements that not all hallmarks need apply in order for an organism to be understood to habituate (cf. the "may" in H 6 in Table <ref type="table" target="#tab_0">1</ref>, for example). In line with the common interpretation of the hallmarks, we consider the first sentence of hallmarks H 1 and H 2 (see Table <ref type="table" target="#tab_0">1</ref>) to be necessary conditions.</p><p>We pose the question of how simple a habituating dynamic system may be and answer this question from a systems &amp; control perspective. In the systems biology literature, this question would be paraphrased to read What does a motif for habituation look like? (see, e.g., <ref type="bibr" target="#b0">[1]</ref> for a classical text on motifs and their nonlinear dynamics).</p><p>An electrical circuit that mimics habituation in living systems was given in <ref type="bibr" target="#b1">[2]</ref>. There, the circuit was linear, however, and a nonlinear post-processing of the signals generated by the circuit was required. The circuit proposed here generates the habituating response by itself and we show any circuit capable of this must be nonlinear.</p><p>We present the proposed circuit and a corresponding dynamical system that respect hallmarks H 1 and H 2 in Section 2, and show how the circuit can be extended to account for additional hallmarks. It will be evident that the circuit and system, due to their simplicity, are not amenable to further simplifications. We prove that the nonlinearity of the circuit cannot be removed in Section 3. Conclusions and an outlook are stated in Section 4.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Notation and Preliminaries</head><p>All systems are single-input-single-output systems unless stated otherwise.</p><p>Biological systems and their signals are bounded. In cellular signaling cascades, for example, signals are coded as concentrations of biochemical species, which implies they are bounded from below because concentrations are nonnegative. Similarly, membrane potentials of nerve cells cannot exceed lower and upper bounds in living organisms. We assume without restriction that signals are bounded from below by zero. Furthermore, we assume without restriction the origin is a steady state that results in a zero output signal.</p><p>We model periodic input stimuli by rectangular functions with an amplitude A, period T , and duty d. We abbreviate u(kT ) by u[k] where convenient. Let y[k] denote the largest output that results in period k, i.e., y[k] = max{y(t)|t ∈ [kT, (k + 1)T )}, which always exists for the systems considered here.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2">PROPOSED SYSTEM AND CIRCUIT</head><p>The proposed circuit and two useful extensions are shown in Figure <ref type="figure">1</ref>. Modeling this circuit is straightforward but results in a differential-algebraic model with an output that cannot be stated in explicit form due to the diode. The resulting model is stated in Section 2.1. We derive a simplified model in Section 2.2 that is still nonlinear but in explicit input-output form. It is shown in Section 2.3 that the proposed circuit habituates.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.1">Nonlinear differential-algebraic model</head><p>The proposed circuit is shown in Figure <ref type="figure">1a</ref>. Let u(t), x(t), and y(t) be the input signal, the voltage x = U C across the capacitor, and the voltage y = U R 2 across resistor R 2 , respectively (see Figure <ref type="figure">1</ref>). Let T RC denote the time constant of the RC subcircuit in Figure <ref type="figure">1</ref>, i.e.,</p><formula xml:id="formula_0">T RC = R 1 C. If R 2 ≫ R 1</formula><p>, the circuit can be modeled with Then there exists an m ∈ N such that the response after withholding the stimulus for m periods satisfies</p><formula xml:id="formula_1">T RC ẋ + x = u (1a) y = R 2 I D (1b)</formula><formula xml:id="formula_2">y[k + m + 1] &gt; y[k]. H 6 Subliminal accumulation:</formula><p>The effects of repeated stimulation may continue to accumulate even after the response has reached an asymptotic level. Among other effects, this can delay the onset of spontaneous recovery.</p><p>Assume H 1 holds for u(t). Suppose the response reaches an asymptotic level on the k th stimulation. Let l 1 &lt; l 2 ∈ N. Then a system receiving k + l 1 stimulations will take longer to recover than a system receiving k + l 2 stimulations. H 8 Dishabituation: Presentation of another (usually strong) stimulus results in recovery of the habituated response.</p><p>Assume H 1 holds for u(t). There exists a second stimulus s(t) applied only during kT</p><formula xml:id="formula_3">&lt; t &lt; (k + 1)T which guarantees y[k + 1] &gt; y[k].</formula><p>where the current I D through the diode and the voltage U D across the diode are given by the diode equation</p><formula xml:id="formula_4">I D = I S e U D nU T − 1 and U D = R 4 R 3 + R 4 u − x − R 2 I D</formula><p>(1c) and where c = 1 for the circuit in Figure <ref type="figure">1a and c</ref> </p><formula xml:id="formula_5">= R 4 R 3 +R 4</formula><p>for the circuit in Figure <ref type="figure">1b</ref>. Appendix A summarizes the derivation of (1).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.2">Piecewise linear model</head><p>By approximating the diode equation (1c) with</p><formula xml:id="formula_6">I D = ReLU (a D U D + b D ) ,<label>(2)</label></formula><p>where ReLU(z) = max(0, z) is the rectified linear unit, the differential-algebraic model ( <ref type="formula">1</ref>) can be simplified to</p><formula xml:id="formula_7">T RC ẋ + x = u (3a) y = a • ReLU(cu − x + b) (3b)</formula><p>The parameters in (3) are given by T RC = R 1 C and c already introduced in Section 2.1 and</p><formula xml:id="formula_8">a = a D R 2 1 + a D R 2 , b = b D a D .<label>(4)</label></formula><p>Note that, in contrast to <ref type="bibr" target="#b0">(1)</ref>, no algebraic equations need to be solved in (3) to determine the output, which results from evaluating (3b). Appendix B briefly explains how to derive (3).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.3">The proposed circuit and system habituate</head><p>We first illustrate the approximation (2) of the diode equation (1c) in Figure <ref type="figure" target="#fig_0">2</ref> for completeness. Values for a D and b D , which are given in Table <ref type="table" target="#tab_1">2</ref>.3, have been identified manually for the output from the explicit model (3) to closely resemble the output from the original model <ref type="bibr" target="#b0">(1)</ref>.</p><p>It is evident from Figure <ref type="figure">3</ref> that the circuit, more specifically the differential-algebraic model (1), respects hallmarks 1 and 2. The RC circuit subsystem integrates the rectangular stimuli from its initial condition x(0) = 0 until a forced limit cycle is reached for x(t) (green curve in Figure <ref type="figure">3</ref>). The first order lag implemented by the RC circuit and its state x essentially implement a memory variable that, roughly speaking, counts sufficiently fast stimuli (e.g. green curve for 0 ≤ T ≤ 15T in Figure <ref type="figure">3</ref>) and forgets these stimuli over time (e.g. green curve for 16T ≤ t ≤ 30T in Figure <ref type="figure">3</ref>).</p><p>The output essentially subtracts the memory variable</p><formula xml:id="formula_9">𝑦(𝑡) 𝑥(𝑡) R 1 C R 2 D (a) 𝑢(𝑡) R 1 C R 2 D (c) R 3 R 1 C R 2 R 4 D (b) 𝑠 Figure 1: (a)</formula><p>Proposed circuit with input u(t) and output y(t) = U R 2 , the voltage across R 2 . (b) Proposed circuit with an additional voltage divider. This extension is expected to be useful in future analyses of series and parallel connections of (a); analogous generalizations have been used before to cover additional hallmarks (see, e.g. <ref type="bibr" target="#b14">[14,</ref><ref type="bibr" target="#b4">5]</ref>). (c) Extension by a path that discharges C for s = 1. The additional signal s(t) is used to implement sensitization control for hallmark H 8 in Section 2.3.   <ref type="table" target="#tab_0">1</ref>). As explained in the text, the RC subcircuit implements a leaky memory x(t) of recent inputs u(t) to the system, which is then compared with the input signal to generate the response y(t). Notation: u(t) denotes the input voltage, x(t) denotes the voltage across the capacitor, and y(t) denotes the voltage across resistor R 2 (all in V). The third plot shows the (scaled) argument of the nonlinearity in (3b) as a dashed line.</p><p>from the input signal (up to scaling with a and c and a constant shift b), which is evident from the circuit and the argument cu−x+b of the ReLU in (3b). Due to the diode, negative voltages across R 4 are not passed to the output, which is again evident from the ReLU in (3b) and I D &gt; 0 in the diode equation in (1c).</p><p>As a result of these two operations, subtraction and rectification, the output y(t) shows the desired behavior for hallmark H 1 in response to periodic stimuli (blue curve in Figure <ref type="figure">3</ref>, up to t = 15T ). When the stimuli pause (blue curve, 16T ≤ t &lt; 30T ), the circuit forgets about the earlier stimuli (x(t) approaches zero around t = 30T ). The first subsequent stimulus (t = 30T ) results in the same response as the stimulus at t = 0, which implies the circuit recovered spontaneously, i.e. it respects hallmark H 2 .</p><p>Figure <ref type="figure">4</ref> shows that the system respects hallmark H 6 for wait 14T + 5T wait 14T</p><p>Figure <ref type="figure">4</ref>: The proposed circuit and system fulfill hallmark H 6 , subliminal accumulation, if the components are chosen to achieve an asymptotic value zero for y(t) when subjected to periodic stimuli. Solid curves (u 1 , x 1 , y 1 ): Stimulation with a comb of length 4 is sufficient to approach the asymptotic output value y = 0. The system requires a delay of 14 periods after the first comb ends to recover nearly fully when stimulated again at t = 15T . Dashed curves (u 2 , x 2 , y 2 ): When stimulated with a longer first comb, the memory variable x(t) can reach higher values. As a result, the system recovers later, about 19 periods after the first comb ends. In both simulations (solid and dashed), the first combs are aligned to stop at t = 0 to facilitate comparison. Distinct parameters for these simulations relative to Table <ref type="table" target="#tab_1">2</ref>.</p><formula xml:id="formula_10">3 are R 1 = 1 kΩ, R 3 = 18 kΩ, R 4 = 2 kΩ.</formula><p>some values of its components. These values are altered for the simulations shown in Figure <ref type="figure">4</ref> for better visibility of the desired effect. We claim without giving details that all behaviors shown in all figures are robust with respect to the component values, i.e. they do not appear for singular choices of the components. In the case shown in Figure <ref type="figure">4</ref>, after four stimulations the system reaches an asymptotic output value of y = 0 (which it cannot exceed due to the ReLU-like nonlinearity of the diode). If the system continues to be stimulated after reaching this asymptotic response (dashed curves in Figure <ref type="figure">4</ref>), it exhibits subliminal accumulation (hallmark H 6 ). Prior to the second round of stimulation, this effect is not directly visible from the response y alone (hence subliminal as in the original biological literature). The effect is transparent if one has access to the memory variable x(t): the overstimulated system requires a longer duration to recover fully (20T instead of 15T ) due to the accumulation of x 2 relative to x 1 . This effect can be made more or less pronounced (or even removed) depending on the parameters of the circuit elements.</p><p>Finally, Figure <ref type="figure">5</ref> shows that s(t) introduced in Figure <ref type="figure">1c</ref> achieves sensitization (or equivalently, dishabituation to use the terminology of hallmark H 8 ). Closing the switch at time t = 10T results in discharging the capacitor to U C = x = 0, which is equivalent to resetting the RC circuit to its initial discharged state or forcing the memory variable to forget all earlier stimuli. In the simulation shown in Figure <ref type="figure">5</ref>, the switch had a resistance of 47Ω in its closed state which gives rise to an exponential discharge curve for t ∈ [10T, 11T ) in the figure. </p><formula xml:id="formula_11">R 1 = 470 Ω R 2 = 10 kΩ R 3 = 8.2 kΩ R 4 = 2.2 kΩ I S = 1 • 10 −15 A n = 1 U T =</formula></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Dishabituation control</head><p>System re-sensitized</p><p>Figure <ref type="figure">5</ref>: System fulfills H 8 (dishabituation; see Table <ref type="table" target="#tab_0">1</ref>). This re-sensitization is physically implemented using a switchable signal s(t) that discharges the memory stored in the capacitor (see Figure <ref type="figure">1C</ref>).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3">LTI SYSTEMS DO NOT HABITUATE</head><p>It is instructive to consider if the proposed circuit and system can be simplified further. Since the diode D is the only nonlinear component in the proposed circuit, it is natural to ask whether the diode can be omitted, or more generally, whether there exists a linear system that habituates.</p><p>We show linear time-invariant systems cannot habituate in this section. We use a behavioral setting and notation (see, e.g. <ref type="bibr" target="#b12">[13,</ref><ref type="bibr" target="#b9">10]</ref>) in order to not restrict the result to ordinary differential equations or their discrete-time counterparts.</p><p>While the claim and proof stated in Proposition 3.1 are a bit technical due to their intended generality, the essential idea is simple and sketched in Figure <ref type="figure" target="#fig_2">6</ref>: Assuming a system habituates in response to a signal u, it habituates in the same fashion if u is shifted to a later time (due to time invariance, Figure <ref type="figure" target="#fig_2">6a and b</ref>). Linearity implies that the response to u can be superimposed with the response to the time-shifted u to obtain the response to the combined inputs (Figure <ref type="figure" target="#fig_2">6c</ref>). However, if the system habituates, more specifically respects hallmark H 1 , it responds differently to only the time-shifted u than to the superposition of u and the time-shifted u (Figure <ref type="figure" target="#fig_2">6c and d differ</ref>).</p><p>As a preparation to Proposition 3.1, let a dynamical system be defined by</p><formula xml:id="formula_12">(T , U , Y , B)<label>(5)</label></formula><p>where T ⊆ R is a set of time points and U and Y are sets of functions on T that describe stimulus and responses, respectively. B is the subset of all functions from T to (U × Y ) that describe the behavior of the system, i.e., (u × y) ∈ U × Y implies the system can react with the response y(t), t ∈ T to the stimulus u(t), t ∈ T . A dynamical system ( <ref type="formula" target="#formula_12">5</ref>) is said to be linear, if, for any (u 1 , y 1 ) ∈ B, (u 2 , y 2 ) ∈ B and any c 1 ∈ R, c 2 ∈ R, we have</p><formula xml:id="formula_13">(c 1 u 1 + c 2 u 2 , c 1 y 1 + c 2 y 2 ) ∈ B.<label>(6)</label></formula><p>A dynamical system (5) is said to be time-invariant, if, for any t ′ ∈ T and any (u, y) ∈ B, we have (u ′ , y ′ ) ∈ B, where u ′ is defined by u ′ (t) = u(t −t ′ ) and y ′ (t) is defined accordingly.</p><p>Proposition 3.1. A linear time-invariant system with a nonnegative output cannot respect hallmark H 1 and thus cannot habituate.</p><p>Proof. We assume there exists a system with the stated properties that respects hallmark H 1 and show that a contradiction results. We assume without restriction that the system state is the origin and y = 0 before the first stimulus applies.</p><p>Let u be a sequence of L stimuli with period T , where the first stimulus occurs at t = 0. Let y be such that (u, y) ∈ B. Define u ′ by u ′ (t) = u(t − LT ) for all t ∈ T , define y ′ accordingly, and note that this implies y ′ [k + L] = y[k] for all k ∈ N. Since the system is time-invariant, (u, y) ∈ B implies (u ′ , y ′ ) ∈ B. Since the system fulfills hallmark H 1 by assumption, we have y[0] &gt; y[k] for all k ∈ N, since there exists a K &gt; 0 such that y[k], k = 0, . . . , K is strictly decreasing. This implies and y</p><formula xml:id="formula_14">′ [L] &gt; y ′ [L+k] for all k ∈ N, since y ′ [L + k] = y[k] for all k ∈ N.</formula><p>Now consider ũ = u + u ′ and ỹ = y + y ′ , and note that ( ũ, ỹ) ∈ B since the system is linear. Since the system  </p><p>where we used y ′ [0] = 0, which holds because no stimulus has appeared for (u ′ , y ′ ) at time t = 0. Since the system is linear by assumption, we have</p><formula xml:id="formula_16">ỹ[L] = y[L] + y ′ [L] = y[L] + y[0] ≥ y[0]<label>(8)</label></formula><p>where the first equality holds due to linearity, the second one due to time invariance and the last relation holds with y[L] ≥ 0, i.e. nonnegativity of the output. Relations <ref type="bibr" target="#b6">(7)</ref> and ( <ref type="formula" target="#formula_16">8</ref>) yield ỹ[L] &lt; y[0] and ỹ[L] ≥ y[0], which is the desired contradiction.</p><p>We pointed out in Section 1 that biological systems are bounded. Since linear systems and their outputs are unbounded according to the superposition principle, it is tempting to infer that linear systems cannot habituate from the assumption of bounded outputs alone. Input signals to living systems are, however, also bounded, and properties like bounded-input-bounded-output stability suggest bounded outputs can be ensured under certain assumptions on the input signals. As a result, the mere statement that linear systems are ruled out here due to their unboundedness is arguably not satisfactory. Proposition 3.1 and its proof make the statement clearer. Note that boundedness enters in (8) in the proof.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4">CONCLUSIONS AND OUTLOOK</head><p>We have described a minimal analog circuit that implements a fundamental form of non-associative learning, habituation, in that it satisfies its two defining features (or hallmarks, specifically H 1 and H 2 in Table <ref type="table" target="#tab_0">1</ref>). We have shown that additional features of habituation found in living organisms can be achieved with mild extensions to the base circuit. The simplicity of the proposed circuit may facilitate applications in neuromorphic computing <ref type="bibr" target="#b18">[18]</ref> or, more generally, physical learning <ref type="bibr" target="#b16">[16]</ref>. It has recently been shown that non-neuronal learning can provide benefits relative to conventional ANNs <ref type="bibr" target="#b19">[19]</ref>. Artificial habituation system have been proposed for this purpose <ref type="bibr" target="#b20">[20,</ref><ref type="bibr" target="#b19">19]</ref> that are based on changing the electronic properties of nickelates or nickel oxide by exposing them to hydrogen and ozone. Due to its flexibility, the circuit proposed here may be an interesting alternative. For instance, the circuit can readily be adjusted for a wide range of timescales (T RC in (1a), (3a)).</p><p>Future work will address extensions of the base circuit that account for remaining hallmarks of habituation. In particular, series connections of more complex but related models have been suggested to exhibit frequency sensitivity <ref type="bibr" target="#b4">[5,</ref><ref type="bibr" target="#b15">15]</ref>. Thus, a natural next step is to treat the presented circuit as a building block and investigate the properties of series and parallel assemblies. Such architectures will allow to extend beyond the single-input, singleoutput setting to implement more elaborate sensory and response behaviors. port through the Flatiron Institute, a division of the Simons Foundation.</p><p>A Derivation of (1)</p><p>Resistors R 3 and R 4 form a voltage divider that provides the potential</p><formula xml:id="formula_17">U R 4 = R 4 /(R 3 + R 4 ) c u(t).<label>(9)</label></formula><p>If R 2 ≫ R 1 , the RC circuit formed by R 1 and C (black subcircuit in Figure <ref type="figure">1</ref>) is approximately independent of the remaining components. The voltage across C, x = U C , can therefore be modeled with (1a) with time constant T RC = R 1 C. The potential U R 4 from ( <ref type="formula" target="#formula_17">9</ref>) applies to the series connection of R 2 , D and C (highlighted in purple), which implies  <ref type="bibr" target="#b10">(11)</ref>, substituting the resulting expression into (9) and solving for U D . This yields</p><formula xml:id="formula_18">U R 4 = U R 2 +U D +U C ,<label>(10) where U</label></formula><formula xml:id="formula_19">U D = 1 1 + a D R 2 (U R 4 −U C − b D R 2 ) = 1 1 + a D R 2 (cu − x − b D R 2 ) ,</formula><p>where (9) and x = U C were used in the last step. Substituting this expression for U D into I D = a D U D + b D and substituting the resulting expression into (11) yields</p><formula xml:id="formula_20">U R 2 = a D R 2 1 + a D R 2 (cu − x − b D R 2 ) + b D R 2 = a D R 2 1 + a D R 2 cu − x − b D R 2 1 − 1 + a D R 2 a D R 2 = a D R 2 1 + a D R 2 cu − x + b D a D<label>(12)</label></formula><p>This expression was derived assuming I D = a D U D + b D , i.e., for one branch of the approximate diode equation ( <ref type="formula" target="#formula_6">2</ref>). The other branch, I D = 0, implies</p><formula xml:id="formula_21">U R 2 = R 2 I D = 0. (<label>13</label></formula><formula xml:id="formula_22">)</formula><p>In summary, y = U R 2 is given by ( <ref type="formula" target="#formula_20">12</ref>) if a D U D + b D ≥ 0 and given by ( <ref type="formula" target="#formula_21">13</ref>) if a D U D + b D &lt; 0, which is equivalent to (3b) with a and b defined in (4).</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Figure 2 :</head><label>2</label><figDesc>Figure 2: Diode equation I(U D ) from (1c) and piecewise linear approximation (2) with parameters from Table 2.3.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head></head><label></label><figDesc>25.85 mV C = 4700 µF a D = 7.0 mS b D = −4.6 mA Table 2: Parameters used in the circuit simulations. Voltages shown in Fig. 3-5 are in V unless specified otherwise. For the input stimulus u(t) we use T = 1 s and d = 0.1 throughout.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head>Figure 6 :</head><label>6</label><figDesc>Figure 6: Linear time-invariant systems do not respect hallmark H 1 . Linear superposition according to (6) of (u, y) shown in (a) and (u ′ , y ′ ) shown in (b) results in the time series shown in (c). The response in (c) does not respect hallmark H 1 , however, in contrast to the response in (d).</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head></head><label></label><figDesc>respects hallmark H 1 by assumption, we have ỹ[L] &lt; ỹ[0] = y[0] + y ′ [0] = y[0]</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_4"><head></head><label></label><figDesc>D and U C are the voltages across D and C, respectively. The current I D through D can be modeled with Shockley's diode equation stated in (1c), where I S , n, and U T are the scale current of the diode, the ideality factor of the diode, and the thermal voltage, respectively. Since the currents through R 2 and D are equal,U R 2 = R 2 I D .(11)Substituting (9),<ref type="bibr" target="#b10">(11)</ref> and U C = x into (10) and rearranging yields the second equation in (1c).B Derivation of(3)Assume a D U D + b D ≥ 0 which implies the approximated diode equation (2) evaluates to I D = a D U D + b D . The explicit output equation (3b) can be found by substituting I D = a D U D + b D into</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_0"><head>Table 1 :</head><label>1</label><figDesc>Hallmarks H 1 , H 2 , H 6 , and H 8 from<ref type="bibr" target="#b17">[17,</ref><ref type="bibr" target="#b11">12]</ref> in shortened form, alongside proposed mathematical criteria. H 1 Habituation: Repeated application of a stimulus results in a progressive decrease of a response to an asymptotic level. Spontaneous recovery: If the stimulus is withheld, the response recovers over time.</figDesc><table /><note>There exists a periodic stimulus u(t) that generates a sequence of responses satisfying y[k + 1] ≤ y[k] for all k ≥ 0, and there exists a K &gt; 0 such that y[k + 1] &lt; y[k] for all k = 0, . . . , K. H 2Assume H 1 holds for u(t). Suppose the stimulus has been applied k times resulting in a response y[k].</note></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_1"><head>Table 2 .</head><label>2</label><figDesc>3.Figure3: System fulfills H 1 and H 2 (habituation and spontaneous recovery, respectively; see Table</figDesc><table><row><cell>recovery</cell></row><row><cell>habituation</cell></row></table></figure>
+		</body>
+		<back>
+
+			<div type="acknowledgement">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>ACKNOWLEDGMENTS</head><p>We thank Anton Persikov, Hayden Nunley, and Gilles Francfort for helpful discussions and suggestions. M.M. gratefully acknowledges travel support by the Simons Foundation. M.S. and S.Y.S. are grateful for ongoing sup-</p></div>
+			</div>
+
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<monogr>
+		<title level="m" type="main">An Introduction to Systems Biology: Design Principles of Biological Circuits</title>
+		<author>
+			<persName><forename type="first">U</forename><surname>Alon</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2006">2006</date>
+			<pubPlace>Taylor &amp; Francis</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<monogr>
+		<title level="m" type="main">Mechanical vibration patterns elicit behavioral transitions and habituation in crawling Drosophila larvae</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Berne</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Shomar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">J</forename><surname>Ferrer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Valdes</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Ohyama</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Klein</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2023">2023</date>
+			<biblScope unit="volume">12</biblScope>
+			<biblScope unit="page">e69205</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">Habituation in non-neural organisms: evidence from slime moulds</title>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">P</forename><surname>Boisseau</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Vogel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Dussutour</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Proc. R. Soc. B</title>
+		<imprint>
+			<biblScope unit="volume">283</biblScope>
+			<date type="published" when="2016">20160446. 2016</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">Memory inception and preservation in slime moulds: the quest for a common mechanism</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Boussard</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Delescluse</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Perez-Escudero</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Dussutour</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Phil. Trans. R. Soc. B</title>
+		<imprint>
+			<biblScope unit="volume">374</biblScope>
+			<date type="published" when="2019">20180368. 2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<monogr>
+		<title level="m" type="main">Learning in single cells -computational models of habituation. Master&apos;s thesis</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Eckert</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2022">2022</date>
+			<publisher>ETH Zurich</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">Habituation and sensitization in an aneural cell -some comparative and theoretical considerations. Neurosci</title>
+		<author>
+			<persName><forename type="first">E</forename><forename type="middle">M</forename><surname>Eisenstein</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">G</forename><surname>Brunder</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><forename type="middle">J</forename><surname>Blair</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Biobehav. Rev</title>
+		<imprint>
+			<biblScope unit="volume">6</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="183" to="194" />
+			<date type="published" when="1982">1982</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">Experience teaches plants to learn faster and forget slower in environments where it matters</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Gagliano</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Renton</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Depczynski</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Mancuso</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Oecologia</title>
+		<imprint>
+			<biblScope unit="volume">175</biblScope>
+			<biblScope unit="page" from="63" to="72" />
+			<date type="published" when="2014">2014</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">A 64-core mixed-signal in-memory compute chip based on phase-change memory for deep neural network inference</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">Le</forename><surname>Gallo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Khaddam-Aljameh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Stanisavljevic</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Vasilopoulos</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Kersting</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Dazzi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Karunaratne</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Brändli</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Singh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">M</forename><surname>Mueller</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Nat. Electron</title>
+		<imprint>
+			<biblScope unit="volume">6</biblScope>
+			<biblScope unit="issue">9</biblScope>
+			<biblScope unit="page" from="680" to="693" />
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">Habituation in a protozoan vorticella convallaria</title>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">J</forename><surname>Patterson</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Behaviour</title>
+		<imprint>
+			<biblScope unit="volume">45</biblScope>
+			<biblScope unit="page" from="304" to="311" />
+			<date type="published" when="1973">1973</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<monogr>
+		<title level="m" type="main">Introduction to mathematical systems theory: a behavioral approach</title>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">W</forename><surname>Polderman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">C</forename><surname>Willems</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="1998">1998</date>
+			<publisher>Springer</publisher>
+			<pubPlace>Berlin, Heidelberg</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">Single-cell analysis of habituation in stentor coeruleus</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Rajan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Makushok</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Kalish</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Acuna</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Bonville</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">C</forename><surname>Almanza</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Garibay</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Tang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Voss</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Lin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Barlow</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Harrigan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">M</forename><surname>Slabodnick</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><forename type="middle">F</forename><surname>Marshall</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Curr. Biol</title>
+		<imprint>
+			<biblScope unit="volume">33</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="241" to="251" />
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">Thompson. Habituation revisited: An updated and revised description of the behavioral characteristics of habituation</title>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">H</forename><surname>Rankin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Abrams</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">J</forename><surname>Barry</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Bhatnagar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">F</forename><surname>Clayton</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Colombo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Coppola</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">A</forename><surname>Geyer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">L</forename><surname>Glanzman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Marsland</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><forename type="middle">K</forename><surname>Mc-Sweeney</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">A</forename><surname>Wilson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C.-F</forename><surname>Wu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">F</forename></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Neurobiol. Learn. Mem</title>
+		<imprint>
+			<biblScope unit="volume">92</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="135" to="138" />
+			<date type="published" when="2009">2009</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<monogr>
+		<title level="m" type="main">Mathematical Control Theory</title>
+		<author>
+			<persName><forename type="first">E</forename><forename type="middle">D</forename><surname>Sontag</surname></persName>
+		</author>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<monogr>
+		<title/>
+		<author>
+			<persName><surname>Springer-Verlag</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="1998">1998</date>
+			<pubPlace>Berlin, Heidelberg</pubPlace>
+		</imprint>
+	</monogr>
+	<note>2nd edition</note>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">On rate-sensitive habituation</title>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">E</forename><surname>Staddon</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Adapt. Behav</title>
+		<imprint>
+			<biblScope unit="volume">1</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="421" to="436" />
+			<date type="published" when="1993">1993</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<analytic>
+		<title level="a" type="main">Multiple time scales in simple habituation</title>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">E</forename><surname>Staddon</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">J</forename><surname>Higa</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Psychol. Rev</title>
+		<imprint>
+			<biblScope unit="volume">103</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="720" to="733" />
+			<date type="published" when="1996">1996</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<analytic>
+		<title level="a" type="main">Learning without neurons in physical systems</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Stern</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Murugan</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Annu. Rev. Condens. Matter Phys</title>
+		<imprint>
+			<biblScope unit="volume">14</biblScope>
+			<biblScope unit="page" from="417" to="441" />
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<analytic>
+		<title level="a" type="main">Habituation: A model phenomenon for the study of neuronal substrates of behavior</title>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">F</forename><surname>Thompson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><forename type="middle">A</forename><surname>Spencer</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Psychol. Rev</title>
+		<imprint>
+			<biblScope unit="volume">73</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="16" to="43" />
+			<date type="published" when="1966">1966</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<analytic>
+		<title level="a" type="main">Neuroinspired computing chips</title>
+		<author>
+			<persName><forename type="first">W</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Gao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Tang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Yao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Yu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">F</forename><surname>Chang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><forename type="middle">J</forename><surname>Yoo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Qian</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Wu</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Nat. Electron</title>
+		<imprint>
+			<biblScope unit="volume">3</biblScope>
+			<biblScope unit="issue">7</biblScope>
+			<biblScope unit="page" from="371" to="382" />
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<analytic>
+		<title level="a" type="main">Neuromorphic learning with mott insulator nio</title>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Mondal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Mandal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">M</forename><surname>Allred</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><forename type="middle">A</forename><surname>Aghamiri</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Fali</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Zhou</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Cao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Rodolakis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">L</forename><surname>Mcchesney</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Q</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Sun</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Abate</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Roy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">M</forename><surname>Rabe</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Ramanathan</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. Natl. Acad. Sci. USA</title>
+				<meeting>Natl. Acad. Sci. USA</meeting>
+		<imprint>
+			<date type="published" when="2021">2021</date>
+			<biblScope unit="volume">118</biblScope>
+			<biblScope unit="page">e2017239118</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<analytic>
+		<title level="a" type="main">Habituation based synaptic plasticity and organismic learning in a quantum perovskite</title>
+		<author>
+			<persName><forename type="first">F</forename><surname>Zuo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Panda</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Kotiuga</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Kang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Mazzoli</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Zhou</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Barbour</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Wilkins</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Narayanan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Cherukara</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">K</forename><surname>Sankaranarayanan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Comin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">M</forename><surname>Rabe</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Roy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Ramanathan</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Nat. Comm</title>
+		<imprint>
+			<biblScope unit="volume">8</biblScope>
+			<biblScope unit="page">240</biblScope>
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

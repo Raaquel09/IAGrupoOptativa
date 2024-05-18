@@ -1,0 +1,772 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Comparative Analysis of Single Charged Particle Production in Proton-Carbon Interactions at High Energies</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+				<date type="published" when="2024-05-08">8 May 2024</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">R</forename><surname>Lalnuntluanga</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department">Department of Physics</orgName>
+								<orgName type="institution">Indian Institute of Technology Hyderabad</orgName>
+								<address>
+									<postCode>502285</postCode>
+									<settlement>Kandi</settlement>
+									<region>Sangareddy, Telangana</region>
+									<country key="IN">India</country>
+								</address>
+							</affiliation>
+						</author>
+						<author role="corresp">
+							<persName><forename type="first">A</forename><surname>Giri</surname></persName>
+							<email>giria@phy.iith.ac.in</email>
+							<affiliation key="aff0">
+								<orgName type="department">Department of Physics</orgName>
+								<orgName type="institution">Indian Institute of Technology Hyderabad</orgName>
+								<address>
+									<postCode>502285</postCode>
+									<settlement>Kandi</settlement>
+									<region>Sangareddy, Telangana</region>
+									<country key="IN">India</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Comparative Analysis of Single Charged Particle Production in Proton-Carbon Interactions at High Energies</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date type="published" when="2024-05-08">8 May 2024</date>
+						</imprint>
+					</monogr>
+					<idno type="MD5">AEC29A35A885EDDC700D600A4EE1DDF6</idno>
+					<idno type="arXiv">arXiv:2405.05423v1[hep-ex]</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.2" ident="GROBID" when="2024-05-16T18:04+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>The generation of charged pions, kaons, and protons from proton beam incident on Carbon at 31 GeV/c is calculated and compared with the results of the NA61/SHINE experiment. Predictions of the single charged particle yield by proton off the Carbon target is calculated using the Giessen Boltzmann-Uehling-Uhlenbeck (GiBUU) model and compared with the recent data of the EMPHATIC hadron scattering and production experiment for incident proton beam energies of 20, 30, and 120 GeV/c within ±20 mrad with respect to the beam particle. We present the analysis for the single and double differential cross-sections for the produced particles at various scattering angles and conduct a comprehensive comparison with the experimental data. These studies show significant agreement with the measured data.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>I. INTRODUCTION</head><p>Accurate measurements of hadron interactions are critical to minimize the modeling uncertainty associated with neutrino production in both accelerator-based and atmospheric neutrino experiments. These measurements should span two orders of magnitude, ranging from 1 to 100 GeV/c of incident particle momenta. The dominant source of uncertainty in numerous neutrino measurements, such as those pertaining to neutrino-nucleus cross-sections, sterile neutrino searches, and CP violation in atmospheric neutrinos, is the uncertainty in the neutrino flux. The upcoming Hyper-Kamiokande <ref type="bibr" target="#b0">[1]</ref> and DUNE <ref type="bibr" target="#b1">[2]</ref> projects mark the beginning of a precision era for long-baseline neutrino experiments. In these experiments, the energy dependence of the neutrino flux and cross-section are among the most challenging systematic uncertainties from the knowledge of the ongoing experiments <ref type="bibr" target="#b2">[3,</ref><ref type="bibr" target="#b3">4]</ref>. The hadrons produced in proton interactions within the nuclei decay, and produce neutrinos.</p><p>Measuring the neutrino beam flux in terms of energy is a challenging and time-consuming task. Therefore, a-priori predictions of the neutrino flux are made using Monte Carlo simulations based on hadron interactions and decays <ref type="bibr" target="#b4">[5,</ref><ref type="bibr" target="#b5">6]</ref>. However, this approach is limited due to insufficient hadron cross-section data and significant errors, and hadron interactions are the main source of systematic uncertainty in the prediction of neutrino flux <ref type="bibr" target="#b4">[5,</ref><ref type="bibr" target="#b5">6]</ref>. To reduce the uncertainties, phenomenological models are used to interpolate and extrapolate the hadron interaction cross-section, but this introduces additional uncertainties. Measurements of hadron interactions data are employed to constrain or scale the models to enhance the accuracy of the neutrino flux prediction. This paper presents a comparison between the calculations made using the GiBUU transport model and the data obtained from the NA61/SHINE experiment <ref type="bibr" target="#b6">[7]</ref>. Previous studies <ref type="bibr" target="#b7">[8]</ref> show a good agreement of the GiBUU model with the HARP experiment <ref type="bibr" target="#b8">[9]</ref><ref type="bibr" target="#b9">[10]</ref><ref type="bibr" target="#b10">[11]</ref>, and also shows the predictions for the NA61/SHINE experiment <ref type="bibr" target="#b11">[12]</ref><ref type="bibr" target="#b12">[13]</ref><ref type="bibr" target="#b13">[14]</ref><ref type="bibr" target="#b14">[15]</ref>. These studies <ref type="bibr" target="#b7">[8]</ref> compared the experimental data on inclusive pion production using both pion and proton beams directed at various nuclear targets with beam momenta ranging from 3 to 12 GeV/c. The study highlights the GiBUU model's unique capability to accurately model the entire energy range covered by the HARP experiment. The results indicate that the GiBUU model provides the most accurate description of the experimental data when pion beams are used.</p><p>The model also shows a very good level of agreement across the entire energy range using FIG. <ref type="figure">1:</ref> The plot represents the cross-section d 2 σ dpdΩ for the production of π ± (solid lines) and K ± (dashed lines) for NA61/SHINE experiment using p+C at 30GeV/c. proton beams, although it struggles to accurately predict outcomes at the very forward and very backward angles. These discrepancies are attributed to the effect of the Final State Interactions (FSI), as comparisons with data from elementary collisions. The HADES experiment analysis <ref type="bibr" target="#b15">[16]</ref> also report the elementary p+p data and proton-niobium collisions reproduced using modified GiBUU. This article presents the GiBUU calculations for proton beams at 31 GeV/c momentum and compared with the NA61/SHINE experimental data <ref type="bibr" target="#b6">[7]</ref>. We then extend our analysis with proton beam momenta at 20, 30, and 120 GeV/c and the results are compared with the data of the EMPHATIC experiment <ref type="bibr" target="#b16">[17,</ref><ref type="bibr" target="#b17">18]</ref>. This paper is organized as follows: The experimental details of the NA61/SHINE and EMPHATIC experiment are described in Section II and III, respectively. In Section IV, we describe the GiBUU theoretical model with a detailed description of the event generator.</p><p>The results obtained from our analysis and comparison with the data are presented in Section V and conclusions are discussed in Section VI.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>II. NA61/SHINE EXPERIMENT</head><p>The NA61/SHINE experiment, located at CERN, is dedicated to an extensive physics research agenda covering diverse areas of the field <ref type="bibr" target="#b11">[12]</ref><ref type="bibr" target="#b12">[13]</ref><ref type="bibr" target="#b13">[14]</ref><ref type="bibr" target="#b14">[15]</ref>. The NA61/SHINE setup was inherited from its precursor, the NA49 exeriment <ref type="bibr" target="#b18">[19]</ref>. The detector comprises a system of five Time Projection Chambers (TPCs). Two of these TPCs, namely VTPC-1 and VTPC-2, are positioned within the magnetic field generated by two superconducting dipole magnets. Downstream and symmetrically aligned with respect to the beamline, there are two additional TPCs known as MTPC-L and MTPC-R. To cover the very-forward region, an extra small TPC called the GAP TPC (GTPC) is placed between VTPC-1 and VTPC-2.</p><p>The Time Projection Chambers (TPCs) are filled with a mixtures of gas consisting of Ar (Argon) and CO2 (Carbon dioxide) in specific ratios. For the Vertex TPCs (VTPCs) and the GAP TPC (GTPC), the gas mixture comprises of 90% Ar and 10% CO2. On the other hand, the Main TPCs (MTPCs) are filled with a gas mixture containing 95% Ar and 5% CO 2 . A dipole magnet of the magnetic field of 1.14 Tm is used. More details about the experimental setup and data taking can be found ref <ref type="bibr" target="#b6">[7,</ref><ref type="bibr" target="#b13">14]</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>III. EMPHATIC EXPERIMENT</head><p>The EMPHATIC (Experiment to Measure the Production of Hadrons At a Testbeam in Chicagoland) experiment is designed to investigate hadronic interactions in the 2 -120 GeV/c range at the FTBF (Fermilab Test Beam Facility). The compact hadron spectrometer of EMPHATIC design utilizes the silicon strip detectors' spatial resolution of ∼10 µm. A custom-built Halbach array of NdFeB magnets with a Bdl of about 0.25Tm serves as the dipole magnet. Gas and aerogel threshold Cherenkov detectors are used for beam particle identification, while secondary particles are identified through time-of-flight measurements in resistive plate chambers (RPCs) and measuring the Cherenkov angle in aerogel ring imaging detector (ARICH) which is based on the Belle-II design <ref type="bibr" target="#b19">[20]</ref>. The separation of electrons, muons, and hadrons is enabled by a lead calorimeter at the downstream end of the experiment. The spectrometer is roughly 2m in length. More information about the experimental setup and data analysis can be found in Ref. <ref type="bibr" target="#b16">[17,</ref><ref type="bibr" target="#b17">18]</ref>.</p><p>In this paper, we consider the EMPHATIC test-beam measurement data <ref type="bibr" target="#b17">[18]</ref>, which in-FIG. <ref type="figure">2:</ref> The plot represents the double differential cross-section for the production of π + using GiBUU model with FSI-ON(red dashed line) and FSI-OFF(blue dashed line) compared with NA61/SHINE data(black).</p><p>clude the differential cross-section for p+C→X ± at 20, 30, and 120 GeV/c beam momenta.</p><p>A single charged particle X ± is measured within ±20mrad of the detector's tracking acceptances. This allows the measurements of coherent elastic and quasi-elastic interactions (forward scattering). The inevitable nuclear effects, such as Pauli blocking, nuclear shadowing and Fermi motion, are appropriately considered for in the elementary interaction between a nucleon and its environment. Next, all (pre-)hadrons produced during this interaction are transmitted in the nuclear environment using the semi-classical Boltzmann-Uehling-Uhlenbeck(BUU) transport equation. For explaining the phenomena of formation time and color transparency, the notion of pre-hadrons are introduced where the hadrons at the hadronization process, interact with attenuate cross-section <ref type="bibr" target="#b21">[23,</ref><ref type="bibr" target="#b22">24]</ref>. This approach ensures that every interaction, both FIG. <ref type="figure">6:</ref> The plot represents the double differential cross-section for the production of proton using GiBUU model with FSI-ON(red dashed line) and FSI-OFF(blue dashed line) compared with NA61/SHINE data(black).</p><p>primary and secondary, are handled consistently, resulting in a fully coupled channel transport. For beam momenta above 3 GeV/c, the Pythia method is used for elementary p−N or π ± −N interactions, since the collision energies are beyond the resonance zones ( √ s πN,pN = 2.8 -4.9 GeV) and the final state particles momentum are relatively substantial, minimizing the significance of potentials of the baryons that distinguish the GiBUU description from other MC cascade models. The significance and application of the GiBUU model in neutrino physics and the measurement of hadron production are detailed here <ref type="bibr" target="#b15">[16,</ref><ref type="bibr" target="#b23">[25]</ref><ref type="bibr" target="#b24">[26]</ref><ref type="bibr" target="#b25">[27]</ref><ref type="bibr" target="#b26">[28]</ref><ref type="bibr" target="#b27">[29]</ref><ref type="bibr" target="#b28">[30]</ref><ref type="bibr" target="#b29">[31]</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>V. RESULTS</head><p>In order to verify our GiBUU simulation and analysis code, we have reproduced the previous results (Fig. <ref type="figure">7</ref>) of Ref. <ref type="bibr" target="#b7">[8]</ref> for the NA61/SHINE experiment shown in Fig. <ref type="figure">1</ref>. We begin our analysis with the data for the NA61/SHINE results for the proton beam at 31</p><p>GeV/c. The double differential cross-section ( d 2 σ dpdθ ) depicting the production of π + , π − , K + , K − and p for all the scattering angle, are illustrated in Fig. <ref type="figure">2</ref>, 3, 4, 5, and 6 respectively. From Fig. <ref type="figure">2 and 3</ref>, we observed that the pions ( π + , π − ) produced by 31 GeV/c proton beam interactions with carbon in the GiBUU framework agree significantly with the experimental data in the backward angles (⩾ 100 mrad). It can be seen that our calculations without the final state effect suit the data better than when the final state effect is considered. For the forward angles (between 10 mrad and 100 mrad ), the GiBUU model prediction side with the data in the lower momentum range and slightly deviates with the increase in momentum and assent in the higher momentum tail. Further with the more forward angles (⩽ 10 mrad), our calculations accord with the data well. It can also be noted that the effect of the final state interaction slightly favours the data in the forward angles (⩽ 20 mrad) while our calculations matched the data significantly in the backward angles (i.e ⩾ 20 mrad) when the final state interaction is switched off.</p><p>From the differential cross-section for the production of the charged Kaon (K + , K − ) shown in Fig. <ref type="figure">4 and 5</ref>, we can notice that our calculations agreed reasonably well with the NA61/SHINE measurement when the final state effect is not considered, especially in the backward angles. In the case of the proton production, the GiBUU model predicted significantly for the very backward angle (240 &lt; θ &lt; 300 mrad), and a reasonable predictions for various scattering angles as shown in Fig. <ref type="figure">6</ref>.</p><p>We assess the computations with the incident beam of proton at 20, 30 and, 120 GeV/c momenta, hitting the Carbon target. The calculated differential cross-section ( dσ d(p 2 beam θ 2 ) ) for a single charged particle produced within ±20 mrad of the scattering angle is presented in Fig. <ref type="figure">7</ref>. Here, our calculations using the GiBUU model show good agreement in comparison with the EMPHATIC data for all beam momenta at higher p 2 beam θ 2 (≥ 0.045) but could FIG. <ref type="figure">7</ref>: The plot represents the differential cross-section for a single charge particle in the final state using GiBUU model with FSI-ON(red dashed line) and FSI-OFF(blue dashed line) compared with EMPHATIC data(black) in the left panel and the right panel shows the ratio of the GiBUU MC with the data not reproduce the data at lower p 2 beam θ 2 (≤ 0.045). We can observe that GiBUU model is able to predict the data accurately at the higher p 2 beam θ 2 where the quasi-elastic channel (i.e incoherent scattering on the nucleons) dominates while the model could not completely reproduce the region where the elastic scattering dominates. In our observations, we noticed from Fig. <ref type="figure">7</ref> (right panel) that the GiBUU model calculations exhibit a slight preference for the measurement when the effect of the final state interaction is considered, contrasting with the scenario where the final state interaction is not taken into account, especially for the 30 GeV/c case at the higher p 2 beam θ 2 .</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>VI. CONCLUSIONS</head><p>The production of charged pions, kaons, and protons at 31 GeV/c is calculated within the GiBUU model and comparsion with the NA61/SHINE results is shown. The agreement obtained for the kaon and pion production is good, except for slight variation for the π + at the forward angle (10 &lt; θ &lt; 20 mrad) and (20 &lt; θ &lt; 40 mrad, 40 &lt; θ &lt; 60 mrad) for the π − . The best fit for the pions and kaons production arise without the treatment of the final state interactions at the angles &gt; 100 mrad. Our predictions also considerably agree with the data for the proton production with the best result from the very backward angle.</p><p>It is important to note that our predictions for both the EMPHATIC and NA61/SHINE measurements have a correlation that the effect of the final state interaction is siginificant only at very low scattering angle (i.e &lt; 20 mrad). Furthurmore, the production of the hadrons by proton off the Carbon target using the GiBUU model are compared with the recent EMPHATIC data on single charged particle production on Carbon with proton beams at 20, 30 and 120 GeV/c momenta. Our calculations show very good agreement with the data at the higher p 2 beam θ 2 where the quasi-elastic interaction dominates but contradict the data at lower p 2 beam θ 2 due to the elastic interaction of the proton-nucleus interactions.</p><p>Overall, the GiBUU calculations display better agreement with the measurement when the final state interaction is not included. While the hadron production data are especially useful to the predictions of neutrino flux, they are also beneficial for validating the interactions of neutrinos with nuclei models due to the hadronic re-interaction inside the nuclei.</p><p>These studies can be useful for improving the GiBUU simulation tool for precision physics.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>FIG. 3 :FIG. 4 :FIG. 5 :</head><label>345</label><figDesc>FIG. 3: The plot represents the double differential cross-section for the production of π − using GiBUU model with FSI-ON(red dashed line) and FSI-OFF(blue dashed line) compared with NA61/SHINE data(black).</figDesc><graphic coords="6,72.00,321.29,489.57,238.33" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="3,72.00,72.00,489.57,238.33" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="5,72.00,72.00,489.57,238.33" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="5,72.00,321.29,489.57,238.33" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="7,72.00,72.00,489.57,238.33" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="7,72.00,321.29,489.57,238.33" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="8,72.00,72.00,489.57,238.33" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="8,72.00,321.29,489.55,146.32" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="9,72.00,72.00,489.57,238.33" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="9,72.00,321.29,489.57,238.33" type="bitmap" /></figure>
+		</body>
+		<back>
+
+			<div type="acknowledgement">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>ACKNOWLEDGEMENTS</head><p>RL would like to thank Council of Scientific and Industrial Research, Government of India for the fellowship (file number: 09/1001(0054)/2019-EMR-I). RL and AG would like to thank Department of Science and Technology, Government of India for the financial support through SR/MF/PS-01/2016-IITH/G. We thank Prof. Ulrich Mosel for useful discussions in using GiBUU.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>DATA AVAILABILITY STATEMENT</head><p>All the data that supports the result of this study are included within the article.</p></div>
+			</div>
+
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<monogr>
+		<author>
+			<persName><forename type="first">K</forename><surname>Abe</surname></persName>
+		</author>
+		<idno>1805.04163</idno>
+		<title level="m">Hyper-Kamiokande)</title>
+				<imprint>
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">B</forename><surname>Abi</surname></persName>
+			<affiliation>
+				<orgName type="collaboration">DUNE</orgName>
+			</affiliation>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">JINST</title>
+		<imprint>
+			<biblScope unit="volume">15</biblScope>
+			<date type="published" when="2002">2020. 2002.02967</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">K</forename><surname>Abe</surname></persName>
+			<affiliation>
+				<orgName type="collaboration">T2K Collaboration</orgName>
+			</affiliation>
+		</author>
+		<idno type="DOI">10.1103/PhysRevD.96.092006</idno>
+		<ptr target="https://link.aps.org/doi/10.1103/PhysRevD.96.092006" />
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. D</title>
+		<imprint>
+			<biblScope unit="volume">96</biblScope>
+			<biblScope unit="page">92006</biblScope>
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">A</forename><surname>Acero</surname></persName>
+			<affiliation>
+				<orgName type="collaboration">NOvA Collaboration</orgName>
+			</affiliation>
+		</author>
+		<author>
+			<persName><surname>Adamson</surname></persName>
+			<affiliation>
+				<orgName type="collaboration">NOvA Collaboration</orgName>
+			</affiliation>
+		</author>
+		<idno type="DOI">10.1103/PhysRevD.98.032012</idno>
+		<ptr target="https://link.aps.org/doi/10.1103/PhysRevD.98.032012" />
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. D</title>
+		<imprint>
+			<biblScope unit="volume">98</biblScope>
+			<biblScope unit="page">32012</biblScope>
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">L</forename><surname>Aliaga</surname></persName>
+			<affiliation>
+				<orgName type="collaboration">MINERνA Collaboration</orgName>
+			</affiliation>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Kordosky</surname></persName>
+			<affiliation>
+				<orgName type="collaboration">MINERνA Collaboration</orgName>
+			</affiliation>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Golan</surname></persName>
+			<affiliation>
+				<orgName type="collaboration">MINERνA Collaboration</orgName>
+			</affiliation>
+		</author>
+		<author>
+			<persName><forename type="first">O</forename><surname>Altinok</surname></persName>
+			<affiliation>
+				<orgName type="collaboration">MINERνA Collaboration</orgName>
+			</affiliation>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Bellantoni</surname></persName>
+			<affiliation>
+				<orgName type="collaboration">MINERνA Collaboration</orgName>
+			</affiliation>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Bercellie</surname></persName>
+			<affiliation>
+				<orgName type="collaboration">MINERνA Collaboration</orgName>
+			</affiliation>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Betancourt</surname></persName>
+			<affiliation>
+				<orgName type="collaboration">MINERνA Collaboration</orgName>
+			</affiliation>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Bravar</surname></persName>
+			<affiliation>
+				<orgName type="collaboration">MINERνA Collaboration</orgName>
+			</affiliation>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Budd</surname></persName>
+			<affiliation>
+				<orgName type="collaboration">MINERνA Collaboration</orgName>
+			</affiliation>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">F</forename><surname>Carneiro</surname></persName>
+			<affiliation>
+				<orgName type="collaboration">MINERνA Collaboration</orgName>
+			</affiliation>
+		</author>
+		<idno type="DOI">10.1103/PhysRevD.94.092005</idno>
+		<ptr target="https://link.aps.org/doi/10.1103/PhysRevD.94.092005" />
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. D</title>
+		<imprint>
+			<biblScope unit="volume">94</biblScope>
+			<biblScope unit="page">92005</biblScope>
+			<date type="published" when="2016">2016</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">A</forename><surname>Bodek</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">U</forename><surname>Sarica</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Naples</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Ren</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Eur. Phys. J. C</title>
+		<imprint>
+			<biblScope unit="volume">72</biblScope>
+			<biblScope unit="page" from="1201" to="3025" />
+			<date type="published" when="2012">2012</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">N</forename><surname>Abgrall</surname></persName>
+			<affiliation>
+				<orgName type="collaboration">NA61/SHINE</orgName>
+			</affiliation>
+		</author>
+		<idno>1510.02703</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Eur. Phys. J. C</title>
+		<imprint>
+			<biblScope unit="volume">76</biblScope>
+			<date type="published" when="2016">2016</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">K</forename><surname>Gallmeister</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">U</forename><surname>Mosel</surname></persName>
+		</author>
+		<idno>0901.1770</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Nucl. Phys. A</title>
+		<imprint>
+			<biblScope unit="volume">826</biblScope>
+			<biblScope unit="page">151</biblScope>
+			<date type="published" when="2009">2009</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">G</forename><surname>Catanesi</surname></persName>
+			<affiliation>
+				<orgName type="collaboration">HARP)</orgName>
+			</affiliation>
+		</author>
+		<idno>hep-ex/0510039</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Nucl. Phys. B</title>
+		<imprint>
+			<biblScope unit="volume">732</biblScope>
+			<biblScope unit="page">1</biblScope>
+			<date type="published" when="2006">2006</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">G</forename><surname>Catanesi</surname></persName>
+			<affiliation>
+				<orgName type="collaboration">HARP</orgName>
+			</affiliation>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. C</title>
+		<imprint>
+			<biblScope unit="volume">77</biblScope>
+			<biblScope unit="page" from="805" to="2871" />
+			<date type="published" when="2008">2008</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">G</forename><surname>Catanesi</surname></persName>
+			<affiliation>
+				<orgName type="collaboration">HARP</orgName>
+			</affiliation>
+		</author>
+		<idno>0802.0657</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Astropart. Phys</title>
+		<imprint>
+			<biblScope unit="volume">29</biblScope>
+			<date type="published" when="2008">2008</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">NA61/SHINE)</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Laszlo</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Nucl. Phys. A</title>
+		<imprint>
+			<biblScope unit="volume">830</biblScope>
+			<biblScope unit="page">4493</biblScope>
+			<date type="published" when="2009">2009</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<monogr>
+		<title/>
+		<author>
+			<persName><forename type="first">N</forename><surname>Abgrall</surname></persName>
+			<affiliation>
+				<orgName type="collaboration">NA61</orgName>
+			</affiliation>
+		</author>
+		<ptr target="https://cds.cern.ch/record/1113279" />
+		<imprint>
+			<date type="published" when="2008">2008</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">N</forename><surname>Abgrall</surname></persName>
+			<affiliation>
+				<orgName type="collaboration">NA61)</orgName>
+			</affiliation>
+		</author>
+		<idno>1401.4699</idno>
+	</analytic>
+	<monogr>
+		<title level="j">JINST</title>
+		<imprint>
+			<biblScope unit="volume">9</biblScope>
+			<biblScope unit="page">P06005</biblScope>
+			<date type="published" when="2014">2014</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">N</forename><surname>Abgrall</surname></persName>
+			<affiliation>
+				<orgName type="collaboration">NA61/SHINE</orgName>
+			</affiliation>
+		</author>
+		<idno>1102.0983</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. C</title>
+		<imprint>
+			<biblScope unit="volume">84</biblScope>
+			<biblScope unit="page">34604</biblScope>
+			<date type="published" when="2011">2011</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">G</forename><surname>Agakishiev</surname></persName>
+			<affiliation>
+				<orgName type="collaboration">HADES</orgName>
+			</affiliation>
+		</author>
+		<idno>1404.7011</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. C</title>
+		<imprint>
+			<biblScope unit="volume">90</biblScope>
+			<biblScope unit="page">54906</biblScope>
+			<date type="published" when="2014">2014</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<monogr>
+		<title/>
+		<author>
+			<persName><forename type="first">T</forename><surname>Akaishi</surname></persName>
+		</author>
+		<idno>1912.08841</idno>
+		<imprint>
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">M</forename><surname>Pavin</surname></persName>
+		</author>
+		<idno>2106.15723</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. D</title>
+		<imprint>
+			<biblScope unit="volume">106</biblScope>
+			<biblScope unit="page">112008</biblScope>
+			<date type="published" when="2022">2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">S</forename><surname>Afanasiev</surname></persName>
+			<affiliation>
+				<orgName type="collaboration">NA49</orgName>
+			</affiliation>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Nucl. Instrum. Meth. A</title>
+		<imprint>
+			<biblScope unit="volume">430</biblScope>
+			<biblScope unit="page">210</biblScope>
+			<date type="published" when="1999">1999</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">L</forename><surname>Burmistrov</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Nucl. Instrum. Meth. A</title>
+		<imprint>
+			<biblScope unit="volume">958</biblScope>
+			<biblScope unit="page">162232</biblScope>
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">T</forename><surname>Sjöstrand</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Ask</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">R</forename><surname>Christiansen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Corke</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Desai</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Ilten</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Mrenna</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Prestel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">O</forename><surname>Rasmussen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">Z</forename><surname>Skands</surname></persName>
+		</author>
+		<idno>1410.3012</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Comput. Phys. Commun</title>
+		<imprint>
+			<biblScope unit="volume">191</biblScope>
+			<biblScope unit="page">159</biblScope>
+			<date type="published" when="2015">2015</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">K</forename><surname>Gallmeister</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Falter</surname></persName>
+		</author>
+		<idno>nucl-th/0502015</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Lett. B</title>
+		<imprint>
+			<biblScope unit="volume">630</biblScope>
+			<biblScope unit="page">40</biblScope>
+			<date type="published" when="2005">2005</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">K</forename><surname>Gallmeister</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">U</forename><surname>Mosel</surname></persName>
+		</author>
+		<idno>nucl-th/0701064</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Nucl. Phys. A</title>
+		<imprint>
+			<biblScope unit="volume">801</biblScope>
+			<biblScope unit="page">68</biblScope>
+			<date type="published" when="2008">2008</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b23">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">U</forename><surname>Mosel</surname></persName>
+		</author>
+		<idno>1602.00696</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Ann. Rev. Nucl. Part. Sci</title>
+		<imprint>
+			<biblScope unit="volume">66</biblScope>
+			<date type="published" when="2016">2016</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b24">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">U</forename><surname>Mosel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">O</forename><surname>Lalakulich</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Gallmeister</surname></persName>
+		</author>
+		<idno>1311.7288</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. Lett</title>
+		<imprint>
+			<biblScope unit="volume">112</biblScope>
+			<biblScope unit="page">151802</biblScope>
+			<date type="published" when="2014">2014</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b25">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">B</forename><surname>Larionov</surname></persName>
+		</author>
+		<idno>1410.7625</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Nucl. Sci. Tech</title>
+		<imprint>
+			<biblScope unit="volume">26</biblScope>
+			<biblScope unit="page">20506</biblScope>
+			<date type="published" when="2015">2015</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b26">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">T</forename><surname>Gaitanos</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Lenske</surname></persName>
+		</author>
+		<idno>1408.6051</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Lett. B</title>
+		<imprint>
+			<biblScope unit="volume">737</biblScope>
+			<biblScope unit="page">256</biblScope>
+			<date type="published" when="2014">2014</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b27">
+	<monogr>
+		<author>
+			<persName><forename type="first">U</forename><surname>Mosel</surname></persName>
+		</author>
+		<idno>1501.03160</idno>
+		<title level="m">AIP Conf. Proc. 1680, 020009</title>
+				<imprint>
+			<date type="published" when="2015">2015</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b28">
+	<monogr>
+		<title/>
+		<author>
+			<persName><forename type="first">U</forename><surname>Mosel</surname></persName>
+		</author>
+		<idno>1504.08204</idno>
+		<ptr target="https://arxiv.org/abs/1504.08204" />
+		<imprint>
+			<date type="published" when="2015">2015</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b29">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">U</forename><surname>Mosel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">O</forename><surname>Lalakulich</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Gallmeister</surname></persName>
+		</author>
+		<idno>1402.0297</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. D</title>
+		<imprint>
+			<biblScope unit="volume">89</biblScope>
+			<biblScope unit="page">93003</biblScope>
+			<date type="published" when="2014">2014</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

@@ -1,0 +1,1457 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Experiencing complex stakeholder dynamics around emerging technologies: a role-play simulation</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher>Informa UK Limited</publisher>
+				<availability status="unknown"><p>Copyright Informa UK Limited</p>
+				</availability>
+				<date type="published" when="2023-04-11">11 Apr 2023.</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author role="corresp">
+							<persName><forename type="first">Klaasjan</forename><surname>Visscher</surname></persName>
+							<email>k.visscher@utwente.nl</email>
+							<affiliation key="aff0">
+								<orgName type="department" key="dep1">Section of Knowledge, Transformation and Society</orgName>
+								<orgName type="department" key="dep2">Faculty of Behavioural, Management and Social Sciences</orgName>
+								<orgName type="institution">University of Twente</orgName>
+								<address>
+									<settlement>Enschede</settlement>
+									<country key="NL">Netherlands</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff0">
+								<orgName type="department" key="dep1">Section of Knowledge, Transformation and Society</orgName>
+								<orgName type="department" key="dep2">Faculty of Behavioural, Management and Social Sciences</orgName>
+								<orgName type="institution">University of Twente</orgName>
+								<address>
+									<settlement>Enschede</settlement>
+									<country key="NL">Netherlands</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Experiencing complex stakeholder dynamics around emerging technologies: a role-play simulation</title>
+					</analytic>
+					<monogr>
+						<title level="j" type="main">European Journal of Engineering Education</title>
+						<title level="j" type="abbrev">European Journal of Engineering Education</title>
+						<idno type="ISSN">0304-3797</idno>
+						<idno type="eISSN">1469-5898</idno>
+						<imprint>
+							<publisher>Informa UK Limited</publisher>
+							<biblScope unit="volume">49</biblScope>
+							<biblScope unit="issue">2</biblScope>
+							<biblScope unit="page" from="370" to="388"/>
+							<date type="published" when="2023-04-11">11 Apr 2023.</date>
+						</imprint>
+					</monogr>
+					<idno type="MD5">F59BC22AE222AD546C5A72CE2C8C0F86</idno>
+					<idno type="DOI">10.1080/03043797.2023.2196940</idno>
+					<note type="submission">Received 18 January 2022 Accepted 26 March 2023</note>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.2" ident="GROBID" when="2024-05-16T18:04+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>
+					<term>Role-play simulations</term>
+					<term>emerging technologies</term>
+					<term>responsible innovation</term>
+					<term>theatrical technology assessment</term>
+					<term>transdisciplinary engineering education</term>
+				</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>This paper presents and evaluates a role-play simulation called 'Theatrical Technology Assessment', in which students learn about complex stakeholder dynamics around emerging technologies. This role-play combines insights from Constructive Technology Assessment, improvisational theatre and educational role-play designs. It was implemented in an online setting with bachelor students of an interdisciplinary engineering programme. Based on collected chat conversations and reflection reports in seven different simulations, we qualitatively analysed what students learned about stakeholder dynamics. The study shows that students gained novel and relevant insights regarding stakeholder perspectives on technologies, the effects of uncertainties on decision making, collective stakeholder dynamics, and strategies to steer technology development. Students considered the role-play simulations to be engaging learning experiences. The dual set-up of the role-play, with students as players and co-designers, and the integral use of improvisational theatre are novel elements of educational role-play designs.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Introduction</head><p>Emerging technologies, such as organs-on-a-chip, piezo-electric roads, or hydrogen-powered vehicles, bear great promises for tackling societal challenges. They form an important theme in engineering programmes. However, the integration of emerging technologies in engineering education provides a challenge <ref type="bibr" target="#b23">(Guerra and Rodriguez 2021)</ref>. On the one hand, emerging technologies represent the frontier of technological development, requiring students to obtain specialised scientific knowledge, while on the other hand, their embedding in society is typically uncertain and sometimes contested, requiring students to acquire an in-depth understanding of the societal context and dynamics <ref type="bibr">(Bowman, Stokes, and Rip 2017;</ref><ref type="bibr" target="#b47">Schulze Greiving and Konrad 2017)</ref>. The latter is more difficult than with mature technologies. The promises of early-stage technologies are often unsubstantiated, risks and benefits are largely unknown, and stakeholders have difficulties to articulate their needs and preferences <ref type="bibr" target="#b12">(Collingridge 1980)</ref>. Because of this, the development of emerging technologies may show complex dynamics, such as waiting games <ref type="bibr" target="#b38">(Parandian, Rip, and te Kulve 2012;</ref><ref type="bibr" target="#b44">Robinson, Le Masson, and Weil 2012)</ref>, hype cycles <ref type="bibr" target="#b31">(Konrad et al. 2012;</ref><ref type="bibr" target="#b16">Dedehayir and Steinert 2018)</ref>, or innovation races <ref type="bibr" target="#b1">(Bakker and Budde 2012)</ref>.</p><p>Engineering students need to become aware of these complex dynamics and develop competencies to handle them. Courses and projects on macro-ethics or Science and Technology Studies (STS) can provide engineering students with the concepts, models and methods for complex socio-technical reasoning <ref type="bibr" target="#b36">(Mazzurco and Daniel 2020)</ref> and for dealing with the societal embedding of emerging technologies in a productive and responsible manner <ref type="bibr" target="#b13">(Conlon and Zandvoort 2011;</ref><ref type="bibr" target="#b8">Bucciarelli and Drew 2015)</ref>. However, this education has its challenges. For one, engineering students tend to identify with the 'enactors' of emerging technologies, i.e. scientists, engineers, and entrepreneurs working on its development or commercialisation <ref type="bibr" target="#b21">(Garud and Ahlstrom 1997)</ref> and may bracket societal complexity, seeing the development of technologies as a linear process of solving technical problems and overcoming resistance, primarily by better explaining the technology and its benefits to society. <ref type="bibr" target="#b54">Visscher and Rip (2003)</ref> characterise this approach as modernist. For a better understanding, engineering students need to learn to embrace complexity <ref type="bibr" target="#b9">(Byrne and Mullally 2014)</ref> and develop empathy for a broader range of stakeholders <ref type="bibr" target="#b26">(Hess, Strobel, and Brightman 2017)</ref>.</p><p>In this article, a novel educational format will be introduced and evaluated -Theatrical Technology Assessment (TTA)which enables students to explore complex dynamics around emerging technologies from the perspective of different stakeholders. TTA is a role-play simulation that complements more traditional ways of STS education, such as lecturing, discussing literature, and case analyses. Role-play simulations can be powerful means for students to learn complex competencies <ref type="bibr" target="#b35">(Mayer 2009;</ref><ref type="bibr" target="#b41">Rao and Stupans 2012;</ref><ref type="bibr" target="#b45">Rumore, Schenk, and Susskind 2016)</ref> and to get insights into the societal aspects of engineering <ref type="bibr" target="#b34">(Martin, Conlon, and Bowe 2019)</ref>. It provides students with an engaging setting in which they can develop an understanding of socio-technical dynamics, practice skills to deal with them, and develop an attitude that embraces complexity. Conceptually, TTA is rooted in Constructive Technology Assessment (CTA), a method that enables learning of real-world stakeholders on emerging technologies <ref type="bibr" target="#b42">(Rip, Misa, and Schot 1995)</ref>. Using techniques from improvisational theatre, TTA mimics CTA and adapts it for educational settings, targeting students rather than real-world stakeholders.</p><p>The TTA role-play was implemented and evaluated in an online environment with students of an honours bachelor programme in Technology and Liberal Arts and Sciences. Seven different roleplays were carried out. Both during the role-plays and in a group assignment afterwards, students wrote reflections on the observed stakeholder dynamics, which were analysed using a grounded theory approach <ref type="bibr" target="#b48">(Strauss and Corbin 1990)</ref>. The purpose of this empirical study was to find out what students learn in the role-play simulations about complex societal dynamics around emerging technologies. In addition, it was evaluated whether students considered the role-plays useful and engaging. Thus, the value of TTA role-plays for engineering students to learn about these complex dynamics was evaluated and substantiated.</p><p>This paper is structured as follows. First, the conceptual background of Theatrical Technology Assessment and the theoretical foundations of the role-play simulation will be discussed. Then, the design of the role-play will be presented and justified. This will be followed by an explanation of the implementation context and the methods used for data collection and analysis. Subsequently, the results of the empirical study will be reported, followed by a discussion section in which the results will be interpreted and related to the literature. The paper ends with conclusions, limitations and directions for further research.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Conceptual background</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Constructive technology assessment</head><p>Theatrical Technology Assessment has its conceptual origins in Constructive Technology Assessment (CTA). CTA was developed as a method for the prospective and reflexive steering of the development of emerging technologies <ref type="bibr" target="#b42">(Rip, Misa, and Schot 1995)</ref>. Where traditional approaches of Technology Assessment focus on predicting and evaluating the impact of novel technologies on society, CTA aims to foster anticipatory learning among stakeholders in an early phase of the development. It presents a way out of the so-called Collingridge dilemma <ref type="bibr" target="#b12">(Collingridge 1980</ref>): In early stages, options for steering technology development are still open, but uncertainty and ambiguity about its impact prevail, while in later stages, knowledge about the technology and its impacts have grown, but steering towards preferred directions has become more difficult due to path dependencies resulting from dominant technical designs and settled societal structures <ref type="bibr" target="#b15">(David 1985)</ref>. The CTA approach has been applied in various fields, including nanotechnology <ref type="bibr" target="#b37">(Parandian 2012)</ref>, sensor technology (Te Kulve and Konrad 2017), and knowledge-intensive climate services <ref type="bibr" target="#b55">(Visscher et al. 2020)</ref>. The basic idea is to bring relevant actors together and introduce them to scenarios in order to facilitate anticipatory learning <ref type="bibr" target="#b42">(Rip, Misa, and Schot 1995;</ref><ref type="bibr" target="#b43">Rip and te Kulve 2008)</ref>. These scenarios are 'endogenous futures', stemming from an analysis of the state-of-the-art and current dilemmas in the field. They are not utopian or dystopian sketches of far-away futures, but plausible stories of relatively nearby developments, including viewpoints of different actors, systemic factors, and important tensions.</p><p>Stakeholder interaction in CTA normally takes place in workshops, which are designed as 'microcosmoses', condensed representations of the stakeholder field. These workshops are 'bridging events' between 'enactors' and 'selectors' <ref type="bibr" target="#b21">(Garud and Ahlstrom 1997)</ref>. Enactors are stakeholders who promote a new technology, such as engineers, scientists, and entrepreneurs, who consider the development of the technology as progress, often identify with the product, and think of opposition in terms of barriers to overcome <ref type="bibr" target="#b43">(Rip and te Kulve 2008)</ref>. Selectors, such as consumers, regulatory agencies, and big companies, have a broader scope and evaluate various technological options in comparison. By staging constructive confrontations between enactors and selectors in a carefully moderated discussion around scenarios, CTA reduces the costs of 'trial and error' learning <ref type="bibr" target="#b42">(Rip, Misa, and Schot 1995)</ref>. It provides scientists, engineers, and entrepreneurs with a basis for developing plans to anticipate and enhance the societal embedding of their technologies and gives other stakeholders an early opportunity to prepare for future developments and to steer technologies in a desirable direction. Furthermore, CTA workshops provide insights into the collective dynamics of stakeholders and the plausibility of certain scenarios <ref type="bibr" target="#b37">(Parandian 2012)</ref>.</p><p>One cannot simply copy CTA-formats to a role-play in educational settings. CTA workshops are carried out in real-life contexts with experts and other participants with an actual stake in an emerging technology. Students are novices and do not (yet) have a stake in the development of a technology. The purpose of TTA is to prepare them for their future jobs, in which they may work on new technologies and need to integrate complex stakeholder dynamics in a productive and responsible manner. With good guidelines, students can mimic the discussions of real-world stakeholders, but they also need freedom to improvise and to develop their own line of action. The emphasis in learning is different. With practitioners, learning focuses on anticipation of future dynamics and reduction of trial-and-error <ref type="bibr" target="#b37">(Parandian 2012)</ref>. In educational settings, learning focuses on understanding dynamics and developing competencies to deal with new technologies and their societal embedding. Furthermore, CTA workshops are normally time-consuming, one-off events, while in educational settings, a format is needed that can be more easily organised and repeated. TTA should be open to all students, who also participate in the analysis of the collective stakeholder dynamics, whereas CTA workshops make a strict selection of participants and engage a separate researcher to conduct the analysis. Table <ref type="table" target="#tab_0">1</ref> presents a comparison of CTA and TTA. The theatrical character enables other distinctive characteristics of TTA, for instance related to the use of scenarios, which will be discussed later in this article.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Role-play simulations</head><p>Role-play simulations are powerful means for students to learn about complex technical and societal decision making <ref type="bibr" target="#b35">(Mayer 2009;</ref><ref type="bibr" target="#b41">Rao and Stupans 2012;</ref><ref type="bibr" target="#b18">Doorn and Kroesen 2013;</ref><ref type="bibr" target="#b45">Rumore, Schenk, and Susskind 2016)</ref>. They enable students to experience stakeholder positions from the inside, both cognitively and affectively <ref type="bibr" target="#b25">(Hess and Fila 2016)</ref>, learn to resolve conflicts, and explore options for bridging gaps between different positions and disciplines. They can foster empathy of engineering students for non-engineers and create awareness of power differences <ref type="bibr" target="#b56">(Walther et al. 2019</ref>). Roleplay simulations have been designed for a variety of decision making situations in which both technological and societal aspects play a role, such as the local adaptation to climate change <ref type="bibr" target="#b45">(Rumore, Schenk, and Susskind 2016)</ref>, nuclear disasters <ref type="bibr" target="#b58">(Wilson 2013)</ref>, and food safety and animal welfare <ref type="bibr" target="#b18">(Doorn and Kroesen 2013)</ref>. When designing role-play simulations, there are two basic dimensions that need consideration: 'Verisimilitude' and 'agency/structure' <ref type="bibr" target="#b19">(Duchatelet et al. 2019)</ref>.</p><p>Role-play simulations are meant to mimic real decision-making situations. They need a certain verisimilitude <ref type="bibr" target="#b0">(Alanne 2016;</ref><ref type="bibr" target="#b19">Duchatelet et al. 2019;</ref><ref type="bibr" target="#b24">Hartmann and Gommer 2021)</ref>. With insufficient grounding in real-world information or oversimplification, decision making processes may end up in negotiated nonsense <ref type="bibr" target="#b52">(Van de Riet 2003;</ref><ref type="bibr" target="#b35">Mayer 2009)</ref>, which limits the transferability of the learning to contexts outside the classroom. On the other hand, too much detail and being too close to reality may lead to cognitive overload and distract students from learning <ref type="bibr" target="#b60">(Wright-Maley 2015;</ref><ref type="bibr" target="#b20">Fraser, Ayres, and Sweller 2015)</ref>. A simulation is designed with learning objectives in mind, and making simplifications help students to better identify with their roles and concentrate their attention <ref type="bibr" target="#b6">(Brown 1994)</ref>. Role-play simulations need to offer rich information and mirror complexity on one side, while providing focus on the other (Wright-Maley 2015).</p><p>Furthermore, role-play simulations need to strike a balance between agency and structure <ref type="bibr" target="#b11">(Chin, Dukes, and Gamson 2009;</ref><ref type="bibr" target="#b60">Wright-Maley 2015)</ref>. Students need agency, i.e. the opportunity to make a difference and influence the course of the action and outcomes of the play. They learn by acting, making choices and receiving feedback in the simulation. To be an engaging and effective learning experience, role-plays should allow for a certain amount of dynamism, chaos, and outcome variability caused by student agency (Wright-Maley 2015; <ref type="bibr" target="#b19">Duchatelet et al. 2019)</ref>. On the other hand, a roleplay design should also provide structure, for instance in the form of procedures, rules of engagement, teacher interventions, and divisions of roles, which is essential to focus student learning, facilitate interaction, and mirror real-life situations <ref type="bibr" target="#b11">(Chin, Dukes, and Gamson 2009)</ref>. This structure should not overly restrict students' freedom to act <ref type="bibr" target="#b32">(Linser, Ree-Linstad, and Vold 2008)</ref>.</p><p>Next to finding a balance on these verisimilitude and agency/structure dimensions, literature provides other guidelines for designing role-play simulations for educational purposes. Role-plays become more engaging when there are underlying conflicts <ref type="bibr" target="#b6">(Brown 1994;</ref><ref type="bibr" target="#b32">Linser, Ree-Linstad, and Vold 2008)</ref>, allowing for constructive controversies <ref type="bibr" target="#b50">(Tjosvold 2008)</ref> around the characters' alternative interests, problem diagnoses, and preferred solutions. Conflicts also incite positive and negative emotions among the participants, which intensifies the learning experience <ref type="bibr" target="#b27">(Heyward 2010</ref>). Moreover, role-plays should appeal to the imagination of participants and provide opportunities for humour, so they become fun to play <ref type="bibr" target="#b33">(Loui 2009)</ref> and engaging for all participants, players as well as observers <ref type="bibr" target="#b17">(DeNeve and Heppner 1997;</ref><ref type="bibr" target="#b29">Joyner and Young 2006)</ref>. Furthermore, the learning objectives of role-plays should be clear and should be accompanied by a proper preparation and debriefing, offering opportunities to reflect upon the learning <ref type="bibr" target="#b14">(Croockall 2010;</ref><ref type="bibr" target="#b41">Rao and Stupans 2012)</ref>. Finally, the simulations should offer students a feeling of safety and trust, which is essential for experimentation and for dealing with the positive and negative emotions that may arise in the fictional world of the role-play <ref type="bibr" target="#b35">(Mayer 2009;</ref><ref type="bibr" target="#b27">Heyward 2010)</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>TTA role-play simulation design</head><p>The purpose of TTA role-play simulations is to provide students with insights into complex societal dynamics around emerging technologies and into options to anticipate and steer their development. Table <ref type="table" target="#tab_1">2</ref> gives an overview of where the guidelines for role-play design, described in the previous section, were implemented.</p><p>In the TTA simulation, students played the roles of stakeholders of an emerging technology. Students received freedom to act in line with their stakeholder roles, while a clear structure was created to allow for relevant and realistic stakeholder dynamics to arise, thus striking a balance between agency and structure. To stage constructive confrontations, enactors as well as selectors were present, just like in real CTA workshops, covering the so-called quadruple helix of academia, industry, government, and civil society <ref type="bibr" target="#b10">(Carayannis and Campbell 2009)</ref>. To enhance the verisimilitude, role descriptions were made, based on student research of the field, which stipulated the goals of the stakeholders and their organisations, their position in society or the market, and their ways of assessing emerging technologies (see example in Box 1). Role descriptions also contained dilemmas or trade-offs (e.g. between sustainability and economic criteria) to add to the complexity and to allow for choosing different pathways. Indications of what made the stakeholders enthusiastic or irritated were also added to help students create a character and act out emotions. In addition, knowledge of the state-of-affairs of the emerging technology and its societal contexts was made available. Each player received a factsheet with information on the emerging technology and societal context tailored to the role (cf. <ref type="bibr" target="#b57">Wareham, Elefsiniotis, and Elms 2006)</ref>.</p><p>Box 1. Example of a role description and factsheet from the Geothermal Energy case.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>CEO Twente Energy Company</head><p>Role description As the Chief Executive Officer (CEO) of the Twente Energy Company (TEC), you lead a private company that produces and buys grey and green energy (from coal, gas, wind and solar energy sources) and supplies this to over two million companies and households. The energy market is competitive, and the company has a large market share in several regions within the Netherlands. You are eager to keep this market position. A sustainable image is important for companies these days, but a low price and high reliability are also crucial. As CEO, you are responsible for strategy and major investments. You have a keen interest in new energy technologies, in particular when these help to better satisfy customer needs, but within boundaries of what is economically feasible, of course. You aim to build a balanced portfolio of renewable energy sources and compare new technologies with alternative options. Most shareholders of this company are interested in long-term growth, but also want a decent and stable profit in the short run.</p><p>Interests: Stronger market position, short-term profits, sustainable energy system.Irritated by: Lack of clarity, indecisiveness, having to pay for other people's hobby horses.Habits: No-nonsense attitude, tough negotiator, visibly annoyed when irritated by others.</p><p>Fact-sheet TEC's revenues from energy sales and related activities exceed 4 billion euro. The yearly profit is about 140 mln euro. The company has 3000 employees and is active in the Netherlands, Belgium, the UK, and Germany.Drilling geothermal wells for the purpose of creating electricity is not currently economically feasible due to the depth that is required for the electricity to be produced efficiently (compared to other energy sources), etc … Role-plays should be safe, engaging, and fun learning experiences and enhance the agency of the players. For these purposes, techniques from improvisational theatre were used. Improvisational theatre is characterised by 'yes-anding', which means that players accept each other's actions and the world created in the play as 'real' and build on that, resulting in quick interactions, path-dependency, and opportunities for path creation (Pina e Cunha, Kamoche, and Campos e Cunha 2003; Van Bilsen, Kadijk, and Kortleven 2013). It makes students more immersed and confident in their roles and interactions quicker and more interesting for observers. Improvisational theatre allows for experimentation and adds to the fun, dynamism, and outcome variability of the simulation. It also opens up opportunities that are not possible in real CTA workshops, like jumping to the future, or changing the socio-political context. Rather than trying to become 'almost real life' <ref type="bibr" target="#b41">(Rao and Stupans 2012)</ref>, the theatrical setting allows for surpassing reality to play out future scenarios.</p><p>In a theatrical setting, the 'micro-cosmoses' of CTA workshops are further condensed and amplified. Condensation means that interactions between stakeholders are played out in a short period of time, the amplification implies that tensions between stakeholder positions are made larger and more visible for the audience. When players amplify the acting out of their positive and negative emotions towards a topic or towards each other, this stimulates the empathic concern of observers for the stakeholders in the role-play <ref type="bibr" target="#b26">(Hess, Strobel, and Brightman 2017)</ref>. To enable this amplification, teachers should make sure that students accept the world of the role-play and feel safe to improvise and show their emotions <ref type="bibr" target="#b27">(Heyward 2010</ref>). An improvisational warming-up exercise is instrumental for this. As improvisational theatre and Constructive Technology Assessment are core elements of this roleplay simulation, we named it 'Theatrical Technology Assessment'.</p><p>The role-play simulation had a dual set-up: Students were involved as players and as co-designers of the simulation. The role-plays were designed by teachers and students together: The general outline was pre-structured by the teachers, but the content regarding the technology and stakeholders was provided by groups of students. They conducted research into the technology and its societal context, proposed which stakeholders would be in the role-play and which issues and tensions would be on the table. They made role-descriptions and factsheets for the players, articulated questions and expectations, observed the role-play, and analysed the dynamics. Teachers provided coaching on making these instructions, and students played a try-out on an existing case to get insight into how TTA works and what is needed to make good role-descriptions and factsheets.</p><p>A simulation was played out by a different group of students, who themselves had worked on a role-play for another technology. In this way, students were involved in two different role-plays, once as a player and once as a co-designer and observer. Thus, they had two opportunities to learn about socio-technical dynamics, once starting from the perspective of a specific stakeholder, and once from an interest in the collective stakeholder dynamics. This dual set-up aimed to increase the opportunities to learn from the role-play and to boost the commitment of players and observers.</p><p>The role-play simulation was implemented in an online context (due to Covid-19 restrictions prohibiting to meet in class). A video conferencing tool was used as a platform, on which the players could interact in view of an audience of observers (cf. <ref type="bibr" target="#b30">Knapp 2018)</ref>. In an offline situation they would have sat around a table in the middle of a classroom, with observers around them. In the online situation, the screen served as the discussion table. Interaction in a videoconference tends to go slower than face-to-face and may result in chaos when different people start talking at the same moment. Besides, there are less options to communicate through body language. To mitigate these drawbacks, we restricted the number of student players to four, moderated the discussion more strictly at the start, and paid special attention to acting out emotions on a screen, both during the warming-up exercise and during the role-play itself (e.g. the moderator stating that a player looked unhappy with the response of another player). An example of a warming-up exercise is the 'circle of emotions', in which students say, one by one, a randomly picked sentence at an increasing level of a positive or negative emotion. Or an exercise in which they show their enthusiasm about having a meeting with their big hero, followed by disappointment when this person does not show up. From a theatrical perspective, a videoconference has its limitations, as body language is more difficult to use, but it also opens opportunities, with props and backgrounds, for students to get into their role. We also paid attention to preparation before the workshop, both content-wise and regarding technical issues, to prevent hiccoughs and to use the online time efficiently. In the reflection we primarily used the chat function, to enable all participants, also the less vocal ones, to articulate and share their learning. The chat was also used for the observing students to communicate with the moderator, which is a challenge in online role-plays <ref type="bibr" target="#b3">(Bell 2001)</ref>. Table <ref type="table" target="#tab_2">3</ref> gives an overview of the workshop protocol and the division of tasks.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Methodology</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Context</head><p>The role-play simulation was implemented and evaluated within the context of a semester project within an interdisciplinary engineering programme at University College Twente. This programme is a bachelor honours programme, aiming to educate new engineers <ref type="bibr" target="#b22">(Goldberg and Somerville 2014)</ref> who are competent in combining technology and social science to analyse complex societal problems and design solutions for a range of contexts <ref type="bibr" target="#b59">(Wits et al. 2014</ref>). The semester projects was 9 EC (EC stands for European Credit; 1 EC is about 28 hours, a full semester is 30 EC) in size and focused on emerging sustainable energy technologies. In this project, students selected an emerging energy technology, analysed the socio-technical system in which it is embedded, dived deep  . Teacher provides the task to make a concrete plan on a short notice and leaves the table . Student players discuss and carry out their task without moderation into societal and technological aspects, and selected relevant stakeholders. After that, the TTA roleplay simulations took place, to further investigate stakeholder dynamics and explore possible futures. The end product of the project was a so-called 'socio-technical scenario' (Hofman and Elzen 2010) and a concrete action plan to develop the technology within a certain region.</p><p>In the Spring of 2020, TTA was implemented with a cohort of 38 students, forming 7 project groups of 5-6 students. In total, there were 23 male and 15 female students, 22 Dutch and 16 non-Dutch students (of whom 8 were non-Western). Each project group was mixed in terms of gender and nationality, but formed a tightly-knit community within the Technology and Liberal Arts and Sciences programme. Table <ref type="table" target="#tab_3">4</ref> gives an overview of the groups with their emerging technologies, focal regions, and selected stakeholder groups. Case '0' was a try-out, meant for testing the technical aspects of the role-play and for preparing students.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Data collection</head><p>The purpose of the empirical research was to find out what students actually learned in TTA roleplays about stakeholder dynamics around emerging technologies. As this is an explorative question about the content of student learning regarding complex phenomena, a qualitative approach was considered most suitable. We collected data from two main sources: The online chat during the role-play and student reports after the role-play. In the chat we asked participants during the reflections after each playing round to individually answer the following questions: 'What happened between stakeholders?' and 'What are learning points regarding technology and stakeholder dynamics?' In reaction to these questions, players, observers, and teachers shared their insights. The responses to the first question articulated insights about stakeholder interactions. The second question asked for more analytical statements about collective stakeholder dynamics. Students and teachers also reacted to each other's observations. Together, these chat messages provide a comprehensive overview of students' understanding of stakeholder dynamics during the workshop. At the end of the workshop we also asked students what went well, which tips they had for improvement, and what insights they found interesting for their project. This served as a source for the second purpose of the empirical study: Evaluating the format, process, and perceived relevance of the TTA workshop. In total, 379 individual chat entries were collected.</p><p>Next to the chat entries we made use of short reports in which project groups described what they learned from the TTA workshops. Writing these reports was an assignment in the semester project. Students were asked to articulate (1) new insights they gained related to stakeholder perspectives and socio-technical dynamics, (2) answers they received on the questions they formulated beforehand, (3) additional insights, for them personally, or more generally related to technology and society, and (4) choices they would make in their scenarios and short-term plans, based on these insights. These reports articulated the group's learning about stakeholder dynamics in a coherent and integrated manner. Students submitted these reports a few days after the workshop, which gave them time to reflect on the content, discuss insights, compare them with insights they had before the workshop, and integrate the results in the overall project. This source consisted of seven reports. The data collection received approval of the Ethical committee of the Faculty of Behavioural, Management and Social Sciences of the University of Twente (approval nr. 200633). Students were informed beforehand about the research and about the data analysis process. They gave their consent for the use of their data at the start of the role-plays. They could also opt for excluding their data from the research without consequences, but no one made use of this. Data were anonymised and treated confidentially. A reason to conduct the study in this honours programme was that these students are open to educational innovation and research and eager to contribute. The researcher is a teacher in this programme. Teachers and students form a learning community with relatively low power differences and room for experimentation. A sense of community, integration of technical and social sciences, and trailblazing are cherished as core values in this programme. The summative assessment of the semester projects, which was at group level, did not take into account students' role-playing efforts or input to the research.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Data analysis</head><p>The chat entries and the student reports were coded using Atlas ti. To identify patterns in the data regarding student learning and the evaluation of the role-play design, a grounded theory approach was used <ref type="bibr" target="#b48">(Strauss and Corbin 1990)</ref>, involving a coding strategy in two rounds <ref type="bibr" target="#b46">(Saldaña 2013)</ref>. In a first round of open coding, about a hundred codes were created. To make a comparison possible, it was registered to which case a coded text fragment referred, and whether it came from an observing student, a playing student, or an observing teacher. In a second round of axial coding, these codes were merged, split, related to each other, prioritised, and clustered in different code groups. This required going back and forth between the data and the coding scheme. Table <ref type="table" target="#tab_4">5</ref> gives an overview of the 2nd order code categories and the 1 st order codes related to them.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Results</head><p>'The TTA roleplay served as an exciting and nuanced way to learn about stakeholders and how they may interact with one another', a student wrote. Students from all groupsplayers as well as observersagreed that through the role-plays they got relevant insights into stakeholder dynamics around emerging technologies. Some of these insights were seen as a confirmation of what students had expected on the basis of their earlier research, while others were reported as novel insights. An observing group wrote</p><p>The actors playing these stakeholders highlighted the initial problems associated with the implementation of our technology early on in the discussion. While we were already aware of these, some new interesting points were raised that had not been considered by our group before, lending us new perspectives on our technology.</p><p>Which specific insights students got out of the role-play differed from case to case, which is logical given the variety in technologies and stakeholder constellations, and the different questions formulated by the observing groups beforehand.</p><p>The playing students found it insightful to take a specific stakeholder perspective and to view the world with the values, interests, and organisational context of their character. Students put effort into preparing for a role and stuck to their role during the simulation. Empathising with a stakeholder helped them to better understand the different attitudes towards new technologies and the roles stakeholders played in the development and implementation. A student playing an expert, for instance, stated 'At the very least the roleplay has helped me better understand what is to be expected in the fields of research and has helped me develop a better sense of respect for the present-day researchers'. Some students reported that they did not only get insights into the cognitive aspects of stakeholder positions, but that they also felt how it was to make dilemmatic choices, to be marginalised in a power play, or to be able to make a grand gesture to overcome a stalemate. This deepened their understanding of stakeholder perspectives.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Dealing with uncertainties of emerging technologies</head><p>A general element that became visible in the role-plays was the dealing with uncertainty. In the conceptual background section of this article, the so-called Collingrigde dilemma was introduced, which states that in the early stages of development there are many uncertainties, but still options to steer, while in later stages there is more certainty, but steering-options are limited. In the role-play reflections, the horns of this Collingridge dilemma were clearly observed and experienced. As they were pressured to reach a conclusion about investment, commitment, or collaboration, students felt the impact of uncertainties. Their interactions typically started with the 'selectors' (such as established firms, citizens, government) questioning the 'enactors' (such as scientists, engineers, entrepreneurs) about the uncertainties that mattered most to them. 'It was really interesting to see the dynamics. You could see that every stakeholder was needed to provide information to the other stakeholder'. In the nuclear fusion case, for instance, with high technological uncertainty and unknown safety risks, the government, companies, and citizens focused on questioning the researcher. When the researcher could not take away these uncertainties, they felt unable to act. In the space-based power systems (SBSP) case, also with high technological uncertainty, the enactors succeeded in reducing the perceived uncertainty, 'The more stakeholders grasped and understood the concept of SBSP, the more enticed they were'. In other cases, discussions prevailed about economic uncertainties such as return on investment and market size, or on safety concerns. In the geothermal energy case, the propagators of the technology could not take these safety concerns away. On the contrary, 'The reaction to the initial opposition from the people was "don't panic". Which lead to even more opposition and skepticism'. Students saw that reducing, overcoming, and to some extent accepting these uncertainties was crucial for stakeholders to decide on which steps to take.</p><p>In the second part of the role-plays, after a time-lapse of 5 years, we removed the most pressing uncertainties and introduced path dependency based on the decisions made in the first part. Certainty helped stakeholders to decide, but they also experienced that the rules of the game had been set now. For instance, selectors in the photovoltaic windows case, who were first reluctant to collaborate, were more willing to step in during the second round, but experienced that others had taken the initiative and that they had less opportunities to steer the development in their favoured direction. An observer wrote 'Once there was proof that the technology worked, stakeholders were more willing to work together. The researcher seemed empowered, kinda telling the energy company what they needed to do'. In the role-play simulations, students learned about the Collingridge dillemma underlying the problematic steering of emerging technologies in society.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Developing stakeholder strategies</head><p>Students developed different strategies to deal with uncertainties and steer the technology in directions that served their interests. These strategies were not pre-given and showed the 'agency' and creative action of the participants. In some cases, stakeholders engaged in persuasive strategies, with a stream of arguments, or powerplay, to urge others to overcome their doubts and commit. In one of the algal biofuel cases, for instance, a student shared the following observation I think the most interesting dynamic of the roleplay session was found in the asymmetry that occurred because the stakeholders who were very passionate and enthusiastic about the technology <ref type="bibr">[…]</ref> were not able to actually implement the technology without the help of third parties that were not as enthused by the idea of algal biofuel <ref type="bibr">[…]</ref>. This led to the discussion being largely focussed around convincing Shell that they should invest in this technology.</p><p>In the blockchain grid case, it was the other way around. The student playing the CEO of the energy company used negotiation skills and powerplay to convince others. He wrote I used my existing resources, reputation, and power in the market to manipulate the situation, such that I did not lose grip on the electricity net. My main tool was to keep multiple stakeholders happy by giving them some kind of assurance that it was an improvement for them if they acted in my interests.</p><p>He acknowledged that this was not really ethical, but he was amazed to learn that it could work.</p><p>The representatives of the government often played an important role in reducing uncertainty for other stakeholders, either by adapting legislation or by providing subsidies and guarantees. As one of the players in the algal biofuel case wrote: 'Several stakeholders also repeatedly looked at the government to receive financial support to help fund implementing the new technology. This showed me that the government is possibly quite essential in the large-scale implementation of emerging technologies'. The citizens and NGOs lacked a clear power base and were often marginalised, but when being very vocal about their concerns and when using their potential to raise opposition, they proved able to make themselves heard and steer technology development. Students acknowledged the importance of 'letting society have their say by voicing their opinions via representatives. This way, society feels involved in the decision process and is hence less likely to be against the technology'. Thus, the students learned about the importance of incorporating the views of a broad array of stakeholders, and not only focus on the perspectives of the enactors of a technology.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Understanding complex stakeholder dynamics</head><p>The role-plays provided students with insights into complex stakeholder dynamics. In all role-plays, the interactions at some point resulted in a deadlock, waiting game, or entrenchment. The development bogged down when stakeholders were unwilling to commit themselves because of perceived uncertainties and risks, conflicting interests, or because selectors had safer technological options such as solar and wind energy. An observing student wrote There was a lack of incentive in either parties. People were afraid for the future and the competition of other technologies. No one wanted to go full on in this technology and exclude other options. Therefore no guarantees were given and this resulted in a Mexican standoff</p><p>The collective challenge for the players was to get the process going again, which happened in different ways. In some cases, like algal biofuel or blockchain grids, the persuasion or negotiation strategies of pro-active stakeholders were successful. In the photovoltaic windows and spacebased solar systems cases, not all relevant stakeholders wanted to get involved, so a 'coalition of the willing' was formed to carry on. Other cases showed a cautious and tentative approach to proceed, lowering the risks of those involved and allowing their commitment to grow. In the geothermal case, for instance, stakeholders agreed on a small-scale pilot in which all parties would have a say. Thus, students learned about how complex collective dynamics can lead to deadlocks, and how these can be overcome.</p><p>The time-lapse of 5 years in the role-play also served to make complex stakeholder dynamics visible. The time-lapse consolidated the path the stakeholders had chosen out of the deadlock, reducing uncertainties (e.g. regarding economic viability and safety) and increasing pressure to act (e.g. by adding a competitive element, or increasing the need to stop climate change). This often changed the dynamics, making a developmental pattern visible. In cases where the competitive pressure had been increased, deadlocks and waiting games could change into innovation races, with stakeholders investing heavily for fear of missing the boat.</p><p>Once one stakeholder had invested in the project, all stakeholders suddenly wanted to have a part in the project as well. This shows that pressure to invest in a project can be created if only some stakeholders are on board.</p><p>This showed students that path dependency resulting from early decisions as well as changing circumstances greatly affect stakeholder dynamics around emerging technologies.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Student evaluations of role-play outcomes and design</head><p>The observing student groups used the insights they gained in the role-plays to develop a plausible socio-technical scenarios in their semester project. 'There were several new insights acquired from the TTA roleplay, which can be used in order to create a more realistic and better argued socio-technical scenario'. All groups reported novel and relevant insights. A member of an observing group wrote: 'It was really interesting and useful to see the stakeholders engage in a discussion in a more extreme manner (in contrary to the mind-experiments you would be left with otherwise when not performing TTA)'. A playing student mentioned 'I learned more than I expected from the TTAs and they are definitely a highlight in this project's development'. Not all insights were perceived as useful, though. One group was a bit disappointed, as the discussion took a different direction than they hoped for, leaving some of their questions unanswered. However, this group was enthusiastic about TTA as such, and organised a second TTA role-play themselves, with a slightly different selection of stakeholders, adapted role-descriptions, and a change in focal issues for the moderator, which delivered them the additional insights they hoped for.</p><p>Students were positive about the design of the role-play simulations. In answer to the question what worked well, the points mentioned most frequently and across all role-plays were the quality of the stakeholder discussions during the role-plays, the quality of the acting, and the fun of the experience. The discussions were considered insightful, and the efforts players put in portraying the stakeholders were appreciated by the observers. An observer wrote in the chat: 'We would also like to express our compliments to all of the players for their efforts with regards to clothing and character. We loved to see our personas come to life'. The quality of the discussions was related to the selection of relevant stakeholders, the convincing way in which the players stuck to their roles, and the way in which the stakeholder discussion was moderated by the teacher: 'The guiding questions were great'. Although an observing teacher mentioned that some players could improve by putting more emotion in their acting, the overall appreciation was high. The students attributed the quality of the acting to the 'theatrical mood', brought about by the clothes, attributes and aliases used to portray the characters, the theatrical warming-up exercise at the start of the workshop, and the role descriptions, which provided guidelines for acting out the character. A player wrote: 'It's nice to have a bit of a character description rather than just a factsheet to base your acting on'. The players also mentioned that it was a fun experience. Some already had some acting experience, while others were doing it for the first time (and were a bit nervous). All students who mentioned how they personally experienced the role-play wrote that they found it nice or enjoyable. One student, for instance, wrote in the reflective assignment: 'I thoroughly enjoyed partaking in the TTAs, and think that it was a creative and interesting way of gaining more insights into the workings of socio-technical systems and the "real world" as a whole'.</p><p>The only issue that was mentioned regularly as a point for improvement was the provision of facts to the players. Students in all role-plays suggested that more technical information (or a more adequate selection of information) should have been provided to the players on the factsheets, to prevent confusion, make the discussions more realistic, and allow the players to quicker find a direction. Other students, from the same groups, disagreed with this, because elaborate factsheets can also limit the freedom and creativity of the actors and make the outcomes of the discussions too predictable, '[…] such that the output of such discussions are combinations of factsheets'. The observing teachers generally agreed with the latter. Uncertainty and disagreement about information is characteristic of the early stages of emerging technology development. A teacher wrote: 'The lack of info was not a problem. That the uncertainties became visible made the reactions of other stakeholders more realistic'.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Discussion</head><p>This study corroborates the relevance of the guidelines for educational role-play design derived from literature, regarding providing verisimilitude and focus, balancing agency and structure, installing fun and confrontations, offering preparation and reflection, building in safety and trust, and involving both players and observers <ref type="bibr" target="#b6">(Brown 1994;</ref><ref type="bibr" target="#b17">DeNeve and Heppner 1997;</ref><ref type="bibr" target="#b29">Joyner and Young 2006;</ref><ref type="bibr" target="#b32">Linser, Ree-Linstad, and Vold 2008;</ref><ref type="bibr" target="#b11">Chin, Dukes, and Gamson 2009;</ref><ref type="bibr" target="#b14">Croockall 2010;</ref><ref type="bibr" target="#b41">Rao and Stupans 2012;</ref><ref type="bibr" target="#b60">Wright-Maley 2015;</ref><ref type="bibr" target="#b19">Duchatelet et al. 2019)</ref>. There are two specific features that have not been described in education literature before: The dual set-up and the use of improvisational theatre. The dual set-up, in which students are players as well as co-designers/observers of the role-play simulation, gives them two perspectives to learn about stakeholder dynamics, once starting from the view of a specific stakeholder and once from an interest in the collective dynamics. Involving students as co-designers is novel. It boosts their sense of ownership, which increases their commitment and their interest in the role-play dynamics <ref type="bibr" target="#b29">(Joyner and Young 2006)</ref>. Giving them the lead in writing role-descriptions, fact-sheets, and points of attention for the moderator also adds to their learning, as they need to select which stakeholders, facts, and issues are essential, thus providing focus in the complexity of the real world (Wright-Maley 2015; <ref type="bibr" target="#b19">Duchatelet et al. 2019)</ref>. In other words, students construct a 'theatrical model' of the stakeholder dynamics around their emerging technology, formulate expectations, simulate it, and reflect upon its outcomes. In this way, their new insights into stakeholder dynamics are more likely to stick. A potential drawback of the dual set-up is that observing students may come into the role-play with much knowledge or strong expectations, potentially leading to a lack of openness to new perspectives. A second drawback is that role-descriptions and factsheets may be of less quality than in cases where teachers prepared them and had multiple opportunities to test and develop. Coaching beforehand and during the reflections can mitigate these drawbacks to some extent.</p><p>A second novel element is the way of using improvisational theatre. The relevance of creating room for improvisation in educational role-plays has been stated before <ref type="bibr" target="#b17">(DeNeve and Heppner 1997;</ref><ref type="bibr" target="#b29">Joyner and Young 2006;</ref><ref type="bibr" target="#b7">Brummel et al. 2010)</ref>. New is that stimulating and guiding improvisation is an integral part of the role-play design. This was done to increase the agency of the players and the outcome variability of the role-play. It also adds to the fun for players and to the speed and visibility of the emotions and interactions <ref type="bibr" target="#b51">(Van Bilsen, Kadijk, and Kortleven 2013)</ref>, making the roleplay more interesting to watch. As positive and negative emotions like enthusiasm about a new technology, or frustration about being left out of a deal, are acted out clearly in the role-play, this opens up opportunities for reflecting upon these emotions in the debriefings. This reflection adds to the empathy with stakeholder perspectives and to the understanding of their complex interrelations <ref type="bibr" target="#b56">(Walther et al. 2019</ref>). Moreover, it helps students to articulate how they themselves relate to the characters they play, the strategies they use, and the ways in which they are approached by other stakeholders, resolving potential cognitive dissonances <ref type="bibr" target="#b26">(Hess, Strobel, and Brightman 2017)</ref>. Students do not have to be accomplished actors to convincingly play a stakeholder. This study showed that with (1) a solid preparation of the role and a short theatrical warming-up, (2) a good moderation in which controversies are being staged and players are being invited to react to each other, and (3) suitable conditions for improvisation, viz. freedom to act, time pressure, and urgency (Pina e Cunha, Kamoche, and Campos e Cunha 2003; <ref type="bibr" target="#b53">Vera and Crossan 2004)</ref>, this effect can be brought about, even in an online environment.</p><p>The analysis of the results makes clear that students can gain novel and relevant knowledge, in particular related to the differences between enactor and selector perspectives <ref type="bibr" target="#b21">(Garud and Ahlstrom 1997)</ref>, the dilemmatic relation between uncertainties and steering options <ref type="bibr" target="#b12">(Collingridge 1980)</ref>, complex stakeholder dynamics such as waiting games and innovation races <ref type="bibr" target="#b1">(Bakker and Budde 2012;</ref><ref type="bibr" target="#b44">Robinson, Le Masson, and Weil 2012)</ref>, and strategies to deal with these dynamics productively and in a responsible manner <ref type="bibr" target="#b13">(Conlon and Zandvoort 2011)</ref>. This adds to their reflexivity regarding the societal dimensions of emerging technologies <ref type="bibr" target="#b9">(Byrne and Mullally 2014)</ref>. The role-play also aimed to contribute to an attitude that embraces societal complexity <ref type="bibr" target="#b26">(Hess, Strobel, and Brightman 2017)</ref> and avoids simplified, linear, and over-confident views of technology development. It is hard to draw conclusions about the effects of the role-play simulation on students' attitude development. What we can conclude is that several students acknowledged societal complexity and showed this with tentative and inclusive approaches to technology development, with subtle ways to align interests of enacting and selecting stakeholders, and with multi-stakeholder strategies to prevent a bogging down of the process of societal embedding. Some students still identified mainly with the enactors of the new technology, sought to reduce complexity, and assumed that with sufficient knowledge and clear communication it was possible to get all relevant stakeholders on board. These students' views remained modernist, but they were at least the views of enlightened modernists <ref type="bibr" target="#b54">(Visscher and Rip 2003)</ref>, who acknowledged that societal complexity is there and needs active bracketing or reduction, with efforts of a broad range of stakeholders, before progress can be made.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Conclusions</head><p>The purpose of this article was to present and evaluate an online role-play simulation for learning about complex stakeholder dynamics around emerging technologies: Theatrical Technology Assessment. We can conclude that the role-play design works, in the sense that it is perceived as an effective and engaging format for students to learn about stakeholder dynamics. As such, this study corroborates that role-play simulations can be powerful means to provide insights into complex decision-making situations <ref type="bibr" target="#b35">(Mayer 2009;</ref><ref type="bibr" target="#b41">Rao and Stupans 2012;</ref><ref type="bibr" target="#b18">Doorn and Kroesen 2013;</ref><ref type="bibr" target="#b45">Rumore, Schenk, and Susskind 2016)</ref>. The dual set-up with students as players and codesigners and the use of improvisational theatre to enhance agency, fun and constructive confrontations are novel elements and add to the set of ingredients for educational role-play designs available in literature. This opens up new lines of research into the co-design of education by teachers and students <ref type="bibr" target="#b2">(Baumber et al. 2020)</ref>, into the use of theater in education to combine cognitive and affective elements <ref type="bibr" target="#b25">(Hess and Fila 2016)</ref>, and into the use of role-play simulations to weave ethics and social sciences into engineering education.</p><p>Theatrical Technology Assessment forms an addition to the repertoire of educators on Science and Technology Studies and macro-ethics in engineering programmes. Teachers can use and adapt the set-up and flow of the role-play design for their own educational situation. The conceptual background provides the principles for designing such a role-play and the analysis shows the kind of learning outcomes that can be achieved. This helps teachers to make argued choices about using TTA. Not all teachers may feel immediately comfortable with conducting a TTA role-play. What is required are good moderation skills (to lead the discussions in the role-play and the reflection afterwards), basic skills in improvisational theatre ('yes-anding', warming-up exercises), and a theoretical understanding of stakeholder interactions and technology dynamics (for reflection, interpretation of patterns). Teachers can start by implementing TTA role-plays with predeveloped cases. The advantage of such a case is that one can fine-tune role-descriptions and factsheets, and that the teacher can anticipate certain dynamics, which helps to structure the reflection. Teaching materials such as case-descriptions, role-descriptions, factsheets, moderator notes, and warming-up exercises have been developed to support teachers in implementing TTA (made available in the so-called CTA Toolbox). What misses in pre-structured cases is the co-constructive element. Moreover, students will lack the insights they get by modelling the stakeholder field and preparing the play. Keeping the observers involved may then be more challenging, which could be mitigated with preparatory assignments for observers, swapping players and observers during the role-play, and increasing the observers' role in the reflection and in defining the pressure cooker after the time-lapse. It needs further exploration to find out what students can learn from this more pre-structured set-up, and how it can be embedded in different educational contexts, for instance by linking the role-plays explicitly to lectures, literature, and projects.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Limitations and further research</head><p>This study has several limitations. The role-play simulation was implemented within a single context, a scenario project of first-year students of a Technology and Liberal Arts and Sciences programme. It would be interesting to evaluate TTA in other programmes as well, especially in interdisciplinary settings, where students can take on a role that connects to (or contrasts with) their disciplinary background, or in more monodisciplinary engineering programmes. In the latter case, the dual set-up, with students co-designing cases and stakeholder roles, may be more challenging to implement, but it is interesting to study what these engineering students can learn from acting out predeveloped cases, especially when these relate to their field of interest. Besides, the students in the Technology and Liberal Arts and Sciences programme knew each other well and showed high levels of mutual trust. In other situations, the building of trust and creation of a safe environment may ask extra attention in the preparation and moderation, especially in culturally diverse groups of students. Moreover, the studied group of students was quite diverse in terms of gender, cultural background, and interests. This may be representative for the Technology and Liberal Arts and Sciences programme, but in more monodisciplinary engineering programmes this can be less the case. It requires additional efforts to create awareness of diversity and to foster heterogeneity of perspectives in the role-plays, by avoiding enactor bias <ref type="bibr" target="#b21">(Garud and Ahlstrom 1997)</ref> or white-male bias (Pawley 2017) in role-descriptions and player-selections, and by foregrounding marginalised voices during the role-play simulations. It would be interesting to experiment with that. A second limitation is that this study evaluates TTA as a whole. To further develop the role-play, it would be interesting to carry out design-oriented studies on specific aspects, for instance by experimenting with instructions and interventions to involve observers, or by studying whether students develop more or less novel insights if they play a stakeholder role that is close to their disciplinary background. Related to this is a change of context from online to offline. Face-to-face interactions provide more opportunities for using body-language to express emotions and allow for quicker or more intense interactions among the players. It would be interesting to study whether this context intensifies the learning experience and allows for learning about more complex stakeholder dynamics and scenarios. A further limitation relates to the focus on students' understanding of stakeholder dynamics, for which the collected chat entries and reflection reports provided suitable data. However, role-play simulations can also be a means for skills and attitude development. Students practice communication, collaboration and negotiation skills, and are stimulated to use their creative and critical thinking skills. Further research could evaluate this skills development and come up with guidelines for optimising the role-play design to stimulate this. Studying attitude development is also an important line of further research. Such a study could focus on the affective aspects of role-playing. To what extent do the role-plays have a lasting effect on students' empathy for a broader range of stakeholders and their embracing of uncertainty and ambiguity? A final line of research and development could be related to the 'real' world. The current study was carried out with students only, but when the setting of the role-play simulations mirrors the situation around an emerging technology, the strategies developed by the students and the outcomes of the play may also be interesting for real-world stakeholders. Students explore alternative futures, which can help observing societal stakeholders to assess these futures and consider options for steering and anticipating. Stakeholders might even join as players. This would insert the purposes of Constructive Technology Assessment into the setting of Theatrical Technology Assessment. In this way, TTA and CTA could be united in a transdisciplinarylearning experience of students and stakeholders. Whether and how the role-play format should be adapted, and which impact it will have on the learning of different participants, requires further research and experimentation. and Social Sciences. Special thanks go to Gijs van Bilsen for his involvement in the design and implementation of the role-play simulation.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head></head><label></label><figDesc>Student observers and teacher and pre-discuss questions, expectations, and contentious issues . Student players study role descriptions and factsheets During the workshop Introduction 5 min . Teacher explains aim and set-up of the workshop Warming-up 15 min . Teacher leads an improvisational theatre exercise Session 1 'CTA workshop' 25 min . Student players discuss pros and cons, problems, preferences . Student players question and confront each other, exploring conflicts, compromises, next steps . Teacher moderates the discussion Reflection 1 15 min . Student players and observers articulate observed stakeholder dynamics . Teacher moderates the reflection Break and Preparation 15 min . Student players take a break . Teacher and student observers decide on changing the setting after a time-lapse of Teacher introduces student players to changed circumstances.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_0"><head>Table 1 .</head><label>1</label><figDesc>Comparison of CTA and TTA.    </figDesc><table><row><cell></cell><cell>CTA</cell><cell>TTA</cell></row><row><cell>Purpose</cell><cell>Enabling societal stakeholders to steer the</cell><cell>Preparing (engineering) students to deal withsocietal</cell></row><row><cell></cell><cell>development of emerging technologies towards</cell><cell>complexities and uncertainties of emerging</cell></row><row><cell></cell><cell>desirable futures</cell><cell>technologies in their future work</cell></row><row><cell cols="2">Learning focus Anticipatory learning and reduction of trial-and-</cell><cell>Understanding complex stakeholder dynamics and</cell></row><row><cell></cell><cell>error learning</cell><cell>developing strategies to deal with them</cell></row><row><cell>Participants</cell><cell>Selected representatives of relevant stakeholders</cell><cell>Students</cell></row><row><cell></cell><cell>groups</cell><cell></cell></row><row><cell>Format</cell><cell>Stakeholder workshop as one-off bridging event</cell><cell>Role-play simulation, using improvisational theatre</cell></row><row><cell>Analysis of</cell><cell>Observing researchers</cell><cell>Participating students</cell></row><row><cell>dynamics</cell><cell></cell><cell></cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_1"><head>Table 2 .</head><label>2</label><figDesc>Implementation of educational role-play design guidelines.</figDesc><table><row><cell>Design guidelines</cell></row></table><note>Prepare Student questions, role and case descriptions, warming up, try-out Debrief Reflection, assignment Involve players and observers Dual set-up, assignment Create safe atmosphere Teacher moderation, warming up exercise</note></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_2"><head>Table 3 .</head><label>3</label><figDesc>Workshop protocol.</figDesc><table><row><cell>Before the workshop</cell></row><row><cell>Preparation</cell></row></table><note>. Student observers prepare role-descriptions and factsheets, based on research of an emerging technology and stakeholder context .</note></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_3"><head>Table 4 .</head><label>4</label><figDesc>Overview TTA role-plays.</figDesc><table><row><cell></cell><cell>Technology</cell><cell>Focal region</cell><cell>Selected stakeholders</cell></row><row><cell>0</cell><cell>Piezoelectric roads</cell><cell>City of Enschede, Netherlands</cell><cell></cell></row><row><cell>2</cell><cell>Nuclear fusion</cell><cell>Europe</cell><cell>. Research institute</cell></row><row><cell></cell><cell></cell><cell></cell><cell>. Established energy company</cell></row><row><cell></cell><cell></cell><cell></cell><cell>. European Commission</cell></row><row><cell></cell><cell></cell><cell></cell><cell>. Concerned citizens</cell></row><row><cell>3</cell><cell>Algal biofuels</cell><cell>Netherlands</cell><cell>. University</cell></row><row><cell></cell><cell></cell><cell></cell><cell>. Established oil company</cell></row><row><cell></cell><cell></cell><cell></cell><cell>. Transport industry association</cell></row><row><cell></cell><cell></cell><cell></cell><cell>. NGO sustainable fuel</cell></row><row><cell>4</cell><cell>Photovoltaic windows</cell><cell>City of Enschede, Netherlands</cell><cell>. Research institute</cell></row><row><cell></cell><cell></cell><cell></cell><cell>. Established energy company</cell></row><row><cell></cell><cell></cell><cell></cell><cell>. Local government</cell></row><row><cell></cell><cell></cell><cell></cell><cell>. Architectural agency</cell></row><row><cell>5</cell><cell>Microalgal biofuels</cell><cell>New-Zealand</cell><cell>. University</cell></row><row><cell></cell><cell></cell><cell></cell><cell>. Established oil company</cell></row><row><cell></cell><cell></cell><cell></cell><cell>. National government</cell></row><row><cell></cell><cell></cell><cell></cell><cell>. Farmers association</cell></row><row><cell>6</cell><cell>Space-based solar energy systems</cell><cell>USA</cell><cell>. Entrepreneurial aerospace firm</cell></row><row><cell></cell><cell></cell><cell></cell><cell>. Established energy company</cell></row><row><cell></cell><cell></cell><cell></cell><cell>. National government</cell></row><row><cell></cell><cell></cell><cell></cell><cell>. United Nations</cell></row><row><cell>7</cell><cell>Blockchain grids</cell><cell>Netherlands</cell><cell></cell></row></table><note>. University . Established energy company . Local government . National infrastructural government agency 1 Enhanced geothermal systems Twente region, Netherlands . University . Established energy company . Provincial government . Concerned citizens . Entrepreneurial blockchain firm . Established energy company . National government agency . Local energy initiative</note></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_4"><head>Table 5 .</head><label>5</label><figDesc>Coding scheme.</figDesc><table><row><cell>2nd order categories</cell></row></table></figure>
+		</body>
+		<back>
+
+			<div type="acknowledgement">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Acknowledgements</head><p>I want to express my gratitude for the input, feedback, and support I received from colleagues and students at University College Twente and the Knowledge, Transformation and Society section of the Faculty of Behavioural, Management</p></div>
+			</div>
+
+			<div type="annex">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Disclosure statement</head><p>No potential conflict of interest was reported by the author(s).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Notes on contributor</head><p>Klaasjan Visscher is an Associate Professor of Innovation in Higher Education and Society. He is head of the Knowledge, Transformation &amp; Society section and scientific co-director of DesignLab at the University of Twente. His current research focuses on transdisciplinary education, innovation ecosystems, and sustainable transitions. Klaasjan has won grants and awards for educational innovation projects and programmes. He is co-chair of the ComeniusNetwork, the Dutch network of educational innovators. His research has been published in peer-reviewed journals and book chapters.</p></div>			</div>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">An Overview of Game-Based Learning in Building Services Engineering Education</title>
+		<author>
+			<persName><forename type="first">K</forename><surname>Alanne</surname></persName>
+		</author>
+		<idno type="DOI">10.1080/03043797.2015.1056097</idno>
+	</analytic>
+	<monogr>
+		<title level="j">European Journal of Engineering Education</title>
+		<imprint>
+			<biblScope unit="volume">41</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="204" to="219" />
+			<date type="published" when="2016">2016</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">Technological Hype and Disappointment; Lessons from the Hydrogen and Fuel Cell Case</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Bakker</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Budde</surname></persName>
+		</author>
+		<idno type="DOI">10.1080/09537325.2012.693662</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Technology Analysis &amp; Strategic Management</title>
+		<imprint>
+			<biblScope unit="volume">24</biblScope>
+			<biblScope unit="issue">6</biblScope>
+			<biblScope unit="page" from="549" to="563" />
+			<date type="published" when="2012">2012</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">Learning Together: A Transdisciplinary Approach to Student-Staff Partnerships in Higher Education</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Baumber</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Kligyte</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Van Der Bijl-Brouwer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Pratt</surname></persName>
+		</author>
+		<idno type="DOI">10.1080/07294360.2019.1684454</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Higher Education Research &amp; Development</title>
+		<imprint>
+			<biblScope unit="volume">39</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="395" to="410" />
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<monogr>
+		<author>
+			<persName><forename type="first">M</forename><surname>Bell</surname></persName>
+		</author>
+		<title level="m">Online Role-Play</title>
+				<imprint>
+			<date type="published" when="2001">2001</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">Engagement and Risk</title>
+		<author>
+			<persName><surname>Anonymity</surname></persName>
+		</author>
+		<idno type="DOI">10.1080/09523980110105141</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Educational Media International</title>
+		<imprint>
+			<biblScope unit="volume">38</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="251" to="260" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<monogr>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">M</forename><surname>Bowman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename></persName>
+		</author>
+		<title level="m">Embedding new Technologies Into Society; A Regulatory, Ethical and Societal Perspective</title>
+				<editor>
+			<persName><forename type="first">A</forename><surname>Stokes</surname></persName>
+		</editor>
+		<editor>
+			<persName><surname>Rip</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Singapore</addrLine></address></meeting>
+		<imprint>
+			<publisher>Pan Stanford Publishing</publisher>
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">Using Role Play to Integrate Ethics Into Business Curriculum; A Financial Management Example</title>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">M</forename><surname>Brown</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/BF00881579</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Business Ethics</title>
+		<imprint>
+			<biblScope unit="volume">13</biblScope>
+			<biblScope unit="page" from="105" to="110" />
+			<date type="published" when="1994">1994</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">Development of Role-Play Scenarios for Teaching Responsible Conduct of Research</title>
+		<author>
+			<persName><forename type="first">B</forename><forename type="middle">J</forename><surname>Brummel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">K</forename><surname>Gunsalus</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">L</forename><surname>Anderson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">C</forename><surname>Loui</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Science and Engineering Ethics</title>
+		<imprint>
+			<biblScope unit="volume">16</biblScope>
+			<biblScope unit="page" from="573" to="589" />
+			<date type="published" when="2010">2010</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<author>
+			<persName><forename type="first">L</forename><forename type="middle">L</forename><surname>Bucciarelli</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">E</forename><surname>Drew</surname></persName>
+		</author>
+		<idno type="DOI">10.1080/19378629.2015.1077253</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Liberal Studies in Engineering; A Design Plan</title>
+				<imprint>
+			<date type="published" when="2015">2015</date>
+			<biblScope unit="volume">7</biblScope>
+			<biblScope unit="page" from="103" to="122" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">Educating Engineers to Embrace Complexity and Context</title>
+		<author>
+			<persName><forename type="first">E</forename><forename type="middle">P</forename><surname>Byrne</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Mullally</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Proceedings of The Institution of Civil Engineers</title>
+		<imprint>
+			<biblScope unit="volume">167</biblScope>
+			<biblScope unit="issue">6</biblScope>
+			<biblScope unit="page" from="241" to="248" />
+			<date type="published" when="2014">2014</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">Mode 3&apos; and &apos;Quadruple Helix&apos;; Toward a 21 st Century Fractal Innovation Ecosystem</title>
+		<author>
+			<persName><forename type="first">E</forename><forename type="middle">G</forename><surname>Carayannis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">F J</forename><surname>Campbell</surname></persName>
+		</author>
+		<idno type="DOI">10.1504/IJTM.2009.023374</idno>
+	</analytic>
+	<monogr>
+		<title level="j">International Journal of Technology Management</title>
+		<imprint>
+			<biblScope unit="volume">46</biblScope>
+			<biblScope unit="issue">3/4</biblScope>
+			<biblScope unit="page" from="201" to="234" />
+			<date type="published" when="2009">2009</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">Asessment in Simulation and Gaming</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Chin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Dukes</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Gamson</surname></persName>
+		</author>
+		<idno type="DOI">10.1177/1046878109332955</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Simulation &amp; Gaming</title>
+		<imprint>
+			<biblScope unit="volume">40</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="553" to="568" />
+			<date type="published" when="2009">2009</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<monogr>
+		<title level="m" type="main">The Social Control of Technology</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Collingridge</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="1980">1980</date>
+			<publisher>St. Martin&apos;s Press</publisher>
+			<pubPlace>New York</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">Broadening Ethics Teaching in Engineering; Beyond the Individualistic Approach</title>
+		<author>
+			<persName><forename type="first">E</forename><surname>Conlon</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Zandvoort</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/s11948-010-9205-7</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Science and Engineering Ethics</title>
+		<imprint>
+			<biblScope unit="volume">17</biblScope>
+			<biblScope unit="page" from="217" to="232" />
+			<date type="published" when="2011">2011</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">Serious Games, Debriefing, and Simulation/Gaming as a Discipline</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Croockall</surname></persName>
+		</author>
+		<idno type="DOI">10.1177/1046878110390784</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Simulation &amp; Gaming</title>
+		<imprint>
+			<biblScope unit="volume">41</biblScope>
+			<biblScope unit="issue">6</biblScope>
+			<biblScope unit="page" from="898" to="920" />
+			<date type="published" when="2010">2010</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<analytic>
+		<title level="a" type="main">Clio and the Economics of QWERTY</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>David</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">American Economic Review</title>
+		<imprint>
+			<biblScope unit="volume">75</biblScope>
+			<biblScope unit="page" from="332" to="337" />
+			<date type="published" when="1985">1985</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<analytic>
+		<title level="a" type="main">The Hype Cycle Model; A Review and Future Directions</title>
+		<author>
+			<persName><forename type="first">O</forename><surname>Dedehayir</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Steinert</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.techfore.2016.04.005</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Technology Forecasting &amp; Social Change</title>
+		<imprint>
+			<biblScope unit="volume">108</biblScope>
+			<biblScope unit="page" from="28" to="41" />
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<analytic>
+		<title level="a" type="main">Role Play Simulation; The Assessment of an Active Learning Technique and Comparisons with Traditional Lectures</title>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">M</forename><surname>Deneve</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">J</forename><surname>Heppner</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/BF01243718</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Innovative Higher Education</title>
+		<imprint>
+			<biblScope unit="volume">21</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="231" to="246" />
+			<date type="published" when="1997">1997</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<analytic>
+		<title level="a" type="main">Using and Developing Role Plays in Teaching Aimed at Preparing for Social Responsibility</title>
+		<author>
+			<persName><forename type="first">N</forename><surname>Doorn</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">O</forename><surname>Kroesen</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/s11948-011-9335-6</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Science and Engineering Ethics</title>
+		<imprint>
+			<biblScope unit="volume">19</biblScope>
+			<biblScope unit="page" from="1513" to="1527" />
+			<date type="published" when="2013">2013</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<analytic>
+		<title level="a" type="main">Looking at Role-Play Simulations of Political Decision-Making in Higher Education Through a Contextual Lens; A State-of-the-art</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Duchatelet</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Gijbels</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Bursens</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Donche</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Spooren</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.edurev.2019.03.002</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Educational Research Review</title>
+		<imprint>
+			<biblScope unit="volume">27</biblScope>
+			<biblScope unit="page" from="126" to="139" />
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<analytic>
+		<title level="a" type="main">Cognitive Load Theory for the Design of Medical Simulations</title>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">L</forename><surname>Fraser</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Ayres</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Sweller</surname></persName>
+		</author>
+		<idno type="DOI">10.1097/SIH.0000000000000097</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Simulation in Healthcare</title>
+		<imprint>
+			<biblScope unit="volume">10</biblScope>
+			<biblScope unit="issue">5</biblScope>
+			<biblScope unit="page" from="295" to="307" />
+			<date type="published" when="2015">2015</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<analytic>
+		<title level="a" type="main">Technology Assessment: A Socio-Cognitive Perspective</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Garud</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Ahlstrom</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/S0923-4748(97)00005-2</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Engineering and Technology Management</title>
+		<imprint>
+			<biblScope unit="volume">14</biblScope>
+			<biblScope unit="page" from="25" to="48" />
+			<date type="published" when="1997">1997</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<monogr>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">E</forename><surname>Goldberg</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Somerville</surname></persName>
+		</author>
+		<title level="m">A Whole new Engineer; The Coming Revolution in Engineering Education</title>
+				<meeting><address><addrLine>Douglas</addrLine></address></meeting>
+		<imprint>
+			<publisher>ThreeJoy Associates</publisher>
+			<date type="published" when="2014">2014</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b23">
+	<analytic>
+		<title level="a" type="main">Educating Engineers 2030; PBL, Social Progress and Sustainability</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Guerra</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Rodriguez</surname></persName>
+		</author>
+		<idno type="DOI">10.1080/03043797.2020.1828678</idno>
+	</analytic>
+	<monogr>
+		<title level="j">European Journal of Engineering Education</title>
+		<imprint>
+			<biblScope unit="volume">46</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="1" to="3" />
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b24">
+	<analytic>
+		<title level="a" type="main">To Play or not to Play; On the Motivational Effects of Games in Engineering Education</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Hartmann</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Gommer</surname></persName>
+		</author>
+		<idno type="DOI">10.1080/03043797.2019.1690430</idno>
+	</analytic>
+	<monogr>
+		<title level="j">European Journal of Engineering Education</title>
+		<imprint>
+			<biblScope unit="volume">46</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="319" to="343" />
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b25">
+	<monogr>
+		<title level="m" type="main">The Development and Growth of Empathy among Engineering Students</title>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">L</forename><surname>Hess</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><forename type="middle">D</forename><surname>Fila</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2016">2016</date>
+			<publisher>American Society for Engineering Education Annual Conference</publisher>
+			<pubPlace>New Orleans.</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b26">
+	<analytic>
+		<title level="a" type="main">The Development of Empathic Perspective-Taking in an Engineering Ethics Course</title>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">L</forename><surname>Hess</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Strobel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">O</forename><surname>Brightman</surname></persName>
+		</author>
+		<idno type="DOI">10.1002/jee.20175</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Engineering Education</title>
+		<imprint>
+			<biblScope unit="volume">106</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="534" to="563" />
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b27">
+	<analytic>
+		<title level="a" type="main">Emotional Engagement Through Drama; Strategies to Assist Learning Through Role-Play</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Heyward</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">International Journal of Teaching and Learning in Higher Education</title>
+		<imprint>
+			<biblScope unit="volume">22</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="197" to="203" />
+			<date type="published" when="2010">2010</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b28">
+	<analytic>
+		<title level="a" type="main">Exploring System Innovation in the Electricity System Through Sociotechnical Scenarios</title>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">S</forename><surname>Hofman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Elzen</surname></persName>
+		</author>
+		<idno type="DOI">10.1080/09537325.2010.496282</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Technology Analysis &amp; Strategic Management</title>
+		<imprint>
+			<biblScope unit="volume">22</biblScope>
+			<biblScope unit="issue">6</biblScope>
+			<biblScope unit="page" from="653" to="670" />
+			<date type="published" when="2010">2010</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b29">
+	<analytic>
+		<title level="a" type="main">Teaching Medical Students Using Role Play; Twelve Tips for Successful Role Plays</title>
+		<author>
+			<persName><forename type="first">B</forename><surname>Joyner</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Young</surname></persName>
+		</author>
+		<idno type="DOI">10.1080/01421590600711252</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Medical Teacher</title>
+		<imprint>
+			<biblScope unit="volume">28</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="225" to="229" />
+			<date type="published" when="2006">2006</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b30">
+	<analytic>
+		<title level="a" type="main">Increasing Interaction in a Flipped Classroom Through Video Conferencing</title>
+		<author>
+			<persName><forename type="first">N</forename><forename type="middle">F</forename><surname>Knapp</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/s11528-018-0336-z</idno>
+	</analytic>
+	<monogr>
+		<title level="j">TechTrends</title>
+		<imprint>
+			<biblScope unit="volume">62</biblScope>
+			<biblScope unit="page" from="618" to="624" />
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b31">
+	<analytic>
+		<title level="a" type="main">Strategic Responses to Fuel Cell Hype and Disappointment</title>
+		<author>
+			<persName><forename type="first">K</forename><surname>Konrad</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Markard</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Ruef</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Truffer</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.techfore.2011.09.008</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Technology Forecasting &amp; Social Change</title>
+		<imprint>
+			<biblScope unit="volume">79</biblScope>
+			<biblScope unit="issue">6</biblScope>
+			<biblScope unit="page" from="1084" to="1098" />
+			<date type="published" when="2012">2012</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b32">
+	<analytic>
+		<title level="a" type="main">The Magic Circle; Game Design Principles and Online Role-play Simulations</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Linser</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Ree-Linstad</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Vold</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings ED-MEDIA 2008</title>
+				<meeting>ED-MEDIA 2008<address><addrLine>Vienna</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2008">2008</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b33">
+	<analytic>
+		<title level="a" type="main">What Can Students Learn in an Extended Role-Play Simulation on Technology and Society?</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">C</forename><surname>Loui</surname></persName>
+		</author>
+		<idno type="DOI">10.1177/0270467608328710</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Technology &amp; Society</title>
+		<imprint>
+			<biblScope unit="volume">29</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="37" to="47" />
+			<date type="published" when="2009">2009</date>
+		</imprint>
+	</monogr>
+	<note>Bulletin of Science</note>
+</biblStruct>
+
+<biblStruct xml:id="b34">
+	<analytic>
+		<title level="a" type="main">The Role of Role-Play in Student Awareness of the Social Dimension of the Engineering Profession</title>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">A</forename><surname>Martin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Conlon</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Bowe</surname></persName>
+		</author>
+		<idno type="DOI">10.1080/03043797.2019.1624691</idno>
+	</analytic>
+	<monogr>
+		<title level="j">European Journal of Engineering Education</title>
+		<imprint>
+			<biblScope unit="volume">44</biblScope>
+			<biblScope unit="issue">6</biblScope>
+			<biblScope unit="page" from="882" to="905" />
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b35">
+	<analytic>
+		<title level="a" type="main">The Gaming of Policy and the Politics of Gaming; A Review</title>
+		<author>
+			<persName><forename type="first">I</forename><forename type="middle">S</forename><surname>Mayer</surname></persName>
+		</author>
+		<idno type="DOI">10.1177/1046878109346456</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Simulation &amp; Gaming</title>
+		<imprint>
+			<biblScope unit="volume">40</biblScope>
+			<biblScope unit="issue">6</biblScope>
+			<biblScope unit="page" from="825" to="862" />
+			<date type="published" when="2009">2009</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b36">
+	<analytic>
+		<title level="a" type="main">Socio-technical Thinking of Students and Practitioners in the Context of Humanitarian Engineering</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Mazzurco</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Daniel</surname></persName>
+		</author>
+		<idno type="DOI">10.1002/jee.20307</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Engineering Education</title>
+		<imprint>
+			<biblScope unit="volume">109</biblScope>
+			<biblScope unit="page" from="243" to="261" />
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b37">
+	<monogr>
+		<title level="m" type="main">Constructive TA of Newly Emerging Technologies</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Parandian</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2012">2012</date>
+		</imprint>
+		<respStmt>
+			<orgName>TU Delft</orgName>
+		</respStmt>
+	</monogr>
+	<note>Doctoral disser</note>
+</biblStruct>
+
+<biblStruct xml:id="b38">
+	<analytic>
+		<title level="a" type="main">Dual Dynamics of Promises, and Waiting Games Around Emerging Nanotechnologies</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Parandian</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Rip</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Kulve</surname></persName>
+		</author>
+		<idno type="DOI">10.1080/09537325.2012.693668</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Technology Analysis &amp; Strategic Management</title>
+		<imprint>
+			<biblScope unit="volume">24</biblScope>
+			<biblScope unit="issue">6</biblScope>
+			<biblScope unit="page" from="565" to="582" />
+			<date type="published" when="2012">2012</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b39">
+	<analytic>
+		<title level="a" type="main">Shifting the &quot;Default&quot;: The Case for Making Diversity the Expected Condition for Engineering Education and Making Whiteness and Maleness Visible</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">L</forename><surname>Pawley</surname></persName>
+		</author>
+		<idno type="DOI">10.1002/jee.20181</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Engineering Education</title>
+		<imprint>
+			<biblScope unit="volume">106</biblScope>
+			<biblScope unit="page" from="531" to="533" />
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b40">
+	<analytic>
+		<title level="a" type="main">Organizational Improvisation and Leadership; A Field Study in two Computer-Mediated Settings</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Pina E Cunha</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Kamoche</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Campos E Cunha</surname></persName>
+		</author>
+		<idno type="DOI">10.1080/00208825.2003.11043677</idno>
+	</analytic>
+	<monogr>
+		<title level="j">International Studies of Management and Organization</title>
+		<imprint>
+			<biblScope unit="volume">33</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="34" to="57" />
+			<date type="published" when="2003">2003</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b41">
+	<analytic>
+		<title level="a" type="main">Exploring the Potential of Role Play in Higher Education; Development of a Typology and Teacher Guidelines</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Rao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Stupans</surname></persName>
+		</author>
+		<idno type="DOI">10.1080/14703297.2012.728879</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Innovations in Education and Teaching International</title>
+		<imprint>
+			<biblScope unit="volume">49</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="427" to="436" />
+			<date type="published" when="2012">2012</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b42">
+	<monogr>
+		<author>
+			<persName><forename type="first">A</forename><surname>Rip</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">J</forename><surname>Misa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Schot</surname></persName>
+		</author>
+		<title level="m">Managing Technology in Society: The Approach of Constructive Technology Assessment</title>
+				<meeting><address><addrLine>London</addrLine></address></meeting>
+		<imprint>
+			<publisher>Printer Publishers</publisher>
+			<date type="published" when="1995">1995</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b43">
+	<analytic>
+		<title level="a" type="main">Constructive Technology Assessment and Socio-Technical Scenarios</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Rip</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Kulve</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">The Yearbook of Nanotechnology in Society</title>
+				<editor>
+			<persName><forename type="first">E</forename><surname>Fisher</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">C</forename><surname>Selin</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">J</forename><forename type="middle">M</forename><surname>Wetmore</surname></persName>
+		</editor>
+		<meeting><address><addrLine>Dordrecht</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2008">2008</date>
+			<biblScope unit="volume">I</biblScope>
+			<biblScope unit="page" from="49" to="70" />
+		</imprint>
+	</monogr>
+	<note>Presenting Futures</note>
+</biblStruct>
+
+<biblStruct xml:id="b44">
+	<analytic>
+		<title level="a" type="main">Waiting Games; Innovation Impasses in Situations of High Uncertainty</title>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">K R</forename><surname>Robinson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">Le</forename><surname>Masson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Weil</surname></persName>
+		</author>
+		<idno type="DOI">10.1080/09537325.2012.693661</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Technology Analysis &amp; Strategic Management</title>
+		<imprint>
+			<biblScope unit="volume">24</biblScope>
+			<biblScope unit="issue">6</biblScope>
+			<biblScope unit="page" from="543" to="547" />
+			<date type="published" when="2012">2012</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b45">
+	<analytic>
+		<title level="a" type="main">Role-play Simulations for Climate Change Adaptation Education and Engagement</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Rumore</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Schenk</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Susskind</surname></persName>
+		</author>
+		<idno type="DOI">10.1038/nclimate3084</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Nature Climate Change</title>
+		<imprint>
+			<biblScope unit="volume">6</biblScope>
+			<biblScope unit="page" from="745" to="750" />
+			<date type="published" when="2016">2016</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b46">
+	<monogr>
+		<title level="m" type="main">The Coding Manual for Qualitative Researchers</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Saldaña</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2013">2013</date>
+			<publisher>Sage</publisher>
+			<pubPlace>Thousand Oaks</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b47">
+	<analytic>
+		<title level="a" type="main">Society is Part of the Equation</title>
+		<author>
+			<persName><forename type="first">V</forename><forename type="middle">C</forename><surname>Schulze Greiving</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Konrad</surname></persName>
+		</author>
+		<idno type="DOI">10.1038/nnano.2017.6</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Nature Nanotechnology</title>
+		<imprint>
+			<biblScope unit="volume">12</biblScope>
+			<biblScope unit="page">184</biblScope>
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b48">
+	<monogr>
+		<author>
+			<persName><forename type="first">A</forename><surname>Strauss</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">M</forename><surname>Corbin</surname></persName>
+		</author>
+		<title level="m">Basics of Qualitative Research: Grounded Theory Procedures and Techniques</title>
+				<meeting><address><addrLine>Thousand Oaks</addrLine></address></meeting>
+		<imprint>
+			<publisher>Sage</publisher>
+			<date type="published" when="1990">1990</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b49">
+	<analytic>
+		<title level="a" type="main">Sectoral Demand Articulation; The Case of Emerging Sensor Technologies in the Drinking Water Sector</title>
+		<author>
+			<persName><forename type="first">H</forename><surname>Te Kulve</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Konrad</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.techfore.2017.03.025</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Technological Forecasting and Social Change</title>
+		<imprint>
+			<biblScope unit="volume">119</biblScope>
+			<biblScope unit="page" from="154" to="169" />
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b50">
+	<analytic>
+		<title level="a" type="main">Constructive Controversy for Management Education; Developing Committed, Open-Minded Researchers</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Tjosvold</surname></persName>
+		</author>
+		<idno type="DOI">10.5465/amle.2008.31413864</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Academy of Management Learning &amp; Education</title>
+		<imprint>
+			<biblScope unit="volume">7</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="73" to="85" />
+			<date type="published" when="2008">2008</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b51">
+	<monogr>
+		<title level="m" type="main">Yes and … your Business; The Added Value of Improvisation in Organizations</title>
+		<author>
+			<persName><forename type="first">G</forename><surname>Van Bilsen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Kadijk</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Kortleven</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2013">2013</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b52">
+	<monogr>
+		<title level="m" type="main">Policy Analysis in Multi-actor Policy Settings; Navigating Between Negotiated Nonsense &amp; Superfluous Knowledge</title>
+		<author>
+			<persName><forename type="first">O</forename><forename type="middle">A W T</forename><surname>Van De Riet</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2003">2003</date>
+		</imprint>
+		<respStmt>
+			<orgName>TU Delft</orgName>
+		</respStmt>
+	</monogr>
+	<note>Doctoral disser</note>
+</biblStruct>
+
+<biblStruct xml:id="b53">
+	<analytic>
+		<title level="a" type="main">Theatrical Improvisation: Lessons for Organizations</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Vera</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Crossan</surname></persName>
+		</author>
+		<idno type="DOI">10.1177/0170840604042412</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Organization Studies</title>
+		<imprint>
+			<biblScope unit="volume">25</biblScope>
+			<biblScope unit="issue">5</biblScope>
+			<biblScope unit="page" from="727" to="749" />
+			<date type="published" when="2004">2004</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b54">
+	<analytic>
+		<title level="a" type="main">Coping with Chaos in Change Processes</title>
+		<author>
+			<persName><forename type="first">K</forename><surname>Visscher</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Rip</surname></persName>
+		</author>
+		<idno type="DOI">10.1111/1467-8691.00274</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Creativity and Innovation Management</title>
+		<imprint>
+			<biblScope unit="volume">12</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="121" to="128" />
+			<date type="published" when="2003">2003</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b55">
+	<analytic>
+		<title level="a" type="main">Matching Supply and Demand; A Typology of Climate Services</title>
+		<author>
+			<persName><forename type="first">K</forename><surname>Visscher</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Stegmaier</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Damm</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Hamaker-Taylor</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Harjanne</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Giordano</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.cliser.2019.100136</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Climate Services</title>
+		<imprint>
+			<biblScope unit="page">17</biblScope>
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b56">
+	<analytic>
+		<title level="a" type="main">Empathy and Engineering Formation</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Walther</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">A</forename><surname>Brewer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><forename type="middle">W</forename><surname>Sochacka</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">E</forename><surname>Miller</surname></persName>
+		</author>
+		<idno type="DOI">10.1002/jee.20301</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Engineering Education</title>
+		<imprint>
+			<biblScope unit="volume">109</biblScope>
+			<biblScope unit="page" from="11" to="33" />
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b57">
+	<analytic>
+		<title level="a" type="main">Introducing Ethics Using Structured Controversies</title>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">G</forename><surname>Wareham</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">P</forename><surname>Elefsiniotis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">G</forename><surname>Elms</surname></persName>
+		</author>
+		<idno type="DOI">10.1080/03043790600911712</idno>
+	</analytic>
+	<monogr>
+		<title level="j">European Journal of Engineering Education</title>
+		<imprint>
+			<biblScope unit="volume">31</biblScope>
+			<biblScope unit="issue">6</biblScope>
+			<biblScope unit="page" from="651" to="660" />
+			<date type="published" when="2006">2006</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b58">
+	<analytic>
+		<title level="a" type="main">Using the Chernobyl Incident to Teach Engineering Ethics</title>
+		<author>
+			<persName><forename type="first">W</forename><forename type="middle">R</forename><surname>Wilson</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/s11948-011-9337-4</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Science and Engineering Ethics</title>
+		<imprint>
+			<biblScope unit="volume">19</biblScope>
+			<biblScope unit="page" from="625" to="640" />
+			<date type="published" when="2013">2013</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b59">
+	<analytic>
+		<title level="a" type="main">Teaching Design Engineering in an Interdisciplinary Program</title>
+		<author>
+			<persName><forename type="first">W</forename><forename type="middle">W</forename><surname>Wits</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">J</forename><surname>Homminga</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">D</forename><surname>Endedijk</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Visscher</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><forename type="middle">E</forename><surname>Krab-Hüsken</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><forename type="middle">M J W</forename><surname>Van Den</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Berg</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Wilhelm</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 16 th International Conference on Engineering and Product Design Education</title>
+				<meeting>the 16 th International Conference on Engineering and Product Design Education</meeting>
+		<imprint>
+			<date type="published" when="2014">2014</date>
+		</imprint>
+		<respStmt>
+			<orgName>University of Twente</orgName>
+		</respStmt>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b60">
+	<monogr>
+		<author>
+			<persName><forename type="first">C</forename><surname>Wright-Maley</surname></persName>
+		</author>
+		<title level="m">Beyond the &quot;Babel Problem</title>
+				<imprint>
+			<date type="published" when="2015">2015</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b61">
+	<analytic>
+		<title level="a" type="main">Defining Simulations for the Social Studies</title>
+		<idno type="DOI">10.1016/j.jssr.2014.10.001</idno>
+	</analytic>
+	<monogr>
+		<title level="j">The Journal of Social Studies Research</title>
+		<imprint>
+			<biblScope unit="volume">39</biblScope>
+			<biblScope unit="page" from="63" to="77" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

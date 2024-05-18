@@ -1,0 +1,1503 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">A Compact Isolated CR Antenna System for Application in C-Band</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher>Hindawi Limited</publisher>
+				<availability status="unknown"><p>Copyright Hindawi Limited</p>
+				</availability>
+				<date type="published" when="2024-04-15">15 April 2024</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Rajeev</forename><forename type="middle">K</forename><surname>Parida</surname></persName>
+							<idno type="ORCID">0000-0002-3752-9798</idno>
+							<affiliation key="aff0">
+								<orgName type="department">Electronic Science and Technology</orgName>
+								<orgName type="institution">Berhampur University</orgName>
+								<address>
+									<postCode>760007</postCode>
+									<settlement>Berhampur</settlement>
+									<country key="IN">India</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Abdulkarem</forename><forename type="middle">H M</forename><surname>Almawgani</surname></persName>
+							<idno type="ORCID">0000-0003-0697-6103</idno>
+							<affiliation key="aff1">
+								<orgName type="department" key="dep1">Department of Electrical Engineering</orgName>
+								<orgName type="department" key="dep2">College of Engineering</orgName>
+								<orgName type="institution">Najran University</orgName>
+								<address>
+									<postCode>11001</postCode>
+									<settlement>Najran</settlement>
+									<country key="SA">Saudi Arabia</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Arjuna</forename><surname>Muduli</surname></persName>
+							<idno type="ORCID">0000-0003-4048-5885</idno>
+							<affiliation key="aff2">
+								<orgName type="department">School of Electrical and Communication Sciences</orgName>
+								<orgName type="institution">JSPM University</orgName>
+								<address>
+									<addrLine>Nagar Road</addrLine>
+									<postCode>412207</postCode>
+									<settlement>Wagholi, Pune</settlement>
+									<country key="IN">India</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Dhruba</forename><forename type="middle">C</forename><surname>Panda</surname></persName>
+							<idno type="ORCID">0000-0003-1414-3400</idno>
+							<affiliation key="aff0">
+								<orgName type="department">Electronic Science and Technology</orgName>
+								<orgName type="institution">Berhampur University</orgName>
+								<address>
+									<postCode>760007</postCode>
+									<settlement>Berhampur</settlement>
+									<country key="IN">India</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Adam</forename><forename type="middle">R H</forename><surname>Alhawari</surname></persName>
+							<idno type="ORCID">0000-0003-4740-0872</idno>
+							<affiliation key="aff1">
+								<orgName type="department" key="dep1">Department of Electrical Engineering</orgName>
+								<orgName type="department" key="dep2">College of Engineering</orgName>
+								<orgName type="institution">Najran University</orgName>
+								<address>
+									<postCode>11001</postCode>
+									<settlement>Najran</settlement>
+									<country key="SA">Saudi Arabia</country>
+								</address>
+							</affiliation>
+						</author>
+						<author role="corresp">
+							<persName><forename type="first">Amrindra</forename><surname>Pal</surname></persName>
+							<email>amrindra.ieee@gmail.com</email>
+							<idno type="ORCID">0000-0001-7806-2453</idno>
+							<affiliation key="aff3">
+								<orgName type="institution">National Research Foundation Nepal</orgName>
+								<address>
+									<postCode>44600</postCode>
+									<settlement>Bijulibazar</settlement>
+									<region>Kathmandu</region>
+									<country key="NP">Nepal</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff4">
+								<orgName type="department">Department of ECE</orgName>
+								<orgName type="institution" key="instit1">University Centre for Research and Development</orgName>
+								<orgName type="institution" key="instit2">Chandigarh University</orgName>
+								<address>
+									<postCode>140413</postCode>
+									<settlement>Gharuan</settlement>
+									<region>Mohali</region>
+									<country key="IN">India</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">M</forename><forename type="middle">M</forename><surname>Abdullah</surname></persName>
+							<idno type="ORCID">0000-0002-0604-5360</idno>
+							<affiliation key="aff5">
+								<orgName type="department" key="dep1">Department of Physics</orgName>
+								<orgName type="department" key="dep2">College of Science and Arts</orgName>
+								<orgName type="institution">Najran University</orgName>
+								<address>
+									<postCode>11001</postCode>
+									<settlement>Najran</settlement>
+									<country key="SA">Saudi Arabia</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff6">
+								<orgName type="laboratory">Advanced Materials and Nano-Research Centre (AMNRC)</orgName>
+								<orgName type="institution">Najran University</orgName>
+								<address>
+									<postCode>11001</postCode>
+									<settlement>Najran</settlement>
+									<country key="SA">Saudi Arabia</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Hasan</forename><forename type="middle">B</forename><surname>Albargi</surname></persName>
+							<idno type="ORCID">0000-0001-5641-0429</idno>
+							<affiliation key="aff5">
+								<orgName type="department" key="dep1">Department of Physics</orgName>
+								<orgName type="department" key="dep2">College of Science and Arts</orgName>
+								<orgName type="institution">Najran University</orgName>
+								<address>
+									<postCode>11001</postCode>
+									<settlement>Najran</settlement>
+									<country key="SA">Saudi Arabia</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff6">
+								<orgName type="laboratory">Advanced Materials and Nano-Research Centre (AMNRC)</orgName>
+								<orgName type="institution">Najran University</orgName>
+								<address>
+									<postCode>11001</postCode>
+									<settlement>Najran</settlement>
+									<country key="SA">Saudi Arabia</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">A Compact Isolated CR Antenna System for Application in C-Band</title>
+					</analytic>
+					<monogr>
+						<title level="j" type="main">International Journal of Antennas and Propagation</title>
+						<title level="j" type="abbrev">International Journal of Antennas and Propagation</title>
+						<idno type="ISSN">1687-5869</idno>
+						<idno type="eISSN">1687-5877</idno>
+						<imprint>
+							<publisher>Hindawi Limited</publisher>
+							<biblScope unit="volume">2024</biblScope>
+							<biblScope unit="page" from="1" to="13"/>
+							<date type="published" when="2024-04-15">15 April 2024</date>
+						</imprint>
+					</monogr>
+					<idno type="MD5">1EC6A25AEEBEC92846080AEA0410DF07</idno>
+					<idno type="DOI">10.1155/2024/5522356</idno>
+					<note type="submission">Received 6 July 2023; Revised 10 February 2024; Accepted 20 February 2024;</note>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.2" ident="GROBID" when="2024-05-16T18:04+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>In this work, a dual-port antenna system is simulated and fabricated for cognitive radio (CR) application. Te proposed system comprises a tapered-fed monopole ultra-wideband (UWB) sensing antenna and a dual-narrowband (NB) communicating antenna. For miniaturization, the UWB sensing antenna is placed on the front side of the communicating antenna. Te sensing operation takes place over 2.1-12 GHz. Te E-shaped dual-band antenna operates at 3.9 GHz and 6.04 GHz. Te envelope correlation coefcient (ECC) and isolation are measured to be lower than 0.12 and greater than 18 dB, respectively, within the range of acceptable values for both parameters. Te antenna prototype was fabricated and tested experimentally to confrm the simulation's fndings. Te outcomes of both the simulation and the testing revealed a defnite consistency. Tis work gives a miniaturized model and good isolation, which is appropriate for C-band applications.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.">Introduction</head><p>As per the FCC (Federal Communication Commission), about 70% of allocated electromagnetic spectrums still need to be fully utilized. Cognitive radio (CR) technology appeared as a viable option for optimal utilization of the electromagnetic spectrum <ref type="bibr" target="#b0">[1,</ref><ref type="bibr" target="#b1">2]</ref>. After interacting with the radio environment, the CR automatically modifes the radio transmitter parameters. Efective spectrum management is only conceivable for CR with its antenna system. Te cognitive radio antenna module consists of an ultrawideband (UWB) spectrum sensing antenna and a narrowband (NB) communication antenna <ref type="bibr" target="#b2">[3]</ref><ref type="bibr" target="#b3">[4]</ref><ref type="bibr" target="#b4">[5]</ref><ref type="bibr" target="#b5">[6]</ref>. However, designing an efcient antenna module for deployment inside CR satisfying key requirements such as good isolation, reduced physical dimensions, and multiband characteristics is challenging <ref type="bibr" target="#b6">[7,</ref><ref type="bibr" target="#b7">8]</ref>.</p><p>In the last decade, multiport-based antenna systems have been adopted for designing the CR antenna system. Multiportbased models can be used for continuous and instantaneous spectrum sensing and communication within the accessible frequency spectrum. Te consideration of isolation is a crucial aspect in the design of a multiport system <ref type="bibr" target="#b8">[9,</ref><ref type="bibr" target="#b9">10]</ref>. Several methodologies have been introduced and published in the literature <ref type="bibr" target="#b10">[11]</ref><ref type="bibr" target="#b11">[12]</ref><ref type="bibr" target="#b12">[13]</ref><ref type="bibr" target="#b13">[14]</ref><ref type="bibr" target="#b14">[15]</ref><ref type="bibr" target="#b15">[16]</ref>. Te techniques that are adopted for obtaining good isolation are <ref type="bibr" target="#b0">(1)</ref> antenna placement and orientation <ref type="bibr" target="#b11">[12]</ref>, (2) defected ground structures (DGSs) <ref type="bibr" target="#b12">[13]</ref>, (3) slots/slitsetching <ref type="bibr" target="#b13">[14]</ref>, (4) protruding ground stub structures <ref type="bibr" target="#b14">[15]</ref>, and (5) parasitic elements/structures <ref type="bibr" target="#b15">[16]</ref>. In addition to this, other popular techniques are discussed in <ref type="bibr" target="#b16">[17]</ref><ref type="bibr" target="#b17">[18]</ref><ref type="bibr" target="#b18">[19]</ref><ref type="bibr" target="#b19">[20]</ref><ref type="bibr" target="#b20">[21]</ref><ref type="bibr" target="#b21">[22]</ref><ref type="bibr" target="#b22">[23]</ref><ref type="bibr" target="#b23">[24]</ref><ref type="bibr" target="#b24">[25]</ref>, as follows: <ref type="bibr" target="#b0">(1)</ref> metamaterials (MTMs)-split-ring-resonator (SRR) <ref type="bibr" target="#b17">[18]</ref>; complementary-split-ring-resonator (CSRR) <ref type="bibr" target="#b18">[19]</ref>(2) electromagnetic band gap (EBG) structure <ref type="bibr" target="#b19">[20]</ref>, <ref type="bibr" target="#b2">(3)</ref> decoupling and matching network <ref type="bibr" target="#b20">[21]</ref>, neutralization line <ref type="bibr" target="#b21">[22]</ref>, (4) cloaking structures <ref type="bibr" target="#b22">[23]</ref>, <ref type="bibr" target="#b4">(5)</ref> shorting vias and pins <ref type="bibr" target="#b23">[24]</ref>, and (6) inherent or no isolation techniques <ref type="bibr" target="#b24">[25]</ref>. To minimize the dimension of the CR antenna, the radiating patch of one antenna acts as the ground plane of the other <ref type="bibr" target="#b25">[26]</ref>. Various reconfguration mechanisms using a stepper motor, PIN diode, LASER, etc. are incorporated into the communication antenna for communicating in the entire band recognized by the sensing antenna. Tese confgurations sufer from bulkiness, slow tuning, negative efect of biasing lines, power consumption, and nonlinearity efects <ref type="bibr" target="#b26">[27]</ref><ref type="bibr" target="#b27">[28]</ref><ref type="bibr" target="#b28">[29]</ref>. Nowadays, combining patches in a small space without interrupting surface current distribution and ensuring sufcient isolation between the antennas are factors to consider. In addition, in the current scenario <ref type="bibr" target="#b29">[30]</ref>, there is a great demand for compact and portable antenna systems for specifc applications in the C-band.</p><p>To address the above challenges, a two-port antenna system (UWB sensing + multiband (E-shaped) communication) is designed for cognitive radio applications to increase spectrum utilization efciency, which is the primary goal of our research. Tis paper proposes a new CR antenna consisting of a taperedfed UWB monopole as the sensing antenna and a dual-band Eshaped patch as the communicating antenna. For the miniaturization of the module, we put the UWB sensing antenna on the top side of the dual-band antenna. In addition, good isolation is obtained between the antennas because of the feeding diversity of both antennas; one is a microstrip line, and the other is co-axial feeding. Performance optimization of the whole structure is done using CST microwave studio.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.">Antenna Structure Design and Configuration</head><p>Figure <ref type="figure">1</ref> depicts aerial views of the CR antenna. It has a FR-4 substrate (ε r = 4.4, σ � 0.02). Te overall size is 40 mm (Ws) × 50 mm (Ls), and thickness of the substrate is h = 1.6 mm. For the dual-band antenna, the radiator portion of the UWB sensing antenna acts as a ground plane. Te Eshaped patch (Port-2) is placed on the backside of the substrate. Table <ref type="table" target="#tab_0">1</ref> shows the proposed model geometry. Te methodology is algorithmically represented in Figure <ref type="figure" target="#fig_2">2</ref>, which indicates a transparent explanation of the design process.</p><p>2.1. UWB (Sensing) Antenna. A triangularly tapered feeding mechanism is used for designing the UWB antenna (Figure <ref type="figure">1</ref>(a): Front side). For good impedance matching, the ground is a partial ground plane. Te lower band-edge frequency f L of the proposed UWB monopole is defned using the following equation (1) <ref type="bibr" target="#b30">[31]</ref>:</p><formula xml:id="formula_0">f L � C λ � 7.2 (L + r + g) × k 􏼈 􏼉 GHz,<label>(1)</label></formula><p>where L, r, and g are the length, radius, and gap between the radiating patch and ground plane, respectively, and f L is the lower cut-edge frequency for the proposed antenna. For ε r = 4.4, the optimum value of k = 1.2 is chosen empirically.</p><p>Te optimal value of feed line length L f is found using Riccati equation <ref type="bibr" target="#b31">[32]</ref> as shown in the following equation:</p><formula xml:id="formula_1">Γ(θ) � 1 2 e − jβL f ln Z L f Z 0 􏼠 􏼡 sin βL f /2 􏼐 􏼑 βL f /2 􏼐 􏼑 ⎡ ⎢ ⎣ ⎤ ⎥ ⎦ 2 , (<label>2</label></formula><formula xml:id="formula_2">)</formula><p>where Z L f , β, Z 0 and Γ (θ), are the load impendence, phase constant, characteristic impedance, and refection coefcient, respectively. Iterative optimization is used to determine the feed line widths W f1 and W f2 . Tis factor (i.e., the width of feed line) is independent of the resonance frequency.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.2.">Narrow-band Communicating Antenna. Figure 1(b)</head><p>shows the dual-band E-shaped communicating antenna. Te E-shaped antenna has two identical notches made symmetrically on both sides of the feed location. Its dualband property depends on the symmetrical notch, which increases the length of the current path and consequently changes the values of C and L <ref type="bibr" target="#b32">[33]</ref>. Due to the change in L and C values, another frequency band is created in addition to the fundamental frequency band. Te dimensions of the E-shaped antenna are calculated using <ref type="bibr" target="#b33">[34,</ref><ref type="bibr" target="#b34">35]</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.">Results and Discussion</head><p>Figure <ref type="figure" target="#fig_4">3</ref> shows the CR antenna module fabricated using an MITS PCB prototyping machine. Te return loss performances and the radiation characteristics of the CR antenna were measured using a VNA and observed in the anechoic chamber, respectively. In a triangularly tapered-fed antenna, instead of using a full ground plane, a partial ground plane yields better impedance matching (Figure <ref type="figure" target="#fig_5">4</ref>). Figures <ref type="figure" target="#fig_7">5 and 6</ref> show the parametric study (by varying "L g " and feed-gap "g") of the UWB antenna. Tese two factors signifcantly afect impedance matching and bandwidth <ref type="bibr" target="#b30">[31]</ref>. Figures <ref type="figure" target="#fig_10">7 and 8</ref> show the simulated and measured return loss performances. Te sensing UWB antenna at Port-1 gives a wider bandwidth from 2.1 to 12 GHz (Figure <ref type="figure" target="#fig_9">7</ref>). Te communicating (NB) E-shaped antenna at Port-2 operates at two diferent frequencies. Te 1 st resonating mode is at 3.9 GHz, and the 2 nd mode is at 6.04 GHz (Figure <ref type="figure" target="#fig_10">8</ref>). Te discrepancies between simulated and measured plots can be seen due to fabrication errors, surrounding cable losses, and spurious radiation from the coaxial probe mounted on the monopole during measurement <ref type="bibr" target="#b27">[28]</ref>. Figure <ref type="figure" target="#fig_11">9</ref> shows the simulated VSWR plot (&lt;2 in the operating band) of the CR antenna.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.1.">Group Delay and Phase Response.</head><p>Te time domain performance is assessed using group delays (GDs), the magnitude of S 21 , and phase response. CST microwave studio is used to perform the time domain analysis. It is based on the fnite integration approach (FIT). Te study analyzes the time domain performance on two identical ultra-wideband (UWB) antennas. Tese antennas are positioned 100 mm from each other in the far-feld region <ref type="bibr" target="#b35">[36]</ref>. Te investigation is undertaken in two orientations: faceto-face (FTF) and side-by-side (SBS). Te calculation of group delay (τ) quantifes the temporal discrepancy (time delay) incurred by a signal throughout its propagation from the point of transmission to the point of reception. Te calculation for the group delay is as follows: τ � − (dθ(ω)/ dω) where θ is the signal phase (in rad) and ω is the frequency (in rad/s). In order to plot GDs in CST, we must go through the following 6 crucial procedures in sequential order: (1) postprocessing (template postprocessing), (2) time signals, (3) group delay, (5) determine the receiver and transmitter ports as well as relevant modes, and (6) evaluate. Figure <ref type="figure" target="#fig_12">10</ref> shows that the group delay response appears consistent and fat across the frequency range (an acceptable value is less than 3 ns <ref type="bibr" target="#b36">[37]</ref>). It implies that the proposed antenna is nondispersive. Similarly, to plot the magnitude and phase response (S 21 ), we follow the steps: (1) 1D results, (2) S-parameters (S 21 : magnitude (dB)), and (3) S-parameters (S 21 : phase (degrees)) in sequential order. Figures <ref type="figure" target="#fig_2">11 and  12</ref> show that, up to 10.6 GHz, the magnitude remains almost constant (better than − 20 dB), and the phase response is linear (in both the FTF and SBS confgurations). Nonlinearities in phase response and magnitude response become detectable at frequencies over 10.6 GHz <ref type="bibr" target="#b37">[38]</ref>. Tis is because the substrate and antenna geometry can indeed infuence an antenna system's group delay and phase response.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.2.">Gain and Radiation</head><p>Patterns. Te 2D radiation patterns of both the sensing and communicating antenna are illustrated in Figures <ref type="figure" target="#fig_5">13 and 14</ref>. In both planes, the UWB antenna exhibits an omnidirectional pattern in the H-plane and a directive pattern in the E-plane (Figure <ref type="figure" target="#fig_4">13</ref>). Te partial ground plane deteriorates the polarization purity at higher frequencies. Also, some discrepancies were observed mainly due to fabrication errors and surrounding cable losses during antenna measurement. It clearly shows that the simulated results of both UWB/NB antennas agree well with the measured values. Te simulated gains are 2.27 dBi, 4.7 dBi, and 6.16 dBi at 3.85 GHz, 5.98 GHz, and 10.02 GHz for a sensing antenna, respectively. Te simulated and measured gain of the UWB antenna is shown in Figure <ref type="figure" target="#fig_6">15</ref>. Similarly, for the communicating antenna, they are 1.9 dBi, 4.81 dBi at 3.9 GHz and 6.04 GHz, respectively. Te radiation efciency of the CR antenna is shown in Figure <ref type="bibr" target="#b15">16</ref>. Due to the absence of higher-order modes, the radiation efciency is maximum at the lowest matching frequency and deteriorates marginally to 70% as higher-order modes appear with increasing frequencies. Terefore, the efciency gradually degraded at higher frequencies due to increased losses. Te copper and substrate losses are frequency-dependent and increase with frequency <ref type="bibr" target="#b38">[39]</ref><ref type="bibr" target="#b39">[40]</ref><ref type="bibr" target="#b40">[41]</ref>. Figure <ref type="figure" target="#fig_9">17</ref> depicts the E-feld and H-feld radiation pattern measurement setup.   ) is terminated <ref type="bibr" target="#b41">[42]</ref>. In this case, the maximum current fows in the NB antenna compared to those in the UWB antenna when Port-2 is excited. Tis is observed both at 3.9 GHz and 6.04 GHz, as the UWB radiator acts as a ground plane for NB antenna. A minor surface current magnitude seems to exist in the UWB structure. Tis minor surface current magnitude does not afect the radiation behavior of the NB antenna, which was validated by observing the ECC (below 0.5).          conditions used in the computational package. Radio frequency (RF) cables from VNA slightly bias the measurement of miniaturized antennas <ref type="bibr" target="#b42">[43]</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.3.">Isolation Mechanism and Surface Current Distribution (SCD)</head><note type="other">.</note></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.4.">ECC (Envelope Correlation Coefcient).</head><p>Te ECC measures the extent to which the radiation patterns are uncorrelated. It can be calculated using the following relation <ref type="bibr" target="#b9">[10]</ref>:       </p><p>whenρ is greater than or equal to 0.5, it means a signifcant degradation of the radiation pattern. From Figure <ref type="figure" target="#fig_2">20</ref> it can be observed that the ECC exhibits very small values between 0 and 0.12. It reveals that the radiation patterns of the integrated structure are not correlated.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.">Comparison with Previously Reported Works</head><p>Table <ref type="table" target="#tab_1">2</ref> represents the comparative study between recently reported multi-port antennas with diferent functionalities <ref type="bibr" target="#b45">[46]</ref><ref type="bibr" target="#b46">[47]</ref><ref type="bibr" target="#b47">[48]</ref><ref type="bibr" target="#b48">[49]</ref><ref type="bibr" target="#b49">[50]</ref><ref type="bibr" target="#b50">[51]</ref>. For a fair comparison, here, CR antennas with similar objectives are considered. Te proposed integrated structure has a compact and low profle, providing wider impedance bandwidth and good isolation. Hence, the overall performance of the proposed design is satisfactory.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.">Conclusions</head><p>Te designed two-port antenna structure for C-band applications ofers a simple and efcient design that eliminates the need for complex and advanced production devices. Te sensing antenna is designed to exhibit an omnidirectional radiation pattern. Tis characteristic is desirable for applications where the antenna needs to communicate with multiple devices or receive signals from various angles without the need for precise pointing. Furthermore, the sensing antenna operates within a wide bandwidth ranging from 2.1 GHz to 12 GHz. Tis wide frequency range accommodates a broad spectrum of signals, making it versatile for various C-band communication applications. Operating at a wide bandwidth ensures compatibility with diferent communication standards and frequencies. In addition to the sensing antenna, the antenna structure includes an E-shaped dual-band antenna. Tis antenna operates at two specifc frequencies: 3.9 GHz and 6.04 GHz, providing dualband functionality. Te design of the E-shaped antenna allows for efcient signal transmission and reception at these frequencies, catering to specifc communication requirements. One important aspect of the antenna structure is the isolation between the two antennas. Te isolation is greater than 18 dB in the desired operating band, indicating that the two antennas are well-separated and do not interfere with each other signifcantly. Tis isolation is crucial to ensuring minimal cross-talk and interference between the sensing antenna and the E-shaped dual-band antenna, enabling both antennas to perform optimally. Due to the compact nature of our E-shaped antenna, the gain is marginally small. Tis will be enhanced by employing various approaches for enhancing gain, which will be benefcial when a high-gain E-shaped antenna is necessary. Overall, the two-port antenna structure ofers a well-designed, straightforward solution for C-band applications.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Figure 18 Figure 1 :</head><label>181</label><figDesc>Figure 1: Proposed antenna (a) top view and (b) rear view.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>density. Figure 18</head><label>18</label><figDesc>(b) shows the SCD of antenna-1 (sensing UWB antenna: Port-1 excited) while the E-shaped NB antenna (Port-2) is terminated. In such cases, minimum current fows in the NB antenna while maximum current fows at the edge of the UWB antenna when Port-1 is excited. Similarly, Figure 18(c) indicates the SCD of antenna-2 (E-shaped NB antenna: Port-2 excited) while the sensing antenna (Port-1</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head>Figure 2 :</head><label>2</label><figDesc>Figure 2: Flowchart of antenna design methodology.</figDesc><graphic coords="4,306.08,501.96,81.47,106.84" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_4"><head>Figure 3 :</head><label>3</label><figDesc>Figure 3: Fabricated prototype (a) bottom view and (b) top view.</figDesc><graphic coords="4,212.59,501.98,83.94,107.44" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_5"><head>Figure 4 :</head><label>4</label><figDesc>Figure 4: UWB antenna using diferent ground structures.</figDesc><graphic coords="5,98.96,251.72,170.20,114.76" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_6"><head>Figure 5 :</head><label>5</label><figDesc>Figure 5: Parametric study of UWB antenna by varying ground length (L g ).</figDesc><graphic coords="5,98.89,482.57,136.57,87.46" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_7"><head>Figure 6 :</head><label>6</label><figDesc>Figure 6: Parametric study of UWB antenna by varying feed-gap (g).</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_9"><head>Figure 7 :</head><label>7</label><figDesc>Figure 7: Measured and simulated S 11 of the sensing antenna.</figDesc><graphic coords="5,352.20,290.87,142.60,83.32" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_10"><head>Figure 8 :</head><label>8</label><figDesc>Figure 8: Measured and simulated S 22 of communicating antenna.</figDesc><graphic coords="5,455.97,514.82,67.51,100.24" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_11"><head>Figure 9 :</head><label>9</label><figDesc>Figure 9: Frequency vs. simulated VSWR of the CR antenna.</figDesc><graphic coords="5,355.29,514.82,101.04,100.24" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_12"><head>Figure 10 :</head><label>10</label><figDesc>Figure 10: Simulated GDs of the UWB antenna.</figDesc><graphic coords="6,214.10,287.13,136.43,83.68" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_13"><head>Figure 11 :Figure 12 :</head><label>1112</label><figDesc>Figure 11: Simulated FTF magnitude and phase response.</figDesc><graphic coords="6,214.84,496.96,136.01,82.12" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_15"><head>Figure 13 :Figure 14 :</head><label>1314</label><figDesc>Figure 13: Simulated and measured radiation patterns (monopole sensing antenna) at (a) 3.85 GHz, (b) 5.98 GHz, and (c) 10.02 GHz.</figDesc><graphic coords="7,317.29,306.58,107.63,88.48" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_16"><head>Figure 15 :Figure 16 :Figure 17 :</head><label>151617</label><figDesc>Figure 15: Comparison of simulated and measured gain (UWB antenna) over frequency.</figDesc><graphic coords="7,228.36,528.45,157.82,106.12" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_17"><head>Figure 18 Figure 18 :Figure 19 :Figure 20 :</head><label>18181920</label><figDesc>Figure 18: Continued.</figDesc><graphic coords="8,251.55,498.59,109.89,98.08" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_0"><head>Table 1 :</head><label>1</label><figDesc>Design parameters of the proposed CR antenna.</figDesc><table><row><cell>Parameters</cell><cell>Size (mm)</cell></row><row><cell>W s (sub. width)</cell><cell>40</cell></row><row><cell>L s (sub. length)</cell><cell>50</cell></row><row><cell>R p</cell><cell>12</cell></row><row><cell>L p</cell><cell>14</cell></row><row><cell>L f</cell><cell>16.5</cell></row><row><cell>W f1</cell><cell>1.5</cell></row><row><cell>W f2</cell><cell>3</cell></row><row><cell>L g (ground length)</cell><cell>16</cell></row><row><cell>L c</cell><cell>1</cell></row><row><cell>g</cell><cell>0.5</cell></row><row><cell>W p</cell><cell>11.5</cell></row><row><cell>L p</cell><cell>15</cell></row><row><cell>W m</cell><cell>8</cell></row><row><cell>L m</cell><cell>8.5</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_1"><head>Table 2 :</head><label>2</label><figDesc>Detailed summaries of the recently published literature.</figDesc><table><row><cell>10</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell></cell><cell cols="4">International Journal of Antennas and Propagation</cell></row><row><cell></cell><cell></cell><cell cols="2">Applications</cell><cell></cell><cell></cell><cell>WLAN</cell><cell>WiMax</cell><cell>WLAN</cell><cell>WLAN, X-band Satellite communication</cell><cell>WiMax</cell><cell cols="2">CR</cell><cell>CR</cell><cell>CR</cell><cell>C-band, ISM/WLAN/military application, mid-band</cell><cell>5G, maritime radio navigation, X-band satellite</cell><cell>communication, and public safety wireless</cell><cell>communication</cell><cell>CR</cell><cell>5G, WLAN, LTE, and ITU</cell><cell>CR</cell><cell>CR</cell><cell>C-band communication</cell></row><row><cell cols="2">Electrical</cell><cell cols="2">length</cell><cell cols="2">(λ 2 )</cell><cell>0.33</cell><cell>0.40</cell><cell>0.32</cell><cell>0.46</cell><cell>0.22</cell><cell cols="2">0.16</cell><cell>0.16</cell><cell>0.22</cell><cell></cell><cell cols="2">0.13</cell><cell></cell><cell>0.26</cell><cell>0.11</cell><cell>0.09</cell><cell>0.27</cell><cell>0.09</cell></row><row><cell></cell><cell cols="2">Dimensions</cell><cell cols="2">(mm 2 )</cell><cell></cell><cell>58 × 77</cell><cell>40 × 31</cell><cell>54 × 35</cell><cell>75.7 × 58.35</cell><cell>80 × 65</cell><cell cols="2">60 × 60</cell><cell>50 × 30</cell><cell>50 × 42</cell><cell></cell><cell cols="2">80 × 40</cell><cell></cell><cell>65 × 40</cell><cell>37 × 28</cell><cell>40 × 45</cell><cell>50 × 50</cell><cell>40 × 50</cell></row><row><cell>Isolation</cell><cell cols="2">between</cell><cell cols="2">both antennas</cell><cell>(dB)</cell><cell>15</cell><cell>17</cell><cell>10</cell><cell>10</cell><cell>18</cell><cell cols="2">25</cell><cell>16</cell><cell>17.3</cell><cell></cell><cell cols="2">15</cell><cell></cell><cell>15</cell><cell>17</cell><cell>18</cell><cell>16</cell><cell>18</cell></row><row><cell cols="2">Resonating frequency</cell><cell cols="2">for NB</cell><cell cols="2">antenna (GHz)</cell><cell>5.25</cell><cell>9.3</cell><cell>5.15</cell><cell>5.04, 7.6</cell><cell>2.8</cell><cell>5.65, 3.6, 5, 2.94, 4.5, 2.15 and two dual</cell><cell>bands at 2, 5.48 and 1.7, 5</cell><cell>4.85, 5.4, 5.7, 6.7</cell><cell>2.96-5.38, 5.31-8.62, and 8.48-11.02</cell><cell></cell><cell cols="2">3.863, 4.664, 5.2, and 6.13</cell><cell></cell><cell>3.25-3.7, 5.5-6.5, and 8-8.4</cell><cell>2.8-4.15, 5-6, and 7.7-11.2</cell><cell>5.54, 6.12, 7.60, 8.25, 9.64, and 10.29</cell><cell>5-11.4, 3.05-3.75, 4.9-6.1, 3.7-4.92,</cell><cell>8.3-11.3</cell><cell>3.9, 6.04</cell></row><row><cell>Impedance</cell><cell cols="2">bandwidth</cell><cell cols="2">for UWB</cell><cell>antenna (GHz)</cell><cell>2.6-11</cell><cell>5.4-10.1</cell><cell>3.9-11</cell><cell>3.1-10.6</cell><cell>2-5.5</cell><cell cols="2">2-12</cell><cell>3.1-10.6</cell><cell>3.1-10.6</cell><cell></cell><cell cols="2">2-11</cell><cell></cell><cell>3-11</cell><cell>3.1-10.6</cell><cell>2.2-11</cell><cell>3.1-10.6</cell><cell>2.1-12</cell></row><row><cell cols="2">Published</cell><cell cols="2">literature</cell><cell cols="2">(year)</cell><cell>[6] 2012</cell><cell>[7] 2010</cell><cell>[8] 2010</cell><cell>[9] 2016</cell><cell>[10] 2016</cell><cell cols="2">[44] 2017</cell><cell>[45] 2019</cell><cell>[46] 2019</cell><cell></cell><cell cols="2">[47] 2020</cell><cell></cell><cell>[48] 2021</cell><cell>[49] 2021</cell><cell>[50] 2022</cell><cell>[51] 2023</cell><cell>Tis article</cell></row></table></figure>
+		</body>
+		<back>
+
+			<div type="acknowledgement">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Acknowledgments</head><p>Te authors are thankful to the Deanship of Scientifc Research at Najran University for funding this work under the Research Groups Funding program grant code (NU/RG/ SERC/12/2). Moreover, the authors extend their appreciation to the DST INSPIRE Govt. of India for fnancially supporting R. K. Parida.</p></div>
+			</div>
+
+
+			<div type="availability">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Data Availability</head><p>Te data used and/or analyzed during the current study are available from the corresponding author upon reasonable request.</p></div>
+			</div>
+
+			<div type="annex">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Conflicts of Interest</head><p>Te authors declare that they have no conficts of interest. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Authors' Contributions</head></div>			</div>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">Cognitive radio: making software radios more personal</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Mitola</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><forename type="middle">Q</forename><surname>Maguire</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Personal Communications</title>
+		<imprint>
+			<biblScope unit="volume">6</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="13" to="18" />
+			<date type="published" when="1999">1999</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">Antenna requirements for software defned and cognitive radios</title>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">S</forename><surname>Hall</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Gardner</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Faraone</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the IEEE</title>
+				<meeting>the IEEE</meeting>
+		<imprint>
+			<date type="published" when="2012">2012</date>
+			<biblScope unit="volume">100</biblScope>
+			<biblScope unit="page" from="2262" to="2270" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">Modifed UWB microstrip monopole antenna for cognitive radio application</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Muduli</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">K</forename><surname>Mishra</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">2015 IEEE Applied Electromagnetics Conference (AEMC), Guwahati</title>
+				<meeting><address><addrLine>India</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2015-12">December 2015</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">A reconfgurable narrowband antenna integrated with wideband monopole for cognitive radio applications</title>
+		<author>
+			<persName><forename type="first">E</forename><surname>Ebrahimi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Kelly</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">S</forename><surname>Hall</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">IEEE Antennas and Propagation Society International Symposium</title>
+				<meeting><address><addrLine>North Charleston, SC, USA</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2009-06">June 2009</date>
+			<biblScope unit="page" from="1" to="4" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">Basic properties and design principles of UWB antennas</title>
+		<author>
+			<persName><forename type="first">W</forename><surname>Wiesbeck</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Adamiuk</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Sturm</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the IEEE</title>
+				<meeting>the IEEE</meeting>
+		<imprint>
+			<date type="published" when="2009">2009</date>
+			<biblScope unit="volume">97</biblScope>
+			<biblScope unit="page" from="372" to="385" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">An integrated ultra-wideband/narrow band antenna in uniplanar confguration for cognitive radio systems</title>
+		<author>
+			<persName><forename type="first">G</forename><surname>Augustin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">A</forename><surname>Denidni</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Antennas and Propagation</title>
+		<imprint>
+			<biblScope unit="volume">60</biblScope>
+			<biblScope unit="issue">11</biblScope>
+			<biblScope unit="page" from="5479" to="5484" />
+			<date type="published" when="2012">2012</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">Integrated narrow/band-notched UWB antenna</title>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">R</forename><surname>Kelly</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">S</forename><surname>Hall</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Gardner</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Ghanem</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Electronics Letters</title>
+		<imprint>
+			<biblScope unit="volume">46</biblScope>
+			<biblScope unit="issue">12</biblScope>
+			<biblScope unit="page" from="814" to="816" />
+			<date type="published" when="2010">2010</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">Integrated wide-narrow band antenna for multiband applications</title>
+		<author>
+			<persName><forename type="first">E</forename><surname>Ebrahimi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">S</forename><surname>Hall</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="s">Microwave and Optical Technology Letters</title>
+		<imprint>
+			<biblScope unit="volume">52</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="425" to="430" />
+			<date type="published" when="2010">2010</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">A two port UWB-dual narrowband antenna for cognitive radios</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Pahadsingh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Sahu</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="s">Microwave and Optical Technology Letters</title>
+		<imprint>
+			<biblScope unit="volume">58</biblScope>
+			<biblScope unit="issue">8</biblScope>
+			<biblScope unit="page" from="1973" to="1978" />
+			<date type="published" when="2016">2016</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">Dual port antenna combining sensing and communication tasks for cognitive radio</title>
+		<author>
+			<persName><forename type="first">H</forename><surname>Nachouane</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Najid</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Tribak</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Riouch</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">International Journal of Electronics and Telecommunications</title>
+		<imprint>
+			<biblScope unit="volume">62</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="121" to="127" />
+			<date type="published" when="2016">2016</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">A review on diferent techniques of mutual coupling reduction between elements of any MIMO antenna. Part 1: DGSs and parasitic structures</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Kumar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">Q</forename><surname>Ansari</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><forename type="middle">K</forename><surname>Kanaujia</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Kishor</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Matekovits</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Radio Science</title>
+		<imprint>
+			<biblScope unit="volume">56</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">Eight-element compact UWB-MIMO/diversity antenna with WLAN band rejection for 3G/4G/5G communications</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">S</forename><surname>Khan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Iftikhar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">M</forename><surname>Shubair</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">D</forename><surname>Capobianco</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><forename type="middle">D</forename><surname>Braaten</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">E</forename><surname>Anagnostou</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Open Journal of Antennas and propagation</title>
+		<imprint>
+			<biblScope unit="volume">1</biblScope>
+			<biblScope unit="page" from="196" to="206" />
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">Mutual coupling suppression for on-body multiantenna systems</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Yan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X</forename><surname>Hu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><forename type="middle">A</forename><surname>Vandenbosch</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Electromagnetic Compatibility</title>
+		<imprint>
+			<biblScope unit="volume">62</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="1045" to="1054" />
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">Characteristic mode analysis applied to reduce the mutual coupling of a four-element patch MIMO antenna using a defected ground structure</title>
+		<author>
+			<persName><forename type="first">E</forename><surname>Fritz-Andrade</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Perez-Miguel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Gomez-Villanueva</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Jardon-Aguilar</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IET Microwaves, Antennas and Propagation</title>
+		<imprint>
+			<biblScope unit="volume">14</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="215" to="226" />
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">Mutual coupling suppression in antenna arrays using meandered open stub fltering technique</title>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">R</forename><surname>Govindarajulu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Jenkel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Hokayem</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><forename type="middle">A</forename><surname>Alwan</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Open Journal of Antennas and Propagation</title>
+		<imprint>
+			<biblScope unit="volume">1</biblScope>
+			<biblScope unit="page" from="379" to="386" />
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<analytic>
+		<title level="a" type="main">Fourport MIMO cognitive radio system for midband 5G applications</title>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">R</forename><surname>Tummaluru</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Ameen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">K</forename><surname>Chaudhary</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Antennas and Propagation</title>
+		<imprint>
+			<biblScope unit="volume">67</biblScope>
+			<biblScope unit="issue">8</biblScope>
+			<biblScope unit="page" from="5634" to="5645" />
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<analytic>
+		<title level="a" type="main">A review on diferent techniques of mutual coupling reduction between elements of any MIMO antenna. Part 2: metamaterials and many more</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Kumar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">Q</forename><surname>Ansari</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><forename type="middle">K</forename><surname>Kanaujia</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Kishor</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Matekovits</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Radio Science</title>
+		<imprint>
+			<biblScope unit="volume">56</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<analytic>
+		<title level="a" type="main">Isolation improvement of MIMO antenna using a novel fower-shaped metamaterial absorber at 5.5 GHz WiMAX band</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Garg</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Jain</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Circuits and Systems II: Express Briefs</title>
+		<imprint>
+			<biblScope unit="volume">67</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="675" to="679" />
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<analytic>
+		<title level="a" type="main">Complementary split ring resonator for isolation enhancement in 5G communication antenna array</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Selvaraju</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">H</forename><surname>Jamaluddin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">R</forename><surname>Kamarudin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Nasir</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">H</forename><surname>Dahri</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Progress in Electromagnetics Research C</title>
+		<imprint>
+			<biblScope unit="volume">83</biblScope>
+			<biblScope unit="page" from="217" to="228" />
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<analytic>
+		<title level="a" type="main">Isolation improvement of a two-port pifa for mimo using A planar EBG ground</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">H</forename><surname>Abdelgwad</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Ali</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="s">Microwave and Optical Technology Letters</title>
+		<imprint>
+			<biblScope unit="volume">62</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="737" to="742" />
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<analytic>
+		<title level="a" type="main">MIMO ground-radiation antennas using A novel closed-decoupling-loop for 5G applications</title>
+		<author>
+			<persName><forename type="first">H</forename><surname>Piao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Jin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Xu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Qu</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Access</title>
+		<imprint>
+			<biblScope unit="volume">8</biblScope>
+			<biblScope unit="page" from="142714" to="142724" />
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<analytic>
+		<title level="a" type="main">Split ring resonator loaded bafes for decoupling of dual-polarized base station array</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X</forename><surname>Chen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Fan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">A</forename><surname>Kishk</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Antennas and Wireless Propagation Letters</title>
+		<imprint>
+			<biblScope unit="volume">19</biblScope>
+			<biblScope unit="issue">10</biblScope>
+			<biblScope unit="page" from="1828" to="1832" />
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<analytic>
+		<title level="a" type="main">On the design of A reject band flter for antennas mutual coupling reduction</title>
+		<author>
+			<persName><forename type="first">H</forename><forename type="middle">S</forename><surname>Ahmed</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">A</forename><surname>Elwi</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">International Journal of RF and Microwave Computer-Aided Engineering</title>
+		<imprint>
+			<biblScope unit="volume">29</biblScope>
+			<biblScope unit="issue">8</biblScope>
+			<biblScope unit="page" from="1" to="11" />
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b23">
+	<analytic>
+		<title level="a" type="main">Low-profle two-port MIMO terminal antenna for low LTE bands with wideband multimodal excitation</title>
+		<author>
+			<persName><forename type="first">H</forename><surname>Aliakbari</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><forename type="middle">K</forename><surname>Lau</surname></persName>
+		</author>
+		<idno>ID e21797</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Open Journal of Antennas and Propagation</title>
+		<imprint>
+			<biblScope unit="volume">1</biblScope>
+			<biblScope unit="page" from="368" to="378" />
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b24">
+	<analytic>
+		<title level="a" type="main">Self-decoupled MIMO antenna pair with shared radiator for 5G smartphones</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Sun</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Wang</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Antennas and Propagation</title>
+		<imprint>
+			<biblScope unit="volume">68</biblScope>
+			<biblScope unit="issue">5</biblScope>
+			<biblScope unit="page" from="3423" to="3432" />
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b25">
+	<analytic>
+		<title level="a" type="main">Compact planar multistandard MIMO antenna for iot applications</title>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">R</forename><surname>Jha</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Bukhari</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Singh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Mishra</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">K</forename><surname>Sharma</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Antennas and Propagation</title>
+		<imprint>
+			<biblScope unit="volume">66</biblScope>
+			<biblScope unit="issue">7</biblScope>
+			<biblScope unit="page" from="3327" to="3336" />
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b26">
+	<analytic>
+		<title level="a" type="main">Design and analysis of reconfgurable microstrip antenna for cognitive radio applications</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Singh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">A</forename><surname>Ali</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Chaudhary</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">R</forename><surname>Phalswal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Gahlaut</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Singh</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Wireless Personal Communications</title>
+		<imprint>
+			<biblScope unit="volume">98</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="2163" to="2185" />
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b27">
+	<analytic>
+		<title level="a" type="main">A compact novel three-port integrated wide and narrow band antennas system for cognitive radio applications</title>
+		<author>
+			<persName><forename type="first">N</forename><forename type="middle">A</forename><surname>Kumar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">S</forename><surname>Gandhi</surname></persName>
+		</author>
+		<idno>ID 2829357</idno>
+	</analytic>
+	<monogr>
+		<title level="j">International Journal of Antennas and Propagation</title>
+		<imprint>
+			<biblScope unit="volume">2016</biblScope>
+			<biblScope unit="page">14</biblScope>
+			<date type="published" when="2016">2016</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b28">
+	<analytic>
+		<title level="a" type="main">UWB sensing antenna, reconfgurable transceiver and reconfgurable antenna based cognitive radio test bed</title>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">D</forename><surname>Joseph</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Manoj</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Waghmare</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Nandakumar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Kothari</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Wireless Personal Communications</title>
+		<imprint>
+			<biblScope unit="volume">96</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="3435" to="3462" />
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b29">
+	<analytic>
+		<title level="a" type="main">A compact dualband microstrip patch antenna for C-and X-and ku-band applications</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Zahid</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">M</forename><surname>Taqdeer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Amin</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Engineering Proceedings</title>
+		<imprint>
+			<biblScope unit="volume">46</biblScope>
+			<biblScope unit="page">16</biblScope>
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b30">
+	<monogr>
+		<author>
+			<persName><forename type="first">G</forename><surname>Kumar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">P</forename><surname>Ray</surname></persName>
+		</author>
+		<title level="m">Broadband Microstrip Antennas</title>
+				<meeting><address><addrLine>Artech, Morristown, NJ, USA</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2002">2002</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b31">
+	<analytic>
+		<title level="a" type="main">Super wideband antenna with single band suppression</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Manohar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">S</forename><surname>Kshetrimayum</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">K</forename><surname>Gogoi</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">International Journal of Microwave and Wireless Technologies</title>
+		<imprint>
+			<biblScope unit="volume">9</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="143" to="150" />
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b32">
+	<analytic>
+		<title level="a" type="main">Wide-band E-shaped patch antennas for wireless communications</title>
+		<author>
+			<persName><forename type="first">F</forename><surname>Yang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Rahmat-Samii</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Antennas and Propagation</title>
+		<imprint>
+			<biblScope unit="volume">49</biblScope>
+			<biblScope unit="issue">7</biblScope>
+			<biblScope unit="page" from="1094" to="1100" />
+			<date type="published" when="2001">2001</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b33">
+	<analytic>
+		<title level="a" type="main">Analysis of an Eshaped patch antenna</title>
+		<author>
+			<persName><forename type="first">V</forename><forename type="middle">K</forename><surname>Pandey</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><forename type="middle">R</forename><surname>Vishvakarma</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="s">Microwave and Optical Technology Letters</title>
+		<imprint>
+			<biblScope unit="volume">49</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="4" to="7" />
+			<date type="published" when="2007">2007</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b34">
+	<analytic>
+		<title level="a" type="main">A novel E-shaped broadband microstrip patch antenna</title>
+		<author>
+			<persName><forename type="first">B</forename><forename type="middle">L</forename><surname>Ooi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Q</forename><surname>Shen</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="s">Microwave and Optical Technology Letters</title>
+		<imprint>
+			<biblScope unit="volume">27</biblScope>
+			<biblScope unit="issue">5</biblScope>
+			<biblScope unit="page" from="348" to="352" />
+			<date type="published" when="2000">2000</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b35">
+	<analytic>
+		<title level="a" type="main">A compact integrated bluetooth UWB dual-band notch antenna for automotive communications</title>
+		<author>
+			<persName><forename type="first">B</forename><surname>Yang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Qu</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">AEU-International Journal of Electronics and Communications</title>
+		<imprint>
+			<biblScope unit="volume">80</biblScope>
+			<biblScope unit="page" from="104" to="113" />
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b36">
+	<analytic>
+		<title level="a" type="main">Study of a novel U-shaped monopole UWB antenna by transfer function and time domain characteristics</title>
+		<author>
+			<persName><forename type="first">G</forename><forename type="middle">P</forename><surname>Gao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">K</forename><surname>Yang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">F</forename><surname>Niu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">S</forename><surname>Zhang</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="s">Microwave and Optical Technology Letters</title>
+		<imprint>
+			<biblScope unit="volume">54</biblScope>
+			<biblScope unit="issue">6</biblScope>
+			<biblScope unit="page" from="1532" to="1537" />
+			<date type="published" when="2012">2012</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b37">
+	<analytic>
+		<title level="a" type="main">Experimental study of a printed ultra-wideband modifed circular monopole antenna</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Kundu</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="s">Microwave and Optical Technology Letters</title>
+		<imprint>
+			<biblScope unit="volume">61</biblScope>
+			<biblScope unit="issue">5</biblScope>
+			<biblScope unit="page" from="1388" to="1393" />
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b38">
+	<analytic>
+		<title level="a" type="main">A slotted UWB monopole antenna with single port and double ports for dual polarization</title>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">R</forename><surname>Krishna</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Kumar</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Engineering Science and Technology, an International Journal</title>
+		<imprint>
+			<biblScope unit="volume">19</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="470" to="484" />
+			<date type="published" when="2016">2016</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b39">
+	<analytic>
+		<title level="a" type="main">Miniaturized coplanar waveguide-fed UWB antenna for wireless applications</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">S</forename><surname>Jameel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><forename type="middle">S</forename><surname>Mezaal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">C</forename><surname>Atilla</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Symmetry</title>
+		<imprint>
+			<biblScope unit="volume">15</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page">633</biblScope>
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b40">
+	<analytic>
+		<title level="a" type="main">Design and analysis of super wideband antenna for microwave applications</title>
+		<author>
+			<persName><forename type="first">W</forename><surname>Balani</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Sarvagya</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Samasgikar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Ali</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Kumar</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Sensors</title>
+		<imprint>
+			<biblScope unit="volume">21</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page">477</biblScope>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b41">
+	<analytic>
+		<title level="a" type="main">A fve-port integrated UWB and narrowband antennas system design for CR applications</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Nella</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">S</forename><surname>Gandhi</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Antennas and Propagation</title>
+		<imprint>
+			<biblScope unit="volume">66</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="1669" to="1676" />
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b42">
+	<analytic>
+		<title level="a" type="main">An investigation into measurement of handset antennas</title>
+		<author>
+			<persName><forename type="first">Z</forename><forename type="middle">N</forename><surname>Chen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Yang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Guo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Chia</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Instrumentation and Measurement</title>
+		<imprint>
+			<biblScope unit="volume">54</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="1100" to="1110" />
+			<date type="published" when="2005">2005</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b43">
+	<analytic>
+		<title level="a" type="main">An integrated frequency reconfgurable antenna for cognitive radio application</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Sharma</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">C</forename><surname>Tripathi</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Radioengineering</title>
+		<imprint>
+			<biblScope unit="volume">26</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="746" to="754" />
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b44">
+	<analytic>
+		<title level="a" type="main">A compact cognitive radio UWB/reconfgurable antenna system with controllable communicating antenna bandwidth</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">A</forename><surname>Abdulhameed</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><forename type="middle">M</forename><surname>Alnahwi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><forename type="middle">L</forename><surname>Swadi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">S</forename><surname>Abdullah</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Australian Journal of Electrical and Electronics Engineering</title>
+		<imprint>
+			<biblScope unit="volume">16</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="1" to="11" />
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b45">
+	<analytic>
+		<title level="a" type="main">A compact four-port coplanar antenna based on an excitation switching reconfgurable mechanism for cognitive radio applications</title>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Jin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Choi</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Applied Sciences</title>
+		<imprint>
+			<biblScope unit="volume">9</biblScope>
+			<biblScope unit="issue">15</biblScope>
+			<biblScope unit="page">3157</biblScope>
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b46">
+	<analytic>
+		<title level="a" type="main">A hybrid multi-port antenna system for cognitive radio</title>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">K</forename><surname>Parida</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">K</forename><surname>Mishra</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><forename type="middle">K</forename><surname>Sahoo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Muduli</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">C</forename><surname>Panda</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">K</forename><surname>Mishra</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Progress in Electromagnetics Research C</title>
+		<imprint>
+			<biblScope unit="volume">106</biblScope>
+			<biblScope unit="page" from="1" to="16" />
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b47">
+	<analytic>
+		<title level="a" type="main">UWB rectangular DRA integrated with reconfgurable narrowband antenna for cognitive radio applications</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Abioghli</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Keshtkar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Naser-Moghadasi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Ghalamkari</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IETE Journal of Research</title>
+		<imprint>
+			<biblScope unit="volume">67</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="139" to="147" />
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b48">
+	<analytic>
+		<title level="a" type="main">An integrated three-antenna structure for 5G, WLAN, LTE and ITU band cognitive radio communication</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Lakrit</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Nella</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Das</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><forename type="middle">T P</forename><surname>Madhav</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">Murali</forename><surname>Krishna</surname></persName>
+		</author>
+		<idno>ID 153906</idno>
+	</analytic>
+	<monogr>
+		<title level="j">AEU-International Journal of Electronics and Communications</title>
+		<imprint>
+			<biblScope unit="volume">139</biblScope>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b49">
+	<analytic>
+		<title level="a" type="main">Compact reconfgurable antenna system for spectrum interweaved cognitive radio</title>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">K</forename><surname>Parida</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">K</forename><surname>Sahu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">K</forename><surname>Naik</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Raiguru</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">C</forename><surname>Panda</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">K</forename><surname>Mishra</surname></persName>
+		</author>
+		<idno>ID e23183</idno>
+	</analytic>
+	<monogr>
+		<title level="j">International Journal of RF and Microwave Computer-Aided Engineering</title>
+		<imprint>
+			<biblScope unit="volume">32</biblScope>
+			<biblScope unit="issue">7</biblScope>
+			<date type="published" when="2022">2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b50">
+	<analytic>
+		<title level="a" type="main">A fve-port integrated planar ultra-wideband and narrowband antennas system using excitation switching reconfgurable technique for cognitive radio applications</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">D</forename><surname>Tadesse</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">O</forename><forename type="middle">P</forename><surname>Acharya</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Sahu</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="s">Wireless Personal Communications</title>
+		<imprint>
+			<biblScope unit="volume">131</biblScope>
+			<biblScope unit="page" from="527" to="544" />
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

@@ -1,0 +1,2470 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Integrated and DC-powered superconducting microcomb</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Chen-Guang</forename><surname>Wang</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department">School of Electronic Science and Engineering</orgName>
+								<orgName type="institution" key="instit1">Research Institute of Superconductor Electronics</orgName>
+								<orgName type="institution" key="instit2">Nanjing University</orgName>
+								<address>
+									<settlement>Nanjing</settlement>
+									<country key="CN">China</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff1">
+								<orgName type="department">Purple Mountain Laboratories</orgName>
+								<address>
+									<settlement>Nanjing</settlement>
+									<country key="CN">China</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff2">
+								<orgName type="department">National Key Laboratory of Spintronics</orgName>
+								<orgName type="institution">Nanjing University</orgName>
+								<address>
+									<settlement>Suzhou</settlement>
+									<country key="CN">China</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Wuyue</forename><surname>Xu</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department">School of Electronic Science and Engineering</orgName>
+								<orgName type="institution" key="instit1">Research Institute of Superconductor Electronics</orgName>
+								<orgName type="institution" key="instit2">Nanjing University</orgName>
+								<address>
+									<settlement>Nanjing</settlement>
+									<country key="CN">China</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff1">
+								<orgName type="department">Purple Mountain Laboratories</orgName>
+								<address>
+									<settlement>Nanjing</settlement>
+									<country key="CN">China</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff2">
+								<orgName type="department">National Key Laboratory of Spintronics</orgName>
+								<orgName type="institution">Nanjing University</orgName>
+								<address>
+									<settlement>Suzhou</settlement>
+									<country key="CN">China</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Chong</forename><surname>Li</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department">School of Electronic Science and Engineering</orgName>
+								<orgName type="institution" key="instit1">Research Institute of Superconductor Electronics</orgName>
+								<orgName type="institution" key="instit2">Nanjing University</orgName>
+								<address>
+									<settlement>Nanjing</settlement>
+									<country key="CN">China</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff1">
+								<orgName type="department">Purple Mountain Laboratories</orgName>
+								<address>
+									<settlement>Nanjing</settlement>
+									<country key="CN">China</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff2">
+								<orgName type="department">National Key Laboratory of Spintronics</orgName>
+								<orgName type="institution">Nanjing University</orgName>
+								<address>
+									<settlement>Suzhou</settlement>
+									<country key="CN">China</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Lili</forename><surname>Shi</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department">School of Electronic Science and Engineering</orgName>
+								<orgName type="institution" key="instit1">Research Institute of Superconductor Electronics</orgName>
+								<orgName type="institution" key="instit2">Nanjing University</orgName>
+								<address>
+									<settlement>Nanjing</settlement>
+									<country key="CN">China</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Junliang</forename><surname>Jiang</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department">School of Electronic Science and Engineering</orgName>
+								<orgName type="institution" key="instit1">Research Institute of Superconductor Electronics</orgName>
+								<orgName type="institution" key="instit2">Nanjing University</orgName>
+								<address>
+									<settlement>Nanjing</settlement>
+									<country key="CN">China</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Tingting</forename><surname>Guo</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department">School of Electronic Science and Engineering</orgName>
+								<orgName type="institution" key="instit1">Research Institute of Superconductor Electronics</orgName>
+								<orgName type="institution" key="instit2">Nanjing University</orgName>
+								<address>
+									<settlement>Nanjing</settlement>
+									<country key="CN">China</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Wen-Cheng</forename><surname>Yue</surname></persName>
+							<affiliation key="aff1">
+								<orgName type="department">Purple Mountain Laboratories</orgName>
+								<address>
+									<settlement>Nanjing</settlement>
+									<country key="CN">China</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff2">
+								<orgName type="department">National Key Laboratory of Spintronics</orgName>
+								<orgName type="institution">Nanjing University</orgName>
+								<address>
+									<settlement>Suzhou</settlement>
+									<country key="CN">China</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Tianyu</forename><surname>Li</surname></persName>
+							<affiliation key="aff1">
+								<orgName type="department">Purple Mountain Laboratories</orgName>
+								<address>
+									<settlement>Nanjing</settlement>
+									<country key="CN">China</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff2">
+								<orgName type="department">National Key Laboratory of Spintronics</orgName>
+								<orgName type="institution">Nanjing University</orgName>
+								<address>
+									<settlement>Suzhou</settlement>
+									<country key="CN">China</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Ping</forename><surname>Zhang</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department">School of Electronic Science and Engineering</orgName>
+								<orgName type="institution" key="instit1">Research Institute of Superconductor Electronics</orgName>
+								<orgName type="institution" key="instit2">Nanjing University</orgName>
+								<address>
+									<settlement>Nanjing</settlement>
+									<country key="CN">China</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Yang-Yang</forename><surname>Lyu</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department">School of Electronic Science and Engineering</orgName>
+								<orgName type="institution" key="instit1">Research Institute of Superconductor Electronics</orgName>
+								<orgName type="institution" key="instit2">Nanjing University</orgName>
+								<address>
+									<settlement>Nanjing</settlement>
+									<country key="CN">China</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff1">
+								<orgName type="department">Purple Mountain Laboratories</orgName>
+								<address>
+									<settlement>Nanjing</settlement>
+									<country key="CN">China</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Jiazheng</forename><surname>Pan</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department">School of Electronic Science and Engineering</orgName>
+								<orgName type="institution" key="instit1">Research Institute of Superconductor Electronics</orgName>
+								<orgName type="institution" key="instit2">Nanjing University</orgName>
+								<address>
+									<settlement>Nanjing</settlement>
+									<country key="CN">China</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff1">
+								<orgName type="department">Purple Mountain Laboratories</orgName>
+								<address>
+									<settlement>Nanjing</settlement>
+									<country key="CN">China</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Xiuhao</forename><surname>Deng</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department">School of Electronic Science and Engineering</orgName>
+								<orgName type="institution" key="instit1">Research Institute of Superconductor Electronics</orgName>
+								<orgName type="institution" key="instit2">Nanjing University</orgName>
+								<address>
+									<settlement>Nanjing</settlement>
+									<country key="CN">China</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff3">
+								<orgName type="department">Shenzhen Institute for Quantum Science and Engineering</orgName>
+								<orgName type="institution">Southern University of Science and Technology</orgName>
+								<address>
+									<settlement>Shenzhen</settlement>
+									<country key="CN">China</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff4">
+								<orgName type="institution">Hefei National Laboratory</orgName>
+								<address>
+									<settlement>Hefei</settlement>
+									<country key="CN">China</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Ying</forename><surname>Dong</surname></persName>
+							<affiliation key="aff5">
+								<orgName type="department">College of Metrology Measurement and Instrument</orgName>
+								<orgName type="institution">Jiliang University</orgName>
+								<address>
+									<settlement>Hangzhou</settlement>
+									<country>China, China</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Xuecou</forename><surname>Tu</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department">School of Electronic Science and Engineering</orgName>
+								<orgName type="institution" key="instit1">Research Institute of Superconductor Electronics</orgName>
+								<orgName type="institution" key="instit2">Nanjing University</orgName>
+								<address>
+									<settlement>Nanjing</settlement>
+									<country key="CN">China</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff4">
+								<orgName type="institution">Hefei National Laboratory</orgName>
+								<address>
+									<settlement>Hefei</settlement>
+									<country key="CN">China</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Sining</forename><surname>Dong</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department">School of Electronic Science and Engineering</orgName>
+								<orgName type="institution" key="instit1">Research Institute of Superconductor Electronics</orgName>
+								<orgName type="institution" key="instit2">Nanjing University</orgName>
+								<address>
+									<settlement>Nanjing</settlement>
+									<country key="CN">China</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff2">
+								<orgName type="department">National Key Laboratory of Spintronics</orgName>
+								<orgName type="institution">Nanjing University</orgName>
+								<address>
+									<settlement>Suzhou</settlement>
+									<country key="CN">China</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Chunhai</forename><surname>Cao</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department">School of Electronic Science and Engineering</orgName>
+								<orgName type="institution" key="instit1">Research Institute of Superconductor Electronics</orgName>
+								<orgName type="institution" key="instit2">Nanjing University</orgName>
+								<address>
+									<settlement>Nanjing</settlement>
+									<country key="CN">China</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Labao</forename><surname>Zhang</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department">School of Electronic Science and Engineering</orgName>
+								<orgName type="institution" key="instit1">Research Institute of Superconductor Electronics</orgName>
+								<orgName type="institution" key="instit2">Nanjing University</orgName>
+								<address>
+									<settlement>Nanjing</settlement>
+									<country key="CN">China</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff4">
+								<orgName type="institution">Hefei National Laboratory</orgName>
+								<address>
+									<settlement>Hefei</settlement>
+									<country key="CN">China</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Xiaoqing</forename><surname>Jia</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department">School of Electronic Science and Engineering</orgName>
+								<orgName type="institution" key="instit1">Research Institute of Superconductor Electronics</orgName>
+								<orgName type="institution" key="instit2">Nanjing University</orgName>
+								<address>
+									<settlement>Nanjing</settlement>
+									<country key="CN">China</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff4">
+								<orgName type="institution">Hefei National Laboratory</orgName>
+								<address>
+									<settlement>Hefei</settlement>
+									<country key="CN">China</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Guozhu</forename><surname>Sun</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department">School of Electronic Science and Engineering</orgName>
+								<orgName type="institution" key="instit1">Research Institute of Superconductor Electronics</orgName>
+								<orgName type="institution" key="instit2">Nanjing University</orgName>
+								<address>
+									<settlement>Nanjing</settlement>
+									<country key="CN">China</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff4">
+								<orgName type="institution">Hefei National Laboratory</orgName>
+								<address>
+									<settlement>Hefei</settlement>
+									<country key="CN">China</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Lin</forename><surname>Kang</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department">School of Electronic Science and Engineering</orgName>
+								<orgName type="institution" key="instit1">Research Institute of Superconductor Electronics</orgName>
+								<orgName type="institution" key="instit2">Nanjing University</orgName>
+								<address>
+									<settlement>Nanjing</settlement>
+									<country key="CN">China</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff4">
+								<orgName type="institution">Hefei National Laboratory</orgName>
+								<address>
+									<settlement>Hefei</settlement>
+									<country key="CN">China</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Jian</forename><surname>Chen</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department">School of Electronic Science and Engineering</orgName>
+								<orgName type="institution" key="instit1">Research Institute of Superconductor Electronics</orgName>
+								<orgName type="institution" key="instit2">Nanjing University</orgName>
+								<address>
+									<settlement>Nanjing</settlement>
+									<country key="CN">China</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff1">
+								<orgName type="department">Purple Mountain Laboratories</orgName>
+								<address>
+									<settlement>Nanjing</settlement>
+									<country key="CN">China</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Yong-Lei</forename><surname>Wang</surname></persName>
+							<email>yongleiwang@nju.edu.cn</email>
+							<affiliation key="aff0">
+								<orgName type="department">School of Electronic Science and Engineering</orgName>
+								<orgName type="institution" key="instit1">Research Institute of Superconductor Electronics</orgName>
+								<orgName type="institution" key="instit2">Nanjing University</orgName>
+								<address>
+									<settlement>Nanjing</settlement>
+									<country key="CN">China</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff1">
+								<orgName type="department">Purple Mountain Laboratories</orgName>
+								<address>
+									<settlement>Nanjing</settlement>
+									<country key="CN">China</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff2">
+								<orgName type="department">National Key Laboratory of Spintronics</orgName>
+								<orgName type="institution">Nanjing University</orgName>
+								<address>
+									<settlement>Suzhou</settlement>
+									<country key="CN">China</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Huabing</forename><surname>Wang</surname></persName>
+							<email>hbwang@nju.edu.cn</email>
+							<affiliation key="aff0">
+								<orgName type="department">School of Electronic Science and Engineering</orgName>
+								<orgName type="institution" key="instit1">Research Institute of Superconductor Electronics</orgName>
+								<orgName type="institution" key="instit2">Nanjing University</orgName>
+								<address>
+									<settlement>Nanjing</settlement>
+									<country key="CN">China</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff1">
+								<orgName type="department">Purple Mountain Laboratories</orgName>
+								<address>
+									<settlement>Nanjing</settlement>
+									<country key="CN">China</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Peiheng</forename><surname>Wu</surname></persName>
+							<email>phwu@nju.edu.cn</email>
+							<affiliation key="aff0">
+								<orgName type="department">School of Electronic Science and Engineering</orgName>
+								<orgName type="institution" key="instit1">Research Institute of Superconductor Electronics</orgName>
+								<orgName type="institution" key="instit2">Nanjing University</orgName>
+								<address>
+									<settlement>Nanjing</settlement>
+									<country key="CN">China</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff1">
+								<orgName type="department">Purple Mountain Laboratories</orgName>
+								<address>
+									<settlement>Nanjing</settlement>
+									<country key="CN">China</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Integrated and DC-powered superconducting microcomb</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+					<idno type="MD5">62EBEE54991957D989C155AEFBE6B40B</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.2" ident="GROBID" when="2024-05-16T18:04+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Frequency combs, specialized laser sources emitting multiple equidistant frequency lines, have revolutionized science and technology with unprecedented precision and versatility. Recently, integrated frequency combs are emerging as scalable solutions for on-chip photonics. Here, we demonstrate a fully integrated superconducting microcomb that is easy to manufacture, simple to operate, and consumes ultra-low power. Our turnkey apparatus comprises a basic nonlinear superconducting device, a Josephson junction, directly coupled to a superconducting microstrip resonator. We showcase coherent comb generation through self-started mode-locking. Therefore, comb emission is initiated solely by activating a DC bias source, with power consumption as low as tens of picowatts. The resulting comb spectrum resides in the microwave domain and spans multiple octaves. The linewidths of all comb lines can be narrowed down to 1 Hz through a unique coherent injection-locking technique. Our work represents a critical step towards fully integrated microwave photonics and offers the potential for integrated quantum processors.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Introduction</head><p>Frequency combs serve as high-precision rulers for frequency and time measurement, playing a pivotal role in a wide variety of modern science and technologies <ref type="bibr" target="#b0">[1]</ref><ref type="bibr" target="#b1">[2]</ref><ref type="bibr" target="#b2">[3]</ref><ref type="bibr" target="#b3">[4]</ref><ref type="bibr" target="#b4">[5]</ref>, including optical clocks, LIDAR, spectroscopy, arbitrary waveform generation, and optical neural networks. Over the past two decades, integrated combs have garnered significant research interests <ref type="bibr" target="#b4">[5]</ref><ref type="bibr" target="#b5">[6]</ref><ref type="bibr" target="#b6">[7]</ref><ref type="bibr" target="#b7">[8]</ref><ref type="bibr" target="#b8">[9]</ref><ref type="bibr" target="#b9">[10]</ref><ref type="bibr" target="#b10">[11]</ref><ref type="bibr" target="#b11">[12]</ref><ref type="bibr" target="#b12">[13]</ref><ref type="bibr" target="#b13">[14]</ref><ref type="bibr" target="#b14">[15]</ref><ref type="bibr" target="#b15">[16]</ref><ref type="bibr" target="#b16">[17]</ref><ref type="bibr" target="#b17">[18]</ref>, leading to miniaturized and chip-based photonic systems <ref type="bibr" target="#b6">[7]</ref>. However, most on-chip frequency combs, such as integrated semiconductor mode-locked lasers and microresonator-based Kerr combs, mainly operate in the optical frequency domain. A fully integrated frequency comb functioning in the microwave domain remains elusive, impeding the advancement of chip-based microwave spectroscopy and integrated quantum circuits, which typically require precise microwave control. Here, we address these challenges by introducing an all-superconductor-based microcomb, featuring an elegantly simple structure, effortless operation, and ultra-low power consumption.</p><p>Our superconducting frequency comb is fully integrated, comprising two fundamental superconductor devices: a Josephson junction directly coupled to a superconducting coplanar waveguide (CPW) resonator, as illustrated in Fig. <ref type="figure">1a</ref> (see Supplementary Figure <ref type="figure">1</ref> for a photo of our device). Device fabrication is achieved through straightforward procedures utilizing standard photolithography and electron beam evaporation techniques (See Methods). The Josephson junction consists of two superconductors connected by a weak link or a thin insulating barrier. It acts as an ideal voltage-to-frequency converter, emitting photons at the Josephson frequency 𝑓𝑓 𝐽𝐽 = 2𝑒𝑒𝑉𝑉 𝑑𝑑𝑑𝑑 /ℎ, where 2𝑒𝑒 is the charge of a Cooper pair, 𝑉𝑉 𝑑𝑑𝑑𝑑 is the DC voltage bias across the junction, and ℎ is Planck's constant. Meanwhile, the superconducting CPW resonator is another crucial superconductor device widely used in high-sensitive detectors and circuits for qubit control and read-out <ref type="bibr" target="#b18">[19]</ref>. We demonstrate that the combination of these two fundamental superconducting elements can generate a coherent frequency comb (Fig. <ref type="figure">1b and 1c</ref>). Its on-chip generation of pulse waves and inherent compatibility with production, operation, and integration into circuit quantum electrodynamics <ref type="bibr" target="#b19">[20]</ref><ref type="bibr" target="#b20">[21]</ref><ref type="bibr" target="#b21">[22]</ref> offers the potential for miniaturized, low-cost, and energy-efficient quantum processors.</p><p>The Josephson junction coupled superconducting resonator has drawn significant research interest due to its capability not only to operate as ultrasensitive sensors, such as for single photon detection <ref type="bibr" target="#b22">[23]</ref> and/or thermometry <ref type="bibr" target="#b23">[24]</ref>, but also to function as a coherent photon source <ref type="bibr" target="#b24">[25]</ref><ref type="bibr" target="#b25">[26]</ref><ref type="bibr" target="#b26">[27]</ref><ref type="bibr" target="#b27">[28]</ref><ref type="bibr" target="#b28">[29]</ref><ref type="bibr" target="#b29">[30]</ref><ref type="bibr" target="#b30">[31]</ref><ref type="bibr" target="#b31">[32]</ref><ref type="bibr" target="#b32">[33]</ref><ref type="bibr" target="#b33">[34]</ref>. Particularly, in the strong coupling regime, the device generates stable microwave lasing <ref type="bibr" target="#b24">[25]</ref> and demonstrates remarkably low noise <ref type="bibr" target="#b25">[26]</ref>. However, in previous investigations, the coupled devices were all operated in single mode, resulting in continuous-wave emissions. Their properties under a multimode operation have not been explored.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Results</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Coherent comb generation.</head><p>We demonstrate that a Josephson junction coupled to a superconducting resonator can generate a self-phase-locked coherent frequency comb under multimode operation. The coupling between a Josephson junction and a resonator is proportional to the Josephson energy 𝑬𝑬 𝑱𝑱 ≡ 𝒉𝒉𝑰𝑰 𝒄𝒄 /𝟐𝟐𝟐𝟐, where 𝑰𝑰 𝒄𝒄 is superconducting critical current <ref type="bibr" target="#b24">[25,</ref><ref type="bibr" target="#b27">28]</ref>. To directly ensure strong coupling, we employ a Josephson junction with a large 𝑰𝑰 𝒄𝒄 . This is achieved by fabricating a sizable Josephson junction (approximately 4 µm 2 ), resulting in a relatively large supercurrent of ID ≈ 2 µA in the lasing state (Fig. <ref type="figure">1b</ref>), which surpasses by more than two orders of magnitude compared to that in the continuous-wave Josephson laser <ref type="bibr" target="#b24">[25]</ref>. To achieve multimode operation within the frequency range of interest (typically 1~10 GHz), we fabricate a superconducting resonator with a low free spectrum range of 0.75 GHz. The strong coupling allows stable microwave lasing when a dc voltage bias Vdc ≥ 𝟐𝟐𝟐𝟐 µV is applied to the Josephson junction (Fig. <ref type="figure">1b</ref>).</p><p>Figure <ref type="figure">1c</ref> shows the comb spectrum measured at Vdc=43 μV. First, we will prove that the observed spectrum in Fig. <ref type="figure">1c</ref> indeed represents a coherent frequency comb. The raised background between 3~10 GHz in Fig. <ref type="figure">1c</ref> is a consequence of the limited bandwidth of amplifiers. Therefore, our subsequent investigations will focus on the frequency range in the detection bandwidth. The frequencies of a comb are given by the formula: 𝑓𝑓 𝑚𝑚 = 𝑓𝑓 0 + 𝑚𝑚𝑓𝑓 𝑟𝑟 , where 𝑓𝑓 0 denotes the carrier offset frequency, 𝑓𝑓 𝑟𝑟 represents the repetition frequency, and m stands for the mode number <ref type="bibr" target="#b0">[1]</ref><ref type="bibr" target="#b1">[2]</ref><ref type="bibr" target="#b2">[3]</ref><ref type="bibr" target="#b3">[4]</ref><ref type="bibr" target="#b4">[5]</ref>. The extracted mode frequencies are shown in Fig. <ref type="figure">1d</ref>, align perfectly with fitting to the comb formula. The result indicates a negligible offset frequency ( 𝑓𝑓 0 ≈ 0 GHz). Consequently, our superconducting microcomb can be expressed by a simplified comb formula:</p><formula xml:id="formula_0">𝑓𝑓 𝑚𝑚 = 𝑚𝑚𝑓𝑓 𝑟𝑟<label>(1)</label></formula><p>Additionally, Figures <ref type="figure">1c and 1d</ref> demonstrate that the repetition frequency 𝑓𝑓 𝑟𝑟 nicely aligns with the free spectrum range (0.75 GHz) of the half-wave resonator.</p><p>The evenly spaced spectral lines alone are not sufficient for correlations among the comb teeth. To examine the coherence state of the emitted signal, we firstly proved that each individual mode has a stable phase using the heterodyne detection technique (Supplementary Figure <ref type="figure">2</ref>). One direct consequence of phase-coherent comb is the generation of pulses in the time domain <ref type="bibr" target="#b0">[1]</ref><ref type="bibr" target="#b1">[2]</ref><ref type="bibr" target="#b2">[3]</ref><ref type="bibr" target="#b3">[4]</ref><ref type="bibr" target="#b4">[5]</ref>. Figure <ref type="figure">2a</ref> displays a comb spectrum, and its corresponding time-dependent waveform is shown in Figs. <ref type="figure">2b and 2c</ref>. The waveform reveals a sequence of microwave pulses, indicating that all spectrum modes are phase-locked and maintain a stable phase relationship. Moreover, every pulse displays identical features, as seen in Fig. <ref type="figure">2d</ref> by the perfect overlap of two pulse-waves. This indicates that all pulses are in-phase, and also suggests a carrier offset frequency of 0 Hz, thus confirming that all the spectral lines share a uniform phase. The coherence of the comb modes can be further validated through a unique coherent injection locking effect, as demonstrated below.</p><p>The emission power of each individual comb line, ranging up to subpicowatt (see Supplementary Figure <ref type="figure" target="#fig_2">3</ref>), is consistent with that of the continuous-wave (or single-mode) source <ref type="bibr" target="#b24">[25]</ref>. The microcomb's performance could be further enhanced by refining the structures and parameters of the Josephson junction-coupled resonators <ref type="bibr" target="#b25">[26]</ref>. The stability of the frequency comb is determined by the linewidth of the spectral lines (see Supplementary Figure <ref type="figure" target="#fig_3">4</ref>). In general, the overall linewidth is influenced by the quality factor of the resonator, the stability of the DC bias voltage, and environmental electromagnetic and thermal noise. Moreover, our experiments demonstrate that the linewidth of our comb increases quadratically with the mode number (or frequency), as illustrated in Supplementary Figure <ref type="figure">5</ref>. This finding is consistent with the observations in quantum-limited optical combs <ref type="bibr" target="#b34">[35,</ref><ref type="bibr" target="#b35">36]</ref>.</p><p>Coherent injection locking effect. Injection-locking is a widely used technique for effectively narrowing the linewidth of a laser source <ref type="bibr" target="#b24">[25,</ref><ref type="bibr" target="#b25">26,</ref><ref type="bibr" target="#b36">37,</ref><ref type="bibr" target="#b37">38]</ref>. In optical frequency combs, it has been demonstrated only in a few cases in quantum cascade lasers by injecting a radio-frequency (RF) modulation at the cavity roundtrip frequency <ref type="bibr" target="#b38">[39]</ref><ref type="bibr" target="#b39">[40]</ref><ref type="bibr">[41]</ref><ref type="bibr" target="#b41">[42]</ref>. In our superconducting microcomb, we showcase a distinct coherent injection locking effect that can be achieved by injecting an external microwave at any arbitrary comb mode. For instance, we select an arbitrary mode, such as minj = 7, as the injection tone (Fig. <ref type="figure" target="#fig_2">3a</ref>). Then, an injection signal finj is applied and swept around f7=5.26 GHz. We measure the spectra at frequencies fsen around various sensing modes msen (Fig. <ref type="figure" target="#fig_2">3a</ref>). The resulting spectra maps are illustrated in Figs. <ref type="figure" target="#fig_2">3b-3d</ref> (additional results in Supplementary Figure <ref type="figure">6</ref>). We find that all modes are simultaneously locked within the same injection frequency range Δfinj=8.08 MHz (see Figs. <ref type="figure" target="#fig_2">3b and 3d</ref> for definition and Fig. <ref type="figure" target="#fig_2">3k</ref> for extracted values). This reaffirms that all spectral lines are coherently phase-locked. This unique coherent injection-locking effect results in an ultra-high-resolution comb, with the linewidth of all comb teeth significantly narrowed down to ≤ 1 Hz, as shown in Figs. 3e-3g and their insets. It's worth noting that the observed linewidth of 1 Hz is constrained by the resolution bandwidth of the spectrum analyzer used in the experiments <ref type="bibr" target="#b25">[26]</ref>, implying the potential for even narrower linewidths.</p><p>The injection-locking range Δfinj of our microcomb widens with the injection power Pinj (Supplementary Figure <ref type="figure">7</ref>). Specifically, when msen=minj (Figs. 3c, 3f, and 3i), the injection-locking phenomena replicate those observed in the continuous-wave source <ref type="bibr" target="#b24">[25,</ref><ref type="bibr" target="#b25">26]</ref>, and can therefore be explained by the Adler's theory <ref type="bibr" target="#b42">[43]</ref>. However, the results for the comb modes with msen ≠ minj cannot be described by the Adler's equation (see Supplementary Figures <ref type="figure">8a and 8b</ref>). We find that the locked sensing frequency range Δfsen (see Figs. 3b-3d for definition) is proportional to m (Fig. <ref type="figure" target="#fig_2">3l</ref>). This implies that the radiation frequencies of the injection-locked comb satisfy the comb formula (1) over the entire locked frequency range. Consequently, this introduces an in-situ tunable superconducting microcomb, allowing for adjustable 𝑓𝑓 𝑟𝑟 within the range of ∆𝑓𝑓 𝑖𝑖𝑖𝑖𝑖𝑖 /𝑚𝑚 𝑖𝑖𝑖𝑖𝑖𝑖 .</p><p>The coherent injection-locking leads to a unique frequency-pulling effect, particularly noticeable when msen ≠ minj. Figures 3h-3j illustrate these effects when finj is fixed at an off-resonance tone (the corresponding on-resonance injection results are shown in Supplementary Figure <ref type="figure">9</ref>), shifted from the free-running emission tone by Δfoff = 8 MHz. When msen = minj, the emission line is gradually pulled toward finj with increasing injection power Pinj, ultimately locking at finj (Fig. <ref type="figure" target="#fig_2">3i</ref>). This behavior mirrors that observed in a continuous-wave source <ref type="bibr" target="#b24">[25,</ref><ref type="bibr" target="#b25">26]</ref>. However, the remarkable outcome arises when msen ≠ minj. In this case, although no injection tone is applied around each sensing mode, notable emission lines are induced at the corresponding tones, termed 'induced-injection tone' and labeled as fid in Figs. <ref type="figure" target="#fig_2">3b, 3d</ref>, 3h, and 3j. The linewidth of the fid lines is considerably narrower than those of the free-running emissions and the side-band harmonics (see Supplementary Figure <ref type="figure">10</ref>). Furthermore, neither fid emission nor Kerr comb generation are observed with RF injection under zero DC bias-voltage (Supplementary Figure <ref type="figure">11</ref>). These indicate that the fid emissions originate from the mutual interactions among Josephson photons, injection photons, and the resonator's multi-modes, setting the fid signals apart from the Kerr combs generated directly from RF pumping <ref type="bibr" target="#b43">[44]</ref>.</p><p>When msen ≠ minj, as depicted in Figs. <ref type="figure" target="#fig_2">3h and 3j</ref>, while the emissions of all the modes are pulled toward fid tones with increasing Pinj, the fid tones themselves also shift with Pinj. Consequently, this results in the locked frequency range Δflock≠Δfoff (see Figs. <ref type="figure" target="#fig_2">3h and 3j</ref>). Figure <ref type="figure" target="#fig_2">3m</ref> demonstrates that Δflock is also proportional to m with ∆𝑓𝑓 𝑙𝑙𝑙𝑙𝑑𝑑𝑙𝑙 = 𝑚𝑚 𝑚𝑚 𝑖𝑖𝑖𝑖𝑖𝑖 ∆𝑓𝑓 𝑙𝑙𝑜𝑜𝑜𝑜 , perfectly aligned with the requirements of the comb formula (1) for the emissions within the locking range.</p><p>There is no existing theory that can describe our observed coherent injection-locking effect. We have derived an extended Adler's equation to quantitatively describe these unique phenomena. As analyzed above, in the locking range Δfinj, all comb emissions are described by the comb formula (1). In the unlocking range outside Δfinj, the emission signals are given by (please refer to Method for detailed derivation):</p><formula xml:id="formula_1">𝑓𝑓 𝑚𝑚,𝑖𝑖 = 𝑚𝑚 𝑚𝑚 𝑖𝑖𝑖𝑖𝑖𝑖 (𝑓𝑓 𝑖𝑖𝑖𝑖𝑖𝑖 + 𝑓𝑓 ℎ ) + 𝑛𝑛𝑓𝑓 ℎ<label>(2)</label></formula><p>Here, fh denotes the repetition frequency of the harmonic emissions induced by off-resonance injection, and 𝑛𝑛𝑓𝑓 ℎ represents the nth harmonic shift. The fh is given by:</p><formula xml:id="formula_2">𝑓𝑓 ℎ = (𝑓𝑓 𝑚𝑚 𝑖𝑖𝑖𝑖𝑖𝑖 − 𝑓𝑓 𝑖𝑖𝑖𝑖𝑖𝑖 ) � 1 − ( ∆𝑜𝑜 𝑖𝑖𝑖𝑖𝑖𝑖 /2 𝑜𝑜 𝑚𝑚 𝑖𝑖𝑖𝑖𝑖𝑖 −𝑜𝑜 𝑖𝑖𝑖𝑖𝑖𝑖 )<label>(3)</label></formula><p>where ∆𝑓𝑓 𝑖𝑖𝑖𝑖𝑖𝑖 = 𝛼𝛼 � 𝑃𝑃 𝑖𝑖𝑖𝑖𝑖𝑖 (with 𝛼𝛼 as a constant related to cavity losses), and 𝑓𝑓 𝑚𝑚 𝑖𝑖𝑖𝑖𝑖𝑖 is the mode frequency at 𝑚𝑚 𝑖𝑖𝑖𝑖𝑖𝑖 . Notably, when m=minj, the extended Alder's equation ( <ref type="formula" target="#formula_1">2</ref>) reduces to the standard Alder's equation. The perfect fittings in Figs. 3b-3d and 3h-3j indicate that our extended Alder's equation ( <ref type="formula" target="#formula_1">2</ref>) accurately describes all the coherent injection-locking effects in our superconducting microcomb.</p><p>In previous studies of continuous-wave superconducting lasers, the down-conversion of higherorder Josephson frequencies to resonator's fundamental mode has been demonstrated <ref type="bibr" target="#b24">[25]</ref>. However, the up-conversion of Josephson photons to higher mode has not been reported. In Fig. <ref type="figure" target="#fig_3">4a</ref>, we present a comb spectrum (red) within our typical experimental bandwidth 3~10 GHz. The applied DC bias voltage across the Josephson junction is Vdc=36.387 µV, corresponding to a Josephson frequency fJ = 17.60 GHz. As illustrated in Fig. <ref type="figure" target="#fig_3">4a</ref>, all the comb modes with fm &lt; fJ are generated through down-conversion, and any modes with fm &gt; fJ (if existing) would result from up-conversion. However, emissions with fm &gt; 17.60 GHz lie beyond the bandwidth of our spectrum measurements, preventing their direct observation.</p><p>The coherent injection-locking effect provides an advanced methodology for sensing comb emissions beyond the detection bandwidth. To demonstrate this, we perform injection-locking measurements using various injection tones with minj = 1, 6, 54, as illustrated in Fig. <ref type="figure" target="#fig_3">4a</ref>, while selecting a fixed sensing tone within the detection bandwidth, such as msen = 7. Figures <ref type="figure" target="#fig_3">4b-4d</ref> display the coherent injection-locking effects. The injection locking phenomenon arises from nonlinear interaction between emission tone and external injection signal <ref type="bibr" target="#b42">[43]</ref>. Since no injection signal is applied at m = 7, the coherence injection locking effect displayed in Fig. <ref type="figure" target="#fig_3">4d</ref> suggests the presence of a comb emission tone at f54 = 39.28 GHz, which is significantly higher than the Josephson frequency fJ=17.6 GHz. This observation provides evidence for the up-conversion process of Josephson photons to higher modes. The presence of comb emissions at m = 1 (Fig. <ref type="figure" target="#fig_3">4b</ref>) and 54 (Fig. <ref type="figure" target="#fig_3">4d</ref>) indicates that our Josephson microcomb spans a frequency range exceeding five octaves, a span typically challenging to achieve in semiconductor-based frequency combs. It is essential to note that this octave value is limited by the upper-frequency limit of the microwave generator used in our experiments. Hence, it is highly likely that even higher modes could exist beyond this range.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Discussion</head><p>We have demonstrated a fully integrable superconducting microcomb. Unlike previously reported superconductor-based frequency combs <ref type="bibr" target="#b43">[44]</ref><ref type="bibr" target="#b44">[45]</ref><ref type="bibr" target="#b45">[46]</ref><ref type="bibr" target="#b46">[47]</ref><ref type="bibr" target="#b47">[48]</ref><ref type="bibr" target="#b48">[49]</ref><ref type="bibr" target="#b49">[50]</ref><ref type="bibr" target="#b50">[51]</ref><ref type="bibr" target="#b51">[52]</ref>, which all operated under microwave pumping using externally supplied, expensive, and energy-consuming microwave sources, our superconducting microcomb is driven solely by a DC bias voltage. This makes it highly desirable for scalable and on-chip integration. The initiation of our microcomb requires simply tuning on a low-power DC bias source, with a minimal input power as low as 40 pW (Fig. <ref type="figure">1b</ref>)-approximately nine orders of magnitude lower than the semiconductor-based frequency combs. This presents significant advancement for ultrasensitive and energy-efficient applications.</p><p>The exceptional coherence of our comb enables a unique coherent injection-locking effect previously inaccessible in frequency combs, leading to an ultra-high-resolution and tunable comb. This innovation introduces unique functionalities, such as the generation of coherent subcombs through four-wave mixing, as showcased in Supplementary Figure <ref type="figure">12</ref>. The simultaneous up-and down-conversion of Josephson photons significantly expands the comb's frequency range over multiple octaves. These capabilities offer added flexibility and tunability for applications of superconducting microcomb technology.</p><p>This DC-biased superconducting microcomb with ultra-low power consumption (down to a few tens of picowatts) can work at ultralow temperatures, aligning seamlessly with the operating conditions of superconducting quantum circuits. For a typical dilution refrigerator, which has a cooling power of hundreds of microwatts at 20 mK, in principle it is feasible to integrate up to millions of the combs at the base temperature based on their energy efficiency. Our comb can serve as a multifrequency microwave source for multiplexed quantum measurement <ref type="bibr" target="#b52">[53]</ref>. An important potential application of our superconducting microcomb is the development of a low-cost, on-chip arbitrary waveform generator. This could be achieved by controlling the intensities of the comb teeth <ref type="bibr" target="#b53">[54]</ref>, which is possible by integrating our superconducting comb with a series of frequencytunable superconducting resonators serving as adjustable filters <ref type="bibr" target="#b54">[55]</ref>. This advancement promises substantial benefits for future quantum technologies. Moreover, implementing superconducting frequency combs in the terahertz domain could be feasible by using intrinsic Josephson junctions in high-temperature superconductors <ref type="bibr" target="#b55">[56]</ref>. This approach could also extend the technology's working temperature range.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Methods</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Device fabrication</head><p>We fabricated four superconducting microcombs (#1-#4), and detailed parameters are listed in Supplementary Tables 1. The superconducting resonators are fabricated using a superconducting Nb film for device #1 and a Ta (α -phase) film <ref type="bibr" target="#b56">[57]</ref> for devices #2, #3, and #4. The film was sputtered on a 10 mm by 10 mm sapphire substrate (C-plane, thickness 650 μm ). Standard photolithography followed by reactive ion etching in a CF4 was then used to define the resonators. The Al/AlOx/Al (Al thicknesses 40 nm/80 nm) Josephson junction was fabricated using standard double-angle evaporation and lift-off techniques. To ensure good electrical contact between the Josephson junction and the resonator layers, the sample was ion-beam milled to remove residual oxides and resist residue from the surface of the resonator before the double-angle evaporation.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Experiments</head><p>The devices are mounted in a dilution refrigerator with a base temperature of 20 mK. A complete circuit is shown in Supplementary Figure <ref type="figure" target="#fig_2">13</ref>. We adopt a similar approach to Refs. <ref type="bibr" target="#b24">[25,</ref><ref type="bibr" target="#b29">30,</ref><ref type="bibr" target="#b30">31]</ref> for the low noise biasing scheme to measure the tunneling current and provide a stable voltage bias to the device. The bias voltage is supplied by an on-chip voltage divider circuit consisting of a 10 Ω shunt resistor and a 10 Ω reference resistor. The current through the device is then measured via the voltage drop Vr across the 10 Ω reference resistor. The current 𝐼𝐼 𝐷𝐷 and voltage 𝑉𝑉 𝑑𝑑𝑑𝑑 of the device is given by 𝐼𝐼 𝐷𝐷 = 𝑉𝑉 𝑟𝑟 /10 and𝑉𝑉 𝑑𝑑𝑑𝑑 = 10𝐼𝐼 𝑏𝑏𝑖𝑖𝑏𝑏𝑏𝑏 − 20𝐼𝐼 𝐷𝐷 . Here, 𝑉𝑉 𝑟𝑟 is obtained from a nano voltmeter (Keithley 2182A) and 𝐼𝐼 𝑏𝑏𝑖𝑖𝑏𝑏𝑏𝑏 is the output from a current source (Keithley 6221). Additional filtering for the circuit is provided by two 100 μF chip capacitors. Additionally, all low frequency lines are heavily filtered outside the PCB with multi-pole RC and PI low pass filters located on the mixing chamber of the dilution refrigerator.</p><p>The device's output signal is amplified by an amplifier chain consisting of a cryogenic amplifier (+42 dB) and two room-temperature amplifiers (+32 dB). The spectra are acquired by an Agilent N9010A spectrum analyzer (S/A) and the waveforms are recorded using a Keysight MSOV334A digital oscilloscope (D/O). The injection signal to the resonator is generated by an Agilent N5183A analog signal generator (S/G) and is attenuated by a low-temperature attenuation chain to assure that the thermal contribution of photons to the cavity is negligible.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Extended Adler's equation</head><p>In the unlocking range outside Δfinj, the emission signals for msen=minj, which can be described by Adler's theory <ref type="bibr" target="#b42">[43]</ref>, are given by:</p><formula xml:id="formula_3">𝑓𝑓 𝑚𝑚 𝑖𝑖𝑖𝑖𝑖𝑖 ,𝑖𝑖 = (𝑓𝑓 𝑖𝑖𝑖𝑖𝑖𝑖 + 𝑓𝑓 ℎ ) + 𝑛𝑛𝑓𝑓 ℎ (<label>3</label></formula><formula xml:id="formula_4">)</formula><p>where fh is the repetition frequency of the harmonic emissions. The first term, finj + fh, accounts for the comb's emission at minj, while 𝑛𝑛𝑓𝑓 ℎ represents the nth harmonic shift. The fh is given by:</p><formula xml:id="formula_5">𝑓𝑓 ℎ = (𝑓𝑓 𝑚𝑚 𝑖𝑖𝑖𝑖𝑖𝑖 ,0 − 𝑓𝑓 𝑖𝑖𝑖𝑖𝑖𝑖 ) � 1 − ( ∆𝑓𝑓 𝑖𝑖𝑖𝑖𝑖𝑖 /2 𝑓𝑓 𝑚𝑚 𝑖𝑖𝑖𝑖𝑖𝑖 ,0 − 𝑓𝑓 𝑖𝑖𝑖𝑖𝑖𝑖 )</formula><p>where ∆𝑓𝑓 𝑖𝑖𝑖𝑖𝑖𝑖 = 𝛼𝛼 � 𝑃𝑃 𝑖𝑖𝑖𝑖𝑖𝑖 (with 𝛼𝛼 as a constant related to cavity losses). The comb's emission at minj corresponds to n=0, therefore we obtain 𝑓𝑓 𝑚𝑚 𝑖𝑖𝑖𝑖𝑖𝑖 ,0 = 𝑓𝑓 𝑖𝑖𝑖𝑖𝑖𝑖 + 𝑓𝑓 ℎ from equation <ref type="bibr" target="#b2">(3)</ref>     </p><note type="other">.</note></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>(</head><label></label><figDesc>Utilizing the superconducting microcomb formula (1) (see the main text), we can express the comb's emissions for any arbitrary m as 𝑓𝑓 𝑚𝑚,0 = 𝑓𝑓 𝑖𝑖𝑖𝑖𝑖𝑖 + 𝑓𝑓 ℎ ). By adding the nth harmonic shift nfh, we derive an extended Adler's equation (2), as shown in the main text, for the coherent injectionlocking in our superconducting combs.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>Figure legends/ captions Fig. 1 |Fig. 2 |</head><label>captions12</label><figDesc>Figure legends/captions</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head>Fig. 3 |</head><label>3</label><figDesc>Fig. 3 | Coherent injection locking effect. (a) A comb spectrum showing five observed modes. (b-d) Spectrum maps obtained by sweeping the injection frequency finj around f7 at a fixed power (Pinj=-82 dBm), and at various sensing modes msen=6 (b), 7 (c) and 9 (d), respectively. The emission signals are locked within the range Δfinj and Δfsen. (e-g) Comparison of spectra between freerunning (black) and injection-locking (red) states. Insets show the linewidth, which is ≤ 1 Hz for all locked modes. (h-j) Spectra maps obtained by varying injection power (Pinj) with an offresonance tone (finj=f7-Δfoff; f7=5.26 GHz, Δfoff=8 MHz). The shifts of the locked tone from the free-running tones are indicated by Δflock. The long-dashed lines in (b-d, h-j) are fittings to extended Alder's equation (2). (k-m) Plots of Δfinj and Δfoff (k), Δfsen (l), and Δflock (m) as functions of mode number m.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head>Fig. 4 |</head><label>4</label><figDesc>Fig. 4 | Up-and down-conversion of Josephson photons into multiple modes. (a) Illustration of the up-and down-conversion. A comb spectrum (red) is obtained at Vdc = 36.39 μV, corresponding to a Josephson frequency of 17.6 GHz. (b-d) Coherent injection locking effects with msen=7 and for injections at minj=1 (b), 6 (c), and 54 (d), respectively. The dashed lines are fittings to extended Alder's equation (2).</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="16,36.04,30.67,301.25,179.00" type="bitmap" /></figure>
+		</body>
+		<back>
+
+			<div type="acknowledgement">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Acknowledgements</head><p>This work is supported by the National Key R&amp;D Program of China (2021YFA0718802 (Y.Y.L., Y.L.W., and H.W.), 2018YFA0209002 (Y.L.W.), and 2023YFF0718400 (Y.D.)), the National Natural Science Foundation of China (62274086 (Y.L.W.), 62288101 (H.W.), 12204434(Y.D.), and 62271245 (X.T.)), Postdoctoral Fellowship Program of CPSF (W.C.Y. and Y.Y.L.), Jiangsu Outstanding Postdoctoral Program (W.C.Y. and Y.Y.L.), Shenzhen Science and Technology Program (KQTD20200820113010023 (X.D.)), and Jiangsu Key Laboratory of Advanced Techniques for Manipulating Electromagnetic Waves.</p></div>
+			</div>
+
+
+			<div type="availability">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>DATA AVAILABILITY</head><p>All the data that support the findings of this study are available on the public repository https://doi.org/10.6084/m9.figshare.25480621</p></div>
+			</div>
+
+			<div type="annex">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Competing Interests</head><p>The authors declare no competing interests.</p></div>			</div>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">Microresonator-based optical frequency combs</title>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">J</forename><surname>Kippenberg</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Holzwarth</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">A</forename><surname>Diddams</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Science</title>
+		<imprint>
+			<biblScope unit="volume">332</biblScope>
+			<biblScope unit="page">555</biblScope>
+			<date type="published" when="2011">2011</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">Frequency comb spectroscopy</title>
+		<author>
+			<persName><forename type="first">Nathalie</forename><surname>Picqué</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Theodor</forename><forename type="middle">W</forename><surname>Hänsch</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Nature Photon</title>
+		<imprint>
+			<biblScope unit="volume">13</biblScope>
+			<biblScope unit="page" from="146" to="157" />
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">20 years of developments in optical frequency comb technology and applications</title>
+		<author>
+			<persName><forename type="first">Tare</forename><surname>Fortier</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Esther</forename><surname>Baumann</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Commun. Phys</title>
+		<imprint>
+			<biblScope unit="volume">2</biblScope>
+			<biblScope unit="page">153</biblScope>
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">Optical frequency combs: Coherently uniting the electromagnetic spectrum</title>
+		<author>
+			<persName><forename type="first">Scott</forename><forename type="middle">A</forename><surname>Diddams</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Kerry</forename><surname>Vahala</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Thomas</forename><surname>Udem</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Science</title>
+		<imprint>
+			<biblScope unit="volume">369</biblScope>
+			<biblScope unit="page">267</biblScope>
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">Integrated optical frequency comb technologies</title>
+		<author>
+			<persName><forename type="first">Lin</forename><surname>Chang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Songtao</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">John</forename><forename type="middle">E</forename><surname>Bowers</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Nature Photon</title>
+		<imprint>
+			<biblScope unit="volume">16</biblScope>
+			<biblScope unit="page" from="95" to="108" />
+			<date type="published" when="2022">2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">Ultrafast mode-locked laser in nanophotoniclithium niobate</title>
+		<author>
+			<persName><forename type="first">Qiushi</forename><surname>Guo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Benjamin</forename><forename type="middle">K</forename><surname>Gutierrez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ryoto</forename><surname>Sekine</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Robert</forename><forename type="middle">M</forename><surname>Gray</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">James</forename><forename type="middle">A</forename><surname>Williams</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Luis</forename><surname>Ledezma</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Luis</forename><surname>Costa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Arkadev</forename><surname>Roy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Selina</forename><surname>Zhou</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mingchen</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Alireza</forename><surname>Marandi</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Science</title>
+		<imprint>
+			<biblScope unit="volume">382</biblScope>
+			<biblScope unit="page" from="708" to="713" />
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">Microcomb-driven silicon photonic systems</title>
+		<author>
+			<persName><forename type="first">Haowen</forename><surname>Shu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Lin</forename><surname>Chang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yuansheng</forename><surname>Tao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Bitao</forename><surname>Shen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Weiqiang</forename><surname>Xie</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ming</forename><surname>Jin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Andrew</forename><surname>Netherton</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Zihan</forename><surname>Tao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Xuguang</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ruixuan</forename><surname>Chen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Bowen</forename><surname>Bai</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jun</forename><surname>Qin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Shaohua</forename><surname>Yu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Xingjun</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">John</forename><forename type="middle">E</forename><surname>Bowers</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Nature</title>
+		<imprint>
+			<biblScope unit="volume">605</biblScope>
+			<biblScope unit="page" from="457" to="463" />
+			<date type="published" when="2022">2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">Laser soliton microcombs heterogeneouslyintegrated on silicon</title>
+		<author>
+			<persName><forename type="first">Chao</forename><surname>Xiang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Junqiu</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Joel</forename><surname>Guo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Lin</forename><surname>Chang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Rui</forename><surname>Ning Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Wenle</forename><surname>Weng</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jonathan</forename><surname>Peters</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Weiqiang</forename><surname>Xie</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Zeyu</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Johann</forename><surname>Riemensberger</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jennifer</forename><surname>Selvidge</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Tobias</forename><forename type="middle">J</forename><surname>Kippenberg</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">John</forename><forename type="middle">E</forename><surname>Bowers</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Science</title>
+		<imprint>
+			<biblScope unit="volume">373</biblScope>
+			<biblScope unit="page" from="99" to="103" />
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">Dissipative Kerr solitons in optical microresonators</title>
+		<author>
+			<persName><forename type="first">Tobias</forename><forename type="middle">J</forename><surname>Kippenberg</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Alexander</forename><forename type="middle">L</forename><surname>Gaeta</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Michal</forename><surname>Lipson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Michael</forename><forename type="middle">L</forename><surname>Gorodetsky</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Science</title>
+		<imprint>
+			<biblScope unit="volume">361</biblScope>
+			<biblScope unit="page">567</biblScope>
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">11 TOPS photonic convolutional accelerator for optical neural networks</title>
+		<author>
+			<persName><forename type="first">Xingyuan</forename><surname>Xu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mengxi</forename><surname>Tan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Bill</forename><surname>Corcoran</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jiayang</forename><surname>Wu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Andreas</forename><surname>Boes</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Thach</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Sai</forename><forename type="middle">T</forename><surname>Nguyen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Brent</forename><forename type="middle">E</forename><surname>Chu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Damien</forename><forename type="middle">G</forename><surname>Little</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Roberto</forename><surname>Hicks</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Arnan</forename><surname>Morandotti</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">David</forename><forename type="middle">J</forename><surname>Mitchell</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Moss</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Nature</title>
+		<imprint>
+			<biblScope unit="volume">589</biblScope>
+			<biblScope unit="page" from="44" to="51" />
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">Parallel convolutional processing using an integrated photonic tensor core</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Feldmann</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Youngblood</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Karpov</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Gehring</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Stappers</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">Le</forename><surname>Gallo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X</forename><surname>Fu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Lukashchuk</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">S</forename><surname>Raja</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">D</forename><surname>Wright</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Sebastian</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">J</forename><surname>Kippenberg</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><forename type="middle">H P</forename><surname>Pernice</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Bhaskaran</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Nature</title>
+		<imprint>
+			<biblScope unit="volume">589</biblScope>
+			<biblScope unit="page" from="52" to="58" />
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">Vernier spectrometer using counterpropagating soliton microcombs</title>
+		<author>
+			<persName><forename type="first">Qi-Fan</forename><surname>Yang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Boqiang</forename><surname>Shen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Heming</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Minh</forename><surname>Tran</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Zhewei</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ki</forename><forename type="middle">Youl</forename><surname>Yang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Lue</forename><surname>Wu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Chengying</forename><surname>Bao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">John</forename><surname>Bowers</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Amnon</forename><surname>Yariv</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Kerry</forename><surname>Vahala</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Science</title>
+		<imprint>
+			<biblScope unit="volume">363</biblScope>
+			<biblScope unit="page" from="965" to="968" />
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">Massively parallel coherent laser ranging using a soliton microcomb</title>
+		<author>
+			<persName><forename type="first">Johann</forename><surname>Riemensberger</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Anton</forename><surname>Lukashchuk</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Maxim</forename><surname>Karpov</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Wenle</forename><surname>Weng</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Erwan</forename><surname>Lucas</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Junqiu</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Tobias</forename><forename type="middle">J</forename><surname>Kippenberg</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Nature</title>
+		<imprint>
+			<biblScope unit="volume">581</biblScope>
+			<biblScope unit="page" from="164" to="170" />
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">Battery-operated integrated frequency comb generator</title>
+		<author>
+			<persName><forename type="first">Brian</forename><surname>Stern</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Xingchen</forename><surname>Ji</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yoshitomo</forename><surname>Okawachi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Alexander</forename><forename type="middle">L</forename><surname>Gaeta</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Michal</forename><surname>Lipson</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Nature</title>
+		<imprint>
+			<biblScope unit="volume">562</biblScope>
+			<biblScope unit="page" from="401" to="405" />
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">Microcomb-based integrated photonic processing unit</title>
+		<author>
+			<persName><forename type="first">Bowen</forename><surname>Bai</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Qipeng</forename><surname>Yang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Haowen</forename><surname>Shu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Lin</forename><surname>Chang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Fenghe</forename><surname>Yang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Bitao</forename><surname>Shen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Zihan</forename><surname>Tao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jing</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Shaofu</forename><surname>Xu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Weiqiang</forename><surname>Xie</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Weiwen</forename><surname>Zou</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Weiwei</forename><surname>Hu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">John</forename><forename type="middle">E</forename><surname>Bowers</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Xingjun</forename><surname>Wang</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Nat. Commun</title>
+		<imprint>
+			<biblScope unit="volume">14</biblScope>
+			<biblScope unit="page">66</biblScope>
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<analytic>
+		<title level="a" type="main">Integrated turnkey soliton microcombs</title>
+		<author>
+			<persName><forename type="first">Boqiang</forename><surname>Shen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Lin</forename><surname>Chang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Junqiu</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Heming</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Qi-Fan</forename><surname>Yang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Chao</forename><surname>Xiang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Rui</forename><surname>Ning Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jijun</forename><surname>He</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Tianyi</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Weiqiang</forename><surname>Xie</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Joel</forename><surname>Guo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">David</forename><surname>Kinghorn</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Lue</forename><surname>Wu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Qing-Xin</forename><surname>Ji</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Tobias</forename><forename type="middle">J</forename><surname>Kippenberg</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Kerry</forename><surname>Vahala</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">John</forename><forename type="middle">E</forename><surname>Bowers</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Nature</title>
+		<imprint>
+			<biblScope unit="volume">582</biblScope>
+			<biblScope unit="page" from="365" to="369" />
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<analytic>
+		<title level="a" type="main">Hertzlinewidth semiconductor lasers using CMOS-ready ultra-high-Q microresonators</title>
+		<author>
+			<persName><forename type="first">Warren</forename><surname>Jin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Qi-Fan</forename><surname>Yang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Lin</forename><surname>Chang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Boqiang</forename><surname>Shen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Heming</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mark</forename><forename type="middle">A</forename><surname>Leal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Lue</forename><surname>Wu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Maodong</forename><surname>Gao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Avi</forename><surname>Feshali</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mario</forename><surname>Paniccia</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Kerry</forename><forename type="middle">J</forename><surname>Vahala</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">John</forename><forename type="middle">E</forename><surname>Bowers</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Nature Photon</title>
+		<imprint>
+			<biblScope unit="volume">15</biblScope>
+			<biblScope unit="page" from="346" to="353" />
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<analytic>
+		<title level="a" type="main">Integrated microwave photonics</title>
+		<author>
+			<persName><forename type="first">David</forename><surname>Marpaung</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jianping</forename><surname>Yao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">José</forename><surname>Capmany</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Nature Photon</title>
+		<imprint>
+			<biblScope unit="volume">13</biblScope>
+			<biblScope unit="page" from="80" to="90" />
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<analytic>
+		<title level="a" type="main">A quantum engineer&apos;s guide to superconducting qubits</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Krantz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Kjaergaard</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Yan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">P</forename><surname>Orlando</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Gustavsson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><forename type="middle">D</forename><surname>Oliver</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Appl. Phys. Rev</title>
+		<imprint>
+			<biblScope unit="volume">6</biblScope>
+			<biblScope unit="page">21318</biblScope>
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<analytic>
+		<title level="a" type="main">Quantum information processing and quantum optics with circuit quantum electrodynamics</title>
+		<author>
+			<persName><forename type="first">Alexandre</forename><surname>Blais</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Steven</forename><forename type="middle">M</forename><surname>Girvin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">William</forename><forename type="middle">D</forename><surname>Oliver</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Nature Phys</title>
+		<imprint>
+			<biblScope unit="volume">16</biblScope>
+			<biblScope unit="page">247</biblScope>
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<analytic>
+		<title level="a" type="main">Hybrid quantum systems with circuit quantum electrodynamics</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">A</forename><surname>Clerk</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">W</forename><surname>Lehnert</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Bertet</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">R</forename><surname>Petta</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Nakamura</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Nature Phys</title>
+		<imprint>
+			<biblScope unit="volume">16</biblScope>
+			<biblScope unit="page">257</biblScope>
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<analytic>
+		<title level="a" type="main">Circuit quantum electrodynamics</title>
+		<author>
+			<persName><forename type="first">Alexandre</forename><surname>Blais</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Arne</forename><forename type="middle">L</forename><surname>Grimsmo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">M</forename><surname>Girvin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Andreas</forename><surname>Wallraff</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Rev. Mod. Phys</title>
+		<imprint>
+			<biblScope unit="volume">93</biblScope>
+			<biblScope unit="page">25005</biblScope>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<analytic>
+		<title level="a" type="main">Single-Photon Detection with a Josephson Junction Coupled to a Resonator</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Dmitry</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Golubev</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Evgeni</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Leonid</forename><forename type="middle">S</forename><surname>Il'ichev</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Kuzmin</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. Applied</title>
+		<imprint>
+			<biblScope unit="volume">16</biblScope>
+			<biblScope unit="page">14025</biblScope>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b23">
+	<analytic>
+		<title level="a" type="main">Dispersive Thermometry with a Josephson Junction Coupled to a Resonator</title>
+		<author>
+			<persName><forename type="first">O.-P</forename><surname>Saira</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Zgirski</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">L</forename><surname>Viisanen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">S</forename><surname>Golubev</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">P</forename><surname>Pekola</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. Applied</title>
+		<imprint>
+			<biblScope unit="volume">6</biblScope>
+			<biblScope unit="page">24005</biblScope>
+			<date type="published" when="2016">2016</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b24">
+	<analytic>
+		<title level="a" type="main">Demonstration of an ac Josephson junction laser</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">C</forename><surname>Cassidy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Bruno</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Rubbert</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Irfan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Kammhuber</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">N</forename><surname>Schouten</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">R</forename><surname>Akhmerov</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><forename type="middle">P</forename><surname>Kouwenhoven</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Science</title>
+		<imprint>
+			<biblScope unit="volume">355</biblScope>
+			<biblScope unit="page" from="939" to="942" />
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b25">
+	<analytic>
+		<title level="a" type="main">A low-noise on-chip coherent microwave source</title>
+		<author>
+			<persName><forename type="first">Chengyu</forename><surname>Yan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Juha</forename><surname>Hassel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Visa</forename><surname>Vesterinen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jinli</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Joni</forename><surname>Ikonen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Leif</forename><surname>Grönberg</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jan</forename><surname>Goetz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mikko</forename><surname>Möttönen</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Nature Electron</title>
+		<imprint>
+			<biblScope unit="volume">4</biblScope>
+			<biblScope unit="page">885</biblScope>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b26">
+	<analytic>
+		<title level="a" type="main">Single artificial-atom lasing</title>
+		<author>
+			<persName><forename type="first">O</forename><surname>Astafiev</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Inomata</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">O</forename><surname>Niskanen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Yamamoto</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yu</forename><forename type="middle">A</forename><surname>Pashkin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Nakamura</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">S</forename><surname>Tsai</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Nature</title>
+		<imprint>
+			<biblScope unit="volume">449</biblScope>
+			<biblScope unit="page" from="588" to="590" />
+			<date type="published" when="2007">2007</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b27">
+	<analytic>
+		<title level="a" type="main">Resonators coupled to voltage-biased Josephson junctions: From linear response to strongly driven nonlinear oscillations</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Meister</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Mecklenburg</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Gramich</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">T</forename><surname>Stockburger</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Ankerhold</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Kubala</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. B</title>
+		<imprint>
+			<biblScope unit="volume">92</biblScope>
+			<biblScope unit="page">174532</biblScope>
+			<date type="published" when="2015">2015</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b28">
+	<analytic>
+		<title level="a" type="main">Antibunched photons emitted by a dc-biased Josephson junction</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Rolland</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Peugeot</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Dambach</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Westig</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Kubala</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Mukharsky</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Altimiras</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Le Sueur</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Joyez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Vion</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Roche</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Esteve</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Ankerhold</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Portier</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. Lett</title>
+		<imprint>
+			<biblScope unit="volume">122</biblScope>
+			<biblScope unit="page">186804</biblScope>
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b29">
+	<analytic>
+		<title level="a" type="main">Realization of a single-Cooper-pair Josephson laser</title>
+		<author>
+			<persName><forename type="first">Fei</forename><surname>Chen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Juliang</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">D</forename><surname>Armour</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Brahimi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Joel</forename><surname>Stettenheim</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">J</forename><surname>Sirois</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">W</forename><surname>Simmonds</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">P</forename><surname>Blencowe</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">J</forename><surname>Rimberg</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. B</title>
+		<imprint>
+			<biblScope unit="volume">90</biblScope>
+			<biblScope unit="page">20506</biblScope>
+			<date type="published" when="2014">2014</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b30">
+	<analytic>
+		<title level="a" type="main">Bright side of the Coulomb blockade</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Hofheinz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Portier</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Q</forename><surname>Baudouin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Joyez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Vion</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Bertet</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Roche</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Esteve</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. Lett</title>
+		<imprint>
+			<biblScope unit="volume">106</biblScope>
+			<biblScope unit="page">217005</biblScope>
+			<date type="published" when="2011">2011</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b31">
+	<analytic>
+		<title level="a" type="main">Bright On-Demand Source of Antibunched Microwave Photons Based on Inelastic Cooper Pair Tunneling</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Grimm</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Blanchet</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Albert</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Leppäkangas</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Jebari</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Hazra</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Gustavo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J.-L</forename><surname>Thomassin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Dupont-Ferrier</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Portier</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Hofheinz</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. X</title>
+		<imprint>
+			<biblScope unit="volume">9</biblScope>
+			<biblScope unit="page">21016</biblScope>
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b32">
+	<analytic>
+		<title level="a" type="main">Theory of the Josephson junction laser</title>
+		<author>
+			<persName><forename type="first">Steven</forename><forename type="middle">H</forename><surname>Simon</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Nigel</forename><forename type="middle">R</forename><surname>Cooper</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. Lett</title>
+		<imprint>
+			<biblScope unit="volume">121</biblScope>
+			<biblScope unit="page">27004</biblScope>
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b33">
+	<analytic>
+		<title level="a" type="main">Injection locking and synchronization in Josephson photonics devices</title>
+		<author>
+			<persName><forename type="first">Lukas</forename><surname>Danner</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ciprian</forename><surname>Padurariu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Joachim</forename><surname>Ankerhold</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Björn</forename><surname>Kubala</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. B</title>
+		<imprint>
+			<biblScope unit="volume">104</biblScope>
+			<biblScope unit="page">54517</biblScope>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b34">
+	<analytic>
+		<title level="a" type="main">Low-noise fiber-laser frequency combs</title>
+		<author>
+			<persName><forename type="first">Nathan</forename><forename type="middle">R</forename><surname>Newbury</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">William</forename><forename type="middle">C</forename><surname>Swann</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">J. Opt. Soc. Am. B</title>
+		<imprint>
+			<biblScope unit="volume">24</biblScope>
+			<biblScope unit="page" from="1756" to="1770" />
+			<date type="published" when="2007">2007</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b35">
+	<analytic>
+		<title level="a" type="main">Deterministic Nonlinear Transformations of Phase Noise in Quantum-Limited Frequency Combs</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Liehl</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Sulzer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Fehrenbacher</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Rybka</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">V</forename><surname>Seletskiy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Leitenstorfer</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. Lett</title>
+		<imprint>
+			<biblScope unit="volume">122</biblScope>
+			<biblScope unit="page">203902</biblScope>
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b36">
+	<analytic>
+		<title level="a" type="main">Injection locking of a semiconductor double-quantum-dot micromaser</title>
+		<author>
+			<persName><forename type="first">Y.-Y</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Stehlik</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">J</forename><surname>Gullans</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">M</forename><surname>Taylor</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">R</forename><surname>Petta</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. A</title>
+		<imprint>
+			<biblScope unit="volume">92</biblScope>
+			<biblScope unit="page">53802</biblScope>
+			<date type="published" when="2015">2015</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b37">
+	<analytic>
+		<title level="a" type="main">Phase locking of a semiconductor doublequantum-dot single-atom maser</title>
+		<author>
+			<persName><forename type="first">Y.-Y</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">R</forename><surname>Hartke</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Stehlik</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">R</forename><surname>Petta</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. A</title>
+		<imprint>
+			<biblScope unit="volume">96</biblScope>
+			<biblScope unit="page">53816</biblScope>
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b38">
+	<analytic>
+		<title level="a" type="main">Coherent injection locking of quantum cascade laser frequency combs</title>
+		<author>
+			<persName><forename type="first">Johannes</forename><surname>Hillbrand</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Aaron</forename><forename type="middle">Maxwell</forename><surname>Andrews</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Hermann</forename><surname>Detz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Gottfried</forename><surname>Strasser</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Benedikt</forename><surname>Schwarz</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Nature Photon</title>
+		<imprint>
+			<biblScope unit="volume">13</biblScope>
+			<biblScope unit="page" from="101" to="104" />
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b39">
+	<analytic>
+		<title level="a" type="main">Injection-locking of terahertz quantum cascade lasers up to 35 GHz using RF amplitude modulation</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Gellie</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Opt. Express</title>
+		<imprint>
+			<biblScope unit="volume">18</biblScope>
+			<biblScope unit="page" from="20799" to="20816" />
+			<date type="published" when="2010">2010</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b40">
+	<analytic>
+		<title level="a" type="main">Coherent sampling of active mode-locked terahertz quantum cascade lasers and frequency synthesis</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Barbieri</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Nature Photon</title>
+		<imprint>
+			<biblScope unit="volume">5</biblScope>
+			<biblScope unit="page" from="306" to="313" />
+			<date type="published" when="2011">2011</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b41">
+	<analytic>
+		<title level="a" type="main">Injection locking of mid-infrared quantum cascade laser at 14 GHz, by direct microwave modulation</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">R</forename><surname>St-Jean</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Laser Photon. Rev</title>
+		<imprint>
+			<biblScope unit="volume">8</biblScope>
+			<biblScope unit="page" from="443" to="449" />
+			<date type="published" when="2014">2014</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b42">
+	<analytic>
+		<title level="a" type="main">A study of locking phenomena in oscillators</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Adler</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. IRE</title>
+				<meeting>IRE</meeting>
+		<imprint>
+			<date type="published" when="1946">1946</date>
+			<biblScope unit="volume">34</biblScope>
+			<biblScope unit="page" from="351" to="357" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b43">
+	<analytic>
+		<title level="a" type="main">Frequency Comb Generation in Superconducting Resonators</title>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">P</forename><surname>Erickson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">R</forename><surname>Vissers</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Sandberg</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">R</forename><surname>Jefferts</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">P</forename><surname>Pappas</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. Lett</title>
+		<imprint>
+			<biblScope unit="volume">113</biblScope>
+			<biblScope unit="page">187002</biblScope>
+			<date type="published" when="2014">2014</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b44">
+	<analytic>
+		<title level="a" type="main">Controllable microwave frequency comb generation in a tunable superconducting coplanar-waveguide resonator</title>
+		<author>
+			<persName><forename type="first">Shuai-Peng</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Zhen</forename><surname>Chen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Tiefu</forename><surname>Li</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Chin. Phys. B</title>
+		<imprint>
+			<biblScope unit="volume">30</biblScope>
+			<biblScope unit="page">48501</biblScope>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b45">
+	<analytic>
+		<title level="a" type="main">Nearly Quantum-Limited Josephson-Junction Frequency-Comb Synthesizer</title>
+		<author>
+			<persName><forename type="first">Pinlei</forename><surname>Lu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Tzu-Chiao</forename><surname>Chien</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Xi</forename><surname>Cao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Olivia</forename><surname>Lanes</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Chao</forename><surname>Zhou</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Michael</forename><forename type="middle">J</forename><surname>Hatridge</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Saeed</forename><surname>Khan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Hakan</forename><forename type="middle">E</forename><surname>Türeci</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. Appl</title>
+		<imprint>
+			<biblScope unit="volume">15</biblScope>
+			<biblScope unit="page">44031</biblScope>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b46">
+	<analytic>
+		<title level="a" type="main">On-Chip Microwave Frequency Combs in a Superconducting Nanoelectromechanical Device</title>
+		<author>
+			<persName><forename type="first">Junghyun</forename><surname>Shin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Younghun</forename><surname>Ryu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mohammad-Ali</forename><surname>Miri</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Seung-Bo</forename><surname>Shim</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Hyoungsoon</forename><surname>Choi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Andrea</forename><surname>Alù</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Junho</forename><surname>Suh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jinwoong</forename><surname>Cha</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Nano Lett</title>
+		<imprint>
+			<biblScope unit="volume">22</biblScope>
+			<biblScope unit="page" from="5459" to="5465" />
+			<date type="published" when="2022">2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b47">
+	<analytic>
+		<title level="a" type="main">Hybridized Frequency Combs in Multimode Cavity Electromechanical System</title>
+		<author>
+			<persName><forename type="first">Sishi</forename><surname>Wu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yulong</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Qichun</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Shuai-Peng</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Zhen</forename><surname>Chen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Tiefu</forename><surname>Li</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. Lett</title>
+		<imprint>
+			<biblScope unit="volume">128</biblScope>
+			<biblScope unit="page">153901</biblScope>
+			<date type="published" when="2022">2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b48">
+	<analytic>
+		<title level="a" type="main">Superconducting Cavity Electromechanics: The Realization of an Acoustic Frequency Comb at Microwave Frequencies</title>
+		<author>
+			<persName><forename type="first">Xu</forename><surname>Han</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Chang-Ling</forename><surname>Zou</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Wei</forename><surname>Fu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Mingrui</forename><surname>Xu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yuntao</forename><surname>Xu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Hong</forename><forename type="middle">X</forename><surname>Tang</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. Lett</title>
+		<imprint>
+			<biblScope unit="volume">129</biblScope>
+			<biblScope unit="page">107701</biblScope>
+			<date type="published" when="2022">2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b49">
+	<analytic>
+		<title level="a" type="main">Frequency Combs in a Lumped-Element Josephson-Junction Circuit</title>
+		<author>
+			<persName><forename type="first">Saeed</forename><surname>Khan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Hakan</forename><forename type="middle">E</forename><surname>Türeci</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. Lett</title>
+		<imprint>
+			<biblScope unit="volume">120</biblScope>
+			<biblScope unit="page">153601</biblScope>
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b50">
+	<monogr>
+		<author>
+			<persName><forename type="first">P</forename><surname>Solinas</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Gasparinetti</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Golubev</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Giazotto</surname></persName>
+		</author>
+		<title level="m">A Josephson radiation comb. Sci. Rep</title>
+				<imprint>
+			<date type="published" when="2015">2015</date>
+			<biblScope unit="volume">4</biblScope>
+			<biblScope unit="page">12260</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b51">
+	<analytic>
+		<title level="a" type="main">Frequency Combs with Parity-Protected Cross-Correlations and Entanglement from Dynamically Modulated Qubit Arrays</title>
+		<author>
+			<persName><forename type="first">Denis</forename><surname>Ilin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Alexander</forename><forename type="middle">V</forename><surname>Poshakinskiy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Alexander</forename><forename type="middle">N</forename><surname>Poddubny</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Ivan</forename><surname>Iorsh</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. Lett</title>
+		<imprint>
+			<biblScope unit="volume">130</biblScope>
+			<biblScope unit="page">23601</biblScope>
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b52">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">Antoine</forename><surname>Essig</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Quentin</forename><surname>Ficheux</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Théau</forename><surname>Peronnin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Nathanaël</forename><surname>Cottet</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Raphaël</forename><surname>Lescanne</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Alain</forename><surname>Sarlette</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Pierre</forename><surname>Rouchon</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Zaki</forename><surname>Leghtas</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Benjamin</forename><surname>Huard</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Multiplexed Photon Number Measurement. Phys. Rev. X</title>
+		<imprint>
+			<biblScope unit="volume">11</biblScope>
+			<biblScope unit="page">311045</biblScope>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b53">
+	<analytic>
+		<title level="a" type="main">Optical arbitrary waveform generation</title>
+		<author>
+			<persName><forename type="first">Steven</forename><forename type="middle">T</forename><surname>Cundiff</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Andrew</forename><forename type="middle">M</forename><surname>Weiner</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Nature Photon</title>
+		<imprint>
+			<biblScope unit="volume">4</biblScope>
+			<biblScope unit="page" from="760" to="766" />
+			<date type="published" when="2010">2010</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b54">
+	<analytic>
+		<title level="a" type="main">Superconducting Resonators with Voltage-Controlled Frequency and Nonlinearity</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>William</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Strickland</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Heiba</forename><surname>Bassel</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Elfeky</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">O'connell</forename><surname>Joseph</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">William</forename><forename type="middle">F</forename><surname>Yuan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Peng</forename><surname>Schiela</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Dylan</forename><surname>Yu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Maxim</forename><forename type="middle">G</forename><surname>Langone</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Vladimir</forename><forename type="middle">E</forename><surname>Vavilov</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Javad</forename><surname>Manucharyan</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Shabani</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Phys. Rev. Appl</title>
+		<imprint>
+			<biblScope unit="volume">19</biblScope>
+			<biblScope unit="page">34021</biblScope>
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b55">
+	<analytic>
+		<title level="a" type="main">Emission of Coherent THz Radiation from Superconductors</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Ozyuzer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">E</forename><surname>Koshelev</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Kurter</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Gopalsami</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Q</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Tachiki</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Kadowaki</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Yamamoto</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Minami</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Yamaguchi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Tachiki</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">E</forename><surname>Gray</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W.-K</forename><surname>Kwok</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">U</forename><surname>Welp</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Science</title>
+		<imprint>
+			<biblScope unit="volume">318</biblScope>
+			<biblScope unit="page" from="1291" to="1293" />
+			<date type="published" when="2007">2007</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b56">
+	<analytic>
+		<title level="a" type="main">Tantalum microwave resonators with ultra-high intrinsic quality factors</title>
+		<author>
+			<persName><forename type="first">Lili</forename><surname>Shi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Tingting</forename><surname>Guo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Runfeng</forename><surname>Su</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Tianyuan</forename><surname>Chi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Yifan</forename><surname>Sheng</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Junliang</forename><surname>Jiang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Chunhai</forename><surname>Cao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jingbo</forename><surname>Wu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Xuecou</forename><surname>Tu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Guozhu</forename><surname>Sun</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Jian</forename><surname>Chen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Peiheng</forename><surname>Wu</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Appl. Phys. Lett</title>
+		<imprint>
+			<biblScope unit="volume">121</biblScope>
+			<biblScope unit="page">242601</biblScope>
+			<date type="published" when="2022">2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

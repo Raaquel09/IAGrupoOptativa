@@ -1,0 +1,955 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Triple-Band MIMO Antenna for 5 G Terminals</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher>Hindawi Limited</publisher>
+				<availability status="unknown"><p>Copyright Hindawi Limited</p>
+				</availability>
+				<date type="published" when="2024-03-13">13 March 2024</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author role="corresp">
+							<persName><forename type="first">Adnane</forename><surname>Ghiat</surname></persName>
+							<email>adnaneghiat@gmail.com</email>
+							<idno type="ORCID">0009-0002-8114-2491</idno>
+							<affiliation key="aff0">
+								<orgName type="department">Department of Microwave and Communication Antenna Subsystems</orgName>
+								<orgName type="institution">INPT</orgName>
+								<address>
+									<settlement>Rabat</settlement>
+									<country key="MA">Morocco</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Abdelwahed</forename><surname>Tribak</surname></persName>
+							<idno type="ORCID">0000-0001-8042-4134</idno>
+							<affiliation key="aff0">
+								<orgName type="department">Department of Microwave and Communication Antenna Subsystems</orgName>
+								<orgName type="institution">INPT</orgName>
+								<address>
+									<settlement>Rabat</settlement>
+									<country key="MA">Morocco</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Jaouad</forename><surname>Terhzaz</surname></persName>
+							<idno type="ORCID">0000-0002-6584-9545</idno>
+							<affiliation key="aff1">
+								<orgName type="department">Department of Physics</orgName>
+								<orgName type="institution">CRMEF Casablanca-Settat</orgName>
+								<address>
+									<settlement>Casablanca</settlement>
+									<country key="MA">Morocco</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Asmae</forename><surname>Mimouni</surname></persName>
+							<idno type="ORCID">0000-0003-2949-9442</idno>
+							<affiliation key="aff2">
+								<orgName type="department" key="dep1">Department of Physics</orgName>
+								<orgName type="department" key="dep2">College of Science</orgName>
+								<orgName type="institution">Imam Mohammad Ibn Saud Islamic University (IMSIU)</orgName>
+								<address>
+									<postBox>P.O. Box 90950</postBox>
+									<postCode>11623</postCode>
+									<settlement>Riyadh</settlement>
+									<country key="SA">Saudi Arabia</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Hanan</forename><surname>Akhdar</surname></persName>
+							<idno type="ORCID">0000-0001-5144-7169</idno>
+							<affiliation key="aff2">
+								<orgName type="department" key="dep1">Department of Physics</orgName>
+								<orgName type="department" key="dep2">College of Science</orgName>
+								<orgName type="institution">Imam Mohammad Ibn Saud Islamic University (IMSIU)</orgName>
+								<address>
+									<postBox>P.O. Box 90950</postBox>
+									<postCode>11623</postCode>
+									<settlement>Riyadh</settlement>
+									<country key="SA">Saudi Arabia</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Triple-Band MIMO Antenna for 5 G Terminals</title>
+					</analytic>
+					<monogr>
+						<title level="j" type="main">International Journal of Antennas and Propagation</title>
+						<title level="j" type="abbrev">International Journal of Antennas and Propagation</title>
+						<idno type="ISSN">1687-5869</idno>
+						<idno type="eISSN">1687-5877</idno>
+						<imprint>
+							<publisher>Hindawi Limited</publisher>
+							<biblScope unit="volume">2024</biblScope>
+							<biblScope unit="page" from="1" to="10"/>
+							<date type="published" when="2024-03-13">13 March 2024</date>
+						</imprint>
+					</monogr>
+					<idno type="MD5">FFF3EC02BA4CA6D2D8B630B16AC0E0C0</idno>
+					<idno type="DOI">10.1155/2024/6410202</idno>
+					<note type="submission">Received 17 November 2023; Revised 12 February 2024; Accepted 28 February 2024;</note>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.2" ident="GROBID" when="2024-05-16T18:04+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>In this work, a triple-band, four-element antenna is designed for ffth-generation (5 G) terminals operating in LTE band 42 , and the new 5 G radio band (4.8-5.0 GHz). Te proposed antenna array consists of two diferent types of antenna elements: a T-shaped element, which is connected to the feed line, and a C-shaped element, which is used to divide the bandwidth. Te overall size of the proposed antenna element is only 10.5 mm × 5 mm. Te multiantenna system has four antennas and is built on a 0.5-mm-thick Rogers 4003C substrate. Te results for this antenna show a 10 dB measured bandwidth of 650 MHz at the center frequency of 3.6 GHz and 230 MHz at 4.9 GHz, a gain of more than 4 dBi, an isolation of more than 14 dB, and an overall radiation efciency of more than 82%.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.">Introduction</head><p>Fifth-generation (5 G) mobile communications is the latest wireless technology standard that promises to signifcantly improve network speed, connectivity, and efciency over the previous 4 G LTE technology <ref type="bibr" target="#b0">[1,</ref><ref type="bibr" target="#b1">2]</ref>. 5 G technology is expected to enable a wide range of applications, including high-speed Internet access, virtual reality, self-driving cars, and many others classifed as Industry 4.0.</p><p>Speed is one of the key benefts of 5 G technology. It is designed to deliver data transfer speeds up to 20 times faster than 4 G LTE technology, enabling large fle downloads and high-quality video streaming. In addition, 5 G technology ofers low latency, which means that data can be transmitted with very little delay, enabling real-time communications and faster response times for applications that require it.</p><p>5 G networks use high-frequency radio waves with shorter wavelengths than previous generations of wireless communication technologies to enable high data rates and minimal latency. To enable the use of these high-frequency radio waves, 5 G antennas must be designed to operate at these frequencies and handle the high data rates expected from 5 G technology. Tey also need to be tiny and compact to easily ft into the design of 5 G terminals such as smartphones, tablets, and other mobile devices.</p><p>5 G antennas will increase signal strength and overall network performance by using advanced technologies such as beamforming <ref type="bibr" target="#b2">[3]</ref> and multiple-input, multiple-output (MIMO). Beamforming allows the antenna to focus the signal in a specifc direction, improving signal power and quality, while MIMO allows the use of four or more antenna systems instead of a single antenna for signal transmission and reception, further improving signal quality and overall network performance. However, the compactness of the mobile terminal presents some challenges, such as antenna miniaturization, improved antenna isolation, and lower envelope correlation coefcient (ECC).</p><p>In an attempt to minimize the dimensions of the antenna, Liu et al. <ref type="bibr" target="#b3">[4,</ref><ref type="bibr" target="#b4">5]</ref> have chosen to extend the current path of the resonator by slitting, while Sun et al. <ref type="bibr" target="#b5">[6,</ref><ref type="bibr" target="#b6">7]</ref> have chosen to bend the current path. Unfortunately, this approach leads to current cancellation and a consequent reduction in gain. <ref type="bibr">Liu et al.</ref> propose an alternative method, advocating the incorporation of energy storage components such as inductors <ref type="bibr" target="#b7">[8]</ref> and capacitors <ref type="bibr" target="#b8">[9]</ref>. Tis not only helps minimize the size of the antenna but also allows for easy tuning of the resonant frequency. Another approach, described in references <ref type="bibr" target="#b9">[10,</ref><ref type="bibr" target="#b10">11]</ref>, involves Xing et al. using a diferent substrate material (ceramic) with a higher dielectric constant. It is worth noting, however, that this choice is made at the expense of the antenna's bandwidth.</p><p>In an efort to improve antenna isolation, Ren and Zhao in <ref type="bibr" target="#b11">[12]</ref> adopt a self-decoupled structure, while Guo et al. in <ref type="bibr" target="#b12">[13]</ref> use a neutralization line, and Chang et al. in <ref type="bibr" target="#b13">[14]</ref> pursue orthogonal polarization to reduce coupling between adjacent antenna elements and achieve improved antenna isolation. In addition, high-impedance surfaces (HIS) in <ref type="bibr" target="#b14">[15]</ref> and metamaterial structures in <ref type="bibr" target="#b15">[16]</ref> are used to attenuate surface waves and decouple antenna elements. Despite the efectiveness of these decoupling techniques, the transition from a basic MIMO system to a massive MIMO system requires additional measures.</p><p>In this research, we introduce a new triple-band sub-6 GHz 5 G four-element MIMO antenna system for mobile terminals with a specifc frequency range. Te four-antenna array consists of two dual-antenna arrays printed perpendicularly on both side frames of the main substrate, where the feed line and ground plane are printed. Te proposed MIMO antenna system can cover the entire trio of bands: 3.5 GHz (3.4-3.6 GHz), 3.7 GHz (3.6-3.8 GHz), and 4.9 GHz (4.8-5.0 GHz), which are licensed by the U.S., Japan, and China, respectively, for 5 G applications <ref type="bibr" target="#b16">[17,</ref><ref type="bibr" target="#b17">18]</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.">Proposed Antenna Array</head><p>2.1. Antenna Design. Figure <ref type="figure" target="#fig_0">1</ref> and Table <ref type="table" target="#tab_0">1</ref> depict the geometry of the proposed 4-antenna MIMO system for use in a mobile terminal. Te dimensions of the system substrate are 150 mm × 74 mm × 0.5 mm (the size of a typical smartphone), and the ground plane has the same dimensions with a G clearance along the two side edges of the system substrate. Two tiny antenna pairs are individually mounted on two antenna frames on the left and right sides of the phone (similar to the antenna confgurations proposed in <ref type="bibr" target="#b12">[13,</ref><ref type="bibr" target="#b18">19]</ref>). Te 150 mm × 5 mm × 0.5 mm antenna frames are perpendicularly attached to the system substrate at a height of N � 1 mm. Te system substrate and antenna frames are made of Rogers 4003C with a relative permittivity of 3.55 and a dissipation factor of 0.0021. Each antenna element is located 58 mm from the center of the antenna frame. A single antenna element occupies a total area of 10.5 mm × 5 mm, and each array element consists of a T-shaped radiating branch connected to a 50 Ω feed strip, a C-shaped structure on the front of the frame acting as a frequency divider, and all antennas are fed by 50 Ω SMA connectors through a hole on the back of the system substrate. Te exact dimensions of the antenna are shown as follows.</p><p>Initially, the feed branch, which is connected to an SMA connector, has LF � 10 mm and WF � 0.8 mm, indicating its length and width; the end of the feed branch is directly connected to a T-shaped radiating branch printed on the back of the frame; a C-shaped element is printed on the opposite side of the frame; and it has no connection to any other part of the antenna.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.2.">Antenna Analysis</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.2.1.">Evolution Process.</head><p>Te design evolution and parameter analysis of the antenna element have all been investigated to better comprehend the mechanism of the proposed MIMO antenna system.</p><p>In Case 1 of Figures <ref type="figure">2 and 3</ref>, a simple inner-branch monopole is connected to the feed line. In Case 2, a horizontal inner strip is added to the top of the monopole to form a T-shaped strip. Te antenna in Case 2, which only consists of a T-shaped radiation pattern, has the characteristics of a wide single band (with more than 1.1 GHz bandwidth) with 4 GHz as the center frequency. Te construction of the antenna in Case 3 involves adding a C-shaped structure on the outside of the frame to the components of the antenna in Case 2. Now, because of the added structure, the antenna has two diferent frequency resonances at 3.6 and 4.6 GHz, but that is not what we are looking for; the antenna requires a slight adjustment in parameters to achieve the desired bands. By adjusting the size of its lower leg, the second resonance point changes. Te proposed antenna, capable of providing full coverage of the 3.4 to 3.8 GHz and 4.8 to 5 GHz frequency bands, is the result of reducing the length of the lower leg.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.2.2.">Te Impact of the Novel Split Bandwidth.</head><p>Te introduction of a C-shaped structure, which is independent of both the feed line and the radiating element (as opposed to the concept in <ref type="bibr" target="#b19">[20,</ref><ref type="bibr" target="#b20">21]</ref>, which uses a via connection between diferent layers), reveals a remarkable split-bandwidth capability. Tis innovative design represents a signifcant leap forward in antenna technology. With this unique confguration, antennas can operate at multiple frequencies simultaneously, greatly enhancing their adaptability and performance. Tis breakthrough has far-reaching implications, especially for industries that rely on wireless communications. It promises higher data rates, reduced interference, and improved network reliability. Te Cshaped independent structure is a testament to the progress being made in advancing antenna technology and heralds a future of even more efcient and reliable wireless connectivity. Figure <ref type="figure">4</ref> illustrates how adjusting the new parameters afects the antenna design.</p><p>Te antenna current distributions and radiation patterns can be used to better understand the behavior of the proposed antenna element as illustrated in Figures <ref type="figure" target="#fig_2">5 and 6</ref>. When the proposed antenna is activated, the two low-band current distributions (3.5 GHz and 3.7 GHz) are concentrated on one side of the T-shaped branch of the antenna, while the high-band current distribution (4.9 GHz) is mostly concentrated on the C-shaped branch of the antenna. Tis shows that in the low bands (3.5 GHz and 3.7 GHz), the currents remain on the branch connected to the feed line, but in the high bands (4.9 GHz), the currents practically penetrate the frame and move from the T-shaped branch to the C-shaped branch. Tis feature ensures the multiband function of the antenna and the importance of the C-shaped structure.  International Journal of Antennas and Propagation</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.">Four Element (MIMO) Antenna Design and Results</head><p>Te proposed antenna is used to construct a MIMO antenna array to achieve the performance and data throughput requirements of ffth-generation technology. Four antennas are positioned along two side frames to represent the 4element antenna array, as shown in Figure <ref type="figure">7</ref>. Antennas on the same side are spaced 116 mm apart, leaving enough space for additional designs. To reduce mutual interference between antennas on diferent sides, two 50 × 0.4 mm gaps are made in the ground plan to isolate the coupling current from one antenna to the other. In order to smoothly integrate the proposed MIMO structure into mobile phones, a parametric study of its overall dimensions is crucial. Te primary goal is to downsize the structure while maintaining or improving its performance metrics. Tis downsizing initiative is aimed at optimizing the compatibility of the MIMO structure with the compact form factor of handheld devices. Figure <ref type="figure" target="#fig_4">8</ref> illustrates the comparison of systematically adjusting various parameters such as element spacing, ground plan dimensions, and overall antenna array dimensions by −4% and −8%. By carefully analyzing the efects of these parameter variations through simulation, we can ensure that the downsized MIMO structure meets the stringent size constraints of handheld phones while providing reliable and efcient wireless communication capabilities.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.1.">Performance of the MIMO Antenna System.</head><p>In Figure <ref type="figure" target="#fig_5">9</ref>, we built a prototype of the proposed 4-antenna MIMO system. We performed S11 measurements using the Agilent N3383A vector network analyzer (VNA), which was calibrated in the frequency range of 300 kHz to 9 GHz using the Agilent 85033E 3.5 mm calibration kit. Ten, we evaluated its performance by comparing the experimental results with simulations obtained from two diferent programs: CST and Ansys HFSS. Remarkably, the comparison yielded almost identical results.   <ref type="figure" target="#fig_0">11 and 12</ref>. Tere is no problem with the isolation between ports 1, 2, and 4, represented by S1, 2 and S1, 4, respectively. However, due to their close proximity, which is exactly 52.8 mm, and the sheared ground plan, ports 1 and 3 have a mutual coupling of about 10 dB. Tis is where the two slots in the ground plane come into play, as shown in Figure <ref type="figure">7</ref>. Te mutual coupling improved with these slots, especially in the midband (3.6-3.8 GHz), where it went from 10 dB to 14 dB, which is a big improvement.</p><p>Furthermore, in Figures <ref type="figure" target="#fig_0">13 and 14</ref>, the antenna realized gains are 4.9 dBi at 3.5 GHz, 4.8 dBi at 3.7 GHz, and 5.8 dBi at 4.9 GHz, with the total efciency ranging from 82% to 89% in all bands. Te gain and efciency of the antenna system show its strength.</p><p>Figure <ref type="figure" target="#fig_2">15</ref> displays the Envelope Correlation Coefcients (ECC) of the proposed MIMO antenna system. Te ECC values are estimated based on the complex radiation farfelds for each pair of antennas (i) and (j) using the following equation <ref type="bibr" target="#b19">[20]</ref>  </p><p>where  middle band, they are less than 0.01 and ECC (1, 2) is the higher one; these results indicate better spatial separation between the antennas, allowing them to capture more independent information from the environment. Tis spatial separation is crucial for achieving spatial multiplexing gains in MIMO systems, where multiple data streams are transmitted simultaneously on diferent antennas.</p><formula xml:id="formula_1">A ij (θ, ϕ) � E θ,i (θ, ϕ).E * θ,j (θ, ϕ) + E ϕ,i (θ, ϕ).E * ϕ,j (θ, ϕ). (<label>2</label></formula><formula xml:id="formula_2">) (i) A ij (θ,</formula><p>Table <ref type="table">2</ref> highlights and compares the performance of the proposed design with the results of various existing designs. Te proposed design clearly outperforms in terms of both efciency and envelope correlation coefcient (ECC), thanks to the optimization of the shape, size, and confguration of the radiating element, along with higherthan-average isolation. In addition, the proposed design deviates from conventional approaches by covering three bands. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.">Conclusion</head><p>In this article, a 4-element (MIMO) antenna array is designed specifcally for 5 G terminals. Te proposed antenna can fully cover all three diferent 5 G frequency bands: [3.4 GHz-3.6 GHz], [3.6 GHz-3.8 GHz], and [4.8 GHz-5 GHz]. Te antenna array is designed to provide several desirable features, including high gain over 4 dBi, which allows the signal to be transmitted over long distances little loss of signal strength. In addition, it ofers high isolation above 14 dB, meaning that the signals sent by one antenna element will not interfere with those sent by other components in the array. Tis feature is particularly important for 5 G systems, where multiple antennas will be used simultaneously. Te proposed antenna array also exhibits high efciency, exceeding 82%. Finally, the ECC is less than 0.02.</p><p>Due to its robust MIMO performance, the proposed antenna is expected to be used in various 5 G mobile communication applications, especially those that require high-speed data transfer, low latency, and reliable transmission.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Figure 1 :</head><label>1</label><figDesc>Figure 1: Geometry of the triple-band 4-antenna MIMO system. (a) Global structure. (b) One element. (c) Left view. (d) Front view. (e) Back view. (f ) Top view.</figDesc><graphic coords="3,376.94,431.74,98.96,76.48" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>Figure 2 :Figure 3 :Figure 4 :</head><label>234</label><figDesc>Figure 2: Design evolution of a single antenna.</figDesc><graphic coords="4,131.33,209.78,132.93,76.84" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head>Figure 5 :</head><label>5</label><figDesc>Figure 5: Simulated current distributions at (a) 3.5 GHz. (b) 3.7 GHz. (c) 4.9 GHz.</figDesc><graphic coords="5,218.61,570.76,123.47,86.56" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head>Figure 6 :Figure 7 :</head><label>67</label><figDesc>Figure 6: 3D radiation patterns of the proposed antenna element at (a) 3.5 GHz. (b) 3.7 GHz. (c) 4.9 GHz.</figDesc><graphic coords="6,304.54,421.18,132.49,80.08" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_4"><head>Figure 8 :</head><label>8</label><figDesc>Figure 8: Analyzing the S-parameters of downsized MIMO structure.</figDesc><graphic coords="7,301.53,503.11,183.74,108.40" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_5"><head>Figure 9 :</head><label>9</label><figDesc>Figure 9: Prototype of the proposed 4-antenna MIMO system.</figDesc><graphic coords="7,114.96,503.71,182.09,107.92" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_6"><head>Figure 10 :Figure 11 :Figure 12 :Figure 13 :Figure 14 :Figure 15 :</head><label>101112131415</label><figDesc>Figure 10: Simulated and measured refection coefcients for the proposed 4 antenna MIMO system.</figDesc><graphic coords="8,80.45,295.78,103.31,98.56" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_0"><head>Table 1 :</head><label>1</label><figDesc>Antenna dimension.</figDesc><table><row><cell>Parameter</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_1"><head></head><label></label><figDesc>:</figDesc><table><row><cell></cell><cell>dBi</cell><cell></cell><cell>dBi</cell></row><row><cell></cell><cell>6.23</cell><cell></cell><cell>6.23</cell></row><row><cell></cell><cell>2.6</cell><cell></cell><cell>2.6</cell></row><row><cell></cell><cell>-1.04</cell><cell></cell><cell>-1.04</cell></row><row><cell></cell><cell>-4.67</cell><cell></cell><cell>-4.67</cell></row><row><cell></cell><cell>-8.31</cell><cell></cell><cell>-8.31</cell></row><row><cell></cell><cell>-11.9</cell><cell></cell><cell>-11.9</cell></row><row><cell></cell><cell>-15.6</cell><cell></cell><cell>-15.6</cell></row><row><cell></cell><cell>-19.2</cell><cell></cell><cell>-19.2</cell></row><row><cell></cell><cell>-22.9</cell><cell></cell><cell>-22.9</cell></row><row><cell></cell><cell>-26.5</cell><cell></cell><cell>-26.5</cell></row><row><cell></cell><cell>-30.1</cell><cell></cell><cell>-30.1</cell></row><row><cell>f=3.5 GHz</cell><cell>-33.8</cell><cell>f=3.7 GHz</cell><cell>-33.8</cell></row><row><cell>(a)</cell><cell></cell><cell>(b)</cell><cell></cell></row><row><cell></cell><cell></cell><cell>dBi</cell><cell></cell></row><row><cell></cell><cell></cell><cell>6.23</cell><cell></cell></row><row><cell></cell><cell></cell><cell>2.6</cell><cell></cell></row><row><cell></cell><cell></cell><cell>-1.04</cell><cell></cell></row><row><cell></cell><cell></cell><cell>-4.67</cell><cell></cell></row><row><cell></cell><cell></cell><cell>-8.31</cell><cell></cell></row><row><cell></cell><cell></cell><cell>-11.9</cell><cell></cell></row><row><cell></cell><cell></cell><cell>-15.6</cell><cell></cell></row><row><cell></cell><cell></cell><cell>-19.2</cell><cell></cell></row><row><cell></cell><cell></cell><cell>-22.9</cell><cell></cell></row><row><cell></cell><cell></cell><cell>-26.5</cell><cell></cell></row><row><cell></cell><cell></cell><cell>-30.1</cell><cell></cell></row><row><cell>f=4.9 GHz</cell><cell></cell><cell>-33.8</cell><cell></cell></row><row><cell></cell><cell></cell><cell>(c)</cell><cell></cell></row></table></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" xml:id="foot_0">International Journal of Antennas and Propagation</note>
+		</body>
+		<back>
+
+			<div type="acknowledgement">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Acknowledgments</head><p>Te authors would like to thank the Deanship of Science Research at Imam Mohammad Ibn Saud Islamic University for their funding under Research Group no. RG-21-09-47 and Mr. Tomás Fernández from the Department of Communications Engineering of the University of Cantabria for his software support.</p></div>
+			</div>
+
+
+			<div type="availability">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Data Availability</head><p>Te PROJECT1.RAR data used to support the fndings of this study have been attached with the article.</p></div>
+			</div>
+
+			<div type="annex">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Conflicts of Interest</head><p>Te authors declare that there are no conficts of interest regarding the publication of this paper.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Authors' Contributions</head><p>Conceptualization, investigation, and writing original draft preparation were conducted by A. Ghiat; methodology and validation were performed by A. Ghiat and J. Terhzaz; resources were collected by A. Mimouni and H. Akhdar; writing, review, and editing were carried out by A. Tribak and J. Terhzaz; visualization was performed by A. Ghiat, A. Tribak, and J. Terhzaz.; supervision and project administration were conducted by A. Tribak. All authors have read and agreed to the published version of the manuscript. </p></div>			</div>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<monogr>
+		<title level="m" type="main">Enabling 5G mobile Wireless Technologies</title>
+		<author>
+			<persName><forename type="first">L</forename><forename type="middle">B</forename><surname>Le</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Lau</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Jorswieck</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2015">2015</date>
+			<pubPlace>SpringerOpen, Berlin, Germany</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">What will 5G be?</title>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">G</forename><surname>Andrews</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Buzzi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Choi</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Journal on Selected Areas in Communications</title>
+		<imprint>
+			<biblScope unit="volume">32</biblScope>
+			<biblScope unit="issue">6</biblScope>
+			<biblScope unit="page" from="1065" to="1082" />
+			<date type="published" when="2014">2014</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">Te role of millimeterwave technologies in 5G/6G wireless communications</title>
+		<author>
+			<persName><forename type="first">W</forename><surname>Hong</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><forename type="middle">H</forename><surname>Jiang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Yu</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Journal of Microwaves</title>
+		<imprint>
+			<biblScope unit="volume">1</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="101" to="122" />
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">Eight-Port MIMO array using characteristic mode theory for 5G smartphone applications</title>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">D</forename><surname>Ren</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><forename type="middle">Y</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">Y D</forename><surname>Sim</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Access</title>
+		<imprint>
+			<biblScope unit="volume">7</biblScope>
+			<biblScope unit="page" from="45679" to="45692" />
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">Highisolation 3.5 GHz eight-antenna MIMO array using balanced open-slot antenna element for 5G smartphones</title>
+		<author>
+			<persName><forename type="first">Y</forename><forename type="middle">X</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">Y D</forename><surname>Sim</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Luo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><forename type="middle">L</forename><surname>Yang</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Antennas and Propagation</title>
+		<imprint>
+			<biblScope unit="volume">67</biblScope>
+			<biblScope unit="issue">6</biblScope>
+			<biblScope unit="page" from="3820" to="3830" />
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">Wideband 5G MIMO antenna with integrated orthogonal-mode dual-antenna pairs for metal-rimmed smartphones</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Sun</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Feng</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Antennas and Propagation</title>
+		<imprint>
+			<biblScope unit="volume">68</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="2494" to="2503" />
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">Dual-band eight-element MIMO array using multi-slot decoupling technique for 5G terminals</title>
+		<author>
+			<persName><forename type="first">W</forename><surname>Hu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Qian</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Gao</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Access</title>
+		<imprint>
+			<biblScope unit="volume">7</biblScope>
+			<biblScope unit="page" from="153910" to="153920" />
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">Hepta-band metalframe antenna for LTE/WWAN full-screen smartphone</title>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Cui</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><forename type="middle">T</forename><surname>Jia</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">D</forename><surname>Ren</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Antennas and Wireless Propagation Letters</title>
+		<imprint>
+			<biblScope unit="volume">19</biblScope>
+			<biblScope unit="issue">7</biblScope>
+			<biblScope unit="page" from="1241" to="1245" />
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">Hepta-band coupled-fed loop antenna for LTE/WWAN unbroken metalrimmed smartphone applications</title>
+		<author>
+			<persName><forename type="first">Z.-Q</forename><surname>Xu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Q.-Q</forename><surname>Zhou</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y.-L</forename><surname>Ban</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">S</forename><surname>Ang</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Antennas and Wireless Propagation Letters</title>
+		<imprint>
+			<biblScope unit="volume">17</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="311" to="314" />
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">A broadband hybrid water antenna for hand-portable applications</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Xing</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Huang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Q</forename><surname>Xu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Liu</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Antennas and Wireless Propagation Letters</title>
+		<imprint>
+			<biblScope unit="volume">15</biblScope>
+			<biblScope unit="page" from="174" to="177" />
+			<date type="published" when="2016">2016</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">A transparent dielectric-loaded reconfgurable antenna with a wide tuning range</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Xing</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Huang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Q</forename><surname>Xu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Alja</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Afreh</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Antennas and Wireless Propagation Letters</title>
+		<imprint>
+			<biblScope unit="volume">15</biblScope>
+			<biblScope unit="page" from="1630" to="1633" />
+			<date type="published" when="2016">2016</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">Dual-band MIMO antenna with compact self-decoupled antenna pairs for 5G mobile applications</title>
+		<author>
+			<persName><forename type="first">Z</forename><forename type="middle">Y</forename></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">P</forename><surname>Zhao</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Access</title>
+		<imprint>
+			<biblScope unit="volume">7</biblScope>
+			<biblScope unit="page" from="82288" to="82296" />
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">Side-edge frame printed eight-port dual-band antenna array for 5G smartphone applications</title>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">L</forename><surname>Guo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Cui</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><forename type="middle">H</forename><surname>Sun</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Antennas and Propagation</title>
+		<imprint>
+			<biblScope unit="volume">66</biblScope>
+			<biblScope unit="issue">12</biblScope>
+			<biblScope unit="page" from="7412" to="7417" />
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">Orthogonally polarized dual antenna pair with high isolation and balanced high performance for 5G MIMO smartphone</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Chang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><forename type="middle">F</forename><surname>Yu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">P</forename><surname>Wei</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><forename type="middle">Y</forename><surname>Wang</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Antennas and Propagation</title>
+		<imprint>
+			<biblScope unit="volume">68</biblScope>
+			<biblScope unit="issue">5</biblScope>
+			<biblScope unit="page" from="3487" to="3495" />
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">A low mutual coupling MIMO antenna using EBG structures</title>
+		<author>
+			<persName><forename type="first">X</forename><surname>Jiang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Jiang</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 2017 Progress In Electromagnetics Research Symposium-Spring (PIERS)</title>
+				<meeting>the 2017 Progress In Electromagnetics Research Symposium-Spring (PIERS)<address><addrLine>St. Petersburg, Russia</addrLine></address></meeting>
+		<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2017-05">May 2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<analytic>
+		<title level="a" type="main">Mu-negative metamaterial flter-based isolation technique for MIMO antennas</title>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">R</forename><surname>Tummaluru</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">K</forename><surname>Chaudhary</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Electronics Letters</title>
+		<imprint>
+			<biblScope unit="volume">53</biblScope>
+			<biblScope unit="issue">10</biblScope>
+			<biblScope unit="page" from="644" to="646" />
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<monogr>
+		<author>
+			<persName><surname>Qualcomm</surname></persName>
+		</author>
+		<ptr target="https://www.qualcomm.com/research/5g/5g-nr" />
+		<title level="m">5G NR (new radio)</title>
+				<imprint>
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<analytic>
+		<title level="a" type="main">China reserves spectrum for 5G services</title>
+		<ptr target="https://asiatimes.com/2017/11/china-reserves-spectrum-5gservices/" />
+	</analytic>
+	<monogr>
+		<title level="j">Asia Times</title>
+		<imprint>
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<monogr>
+		<title level="m" type="main">A low-profle and high-isolated MIMO antenna for 5G mobile terminal</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Mo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Sun</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X</forename><surname>Sun</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Du</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2020">2020</date>
+			<biblScope unit="volume">11</biblScope>
+			<biblScope unit="page" from="360" to="2020" />
+		</imprint>
+	</monogr>
+	<note type="report_type">Micromachines</note>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<analytic>
+		<title level="a" type="main">MIMO antenna with compact decoupled antenna pairs for 5G mobile terminals</title>
+		<author>
+			<persName><forename type="first">Z</forename><forename type="middle">Y</forename><surname>Ren</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">P</forename><surname>Zhao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">J</forename><surname>Wu</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Antennas and Wireless Propagation Letters</title>
+		<imprint>
+			<biblScope unit="volume">18</biblScope>
+			<biblScope unit="issue">7</biblScope>
+			<biblScope unit="page" from="1367" to="1371" />
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<analytic>
+		<title level="a" type="main">Dual-band circular-polarized microstrip antenna for ultrawideband positioning in smartphones with fexible liquid crystal polymer process</title>
+		<author>
+			<persName><forename type="first">Y</forename><forename type="middle">J</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">Z</forename><surname>Hu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">F</forename><surname>Wu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><forename type="middle">Y</forename><surname>Wang</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Antennas and Propagation</title>
+		<imprint>
+			<biblScope unit="volume">71</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="3155" to="3163" />
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<analytic>
+		<title level="a" type="main">An 8-element dualband MIMO antenna with decoupling stub for 5G smartphone applications</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Cui</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">L</forename><surname>Guo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">Y D</forename><surname>Sim</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Antennas and Wireless Propagation Letters</title>
+		<imprint>
+			<biblScope unit="volume">18</biblScope>
+			<biblScope unit="issue">10</biblScope>
+			<biblScope unit="page" from="2095" to="2099" />
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<analytic>
+		<title level="a" type="main">A low-profle compact UWB antenna array for sub-6 GHz MIMO applications in 5G metal-frame smartphones</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">M</forename><surname>Fakharian</surname></persName>
+		</author>
+		<idno>ID e23320</idno>
+	</analytic>
+	<monogr>
+		<title level="j">International Journal of RF and Microwave Computer-Aided Engineering</title>
+		<imprint>
+			<biblScope unit="volume">32</biblScope>
+			<biblScope unit="issue">10</biblScope>
+			<date type="published" when="2022">2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b23">
+	<monogr>
+		<title level="m" type="main">Dualband MIMO antenna for 5G/WLAN mobile terminals</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Huang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Dong</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Q</forename><surname>Cai</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Chen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Liu</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2021">2021</date>
+			<biblScope unit="volume">12</biblScope>
+			<biblScope unit="page" from="489" to="2021" />
+		</imprint>
+	</monogr>
+	<note type="report_type">Micromachines</note>
+</biblStruct>
+
+<biblStruct xml:id="b24">
+	<analytic>
+		<title level="a" type="main">Wideband antenna pair and its applications for 5G metal frame mobile phones</title>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">W</forename><surname>Huang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><forename type="middle">W</forename><surname>Du</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Electromagnetic Waves and Applications</title>
+		<imprint>
+			<biblScope unit="volume">35</biblScope>
+			<biblScope unit="issue">13</biblScope>
+			<biblScope unit="page" from="1742" to="1753" />
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b25">
+	<analytic>
+		<title level="a" type="main">Design of a dual-band 12-element MIMO antenna array for 5G mobile applications</title>
+		<author>
+			<persName><forename type="first">V</forename><surname>Takur</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Jaglan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">D</forename><surname>Gupta</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="s">Progress in Electromagnetics Research Letters</title>
+		<imprint>
+			<biblScope unit="volume">95</biblScope>
+			<biblScope unit="page" from="73" to="81" />
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b26">
+	<analytic>
+		<title level="a" type="main">Dual-band eight-antenna array design for MIMO applications in 5G mobile terminals</title>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">X</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X</forename><forename type="middle">K</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Wang</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Access</title>
+		<imprint>
+			<biblScope unit="volume">7</biblScope>
+			<biblScope unit="page" from="71636" to="71644" />
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b27">
+	<analytic>
+		<title level="a" type="main">High-Isolated multi-element MIMO antennas for mobile terminals</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Huang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Sui</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the 2022 IEEE Conference on Antenna Measurements and Applications (CAMA)</title>
+				<meeting>the 2022 IEEE Conference on Antenna Measurements and Applications (CAMA)<address><addrLine>Guangzhou, China</addrLine></address></meeting>
+		<imprint>
+			<publisher>IEEE</publisher>
+			<date type="published" when="2022-12">December 2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b28">
+	<monogr>
+		<title level="m" type="main">Eight element side edged framed MIMO antenna array for future 5G smart phones</title>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">H</forename><surname>Kiani</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Altaf</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Abdullah</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2020">2020</date>
+			<biblScope unit="volume">11</biblScope>
+			<biblScope unit="page" from="956" to="2020" />
+		</imprint>
+	</monogr>
+	<note type="report_type">Micromachines</note>
+</biblStruct>
+
+<biblStruct xml:id="b29">
+	<analytic>
+		<title level="a" type="main">Five-port MIMO antenna for n79-5G band with improved isolation by diversity and decoupling techniques</title>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">K</forename><surname>Jaiswal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Kumari</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">K</forename><surname>Ojha</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">V</forename><surname>Srivastava</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Electromagnetic Waves and Applications</title>
+		<imprint>
+			<biblScope unit="volume">36</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="542" to="556" />
+			<date type="published" when="2022">2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b30">
+	<monogr>
+		<author>
+			<persName><forename type="first">H.-Y</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C.-J</forename><surname>Huang</surname></persName>
+		</author>
+		<title level="m">Wideband MIMO antenna array design for future mobile devices operating in the 5G NR frequency bands n77/n78/n79 and LTE band</title>
+				<imprint>
+			<date type="published" when="2019">2019</date>
+			<biblScope unit="volume">46</biblScope>
+			<biblScope unit="page" from="74" to="78" />
+		</imprint>
+	</monogr>
+	<note>IEEE Antennas and Wireless Propagation Letters</note>
+</biblStruct>
+
+<biblStruct xml:id="b31">
+	<analytic>
+		<title level="a" type="main">MIMO antenna system for modern 5G handheld devices with healthcare and high rate delivery</title>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">H</forename><surname>Kiani</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Altaf</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">R</forename><surname>Anjum</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Sensors</title>
+		<imprint>
+			<biblScope unit="volume">21</biblScope>
+			<biblScope unit="issue">21</biblScope>
+			<biblScope unit="page" from="7415" to="2021" />
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b32">
+	<monogr>
+		<title level="m" type="main">Compact sub 6 GHz dual band twelve-element MIMO antenna for 5G metal-rimmed smartphone applications</title>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">C</forename><surname>Lin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">H</forename><surname>Cheng</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">C</forename><surname>Chen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">S</forename><surname>Wei</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2023">2023</date>
+			<biblScope unit="volume">14</biblScope>
+			<biblScope unit="page" from="1399" to="2023" />
+		</imprint>
+	</monogr>
+	<note type="report_type">Micromachines</note>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

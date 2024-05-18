@@ -1,0 +1,824 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Gradient sensing limit of a cell when controlling the elongating direction</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+				<date type="published" when="2024-05-08">8 May 2024</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Kento</forename><surname>Nakamura</surname></persName>
+						</author>
+						<author role="corresp">
+							<persName><forename type="first">Tetsuya</forename><forename type="middle">J</forename><surname>Kobayashi</surname></persName>
+							<email>tetsuya@mail.crmind.net</email>
+						</author>
+						<author>
+							<affiliation key="aff0">
+								<orgName type="department">RIKEN Center for Brain Science</orgName>
+								<address>
+									<addrLine>2-1 Hirosawa</addrLine>
+									<postCode>351-0198</postCode>
+									<settlement>Wako</settlement>
+									<region>Saitama</region>
+									<country key="JP">Japan</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<affiliation key="aff1">
+								<orgName type="department">Institute of Industrial Science</orgName>
+								<orgName type="institution">The University of Tokyo</orgName>
+								<address>
+									<addrLine>4-6-1, Meguro-ku</addrLine>
+									<postCode>153-8505</postCode>
+									<settlement>Komaba, Tokyo</settlement>
+									<country key="JP">Japan</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<affiliation key="aff2">
+								<orgName type="laboratory">Also at Universal Biology Institute</orgName>
+								<orgName type="institution">The University of Tokyo</orgName>
+								<address>
+									<addrLine>7-3-1, Bunkyo-ku</addrLine>
+									<postCode>113-8654</postCode>
+									<settlement>Hongo, Tokyo</settlement>
+									<country key="JP">Japan</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<affiliation key="aff3">
+								<orgName type="department" key="dep1">Department of Mathematical Informatics</orgName>
+								<orgName type="department" key="dep2">the Graduate School of Information Science and Technology</orgName>
+								<orgName type="institution">the University of Tokyo</orgName>
+								<address>
+									<addrLine>7-3-1, Bunkyo-ku</addrLine>
+									<postCode>113-8654</postCode>
+									<settlement>Hongo, Tokyo</settlement>
+									<country key="JP">Japan</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Gradient sensing limit of a cell when controlling the elongating direction</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date type="published" when="2024-05-08">8 May 2024</date>
+						</imprint>
+					</monogr>
+					<idno type="MD5">FB62F24FB91B77AD764E2D89214D796A</idno>
+					<idno type="arXiv">arXiv:2405.04810v1[q-bio.CB]</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.2" ident="GROBID" when="2024-05-16T18:04+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Eukaryotic cells perform chemotaxis by determining the direction of chemical gradients based on stochastic sensing of concentrations at the cell surface. To examine the efficiency of this process, previous studies have investigated the limit of estimation accuracy for gradients. However, these studies assume that the cell shape and gradient are constant, and do not consider how adaptive regulation of cell shape affects the estimation limit. Dynamics of cell shape during gradient sensing is biologically ubiquitous and can influence the estimation by altering the way the concentration is measured, and cells may strategically regulate their shape to improve estimation accuracy. To address this gap, we investigate the estimation limits in dynamic situations where cells change shape adaptively depending on the sensed signal. We approach this problem by analyzing the stationary solution of the Bayesian nonlinear filtering equation. By applying diffusion approximation to the ligand-receptor binding process and the Laplace method for the posterior expectation under a high signal-to-noise ratio regime, we obtain an analytical expression for the estimation limit. This expression indicates that estimation accuracy can be improved by elongating perpendicular to the estimated direction, which is also confirmed by numerical simulations. Our analysis provides a basis for clarifying the interplay between estimation and control in gradient sensing and sheds light on how cells optimize their shape to enhance chemotactic efficiency.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>I. INTRODUCTION</head><p>Cells have evolved sophisticated mechanisms to sense and adapt to their fluctuating environment. An example of such adaptation is eukaryotic chemotaxis, manifested by the directed movement of cells along chemical gradients <ref type="bibr" target="#b0">[1]</ref>. In eukaryotic cells, chemotaxis relies on the spatial sensing of chemical gradients using an array of receptors distributed across the cell surface. The reliable detection of chemical gradients is challenging due to the inherent stochasticity of receptor-ligand binding <ref type="bibr" target="#b1">[2,</ref><ref type="bibr" target="#b2">3]</ref>. This stochasticity introduces measurement noise in the local ligand concentration and leads to errors in estimating spatial difference of the concentrations. Despite this uncertainty, eukaryotic cells exhibit a remarkable ability to detect and navigate shallow gradients <ref type="bibr" target="#b3">[4]</ref><ref type="bibr" target="#b4">[5]</ref><ref type="bibr" target="#b5">[6]</ref><ref type="bibr" target="#b6">[7]</ref>, raising the question of how sensory systems are optimized to process noisy chemical information. To address this question, theoretical studies have sought to elucidate the limits on the accuracy of chemical gradient sensing in eukaryotic cells set by stochastic uncertainty <ref type="bibr" target="#b2">[3,</ref><ref type="bibr" target="#b7">[8]</ref><ref type="bibr" target="#b8">[9]</ref><ref type="bibr" target="#b9">[10]</ref><ref type="bibr" target="#b10">[11]</ref><ref type="bibr" target="#b11">[12]</ref><ref type="bibr" target="#b12">[13]</ref>. These studies have employed tools from estimation theory, information theory, and statistical physics to derive bounds on the precision of gradient sensing.</p><p>One notable factor that can influence the accuracy of gradient sensing is the shape of the cell. During chemotaxis, eukaryotic cells undergo significant shape changes, such as elongation, pseudopod extension, and polarization <ref type="bibr" target="#b13">[14]</ref><ref type="bibr" target="#b14">[15]</ref><ref type="bibr" target="#b15">[16]</ref>. These shape changes modulate the spatial distribution of receptors on the cell surface, altering the way in which the cell samples the chemical gradients. For instance, an elongated cell may be more sensitive to concentration differences along its long axis but less sensitive to differences along its short axis. By dynamically regulating its shape, a eukaryotic cell may enhance its gradient sensing performance by sampling gradient information more effectively.</p><p>However, the theoretical understanding of how cell shape affects gradient sensing remains limited. Previous studies have investigated the impact of cell elongation on the static gradient sensing based on the optimal estimation theory <ref type="bibr" target="#b16">[17,</ref><ref type="bibr" target="#b17">18]</ref>. These studies have revealed that the estimation accuracy of gradient depends on the spatial configuration between the cell and the true gradient, such as the angle between the cell's elongation axis and the gradient direction. However, these studies assume that the elongation direction is temporally fixed and externally determined, not actively adjusted by the cell in response to its environment. This assumption limits the applicability of their findings to actual scenarios where cells continuously adjust their elongation direction based on sensory inputs. Another line of studies has addressed this limitation by developing a phenomenological model that couples cell shape dynamics with an internal polarity mechanism that represents the cell's estimate of the gradient direction <ref type="bibr" target="#b13">[14,</ref><ref type="bibr" target="#b18">19]</ref>. While these models provide valuable insights into the interplay between shape and sensing during chemotaxis, it does not provide a framework for deriving estimation limit attained by dynamic cell shape control.</p><p>In this work, we bridge this gap by developing optimality theory to derive the gradient sensing limit under the feedback control of cell shape. We frame the gradient sensing problem as a Bayesian nonlinear filtering problem <ref type="bibr" target="#b19">[20,</ref><ref type="bibr" target="#b20">21]</ref>, where the cell estimates the gradient direction from noisy receptor activity measurements while controlling its shape. The Bayesian nonlinear filtering theory has been applied to derive the optimal cellular sensing strategy under fluctuating environments <ref type="bibr" target="#b21">[22]</ref><ref type="bibr" target="#b22">[23]</ref><ref type="bibr" target="#b23">[24]</ref><ref type="bibr" target="#b24">[25]</ref>. The theory has recently been applied to the gradient sensing by a eukaryotic cell with a circular shape <ref type="bibr" target="#b12">[13,</ref><ref type="bibr" target="#b25">26]</ref>, but has not been used under feedback control of sensory apparatus. We show that the Bayesian nonlinear filtering theory can be combined with feedback control strategy of sensory processes.</p><p>Our paper is organized as follows. In Section II, we introduce a mathematical model of gradient sensing by a cell with a dynamically controlled shape. This model incorporates the stochastic dynamics of receptor-ligand binding and the feedback control of cell shape based on the sensory information. In Section III, we formulate the gradient sensing problem as a Bayesian nonlinear filtering problem and derive the optimal filtering equation for the posterior distribution of the gradient direction, which sets a limit on the accuracy of gradient sensing. In Section IV, we specialize our analysis to the case where the cell can control its elongation direction to be either parallel or perpendicular to the estimated gradient direction. In this case, we derive an analytical expression for the asymptotic estimation error in the limit of high signalto-noise ratio, and we validate our theory using numerical simulations. Finally, in section V, we conclude this work by discussing the possible directions for future research.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>II. MODEL</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>A. Setting</head><p>We formulate a spatial gradient sensing model that incorporates cell-shape modulation (Figure <ref type="figure" target="#fig_0">1</ref>).</p><p>We consider a cell placed at the origin of a 2dimensional space with a linear concentration gradient. The gradient direction is denoted by θ t ∈ [0, 2π) and is assumed to fluctuate over time following a circular diffusion process</p><formula xml:id="formula_0">dθ t = √ 2DdW t ,</formula><p>where W t is a standard Wiener process and D is the rotational diffusion coefficient. The ligand concentration c(x, θ) at a given position x ∈ R 2 when the gradient direction is θ t = θ is given by c(x, θ) = c 0 + ∇c ⟨x, e(θ)⟩ .</p><p>Here, c 0 and ∇c are constants representing the concentration at the origin and the gradient steepness, respectively, and e(θ) = [cos(θ), sin(θ)] T is a unit vector pointing in the direction θ.</p><p>The cell senses the gradient using receptors on its surface, represented as a closed curve r t = {r ϕ t | ϕ ∈ [0, 2π)} based on the Fourier series:</p><formula xml:id="formula_1">r ϕ t = r 0 1 + ∞ k=2 ϵ k t cos(k(ϕ − ϕ k t ))</formula><p>where ϵ k t ∈ R and ϕ k t ∈ [0, 2π) are the amplitude and phase of the k-th Fourier component, respectively. The first Fourier component is removed to ensure that the cell center Dϕr ϕ t coincides with the coordinate origin. Given the cell radius r ϕ t , we assume that N ∈ N receptors are located on the cell surface at equal arc length intervals. The direction of the i-th receptor is denoted by ϕ i , and the ligand binds to the receptor with a rate proportional to the local ligand concentration c(r ϕi t e(ϕ i ), θ) at the receptor's position r ϕi t e(ϕ i ). We assume that the unbinding time is negligible compared to the time binding time. The number of ligand binding events at the i-th receptor up to time t is described by the Poisson process Y ϕi t with rate process</p><formula xml:id="formula_2">λ ϕi t = λ ϕi (r t , θ t ), λ ϕi (r, θ) := λ 0 N c(r ϕi e(ϕ i ), θ).</formula><p>where λ 0 /N is the binding rate of a single receptor under unit concentration. Finally, we assume that the cell controls its shape r t based on the ligand binding history measured by all receptors. By introducing the combined notation for the ligand binding process over receptors, Y t := {Y ϕi t | i = 1, . . . , N }, the feedback control assumption is expressed by setting ϵ k t and ϕ k t as functionals of the history of Y t :</p><formula xml:id="formula_3">ϵ k t = ϵ k t [Y 0:t − ], ϕ k t = ϕ k t [Y 0:t − ].</formula><p>Here, Y 0:t − = {Y s | s ∈ [0, t)} represents the history of observation process up to, but not including, time t. The exclusion of Y t ensures causality between sensing and control; otherwise, the value of Y after a jump at time t would affect whether the jump occurs at that time. In Section IV, we will consider a more concrete setting for feedback control of the cell shape to derive the analytical result.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>B. Dimensionless system</head><p>To narrow down the parameter space without losing generality, we consider a dimensionless system on the above setting. By rescaling time as t := t/τ D with τ D := 1/D, we obtain the dimensionless dynamics of the gradient direction: By introducing several dimensionless parameters, the ligand-receptor binding process is obtained as the Poisson process Y ϕi t with the following dimensionless rate process:</p><formula xml:id="formula_4">dθ t = √ 2dW t,<label>(1)</label></formula><formula xml:id="formula_5">λϕi t (θ) := λ ϕi tτ D (θ)τ D = λ N 1 + αr ϕi t ⟨e(ϕ i ), e(θ)⟩ .(2)</formula><p>Here, rϕi t := r ϕi tτ D /r 0 is the normalized cell radius, and λ := λ 0 c 0 τ D and α := r 0 ∇c/c 0 are dimensionless parameters. λ represents the binding number during the diffusion time τ D in the absence of a gradient, and α represents the relative difference in ligand concentration across the cell radius.</p><p>In the following sections, we consider the dimensionless system and omit the tildes from t, λ, and r for visual clarity.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>III. ESTIMATION AND CONTROL BY BAYESIAN NONLINEAR FILTERING</head><p>We formulate a sensing problem for the gradient direction θ t under the feedback control of the cell shape r t , and describe the optimal estimator derived based on the Bayesian nonlinear filtering theory. We assume that the cell estimates the gradient direction θ t based on the sensing history Y 0:t := {Y s | s ∈ [0, t]}, i.e., the estimated direction is expressed as ϑ t [Y 0:t ] with a functional ϑ t .</p><p>The goal is to find the functional ϑ t that optimizes an estimation performance. As a measure of estimation performance for directional statistics, we consider the circular variance of the difference between the true and estimated gradient direction, as in the previous study <ref type="bibr" target="#b12">[13]</ref>:</p><formula xml:id="formula_6">CV(θ t − ϑ t [Y 0:t ]) := 1 − E θt,Y0:t [exp (i(θ t − ϑ t [Y 0:t ]))] ,<label>(3)</label></formula><p>where i is an imaginary unit and E θt,Y0:t represents the expectation with respect to the joint distribution of θ t and Y 0:t . As described in Ref. <ref type="bibr" target="#b12">[13]</ref>, the circular variance relates to the square error as CV(</p><formula xml:id="formula_7">θ t − ϑ t [Y 0:t ]) ≈ E[(θ t −ϑ t [Y 0:t ]) 2</formula><p>]/2 when the estimated direction concentrates around the true gradient direction. The optimal estimator θt that minimizes the estimation error is represented based on the posterior density function Z t of the gradient direction θ t conditioned on the sensing history Y 0:t (see Appendix A for derivation):</p><formula xml:id="formula_8">θt = ϑ * t [Y 0:t ] := arg min ϑt[Y0:t] CV(θ t − ϑ t [Y 0:t ]) = arg êt ,(<label>4</label></formula><formula xml:id="formula_9">) êt := E θt [e(θ t ) | Y 0:t ] = Dθe(θ)Z t (θ),</formula><p>where The magnitude takes the minimum ∥ê t ∥ = 0 when the posterior density function is uniform, Z t (θ) = (2π) −1 , and the maximum ∥ê t ∥ = 1 when the posterior density concentrates completely on the estimated direction,</p><formula xml:id="formula_10">Z t (θ) := P (θ t = θ | Y 0:t )</formula><formula xml:id="formula_11">Z t (θ) = δ(θ − θt ).</formula><p>Using the vector êt , we can express the limit of estimation error attained by the optimal estimator:</p><formula xml:id="formula_12">min ϑt CV(θ t − ϑ t [Y 0:t ]) = 1 − E Y0:t [|ê t |],<label>(5)</label></formula><p>where E Y0:t represents the expectation with respect to the marginal distribution of Y 0:t with θ t being averaged out.</p><p>To calculate the optimal estimator based on the posterior density function Z t (θ), we can use the following stochastic partial differential equation known as the Kushner equation in the nonlinear filtering theory (for a pedagogical introduction, see Ref. <ref type="bibr" target="#b20">[21]</ref>; for detailed derivations, see the references therein and Ref. <ref type="bibr" target="#b26">[27]</ref>):</p><formula xml:id="formula_13">dZ t (θ) = d pred Z t (θ) + d obs Z t (θ),<label>(6)</label></formula><formula xml:id="formula_14">d pred Z t (θ) = ∂ 2 Z t ∂θ 2 (θ)dt,<label>(7)</label></formula><formula xml:id="formula_15">d obs Z t (θ) = Z t − (θ) N i=1 λ ϕi t − (θ) − λϕi t − λϕi t − dY ϕi t − λϕi t − dt .<label>(8)</label></formula><p>Here, Z t − and λϕi</p><formula xml:id="formula_16">t − := E θt [λ ϕi t − (θ t − ) | Y 0:t − ]</formula><p>with t − representing the time infinitesimally before t are statistics conditioned on Y 0:t − . This conditioning ensures that the coefficient of the jump term dY ϕi t in the equation is independent of the value of Y at time t. The first term, d pred Z t (θ), represents the prediction based on the prior knowledge about the dynamics of θ t and the second term, d obs Z t (θ), represents the correction based on the sensed signal dY t .</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>IV. ANALYTICAL DERIVATION OF ESTIMATION LIMIT</head><p>In this section, we derive an analytical expression for the estimation limit by approximating the stationary solution of the filtering equation. We introduce additional assumptions to make the problem analytically tractable.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>A. Additional assumptions for an analytical treatment</head><p>To derive the estimation limit analytically, we focus on the control pattern of cell shape such that the cell elongates either parallel or perpendicular to the estimated direction θt (Figure <ref type="figure">2A</ref>). We model this control pattern by imposing a condition on the second mode of the cell shape:</p><formula xml:id="formula_17">ϵ t,2 [Y 0:t − ] = σϵ, ϕ t,2 [Y 0:t − ] = θt − = ϑ * t − [Y 0:t − ],</formula><p>where ϵ ≥ 0 and σ ∈ {±1} are constants. When σ = +1 and σ = −1, the cell elongates parallel and perpendicular to the estimated direction, respectively (Figure <ref type="figure">2A</ref>). In addition, we consider the first order perturbation of the cell shape around a circular one by assuming ϵ t,k = O(ϵ) for every k and ignoring the second and higher order terms, O(ϵ 2 ). We further restrict the parameter region of interest for analytical tractability. We assume that the ligand gradient is shallow so that the difference in ligand concentration across the spatial scale of the cell αr ϕi t is sufficiently small. Second, we assume that there are a sufficiently large number of receptors, N ≫ 1. Finally, we assume that Λ := λα 2 /2 is sufficiently large. This assumption indicates that the cell is provided with sufficient amount of gradient information because the normalized ligand binding rate λ and gradient steepness α are high. We note that Λ is a dimensionless version of the "information rate" defined in the previous study <ref type="bibr" target="#b12">[13]</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>B. Derivation of estimation limit</head><p>The filtering equation is generally difficult to analyze because the posterior density function Z t (θ) is not closed as a finite-dimensional model except in some special cases. To simplify the problem, we first discuss the behavior of the observation term and then combine the effect of the prediction term.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.">Coordinate transform of the observation term</head><p>We can see from Eq. ( <ref type="formula" target="#formula_15">8</ref>) that the observation term is proportional to Z t (θ) except for λϕi t , suggesting that Z t (θ) may grow exponentially. For analyzing an exponentially growing variable, we employ the coordinate transformation to the logarithm of the original variable.</p><p>To easily transform the dynamics of Z t (θ) to that of the log-posterior density log Z t (θ), we apply a diffusion approximation of dY ϕi t in advance based on the weak gradient assumption. By ignoring o((αr ϕi t ) 2 ) terms in the corresponding Fokker-Planck equation, we obtain:</p><formula xml:id="formula_18">d obs Z t (θ) ≈ Z t (θ) N i=1 2Λ N r ϕi t ⟨e(ϕ i ), e(θ) − êt ⟩ dW i t ,<label>(9)</label></formula><p>where dW i t with i = 1, . . . , N are the mutually independent standard Wiener processes (see Appendix B for derivation). Here, we have also taken the expectation over the true gradient direction θ t because we only need the statistics of êt marginalized over θ t to obtain the estimation limit (Eq. ( <ref type="formula" target="#formula_12">5</ref>)).</p><p>By applying the Ito's formula to Eq. ( <ref type="formula" target="#formula_18">9</ref>), we get the dynamics of the log-posterior density:</p><formula xml:id="formula_19">d obs log Z t (θ) ≈ Z t (θ) −1 d obs Z t (θ) − 1 2 Z t (θ) −2 d obs [Z(θ)] t ≈ N i=1 2Λ N r ϕi t ⟨e(ϕ i ), e(θ) − êt ⟩ dW i t − N i=1 Λ N (r ϕi t ) 2 ⟨e(ϕ i ), e(θ) − êt ⟩ 2 dt = − N i=1 Λ N (r ϕi t ) 2 ⟨e(ϕ i ), e(θ) − êt ⟩ 2 dt + O(Λ 1/2 ),<label>(10)</label></formula><p>where d obs [Z(θ)] t is the quadratic variation process. We neglected the fluctuating part of the observation term (the first term on the second line of Eq. ( <ref type="formula" target="#formula_19">10</ref>)) based on the large Λ assumption. We note that the variance of the fluctuating part does not diverge in the limit of N → ∞ because dW i t is independent for each i. When viewed in the logarithmic coordinate (Eq. ( <ref type="formula" target="#formula_19">10</ref>)), Z t (θ) dependent factors disappear from the observation term. The dependence on θ is now simply represented by ⟨e(ϕ i ), e(θ) − êt ⟩ 2 , which is further expanded up to a θ-independent constant: </p><formula xml:id="formula_20">⟨e(ϕ i ), e(θ) − êt ⟩ 2 = ⟨e(ϕ i ), e(θ)⟩ − |ê t | e(ϕ i ), e( θt )</formula></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.">Cell shape dependence of the observation term</head><p>We can summarize the dependence of the observation term on cell shape by substituting Eq. ( <ref type="formula" target="#formula_21">11</ref>) into Eq. ( <ref type="formula" target="#formula_19">10</ref>) and taking the sum over i:</p><formula xml:id="formula_22">d obs log Z t (θ) ≈ −Λ 1 2 R 2 , e(2(θ − θt )) − |ê t | R 0 + R 2 , e(θ − θt ) dt + O(Λ 1/2 ). (<label>12</label></formula><formula xml:id="formula_23">)</formula><p>Here, R k := N −1 N i=1 (r ϕi t ) 2 e(k(ϕ i − θt )) is a quantity that summarizes the cell shape and its configuration with respect to the estimated direction θt . Specifically, R 0 and R 2 represent the overall radius and elongation of the cell, respectively. In the limit of large N and small ϵ, R 0 and R 2 are approximated as follows:</p><formula xml:id="formula_24">R 0 ≈ Dϕρ ϕ t −1 Dϕρ ϕ t (r ϕ t ) 2 e(0) ≈ e(0) + o(ϵ),<label>(13)</label></formula><formula xml:id="formula_25">R 2 ≈ Dϕρ ϕ t −1 Dϕρ ϕ t (r ϕ t ) 2 e(2(ϕ − θt )) ≈ 3 2 σϵe(0) + o(ϵ).<label>(14)</label></formula><p>Here, we defined ρ ϕ t such that ρ ϕ t Dϕ indicates the arc length of the cell circumference spanned by the angle interval [ϕ, ϕ + Dϕ) and used the approximation ρ ϕ t (r ϕ t ) 2 ≈ 1 + 3(r ϕ t − 1), which holds for sufficiently small ϵ. The term ρ ϕ t is introduced due to the assumption that receptors are distributed equally with respect to arc length intervals, rather than angular intervals. By substituting Eqs. ( <ref type="formula" target="#formula_24">13</ref>) and ( <ref type="formula" target="#formula_25">14</ref>) into Eq. ( <ref type="formula" target="#formula_22">12</ref>), we get the following approximation of the observation term:</p><formula xml:id="formula_26">d obs log Z t (θ) ≈ −Λ 3 4 σϵ cos(2(θ − θt )) − |ê t | 1 + 3 2 σϵ cos(θ − θt ) dt + O(Λ 1/2 ) = Λ |ê t | cos(θ − θt ) + 3 2 σϵ |ê t | cos(θ − θt ) − 1 2 cos(2(θ − θt )) dt + O(Λ 1/2 ).<label>(15)</label></formula><p>Eq. ( <ref type="formula" target="#formula_26">15</ref>) indicates that, when ϵ is sufficiently small, the cell shape affects the estimation through its second Fourier mode σϵ and that Z t would concentrate around the estimated direction θt under large Λ.</p><p>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.">Integration of the effect of the prediction term</head><p>We incorporate the effect of the prediction term by using the concentration property of Z t (θ) around θt suggested by Eq. <ref type="bibr" target="#b14">(15)</ref>. By assuming that the posterior density is unimodal with a maximum point θ max t , which eventually coincides with θt , we expand log Z t into a quadratic function:</p><formula xml:id="formula_27">log Z t (θ) ≈ − 1 2 κ t (θ − θ max t ) 2 + o((θ − θ max t ) 2 ) + const.</formula><p>where</p><formula xml:id="formula_28">κ t := − ∂ 2 ∂θ 2 log Z t (θ max t</formula><p>) &gt; 0 indicates the concentration of the posterior density. When Λ is high, the posterior density would concentrate on a maximal point and κ t would be large. For a large value of κ t , we can use Laplace's method to approximate the posterior expecta-tion:</p><formula xml:id="formula_29">E [F (θ t ) | Y 0:t ] = DθF (θ) exp(log Z t (θ)) ≈ DθF (θ) exp − 1 2 κ t (θ − θ max t ) 2 ≈ F (θ max t ) + 1 2 F ′′ (θ max t )κ −1 t + o(κ −1 t ).</formula><p>By substituting F (θ) = e(θ), we obtain the approximation of the circular variance in terms of κ t :</p><formula xml:id="formula_30">êt ≈ 1 − 1 2 κ −1 t e(θ max t ), CV[θ t − θt ] ≈ 1 2 κ −1 t .(<label>16</label></formula><formula xml:id="formula_31">)</formula><p>Eq. ( <ref type="formula" target="#formula_30">16</ref>) shows that the maximum point θ max t approximately coincides with the estimated direction θt := arg(ê t ). Therefore, the concentration κ t of the posterior density around the estimated direction θt is sufficient for expressing the estimation limit.</p><p>We finally get the estimation limit by calculating the behavior of the observation and prediction terms around the estimated direction. The prediction term around the estimated direction is characterized by κ t :</p><formula xml:id="formula_32">d pred log Z t (θ) = ∂ 2 log Z t (θ) ∂θ 2 + ∂ log Z t (θ) ∂θ 2 dt ≈ κ 2 t (θ − θt ) 2 dt.<label>(17)</label></formula><p>The observation term (Eq. ( <ref type="formula" target="#formula_26">15</ref>)) is expanded around θ = θt as follows:</p><formula xml:id="formula_33">d obs log Z t (θ) ≈ − 1 2 ∂ 2 ∂θ 2 d obs log Z t ( θt ) • (θ − θt ) 2 ≈ − 1 2 Λ 1 − 3 2 σϵ (θ − θt ) 2 dt, (<label>18</label></formula><formula xml:id="formula_34">)</formula><p>where we used the approximation |ê t | ≈ 1 which holds under large κ with Eq. ( <ref type="formula" target="#formula_30">16</ref>). By combining Eqs. ( <ref type="formula" target="#formula_32">17</ref>) and ( <ref type="formula" target="#formula_33">18</ref>), we obtain the stationary value of κ t satisfying d log Z t (θ) = 0:</p><formula xml:id="formula_35">κ t ≈ Λ 2 1 − 3 4 σϵ . (<label>19</label></formula><formula xml:id="formula_36">)</formula><p>We note that this relation between κ t and Λ implies that the assumption of large κ t under large Λ is self-consistent. By substituting Eq. ( <ref type="formula" target="#formula_35">19</ref>) into Eq. ( <ref type="formula" target="#formula_30">16</ref>), we obtain the approximate estimation limit at the stationary state:</p><formula xml:id="formula_37">CV(θ t − θt ) ≈ 1 √ 2Λ 1 + 3 4 σϵ . (<label>20</label></formula><formula xml:id="formula_38">)</formula><p>This result indicates that the estimation is improved when σ &lt; 0, i.e., the cell elongates perpendicular to the estimated direction, and impaired when σ &gt; 0, i.e., the cell elongates along the estimated direction. We note that this estimation limit reproduces previous result derived for a circular cell under a time-discrete setting when ϵ = 0 <ref type="bibr" target="#b12">[13]</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>C. Numerical validation of estimation limit</head><p>To validate the theoretical prediction that the control of elongation direction can improve or impair the estimation performance, as indicated by Eq. (20), we perform numerical simulations of the gradient sensing process under different cell shape configurations (Figure <ref type="figure">2(B)</ref>). We consider two types of cell shapes: a shape described by the second Fourier mode and an elliptic shape. The shape described by the second Fourier mode serves as a simple setting where only the second mode has non-zero values, and the elliptic shape is a widely used candidate for modeling elongating cells.</p><p>To ensure a fair comparison across elongation parameters, we rescale the radius as r ϕ t → r ϕ t / S(ϵ)/S(0), where S(ϵ) represents the area of the elongated shape with elongation parameter ϵ, and S(0) represents the area of the circular shape (i.e., when ϵ = 0). This rescaling factor adjusts the size of the cell so that its area is independent of the elongation parameter ϵ. The factor S(ϵ)/S(0) deviates from unity only by o(ϵ), and consequently, the rescaling does not change the analytical expression of the estimation limit given by Eq. ( <ref type="formula">24</ref>).</p><p>In our simulations, the gradient direction θ t evolves according to Eq. ( <ref type="formula" target="#formula_4">1</ref>), while the ligand-receptor binding is modeled as a Poisson process with the rate given by Eq. ( <ref type="formula">2</ref>). The posterior distribution of the gradient direction is computed by discretizing the filtering equation (Eq. ( <ref type="formula" target="#formula_13">6</ref>)) over the direction θ.</p><p>To quantify the estimation performance, we calculate the circular variance (Eq. ( <ref type="formula" target="#formula_6">3</ref>)) by approximating the expectation using the Monte Carlo method with 10 4 samples. The initial state of the posterior density function is set to be uniform. We observe that the circular variance reaches a nearly stationary value after a time period of 2Λ −1/2 (see <ref type="bibr">Figure C.4)</ref>. Therefore, we define the stationary estimation limit as the average of the circular variance over the time interval t ∈ [2Λ −1/2 , 3Λ −1/2 ]. Figure <ref type="figure" target="#fig_3">3</ref> presents the estimation limit for various values of the signal-to-noise ratio Λ and the elongation parameter σϵ. In the high signal-to-noise ratio regime, the results confirm our theoretical prediction: the estimation limit improves when the cell elongates perpendicular to the estimated direction (σ &lt; 0) and deteriorates when the cell elongates along the estimated direction (σ &gt; 0). This trend holds for both the shape described by the second Fourier mode and the elliptic shape. Moreover, the dependence of the estimation limit on the elongation magnitude ϵ is well captured by the analytical approximation (Eq. ( <ref type="formula" target="#formula_37">20</ref>)) for both cell shapes. This finding suggests that the second mode of the cell shape plays a dominant role in determining the estimation performance under linear concentration gradient.</p><p>Even when the signal-to-noise ratio decreases, the analytical formula explains the simulation results moderately well for Λ ≥ 10. While simulation results start to deviate from the analytical prediction as Λ decreases below 10, the qualitative result that the estimation improves for In the ellipse case with Λ = 1, a slight improvement in estimation is also observed for σ &gt; 0. This suggests the presence of additional behaviors that are not captured by our current analysis, which is reasonable given the qualitative differences in the low SNR regime.</p><p>Despite some deviations in the low SNR regime, these numerical results quantitatively support our theoretical analysis, demonstrating that the strategic control of cell shape elongation can indeed enhance or hinder the accuracy of gradient sensing, depending on the orientation of the elongation relative to the estimated gradient direction. Further investigation into the low SNR regime may reveal additional insights and will be a subject for future work.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>V. DISCUSSION</head><p>In this study, we utilized Bayesian nonlinear filtering theory to derive the estimation limits for fluctuating gradient directions under the feedback control of cell shape.</p><p>By applying the diffusion approximation to the stochastic ligand-receptor binding process and the Laplace approximation for posterior expectation, we obtained an analytical expression for the estimation limit valid in the high signal-to-noise ratio (SNR) regime. Our results align with previously identified limits for circular cell shapes in discrete-time settings <ref type="bibr" target="#b12">[13]</ref>.</p><p>Our key finding is that incorporating active cell shape control can enhance gradient sensing accuracy. We showed that when cells elongate perpendicular to the estimated gradient direction, the estimation error is reduced compared to the case of a static circular cell shape. This result parallels with previous theoretical findings that elongation perpendicular to the true gradient direction improves estimation performance <ref type="bibr" target="#b16">[17]</ref>. Our work extends this previous result by considering the more realistic scenario where the elongation direction is determined by sensory information and fluctuates around the true gradient direction due to sensory noise. We demonstrate that even in this case, dynamic shape control can enhance direction estimation.</p><p>An important future direction is to identify scenarios where cell shape dynamics provides biologically more significant enhancement of gradient sensing accuracy. While our focus on the high SNR regime allowed us to obtain the analytical expression, the observed improvement of estimation limit implicates only marginal enhancement in chemotaxis ability. To clarify this point, we note that chemotaxis index, defined as the average migration along the gradient direction, CI = E[cos(θ t − θt )], relates to the estimation error as CI = 1 − CV[θ t − θt ], if we assume that cells migrate toward the estimated direction θt and the estimated direction fluctuates symmetrically around the true gradient E[sin(θ t − θt )] = 0. Therefore, the same amount of reduction in the estimation error is more pronounced under the lower SNR regime in terms of the increasing rate of the chemotaxis index. We may find biologically significant improvement of gradient sensing ability by extensively investigating low SNR regime.</p><p>Another valuable extension of our analysis would be to account for uncertainty in the gradient steepness, especially in the low SNR regime. In our current study, we implicitly assumed that the gradient steepness varies on a slower timescale than the gradient direction, allowing us to treat the steepness as a known constant. However, in reality, the gradient steepness can change significantly during migration, and previous work has shown that uncertainty in the steepness can have a notable impact on the maximum likelihood estimate of the gradient direc-tion <ref type="bibr" target="#b17">[18]</ref>. Under the low SNR regime, the estimated direction is shown to be biased perpendicularly to or along with the elongation axis when the steepness is known or unknown, respectively. Our Bayesian filtering framework provides a natural way to incorporate steepness uncertainty by modeling the steepness as a stochastic process with a characteristic fluctuation timescale. By tuning this timescale, we can interpolate the two extreme cases of known and unknown steepness. This approach could reveal interesting transitions in the bias of the estimated direction and, consequently, the optimal sensing strategy as a function of the steepness uncertainty. Characterizing such transitions and their dependence on SNR and other model parameters is an intriguing direction for future research.</p><p>Appendix A: Estimation limit of directional statistics</p><p>We derive the equations for estimation limit expressed with Eqs. ( <ref type="formula" target="#formula_8">4</ref>) and ( <ref type="formula" target="#formula_12">5</ref>) by showing that the estimation error CV[θ t − ϑ t [Y 0:t ]] is bounded from below by 1 − E Y0:t [ê t ] and the bound is attained by ϑ t [Y 0:t ] = θt . To do that, we note that E θt [exp(iθ t ) | Y 0:t ] on a complex plane can be idenfied with the real vector êt := E θt [e(θ t ) | Y 0:t ] and thus E θt [exp(iθ t ) | Y 0:t ] = ∥ê t ∥ exp(i θt ) holds. By using the property of conditional expectation, we can evaluate the estimation error as follows:</p><formula xml:id="formula_39">CV [θ t − ϑ t [Y 0:t ]] := 1 − E θt,Y0:t [exp (i(θ t − ϑ t [Y 0:t ]))] = 1 − E Y0:t E θt [exp (iθ t ) | Y 0:t ] exp (−iϑ t [Y 0:t ]) = 1 − E Y ∥ê t ∥ exp(i θt ) exp (−iϑ t [Y 0:t ]) = 1 − E Y ∥ê t ∥ cos( θt − ϑ t [Y 0:t ]) 2 + E Y ∥ê t ∥ sin( θt − ϑ t [Y 0:t ]) 2 ≥ 1 − E Y [∥ê t ∥] 2 E Y cos( θt − ϑ t [Y 0:t ]) 2 + E Y sin( θt − ϑ t [Y 0:t ]) 2 ≥ 1 − E Y [∥ê t ∥] 2 E Y cos 2 ( θt − ϑ t [Y 0:t ]) + sin 2 ( θt − ϑ t [Y 0:t ]) = 1 − E Y [∥ê t ∥] .</formula><p>Here, we used the Cauchy-Schwartz inequality in the fifth line and the Jensen inequality in the six-th line. We can check that θt attains the lower bound by substituting ϑ t [Y 0:t ] = θt in the third line. Therefore, the optimal estimator and estimation limit are given by the formulae in Eq. ( <ref type="formula" target="#formula_8">4</ref>) and Eq. ( <ref type="formula" target="#formula_12">5</ref>), respectively. function of X t and Z t : P t (x, z) := P(X t = x, Z t = z). Assuming that Z t (•) can be treated in the same way as a finite-dimensional stochastic variable, the dynamics of the joint density is formally represented by the following forward Kolmogorov equation:</p><formula xml:id="formula_40">∂P t (x, z) ∂t = L * X P t (x, z) − Dx δ δz(x)   L * X z(x) − z(x) N Y j=1 (λ i (x, z) − λi [z])   P t (x, z) + Dw i λ i Z (w i , x, z − w i )P t (x, z − w i ) − λ i Z (w i , x, z)P t (x, z)</formula><p>where</p><formula xml:id="formula_41">λ i Z (w, x, z) := λ i (x, z)δ w i (•) − z(•) λ i (•,z)− λi [z] λi [z]</formula><p>describes the rate of jump of z with size w when X t = x and Z t = z, and δ/δz(x) represents a functional derivative, which describes how a functional changes with respect to variations in its input function z at the point x (see Ref. <ref type="bibr" target="#b27">[28]</ref>, Sec. II.C.5, for the treatment of functional derivatives in the context of stochastic processes).</p><p>We note that there is a distinction between x and x which represent the realization of the hidden process X t and the argument of the posterior density Z t , respectively.</p><p>To marginalize over hidden variable X t , we integrate each term with respect to x by noting that P t (x, z) = P t (x | z)P t (z) = z(x)P t (z):</p><formula xml:id="formula_42">∂P t (z) ∂t = − Dx δ δz(x)   L * X z(x)P t (z) − z(x) N Y j=1 (λ i (x, z) − λi [z])P t (z)   + N Y j=1 Dw i λi Z [w i , z − w i ]P t (z − w i ) − λi Z [w i , z]P t (z) ,<label>(B1)</label></formula><p>where λi</p><formula xml:id="formula_43">Z [w, z] := λi [z]δ w i (•) − z(•) λ i (•,z)− λi [z] λi [z]</formula><p>represents the posterior expectation of λ i Z (w, x, z). Next, we approximate the jump term by a diffusion based on the Kramers-Moyal expansion. To do that, we add an assumption on the observation process. The jump rate λ i in the observation process can be decom-posed into a sum of X t -dependent and X t -independent terms: λ i (x, z) = λi (1 + α i (x, z)). For the X t dependent term, we assume that α i (x, z) is sufficiently small so that α i (x, z) = O(α) holds for any j and x with a small parameter α and that terms of order o(α 2 ) are ignorable. Then, we expand the jump term in the Taylor series about the jump size w i : </p><formula xml:id="formula_44">Dw i λi Z [w i , z − w i ]P t (z − w i ) − λi Z [w i ,</formula></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>FIG. 1 .</head><label>1</label><figDesc>FIG. 1. (A)Schematic diagram of gradient sensing under feedback control of cell shape. The cell shape is controlled based on the estimate of the gradient direction and, in turn, affects the gradient estimation by biasing the ligand binding process. (B)Time lapse of a sample process of the gradient sensing. Blue and red arrows indicate the true and estimated gradient direction, respectively. The length of the red arrows indicate the confidence of estimate |êt|. Orange dots show the locations of receptors at which ligand bound during time [t, t + ∆t) with ∆t being the discretization width. (C)Time evolution of variables in the sample process shown in (B). The first row shows the true gradient direction θt (blue curve) and the angular locations of receptors at which ligand binds dYt (orange dots). The second row shows the posterior density of the gradient direction Zt and the estimated gradient direction θt (red line). The third row shows the true (blue curve) and estimated (red curve) gradient direction. The final row shows the error between the true and estimated direction measured by (θt − θt) 2 /2 (black curve) and the uncertainty of estimate represented by 1 − |êt| (red curve). The trajectories were simulated under the signal-to-noise ratio Λ = 10 1 with the following dimensionless parameter values: λ = 2 • 10 3 , α = 10 −1 , and σϵ = −0.4.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>1 σ = + 1 FIG. 2 .</head><label>112</label><figDesc>FIG.2. Parameters of controlled cell elongation. (A) σ dependency of the relative angle between elongation direction (gray curve indicates an elongating cell) and the estimated direction (red arrow). A cell elongates along the estimated direction if σ = +1 (upper panel) and elongates perpendicularly to the estimated direction if σ = −1 (lower panel). (B) ϵ dependency of the extent of elongation for an elliptic shape (left) and a shape described by the second Fourier component (right).</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head></head><label></label><figDesc>i ), e(2θ)⟩ + |ê t | e( θt ), e(θ) − e(2ϕ i ), e(θ + θt ) + const. ϕ i − θt )), e(2(θ − θt )) − |ê t | e(0) + e(2(ϕ i − θt )), e(θ − θt ) + const.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head>FIG. 3 .</head><label>3</label><figDesc>FIG.3. Estimation error and normalized estimation error as functions of the shape parameter σϵ for different values of the signal-to-noise ratio Λ. (A1, A2) Estimation error for an elliptic shape (A1) and a shape described by the second Fourier component (A2). Different curves represent different values of Λ, which are obtained by varying the ligand binding rate λ while keeping the gradient steepness α fixed. (B1, B2) Estimation error for an elliptic shape (B1) and a shape described by the second Fourier component (B2). Different curves represent different values of Λ, which are obtained by varying the gradient steepness α while keeping the ligand binding rate λ fixed. In all panels, solid lines represent theoretical predictions, while markers indicate simulation results.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_4"><head>FIG. C. 4 .FIG. D. 5 .</head><label>45</label><figDesc>FIG. C.4.Estimation error as a function of the scaled time Λ 1/2 t for different values of the signal-to-noise ratio Λ and the shape parameter σϵ. (A1, A2) Estimation error for an elliptic shape (A1) and a shape described by the second Fourier component (A2). Different curves represent different values of σϵ and Λ, obtained by varying the ligand binding rate λ while keeping the gradient steepness α fixed. (B1, B2) Estimation error for an elliptic shape (B1) and a shape described by the second Fourier component (B2). Different curves represent different values of ϵ and Λ, obtained by varying the gradient steepness α while keeping the ligand binding rate λ fixed. In all panels, solid, dotted, and dashed curves represent σϵ = 0, σϵ = 0.7, and σϵ = −0.7, respectively. The shaded regions around curves indicate ± the standard error estimated by bootstrap sampling. The vertical dashed lines indicate the time interval used for time averaging, from t = 2Λ −1/2 to t = 3Λ −1/2 .</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_0"><head></head><label></label><figDesc>is the posterior density function of θ t given Y 0:t , and E θt [• | Y 0:t ] represents the expectation with respect to Z t (θ). êt is a vector whose argument represents the estimated direction θt , and its magnitude ∥ê t ∥ ≤ 1, where ∥ • ∥ denotes a Euclidean norm, represents the certainty of the estimate.</figDesc><table /></figure>
+		</body>
+		<back>
+
+			<div type="acknowledgement">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>ACKNOWLEDGEMENTS</head><p>The first author received a JSPS Research Fellowship (Grant Number 20J21362). This research was supported by JSPS KAKENHI (Grant Number 19H05799 and 24H02148) and JST CREST (Grant Number JP-MJCR2011).</p></div>
+			</div>
+
+			<div type="annex">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Appendix B: Filtering process marginalized over hidden process and diffusion approximation of Poisson observation term</head><p>We explain how to obtain the dynamics of the posterior density Z t averaged over the stochastic realization of true gradient θ t dynamics and approximate the jump process dY t with a diffusion process. Because the derivation can be applied not only to our setting but also to other filtering process, we explain the result based on a more general setting.</p><p>We formulate a filtering problem by modeling hidden and observation processes. We consider a hidden process whose probability density function P t (x) = P(X t = x) follows the Fokker-Planck equation</p><p>where L * is the Fokker-Planck operator. We model observation processes Y i t with i ∈ {1, . . . , n Y } by the Poisson processes whose rate processes are</p><p>The posterior density function Z t (x) under this setting follows the filtering equation (see <ref type="bibr" target="#b20">[21]</ref> for pedagogical introduction of the filtering equation):</p><p>where f [z] := Dxf (x, z)z(x) represents the posterior expectation of f when the posterior density is Z t = z.</p><p>The problem in the main text corresponds to the case where the hidden process is</p><p>∂X 2 (X) and the observation process is</p><p>)) and θ[z] is the posterior expectation of θ t when the posterior density is Z t = z.</p><p>We then consider the time evolution of the joint density nore the third and higher order terms with respect to |p|. Because the first order term of Eq. (B2) cancels with the term − N Y j=1 (λ i (x, z) − λi [z])P t (z) in the first line of Eq. (B1), we obtain the dynamics of P t (z) as the following Fokker-Planck equation:</p><p>This Fokker-Planck equation describes the following SDE of Z t :</p><p>where dW i t are the standard Wiener processes. By applying the result to our problem in the main text, the prediction term does not change from Eq. ( <ref type="formula">7</ref>) and the observation process is transformed from Eq. ( <ref type="formula">8</ref>) to Eq. (B3). </p></div>			</div>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">A</forename><surname>Parent</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">N</forename><surname>Devreotes</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Science</title>
+		<imprint>
+			<biblScope unit="volume">284</biblScope>
+			<biblScope unit="page">765</biblScope>
+			<date type="published" when="1999">1999</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">M</forename><surname>Ueda</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Sako</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Tanaka</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Devreotes</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Yanagida</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Science</title>
+		<imprint>
+			<biblScope unit="volume">294</biblScope>
+			<biblScope unit="page">864</biblScope>
+			<date type="published" when="2001">2001</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">M</forename><surname>Ueda</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Shibata</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Biophysical journal</title>
+		<imprint>
+			<biblScope unit="volume">93</biblScope>
+			<biblScope unit="page">11</biblScope>
+			<date type="published" when="2007">2007</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">L</forename><surname>Song</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">M</forename><surname>Nadkarni</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><forename type="middle">U</forename><surname>Bödeker</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Beta</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Bae</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Franck</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W.-J</forename><surname>Rappel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><forename type="middle">F</forename><surname>Loomis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Bodenschatz</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">European journal of cell biology</title>
+		<imprint>
+			<biblScope unit="volume">85</biblScope>
+			<biblScope unit="page">981</biblScope>
+			<date type="published" when="2006">2006</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">J</forename><surname>Van Haastert</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Postma</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Biophysical journal</title>
+		<imprint>
+			<biblScope unit="volume">93</biblScope>
+			<biblScope unit="page">1787</biblScope>
+			<date type="published" when="2007">2007</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<monogr>
+		<author>
+			<persName><forename type="first">D</forename><surname>Fuller</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Chen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Adler</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Groisman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Levine</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W.-J</forename><surname>Rappel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><forename type="middle">F</forename><surname>Loomis</surname></persName>
+		</author>
+		<title level="m">Proceedings of the National Academy of Sciences</title>
+				<meeting>the National Academy of Sciences</meeting>
+		<imprint>
+			<date type="published" when="2010">2010</date>
+			<biblScope unit="volume">107</biblScope>
+			<biblScope unit="page">9656</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">G</forename><surname>Amselem</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Theves</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Bae</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Beta</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Bodenschatz</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Physical review letters</title>
+		<imprint>
+			<biblScope unit="volume">109</biblScope>
+			<biblScope unit="page">108103</biblScope>
+			<date type="published" when="2012">2012</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">G</forename><surname>Endres</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><forename type="middle">S</forename><surname>Wingreen</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Proceedings of the National Academy of Sciences</title>
+		<imprint>
+			<biblScope unit="volume">105</biblScope>
+			<biblScope unit="page">15749</biblScope>
+			<date type="published" when="2008">2008</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">W.-J</forename><surname>Rappel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Levine</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Physical review letters</title>
+		<imprint>
+			<biblScope unit="volume">100</biblScope>
+			<biblScope unit="page">228101</biblScope>
+			<date type="published" when="2008">2008</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">B</forename><surname>Hu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Chen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W.-J</forename><surname>Rappel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Levine</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Physical review letters</title>
+		<imprint>
+			<biblScope unit="volume">105</biblScope>
+			<biblScope unit="page">48104</biblScope>
+			<date type="published" when="2010">2010</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">B</forename><surname>Hu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Chen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Levine</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W.-J</forename><surname>Rappel</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of statistical physics</title>
+		<imprint>
+			<biblScope unit="volume">142</biblScope>
+			<biblScope unit="page">1167</biblScope>
+			<date type="published" when="2011">2011</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">G</forename><surname>Aquino</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Tweedy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Heinrich</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">G</forename><surname>Endres</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Scientific reports</title>
+		<imprint>
+			<biblScope unit="volume">4</biblScope>
+			<biblScope unit="page">5688</biblScope>
+			<date type="published" when="2014">2014</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">M</forename><surname>Novak</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><forename type="middle">M</forename><surname>Friedrich</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">New Journal of Physics</title>
+		<imprint>
+			<biblScope unit="volume">23</biblScope>
+			<biblScope unit="page">43026</biblScope>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">L</forename><surname>Tweedy</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Meier</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Stephan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Heinrich</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">G</forename><surname>Endres</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Scientific reports</title>
+		<imprint>
+			<biblScope unit="volume">3</biblScope>
+			<biblScope unit="page">1</biblScope>
+			<date type="published" when="2013">2013</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">J</forename><surname>Van Haastert</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Keizer-Gunnink</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Kortholt</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Molecular biology of the cell</title>
+		<imprint>
+			<biblScope unit="volume">28</biblScope>
+			<biblScope unit="page">922</biblScope>
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">D</forename><surname>Imoto</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Saito</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Nakajima</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Honda</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Ishida</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Sugita</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Ishihara</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Katagiri</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Okimura</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Iwadate</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">PLoS computational biology</title>
+		<imprint>
+			<biblScope unit="volume">17</biblScope>
+			<biblScope unit="page">e1009237</biblScope>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">B</forename><surname>Hu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Chen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W.-J</forename><surname>Rappel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Levine</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Physical Review E</title>
+		<imprint>
+			<biblScope unit="volume">83</biblScope>
+			<biblScope unit="page">21917</biblScope>
+			<date type="published" when="2011">2011</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">A</forename><surname>Baba</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Hiraiwa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Shibata</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Physical Review E</title>
+		<imprint>
+			<biblScope unit="volume">86</biblScope>
+			<biblScope unit="page">60901</biblScope>
+			<date type="published" when="2012">2012</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">T</forename><surname>Hiraiwa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Baba</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Shibata</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">The European Physical Journal E</title>
+		<imprint>
+			<biblScope unit="volume">36</biblScope>
+			<biblScope unit="page">1</biblScope>
+			<date type="published" when="2013">2013</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<monogr>
+		<author>
+			<persName><forename type="first">A</forename><surname>Bain</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Crisan</surname></persName>
+		</author>
+		<title level="m">Fundamentals of stochastic filtering</title>
+				<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2009">2009</date>
+			<biblScope unit="volume">3</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">A</forename><surname>Kutschireiter</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">C</forename><surname>Surace</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J.-P</forename><surname>Pfister</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Mathematical Psychology</title>
+		<imprint>
+			<biblScope unit="volume">94</biblScope>
+			<biblScope unit="page">102307</biblScope>
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">J</forename><surname>Kobayashi</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Physical review letters</title>
+		<imprint>
+			<biblScope unit="volume">104</biblScope>
+			<biblScope unit="page">228104</biblScope>
+			<date type="published" when="2010">2010</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">C</forename><surname>Zechner</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Seelig</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Rullan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Khammash</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Proceedings of the National Academy of Sciences</title>
+		<imprint>
+			<biblScope unit="volume">113</biblScope>
+			<biblScope unit="page">4729</biblScope>
+			<date type="published" when="2016">2016</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b23">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">T</forename><surname>Mora</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Nemenman</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Physical review letters</title>
+		<imprint>
+			<biblScope unit="volume">123</biblScope>
+			<date type="published" when="2019">198101. 2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b24">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">K</forename><surname>Nakamura</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">J</forename><surname>Kobayashi</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Physical Review Letters</title>
+		<imprint>
+			<biblScope unit="volume">126</biblScope>
+			<biblScope unit="page">128102</biblScope>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b25">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">A</forename><surname>Auconi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Novak</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><forename type="middle">M</forename><surname>Friedrich</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Europhysics Letters</title>
+		<imprint>
+			<biblScope unit="volume">138</biblScope>
+			<biblScope unit="page">12001</biblScope>
+			<date type="published" when="2022">2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b26">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">M</forename><surname>Venugopal</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">M</forename><surname>Vasu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Roy</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on Automatic Control</title>
+		<imprint>
+			<biblScope unit="volume">61</biblScope>
+			<biblScope unit="page">823</biblScope>
+			<date type="published" when="2015">2015</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b27">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">K</forename><surname>Kanazawa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Sornette</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Physical Review Research</title>
+		<imprint>
+			<biblScope unit="volume">2</biblScope>
+			<biblScope unit="page">33442</biblScope>
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

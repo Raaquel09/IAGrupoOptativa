@@ -1,0 +1,1352 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">LEARNED HARMONIC MEAN ESTIMATION OF THE BAYESIAN EVIDENCE WITH NORMALIZING FLOWS</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+				<date type="published" when="2024-05-10">Version May 10, 2024</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Alicja</forename><surname>Polanska</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="institution" key="instit1">Mullard Space Science Laboratory</orgName>
+								<orgName type="institution" key="instit2">University College London</orgName>
+								<address>
+									<postCode>RH5 6NT</postCode>
+									<settlement>Dorking</settlement>
+									<country key="GB">UK</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Matthew</forename><forename type="middle">A</forename><surname>Price</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="institution" key="instit1">Mullard Space Science Laboratory</orgName>
+								<orgName type="institution" key="instit2">University College London</orgName>
+								<address>
+									<postCode>RH5 6NT</postCode>
+									<settlement>Dorking</settlement>
+									<country key="GB">UK</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Davide</forename><surname>Piras</surname></persName>
+							<affiliation key="aff1">
+								<orgName type="laboratory">Centre Universitaire d&apos;Informatique</orgName>
+								<orgName type="institution">Université de Genève</orgName>
+								<address>
+									<addrLine>1227 Genève 4</addrLine>
+									<country key="CH">Switzerland</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff2">
+								<orgName type="department">Département de Physique Théorique</orgName>
+								<orgName type="institution">Université de Genève</orgName>
+								<address>
+									<addrLine>24 quai Ernest Ansermet, 1211 Genève 4</addrLine>
+									<country key="CH">Switzerland</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Alessio</forename><surname>Spurio Mancini</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="institution" key="instit1">Mullard Space Science Laboratory</orgName>
+								<orgName type="institution" key="instit2">University College London</orgName>
+								<address>
+									<postCode>RH5 6NT</postCode>
+									<settlement>Dorking</settlement>
+									<country key="GB">UK</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff3">
+								<orgName type="department">Department of Physics</orgName>
+								<orgName type="institution" key="instit1">Royal Holloway</orgName>
+								<orgName type="institution" key="instit2">University of London</orgName>
+								<address>
+									<addrLine>Egham Hill</addrLine>
+									<settlement>Egham</settlement>
+									<country key="GB">UK</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Jason</forename><forename type="middle">D</forename><surname>Mcewen</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="institution" key="instit1">Mullard Space Science Laboratory</orgName>
+								<orgName type="institution" key="instit2">University College London</orgName>
+								<address>
+									<postCode>RH5 6NT</postCode>
+									<settlement>Dorking</settlement>
+									<country key="GB">UK</country>
+								</address>
+							</affiliation>
+							<affiliation key="aff4">
+								<orgName type="institution">Alan Turing Institute</orgName>
+								<address>
+									<postCode>NW1 2DB, 2024</postCode>
+									<settlement>London, Version May 10</settlement>
+									<country key="GB">UK</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">LEARNED HARMONIC MEAN ESTIMATION OF THE BAYESIAN EVIDENCE WITH NORMALIZING FLOWS</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date type="published" when="2024-05-10">Version May 10, 2024</date>
+						</imprint>
+					</monogr>
+					<idno type="MD5">D36EECD32B49FFE7953C18CCA7DE2076</idno>
+					<idno type="arXiv">arXiv:2405.05969v1[astro-ph.IM]</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.2" ident="GROBID" when="2024-05-16T18:04+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>We present the learned harmonic mean estimator with normalizing flows -a robust, scalable and flexible estimator of the Bayesian evidence for model comparison. Since the estimator is agnostic to sampling strategy and simply requires posterior samples, it can be applied to compute the evidence using any Markov chain Monte Carlo (MCMC) sampling technique, including saved down MCMC chains, or any variational inference approach. The learned harmonic mean estimator was recently introduced, where machine learning techniques were developed to learn a suitable internal importance sampling target distribution to solve the issue of exploding variance of the original harmonic mean estimator. In this article we present the use of normalizing flows as the internal machine learning technique within the learned harmonic mean estimator. Normalizing flows can be elegantly coupled with the learned harmonic mean to provide an approach that is more robust, flexible and scalable than the machine learning models considered previously. We perform a series of numerical experiments, applying our method to benchmark problems and to a cosmological example in up to 21 dimensions. We find the learned harmonic mean estimator is in agreement with ground truth values and nested sampling estimates. The open-source harmonic Python package implementing the learned harmonic mean, now with normalizing flows included, is publicly available.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.">INTRODUCTION</head><p>Model selection plays a crucial role in understanding the complexities of the Universe. It involves the task of identifying the underlying model that best describes observations, for instance of astrophysical phenomena. The field of Bayesian statistics provides a framework for statistical inference and decision-making that incorporates prior knowledge to update probabilities based on observed data. This approach is well-suited for cosmology, for example, as experiments in the field tend to consist of single observations of events, as opposed to repeatable experiments which are at the core of the frequentist framework. As a consequence, Bayesian inference and model comparison are widespread in the field <ref type="bibr" target="#b54">(Trotta 2008</ref>). In the Bayesian formalism, an essential tool in this process is the estimation of the Bayesian evidence, also called the marginal likelihood, which quantifies the probability of observed data given a model. The Bayesian evidence allows us to evaluate the relative plausibility of models and assess which hypotheses are best supported by the available data, which is of course not only useful in cosmology but in many other fields.</p><p>As a topical illustration of the importance of model selection in cosmology, recent baryon acoustic oscillations measurements from the Dark Energy Spectroscopic ⋆ E-mail: alicja.polanska.22@ucl.ac.uk † E-mail: jason.mcewen@ucl.ac.uk</p><p>Instrument <ref type="bibr">(DESI Collaboration et al. 2016)</ref>, combined with observations of the cosmic microwave background <ref type="bibr" target="#b2">(Aghanim et al. 2020;</ref><ref type="bibr" target="#b10">Carron et al. 2022;</ref><ref type="bibr" target="#b35">Madhavacheril et al. 2024</ref>) and with supernovae Ia measurements from PantheonPlus <ref type="bibr" target="#b6">(Brout et al. 2022</ref>), Union3 <ref type="bibr" target="#b46">(Rubin et al. 2023)</ref> or DESY5 <ref type="bibr">(DES Collaboration et al. 2024)</ref>, provide a tantalizing suggestion of the existence of a timevarying dark energy equation-of-state. Whether dark energy can be described by Einstein's cosmological constant or whether an equation-of-state with w ̸ = −1 is required is a fundamental question of modern cosmology that we hope to answer definitively in the near future through the application of Bayesian model selection techniques to upcoming observational data. We showcase the application of the methodology presented in this article to precisely this question through a simulated Dark Energy Survey (DES) galaxy clustering and weak lensing analysis (cf. <ref type="bibr" target="#b1">Abbott et al. 2018b)</ref>.</p><p>In practice, the computation of Bayesian evidence is very challenging as it involves evaluating a multidimensional integral over a potentially highly varied function. The most widespread method for estimating the Bayesian evidence, particularly in astrophysics, is nested sampling <ref type="bibr" target="#b47">(Skilling 2006;</ref><ref type="bibr" target="#b3">Ashton et al. 2022;</ref><ref type="bibr" target="#b7">Buchner 2021)</ref>. While nested sampling has been highly successful and many effective nested sampling algorithms and codes have been developed <ref type="bibr" target="#b20">(Feroz &amp; Hobson 2008;</ref><ref type="bibr" target="#b21">Feroz et al. 2009a;</ref><ref type="bibr" target="#b22">Feroz et al. 2009b;</ref><ref type="bibr" target="#b5">Brewer et al. 2011;</ref><ref type="bibr">Handley et al. 2015a,b;</ref><ref type="bibr" target="#b23">Feroz et al. 2019;</ref><ref type="bibr" target="#b49">Speagle 2020;</ref><ref type="bibr" target="#b7">Buchner 2021;</ref><ref type="bibr" target="#b55">Williams et al. 2021;</ref><ref type="bibr" target="#b8">Cai et al. 2022)</ref>, it imposes constraints on the method used to sample. By sampling in a nested manner it is possible to reparameterize the likelihood in terms of the enclosed prior volume such that the evidence can be computed by a one-dimensional integral. The computational challenge then shifts to how to effectively sample in a nested manner, i.e. how to sample from the prior subject to likelihood level-sets or isocontours. The need to sample in this nested manner severely reduces flexibility (hence the need to design custom nested sampling algorithms), typically restricting application to relatively low dimensional settings. <ref type="foot" target="#foot_0">1</ref>The harmonic mean estimator of the Bayesian evidence, introduced by <ref type="bibr" target="#b40">Newton &amp; Raftery (1994)</ref>, provides much greater flexibility since it only requires samples from the posterior, available from any Markov chain Monte Carlo (MCMC) method, for example. However, it was immediately realized by <ref type="bibr" target="#b39">Neal (1994)</ref> that the method can easily fail catastrophically due to the estimator's variance becoming very large. To solve this issue the learned harmonic mean estimator was recently proposed by <ref type="bibr" target="#b36">McEwen et al. (2021)</ref>, where machine learning techniques were developed to learn a suitable internal importance sampling target distribution. Since the estimator requires only samples from the posterior and so is agnostic to the method used to generate samples, in contrast to nested sampling, it can be easily applied with any MCMC sampling technique, including saved down MCMC chains, or any variational inference approach. This property also allows the estimator to be adapted to address Bayesian model selection for simulation-based inference (SBI) (Spurio <ref type="bibr" target="#b51">Mancini et al. 2023)</ref>, where an explicit likelihood is unavailable or infeasible.</p><p>In this article we present the use of normalizing flows as the internal machine learning technique within the learned harmonic mean estimator. Normalizing flows can be elegantly coupled with the learned harmonic mean to provide an approach that is more robust, flexible and scalable than the machine learning models considered previously. In <ref type="bibr" target="#b43">Polanska et al. (2023)</ref> we presented preliminary work introducing normalizing flow as the machine learning technique within the learned harmonic mean. We fully develop the methodology in the current article, introduce the use of additional, more expressive flows, and perform more extensive numerical experiments validating and showcasing the method. The harmonic 2 Python package implementing the learned harmonic mean estimator, including with normalizing flows, is publicly available.</p><p>While normalizing flows can learn a normalized posterior density by definition, the normalization constant itself, i.e. the Bayesian evidence, is not directly accessible. Nevertheless, the Bayesian evidence can be computed by backing out the normalization constant, as discussed in Spurio <ref type="bibr" target="#b51">Mancini et al. (2023)</ref>, by taking the ratio of the unnormalized posterior (given by the product of the likelihood and prior) with the normalizing flow representing a surrogate for the posterior. This approach, which we call the naïve normalizing flow estimator in Spurio <ref type="bibr" target="#b51">Mancini et al. (2023)</ref>, is highly dependent on the accuracy of the approximating normalizing flow and suffers a large variance, as discussed in Spurio <ref type="bibr" target="#b51">Mancini et al. (2023)</ref>. For comparison, we compute this naïve estimator in the current article and demonstrate its large variance. Very recently, <ref type="bibr">Srinivasan et al. (2024)</ref> adopt this naïve estimator and attempt to reduce its variance by introducing an additional term in the loss that penalizes variability when training the flow. While this reduces the variability of the estimator, the estimator nevertheless remains highly dependent on the accuracy of the approximating flow and there is no guarantee that resulting evidence estimates are unbiased. Training flows using the forward Kullback-Leibler (KL) divergence when given samples from the target distribution is known to suffer from mode seeking behaviour, where the learned flow has narrower tails than the target (e.g. <ref type="bibr" target="#b38">Murphy 2022</ref>). While the approach presented in <ref type="bibr">Srinivasan et al. (2024)</ref> suffers from this problem as it directly impacts the accuracy of estimated evidence values, our learned harmonic mean estimator does not. Firstly, in the learned harmonic mean approach the internal importance sampling target distribution that is learned should in any case have narrower tails than the posterior. Secondly, the distribution that is learned in our approach is not used as a surrogate for the posterior so it need not be an accurate approximation. For further details see Section 2.3 or <ref type="bibr" target="#b36">McEwen et al. 2021</ref>.</p><p>The remainder of this article is structured as follows. In Section 2 we briefly review Bayesian model comparison, the original harmonic mean estimator, elucidating its catastrophic failure arising from its large variance, and the learned harmonic mean estimator, which solves this large variance problem. In Section 3 we describe normalizing flows and how they can be integrated elegantly into the learned harmonic mean framework to provide a more robust, flexible and scalable approach than the simple machine learning models considered previously. In Section 4 we present numerical experiments that validate the effectiveness of our method. This includes low-dimensional benchmark examples where the ground truth value is accessible and a higher-dimensional practical cosmological example on DES-like simulations, as discussed above, where we validate against the evidence value computed by nested sampling. Finally, in Section 5 we present concluding remarks.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.">THE HARMONIC MEAN ESTIMATOR</head><p>In this section we briefly review Bayesian model comparison, the original harmonic mean estimator, and the learned harmonic mean estimator. We discuss the exploding variance problem of the original harmonic mean and describe how the learned harmonic mean solves this problem.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.1.">Bayesian model comparison</head><p>Using empirical data to test theoretical models lies at the heart of the scientific method, the foundation of research progress and innovation. Bayesian model comparison is a powerful approach for evaluating the relative plausibility of competing models in the light of data. In the Bayesian framework probability distributions provide a quantification of uncertainty.</p><p>Bayes' theorem is a fundamental principle in Bayesian statistics that allows us to update our beliefs about models in light of observed data. Consider observed data y described through a model M parametrised by θ. Bayes' theorem gives us the posterior p(θ | y, M ), the probability density of a model's parameter θ given observed data y and model M . It is expressed in terms of the prior probability density of the model, the likelihood of the data under that model, and the Bayesian evidence for the data:</p><formula xml:id="formula_0">p(θ | y, M ) = p(y | θ, M )p(θ | M ) p(y | M ) = L(θ)π(θ) z .<label>(1)</label></formula><p>The likelihood p(y | θ, M ) = L(θ) expresses how probable the observed data y is for different values of the parameter θ. The prior p(θ | M ) = π(θ) quantifies pre-existing knowledge or assumptions about θ. The Bayesian evidence, also called the marginal likelihood, p(y | M ) = z is a normalizing factor for the posterior distribution. The Bayesian evidence is often omitted when estimating parameters, for instance using MCMC methods, as only the relative values of the posterior probability are of interest. However, it is a crucial quantity in Bayesian model comparison. It quantifies the probability of observing the data under a particular model, integrating over the model's parameter space:</p><formula xml:id="formula_1">z = p(y | M ) = dθ p(y | θ, M )p(θ | M ) = dθ L(θ)π(θ).</formula><p>(2) The Bayesian evidence can be used to compute Bayes' factors to provide a direct measure of the relative support for one model over another. The Bayes' factor between two models M 1 , M 2 is defined as</p><formula xml:id="formula_2">BF 12 = p(y | M 1 ) p(y | M 2 ) .<label>(3)</label></formula><p>Given prior model probabilities, Bayes' factors offer a straightforward way to compare models and help make informed decisions about model selection.</p><p>In practice, the Bayesian evidence can be very challenging to calculate as θ is often high-dimensional. As a result, computing z involves evaluating a multidimensional integral over a potentially highly varied function. In principle, this could be done through a standard MCMC integration of the posterior, but this approach is not accurate in practice, even in relative low dimensions. Many alternative methods have been proposed; for reviews see <ref type="bibr" target="#b25">Friel &amp; Wyse (2012);</ref><ref type="bibr" target="#b12">Clyde et al. (2007)</ref>. The most popular method for computing the evidence, particularly in the astrophysics community, is nested sampling <ref type="bibr" target="#b47">Skilling (2006)</ref>. As discussed already, many highly effective nested sampling algorithms have been developed. However, nested sampling imposes strong constraints on the method used to generate samples, significantly reducing its flexibility. Consequently, custom nested sampling algorithms must be designed and are typically restricted to relatively low dimensional settings.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.2.">The original harmonic mean estimator</head><p>The original harmonic mean estimator of the Bayesian evidence was introduced by <ref type="bibr" target="#b40">Newton &amp; Raftery (1994)</ref>, providing an expression for the reciprocal Bayesian evidence ρ = z −1 given by</p><formula xml:id="formula_3">ρ = E p(θ | y) 1 L(θ) .<label>(4)</label></formula><p>This motivates the harmonic mean estimator ρ of the reciprocal Bayesian evidence, which can be written as an expectation of the reciprocal of the likelihood under the posterior,</p><formula xml:id="formula_4">ρ = 1 N N i=1 1 L(θ i ) , θ i ∼ p(θ | y).<label>(5)</label></formula><p>The Bayesian evidence can then be straightforwardly obtained as the inverse ẑ = ρ−1 (although a more accurate estimator of the evidence from its reciprocal can also be considered; <ref type="bibr" target="#b36">McEwen et al. 2021)</ref>. In principle, this estimator provides a simple and flexible method of evaluating the Bayesian evidence. However, it was quickly realised that the harmonic mean estimator can be highly inaccurate due to its variance growing very large <ref type="bibr" target="#b39">(Neal 1994;</ref><ref type="bibr" target="#b12">Clyde et al. 2007;</ref><ref type="bibr" target="#b25">Friel &amp; Wyse 2012)</ref>. The reason for this can be seen when interpreting the harmonic mean estimator through the lens of importance sampling (e.g. <ref type="bibr" target="#b36">McEwen et al. 2021)</ref>. Equation ( <ref type="formula" target="#formula_3">4</ref>) can be rewritten as</p><formula xml:id="formula_5">ρ = dθ 1 z π(θ) p(θ | y) p(θ | y).<label>(6)</label></formula><p>It is clear that this expectation is equivalent to importance sampling, where the target density is the prior π(θ) and the sampling density is the posterior p(θ | y). This is in contrast to the typical importance sampling use case, where the posterior is the target distribution. For importance sampling to be effective, the sampling density must have fatter tails than the target in order for the target parameter space to be explored efficiently. If this condition is not fulfilled, the variance of the expectation becomes large. In the case of the harmonic mean estimator, the target density (prior) will normally have fatter tails than the sampling density (posterior). This is because the posterior gets updated with new information about the model encoded in the data, and as a result becomes narrower. Thus, the original harmonic mean estimator suffers from an exploding variance issue and is often inaccurate.</p><p>2.3. Learned harmonic mean estimator One strategy to remedy the exploding variance problem of the harmonic mean estimator was proposed by <ref type="bibr" target="#b26">Gelfand &amp; Dey (1994)</ref>, where an arbitrary normalized density φ(θ) is introduced to rewrite the expectation in Equation (4) as</p><formula xml:id="formula_6">ρ = E p(θ|y) φ(θ) L(θ)π(θ) ,<label>(7)</label></formula><p>which naturally results in the estimator</p><formula xml:id="formula_7">ρ = 1 N N i=1 φ(θ i ) L(θ i )π(θ i ) , θ i ∼ p(θ|y). (<label>8</label></formula><formula xml:id="formula_8">)</formula><p>The density φ(θ) now takes the role of the importance sampling target. This estimator can therefore remedy the exploding variance problem provided that the target density φ(θ) is selected so that it is contained within the posterior. However, this condition is not trivial to enforce, especially in high dimensions since there is a trade-off between accuracy and efficiency. The contribution to the estimator from each posterior sample θ i is weighted by the target density φ(θ i ). Low weights reduce the contribution of the posterior sample to the estimator, reducing its effective sample size and thus efficiency. However, the alternative of avoiding low weights can result in a target φ(θ) that is not contained within the posterior, giving rise to the exploding variance problem. In prior work, a multivariate Gaussian has been considered <ref type="bibr" target="#b26">Gelfand &amp; Dey (1994)</ref>, although this often fails to contain φ(θ) within the posterior <ref type="bibr" target="#b11">(Chib 1995;</ref><ref type="bibr" target="#b12">Clyde et al. 2007</ref>).</p><p>Indicator functions have also been considered <ref type="bibr" target="#b45">(Robert &amp; Wraith 2009;</ref><ref type="bibr" target="#b56">van Haasteren 2014)</ref>, although typically result in low efficiency. Other solutions to this problem have been proposed but they can be inaccurate, inefficient or limited in their use cases <ref type="bibr" target="#b11">(Chib 1995;</ref><ref type="bibr" target="#b34">Lenk 2009;</ref><ref type="bibr" target="#b44">Raftery et al. 2006</ref>).</p><p>The learned harmonic mean estimator was proposed recently by some of the authors of the current article <ref type="bibr" target="#b36">(McEwen et al. 2021)</ref>, where machine learning methods are used to solve the exploding variance problem of the original harmonic mean. It was realized by <ref type="bibr" target="#b36">McEwen et al. (2021)</ref> that the optimal target density is the normalized posterior, i.e.</p><formula xml:id="formula_9">φ optimal (θ) = L(θ)π(θ) z . (<label>9</label></formula><formula xml:id="formula_10">)</formula><p>By definition of the problem, however, the normalized posterior is not accessible as the normalization factor is the Bayesian evidence itself. However, the target does not need to be a close approximation of the posterior for the estimate to be correct. It is more important for the target's probability mass to be contained within the posterior to avoid the variance becoming large. <ref type="bibr" target="#b36">McEwen et al. (2021)</ref> develop a bespoke optimization approach that learns the posterior density from its samples while ensuring that the resulting model satisfies this condition. They also derive an unbiased estimator of the variance of the estimator and the variance of the variance, which are empirically shown to be accurate. The estimate of the Bayesian evidence computed with the learned harmonic mean thus comes with an error estimate, which can give an indication of how confident one should be in the result, and a number of additional sanity checks <ref type="bibr" target="#b36">(McEwen et al. 2021)</ref>.</p><p>The learned harmonic mean results in an accurate estimator of the Bayesian evidence that is agnostic to the sampling strategy, just like the original harmonic mean. This property ensures flexibility of the method, meaning it can be used in conjunction with efficient MCMC sampling techniques and variational inference approaches. The learned harmonic mean has been shown to be highly accurate on numerous example problems, including several cases where the original harmonic mean had been shown to fail catastrophically <ref type="bibr" target="#b12">(Clyde et al. 2007;</ref><ref type="bibr" target="#b25">Friel &amp; Wyse 2012)</ref>. However, the bespoke training approach requires an appropriate model to be cho-sen carefully and the hyperparameters to be fine-tuned through cross validation. Moreover, the simple machine learning models considered previously do not scale well to high-dimensional settings.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.">LEARNED HARMONIC MEAN ESTIMATOR WITH NORMALIZING FLOWS</head><p>In this section we describe the learned harmonic mean with normalizing flow for estimation of the Bayesian evidence. Normalizing flows can be elegantly coupled with the learned harmonic mean to provide an approach that is more robust, flexible and scalable than the machine learning models considered previously.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.1.">Normalizing flows</head><p>Normalizing flows meet the core requirements of the learned target distribution of the learned harmonic mean estimator: namely, they provide a normalized probability distribution for which one can evaluate probability densities. Flows are a class of machine learning model, where an underlying probability distribution is learned, e.g., from training data. The learned distribution can then be sampled from, generating new data instances similar to those in the training set. The learned approximation of the probability density is also accessible, and it is normalized, which is crucial for our use.</p><p>Normalizing flow models work by transforming a simple base distribution into a more complex distribution through a series of bijections (invertible transformations). For a comprehensive review of normalizing flows we refer the reader to <ref type="bibr" target="#b41">Papamakarios et al. (2021)</ref>. The base distribution is chosen so that it is easy to sample from and to evaluate its probability density, typically a Gaussian with unit variance. A vector θ of an unknown distribution p(θ), can be expressed through a transformation B of a latent vector u sampled from the base distribution q(u): θ = B(u), where u ∼ q(u).</p><p>(10)</p><p>B must be invertible and B and its inverse B −1 must be differentiable. When these conditions are satisfied, we can simply calculate the density of the distribution of θ through the change of variables formula by</p><formula xml:id="formula_11">p(θ) = q(u)| det J B (u)| −1 ,<label>(11)</label></formula><p>where J B (u) is the Jacobian corresponding to B. Such transformations are composable: p(θ) can be transformed again, and the resulting normalized density can be obtained analogously. In practice B consists of a series of transformations. These are often defined in such a way that the determinant of J B (u) can be computed efficiently. This is where the power of normalizing flows lies -a simple base distribution, when taken through a series of simple transformations can become much more expressive and is able to approximate complex targets. In reality, the resulting distribution is an imperfect approximation of p(θ) that we call p NF (θ, β), where β denotes the trainable parameters of the transformations.</p><p>A multitude of flow architectures with different strengths have been proposed. In this work (and in the harmonic code), we use real-valued non-volume preserving <ref type="bibr" target="#b17">(Dinh et al. 2017</ref>) and rational quadratic spline flows <ref type="bibr" target="#b19">(Durkan et al. 2019)</ref>. However, any flow model can be integrated into the method, offering greater computational scalability.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.1.1.">Real non-volume preserving flows</head><p>Real-valued non-volume preserving (real NVP) flows were introduced by <ref type="bibr" target="#b17">Dinh et al. (2017)</ref>. Their architecture is relatively simple, consisting of a series of affine coupling layers. Consider the D dimensional input x, split into elements up to and following d, respectively, x 1:d and x d+1:D , for d &lt; D. Given input x, the output y of an affine couple layer is calculated by</p><formula xml:id="formula_12">y 1:d =x 1:d ; (<label>12</label></formula><formula xml:id="formula_13">)</formula><formula xml:id="formula_14">y d+1:D =x d+1:D ⊙ exp s(x 1:d ) + t(x 1:d ), (<label>13</label></formula><formula xml:id="formula_15">)</formula><p>where ⊙ denotes Hadamard (elementwise) multiplication, and the scale s and translation t are neural networks with trainable parameters. The Jacobian of such a transformation is a lower-triangular matrix, making its determinant efficient to calculate.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.1.2.">Rational quadratic spline flows</head><p>A more complex and expressive class of flows are rational quadratic spline flows introduced by <ref type="bibr" target="#b19">Durkan et al. (2019)</ref>. The architecture is similar to real NVP flows, but the layers include monotonic splines. These are piecewise functions consisting of multiple segments of monotonic rational quadratics with learned parameters. Given input x, the output y of a rational quadratic coupling layer has the form:</p><formula xml:id="formula_16">α 1:d =Trainable parameters;</formula><p>(14) α d+1:D =n(x 1:d );</p><p>(15)</p><formula xml:id="formula_17">y i =g αi (x i ), (<label>16</label></formula><formula xml:id="formula_18">)</formula><p>where n is a neural network and g αi is a spline parametrised by α i , with each bin defined by a monotonically-increasing rational-quadratic function. Such layers are combined with alternating affine transformations to create the normalizing flow. Thanks to their more expressive and sophisticated architecture, rational quadratic spline flows are well-suited to higher dimensional and more complex problems than real NVP flows <ref type="bibr" target="#b19">(Durkan et al. 2019)</ref>.</p><p>3.2. The learned harmonic mean estimator with normalizing flows In this work we address the limitations of the simple machine learning methods considered in the learned harmonic mean framework previously. Recall, the aim is to learn an approximation of the posterior from samples but with the critical constraint that the tails of the learned distribution are contained within the posterior. To learn appropriate models a bespoke optimization algorithm was considered in <ref type="bibr" target="#b36">McEwen et al. (2021)</ref>. Normalizing flows afford an elegant alternative solution for keeping the learned target density contained within the posterior, rendering the bespoke training approach unnecessary. The importance sampling target density is first learned using a normalizing flow model and then concentrated by reducing the variance of the base distribution, i.e. reducing its "temperature". The resulting The trained flow at T = 1 is a normalized approximation of the posterior distribution. The variance of the base distribution, which we call the temperature parameter T ∈ (0, 1), is reduced, concentrating the probability density of the transformed distribution. This ensures that it is contained within the posterior, which is a necessary condition for the internal learned importance target distribution of the learned harmonic mean estimator.</p><p>method provides an improved estimator of the Bayesian evidence that retains the flexibility and accuracy of its predecessor, while improving its robustness and scalability.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.2.1.">Training the flow</head><p>Before we estimate the evidence we need to train a normalizing flow on samples from the posterior. When training normalizing flows, the forward KL divergence is well-suited as the loss function L when we have samples of the target distribution. Consider an unknown posterior distribution of interest p(θ) and its approximating flow p NF (θ, β), where β are the trainable flow parameters. The KL divergence can be interpreted as a measure of the dissimilarity between p(θ) and p NF (θ, β) and is therefore a natural quantity to minimize when training a normalizing flow. The forward KL divergence between the two distributions can be expressed as</p><formula xml:id="formula_19">L(β) =D KL [ p(θ) || p NF (θ, β) ] = − E p(θ) log ( p NF (θ, β) ) + const. (<label>17</label></formula><formula xml:id="formula_20">)</formula><p>Given N samples θ i from the posterior, where i = {1, . . . , N }, the expectation in Equation ( <ref type="formula" target="#formula_19">17</ref>) can be approximated by Monte Carlo as</p><formula xml:id="formula_21">L(β) ≈ − 1 N N i=1 log ( p NF (θ i , β) ) + const. (<label>18</label></formula><formula xml:id="formula_22">)</formula><p>Minimizing this approximation is equivalent to fitting the normalizing flow to the samples by maximum likelihood <ref type="bibr" target="#b41">(Papamakarios et al. 2021)</ref>. We take this approach to trainining our flow, and minimize the loss given by Equation (18) using the Adam optimizer <ref type="bibr" target="#b33">(Kingma &amp; Ba 2017;</ref><ref type="bibr" target="#b18">Dozat 2016</ref>). We use a portion of the samples for training the flow and reserve the rest to be used for inference, to be substituted when estimating the evidence.</p><p>It is worth stressing that this is the standard training approach for normalizing flows. By replacing the simple machine learning methods considered in <ref type="bibr" target="#b36">McEwen et al. (2021)</ref> with flows, we render their bespoke training approach unnecessary, making the method more robust and flexible.</p><p>As discussed in Section 1, training a flow by forward KL divergence, or equivalently maximum likelihood, can suffer from mode seeking behaviour, where the learned flow has narrower tails than the target (e.g. <ref type="bibr" target="#b38">Murphy 2022</ref>). Nevertheless, this is not a problem for use of the flow in the learned harmonic estimator since we seek a learned distribution that has narrower tails than the posterior. Moreover, the learned distribution is not used as a surrogate for the posterior but rather as the importance sampling target. The learned distribution need not be a highly accurate approximation of the posterior but it critically must be concentrated within the posterior. Consequently, the mode seeking behaviour of training normalizing flows by forward KL divergence does not compromise the learned harmonic mean estimator.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.2.2.">Concentrating the probability density</head><p>Once the flow is trained on samples from the posterior, we concentrate its probability density by reducing what we call the flow temperature parameter T . This is a factor T ∈ (0, 1) by which the variance of the base Gaussian distribution is multiplied. Reducing the base distribution's variance has the effect of concentrating its probability density in parameter space, or reducing its "temperature" in a statistical mechanics interpretation. This has the effect of also concentrating the probability density of the transformed distribution due to the continuity and differentiability of the flow, as illustrated in Figure <ref type="figure" target="#fig_0">1</ref>. Hence, the concentrated flow is the perfect candidate for the importance sampling target in the harmonic mean estimator, as it is normalized and close to the posterior but contained within it. After a flow is trained, it can be used in the learned harmonic mean estimator with different temperature values without the need to retrain for each T .</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.2.3.">Standardization</head><p>We standardize the training and inference data. We calculate the mean and variance of the input training data represented in a matrix Θ train and remove that before fitting the model. This means that each entry of the data matrix is transformed as</p><formula xml:id="formula_23">Θ train ij → (Θ train ij − Θ train j )/σ train j ,<label>(19)</label></formula><p>where Θ train j</p><p>is the mean and σ train j is the standard deviation of the training data parameter column j (calculated over the data points). This training data consists of samples from the parameter space so j ∈ 1, . . . , D, where D is the dimension of θ. We then apply this same transformation, with Θ train and σ train vectors kept the same, to the data points for which we are predicting the probability density, namely the inference data. For the density to still be normalized, we need to then also multiply the flow density by the Jacobian of this transformation, so the predicted density for a standardized model p S NF (θ) is</p><formula xml:id="formula_24">p S NF (θ) = p NF (θ) D j=1 (σ train j ) −1 . (<label>20</label></formula><formula xml:id="formula_25">)</formula></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.2.4.">Evidence error estimate</head><p>In addition to an estimate of the evidence itself, we also require an estimate of its error. In <ref type="bibr" target="#b36">McEwen et al. (2021)</ref> approaches are proposed to estimate the variance of the learned harmonic mean estimator and also its variance. Specifically, the Bayesian evidence estimate and its error are considered ρ ± σ. While quoting these terms is sufficient for many toy problems, to ensure numerical stability for practical problems in higher dimensions it is necessary to always work in log space to avoid numerical overflow. Converting the error estimate σ to log space is non-trivial as log(var(x)) ̸ = var(log(x)) in general. To remain in log space we are interested in the log-space error ζ± defined by log(ρ ± σ) = log(ρ) + ζ± .</p><p>(21)</p><p>The log-space error estimate can be computed by</p><formula xml:id="formula_26">ζ± = log(ρ ± σ) − log(ρ) = log(1 ± σ/ρ),<label>(22)</label></formula><p>where σ/ρ = exp log(σ) − log(ρ) .</p><p>This way we can avoid computing ρ ± σ directly. We only compute log(σ) − log(ρ), which we expect to be much smaller and less susceptible to overflow. When quoting the result with log-space errors we use the notation log(ρ) ζ+ ζ−</p><p>. The log evidence errors can be straightforwardly obtained by swapping the negative and positive errors of the reciprocal log evidence.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.2.5.">Code</head><p>The learned harmonic mean estimator with normalizing flows is implemented in the harmonic package<ref type="foot" target="#foot_2">3</ref> , from version 1.2.0 onwards. The methodology described in this section, with real NVP and rational quadratic spline flows, has been implemented in JAX and is available in recent releases of harmonic on PyPi and GitHub. Furthermore, other parts of the harmonic code have been updated to run on JAX, which is a Python package offering acceleration, just-in-time compilation and automatic differentiation functionality <ref type="bibr" target="#b4">(Bradbury et al. 2018</ref>). Consequently, harmonic can now be run on hardware accelerators such as GPUs, potentially reducing computation times and allowing the user to tackle more complex, computationally demanding problems. Additionally, the automatic differentiation functionality opens up the possibility of optimizing based on evidence (e.g. for experimental design), as gradients are now accessible all the way down to evidence level, which provides an intriguing avenue for further research. The normalizing flow portion of the code is implemented using the flax <ref type="bibr" target="#b31">(Heek et al. 2023)</ref>, TensorFlow Probability <ref type="bibr" target="#b16">(Dillon et al. 2017)</ref>, optax and distrax (DeepMind et al. 2020) packages.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.2.6.">Naïve Bayesian evidence estimation using normalizing flows</head><p>As discussed in Section 1, and first described in Spurio <ref type="bibr" target="#b51">Mancini et al. (2023)</ref>, since flows are normalized it is possible to back out their normalizing constant to provide an estimate of the Bayesian evidence. We recall this approach here for reference.</p><p>Given samples θ i an estimate of the evidence can be computed for each sample by</p><formula xml:id="formula_28">z i = L(θ i )π(θ i ) p NF (θ i ) . (<label>24</label></formula><formula xml:id="formula_29">)</formula><p>While posterior samples are typically available and hence used, in principle the samples θ i do not necessarily need to be drawn from the posterior. An overall estimate of the evidence and its spread can then simply be computed from the mean of these evidence estimates and their standard deviation. However, the resulting evidence estimator is likely to be biased and will have a large variance. This is because it is highly dependent on the accuracy of the learned normalizing flow, which is used as a surrogate for the posterior, as discussed in Section 1. The learned harmonic mean does not suffer from these issues.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.">NUMERICAL EXPERIMENTS</head><p>To validate the effectiveness of the method presented in this paper, we perform a series of numerical experiments. Firstly, in Section 4. The original harmonic mean estimator has been shown to fail catastrophically for many of these examples <ref type="bibr" target="#b25">(Friel &amp; Wyse 2012)</ref>, while our learned harmonic mean remains accurate. In Section 4.3 we study the impact of varying the temperature parameter on the evidence estimate, showing the robustness of our method. Then in Section 4.4 we present a practical application of our method in a cosmological context for the DES (Dark Energy Survey). We perform a joint lensing-clustering analysis ("3x2pt") on a DES Y1-like configuration. We compare our results with the values obtained through the conventional method of nested sampling.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.1.">Architectures, sampling and training</head><p>In the experiments where a real NVP flow is used, translation networks of the affine coupling layers are given by two-layer dense neural networks with a leaky ReLU activation function in between. For the scaling layers this is scaled by another dense layer with a softplus activation. We permute the inputs between coupling layers to ensure the flow transforms all elements. In the low dimensional benchmark experiments we consider a real NVP flow, unless otherwise stated, with six coupling layers, where typically only the first two include scaling. When we use a rational quadratic spline flow, it has a range −10 to 10 (outside of this range it defaults to a linear transformation). The conditioner for the spline hyperparameters is a multi-layer perceptron with a tanh activation. We use a Gaussian base distribution with zero mean and an identity covariance matrix for all flows.</p><p>For the low-dimensional benchmark examples, we generate samples from the posterior using MCMC methods implemented in the emcee package (Foreman-Mackey et al. 2013).</p><p>In the practical cosmological example, we use the Metropolis-Hastings sampling approach Fig. <ref type="figure">2</ref>.-Corner plot of the sampled posterior (solid red) and a real NVP flow with temperature T = 0.9 (dashed blue) for the Rosenbrock benchmark problem. The internal importance target distribution of the estimator given by the concentrated flow is contained within the posterior, as required for the learned harmonic mean estimator. <ref type="bibr" target="#b37">(Metropolis et al. 1953;</ref><ref type="bibr" target="#b30">Hastings 1970</ref>) implemented in the cobaya package <ref type="bibr" target="#b53">(Torrado &amp; Lewis 2019)</ref>. We then train the flow on half of the samples by maximum likelihood and use the remaining samples for inference.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.2.">Benchmark examples</head></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.2.1.">Rosenbrock</head><p>The Rosenbrock problem is a common benchmark example considered when estimating the Bayesian evidence. The Rosenbrock distribution's narrow curving degeneracy presents a challenge in sufficiently exploring the resulting posterior distribution to accurately evaluate the Bayesian evidence. The Rosenbrock function is given by</p><formula xml:id="formula_30">f (x) = d−1 i=1 100(x i+1 − x 2 i ) 2 + (x i − 1) 2 , (<label>25</label></formula><formula xml:id="formula_31">)</formula><p>where d denotes the number of dimensions. In our example we consider a 2-dimensional problem with the loglikelihood given by log L(x) = −f (x) and a uniform prior x 0 ∈ [−10, 10] and x 1 ∈ [−5, 15]. We draw 1, 500 samples for 200 chains, with burn-in of 500 samples, yielding 1, 000 posterior samples per chain. Figure <ref type="figure">2</ref> shows the corner plot of samples from the posterior (solid red line) and a real NVP flow with 2 scaled and 4 unscaled layers at temperature T = 0.9 (dashed blue line). It can be seen that the flow approximates the posterior quite well while remaining contained within it. This is exactly what we want in a target distribution for the harmonic mean estimator.</p><p>Figure <ref type="figure">3a</ref> shows a violin plot of the results of this experiment repeated 100 times with posterior samples generated from different seeds. The ground truth obtained through numerical integration is shown in red. It can be seen that the evidence values estimated using our method are accurate, agreeing with the ground truth value. It can also be seen that the estimator of the population variance agrees with the variance measured across the repeats. Figure <ref type="figure">3b</ref> shows a violin plot of the variance estimator across runs alongside the standard deviation calculated from the variance-of-variance estimator. It can be seen they are also in agreement. The Bayesian evidence estimates obtained using the learned harmonic mean and their error estimates are highly accurate.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.2.2.">Normal-Gamma</head><p>We also consider the Normal-Gamma model <ref type="bibr" target="#b4">(Bernardo &amp; Smith 1994)</ref> where data are distributed normally and real NVP flow with temperature T = 0.9 (dashed blue) for the Normal-Gamma example with τ 0 = 0.001. The internal importance target distribution given by the concentrated flow is contained within the posterior, as required for the learned harmonic mean estimator. (b) Ratio of Bayesian evidence values computed by the learned harmonic mean estimator with a concentrated flow to those computed analytically for the Normal-Gamma problem with error bars corresponding to the estimated standard deviation. Bayesian evidence estimated with a flow at temperature T = 0.9 (blue) and T = 0.95 (green) are shown, with slight offsets for ease of visualization. Unlike the original harmonic mean, our method produces accurate estimates which are sensitive to prior size.</p><formula xml:id="formula_32">y i ∼ N(µ, τ −1 ), (<label>26</label></formula><formula xml:id="formula_33">)</formula><p>for i ∈ {1, . . . , n}, with mean µ and precision τ . A normal prior is assumed for µ and a Gamma prior for τ :</p><formula xml:id="formula_34">µ ∼ N µ 0 , (τ 0 τ ) −1 , (<label>27</label></formula><formula xml:id="formula_35">) τ ∼ Ga(a 0 , b 0 ), (<label>28</label></formula><formula xml:id="formula_36">)</formula><p>with mean µ 0 = 0, shape a 0 = 10 −3 and rate b 0 = 10 −3 . The precision scale factor τ 0 controls how diffuse the prior is. <ref type="bibr" target="#b25">Friel &amp; Wyse (2012)</ref> apply the original har-monic mean for this example and show that the evidence estimate does not vary with τ 0 , unlike the analytic ground truth value. We repeat this experiment, drawing 1, 500 samples for 200 chains, with burn in of 500 samples, yielding 1, 000 posterior samples per chain. We use a real NVP flow with 2 scaled and 4 unscaled layers at temperatures T = 0.9 and T = 0.95 to estimate the evidence. Figure <ref type="figure">4a</ref> shows an example corner plot of the training samples from the posterior for τ = 0.001 (red) and from the normalizing flow (blue) at temperature T = 0.9. Again, it can be seen that the concentrated learned target is close to the posterior but with thinner tails, as is required.</p><p>Figure <ref type="figure">4b</ref> shows the relative accuracy of the evidence estimate computed using our method for a range of prior sizes. It can be seen that, unlike the original harmonic mean estimator, our method is accurate for a range of τ 0 . Results are computed with the trained flow at temperature T = 0.9 (blue) and T = 0.95 (green). They are accurate in both cases, showing that the temperature parameter does not require fine-tuning.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.2.3.">Logistic regression models: Pima Indian example</head><p>We consider an example involving the comparison of two logistic regression models used to describe the Pima Indians data <ref type="bibr" target="#b48">(Smith et al. 1988)</ref>, originally from the National Institute of Diabetes and Digestive and Kidney Diseases.</p><p>This analysis was originally performed to study indicators of diabetes in n = 532 Pima Indian women. The predictors of diabetes considered included the number of prior pregnancies (NP), plasma glucose concentration (PGC), body mass index (BMI), diabetes pedigree function (DP) and age (AGE). The probability of diabetes p i for person i ∈ {1, . . . , n} is modelled by the logistic function</p><formula xml:id="formula_37">p i = 1 1 + exp −θ T x i ,<label>(29)</label></formula><p>with covariates x i = (1, x i,1 , . . . x i,d ) T and parameters θ = (θ 0 , . . . , θ d ) T , where d is the total number of covariates considered. The likelihood is given by</p><formula xml:id="formula_38">L(y | θ) = n i=1 p yi i (1 − p i ) 1−yi ,<label>(30)</label></formula><p>where y = (y 1 , . . . , y n ) T is the diabetes incidence with y i equal to one if patient i has diabetes and zero otherwise.</p><p>The prior distribution on θ is a Gaussian with precision τ = 0.01. Two such logistic regression models are considered:</p><p>Model M 1 : covariates = {NP, PGC, BMI, DP}; Model M 2 : covariates = {NP, PGC, BMI, DP, AGE}, where both additionally include a bias. We estimate the Bayes factor of these models BF 12 with our method and compare it to a benchmark value computed by Friel &amp; Wyse (2012) using a reversible jump algorithm <ref type="bibr" target="#b27">(Green 1995)</ref>. They obtain a value of BF 12 = 13.96 (log BF 12 = 2.636), which we treat as ground truth. We draw 5, 000 samples for 200 chains, with burn in of 1, 000 samples, yielding 4, 000 posterior samples per chain. We use a -Corner plots of the sampled posterior (solid red) and real NVP flow trained on the posterior samples with temperature T = 0.9 (dashed blue) for the Pima Indian benchmark problem for τ = 0.01. The dimensions correspond to parameters θ i associated with the covariates included in the analysis. The internal importance target distribution given by the concentrated flow is contained within the posterior and has thinner tails, as required for the learned harmonic mean estimator.</p><p>real NVP flow with 2 scaled and 4 unscaled layers at temperature T = 0.9, applying standardization.</p><p>Figure <ref type="figure">5</ref> shows the corner plots for this example for both models. The training samples from the posterior are shown in red and from the normalizing flow at temperature T = 0.9 in blue. Once again, we see that the concentrated flow is contained within the posterior as expected. The log evidence found for Model 1 and 2 is −257.230 0.003 −0.003 and −259.857 0.002 −0.002 respectively, resulting in the estimate log BF 12 = 2.627 0.004 −0.004 , indicating a slight preference for Model 1. The Bayes factor value is in close agreement with the benchmark, whereas the original harmonic mean estimator was not accurate <ref type="bibr" target="#b25">(Friel &amp; Wyse 2012)</ref>.</p><p>4.2.4. Non-nested linear regression models: Radiata pine example In the last benchmark example we compare two nonnested linear regression models describing the Radiata pine data <ref type="bibr" target="#b55">(Williams 1959)</ref>. The dataset consists of measurements of the maximum compression strength parallel to the grain y i , density x i and resin-adjusted density z i , for specimen i ∈ {1, . . . , n}. Two Gaussian linear models are compared, one with density and one with resinadjusted density as variables:</p><formula xml:id="formula_39">Model M 1 : y i = α + β(x i − x) + ϵ i , ϵ ∼ N(0, τ −1 ); (31) Model M 2 : y i = γ + δ(z i − z) + η i , η i ∼ N(0, λ −1 ),<label>(32)</label></formula><p>where x, z denote the mean values of x i and z i respectively, and τ and λ denote the precision of the noise for the respective models. For both models, Gaussian priors with means µ α = 3000 and µ β = 185, and precision scales r 0 = 0.06 and s 0 = 6 are chosen. A gamma prior is assumed for the noise precision with shape a 0 = 3 and rate b 0 = 2 × 300 2 . The evidence can be computed analytically for this example <ref type="bibr" target="#b36">(McEwen et al. 2021)</ref>.</p><p>Using emcee, we draw 10, 000 samples for 200 chains, with burn in of 2, 000 samples, yielding 8, 000 posterior samples per chain. We train a rational quadratic flow consisting of 2 layers, with 50 spline bins. Standardization is applied to the data as detailed in Section 3.2, which is necessary due to the vast difference in scale of the parameter dimensions.</p><p>Figure <ref type="figure">6</ref> shows a corner plot of the training samples from the posterior (red) and from the normalizing flow (blue) at temperature T = 0.9 for both models. Again, it can be seen that the concentrated learned target is contained within the posterior. The log evidence found for Model 1 and 2 is −310.1284 0.0007 −0.0007 and −301.7044 0.0008 −0.0008 respectively, resulting in the estimate log BF 12 = 8.424 0.001 −0.001 . The analytic values of the log evidence are −310.1283 and −301.7046 for Models 1 and 2 respectively, resulting in the estimate log BF 12 = 8.424. The value obtained using our estimator is in close agreement with the ground truth. The learned harmonic mean gives an accurate estimate of the evidence, whereas the original harmonic mean estimator fails catastrophically for this example <ref type="bibr" target="#b25">(Friel &amp; Wyse 2012)</ref>.</p><p>4.3. Robustness of the temperature parameter Many methods of estimating the evidence require careful fine-tuning of hyperparameters. As explained in Section 2.3, this was also the case for the learned harmonic mean estimator when using the classical machine learning models as considered previously. The target distribution was learned using simple machine learning models and a bespoke optimization approach designed to ensure the target distribution is contained within the posterior. The models had to be carefully chosen and their hyperparameters had to be fine-tuned for the estimator to be accurate and validated by cross-validation. In this work, through the introduction of a more sophisticated machine learning model, normalizing flows, we are able to avoid this drawback and create a more robust estimator.</p><p>Our learned harmonic mean estimator with normaliz-  It can be seen that the Bayesian evidence estimates are accurate for a range of temperatures. This shows that the learned harmonic mean is a robust method and does not require careful parameter fine-tuning. The outlier value for T = 0.95 illustrates the fact that even though the corresponding concentrated flow better approximates the optimal importance target given by the posterior, a flow temperature closer to unity does not necessarily lead to a better estimate since as T → 1 it is possible the flow may not contain the posterior (as it does not represent the true underlying posterior but only a learned approximation).</p><p>ing flows contains essentially just a single hyperparameter: the temperature T of the concentrated flow. We perform numerical experiments to study the influence of the temperature parameter T on the evidence estimate. The Rosenbrock benchmark problem is considered again, as described in Section 4.2.1. The experimental process is performed for a range of temperatures T ∈ [0.7, 0.95], repeating it 100 times for each value. For each repeat, a new seed is used to generate a new dataset of posterior samples, and to initialize the optimizer.</p><p>Figure <ref type="figure" target="#fig_6">7</ref> shows violin plots of the log evidence estimates obtained in this experiment plotted for each temperature value. The ground truth, obtained through direct numerical integration is shown in red. It can be seen that the evidence estimates remain accurate and unbiased for the range of temperature values considered. This illustrates the robustness of our method -the temperature parameter does not need to be fine-tuned.</p><p>One must nevertheless ensure that the flow is indeed contained within the posterior as required for the learned harmonic mean to be accurate. The temperature parameter needs to be sufficiently small for this to be the case. If the flow was a perfect approximation of the posterior, any value T ≤ 1 would do. In practice this is not the case, and if the temperature is chosen to be too close to unity, the flow might not be contained within the poste-rior in some regions of the parameter space, causing the estimator's variance to grow. This effect can partially be seen when looking at the violin plot for T = 0.95 in Figure <ref type="figure" target="#fig_6">7</ref>. Most of the evidence estimates remain accurate but it can be seen that there exists an outlier. The smallest evidence estimate computed is many standard deviations away from the ground truth. To avoid this, one should always ensure that the flow at the chosen temperature does not have fatter tails than the posterior. If the flow for T = 1 were a perfect approximation of the posterior, one would expect the variance of the estimator to increase as T is reduced below unity due to the resulting smaller effective sample size. However, when dealing with a finite number of samples from the posterior and imperfect approximations, a temperature value closer to unity is not always best. When T is large, the possibility of the flow not being contained within the posterior increases. It is better to choose a lower, more conservative value of T when dealing with a more complicated or high-dimensional posterior. In practice, we find T ≈ 0.9 works well for most problems. A lower T value should be used if the posterior is particularly complex or highdimensional. This value can then be adjusted based on the error estimate or other diagnostics computed by the harmonic code <ref type="bibr" target="#b36">(McEwen et al. 2021)</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.4.">Practical cosmological example: DES Y1 analysis</head><p>In Section 4.2 we showed that the learned harmonic mean estimator with normalizing flows works very well on a range of simple benchmark examples, where the ground truth Bayesian evidence is available. In this section we show it also performs well in a practical context, by applying it to a Dark Energy Survey Year 1 (DES Y1) example. DES is an on-going cosmological survey designed to gain insight into the nature of dark energy. We perform a 3x2pt analysis <ref type="bibr" target="#b0">(Abbott et al. 2018a;</ref><ref type="bibr" target="#b32">Joachimi &amp; Bridle 2010)</ref>, i.e. a joint analysis of galaxy clustering and weak lensing considering shear, clustering and their cross correlation, on a DES Y1-like configuration.</p><p>We follow the reference approach described by Campagne et al. ( <ref type="formula">2023</ref>), who extract and compress a subset of the DES Year 1 lensing and clustering data and set up a forward model following the DES Y1 Pipeline <ref type="bibr" target="#b0">(Abbott et al. 2018a</ref>). We use the DES Y1 redshift distributions<ref type="foot" target="#foot_3">4</ref> and simulate a 3x2pt data vector for a fixed cosmology. We use this as our mock data vector and run an inference pipeline to obtain posterior contours and evidence estimates. We refer the reader to <ref type="bibr" target="#b9">Campagne et al. (2023)</ref> for the priors and all other details. To sample from the posterior we use the Cobaya package <ref type="bibr" target="#b53">(Torrado &amp; Lewis 2019)</ref> with the Metropolis-Hastings algorithm. We then apply harmonic to these samples to evaluate the Bayesian evidence. For comparison, we also sample using  the PolyChord nested sampler <ref type="bibr">(Handley et al. 2015a,b)</ref> in Cobaya, which provides a benchmark Bayesian evidence estimate. We perform the analysis twice, assuming either a ΛCDM or wCDM cosmological model, with the dark energy equation of state parameter w fixed to w = −1 or free to vary, respectively.</p><p>The ΛCDM and wCDM models have 20 and 21 parameters respectively. With the Metropolis-Hastings sampler, we run 64 chains per model, obtaining an average of approximately 5, 800 and 6, 500 samples per chain for ΛCDM and wCDM respectively. We discard 500 samples for burn-in in both cases. We train a rational quadratic flow consisting of 3 layers, with 128 spline bins, applying standardization, on half of the chains, and use the other half for inference.</p><p>Figure <ref type="figure" target="#fig_8">8</ref> shows the corner plots of the training samples alongside the flow at T = 0.8. It can be seen the flow also behaves as expected in this higher-dimensional practical setting, capturing the posterior distribution while being contained within it. Log evidence values, Bayes factors and computation time are reported in Table <ref type="table" target="#tab_0">1</ref> for the learned harmonic mean estimator, nested sampling with PolyChord and by the naïve flow estimate introduced in Spurio <ref type="bibr" target="#b51">Mancini et al. (2023)</ref> and described in Section 3.2.6.</p><p>Note that the values computed by the learned harmonic mean and nested sampling are in close agreement, showing a slight preference for ΛCDM, matching the configuration of our simulated setup. The values computed by the naïve estimator are in approximate agreement but exhibit an error two orders or magnitude larger than the error of the learned harmonic mean (in higher dimensional examples to be reported in an ongoing work we observe the naïve estimator failing much more catastrophically).</p><p>In terms of computational speed (summarized in Table 1 but reported in great detail here), sampling with Cobaya using the Metropolis-Hastings algorithm takes approximately 8 hours for ΛCDM and wCDM each on 64 CPU cores. The compute time added by harmonic is around 5 minutes on 1 GPU for training and 3 minutes on 128 CPU cores to estimate the evidence for each model. Using PolyChord takes approximately 47 hours for ΛCDM and wCDM each, on the same 64 CPU cores used for the Metropolis-Hastings sampling. The Metropolis-Hastings algorithm in this case is much quicker due to the use of a proposal covariance matrix based on a Planck cosmology <ref type="bibr" target="#b9">(Campagne et al. 2023)</ref>. Thanks to the flexibility of the learned harmonic estimator, we can leverage this advantage and choose Metropolis-Hastings over nested sampling, while still being able to estimate the Bayesian evidence and perform model comparison. Even in this higher dimensional setting, the learned harmonic mean only adds a few minutes of compute time on top of the sampler. This demonstrates the potential scalability of the method and its potential for computing the evidence from existing saved down MCMC chains.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.">CONCLUSIONS</head><p>In this work we outlined the learned harmonic mean estimator with normalizing flows, a robust, flexible and scalable estimator of the Bayesian evidence. Normalizing flows meet the core requirements of the learned impor-tance target distribution of the learned harmonic mean estimator: namely, they provide a normalized probability distribution for which one can evaluate probability densities. We use them to introduce an elegant way to ensure the probability mass of the learned distribution is contained within the posterior, a critical requirement of the learned harmonic mean. This avoids the need for a bespoke training approach, resulting in a more robust and flexible estimator. Furthermore, flows offer the potential of greater scalability than the classical machine learning models considered previously.</p><p>To validate its accuracy, we applied the learned harmonic mean to several benchmark problems.</p><p>Our method produced accurate results, even in cases where the original harmonic mean had been shown to fail. We also applied the learned harmonic mean to a practical cosmological example, the Dark Energy Survey Year 1 (DES Y1) data 3x2pt analysis. Even in this higher dimensional context for up to 21 parameters our method computed an estimate that was in excellent agreement with the conventional approach using nested sampling. This shows the potential for scalability of our method. Many existing methods of estimating the Bayesian evidence, including previous work on the learned harmonic mean, require careful parameter fine-tuning. Beyond the flow architecture, we only introduced one hyperparameter -the concentrated flow temperature T , which does not require any fine-tuning. We showed this empirically by considering a selected benchmark problem for a range of T values. The estimate remained accurate, demonstrating the robustness of our method.</p><p>Since the learned harmonic mean estimator is decoupled from the sampling method, it can be used in a wide variety of settings. This includes approaches such as simulation-based inference, variational inference and various MCMC methods where the evidence could not otherwise be computed accurately, such as the No U-Turn Sampler (NUTS) (Hoffman &amp; Gelman 2011). When using MCMC methods for parameter estimation, the Bayesian evidence can be obtained essentially "for free" or even post-hoc from saved down MCMC chains. Since the estimator is agnostic to the sampling strategy, it is highly flexible. The best suited sampling strategy may be used for the problem at hand, as we demonstrated in the DES Y1 example, where Metropolis-Hastings accurately sampled the posterior much faster than nested sampling. In ongoing work we leverage the flexibility of the learned harmonic mean to demonstrate its use with NUTS and the CosmoPower-JAX emulator (Spurio <ref type="bibr" target="#b50">Mancini et al. 2022;</ref><ref type="bibr" target="#b42">Piras &amp; Spurio Mancini 2023)</ref> to scale evidence calculation to ∼ 150 dimensions. Overall, the learned harmonic mean estimator with normalizing flows is a robust, flexible and scalable tool for Bayesian model comparison that can be used in a variety of contexts.</p><p>(No. 202671), and by the SNF Sinergia grant CRSII5-193826 "AstroSignals: A New Window on the Universe, with the New Generation of Large Radio-Astronomy Fa-cilities". A.S.M. acknowledges support from the MSSL STFC Consolidated Grant ST/W001136/1.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Fig. 1 .</head><label>1</label><figDesc>Fig. 1.-Diagram illustrating how reducing the temperature parameter concentrates the probability density of a normalizing flow.The trained flow at T = 1 is a normalized approximation of the posterior distribution. The variance of the base distribution, which we call the temperature parameter T ∈ (0, 1), is reduced, concentrating the probability density of the transformed distribution. This ensures that it is contained within the posterior, which is a necessary condition for the internal learned importance target distribution of the learned harmonic mean estimator.</figDesc><graphic coords="5,326.38,62.11,226.77,169.40" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head></head><label></label><figDesc>2 we repeat a series of lowdimensional benchmark problems performed by McEwen et al. (2021) but using normalizing flows to learn the importance sampling target. The underlying examples are described in more detail by McEwen et al. (2021).</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head></head><label></label><figDesc>Fig. 3.-Violin plots of the reciprocal Bayesian evidence computed by the learned harmonic mean estimator for the Rosenbrock benchmark problem repeated 100 times. (a) Reciprocal Bayesian evidence estimates across runs (measured) along with the estimate of the standard deviation computed by the error estimator (estimated). The ground truth is shown in red. (b) Sample variance of the estimator across runs (measured) alongside the standard deviation computed by the variance-of-variance estimator (estimated).The evidence estimates and their error estimators are highly accurate.</figDesc><graphic coords="8,50.74,256.52,244.35,178.41" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head></head><label></label><figDesc>Fig. 4.-(a) Corner plot of the sampled posterior (solid red)and real NVP flow with temperature T = 0.9 (dashed blue) for the Normal-Gamma example with τ 0 = 0.001. The internal importance target distribution given by the concentrated flow is contained within the posterior, as required for the learned harmonic mean estimator. (b) Ratio of Bayesian evidence values computed by the learned harmonic mean estimator with a concentrated flow to those computed analytically for the Normal-Gamma problem with error bars corresponding to the estimated standard deviation. Bayesian evidence estimated with a flow at temperature T = 0.9 (blue) and T = 0.95 (green) are shown, with slight offsets for ease of visualization. Unlike the original harmonic mean, our method produces accurate estimates which are sensitive to prior size.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_4"><head></head><label></label><figDesc>Fig. 5.-Corner plots of the sampled posterior (solid red) and real NVP flow trained on the posterior samples with temperature T = 0.9 (dashed blue) for the Pima Indian benchmark problem for τ = 0.01. The dimensions correspond to parameters θ i associated with the covariates included in the analysis. The internal importance target distribution given by the concentrated flow is contained within the posterior and has thinner tails, as required for the learned harmonic mean estimator.</figDesc><graphic coords="9,317.59,329.88,244.36,244.36" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_5"><head></head><label></label><figDesc>Fig.6.-Corner plot of the the sampled posterior (solid red) and rational quadratic spline flow trained on the posterior samples with temperature T = 0.9 (dashed blue) for the Radiata pine benchmark problem. The internal importance target distribution given by the concentrated flow is contained within the posterior and has thinner tails, as required for the learned harmonic mean estimator.</figDesc><graphic coords="10,317.59,329.88,244.36,244.36" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_6"><head>Fig. 7 .</head><label>7</label><figDesc>Fig. 7.-Impact of the temperature parameter value on the evidence estimate. The figure contains violin plots of the evidence estimates across runs for the Rosenbrock problem for a range of temperature values. The ground truth is shown in red.It can be seen that the Bayesian evidence estimates are accurate for a range of temperatures. This shows that the learned harmonic mean is a robust method and does not require careful parameter fine-tuning. The outlier value for T = 0.95 illustrates the fact that even though the corresponding concentrated flow better approximates the optimal importance target given by the posterior, a flow temperature closer to unity does not necessarily lead to a better estimate since as T → 1 it is possible the flow may not contain the posterior (as it does not represent the true underlying posterior but only a learned approximation).</figDesc><graphic coords="11,50.74,142.27,256.58,192.72" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_8"><head>Fig. 8 .</head><label>8</label><figDesc>Fig.8.-Corner plot of the sampled posterior (solid red) and rational quadratic spline flow trained on the posterior samples with temperature T = 0.8 (dashed blue) for the DES Y1 analysis example for (a) ΛCDM and (b) wCDM cosmological models. The internal importance target distribution given by the concentrated flow is contained within the posterior and has thinner tails, as required for the learned harmonic mean estimator, even in this higher dimensional case.</figDesc><graphic coords="12,152.98,392.24,306.72,306.72" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_0"><head>TABLE 1</head><label>1</label><figDesc>Evidence and Bayes factors computed for DES Y1-like 3x2pt analysis</figDesc><table><row><cell>Method</cell><cell>log(z ΛCDM )</cell><cell>log(z wCDM )</cell><cell>log BF ΛCDM-wCDM</cell><cell>Computation time (64 CPU cores)</cell></row><row><cell cols="2">Learned harmonic mean −65.262 +0.011 −0.011</cell><cell>−67.407 0.009 −0.009</cell><cell>2.145 0.014 −0.014</cell><cell>16 hours (sampling) + 16 minutes (evidence)</cell></row><row><cell>Nested sampling</cell><cell cols="2">−65.21 ± 0.32 −67.44 ± 0.32</cell><cell>2.23 ± 0.45</cell><cell>94 hours (sampling and evidence)</cell></row><row><cell>Naïve flow estimator</cell><cell>−64.9 ± 0.8</cell><cell>−67.0 ± 1.1</cell><cell>2.1 ± 1.4</cell><cell>Similar to learned harmonic mean</cell></row></table></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="1" xml:id="foot_0">A notable exception that is applicable to high-dimensional settings is proximal nested sampling(Cai et al</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="2022" xml:id="foot_1">. 2022), although it is only applicable for log-convex likelihoods.2 https://github.com/astro-informatics/harmonic</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="3" xml:id="foot_2">https://github.com/astro-informatics/harmonic</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="4" xml:id="foot_3">http://desdr-server.ncsa.illinois.edu/despublic/y1a1_ files/chains/2pt_NG_mcal_1110.fits</note>
+		</body>
+		<back>
+
+			<div type="acknowledgement">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>ACKNOWLEDGEMENTS</head><p>We thank Kaze Wong for insightful discussions regarding normalizing flows. A.P. is supported by the UCL Centre for Doctoral Training in Data Intensive Science (STFC grant number ST/W00674X/1). M.A.P. and J.D.M. are supported by EPSRC (grant number EP/W007673/1). D.P. was supported by a Swiss National Science Foundation (SNSF) Professorship grant</p></div>
+			</div>
+
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">T</forename><surname>Abbott</surname></persName>
+		</author>
+		<idno type="DOI">10.1103/physrevd.98.043526</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Physical Review D</title>
+		<imprint>
+			<biblScope unit="page">98</biblScope>
+			<date type="published" when="2018">2018a</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">M</forename><surname>Abbott</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Physical Review D</title>
+		<imprint>
+			<biblScope unit="volume">98</biblScope>
+			<biblScope unit="page">43526</biblScope>
+			<date type="published" when="2018">2018b</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">N</forename><surname>Aghanim</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Astronomy &amp; Astrophysics</title>
+		<imprint>
+			<biblScope unit="volume">641</biblScope>
+			<biblScope unit="page">A6</biblScope>
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">G</forename><surname>Ashton</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Nature Reviews Methods Primers</title>
+		<imprint>
+			<biblScope unit="volume">2</biblScope>
+			<biblScope unit="page">39</biblScope>
+			<date type="published" when="2022">2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<monogr>
+		<author>
+			<persName><forename type="first">J</forename><surname>Bernardo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Smith</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Wiley</forename><surname>Online</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Library</forename><surname>Bradbury</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename></persName>
+		</author>
+		<idno type="DOI">10.1002/9780470316870.ch5</idno>
+		<ptr target="http://github.com/google/jax" />
+		<title level="m">JAX: composable transformations of Python+NumPy programs</title>
+				<imprint>
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">B</forename><forename type="middle">J</forename><surname>Brewer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><forename type="middle">B</forename><surname>Pártay</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Csányi</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Statistics and Computing</title>
+		<imprint>
+			<biblScope unit="volume">21</biblScope>
+			<biblScope unit="page">649</biblScope>
+			<date type="published" when="2011">2011</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">D</forename><surname>Brout</surname></persName>
+		</author>
+		<idno type="DOI">10.3847/1538-4357/ac8e04</idno>
+	</analytic>
+	<monogr>
+		<title level="j">The Astrophysical Journal</title>
+		<imprint>
+			<biblScope unit="volume">938</biblScope>
+			<biblScope unit="page">110</biblScope>
+			<date type="published" when="2022">2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">J</forename><surname>Buchner</surname></persName>
+		</author>
+		<idno type="DOI">10.21105/joss.03001</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Open Source Software</title>
+		<imprint>
+			<biblScope unit="volume">6</biblScope>
+			<biblScope unit="page">3001</biblScope>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">X</forename><surname>Cai</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">D</forename><surname>Mcewen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Pereyra</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Statistics and Computing</title>
+		<imprint>
+			<biblScope unit="page">32</biblScope>
+			<date type="published" when="2022">2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">J.-E</forename><surname>Campagne</surname></persName>
+		</author>
+		<idno type="DOI">10.21105/astro.2302.05163</idno>
+	</analytic>
+	<monogr>
+		<title level="j">The Open Journal of Astrophysics</title>
+		<imprint>
+			<biblScope unit="issue">6</biblScope>
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">J</forename><surname>Carron</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Mirmelstein</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Lewis</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Cosmology and Astroparticle Physics</title>
+		<imprint>
+			<biblScope unit="page">39</biblScope>
+			<date type="published" when="2022">2022. 2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">S</forename><surname>Chib</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of the American Statistical Association</title>
+		<imprint>
+			<biblScope unit="volume">90</biblScope>
+			<biblScope unit="page">1313</biblScope>
+			<date type="published" when="1995">1995</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<monogr>
+		<author>
+			<persName><forename type="first">Clyde</forename><forename type="middle">M</forename><surname>Berger</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Bullard</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Ford</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Jefferys</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Luo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Paulo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Loredo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename></persName>
+		</author>
+		<title level="m">Statistical challenges in modern astronomy IV</title>
+				<imprint>
+			<date type="published" when="2007">2007</date>
+			<biblScope unit="page">224</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<monogr>
+		<idno type="arXiv">arXiv:2401.02929</idno>
+		<title level="m">The Dark Energy Survey: Cosmology Results With 1500 New High-redshift Type Ia Supernovae Using The Full 5-year Dataset</title>
+				<imprint>
+			<date type="published" when="2024">2024</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<monogr>
+		<idno type="arXiv">arXiv:1611.00036</idno>
+		<title level="m">The DESI Experiment Part I: Science,Targeting, and Survey Design</title>
+				<imprint>
+			<date type="published" when="2016">2016</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<monogr>
+		<author>
+			<persName><surname>Deepmind</surname></persName>
+		</author>
+		<ptr target="http://github.com/deepmind" />
+		<title level="m">The DeepMind JAX Ecosystem</title>
+				<imprint>
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<monogr>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">V</forename><surname>Dillon</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:1711.10604</idno>
+		<title level="m">TensorFlow Distributions</title>
+				<imprint>
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<monogr>
+		<author>
+			<persName><forename type="first">L</forename><surname>Dinh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Sohl-Dickstein</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Bengio</surname></persName>
+		</author>
+		<ptr target="https://openreview.net/forum?id=HkpbnH9lx" />
+		<title level="m">International Conference on Learning Representations</title>
+				<imprint>
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<monogr>
+		<author>
+			<persName><forename type="first">T</forename><surname>Dozat</surname></persName>
+		</author>
+		<title level="m">Proceedings of the 4th International Conference on Learning Representations</title>
+				<meeting>the 4th International Conference on Learning Representations</meeting>
+		<imprint>
+			<date type="published" when="2016">2016</date>
+			<biblScope unit="volume">1</biblScope>
+			<biblScope unit="page">4</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<monogr>
+		<author>
+			<persName><forename type="first">C</forename><surname>Durkan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Bekasov</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Murray</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Papamakarios</surname></persName>
+		</author>
+		<title level="m">Advances in neural information processing systems</title>
+				<imprint>
+			<date type="published" when="2019">2019</date>
+			<biblScope unit="page">32</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">F</forename><surname>Feroz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">P</forename><surname>Hobson</surname></persName>
+		</author>
+		<idno type="DOI">10.1111/j.1365-2966.2007.12353.x</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Monthly Notices of the Royal Astronomical Society</title>
+		<imprint>
+			<biblScope unit="volume">384</biblScope>
+			<biblScope unit="page" from="449" to="463" />
+			<date type="published" when="2008">2008</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">F</forename><surname>Feroz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">P</forename><surname>Hobson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Bridges</surname></persName>
+		</author>
+		<idno type="DOI">10.1111/j.1365-2966.2009.14548.x</idno>
+	</analytic>
+	<monogr>
+		<title level="j">MNRAS</title>
+		<imprint>
+			<biblScope unit="volume">398</biblScope>
+			<biblScope unit="page">1601</biblScope>
+			<date type="published" when="2009">2009a</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">F</forename><surname>Feroz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">P</forename><surname>Hobson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Bridges</surname></persName>
+		</author>
+		<idno type="DOI">10.1111/j.1365-2966.2009.14548.x</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Monthly Notices of the Royal Astronomical Society</title>
+		<imprint>
+			<biblScope unit="volume">398</biblScope>
+			<biblScope unit="page" from="1601" to="1614" />
+			<date type="published" when="2009">2009b</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b23">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">F</forename><surname>Feroz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">P</forename><surname>Hobson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Cameron</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">N</forename><surname>Pettitt</surname></persName>
+		</author>
+		<idno type="DOI">10.21105/astro.1306.2144</idno>
+	</analytic>
+	<monogr>
+		<title level="j">The Open Journal of Astrophysics</title>
+		<imprint>
+			<biblScope unit="issue">2</biblScope>
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b24">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">D</forename><surname>Foreman-Mackey</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">W</forename><surname>Hogg</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Lang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Goodman</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">PASP</title>
+		<imprint>
+			<biblScope unit="volume">125</biblScope>
+			<biblScope unit="page">306</biblScope>
+			<date type="published" when="2013">2013</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b25">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">N</forename><surname>Friel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Wyse</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Statistica Neerlandica</title>
+		<imprint>
+			<biblScope unit="volume">66</biblScope>
+			<biblScope unit="page">288</biblScope>
+			<date type="published" when="2012">2012</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b26">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">E</forename><surname>Gelfand</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">K</forename><surname>Dey</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of the Royal Statistical Society: Series B</title>
+		<imprint>
+			<biblScope unit="volume">56</biblScope>
+			<biblScope unit="page">501</biblScope>
+			<date type="published" when="1994">1994</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b27">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">J</forename><surname>Green</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Biometrika</title>
+		<imprint>
+			<biblScope unit="volume">82</biblScope>
+			<biblScope unit="page">711</biblScope>
+			<date type="published" when="1995">1995</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b28">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">W</forename><forename type="middle">J</forename><surname>Handley</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">P</forename><surname>Hobson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">N</forename><surname>Lasenby</surname></persName>
+		</author>
+		<idno type="DOI">10.1093/mnrasl/slv047</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Monthly Notices of the Royal Astronomical Society: Letters</title>
+		<imprint>
+			<biblScope unit="volume">450</biblScope>
+			<biblScope unit="page" from="L61" to="L65" />
+			<date type="published" when="2015">2015a</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b29">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">W</forename><forename type="middle">J</forename><surname>Handley</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">P</forename><surname>Hobson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">N</forename><surname>Lasenby</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Monthly Notices of the Royal Astronomical Society</title>
+		<imprint>
+			<biblScope unit="volume">453</biblScope>
+			<biblScope unit="page" from="4385" to="4399" />
+			<date type="published" when="2015">2015b</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b30">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">W</forename><forename type="middle">K</forename><surname>Hastings</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Biometrika</title>
+		<imprint>
+			<biblScope unit="volume">57</biblScope>
+			<biblScope unit="page">97</biblScope>
+			<date type="published" when="1970">1970</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b31">
+	<monogr>
+		<author>
+			<persName><forename type="first">J</forename><surname>Heek</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Levskaya</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Oliver</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Ritter</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Rondepierre</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Steiner</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Van Zee</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">D</forename><surname>Hoffman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Gelman</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:1111.4246</idno>
+		<ptr target="http://github.com/google/flax" />
+		<title level="m">The No-U-Turn Sampler: Adaptively Setting Path Lengths in Hamiltonian Monte Carlo</title>
+				<imprint>
+			<date type="published" when="2011">2023. 2011</date>
+		</imprint>
+	</monogr>
+	<note>Flax: A neural network library and ecosystem for JAX</note>
+</biblStruct>
+
+<biblStruct xml:id="b32">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">B</forename><surname>Joachimi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">L</forename><surname>Bridle</surname></persName>
+		</author>
+		<idno type="DOI">10.1051/0004-6361/200913657</idno>
+	</analytic>
+	<monogr>
+		<title level="j">A&amp;A</title>
+		<imprint>
+			<biblScope unit="volume">523</biblScope>
+			<biblScope unit="page">A1</biblScope>
+			<date type="published" when="2010">2010</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b33">
+	<monogr>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">P</forename><surname>Kingma</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Ba</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:1412.6980</idno>
+		<title level="m">Adam: A Method for Stochastic Optimization</title>
+				<imprint>
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b34">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">P</forename><surname>Lenk</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Computational and Graphical Statistics</title>
+		<imprint>
+			<biblScope unit="volume">18</biblScope>
+			<biblScope unit="page">941</biblScope>
+			<date type="published" when="2009">2009</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b35">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">S</forename><surname>Madhavacheril</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">The Astrophysical Journal</title>
+		<imprint>
+			<biblScope unit="volume">962</biblScope>
+			<biblScope unit="page">113</biblScope>
+			<date type="published" when="2024">2024</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b36">
+	<monogr>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">D</forename><surname>Mcewen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">G R</forename><surname>Wallis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">A</forename><surname>Price</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">S</forename><surname>Mancini</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:2111.12720</idno>
+		<title level="m">Machine learning assisted Bayesian model comparison: learnt harmonic mean estimator</title>
+				<imprint>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b37">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">N</forename><surname>Metropolis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">W</forename><surname>Rosenbluth</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">N</forename><surname>Rosenbluth</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">H</forename><surname>Teller</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Teller</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">J. Chemical Physics</title>
+		<imprint>
+			<biblScope unit="volume">21</biblScope>
+			<biblScope unit="page">1087</biblScope>
+			<date type="published" when="1953">1953</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b38">
+	<monogr>
+		<title level="m" type="main">Probabilistic Machine Learning: An introduction</title>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">P</forename><surname>Murphy</surname></persName>
+		</author>
+		<editor>probml.ai</editor>
+		<imprint>
+			<date type="published" when="2022">2022</date>
+			<publisher>MIT Press</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b39">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">M</forename><surname>Neal</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">JR Stat Soc Ser A (Methodological)</title>
+		<imprint>
+			<biblScope unit="volume">56</biblScope>
+			<biblScope unit="page">41</biblScope>
+			<date type="published" when="1994">1994</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b40">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">A</forename><surname>Newton</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">E</forename><surname>Raftery</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of the Royal Statistical Society: Series B (Methodological)</title>
+		<imprint>
+			<biblScope unit="volume">56</biblScope>
+			<biblScope unit="page">3</biblScope>
+			<date type="published" when="1994">1994</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b41">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">G</forename><surname>Papamakarios</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Nalisnick</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">J</forename><surname>Rezende</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Mohamed</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Lakshminarayanan</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">The Journal of Machine Learning Research</title>
+		<imprint>
+			<biblScope unit="volume">22</biblScope>
+			<biblScope unit="page">2617</biblScope>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b42">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">D</forename><surname>Piras</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Spurio</forename><surname>Mancini</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">The Open Journal of Astrophysics</title>
+		<imprint>
+			<biblScope unit="issue">6</biblScope>
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b43">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">A</forename><surname>Polanska</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">A</forename><surname>Price</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Spurio</forename><surname>Mancini</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Mcewen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">D</forename></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Physical Sciences Forum</title>
+		<imprint>
+			<biblScope unit="page">9</biblScope>
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b44">
+	<monogr>
+		<title/>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">E</forename><surname>Raftery</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">A</forename><surname>Newton</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">M</forename><surname>Satagopan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">N</forename><surname>Krivitsky</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2006">2006</date>
+		</imprint>
+	</monogr>
+	<note>Preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b45">
+	<monogr>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">P</forename><surname>Robert</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Wraith</surname></persName>
+		</author>
+		<title level="m">Aip conference proceedings</title>
+				<imprint>
+			<date type="published" when="2009">2009</date>
+			<biblScope unit="page" from="251" to="262" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b46">
+	<monogr>
+		<author>
+			<persName><forename type="first">D</forename><surname>Rubin</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:2311.12098</idno>
+		<title level="m">Union Through UNITY: Cosmology with 2,000 SNe Using a Unified Bayesian Framework</title>
+				<imprint>
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b47">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">J</forename><surname>Skilling</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Bayesian Analysis</title>
+		<imprint>
+			<biblScope unit="volume">1</biblScope>
+			<biblScope unit="page">833</biblScope>
+			<date type="published" when="2006">2006</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b48">
+	<monogr>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">W</forename><surname>Smith</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">E</forename><surname>Everhart</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Dickson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><forename type="middle">C</forename><surname>Knowler</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">S</forename><surname>Johannes</surname></persName>
+		</author>
+		<title level="m">Proceedings of the annual symposium on computer application in medical care</title>
+				<meeting>the annual symposium on computer application in medical care</meeting>
+		<imprint>
+			<date type="published" when="1988">1988</date>
+			<biblScope unit="page">261</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b49">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">S</forename><surname>Speagle</surname></persName>
+		</author>
+		<idno type="DOI">10.1093/mnras/staa278</idno>
+	</analytic>
+	<monogr>
+		<title level="j">MNRAS</title>
+		<imprint>
+			<biblScope unit="volume">493</biblScope>
+			<biblScope unit="page">3132</biblScope>
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b50">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">Spurio</forename><surname>Mancini</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Piras</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Alsing</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Joachimi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Hobson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">P</forename></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Monthly Notices of the Royal Astronomical Society</title>
+		<imprint>
+			<biblScope unit="volume">511</biblScope>
+			<biblScope unit="page">1771</biblScope>
+			<date type="published" when="2022">2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b51">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">Spurio</forename><surname>Mancini</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Docherty</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">M</forename><surname>Price</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">A</forename><surname>Mcewen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">D</forename></persName>
+		</author>
+		<idno type="DOI">10.1093/rasti/rzad051</idno>
+	</analytic>
+	<monogr>
+		<title level="j">RAS Techniques and Instruments</title>
+		<imprint>
+			<biblScope unit="volume">2</biblScope>
+			<biblScope unit="page" from="710" to="722" />
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b52">
+	<monogr>
+		<author>
+			<persName><forename type="first">R</forename><surname>Srinivasan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Crisostomi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Trotta</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Barausse</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Breschi</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:2404.12294</idno>
+		<title level="m">2024, floZ: Evidence estimation from posterior samples with normalizing flows</title>
+				<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b53">
+	<analytic>
+		<title/>
+		<author>
+			<persName><forename type="first">J</forename><surname>Torrado</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Lewis</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="s">Astrophysics Source Code Library</title>
+		<imprint>
+			<biblScope unit="page">1910</biblScope>
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b54">
+	<monogr>
+		<author>
+			<persName><forename type="first">R</forename><surname>Trotta</surname></persName>
+		</author>
+		<title level="m">Contemporary Physics</title>
+				<imprint>
+			<date type="published" when="2008">2008</date>
+			<biblScope unit="volume">49</biblScope>
+			<biblScope unit="page">71</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b55">
+	<analytic>
+		<title level="a" type="main">Regression analysis</title>
+		<author>
+			<persName><forename type="first">E</forename><forename type="middle">J</forename><surname>Williams</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">J</forename><surname>Williams</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Veitch</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Messenger</surname></persName>
+		</author>
+		<idno type="DOI">10.1103/physrevd.103.103006</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Physical Review D</title>
+		<imprint>
+			<biblScope unit="page">103</biblScope>
+			<date type="published" when="1959">1959. 2021</date>
+			<publisher>Wiley</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b56">
+	<monogr>
+		<title level="m" type="main">Gravitational Wave Detection and Data Analysis for Pulsar Timing Arrays</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Van Haasteren</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2014">2014</date>
+			<publisher>Springer</publisher>
+			<biblScope unit="page" from="99" to="120" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

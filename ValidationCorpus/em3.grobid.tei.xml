@@ -1,0 +1,1558 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Gödel Number based Clustering Algorithm with Decimal First Degree Cellular Automata</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+				<date type="published" when="2024-05-08">8 May 2024</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Vicky</forename><surname>Vikrant</surname></persName>
+							<email>vicky.vikrant8396@gmail.com</email>
+							<affiliation key="aff0">
+								<orgName type="department">Department of Computer Science and Engineering</orgName>
+								<orgName type="institution">National Institute of Technology</orgName>
+								<address>
+									<addrLine>Tamil Nadu</addrLine>
+									<postCode>620015</postCode>
+									<settlement>Thuvakudi, Tiruchirappalli</settlement>
+									<country key="IN">India</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Narodia</forename><surname>Parth</surname></persName>
+							<email>ppnarodiya27@gmail.com</email>
+							<affiliation key="aff0">
+								<orgName type="department">Department of Computer Science and Engineering</orgName>
+								<orgName type="institution">National Institute of Technology</orgName>
+								<address>
+									<addrLine>Tamil Nadu</addrLine>
+									<postCode>620015</postCode>
+									<settlement>Thuvakudi, Tiruchirappalli</settlement>
+									<country key="IN">India</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Kamalika</forename><surname>Bhattacharjee</surname></persName>
+							<email>kamalika.it@gmail.com</email>
+							<affiliation key="aff0">
+								<orgName type="department">Department of Computer Science and Engineering</orgName>
+								<orgName type="institution">National Institute of Technology</orgName>
+								<address>
+									<addrLine>Tamil Nadu</addrLine>
+									<postCode>620015</postCode>
+									<settlement>Thuvakudi, Tiruchirappalli</settlement>
+									<country key="IN">India</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Gödel Number based Clustering Algorithm with Decimal First Degree Cellular Automata</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date type="published" when="2024-05-08">8 May 2024</date>
+						</imprint>
+					</monogr>
+					<idno type="MD5">B2522C82610E85B17AE462E6B69BF8B9</idno>
+					<idno type="arXiv">arXiv:2405.04881v1[cs.FL]</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.2" ident="GROBID" when="2024-05-16T18:04+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>
+					<term>Gödel Numbering</term>
+					<term>Encoding</term>
+					<term>First Degree Cellular Automata</term>
+					<term>Cyclic spaces</term>
+					<term>Iterative Algorithm</term>
+					<term>Degree of Participation</term>
+					<term>Maximum Participation Score</term>
+				</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>In this paper, a decimal first degree cellular automata (FDCA) based clustering algorithm is proposed where clusters are created based on reachability. Cyclic spaces are created and configurations which are in the same cycle are treated as the same cluster. Here, real-life data objects are encoded into decimal strings using Gödel number based encoding. The benefits of the scheme is, it reduces the encoded string length while maintaining the features properties. Candidate CA rules are identified based on some theoretical criteria such as self-replication and information flow. An iterative algorithm is developed to generate the desired number of clusters over three stages. The results of the clustering are evaluated based on benchmark clustering metrics such as Silhouette score, Davis Bouldin, Calinski Harabasz and Dunn Index. In comparison with the existing state-of-theart clustering algorithms, our proposed algorithm gives better performance.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1">Introduction</head><p>Clustering with respect to bijectivity refers to the process of maintaining a one-to-one relationship between data points and clusters in a clustering method. A one-to-one function divides the objects in the domain into discrete, non-intersecting groups, each representing a single cluster. There exist many state-of-the-art algorithms, such as K-Means <ref type="bibr" target="#b78">[1]</ref>, Hierarchical <ref type="bibr" target="#b79">[2]</ref>, DBSCAN <ref type="bibr" target="#b80">[3]</ref> etc for clustering. Clustering measures and benchmarks are used to assess quality and performance of the generated clusters. The problem of clustering data points is a common challenge in unsupervised learning, providing valuable insights into datasets. However, existing algorithms often lack for large and real-life datasets <ref type="bibr" target="#b81">[4,</ref><ref type="bibr" target="#b82">5]</ref>, producing clusters with no significant interpretations. The difficulty increases as the data dimensionality increases, as several features complicate the clustering process and computational needs. While dimensionality reduction techniques can be used, they frequently need to be better because they may lose key features and fail to build accurate clusters.</p><p>For example, K-Means performs poorly on huge datasets when no strategies are utilized. Principal Component Analysis can be used to reduce the dimensions. However, this is not advised for huge datasets, where each feature is equally important because they can result in meaningless clusters indicated by the low scores in the benchmark metrics. Recently, reversible cellular automaton (CA) have been proposed as a natural technique of clustering. In a reversible CA, the one-to-one global transition function divides the configurations into a set of arrangements that can be reached from one another, establishing a cycle that defines a cluster. As a result, arrangements that can be evolved into one other are regarded as close and belong to the same cluster, but those that cannot be reached into each other belong to separate clusters. This reachability metric is necessary for building groups with reversible CAs. However, all these CA based algorithm work for binary numbers. But real-life datasets usually are not in binary. So, encoding techniques are used to convert real datasets into binary format to do clustering with binary cellular automata (CAs). To deal with high-dimensional datasets in a computationally effective way, the concept of vertical splitting was introduced <ref type="bibr" target="#b83">[6]</ref>. But, although these algorithm perform at par with the other state-of-the-art algorithms, all of them, including the state-of-the-art algorithms, fail to achieve the optimal clustering scores. The reason may be, in the process of encoding into binary by the chosen encoding techniques, or otherwise, the properties of the features are lost making way for the low clustering scores.</p><p>There are many possible options to address this problem, such as direct conversion, hashing and existing encoding techniques. These work well for a limited number of characteristics, but for larger datasets like Big Data, the encoded configuration length can be significantly longer. For example, in a high-dimensional datasets, there may be more than 50 features with each feature having, say, 3 digit representation, then if the direct concatenation is used to construct a string from one row by merging all feature values, the string length may reach 150 digits which is computationally very costly for clustering. Similarly, if existing hashing techniques are used, the properties of the features are lost giving bad clusters. In this situation, we need some encoding technique that compress the dataset to reduce the size of the dataset without compromising on the properties of the features.</p><p>To overcome these restrictions in this paper, a novel algorithm based on decimal reversible cellular automata is developed. This algorithm outperforms existing approaches and effectively manages real-world data points. The technique works by encoding data points having any number of features into decimal strings, which serve as inputs to reversible cellular automata. Gödel numbering is used for this encoding, which significantly reduces string length while maintaining the properties and features as given in the original dataset (The concept of Gödel number based encoding for usage in clustering was introduced in Ref. <ref type="bibr" target="#b84">[7]</ref>; in this paper we improve and extend that concept with application to cellular automata based clustering.). This minimizes computational complexity while improving the quality of clustering results. As this encoding creates decimal numbers, to use this encoding over a numerical dataset, we need decimal cellular automata. However, number of possible decimal CAs over even the nearest (three) neighborhood dependency is gigantic (10 10 3 ). This makes the set impossible to theoretically analyze and experiment on to find the set of good CAs for clustering. For this reason, we choose the decimal first degree cellular automata (FDCA) in our work.</p><p>The first degree cellular automata provide a framework for capturing local interactions and updating states using basic rules, which can be used in clustering tasks. However, the effectiveness of first degree CA in clustering might vary based on the dataset, problem complexity, and the precise rule definitions and parameter settings employed. Experimentation and customization are frequently required to adapt the method to the unique dataset and clustering challenge at hand. In our work, we are going to use Gödel number based encoding and decimal first degree cellular automata for clustering and select rules with the help of theoretical properties such as chaotic parameters and analysis on cyclic spaces. Nevertheless, only a small subset of these decimal CAs are studied, improved outcomes are possible over other CAs.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2">Preliminaries</head><p>This section provides a concise overview of the technical terms used in the paper.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.1">Cellular Automata Basics</head><p>The application of cellular automata in clustering refers to the application of simple discrete dynamical systems with local interactions involving immediate (or, almost immediate) neighbors to solve clustering problem. This work considers 3-neighborhood 10-state finite CAs under null boundary condition such that the lattice L = Z/nZ where n is the number of cells. The state set S = {0, 1, • • • , 9} and each cell depends on its left cell, itself and its right cell. So, the rule is R : S 3 → S. Let the arguments of R be a triplet ⟨x, y, z⟩ where x, y, &amp; z represent the left, self and right neighbors of a cell respectively. This triplet is named as Rule Min Term or simply an RMT and represented by r = x × 10 2 + y × 10 + z. So, a rule has 1000 number of RMTs. There exists several grouping of the RMTs: Definition 1 (Equivalent RMTs). A set of 10 RMTs r 0 , r 1 , • • • , r 9 of a 10-state CA rule are said to be equivalent to each other if, for any r i , r j , where r i ̸ = r j , r i ≡ r j (mod 10 2 ) <ref type="bibr" target="#b85">[8]</ref>. Definition 2 (Sibling RMTs). A set of 10 RMTs s 0 , s 1 , • • • , s 9 of a 10-state CA rule are said to be sibling to each other if, for any s i , s j , where s i ̸ = s j , si 10 = sj 10 <ref type="bibr" target="#b85">[8]</ref>. For all i, 0 ≤ i ≤ 99, two sets can be formed -  <ref type="bibr">1,2,3,4,5,6,7,8,9} {0,100,200,300,400,500,600,700,800,900} 1 {10,11,12,13,14,15,16,17,18,19} {1,101,201,301,401,501,601,701,801,901} 2 {20,21,22,23,24,25,26,27,28,29} {2,102,202,302,402,502,602,702,802</ref>  <ref type="bibr">,991,992,993,994,995,996,997,998,999} {99,199,299,399,499,599,699,799</ref>,899,999}  <ref type="table">3</ref> shows the L-set and R-sets for each of the RMTs in a 3-neighborhood 10-state CA. Definition 5. Let R : S 3 → S be the local rule of a CA. Then, the CA is leftpermutive (resp. right-permutive) if and only if for any two equivalent (resp. sibling) RMTs r and s, R[r] ̸ = R[s] <ref type="bibr" target="#b85">[8]</ref>.</p><formula xml:id="formula_0">Equi i = {r | r = k × 10 2 + i, 0 ≤ k ≤ 9} and Sibl i = {s | s = 10 × i + k, 0 ≤ k ≤ 9}. Similarly, each RMT has a corresponding L-set and R-set. Definition 3 (L-Set). For any RMT r = x × 10 2 + y × 10 + z, L-set(r) = {s | s = 10 2 × x + 10 × y ′ + z ′ for all y ′ ̸ = y and z ′ ̸ = z, y ′ , z ′ ∈ S} [9]. Definition 4 (R-Set). For any RMT r = x × 10 2 + y × 10 + z, R-set(r) = {s | s = 10 2 × x ′ + 10 × y ′ + z for all x ′ ̸ = x and y ′ ̸ = y, x ′ y ′ ∈ S} [9].</formula><formula xml:id="formula_1">Table 2 Sample L-Set Set L-set(r) L-set(0) {011,012,013,• • • ,019, 021, 022,• • • ,029,• • • ,091,092,• • • ,099} L-set(1) {010,012,013,• • • ,019, 020,022,• • • ,029,• • • ,090,092,• • • ,099} . . . . . . L-set(99) {000,001,002,• • • 008, 010,011,• • • ,018,• • • ,080,081,• • • ,088} . . . . . . Table 3 Sample R-Set Set R-set(r) R-set(0) {110,120,130,• • • ,190, 210,220,• • • ,290,• • • ,910,920,• • • ,990} R-set(1) {111,121,131,• • • , 191, 211,221,• • • ,291,• • • ,911,921,• • • ,991} . . . . . . R-set(99) {109,119,129,189, 209,219,• • • 289,• • • ,909,919,• • • ,989} . . . . . .</formula><p>Therefore, if, for all i, all RMTs of Sibl i (resp. Equi i ) have distinct next state values, the CA is a right-permutive (resp. left-permutive) CA. An RMT r = x × 10 2 + y × 10 + z is said to be self-replicating, if R(x, y, z) = y, where R is the rule of the CA <ref type="bibr" target="#b85">[8]</ref>. Self-replicating RMTs play an important rule in stabilizing the system.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.2">First Degree Cellular Automata</head><p>Naturally, representing a rule with 1000 RMTs is often a tedious task. For that reason first degree cellular automata (FDCA) has been proposed which are very easy to represent and work with <ref type="bibr" target="#b87">[10]</ref>. These CA are a subset of the possible CAs for any state with three neighborhood condition. Formally, a decimal FDCA can be defined as follows: Definition 6. A decimal cellular automata rule R : S 3 → S is of first degree if the rule can be represented in the following form:</p><formula xml:id="formula_2">R(x, y, z) = (c 0 xyz + c 1 xy + c 2 xz + c 3 yz + c 4 x + c 5 y + c 6 z + c 7 ) (mod 10) (1)</formula><p>Here, 10 is the number of states of the CA, c i ∈ Z 10 = {0, 1, • • • , 9} and x, y, z are the three neighbors of each cell where x, y, z ∈ S <ref type="bibr" target="#b88">[11]</ref>.</p><p>For each rule, c i represents a constant value that is fixed for the rule. In Equation <ref type="formula">1</ref>, each of x, y, and z is of degree one, so we refer to this CA rule as a rule of first degree or simply a first degree CA. Any rule based on Equation 1 can be expressed solely by the constant values ⟨c 0 , c 1 , • • • , c 7 ⟩; we refer to these values as the parameters of the first degree CA. Our rule space is effectively reduced by selecting only CAs represented by these parameters. For example, when d = 2, all 2 8 = 256 rules are covered. However, for 10, there are only 10 8 first degree CAs, out of possible 10 1000 number of 3-neighborhood decimal CAs. Table <ref type="table" target="#tab_3">4</ref> shows an example of decimal FDCA R represented by the parameters along with the corresponding rule R in the format of concatenating the values R[r] for each of the 1000 RMTs r such that 999 ≥ r ≥ 0. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.3">Configuration, Reachability and Reversibility</head><p>The present state of all cells at a given time is called the configuration of the CA. The evolution of a CA is determined by a global transition function G n such that G n : C n → C n where C n =S n represents the configuration space of an n-cell CA.</p><p>Let x, y ∈ C n be two configurations of the cellular automaton G n . Configuration y is reachable from configuration x if there exists an l 1 ∈ N such that G l1 n (x) = y; otherwise, y is not reachable from x. Similarly, if x is also reachable from configuration y, then they are reachable from each other and they are in the same cycle. These configurations x and y are also called cyclic configurations. If there exists no x ∈ C n such that G k n (x) = y for any K ∈ N, then y is called a non-reachable configuration. Let C i ⊆ C n be a set of configurations such that G l n (x) = x, ∀x ∈ C i , where l ∈ N and |C i | = l. Then, any x ∈ C i is cyclic and reachable from all configurations of C i . A CA is called reversible, if all configurations are part of some cycles <ref type="bibr" target="#b81">[4]</ref>. All cycles of a reversible CA forms a cyclic space. For instance, Figure <ref type="figure" target="#fig_0">1</ref> illustrates a snapshot of the evolution of the decimal FDCA ⟨0, 0, 0, 0, 1, 0, 1, 8⟩ with cell length 4. This CA has 220 number of cycles with an average cycle length of 45, and maximum cycle length of 60. As the whole configuration space of this FDCA encompasses only cycles, with no non-reachable configurations, it is a reversible CA. This reachability of configurations is the most important factor for creating clusters with reversible CAs. Configurations are within the same cluster if they are reachable from each other; otherwise, they belong to different clusters. However, as the number of cycles in the chosen CA directly relates to the number of clusters generated by that CA, it might happen that this number is larger then the desired number of clusters given by the user. To tackle this, the required number of clusters is produced using an iterative three-stage clustering method. At each stage, the clusters from previous stage are merged. The merging of these clusters is determined by a closeness metric. The process ends when the desired number of clusters is achieved. However, the effectiveness of the process depends on the chosen CA and the closeness metric for merging.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.4">Clustering and Flow of Information</head><p>In case of clustering, the objects in same cluster are similar to each other. So, in terms of CA, as configuration represent these objects, the configurations belonging to same cycle have to be similar to each other. To assure this, we need CA rules with fewer state changes during evolution between two consecutive configurations of the CA. This occurs when information flows minimally from one configuration to the next, resulting in nearly identical configurations. When self replication is present, it implies that the local interactions and update rules in the CA give rise to repeated or recurring patterns that can be observed at different evolution. In a CA with high self-similarity, for example, a specific pattern or configuration of cell states may repeat itself within the context of the automaton's evolution. This repetition can happen at different scales, meaning the same can be seen in a local neighborhood of cells and larger sections of the CA. As a reult, only objects that are comparable are combined in the same cycle. Therefore, our goal is to choose CAs with a low rate of information flow and a high rate of self-replication.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.4.1">P Parameter</head><p>To measure the flow of information, we take help of an existing chaotic parameter, known as P Parameter <ref type="bibr" target="#b86">[9]</ref>. This parameter is calculated in two parts -information propagation and information cooking for both left and right directions. For our decimal CA the information propagation to the left neighbor of cell i due to update in cell i (Λ p ) is calculated as -</p><formula xml:id="formula_3">Λ p = 1 10 2 10 2 −1 i=0 λ +1 i where λ +1 i = 1 10(10 − 1) r,s∈Sibli,r̸ =s δ +1 i (r, s)</formula><p>and</p><formula xml:id="formula_4">δ +1 i (r, s) = 1 if R[r] ̸ = R[s], r, s ∈ Sibl i 0 otherwise</formula><p>Similarly, information propagation to the right neighbors of cell i for change in cell i (η p ) is calculated as -</p><formula xml:id="formula_5">η p = 1 10 2 10 2 −1 i=0 λ −1 i where λ −1 i = 1 10(10 − 1) r,s∈Equii,r̸ =s δ −1 i (r, s) and δ −1 i (r, s) = 1 if R[r] ̸ = R[s], r, s ∈ Equi i 0 otherwise</formula><p>Information cooking from left and right neighbor is computed using the RMTs of Lset and R-set in order to ascertain the impact of the neighbor state update on cell i. Information cooking from the left represents the overall likelihood that cell i will undergo a change in response to the change in its neighboring cell on the left. It is defined as follows:</p><formula xml:id="formula_6">η c = 1 10 3 10 3 −1 i=0 λ +2 i where λ +2 i = 1 (10 − 1) 2 + 1 j∈R-set(i) δ +2 i (j)</formula><p>and</p><formula xml:id="formula_7">δ +2 i (j) = 1 if R[i] ̸ = R[j], j ∈ R-set(i) 0 otherwise</formula><p>In the same way, information cooking from right neighbor is defined as -</p><formula xml:id="formula_8">Λ c = 1 10 3 10 3 −1 i=0 λ −2 i where λ −2 i = 1 (10 − 1) 2 + 1 j∈L-set(i) δ −2 i (j)</formula><p>and</p><formula xml:id="formula_9">δ −2 i (j) = 1 if R[i] ̸ = R[j], j ∈ L-set(i) 0 otherwise</formula><p>The overall possibility of creating disturbance to the left neighbor because of change in the current cell is L = (Λ p , max(η p , η c )) and to the right neighbor is R = (η p , max(Λ p , Λ c )). The parameter P for the CA is defined as</p><formula xml:id="formula_10">P = max(L, R) where L ≥ R if Λ p ⟨η p . If Λ p = η p , then L ≥ R if max(η p , η c ) ≥ max(Λ p , Λ c</formula><p>). In the paper <ref type="bibr" target="#b86">[9]</ref>, it has been argued that, a CA can be considered chaotic if P = (l, r) where l ≥ 0.75 and r ≥ 0.5. As we need non-chaotic CAs , we have set our filtering criteria based on η p , η c , Λ p and Λ c</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.4.2">Self-Information Propagation</head><p>To measure the impact of self-replication on the evolution of the CA, we calculate the self-information propagation with the help of the self-equivalent RMTs defined as follows: Definition 7. A set of RMTs r 0 , r 1 , • • • , r d−1 of a d-state 3-neighborhood CA are called self-equivalent, for any r i , r j , where r i ̸ = r j , r i ≡ r j (mod d).</p><p>For all i,</p><formula xml:id="formula_11">0 ≤ i ≤ d 2 − 1, the set of self-equivalent RMTs Self i = {s | s = d×k+i, 0 ≤ k ≤ d−1}. That is, in case of our decimal CAs, Self 0 = {0, 10, 20, • • • , 90}, Self 1 = {1, 11, 21, • • • , 91}</formula><p>, and so on up to Self 99 .</p><p>To obtain the self information propagation, we define a binary function δ 0 i where</p><formula xml:id="formula_12">δ 0 i (r, s) = 1 if R[r] ̸ = R[s], r, s ∈ Self i 0 otherwise</formula><p>Consequently, the overall possibility of self-information propagation due to change in the current cell is</p><formula xml:id="formula_13">∆ p = 1 d 2 d 2 −1 i=0 λ 0 i where λ 0 i = 1 d(d − 1) r,s∈Sibli,r̸ =s δ k i (r, s)</formula><p>Here, d = 10 and 0 ≤ i ≤ d 2 − 1 = 99. If RMTs of Self i have different next state values for all i, then ∆ p approaches to the maximum value 1. Here, we consider the CAs with atleast 50% self-information propagation rate.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.5">Clustering Metrics and Benchmarks</head><p>Clustering metrics and benchmarks play a crucial role in assessing the quality and performance of the clustering algorithms. These metrics offer quantitative measures of the alignment between the clusters generated by an algorithm and the expected or ground truth clustering structure. There are several commonly employed clustering metrics and benchmarks. It is vital to select appropriate clustering metrics and criteria based on the characteristics of the data and the specific goals of the clustering task. Utilizing a variety of metrics is advisable to gain a comprehensive understanding of clustering performance, as different metrics may be more suitable for different scenarios. We compare the outcomes achieved with our technique to those obtained using the data mining clustering algorithms such as, K-Means <ref type="bibr" target="#b78">[1]</ref> and Hierarchical <ref type="bibr" target="#b79">[2]</ref>, DBSCAN <ref type="bibr" target="#b80">[3]</ref>, PAM <ref type="bibr" target="#b89">[12]</ref>, Meanshift <ref type="bibr" target="#b90">[13]</ref>, Birch <ref type="bibr" target="#b91">[14]</ref> and the existing binary CA based clustering algorithm <ref type="bibr" target="#b83">[6]</ref>. The comparison is based on evaluation metrics including the DB score <ref type="bibr" target="#b80">[3]</ref>, Silhouette score <ref type="bibr" target="#b92">[15]</ref>, and Calinski-Harabasz (CH) score <ref type="bibr" target="#b93">[16]</ref> and Dunn Index <ref type="bibr" target="#b94">[17]</ref>.</p><p>The Silhouette score is a metric used to determine the quality of clustering in data analysis. It measures how similar an object is to its own cluster (cohesion) compared to other clusters (separation). The score ranges from -1 to 1, where a high value indicates that the object is well matched to its own cluster and poorly matched to neighboring clusters. A score close to 0 suggests overlapping clusters. It is commonly used to assess the appropriateness of clustering algorithms and to determine the optimal number of clusters in a dataset. The silhouette score is calculated as follows:</p><formula xml:id="formula_14">b − a max(a, b)<label>(2)</label></formula><p>The Davis Bouldin (DB) score is computed by dividing the intra-cluster distances by the inter-cluster lengths. Additionally, similarity is calculated by dividing the intracluster distances by the inter-cluster lengths. This calculation can be expressed using the following formula:</p><formula xml:id="formula_15">1 k k i=1 max i̸ =j ∆(X i ) + ∆(X j ) δ(X i , X j ) (3)</formula><p>where δ(X i , X j ) is the inter-cluster distance, representing the distance between cluster X i and X j , and ∆(X i ) is the intra-cluster distance of cluster X i , indicating the distance within the cluster X i . The Calinski-Harabasz (CH) score is a measure of the withincluster dispersion compared to between-cluster dispersion. It is calculated as:</p><formula xml:id="formula_16">K k=1 n k ∥c k −c∥ 2 K−1 K k=1 n k i=1 ∥di−c k ∥ 2 N −K<label>(4)</label></formula><p>where d i represents one of the features of the dataset D, n k and c k are the number of points and centroid of cluster k respectively, c is the global centroid, and N is the total number of data points. A higher value of the CH index indicates that the clusters are dense and well-separated. The Dunn index is utilized to identify clusters that are compact, exhibiting minimal variance among their members, and well-separated, with a substantial distance between the means of different clusters relative to the variance within each cluster. This index is defined as:</p><formula xml:id="formula_17">min 1≤i≤j≤m δ (C i , C j ) max 1≤k≤m ∆ k<label>(5)</label></formula><p>Where δ (C i , C j ) represents the inter-cluster distance, ∆ k denotes the intra-cluster distance, and m signifies the number of clusters.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.5.1">Datasets</head><p>Various datasets with quantitative attributes have been utilized in our paper to analyze the results of clustering algorithms. These datasets (DS) are sourced from http:// archive.ics.uci.edu/ml/index.php. The details of each dataset are presented in Table <ref type="table" target="#tab_4">5</ref>. 3 The Encoding Technique</p><p>In the context of clustering, encoding techniques refer to the methods used to transform data points or features into a format suitable for clustering algorithms. These techniques involve converting the original data into a numerical or symbolic representation that effectively captures the necessary information for clustering analysis. The selection of an encoding technique depends on various factors such as data characteristics, the clustering algorithm utilized, and the desired attributes of representation. It is crucial to assess data requirements and choose an encoding method that preserves relevant information for effective clustering.</p><p>When dealing with high-dimensional datasets, the need to compress dataset features into an encoded string arises. Simply concatenating feature values into a string may result in an excessively large string length, leading to inefficient computational processes. Therefore, an encoding function is needed to encode the features. One approach is to use an encoding technique based on the range of feature values to map data objects to encoded strings. While this technique effectively reduces the length of the string, it may also result in data loss and potentially lead to poor clustering outcomes. For example, if we have a hypothetical dataset about a set of fruits where each fruit has properties such as the number of nutritional contents, nutritional values, and texture, the first two features have numerical values in them, while the third feature is categorical, either hard or soft. Table <ref type="table" target="#tab_5">6</ref> is the dataset, consisting of 10 instances. If we directly append the decimal numbers of each column to get a decimal string per row, the length of the string may become very large making the scheme inconvenient for high-dimensional dataset. Similarly, if we use range based encoding technique, then the numerical attributes are encoded in ranges such as Number of Nutritional contents is divided into <ref type="bibr" target="#b81">[4,</ref><ref type="bibr" target="#b88">11]</ref>, <ref type="bibr">[12, 30] and [31,40]</ref> represented by 00, 01 and 11 respectively. Similarly, the other attribute is encoded. Categorical data are encoded as 01 for Hard and 10 for Soft. For a smaller number of features, this encoding technique will work but when we have a greater number of features which is the case for Big Data then the encoded configuration length can be very large. Furthermore, if unrelated data points are encoded to the same string, it can adversely affect clustering results, as these points may belong to different clusters. To address this issue, it is important to utilize a unique encoding method to ensure that two data points share the same encoding only if they are intended to be placed in the same cluster.</p><p>For this reason, in Ref. <ref type="bibr" target="#b84">[7]</ref>, an attempt was made to use non-cryptographic hashbased encoding, which resulted in poor clustering scores. Subsequently, a new encoding technique based on Gödel numbering was introduced which we will utilize here. Here, for the sake of completeness, we discuss the Gödel number-based encoding scheme and the benefits of using this scheme for our clustering algorithm.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.1">Gödel Number Based Encoding</head><p>Gödel numbering is a classical encoding method of representing symbols and wellformed formula (wffs) of a formal language by a unique natural number, called the Gödel Number. Introduced by Kurt Gödel in 1931, to prove the incompleteness theorems, this works on the essence of the unique prime factorization theorem, the fundamental theorem of arithmetic. The Gödel number of a sequence of positive integers (g 1 , g 2 , . . . , g n ) is obtained by computing the product of the first n prime numbers raised to the power of their respective values in the sequence. According to the unique prime factorization theorem, any number can be uniquely expressed as a product of prime numbers. For example, any number G can be uniquely represented as the  where 2, 3, 5, . . . , a n are the sequence of the first n prime numbers and g 1 , g 2 , . . . , g n are the natural numbers. As an instances, the number 900 is encoded as 2 2 * 3 2 * 5 2 . Therefore, given the sequence (g 1 , g 2 , . . . , g n ), the Gödel number associated with this sequence is G which can be decoded back to this (g 1 , g 2 , . . . , g n ). That means, Gödel numbering is completely reversible, that is, decoding the original sequence from the Gödel number is possible.</p><p>In this work, by Gödel numbering based encoding or Gödel encoding, we refer to the technique that applies Gödel numbering to represent and analyze data in the context of clustering algorithms. In Gödel number based clustering, data points or objects are represented using Gödel numbers, which are unique numerical representations obtained through the systematic encoding process of Gödel numbering. These numbers represent the attributes, features, and structures of the data points, effectively encapsulating their relevant information. Subsequently, the clustering process operates on these Gödel numbers rather than the original dataset.</p><p>Although classically Gödel numbering is applicable for symbols and wffs of formal languages, to apply this encoding for clustering, we consider the sequence of values of all features of a data object as the sequence for Gödel numbering <ref type="bibr" target="#b84">[7]</ref>. However, these feature values can be a real number whereas Gödel numbering works for only positive integers. So to apply Gödel numbering over a real-life dataset, first we need to remove the decimal point from the feature values by applying scale up process. This obviously do not violate the feature properties.</p><p>Let us consider a hypothetical data set with four features to compute the Gödel numbers based encoding as shown in Table <ref type="table" target="#tab_6">7</ref>. We now apply Gödel encoding technique over this data set. For this, we need the first four primes 2,3,5, and 7. Then, the object a can be represented as: ā = 2 10 * 3 Over this encoded dataset, decimal FDCA based clustering can be applied.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.2">Benefits of the Scheme</head><p>The Gödel number-based encoding ensures that each formal expression can be computed algorithmically and has a unique numerical representation. We aim to verify whether our Gödel number-based encoding preserves the characteristics of the features of the given dataset for clustering. To achieve this, we undertake the following actions: 1. Generation: For every row in the dataset, generate a Gödel number.</p><p>2. Sorting: Depending on their value, arrange the Gödel numbers in ascending order. 3. Finding Gaps: Given k, the desired number of clusters, find the k − 1 greatest gaps in the distribution of these numbers. 4. Clustering: The rows that correspond to the Gödel numbers in each gap are part of the same cluster.</p><p>We can assess the effectiveness of Gödel encoding compared to other algorithms by sorting the numbers in ascending order based on their values and attempting to divide them into the number of clusters after generating Gödel numbers for each row. Identifying the first k − 1 greatest distances between consecutive elements enables us to segregate the data into the desired number of clusters, denoted as k. In this paper, we term this technique as Sort Gödel. Subsequently, these clusters undergo normal evaluation metric testing.</p><p>The comparison results between this approach and the K-Means algorithm are presented in Table <ref type="table" target="#tab_7">8</ref>. For example, when constructing the Gödel number for the seeds dataset using the above approach, the silhouette score for that dataset is 0.4934, which is remarkably close to the K-Means score of 0.531. This suggests that the attributes of the features can be effectively preserved using the Gödel number-based encoding function.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.3">Restrictions and how to resolve</head><p>The Gödel number can grow significantly in length based on the number of features, necessitating the division of the extensive Gödel number into smaller segments to tackle this challenge. This entails transforming the original dataset into a new data frame upon which clustering techniques are subsequently applied. Various methods can be taken for constructing a Gödel data frame, as outlined in Ref. <ref type="bibr" target="#b84">[7]</ref>. The Gödel numbers generated by each scheme exhibit variability for the same object and can vary in length. Here, we consider the following scheme:</p><p>1. Pre-process to remove decimal points from the dataset. 2. Generate the Gödel number for all data objects, considering all features of the dataset. 3. Consider these numbers as a decimal strings. 4. If length of the strings for different objects are varied, append zeros in the beginning of such strings to make them of equal length. 5. Then split the string vertically into a number of substrings, where this split size is as per the user's choice or the computational limit of the machine. Figure <ref type="figure" target="#fig_3">2</ref> illustrates this approach over the buddymove dataset. Here, (Figure <ref type="figure" target="#fig_3">2b</ref>), the original Gödel number generated per object is divided into three parts to generate  <ref type="figure" target="#fig_3">2b</ref>). Now, for comparison with the state-of-the-art algorithms (after Gödel encoding), we may consider each split as a distinct feature. The encoding function based on Gödel numbers assists in maintaining the characteristic of the feature value. By encoding using Gödel numbering scheme, these numerical feature values are combined and converted into a decimal number. As Gödel numbering based encoding generates decimal number, this completely fits our scheme. To cluster the encoded dataset using Gödel number based encoding, opting for reversible decimal cellular automata is a natural choice over binary CAs. This decision aids in preventing data loss and preserves the features of the encoding. In the next section, we select the decimal CAs which suits our requirement for clustering based on some theoretical properties.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4">Selection of Proper Rules</head><p>The preceding section demonstrates how to utilize Gödel numbering to encode any dataset such that reversible first degree cellular automata can be applied for clustering. Gödel number based encoding combines numerical feature values and converts them into a decimal number, ensuring no data loss and maintaining the properties of the features. In clustering problems, features are typically interdependent and considered together when creating clusters. Therefore, when using FDCA based clustering, it is important to find the potential candidate FDCA rules which do not depend solely on a single feature. However, exhaustively searching the whole 10 8 rules to find the best candidate is computationally very costly. So specific criteria are needed to identify the suitable candidate FDCA rules for clustering.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.1">Selection of 1560 initial rules</head><p>Our goal is to find FDCA rules that minimize the intra-cluster distance among configurations in the same cycle. For that, we need to identify rules that demonstrate a strict locality property. To discover reversible rules, a thorough analysis of all potential rules is required. In this work, we are employing a split size of 6 to 10 for our scheme. So, we consider the cell length n ∈ {6, 7, 8, 9, 10}. We specifically select only those decimal FDCAs under null boundary condition which are reversible for each n ∈ {6, • • • , 10}. The possible number of decimal reversible CAs are presented in Table <ref type="table" target="#tab_8">9</ref> for the respective cell lengths. Out of the set of rules under consideration, a subset comprising 1560 rules which are common for every cell length n ∈ {6, . . . , 10} are selected for subsequent processing. The process of selecting these rules from set of possible rules (Table <ref type="table" target="#tab_8">9</ref>) is shown in Figure <ref type="figure" target="#fig_4">3</ref>.  </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.2">Rule Selection Criterion</head><p>The process of selecting rules in FDCA for clustering is often iterative and exploratory, driven by the desired clustering objectives and insights gained from observing the emergent behavior of the automaton. In order to narrow down the search space and identify rules that align optimally with our criteria, additional theoretical filtering criteria are applied to the selected 1560 rules. This further refinement is based on assessing the chaotic parameters and analyzing the cyclic spaces associated with each rule for each cell length. In pursuit of our current objective, the selection of decimal FDCA rules is directed towards minimizing changes during evolution. Here, we present two criteria for selecting rules:</p><p>(a) Based on the cyclic structure of the rules. (b) Based on chaotic parameters.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.3">Filtering Criteria I: Based on the cyclic structure of the rules</head><p>As previously explained, our clustering approach using decimal first degree cellular automata (FDCAs) relies on identifying clusters within the cyclic space of the cellular automaton dynamics. This methodology, termed cycle-based clustering, ensures the preservation of cycles with smaller intra-cluster distances. While cellular automata have demonstrated effectiveness in clustering tasks based on their cyclic space, identifying an FDCA capable of adequately partitioning objects into the desired number of clusters can be challenging. Moreover, our method for selecting significant FDCA rules is compatible with a reduced rule set, making the number of cycles an important parameter in clustering. Our first criteria for selecting rules is based on the number of cycles. Out of the 1560 rules initially selected, we extract 480 rules with the minimum number of cycles for the cell length, specifically 72, 76, and 128 cycles, respectively.</p><p>To further refine our selection, we analyze these 480 rules across cell lengths ranging from 6 to 9. By considering parameters such as the number of cycles and the maximum cycle length, we narrow down the set to 28 rules from the initial 480. These 28 selected rules are chosen based on their favorable performance according to the specified criteria. For example, in the context of rule ⟨0, 0, 0, 0, 1, 7, 8, 1⟩ with cell length of 6, it is observed that this rule create 72 cycles, with a maximum cycle length of 15624. This observation remains consistent when compared to all other rules listed in Table <ref type="table" target="#tab_2">11</ref> for their respective cell length as 6. This Table <ref type="table" target="#tab_2">11</ref> presents the characteristics of the selected 28 rules, categorized by different cell lengths spanning from n = 6 to n = 9. These characteristics encompass both the number of cycles and the maximum cycle length associated with each distinct cell length. Across the cell lengths of 6 through 9, an intriguing consistency emerges: all 28 selected rules consistently exhibit same number of cycles, irrespective of the cell length. However, the maximum cycle length varies across the different cell lengths. This observation underscores the unique behavior of the selected rules under varying cell lengths, suggesting potential insights into their clustering behavior within the context of the study. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.4">Filtering Criteria II: Chaotic parameter</head><p>The dynamics of cellular automata (CA) systems are intricately governed by the chaotic parameter, whose varying values elicit diverse behaviors, including regular, chaotic, or complex dynamics. These dynamic attributes play a pivotal role in shaping the formation of clusters within the CA. The behavior of individual cells in this context exhibits temporal unpredictability, contributing to the consequential effects on cluster formation and evolution within the CA. The introduction of chaotic behavior into the CA system adds a layer of complexity to the clustering process, resulting in clusters manifesting intricate patterns, irregular shapes, and varying densities. To measure this, we use P Parameter which is calculated in two parts: information propagation and information cooking (see Section 2.4.1). In the context of clustering, this parameter plays a significant role in shaping how clusters of configurations form. A higher value of P accelerates the diffusion of information across configuration space of a CA. This faster diffusion can potentially disrupt the formation of clusters with similar elements. Conversely, a lower value of P slows down the diffusion process, allowing clusters to form over similar configurations. By systematically adjusting the parameter P and observing its effects on clustering patterns, researchers can gain valuable insights into the underlying dynamics of the system. Moreover, applying restrictive filtration criteria to reduce the rule space enhances our ability to analyze the impact of different parameter values on clustering. This approach enables a more comprehensive exploration of the parameter space, leading to a deeper understanding of how different parameters influence the formation of clusters within first degree cellular automata.</p><p>Table <ref type="table" target="#tab_2">12</ref> Sample rules from 1560 selected rules</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>FDCA Rules</head><p>Λp ηp Λc ηc P-value ∆p ⟨0, 0, 0, 0, 0, 1, 0, 0⟩ 0.0 0.0 0.98779666 0.98779666 (0.0, 0.98779666) 0.6444442 ⟨0, 0, 0, 0, 0, 1, 5, 0⟩ 0.5555562 0.0 0.98779666 0.92682225 (0.5555562, 0.98779666) 0.6444442 ⟨0, 0, 0, 0, 3, 9, 0, 9⟩ 0.0 1.0 0.87805146 0.98779666 (0.0, 1.0) 0.6444442 ⟨0, 0, 0, 0, 1, 9, 0, 0⟩ 0.0 1.0 0.87805146 0.98779666 (0.0, 1.0) 0.591111 ⟨0, 0, 0, 0, 5, 1, 0, 0⟩ 0.0 0.5555562 0.92682225 0.98779666 (0.5555562, 0.98779666) 0.6444442</p><p>We want to select non-chaotic rules with good self information propagation (or, self similarity) rate such that the generated cycles (clusters) have good chance of having only similar configuration as part of the same cluster. To do this, our filtering process is considers ∆ p ≥ 0.5 (Self Information Propagation). Then we further refine the selection of rules based on the chaotic parameters Λ p (Left Information Propagation), η p (Right Information Propagation), Λ c (Left Information Cooking), η c (Right Information Cooking). Following are the detailed steps:</p><p>-First Filter: In the first filtering criteria, we select 280 rules by setting the value of the first argument (L) of P to be less than or equal to 0.7, and ensuring that the self-information propagation is greater than or equal to 0.5. Out of the initial pool of 1560 rules, only 280 rules meet these criteria based on chaotic parameters. A sample rules meeting the criteria are shown in Table <ref type="table" target="#tab_2">12</ref> where each row in the table corresponds to a specific rule, indicating the values of information propagation and cooking for left and right neighbors, along with statistical measures such as P-value and self-information propagation. -Second Filter: In the second filtering criteria, we set the conditions !(Λ p = 0, η p = 0) and !(Λ p = 0, η p = 1) and !(Λ p = 1, η p = 0). This set of filtering criteria filters rules based on three specified conditions: a) !(Λ p = 0, η p = 0): Both Λ p and η p cannot be simultaneously equal to 0. b) !(Λ p = 0, η p = 1): Both Λ p and η p cannot be simultaneously equal to 0 and 1, respectively. c) !(Λ p = 1, η p = 0): Both Λ p and η p cannot be simultaneously equal to 1 and 0, respectively.</p><p>After applying this filter, 80 rules remain out of the 1560 rules that satisfy these conditions. A list of these rules is presented in Table <ref type="table" target="#tab_2">13</ref>.</p><p>Table <ref type="table" target="#tab_2">13</ref> Second Filter (80 Selected FDCA Rules): !(Λp = 0, ηp = 0), !(Λp = 0, ηp = 1), and !(Λp = 1, ηp = 0)</p><p>-Third Filter: We have identified 8 rules for clustering over the second filter. These 8 rules is selected based on the examination of the cyclic structure with the minimum number of cycles in comparison to the other CAs. All these rules demonstrate a maximum cycle length of 40 for cell lengths 6 and 7, and 80 for cell lengths 8 and 9, respectively, as outlined in Table <ref type="table" target="#tab_10">14</ref>. Each rule is defined by its parameters and their respective values for different cell lengths <ref type="bibr">(n = 6, 7, 8, 9)</ref>.</p><p>The table provides details regarding the number of cycles and the maximum cycle length associated with each rule at various cell lengths. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.5">Final List of Rules</head><p>Out of a total of 1560 reversible rules, our selection process narrowed down the candidates for clustering to a subset of rules meeting specific criteria. From the criteria related to the cyclic structure of the rules (Section 4.3), we identify 28 rules. Additionally, from the criteria based on chaotic parameters (Section 4.4), we identify 8 rules. In total, we have 36 selected reversible FDCA rules considered as candidates for clustering purposes. Table <ref type="table" target="#tab_11">15</ref> presents these 36 selected reversible FDCA rules. These rules were chosen based on their potential to contribute to our clustering analysis. They represent a subset of the total reversible rules that exhibit promising properties for our clustering objectives. These selected rules will be employed for clustering analysis in the subsequent stages of the study. is processed independently until the length of string is reduced, we can significantly mitigate the time complexity. This approach allows us the flexibility to apply distinct rules for different segments of the same object. Hence, we opt for the Vertical Splitting method, which is detailed below to illustrate its application.</p><p>Vertical Splitting: As illustrated in Figure <ref type="figure" target="#fig_3">2</ref>, the Gödel numbers generated per each row of the dataset undergoes a process known as Vertical Splitting, where the Gödel numbers treated as decimal string are partitioned into multiple splits based on the split size. This splitting is implemented on the dataframe, ensuring that these segments share the same length except the last segment which can be of smaller length. In cases where the lengths of the dataframes differ, zero-padding is applied at the beginning of that dataframe.</p><p>Directly applying the clustering algorithm to the entire dataframe might result in extended processing times. However, by dividing the dataframe into multiple splits, each part can be processed in parallel. Initially, the clustering algorithm may not yield the desired number of clusters. To attain the desired cluster count, clusters exceeding this number are merged. This subsequent merging of clusters, based on a specified metric, is crucial to achieving the desired number of clusters. Figure <ref type="figure" target="#fig_5">4</ref> is the flow diagram of the implementation. Datasets are encoded using an encoding function and then split into numbers of data frames. Decimal FDCA based clustering algorithm is applied to that dataframe and results are achieved. In the next section we discuss three metrics based on Silhouette score, average/Median, and maximum degree of participation which are employed for cluster merging decisions. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.1">Silhouette Score based Metric</head><p>In the study conducted by Ref. <ref type="bibr" target="#b83">[6,</ref><ref type="bibr" target="#b95">18]</ref>, the Silhouette score serves as a pivotal metric for merging the smallest cluster with others. The approach begins by identifying the cluster with the fewest elements and systematically incorporates this cluster into others. Throughout this process, the silhouette score is continuously computed. The merging continues iteratively, with each step involving the addition of elements from the smallest cluster to the cluster that yields the highest silhouette score. This process is repeated until the desired number of clusters is achieved. In this paper, we apply the following process as described with an example:</p><p>1. Iterate through clusters and find the cluster with the least elements:</p><p>Let us say we have four clusters: Cluster A (5 elements), Cluster B (7 elements), Cluster C (4 elements), and Cluster D (6 elements). Among these, Cluster C has the least elements. Now, we have three clusters: Cluster A (5 elements), Cluster BC (11 elements), and Cluster D (6 elements). Let the desired number of clusters is two. Then, repeat the process: find the cluster with the least elements (Cluster A), add it to each of all other clusters, calculate silhouette scores, and merge it with the cluster that yields the maximum silhouette score. Continue this process until the desired number of clusters is reached. In this iterative process, we continuously merge clusters based on silhouette scores, gradually forming bigger clusters until we achieve the desired number. This method helps optimize cluster formation by considering both the size of clusters and their silhouette scores, ensuring a balanced and well-separated clustering solution. However, the problem of this approach is its dependency on the benchmark validation index to form clusters and the resulting time complexity.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.2">Merging Metric based on Average</head><p>We have developed a framework utilizing Gödel number based encoding for our data frames. As these Gödel number are natural numbers, we can exploit arithmetic properties to merge the clusters. Our approach focuses on minimizing intra-cluster distance when integrating new elements, thereby enhancing the likelihood of their inclusion in the cluster. To ensure this, we define a new distance metric based on average of the cluster elements. This distance computation involves averaging Gödel numbers of configurations (data elements) within each cluster and determining the closest cluster for an element to be added such that the change in cluster average is minimal after this addition. The code in Figure <ref type="figure">5</ref> demonstrates how to merge the selected cluster with another cluster that yields a smaller distance to the original cluster. Additionally, instead of the average, the median can also be employed for distance assessment giving similar result.</p><p>For instance, in Figure <ref type="figure">6</ref>, we observe four clusters with Cluster 4 having the fewest elements. In Step 2, the average for each cluster is calculated. Moving to Step 3, we select the smallest cluster, and choose one element, (say, element 17). Then, we Fig. <ref type="figure">5</ref> Pseudo-Code to merge clusters using average metric Fig. <ref type="figure">6</ref> Example of merging the clusters using average metric introduce element 17 into each cluster and track the change in the average for each cluster. The objective is to identify the cluster where the addition of element 17 results in the minimum change in the average. This minimum change indicates a higher likelihood that element 17 belongs to that cluster. Consequently, element 17 is assigned to Cluster 1 (Step 4). This process iterates until all elements are appropriately assigned to desired number of clusters based on minimizing changes in cluster averages.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.3">Maximum Degree of Participation based metric</head><p>To facilitate the merging of clusters from one vertical split to another, we adopt an approach similar to Ref. <ref type="bibr" target="#b81">[4,</ref><ref type="bibr" target="#b82">5]</ref>, which involves calculating the degree of participation or participation score. In Ref. <ref type="bibr" target="#b81">[4,</ref><ref type="bibr" target="#b82">5]</ref> this participation score was calculated to merge clusters from different spatial levels. However, here, our approach enhances the process by leveraging the maximum degree of participation of the data sub-elements for each split and subsequently merging the vertical clusters. In our algorithm, the dataset undergoes a vertical split into several parts, and each split is independently clustered based on certain FDCA rules. These clusters for each split is called the primary clusters. In the second stage, the goal is to amalgamate these primary clusters to establish a clustering over the original dataset. During this merging process, we use a different CA which can potentially yield improved results, as it introduces a distinct bijective mapping, contributing to a more refined clustering outcome. This new CA is called an auxiliary CA, and based on this, a participation score is calculated.</p><p>To use this metric, the primary condition is, each vertical split is of same size, say l, such that all the sub-configurations are of length l. Now apply the following steps:</p><p>1. Take the union of all sub-configurations for each split; let that set be called the auxiliary configurations. 2. Randomly choose a new CA rule from the potential list of candidate rules. This CA is the auxiliary CA. 3. Apply this auxiliary CA over the auxiliary configurations and make clusters. Let these clusters be named as auxiliary clusters. 4. With respect to these auxiliary clusters, calculate the degree of participation of all primary clusters for each split and tabulate. Degree of Participation: Let c i,j be the j th primary cluster of Split i where |c i,j | = v j , and C t be an auxiliary cluster. Let v ′ j be the number of (sub-)configurations from primary cluster c i,j in the auxiliary cluster C t . The degree of participation is represented by µ(C t , c i,j ) = v ′ j vj . 5. Merging: For each auxiliary cluster, choose those primary clusters from each split for which the degree of participation is maximum and more than 50%. Merge the original data elements corresponding to these clusters into a new temporary cluster. Continue this step until all auxiliary clusters are considered.</p><p>If number of desired clusters is less than the number of temporary clusters formed and at least 50% of the data elements of one temporary cluster matches with another cluster, merge these temporary cluster to form a new cluster. Otherwise, remove the common elements from the larger cluster and keep the other temporary clusters as found. 6. Report the temporary clusters as final clusters after merging based on this maximum participation score. For example, consider a hypothetical Figure <ref type="figure">7</ref>, where we have 7 data points split into 3 equal parts and clustered using a CA rule R 1 . Let the primary clusters of the first split be c 0,0 , c 0,1 , c 0,2 , second split be c 1,0 , c 1,1 and the third split be c 2,0 , c 2,1 , c 2,2 , c 2,3 . Taking a union of all data sub-points of each split, we get a new set of auxiliary configurations. Using an auxiliary CA R 2 , these data points are divided into 3 clusters C 0 , C 1 and C 2 . Table <ref type="table" target="#tab_5">16</ref> depicts the degree of participation in percentage of each primary cluster with respect to the auxiliary clusters.</p><p>For instance, if we consider cluster c 0,0 , among the 3 data objects 2, 3, 4, only 2, 3 are present in the auxiliary cluster C 0 . Therefore, the participation score µ(C 0 , c 0,0 ) is 2 3 = 67%. Similarly, if all elements of a primary cluster is present in the auxiliary Fig. <ref type="figure">7</ref> Formation of Auxiliary Clusters Table <ref type="table" target="#tab_5">16</ref> Degree of Participation of the Primary Clusters with respect to the Auxiliary Clusters cluster, then maximum participation score is 100%, and if no data objects are common, then the minimum participation score is 0%.</p><p>We aim to merge the data objects that have the maximum participation score from each partition. Therefore, we merge c 0,0 , c 1,0 and c 2,0 , with respect to C 0 as their degree of participation is more than 50%. This forms a new temporary cluster of data elements {1,2,3,4,5}. Next, we take c 2,3 with respect to C 2 and get a cluster {4,7}. We also have element 6 forming a new cluster as for it everywhere the participation score is 50%. Now, if our target is to get two clusters, we can merge the temporary clusters {1,2,3,4,5} and {4,7} to form a new cluster {1,2,3,4,5,7} along with the other cluster {6}. Else, we can report three clusters as: a) Cluster 1: {1, 2, 3, 5} b) Cluster 2: {4, 7} c) Cluster 3: {6}</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.4">The clustering Algorithm by Reversible Decimal FDCA</head><p>In this section, we discuss our overall clustering algorithm step by step.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Stage 1: Dataframe Generation based on Gödel Numbers</head><p>Step 1: Generate the dataframe from the original dataset based on Gödel Numbers.</p><p>Step 2: Divide the dataframe into a number of splits where the size of each split can vary from 6 to 9 (6 is preferred). If the choice of metric is maximum degree of participation, the dataframe size need to be a multiple of the split size. To have this, zeros may have to be added at the beginning of the dataframes.</p><p>Step 3: Go to Stage 2.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Stage 2: Apply the Rule</head><p>Step 1: Select a random rule from a set of candidate rules and apply it in the next step.</p><p>Step 2: For each split, apply the same rule over the configurations of that split until all configurations are clustered. (Same rule is chosen as using the same rule for each split yields better average scores.) Option 1: Silhouette Score 1. Iterate through clusters and find the cluster with the least elements.</p><p>2. Add the least elements cluster to all other clusters and calculate the silhouette score. 3. Merge the least element cluster with the cluster that has the maximum silhouette score. 4. Repeat until the desired number of clusters is achieved. 5. Exit Option 2: Average Metric 1. Iterate through clusters and find the cluster with the least elements.</p><p>2. Calculate the average value of the cluster for all clusters except the cluster with the least element.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>3.</head><p>For each element in the cluster with the least elements, pick each element and calculate the distance between the current element and the average of the clusters. 4. Add the chosen element to the cluster which has the minimum distance. Interestingly, we find that utilizing different FDCA rules in different stages often yields better scores compared to using the same rule. This observation suggests that varying FDCA rule can significantly impact the clustering results, potentially leading to improved performance metrics.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="6">Results</head><p>In this study, we explore the utilization of clustering techniques by decimal FDCA across a range of datasets. Our findings showcase the efficacy of these techniques in effectively identifying clusters within the data. These results demonstrate the effectiveness of different clustering methods in partitioning the dataset. These findings suggest that the choice of rule and merging method significantly impacts the clustering performance, with variations observed across different evaluation metrics.</p><p>Table <ref type="table" target="#tab_14">17</ref> and Table <ref type="table" target="#tab_16">18</ref> showcases the best outcomes of clustering algorithms applied to four distinct datasets, presenting various evaluation metrics for each algorithm and their associated rules. Through meticulous examination, it becomes evident that there exist notable discrepancies in the FDCA rules associated with different merging techniques. For instance, the FDCA rules linked to the average based merging technique FDCA Rules ⟨0, 0, 0, 0, 0, 1, 5, 7⟩ ⟨0, 0, 0, 0, 3, 9, 4, 9⟩ ⟨0, 0, 0, 0, 1, 7, 8, 7⟩ ⟨0, 0, 0, 0, 1, 7, 8, 3⟩ Average Metric 0.529 10.231 680.914 0.0030 FDCA Rules ⟨0, 0, 0, 0, 3, 9, 4, 7⟩ ⟨0, 0, 0, 0, 6, 7, 3, 9⟩ ⟨0, 0, 0, 0, 1, 7, 8, 7⟩ ⟨0, 0, 0, 0, 1, 7, 8, 1⟩ and ⟨0, 0, 0, 0, 3, 7, 6, 3⟩ Maximum participation 0.795 10.086 685.351 0.0032 FDCA Rules ⟨0, 0, 0, 0, 0, 1, 5, 7⟩ ⟨0, 0, 0, 0, 3, 7, 6, 7⟩ ⟨0, 0, 0, 0, 3, 7, 6, 7⟩ ⟨0, 0, 0, 0, 1, 7, 8, 1⟩ ⟨0, 0, 0, 0, 3, 7, 6, 7⟩ and ⟨0, 0, 0, 0, 5, 1, 0, 3⟩ ⟨0, 0, 0, 0, 3, 9, 4, 9⟩ ⟨0, 0, 0, 0, 4, 9, 3, 9⟩</p><p>encompass CAs such as ⟨0, 0, 0, 0, 3, 9, 4, 7⟩ and ⟨0, 0, 0, 0, 6, 7, 3, 9⟩, among others. Conversely, the maximum participation score based metric entails distinct FDCA rules like ⟨0, 0, 0, 0, 3, 7, 6, 7⟩ and ⟨0, 0, 0, 0, 5, 1, 0, 3⟩, among others. These diverse outcomes observed through FDCA rules underscore the algorithm's adaptability and its potential for further refinement and optimization. This comprehensive evaluation significantly contributes to the understanding of the algorithm's capabilities and lays the groundwork for potential avenues of future research and development in this domain.</p><p>Table <ref type="table" target="#tab_19">19</ref> and Table <ref type="table" target="#tab_20">20</ref> shows the performance of our proposed algorithms with various existing clustering algorithms (K-means, Hierarchical, BIRCH, PAM, MeanShift, Binary CA) including the Sort Gödel technique (Section 3.2) on the four datasets. We employ Silhouette score, Davies-Bouldin Index (DB), Calinski-Harabasz Index (CH), and Dunn Index to assess the clustering quality, indicating the algorithm's effectiveness in identifying meaningful data clusters. Our results reveal significant variations in clustering performance across the algorithms and datasets. This underscores the significance of choosing an algorithm that aligns with the unique attributes of the data under analysis. Moreover, integrating Gödel numbers into the clustering procedure exhibited beneficial impacts on the overall quality of clustering.</p><p>Figure <ref type="figure">8</ref> presents the comparative analysis of decimal FDCA cluster merging techniques across the four distinct datasets. The Silhouette score, depicted on the y-axis, serves as a pivotal metric for evaluating clustering quality. This score quantifies the FDCA Rules ⟨0, 0, 0, 0, 3, 7, 6, 7⟩ ⟨0, 0, 0, 0, 4, 9, 3, 1⟩ ⟨0, 0, 0, 0, 1, 7, 8, 9⟩ ⟨0, 0, 0, 0, 3, 7, 6, 1⟩ Average Metric 0.587 0.651 248.191 0.0107 FDCA Rules ⟨0, 0, 0, 0, 1, 7, 8, 1⟩ ⟨0, 0, 0, 0, 5, 1, 0, 3⟩ ⟨0, 0, 0, 0, 5, 1, 0, 1⟩ ⟨0, 0, 0, 0, 4, 9, 3, 1⟩ Maximum participation 0.728 1.604 822.47 0.0108 FDCA Rules ⟨0, 0, 0, 0, 3, 7, 6, 3⟩ ⟨0, 0, 0, 0, 0, 1, 5, 9⟩ ⟨0, 0, 0, 0, 4, 9, 3, 7⟩ ⟨0, 0, 0, 0, 3, 9, 4, 9⟩ FDCA Rules ⟨0, 0, 0, 0, 4, 9, 3, 7⟩ and ⟨0, 0, 0, 0, 5, 1, 0, 7⟩ ⟨0, 0, 0, 0, 3, 7, 6, 7⟩ ⟨0, 0, 0, 0, 3, 7, 6, 9⟩ ⟨0, 0, 0, 0, 1, 7, 8, 1⟩  Similarly, the bar graph shown in Figure <ref type="figure">9</ref> presents a comparative analysis of various clustering techniques based on their Silhouette score across four distinct datasets. The analysis evaluates four different techniques: Sort Gödel, K-Means, FDCA with maximum degree of participation, and K-Means with Gödel. Each technique's performance is represented by a group of bars, with each bar corresponding to a specific dataset displayed along the x-axis. This graph clearly shows that, our decimal FDCA based clustering that uses Gödel number based encoding outperforms the quality of all existing state-of-the-art techniques. Moreover, it also indicates that including Gödel number based encoding in the existing state-of-the-art technique can improve the cluster quality of those algorithms.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="7">Conclusion</head><p>In this paper, we propose Gödel number-based encoding as a superior alternative to Hash-based encoding and frequency-based encoding techniques. This encoding method preserves the essential properties of features, resulting in more meaningful clusters. Over the Gödel encoded dataset, we apply decimal first degree cellular automata for clustering. Our algorithm works in three stages and considers three metrics as options for achieving the desired number of clusters. Apart from the Silhouette score, the other proposed metrics are based on average cluster distance and maximum degree of participation.</p><p>We have selected 36 rules through theoretical analysis over chaotic property and the cycle structure of the decimal FDCA rules. In our experiments, we have tested our algorithm with these rules across four datasets. We evaluate cluster quality using metrics such as the Silhouette score, DB score, CH score, and Dunn index, compare our approach with existing data mining algorithms. It is observed that, the maximum degree of participation based metric for merging gives much better result than the other metrics and is at par with the state-of-the-art algorithm. Moreover, we also find that applying Gödel number-based encoding before utilizing existing algorithms like K-Means or Hierarchical clustering consistently yields better results compared to other encoding techniques.</p><p>Our research highlights the potential of decimal cellular automata in clustering applications across a wide range of datasets. The inherent ability of CA to capture complex patterns and self-organize presents it as a promising alternative to traditional clustering algorithms. Overall, our findings demonstrate the effectiveness of Gödel number-based encoding and the potential of cellular automata in clustering applications, offering comparable results to traditional clustering algorithms like K-Means, Hierarchical, and BIRCH. However, further optimization of CA rules and parameter tuning could significantly enhance its performance. Also, exhaustive testing with all decimal rules could potentially yield even better results. To optimize computational efficiency, we propose splitting the data frame into subsets and running each split independently, allowing for multi-threaded parallel processing to reduce time complexity.</p><p>Funding: This work is partially supported by Start-up Research Grant (File number: SRG/2022/002098), SERB, Department of Science &amp; Technology, Government of India, and NIT, Tiruchirappalli SEED Grant. </p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Fig. 1</head><label>1</label><figDesc>Fig. 1 Configuration transition diagram for cell length= 4, state=10 reversible first degree CA ⟨0, 0, 0, 0, 1, 0, 1, 8⟩</figDesc><graphic coords="6,206.09,249.37,204.30,96.30" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head></head><label></label><figDesc>numbers raised to specific powers, as shown below: G = 2 g1 * 3 g2 * 5 g3 * . . . * a gn n<ref type="bibr" target="#b83">(6)</ref> </figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head></head><label></label><figDesc>* 5 1 * 7 7 . Similarly, the other objects can be encoded as follows: b = 2 10 * 3 3 * 5 5 * 7 6 , c = 2 5 * 3 5 * 5 4 * 7 2 , and d = 2 2 * 3 1 * 5 5 * 7 9 .</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head>Fig. 2</head><label>2</label><figDesc>Fig. 2 Gödel number based encoding scheme overBuddyMove dataset</figDesc><graphic coords="16,124.60,116.08,99.21,127.55" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_4"><head>Fig. 3</head><label>3</label><figDesc>Fig. 3 Exact intersection 1560 reversible FDCA rules</figDesc><graphic coords="17,175.72,165.87,216.00,175.50" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_5"><head>Fig. 4</head><label>4</label><figDesc>Fig. 4 Flow diagram of the Implementation</figDesc><graphic coords="22,157.27,357.57,301.95,131.40" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_6"><head>Step 3 :Stage 3 : 1 :</head><label>331</label><figDesc>If split size is equal, current number of clusters is more than the desired number, and maximum participation score is chosen as metric, go to Stage 3, Option 3. Otherwise, encode the clusters resulting from the previous step using decimal numbers: a) Find the number of clusters for each split. b) If the number of clusters for the i th split is m i , encode each cluster using ⌈log 10 m i ⌉ digits. c) The (sub-)configuration that are in the same cluster are encoded by the same digits. d) Concatenate the encoded strings of each split to have new data frames corresponding to each object of the dataset. e) Go to Stage 3 Iterative Algorithm to get Desired Number of Clusters Case Current number of clusters is more than d (desired number of clusters)</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_7"><head>Fig. 8 Fig. 9</head><label>89</label><figDesc>Fig. 8 Comparison of Decimal FDCA Cluster Merging Techniques based on Silhouette Score</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="24,138.15,73.70,340.18,170.08" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="24,134.24,265.00,348.00,180.48" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0"><head></head><label></label><figDesc></figDesc><graphic coords="26,155.74,63.74,305.00,220.50" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_0"><head>Table 1</head><label>1</label><figDesc>Relations among Equivalent and Sibling RMTs for d = 10</figDesc><table><row><cell>#Set</cell><cell>Sibling RMTs</cell><cell>Equivalent RMTs</cell></row><row><cell>0</cell><cell>{0,</cell><cell></cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_2"><head>Table 1</head><label>1</label><figDesc></figDesc><table /><note>depicts the equivalent and sibling RMT sets for such a decimal CA. Table2 and Table</note></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_3"><head>Table 4</head><label>4</label><figDesc>A sample decimal FDCA rule</figDesc><table><row><cell>FDCA Parameter</cell><cell>Actual Rule</cell></row><row><cell></cell><cell>65432109876543210987654321098765432109876543210987654</cell></row><row><cell></cell><cell>32109876543210987654321098765432109876543210987543210</cell></row><row><cell></cell><cell>98765432109876543210987654321098765432109876543210987</cell></row><row><cell></cell><cell>65432109876543210987654321098765432109876432109876543</cell></row><row><cell></cell><cell>21098765432109876543210987654321098765432109876543210</cell></row><row><cell></cell><cell>98765432109876543210987654321098765321098765432109876</cell></row><row><cell></cell><cell>54321098765432109876543210987654321098765432109876543</cell></row><row><cell></cell><cell>21098765432109876543210987654210987654321098765432109</cell></row><row><cell></cell><cell>87654321098765432109876543210987654321098765432109876</cell></row><row><cell>⟨0, 0, 0, 0, 1, 0, 1, 8⟩</cell><cell>54321098765432109876543109876543210987654321098765432</cell></row><row><cell></cell><cell>10987654321098765432109876543210987654321098765432109</cell></row><row><cell></cell><cell>87654321098765432098765432109876543210987654321098765</cell></row><row><cell></cell><cell>43210987654321098765432109876543210987654321098765432</cell></row><row><cell></cell><cell>10987654321987654321098765432109876543210987654321098</cell></row><row><cell></cell><cell>76543210987654321098765432109876543210987654321098765</cell></row><row><cell></cell><cell>43210876543210987654321098765432109876543210987654321</cell></row><row><cell></cell><cell>09876543210987654321098765432109876543210987654321097</cell></row><row><cell></cell><cell>65432109876543210987654321098765432109876543210987654</cell></row><row><cell></cell><cell>3210987654321098765432109876543210987654321098</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_4"><head>Table 5</head><label>5</label><figDesc>Dataset Description</figDesc><table><row><cell cols="2">No. of Dataset Name of Dataset</cell><cell cols="2">#Instances #Features</cell></row><row><cell>DS1</cell><cell>Seeds</cell><cell>199</cell><cell>8</cell></row><row><cell>DS2</cell><cell>User Knowledge Modelling</cell><cell>258</cell><cell>6</cell></row><row><cell>DS3</cell><cell cols="2">Heart Failure Clinical Record 299</cell><cell>13</cell></row><row><cell>DS4</cell><cell>BuddyMove</cell><cell>249</cell><cell>7</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_5"><head>Table 6</head><label>6</label><figDesc>Range based encoding of the dataset features</figDesc><table><row><cell>Encoded Configuration</cell></row><row><cell>Categorical Attribute</cell></row><row><cell>Numerical Attributes</cell></row><row><cell>Nutritional Contents</cell></row><row><cell>Data Object</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_6"><head>Table 7</head><label>7</label><figDesc>Hypothetical Data set</figDesc><table><row><cell>Feature</cell><cell>F1</cell><cell>F2</cell><cell>F3</cell><cell>F4</cell><cell>Gödel Number</cell></row><row><cell>a</cell><cell>10</cell><cell>2</cell><cell>1</cell><cell>7</cell><cell>37948861440</cell></row><row><cell>b</cell><cell>10</cell><cell>3</cell><cell>5</cell><cell>6</cell><cell>10164873600000</cell></row><row><cell>c</cell><cell>5</cell><cell>5</cell><cell>4</cell><cell>2</cell><cell>238140000</cell></row><row><cell>d</cell><cell>2</cell><cell>1</cell><cell>5</cell><cell>9</cell><cell>1513260262500</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_7"><head>Table 8</head><label>8</label><figDesc>Comparison of hashing techniques based on merging metrics</figDesc><table><row><cell></cell><cell>Dunn Index</cell><cell>0.0095</cell><cell>0.0072</cell><cell>0.1279</cell><cell>0.0022</cell><cell>0.1285</cell><cell>0.0035</cell><cell>0.045</cell><cell>0.0080</cell></row><row><cell>Evaluation Metrics</cell><cell>Davis Bouldin Calinski Harabasz</cell><cell>0.659 345.488</cell><cell>0.824 318.944</cell><cell>0.659 345.488</cell><cell>0.993 22910.758</cell><cell>0.659 266.924</cell><cell>0.777 58.740</cell><cell>1.336 119.97</cell><cell>0.962 51.456</cell></row><row><cell></cell><cell>Silhouette Score</cell><cell>0.531</cell><cell>0.493</cell><cell>0.265</cell><cell>0.203</cell><cell>0.583</cell><cell>0.383</cell><cell>0.320</cell><cell>0.233</cell></row><row><cell></cell><cell></cell><cell>K-Means</cell><cell>Sort Gödel</cell><cell>K-Means</cell><cell>Sort Gödel</cell><cell>K-Means</cell><cell>Sort Gödel</cell><cell>K-Means</cell><cell>Sort Gödel</cell></row><row><cell cols="2">Dataset</cell><cell cols="2">Seeds</cell><cell cols="2">User Knowledge Modelling</cell><cell cols="2">Clinical Heart Failure</cell><cell cols="2">BuddyMove</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_8"><head>Table 9</head><label>9</label><figDesc>Selected rules from 6 to 10 cell length for 10-state FDCA</figDesc><table><row><cell cols="2">Cell length Generated FDCA rules for state 10</cell></row><row><cell>6</cell><cell>5800</cell></row><row><cell>7</cell><cell>3360</cell></row><row><cell>8</cell><cell>4000</cell></row><row><cell>9</cell><cell>3360</cell></row><row><cell>10</cell><cell>5800</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_9"><head>Table 10 28</head><label>10</label><figDesc>Selected Rules based on cyclic structure analysis Table 11 Characteristics of Selected 28 Rules</figDesc><table><row><cell cols="4">Cyclic based selected 28 Rules</cell><cell></cell></row><row><cell>Cell Length</cell><cell>n=6</cell><cell>n=7</cell><cell>n=8</cell><cell>n=9</cell></row><row><cell>No. of Cycles</cell><cell>72</cell><cell>6800</cell><cell>9744</cell><cell>4181152</cell></row><row><cell>Maximum cycle length</cell><cell>15624</cell><cell>1560</cell><cell>10416</cell><cell>240</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_10"><head>Table 14 8</head><label>14</label><figDesc>Selected Rules from Second filter 80 rules based on Chaotic Parameters</figDesc><table><row><cell>FDCA Rules</cell><cell>n = 6</cell><cell>n = 7</cell><cell>Same For n = 6, 7</cell><cell>n = 8</cell><cell>n = 9</cell><cell>Same For n = 8, 9</cell></row><row><cell>Rules</cell><cell>#Cycles</cell><cell>#Cycles</cell><cell>Max cycle length</cell><cell>#Cycles</cell><cell>#Cycles</cell><cell>Max cycle length</cell></row><row><cell>⟨0, 0, 0, 0, 0, 1, 5, 1⟩</cell><cell>25000</cell><cell>250000</cell><cell>40</cell><cell>1250000</cell><cell>12500000</cell><cell>80</cell></row><row><cell>⟨0, 0, 0, 0, 0, 1, 5, 3⟩</cell><cell>25000</cell><cell>250000</cell><cell>40</cell><cell>1250000</cell><cell>12500000</cell><cell>80</cell></row><row><cell>⟨0, 0, 0, 0, 0, 1, 5, 7⟩</cell><cell>25000</cell><cell>250000</cell><cell>40</cell><cell>1250000</cell><cell>12500000</cell><cell>80</cell></row><row><cell>⟨0, 0, 0, 0, 0, 1, 5, 9⟩</cell><cell>25000</cell><cell>250000</cell><cell>40</cell><cell>1250000</cell><cell>12500000</cell><cell>80</cell></row><row><cell>⟨0, 0, 0, 0, 5, 1, 0, 1⟩</cell><cell>25000</cell><cell>250000</cell><cell>40</cell><cell>1250000</cell><cell>12500000</cell><cell>80</cell></row><row><cell>⟨0, 0, 0, 0, 5, 1, 0, 3⟩</cell><cell>25000</cell><cell>250000</cell><cell>40</cell><cell>1250000</cell><cell>12500000</cell><cell>80</cell></row><row><cell>⟨0, 0, 0, 0, 5, 1, 0, 7⟩</cell><cell>25000</cell><cell>250000</cell><cell>40</cell><cell>1250000</cell><cell>12500000</cell><cell>80</cell></row><row><cell>⟨0, 0, 0, 0, 5, 1, 0, 9⟩</cell><cell>25000</cell><cell>250000</cell><cell>40</cell><cell>1250000</cell><cell>12500000</cell><cell>80</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_11"><head>Table 15</head><label>15</label><figDesc>Final List of 36 Rule for Clustering using Decimal FDCA</figDesc><table /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_12"><head></head><label></label><figDesc>2. Pick the least elements cluster, and add them to all other clusters individually and calculate the silhouette score: • Add Cluster C to Cluster A, calculate silhouette score. • Add Cluster C to Cluster B, calculate silhouette score. • Add Cluster C to Cluster D, calculate silhouette score. 3. Merge the least element cluster with the cluster that has the maximum silhouette score: Suppose Cluster C has the maximum silhouette score when merged with Cluster B, then, merge Cluster C with Cluster B. 4. Repeat Step 1 to 3 until the desired number of clusters is achieved:</figDesc><table /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_13"><head>5 .</head><label>5</label><figDesc>Repeat until the desired number of clusters is achieved. Create a table for maximum participation score with the auxiliary clusters and merge the clusters according to the maximum participation score percentage. 3. Repeat the process (considering only one vertical split for the new clusters generated in previous step) until the desired number of clusters is achieved. Case 2: Current number of clusters is less than d Step 1: Set k = 1 and select a new (auxiliary CA) rule from the rule set. Step 2: Apply the rule and generate auxiliary clusters. Suppose the number of clusters is e. Step 3: If e = d, return the output and exit the algorithm. Else, go to Step 4. Step 4: Find the elements in each cluster that belong to the same auxiliary cluster, and group them together to form a new cluster containing only those elements. Set k = k + 1. Step 5: Repeat Step 4 until all data elements are clustered. Step 6: If k &lt; d, go to Step 1 and repeat.</figDesc><table><row><cell>6. Exit</cell></row><row><cell>Option 3: Maximum Participation Score</cell></row><row><cell>1. Randomly select a new (auxiliary CA) rule and generate the auxiliary</cell></row><row><cell>clusters.</cell></row><row><cell>2.</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_14"><head>Table 17</head><label>17</label><figDesc>Comparison of Merging Method based on evaluation metrics for the Seeds and User Knowledge Modelling Dataset</figDesc><table><row><cell>PROPOSED ALGORITHM</cell><cell>Silhouette</cell><cell>DB</cell><cell>Dataset Name Seeds</cell><cell>CH</cell><cell>Dunn Index</cell></row><row><cell>Silhouette Score metric</cell><cell>0.714</cell><cell cols="2">10.113</cell><cell>688.135</cell><cell>0.0052</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_16"><head>Table 18</head><label>18</label><figDesc>Comparison of Merging Method based on evaluation metrics for the Heart Failure Clinical and Buddy Move Dataset</figDesc><table><row><cell>PROPOSED ALGORITHM</cell><cell>Silhouette</cell><cell cols="2">Dataset Name Heart Failure Clinical DB CH</cell><cell>Dunn Index</cell></row><row><cell>Silhouette Score metric</cell><cell>0.619</cell><cell>1.571</cell><cell>837.147</cell><cell>0.0107</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_19"><head>Table 19</head><label>19</label><figDesc>Comparison of all clustering techniques based on evaluation metrics for Seeds and User Knowledge Modelling Dataset</figDesc><table><row><cell></cell><cell>User Knowledge Modelling</cell><cell>Silhouette DB CH Dunn Index</cell><cell>0.265 0.659 345.488 0.1279</cell><cell>0.792 0.326 554.939 0.0016</cell><cell>0.495 0.722 266.924 0.1050</cell><cell>0.839 0.780 648.566 0.0038</cell><cell>0.898 0.108 166480.013 0.0986</cell><cell>0.965 0.535 360.694 0.1052</cell><cell>0.952 0.051 10442.09 0.1013</cell><cell>0.923 0.824 165.36 0.1463</cell><cell>0.952 0.051 10442.09 0.1013</cell><cell>0.936 0.157 44715.827 0.0856</cell><cell>0.325 0.616 178.123 0.0029</cell><cell>0.441 0.498 303.260 0.0056</cell><cell>0.203 0.993 22910.758 0.0022</cell><cell cols="2">0.783 0.628 249.447 0.0080</cell><cell>0.756 0.609 247.675 0.0082</cell><cell>0.824 0.808 449.141 0.0107</cell></row><row><cell>Dataset Name</cell><cell>Seeds</cell><cell>CH Dunn Index</cell><cell>345.488 0.0095</cell><cell>150.607 0.0072</cell><cell>269.977 0.1050</cell><cell>710.927 0.0092</cell><cell>129.199 0.0035</cell><cell>3688.029 0.2143</cell><cell>197.331 0.0053</cell><cell>53.132 0.0093</cell><cell>316.887 0.0012</cell><cell>109806.136 0.2155</cell><cell>123.892 0.0010</cell><cell>302.613 0.0036</cell><cell>318.944 0.0072</cell><cell cols="2">688.135 0.0052</cell><cell>680.914 0.0030</cell><cell>685.351 0.0032</cell></row><row><cell></cell><cell></cell><cell>DB</cell><cell>0.659</cell><cell>1.615</cell><cell>0.715</cell><cell>0.137</cell><cell>0.913</cell><cell>0.152</cell><cell>0.786</cell><cell>1.111</cell><cell>0.823</cell><cell>0.132</cell><cell>1.756</cell><cell>0.716</cell><cell>0.824</cell><cell cols="2">10.113</cell><cell>10.231</cell><cell>10.086</cell></row><row><cell></cell><cell></cell><cell>Silhouette</cell><cell>0.531</cell><cell>0.952</cell><cell>0.495</cell><cell>0.948</cell><cell>0.346</cell><cell>0.978</cell><cell>0.435</cell><cell>0.766</cell><cell>0.415</cell><cell>0.954</cell><cell>0.502</cell><cell>0.483</cell><cell>0.493</cell><cell cols="2">0.714</cell><cell>0.529</cell><cell>0.795</cell></row><row><cell></cell><cell cols="2">SCHEME</cell><cell>Normal</cell><cell>Godel number</cell><cell>Normal</cell><cell>Godel number</cell><cell>Normal</cell><cell>Godel number</cell><cell>Normal</cell><cell>Godel number</cell><cell>Normal</cell><cell>Godel number</cell><cell>Normal</cell><cell>Godel number</cell><cell>Sort Godel</cell><cell>Silhouette</cell><cell>Score metric</cell><cell>Average Metric</cell><cell>Maximum participation</cell></row><row><cell></cell><cell>Algorithm</cell><cell></cell><cell cols="2">K-means</cell><cell cols="2">Hierarchical</cell><cell cols="2">BIRCH</cell><cell cols="2">PAM</cell><cell cols="2">MeanShift</cell><cell cols="2">Binary CA</cell><cell></cell><cell></cell><cell>Proposed</cell><cell>Algorithm</cell></row></table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_20"><head>Table 20</head><label>20</label><figDesc>Comparison of all clustering techniques based on evaluation metrics for Heart Failure Clinical and Buddy Move Dataset</figDesc><table><row><cell></cell><cell></cell><cell>Dunn Index</cell><cell>0.045</cell><cell>0.0037</cell><cell>0.1050</cell><cell>0.0035</cell><cell>0.0001</cell><cell>0.0042</cell><cell>0.0030</cell><cell>0.0040</cell><cell>0.0001</cell><cell>0.0048</cell><cell>0.0041</cell><cell>0.0063</cell><cell>0.0080</cell><cell cols="2">0.0201</cell><cell>0.1080</cell><cell>0.0104</cell></row><row><cell></cell><cell>Buddy Move</cell><cell>DB CH</cell><cell>1.336 119.97</cell><cell>15.861 1.680</cell><cell>1.018 139.607</cell><cell>0.515 631.994</cell><cell>1.078 122.622</cell><cell>0.287 1198.253</cell><cell>1.914 77.084</cell><cell>0.611 245.793</cell><cell>42.296 95.265</cell><cell>0.21 1617.586</cell><cell>12.543 59.108</cell><cell>1.118 73.442</cell><cell>0.962 51.456</cell><cell cols="2">0.782 1156.054</cell><cell>0.776 1180.126</cell><cell>0.0781 1197.733</cell></row><row><cell></cell><cell></cell><cell>Silhouette</cell><cell>0.320</cell><cell>0.581</cell><cell>0.363</cell><cell>0.542</cell><cell>0.290</cell><cell>0.954</cell><cell>0.167</cell><cell>0.741</cell><cell>0.293</cell><cell>0.774</cell><cell>0.367</cell><cell>0.403</cell><cell>0.233</cell><cell cols="2">0.536</cell><cell>0.521</cell><cell>0.551</cell></row><row><cell>Dataset Name</cell><cell>Heart Failure Clinical</cell><cell>DB CH Dunn Index</cell><cell>0.659 266.924 0.1285</cell><cell>0.597 495.442 0.0070</cell><cell>0.518 411.563 0.0052</cell><cell>0.780 425.585 0.0064</cell><cell>0.611 866.341 0.0078</cell><cell>0.0 25 × 10 14 0.3622</cell><cell>0.625 879.158 0.0056</cell><cell>1.653 147.029 0.0078</cell><cell>0.504 837.169 0.0062</cell><cell>0.0 28 × 10 14 0.3655</cell><cell>1.265 625.221 0.0024</cell><cell>0.895 379.256 0.0035</cell><cell>0.777 58.740 0.0035</cell><cell cols="2">1.571 837.147 0.0107</cell><cell>0.651 248.191 0.0107</cell><cell>1.604 822.47 0.0108</cell></row><row><cell></cell><cell></cell><cell>Silhouette</cell><cell>0.583</cell><cell>0.617</cell><cell>0.679</cell><cell>0.635</cell><cell>0.537</cell><cell>0.993</cell><cell>0.535</cell><cell>0.668</cell><cell>0.616</cell><cell>0.997</cell><cell>0.612</cell><cell>0.609</cell><cell>0.383</cell><cell cols="2">0.619</cell><cell>0.587</cell><cell>0.728</cell></row><row><cell></cell><cell cols="2">SCHEME</cell><cell>Normal</cell><cell>Godel number</cell><cell>Normal</cell><cell>Godel number</cell><cell>Normal</cell><cell>Godel number</cell><cell>Normal</cell><cell>Godel number</cell><cell>Normal</cell><cell>Godel number</cell><cell>Normal</cell><cell>Godel number</cell><cell>Sort Godel</cell><cell>Silhouette Score</cell><cell>metric</cell><cell>Average Metric</cell><cell>Maximum participation</cell></row><row><cell></cell><cell>Algorithm</cell><cell></cell><cell cols="2">K-means</cell><cell cols="2">Hierarchical</cell><cell cols="2">BIRCH</cell><cell cols="2">PAM</cell><cell cols="2">MeanShift</cell><cell cols="2">Binary CA</cell><cell></cell><cell></cell><cell>Proposed</cell><cell>Algorithm</cell></row></table></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="5" xml:id="foot_0">Clustering TechniqueFor a high dimensional datasets, the Gödel encoded string may become substantially large, so employing the CA based clustering algorithm on it can lead to increased computation time due to the necessity of exploring all configurations. However, by partitioning the Gödel encoded strings into several segments such that each segment</note>
+		</body>
+		<back>
+
+			<div type="acknowledgement">
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Acknowledgments: The authors are grateful to Prof. Mihir Chakraborty for introducing us to the beautiful world of logic and teaching Gödel numbering, and to Prof. Sukanta Das for his valuable advice and discussions on the design and implementation of the scheme.</p></div>
+			</div>
+
+
+			<div type="availability">
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Data availability: No Data associated in the manuscript.</p></div>
+			</div>
+
+			<div type="annex">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Declarations</head><p>Ethical approval: This is not applicable.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Competing interests:</head><p>The authors have no relevant financial or nonfinancial interests to disclose.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>Author contributions:</head><p>Vicky Vikrant-Validation, Formal analysis, Investigation, Writing -Original Draft, Visualization. Narodia Parth P-Software, Validation, Data Curation. Kamalika Bhattacharjee-Conceptualization, Methodology, Writing -Review and Editing, Supervision, Funding acquisition.</p></div>			</div>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<monogr>
+		<title level="m">Rules Selected based on cyclic structure ⟨0</title>
+				<imprint>
+			<date type="published" when="2006">0, 0, 0, 1, 7, 8, 1⟩ ⟨0, 0, 0, 0, 3, 7, 6</date>
+			<biblScope unit="page">9</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title/>
+	</analytic>
+	<monogr>
+		<title level="j">⟨0</title>
+		<imprint>
+			<biblScope unit="volume">3</biblScope>
+			<biblScope unit="page">7</biblScope>
+			<date type="published" when="2009">0, 0, 0, 4, 9</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title/>
+	</analytic>
+	<monogr>
+		<title level="j">⟨0</title>
+		<imprint>
+			<biblScope unit="page">3</biblScope>
+			<date type="published" when="2006">0, 0, 0, 3, 7, 6</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title/>
+	</analytic>
+	<monogr>
+		<title level="j">⟨0</title>
+		<imprint>
+			<biblScope unit="volume">3</biblScope>
+			<biblScope unit="page">9</biblScope>
+			<date type="published" when="2009">0, 0, 0, 1, 7, 8, 3⟩ ⟨0, 0, 0, 0, 3, 9, 4, 1⟩ ⟨0, 0, 0, 0, 4, 9</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title/>
+	</analytic>
+	<monogr>
+		<title level="j">⟨0</title>
+		<imprint>
+			<biblScope unit="page">7</biblScope>
+			<date type="published" when="2006">0, 0, 0, 3, 7, 6</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title/>
+	</analytic>
+	<monogr>
+		<title level="j">⟨0</title>
+		<imprint>
+			<biblScope unit="page">1</biblScope>
+			<date type="published" when="2003">0, 0, 0, 1, 7, 8, 7⟩ ⟨0, 0, 0, 0, 3, 9, 4, 3⟩ ⟨0, 0, 0, 0, 6, 7, 3</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title/>
+	</analytic>
+	<monogr>
+		<title level="j">⟨0</title>
+		<imprint>
+			<biblScope unit="page">9</biblScope>
+			<date type="published" when="2006">0, 0, 0, 3, 7, 6</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title/>
+	</analytic>
+	<monogr>
+		<title level="j">⟨0</title>
+		<imprint>
+			<biblScope unit="page">3</biblScope>
+			<date type="published" when="2003">0, 0, 0, 1, 7, 8, 9⟩ ⟨0, 0, 0, 0, 3, 9, 4, 7⟩ ⟨0, 0, 0, 0, 6, 7, 3</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title/>
+	</analytic>
+	<monogr>
+		<title level="j">⟨0</title>
+		<imprint>
+			<date>0, 0, 0, 3, 9, 4, 1⟩</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title/>
+	</analytic>
+	<monogr>
+		<title level="j">⟨0</title>
+		<imprint>
+			<biblScope unit="page">7</biblScope>
+			<date type="published" when="2003">0, 0, 0, 3, 7, 6, 1⟩ ⟨0, 0, 0, 0, 3, 9, 4, 9⟩ ⟨0, 0, 0, 0, 6, 7, 3</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title/>
+	</analytic>
+	<monogr>
+		<title level="j">⟨0</title>
+		<imprint>
+			<date>0, 0, 0, 3, 9, 4, 3⟩</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title/>
+	</analytic>
+	<monogr>
+		<title level="j">⟨0</title>
+		<imprint>
+			<biblScope unit="volume">3</biblScope>
+			<biblScope unit="page">1</biblScope>
+			<date type="published" when="2009">0, 0, 0, 3, 7, 6, 3⟩ ⟨0, 0, 0, 0, 4, 9</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title/>
+	</analytic>
+	<monogr>
+		<title level="j">⟨0</title>
+		<imprint>
+			<date>0, 0, 0, 6, 7, 3, 9⟩</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title/>
+	</analytic>
+	<monogr>
+		<title level="j">⟨0</title>
+		<imprint>
+			<date>0, 0, 0, 3, 9, 4, 7⟩</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title/>
+	</analytic>
+	<monogr>
+		<title level="j">⟨0</title>
+		<imprint>
+			<biblScope unit="volume">3</biblScope>
+			<biblScope unit="page">3</biblScope>
+			<date type="published" when="2009">0, 0, 0, 3, 7, 6, 7⟩ ⟨0, 0, 0, 0, 4, 9</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<analytic>
+		<title/>
+	</analytic>
+	<monogr>
+		<title level="j">⟨0</title>
+		<imprint>
+			<biblScope unit="page">1</biblScope>
+			<date type="published" when="2006">0, 0, 0, 3, 7, 6</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<analytic>
+		<title/>
+	</analytic>
+	<monogr>
+		<title level="j">⟨0</title>
+		<imprint>
+			<date>0, 0, 0, 3, 9, 4, 9⟩</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<monogr>
+		<title level="m">Second Chaotic Filter -80 Selected FDCA Rule ⟨0</title>
+				<imprint>
+			<date>0, 0, 0, 0, 1, 5, 0⟩ ⟨0, 0, 0, 0, 0, 3, 5, 6⟩ ⟨0, 0, 0, 0, 0, 9, 5, 2⟩ ⟨0, 0, 0, 0, 5, 1, 0, 8⟩</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<analytic>
+		<title/>
+	</analytic>
+	<monogr>
+		<title level="j">⟨0</title>
+		<imprint>
+			<biblScope unit="volume">5</biblScope>
+			<biblScope unit="page">3</biblScope>
+			<date type="published" when="2009">0, 0, 0, 5, 7, 0, 4⟩ ⟨0, 0, 0, 0, 0, 1, 5, 1⟩ ⟨0, 0, 0, 0, 0, 3, 5, 7⟩ ⟨0, 0, 0, 0, 0, 9</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<analytic>
+		<title/>
+	</analytic>
+	<monogr>
+		<title level="j">⟨0</title>
+		<imprint>
+			<biblScope unit="page">5</biblScope>
+			<date type="published" when="2000">0, 0, 0, 5, 1, 0, 9⟩ ⟨0, 0, 0, 0, 5, 7, 0</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<analytic>
+		<title/>
+	</analytic>
+	<monogr>
+		<title level="j">⟨0</title>
+		<imprint>
+			<date>0, 0, 0, 0, 1, 5, 2⟩ ⟨0, 0, 0, 0, 0, 3, 5, 8⟩</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<analytic>
+		<title/>
+	</analytic>
+	<monogr>
+		<title level="j">⟨0</title>
+		<imprint>
+			<date>0, 0, 0, 0, 9, 5, 4⟩ ⟨0, 0, 0, 0, 5, 3, 0, 0⟩</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<analytic>
+		<title/>
+	</analytic>
+	<monogr>
+		<title level="j">⟨0</title>
+		<imprint>
+			<date>0, 0, 0, 5, 7, 0, 6⟩</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b23">
+	<analytic>
+		<title/>
+	</analytic>
+	<monogr>
+		<title level="j">⟨0</title>
+		<imprint>
+			<date>0, 0, 0, 0, 1, 5, 3⟩</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b24">
+	<analytic>
+		<title/>
+	</analytic>
+	<monogr>
+		<title level="j">⟨0</title>
+		<imprint>
+			<biblScope unit="page">1</biblScope>
+			<date type="published" when="2000">0, 0, 0, 0, 3, 5, 9⟩ ⟨0, 0, 0, 0, 0, 9, 5, 5⟩ ⟨0, 0, 0, 0, 5, 3, 0</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b25">
+	<analytic>
+		<title/>
+	</analytic>
+	<monogr>
+		<title level="j">⟨0</title>
+		<imprint>
+			<date>0, 0, 0, 5, 7, 0, 7⟩</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b26">
+	<analytic>
+		<title/>
+	</analytic>
+	<monogr>
+		<title level="j">⟨0</title>
+		<imprint>
+			<date>0, 0, 0, 0, 1, 5, 4⟩ ⟨0, 0, 0, 0, 0, 7, 5, 0⟩ ⟨0, 0, 0, 0, 0, 9, 5, 6⟩ ⟨0, 0, 0, 0, 5, 3, 0, 2⟩</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b27">
+	<analytic>
+		<title/>
+	</analytic>
+	<monogr>
+		<title level="j">⟨0</title>
+		<imprint>
+			<biblScope unit="volume">5</biblScope>
+			<biblScope unit="page">7</biblScope>
+			<date type="published" when="2009">0, 0, 0, 5, 7, 0, 8⟩ ⟨0, 0, 0, 0, 0, 1, 5, 5⟩ ⟨0, 0, 0, 0, 0, 7, 5, 1⟩ ⟨0, 0, 0, 0, 0, 9</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b28">
+	<analytic>
+		<title/>
+	</analytic>
+	<monogr>
+		<title level="j">⟨0</title>
+		<imprint>
+			<biblScope unit="page">9</biblScope>
+			<date type="published" when="2000">0, 0, 0, 5, 3, 0, 3⟩ ⟨0, 0, 0, 0, 5, 7, 0</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b29">
+	<analytic>
+		<title/>
+	</analytic>
+	<monogr>
+		<title level="j">⟨0</title>
+		<imprint>
+			<date>0, 0, 0, 0, 1, 5, 6⟩ ⟨0, 0, 0, 0, 0, 7, 5, 2⟩</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b30">
+	<analytic>
+		<title/>
+	</analytic>
+	<monogr>
+		<title level="j">⟨0</title>
+		<imprint>
+			<biblScope unit="page">4</biblScope>
+			<date type="published" when="2000">0, 0, 0, 0, 9, 5, 8⟩ ⟨0, 0, 0, 0, 5, 3, 0</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b31">
+	<analytic>
+		<title/>
+	</analytic>
+	<monogr>
+		<title level="j">⟨0</title>
+		<imprint>
+			<date>0, 0, 0, 5, 9, 0, 0⟩</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b32">
+	<analytic>
+		<title/>
+	</analytic>
+	<monogr>
+		<title level="j">⟨0</title>
+		<imprint>
+			<date>0, 0, 0, 0, 1, 5, 7⟩</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b33">
+	<analytic>
+		<title/>
+	</analytic>
+	<monogr>
+		<title level="j">⟨0</title>
+		<imprint>
+			<biblScope unit="page">5</biblScope>
+			<date type="published" when="2000">0, 0, 0, 0, 7, 5, 3⟩ ⟨0, 0, 0, 0, 0, 9, 5, 9⟩ ⟨0, 0, 0, 0, 5, 3, 0</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b34">
+	<analytic>
+		<title/>
+	</analytic>
+	<monogr>
+		<title level="j">⟨0</title>
+		<imprint>
+			<date>0, 0, 0, 5, 9, 0, 1⟩</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b35">
+	<analytic>
+		<title/>
+	</analytic>
+	<monogr>
+		<title level="j">⟨0</title>
+		<imprint>
+			<date>0, 0, 0, 0, 1, 5, 8⟩ ⟨0, 0, 0, 0, 0, 7, 5, 4⟩ ⟨0, 0, 0, 0, 5, 1, 0, 0⟩</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b36">
+	<analytic>
+		<title/>
+	</analytic>
+	<monogr>
+		<title level="j">⟨0</title>
+		<imprint>
+			<date>0, 0, 0, 5, 3, 0, 6⟩</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b37">
+	<analytic>
+		<title/>
+	</analytic>
+	<monogr>
+		<title level="j">⟨0</title>
+		<imprint>
+			<date>0, 0, 0, 5, 9, 0, 2⟩ ⟨0, 0, 0, 0, 0, 1, 5, 9⟩ ⟨0, 0, 0, 0, 0, 7, 5, 5⟩ ⟨0, 0, 0, 0, 5, 1, 0, 1⟩</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b38">
+	<analytic>
+		<title/>
+	</analytic>
+	<monogr>
+		<title level="j">⟨0</title>
+		<imprint>
+			<date>0, 0, 0, 5, 3, 0, 7⟩ ⟨0, 0, 0, 0, 5, 9, 0, 3⟩</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b39">
+	<analytic>
+		<title/>
+	</analytic>
+	<monogr>
+		<title level="j">⟨0</title>
+		<imprint>
+			<biblScope unit="page">6</biblScope>
+			<date type="published" when="2005">0, 0, 0, 0, 3, 5, 0⟩ ⟨0, 0, 0, 0, 0, 7, 5</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b40">
+	<analytic>
+		<title/>
+	</analytic>
+	<monogr>
+		<title level="j">⟨0</title>
+		<imprint>
+			<date>0, 0, 0, 5, 1, 0, 2⟩ ⟨0, 0, 0, 0, 5, 3, 0, 8⟩</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b41">
+	<analytic>
+		<title/>
+	</analytic>
+	<monogr>
+		<title level="j">⟨0</title>
+		<imprint>
+			<date>0, 0, 0, 5, 9, 0, 4⟩</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b42">
+	<analytic>
+		<title/>
+	</analytic>
+	<monogr>
+		<title level="j">⟨0</title>
+		<imprint>
+			<date>0, 0, 0, 0, 3, 5, 1⟩</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b43">
+	<analytic>
+		<title/>
+	</analytic>
+	<monogr>
+		<title level="j">⟨0</title>
+		<imprint>
+			<date>0, 0, 0, 0, 7, 5, 7⟩ ⟨0, 0, 0, 0, 5, 1, 0, 3⟩</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b44">
+	<analytic>
+		<title/>
+	</analytic>
+	<monogr>
+		<title level="j">⟨0</title>
+		<imprint>
+			<date>0, 0, 0, 5, 3, 0, 9⟩</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b45">
+	<analytic>
+		<title/>
+	</analytic>
+	<monogr>
+		<title level="j">⟨0</title>
+		<imprint>
+			<date>0, 0, 0, 5, 9, 0, 5⟩</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b46">
+	<analytic>
+		<title/>
+	</analytic>
+	<monogr>
+		<title level="j">⟨0</title>
+		<imprint>
+			<biblScope unit="page">4</biblScope>
+			<date type="published" when="2000">0, 0, 0, 0, 3, 5, 2⟩ ⟨0, 0, 0, 0, 0, 7, 5, 8⟩ ⟨0, 0, 0, 0, 5, 1, 0</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b47">
+	<analytic>
+		<title/>
+	</analytic>
+	<monogr>
+		<title level="j">⟨0</title>
+		<imprint>
+			<date>0, 0, 0, 5, 7, 0, 0⟩</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b48">
+	<analytic>
+		<title/>
+	</analytic>
+	<monogr>
+		<title level="j">⟨0</title>
+		<imprint>
+			<date>0, 0, 0, 5, 9, 0, 6⟩ ⟨0, 0, 0, 0, 0, 3, 5, 3⟩ ⟨0, 0, 0, 0, 0, 7, 5, 9⟩ ⟨0, 0, 0, 0, 5, 1, 0, 5⟩</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b49">
+	<analytic>
+		<title/>
+	</analytic>
+	<monogr>
+		<title level="j">⟨0</title>
+		<imprint>
+			<date>0, 0, 0, 5, 7, 0, 1⟩ ⟨0, 0, 0, 0, 5, 9, 0, 7⟩</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b50">
+	<analytic>
+		<title/>
+	</analytic>
+	<monogr>
+		<title level="j">⟨0</title>
+		<imprint>
+			<biblScope unit="volume">5</biblScope>
+			<biblScope unit="page">0</biblScope>
+			<date type="published" when="2009">0, 0, 0, 0, 3, 5, 4⟩ ⟨0, 0, 0, 0, 0, 9</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b51">
+	<analytic>
+		<title/>
+	</analytic>
+	<monogr>
+		<title level="j">⟨0</title>
+		<imprint>
+			<date>0, 0, 0, 5, 1, 0, 6⟩ ⟨0, 0, 0, 0, 5, 7, 0, 2⟩</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b52">
+	<analytic>
+		<title/>
+	</analytic>
+	<monogr>
+		<title level="j">⟨0</title>
+		<imprint>
+			<date>0, 0, 0, 5, 9, 0, 8⟩</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b53">
+	<analytic>
+		<title/>
+	</analytic>
+	<monogr>
+		<title level="j">⟨0</title>
+		<imprint>
+			<date>0, 0, 0, 0, 3, 5, 5⟩</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b54">
+	<analytic>
+		<title/>
+	</analytic>
+	<monogr>
+		<title level="j">⟨0</title>
+		<imprint>
+			<date>0, 0, 0, 0, 9, 5, 1⟩ ⟨0, 0, 0, 0, 5, 1, 0, 7⟩</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b55">
+	<analytic>
+		<title/>
+	</analytic>
+	<monogr>
+		<title level="j">⟨0</title>
+		<imprint>
+			<date>0, 0, 0, 5, 7, 0, 3⟩</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b56">
+	<analytic>
+		<title/>
+	</analytic>
+	<monogr>
+		<title level="j">⟨0</title>
+		<imprint>
+			<date>0, 0, 0, 5, 9, 0, 9⟩</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b57">
+	<monogr>
+		<title level="m">Final Selected 36 Rule From Filtering Criteria I &amp; II ⟨0</title>
+				<imprint>
+			<date type="published" when="2006">0, 0, 0, 1, 7, 8, 1⟩ ⟨0, 0, 0, 0, 3, 7, 6</date>
+			<biblScope unit="page">7</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b58">
+	<analytic>
+		<title/>
+	</analytic>
+	<monogr>
+		<title level="j">⟨0</title>
+		<imprint>
+			<biblScope unit="volume">3</biblScope>
+			<biblScope unit="page">1</biblScope>
+			<date type="published" when="2009">0, 0, 0, 4, 9</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b59">
+	<analytic>
+		<title/>
+	</analytic>
+	<monogr>
+		<title level="j">⟨0</title>
+		<imprint>
+			<date>0, 0, 0, 6, 7, 3, 7⟩</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b60">
+	<analytic>
+		<title/>
+	</analytic>
+	<monogr>
+		<title level="j">⟨0</title>
+		<imprint>
+			<biblScope unit="page">3</biblScope>
+			<date type="published" when="2008">0, 0, 0, 3, 9, 4, 1⟩ ⟨0, 0, 0, 0, 0, 1, 5, 7⟩ ⟨0, 0, 0, 0, 1, 7, 8</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b61">
+	<analytic>
+		<title/>
+	</analytic>
+	<monogr>
+		<title level="j">⟨0</title>
+		<imprint>
+			<biblScope unit="page">9</biblScope>
+			<date type="published" when="2006">0, 0, 0, 3, 7, 6</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b62">
+	<analytic>
+		<title/>
+	</analytic>
+	<monogr>
+		<title level="j">⟨0</title>
+		<imprint>
+			<biblScope unit="page">9</biblScope>
+			<date type="published" when="2003">0, 0, 0, 4, 9, 3, 3⟩ ⟨0, 0, 0, 0, 6, 7, 3</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b63">
+	<analytic>
+		<title/>
+	</analytic>
+	<monogr>
+		<title level="j">⟨0</title>
+		<imprint>
+			<date>0, 0, 0, 3, 9, 4, 3⟩ ⟨0, 0, 0, 0, 0, 1, 5, 9⟩</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b64">
+	<analytic>
+		<title/>
+	</analytic>
+	<monogr>
+		<title level="j">⟨0</title>
+		<imprint>
+			<biblScope unit="volume">3</biblScope>
+			<biblScope unit="page">7</biblScope>
+			<date type="published" when="2009">0, 0, 0, 1, 7, 8, 7⟩ ⟨0, 0, 0, 0, 3, 9, 4, 1⟩ ⟨0, 0, 0, 0, 4, 9</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b65">
+	<analytic>
+		<title/>
+	</analytic>
+	<monogr>
+		<title level="j">⟨0</title>
+		<imprint>
+			<biblScope unit="page">1</biblScope>
+			<date type="published" when="2006">0, 0, 0, 3, 7, 6</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b66">
+	<analytic>
+		<title/>
+	</analytic>
+	<monogr>
+		<title level="j">⟨0</title>
+		<imprint>
+			<date>0, 0, 0, 3, 9, 4, 7⟩ ⟨0, 0, 0, 0, 5, 1, 0, 1⟩</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b67">
+	<analytic>
+		<title/>
+	</analytic>
+	<monogr>
+		<title level="j">⟨0</title>
+		<imprint>
+			<date>0, 0, 0, 1, 7, 8, 9⟩</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b68">
+	<analytic>
+		<title/>
+	</analytic>
+	<monogr>
+		<title level="j">⟨0</title>
+		<imprint>
+			<date>0, 0, 0, 3, 9, 4, 3⟩</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b69">
+	<analytic>
+		<title/>
+	</analytic>
+	<monogr>
+		<title level="j">⟨0</title>
+		<imprint>
+			<biblScope unit="page">3</biblScope>
+			<date type="published" when="2006">0, 0, 0, 4, 9, 3, 9⟩ ⟨0, 0, 0, 0, 3, 7, 6</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b70">
+	<analytic>
+		<title/>
+	</analytic>
+	<monogr>
+		<title level="j">⟨0</title>
+		<imprint>
+			<date>0, 0, 0, 3, 9, 4, 9⟩ ⟨0, 0, 0, 0, 5, 1, 0, 3⟩</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b71">
+	<analytic>
+		<title/>
+	</analytic>
+	<monogr>
+		<title level="j">⟨0</title>
+		<imprint>
+			<biblScope unit="page">1</biblScope>
+			<date type="published" when="2003">0, 0, 0, 3, 7, 6, 1⟩ ⟨0, 0, 0, 0, 3, 9, 4, 7⟩ ⟨0, 0, 0, 0, 6, 7, 3</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b72">
+	<analytic>
+		<title/>
+	</analytic>
+	<monogr>
+		<title level="j">⟨0</title>
+		<imprint>
+			<biblScope unit="page">7</biblScope>
+			<date type="published" when="2006">0, 0, 0, 3, 7, 6</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b73">
+	<analytic>
+		<title/>
+	</analytic>
+	<monogr>
+		<title level="j">⟨0</title>
+		<imprint>
+			<date>0, 0, 0, 0, 1, 5, 1⟩ ⟨0, 0, 0, 0, 5, 1, 0, 7⟩</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b74">
+	<analytic>
+		<title/>
+	</analytic>
+	<monogr>
+		<title level="j">⟨0</title>
+		<imprint>
+			<biblScope unit="page">3</biblScope>
+			<date type="published" when="2006">0, 0, 0, 3, 7, 6</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b75">
+	<analytic>
+		<title/>
+	</analytic>
+	<monogr>
+		<title level="j">⟨0</title>
+		<imprint>
+			<date>0, 0, 0, 3, 9, 4, 9⟩</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b76">
+	<analytic>
+		<title/>
+	</analytic>
+	<monogr>
+		<title level="j">⟨0</title>
+		<imprint>
+			<biblScope unit="page">9</biblScope>
+			<date type="published" when="2006">0, 0, 0, 6, 7, 3, 3⟩ ⟨0, 0, 0, 0, 3, 7, 6</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b77">
+	<analytic>
+		<title/>
+	</analytic>
+	<monogr>
+		<title level="j">⟨0</title>
+		<imprint>
+			<date>0, 0, 0, 0, 1, 5, 3⟩ ⟨0, 0, 0, 0, 5, 1, 0, 9⟩</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b78">
+	<analytic>
+		<title level="a" type="main">Algorithm as 136: A k-means clustering algorithm</title>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">A</forename><surname>Hartigan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">A</forename><surname>Wong</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of the royal statistical society. series c (applied statistics)</title>
+		<imprint>
+			<biblScope unit="volume">28</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="100" to="108" />
+			<date type="published" when="1979">1979</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b79">
+	<monogr>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">L</forename><surname>Zepeda-Mendoza</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">O</forename><surname>Resendis-Antonio</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Dubitzky</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">O</forename><surname>Wolkenhauer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K.-H</forename><surname>Cho</surname></persName>
+		</author>
+		<title level="m">Hierarchical Agglomerative Clustering</title>
+				<editor>
+			<persName><forename type="first">H</forename><surname>Yokota</surname></persName>
+		</editor>
+		<meeting><address><addrLine>New York, NY</addrLine></address></meeting>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2013">2013</date>
+			<biblScope unit="page" from="886" to="887" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b80">
+	<analytic>
+		<title level="a" type="main">A density-based algorithm for discovering clusters in large spatial databases with noise</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Ester</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H.-P</forename><surname>Kriegel</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Sander</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X</forename><surname>Xu</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the Second International Conference on Knowledge Discovery and Data Mining. KDD&apos;96</title>
+				<meeting>the Second International Conference on Knowledge Discovery and Data Mining. KDD&apos;96<address><addrLine>Portland, Oregon</addrLine></address></meeting>
+		<imprint>
+			<publisher>AAAI Press</publisher>
+			<date type="published" when="1996">1996</date>
+			<biblScope unit="page" from="226" to="231" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b81">
+	<analytic>
+		<title level="a" type="main">Clustering using cyclic spaces of reversible cellular automata</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Mukherjee</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Bhattacharjee</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Das</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Complex Syst</title>
+		<imprint>
+			<biblScope unit="volume">30</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="205" to="237" />
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b82">
+	<analytic>
+		<title level="a" type="main">Reversible cellular automata: A natural clustering technique</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Mukherjee</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Bhattacharjee</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Das</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Cellular Automata</title>
+		<imprint>
+			<biblScope unit="volume">16</biblScope>
+			<biblScope unit="issue">1-2</biblScope>
+			<biblScope unit="page" from="1" to="38" />
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b83">
+	<analytic>
+		<title level="a" type="main">A cellular automatabased clustering technique for high-dimensional data</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Abhishek</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Dharwish</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Das</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Bhattacharjee</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Asian Symposium on Cellular Automata Technology</title>
+				<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2023">2023</date>
+			<biblScope unit="page" from="37" to="51" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b84">
+	<analytic>
+		<title level="a" type="main">Gödel number based encoding technique for effective clustering</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Narodia Parth</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Bhattacharjee</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">International Conference on Pattern Recognition and Machine Intelligence</title>
+				<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2023">2023</date>
+			<biblScope unit="page" from="49" to="58" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b85">
+	<analytic>
+		<title level="a" type="main">Random number generation using decimal cellular automata</title>
+		<author>
+			<persName><forename type="first">K</forename><surname>Bhattacharjee</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Das</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Communications in Nonlinear Science and Numerical Simulation</title>
+		<imprint>
+			<biblScope unit="volume">78</biblScope>
+			<biblScope unit="page">104878</biblScope>
+			<date type="published" when="2019">2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b86">
+	<analytic>
+		<title level="a" type="main">A study of chaos in cellular automata</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Kamilya</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Das</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">International Journal of Bifurcation and Chaos</title>
+		<imprint>
+			<biblScope unit="volume">28</biblScope>
+			<biblScope unit="issue">03</biblScope>
+			<biblScope unit="page">1830008</biblScope>
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b87">
+	<analytic>
+		<title level="a" type="main">Study of first degree cellular automata for randomness</title>
+		<author>
+			<persName><forename type="first">K</forename><surname>Bhattacharjee</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Vikrant</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Cellular Automata</title>
+		<imprint>
+			<biblScope unit="volume">17</biblScope>
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b88">
+	<analytic>
+		<title level="a" type="main">First degree cellular automata as pseudo-random number generators</title>
+		<author>
+			<persName><forename type="first">K</forename><surname>Bhattacharjee</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of First Asian Symposium on Cellular Automata Technology: ASCAT 2022</title>
+				<meeting>First Asian Symposium on Cellular Automata Technology: ASCAT 2022</meeting>
+		<imprint>
+			<publisher>Springer</publisher>
+			<date type="published" when="2022">2022</date>
+			<biblScope unit="page" from="123" to="137" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b89">
+	<analytic>
+		<title level="a" type="main">clValid: An R Package for Cluster Validation</title>
+		<author>
+			<persName><forename type="first">G</forename><surname>Brock</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Pihur</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Datta</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Datta</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Statistical Software</title>
+		<imprint>
+			<biblScope unit="volume">25</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="1" to="22" />
+			<date type="published" when="2008">2008</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b90">
+	<analytic>
+		<title level="a" type="main">Mean shift: A robust approach toward feature space analysis</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Comaniciu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Meer</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Transactions on pattern analysis and machine intelligence</title>
+		<imprint>
+			<biblScope unit="volume">24</biblScope>
+			<biblScope unit="issue">5</biblScope>
+			<biblScope unit="page" from="603" to="619" />
+			<date type="published" when="2002">2002</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b91">
+	<analytic>
+		<title level="a" type="main">Birch: A new data clustering algorithm and its applications</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Ramakrishnan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Livny</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Data mining and knowledge discovery</title>
+		<imprint>
+			<biblScope unit="volume">1</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="141" to="182" />
+			<date type="published" when="1997">1997</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b92">
+	<analytic>
+		<title level="a" type="main">Silhouettes: A graphical aid to the interpretation and validation of cluster analysis</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Rousseeuw</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">J</forename><surname>Rousseeuw</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Computational and Applied Mathematics</title>
+		<imprint>
+			<biblScope unit="volume">20</biblScope>
+			<biblScope unit="page" from="53" to="65" />
+			<date type="published" when="1987">1987</date>
+		</imprint>
+	</monogr>
+	<note>comput. appl. math.</note>
+</biblStruct>
+
+<biblStruct xml:id="b93">
+	<analytic>
+		<title level="a" type="main">A dendrite method for cluster analysis</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Caliński</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Harabasz</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Communications in Statistics-theory and Methods</title>
+		<imprint>
+			<biblScope unit="volume">3</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="1" to="27" />
+			<date type="published" when="1974">1974</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b94">
+	<analytic>
+		<title level="a" type="main">Well Separated Clusters and Fuzzy Partitions</title>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">C</forename><surname>Dunn</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal on Cybernetics</title>
+		<imprint>
+			<biblScope unit="volume">4</biblScope>
+			<biblScope unit="page" from="95" to="104" />
+			<date type="published" when="1974">1974</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b95">
+	<analytic>
+		<title level="a" type="main">Optimized reversible cellular automata based clustering</title>
+		<author>
+			<persName><forename type="first">V</forename><surname>Manoranjan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Sneha Rao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">V</forename><surname>Vaidhianathan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Bhattacharjee</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">International Workshop on Cellular Automata and Discrete Complex Systems</title>
+		<imprint>
+			<biblScope unit="page" from="74" to="89" />
+			<date type="published" when="2023">2023</date>
+			<publisher>Springer</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

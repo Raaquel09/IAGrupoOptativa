@@ -1,0 +1,662 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">BonnBot-I Plus: A Bio-diversity Aware Precise Weed Management Robotic Platform</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+				<date type="published" when="2024-05-15">15 May 2024</date>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Alireza</forename><surname>Ahmadi</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Michael</forename><surname>Halstead</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Claus</forename><surname>Smitt</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Chris</forename><surname>Mccool</surname></persName>
+						</author>
+						<title level="a" type="main">BonnBot-I Plus: A Bio-diversity Aware Precise Weed Management Robotic Platform</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date type="published" when="2024-05-15">15 May 2024</date>
+						</imprint>
+					</monogr>
+					<idno type="MD5">F3EF9D46C538EAAF545403645595274D</idno>
+					<idno type="arXiv">arXiv:2405.09118v1[cs.RO]</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.7.2" ident="GROBID" when="2024-05-16T18:04+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>In this article, we focus on the critical tasks of plant protection in arable farms, addressing a modern challenge in agriculture: integrating ecological considerations into the operational strategy of precision weeding robots like BonnBot-I. This article presents the recent advancements in weed management algorithms and the real-world performance of BonnBot-I at the University of Bonn's Klein-Altendorf campus. We present a novel Rolling-view observation model for the BonnBot-Is weed monitoring section which leads to an average absolute weeding performance enhancement of 3.4%. Furthermore, for the first time, we show how precision weeding robots could consider bio-diversity-aware concerns in challenging weeding scenarios. We carried out comprehensive weeding experiments in sugar-beet fields, covering both weed-only and mixed cropweed situations, and introduced a new dataset compatible with precision weeding. Our real-field experiments revealed that our weeding approach is capable of handling diverse weed distributions, with a minimal loss of only 11.66% attributable to intervention planning and 14.7% to vision system limitations highlighting required improvements of the vision system.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>I. INTRODUCTION</head><p>Modern agriculture and weed control aims to support plant growth while considering environmental protection <ref type="bibr" target="#b0">[1]</ref>. Weed control is a topical example of this because leaving weeds in a field can significantly impact crop yields as the weeds will compete, or even out-compete, the crops for vital nutrients and resources leading to potential reductions in productivity. Yet, in recent years it has become clear that we need to be able to strike a balance between protecting crops (e.g. removing weeds) and the environment, in particular reducing the usage of herbicides for weed control <ref type="bibr" target="#b1">[2]</ref>.</p><p>Robotics has emerged as a potential tool to better enable this trade-off, particularly for the task of weed management. As early as 2002 <ref type="bibr" target="#b2">[3]</ref> researchers have considered the potential for robotics to perform precise weed control at the individual plant level. Since then, multiple methods to perform robotic weed management have been proposed including physical <ref type="bibr" target="#b3">[4]</ref>, <ref type="bibr" target="#b4">[5]</ref>, chemical <ref type="bibr" target="#b5">[6]</ref>, electrical <ref type="bibr" target="#b6">[7]</ref>, and more recently laser-based <ref type="bibr" target="#b7">[8]</ref>. An issue with many of the above solutions is that they either do not provide flexibility for different tools or their implements have a large footprint that does not enable plant-specific interaction.</p><p>In this article, we outline developments on BonnBot-I <ref type="bibr" target="#b8">[9]</ref> which enhance its ability to perform bio-diversityaware weed management. In earlier work, we developed planning systems for BonnBot-I that moved its replicated 1 </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>University</head><p>of Bonn, Bonn 53115 Germany.</p><p>{alireza.ahmadi, michael.halstead, csmitt, cmccool}@uni-bonn.de 2 Lamarr Institute for Machine Learning and Artificial Intelligence linear system of tools to perform weed management, depicted in Fig. <ref type="figure" target="#fig_0">1</ref>. We propose an alternative planning approach that emphasizes the need for robots to recognize and adapt to the diversity of weed species. By differentiating weeds based on their specific characteristics and competitive behaviors, the method enhances crop protection and resource optimization in weeding, signifying a shift towards more nature-conscious and efficient agricultural practices. These advancements on BonnBot-I led to the following contributions:</p><p>1) A bio-diversity aware weed management approach.</p><p>2) A rolling view strategy that improves weeding.</p><p>3) Real-world experiments of multi-nozzle weeding. 4) Releasing a multi-weed arable farming sugar-beet dataset SB21. This extends our prior work <ref type="bibr" target="#b8">[9]</ref> in three key areas. First, we introduce an improved planning method utilizing a novel Rolling-view observation method, enhancing performance by 3.4%. Second, we introduce a bio-diversity-aware weed management system, a first in the field, and assess its realworld applicability. Third, we validate our system's effectiveness through real-world experiments for multi-nozzle weed management, demonstrating its potential to optimize agricultural practices and productivity.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>II. RELATED WORKS</head><p>Weeds can significantly impact crop yields by competing with them for vital nutrients and resources, leading to potential reductions in productivity <ref type="bibr" target="#b9">[10]</ref>, <ref type="bibr" target="#b10">[11]</ref>. Hence, in today's world of agriculture, the efficient management of weeds is vital when it comes to maximizing crop yields and ensuring global food security. Traditionally, farmers have heavily relied on manual labor or chemical herbicides for weed control <ref type="bibr" target="#b11">[12]</ref>. However, these methods often entail labor-intensive processes, consume significant time, and come with potential environmental repercussions <ref type="bibr" target="#b12">[13]</ref>. Such uniform treatment approaches result in both soil and yield damage <ref type="bibr" target="#b13">[14]</ref>. Therefore pushing society toward more ecofriendly approaches to strike a balance between protecting crops and the environment is particularly important. This type of eco-friendly approach will result in the reduction of herbicides and pesticides for weed control. This concept of robotic-vision based farming seeks to revolutionize farming by enabling precision treatment at the individual plant level <ref type="bibr" target="#b2">[3]</ref>. Selective precision weeding presents a promising alternative to the conventional and often excessive use of herbicides for weed control <ref type="bibr" target="#b8">[9]</ref>. The innovations provided by agricultural robotics reduce labor, prevent soil compaction, and utilize perception-based monitoring, which cuts down on the agrochemicals used, directly benefiting the yield <ref type="bibr" target="#b8">[9]</ref>.</p><p>Advancement in field monitoring and computer vision applied in agriculture is an enabling factor for precision weed management. For example, Zhu et al. deployed an attentionbased YOLO architecture for better weed detection <ref type="bibr" target="#b14">[15]</ref>. Halstead et al. <ref type="bibr" target="#b15">[16]</ref> developed a crop-agnostic architecture based on MaskRCNN <ref type="bibr" target="#b16">[17]</ref> to enable monitoring in arable farms as well as glasshouses. Furthermore, a wide range of weed management tools have been investigated including mechanical <ref type="bibr" target="#b3">[4]</ref>, <ref type="bibr" target="#b4">[5]</ref>, chemical <ref type="bibr" target="#b5">[6]</ref> or electrocution <ref type="bibr" target="#b6">[7]</ref>, and more recently laser-based <ref type="bibr" target="#b7">[8]</ref> implement. These offer different benefits and restrictions. Vahdanjoo et al. <ref type="bibr" target="#b17">[18]</ref> presented a comprehensive analysis of the operational, economic, and environmental effects of the Robotti-Intelli platform in seeding and weeding management in arable farms.</p><p>In <ref type="bibr" target="#b18">[19]</ref> Zhou et al. only focused on the design and preliminary evaluation of a targeted spray platform. All components were effectively evaluated, especially regarding the response time and target spray accuracy. They conducted only an indoor experimental setup showing that the developed system can reduce 46.8% usage of chemicals compared to the uniform spray method. Similarly, a mechanical weeding tool was deployed in <ref type="bibr" target="#b19">[20]</ref> where they operated on a self-built robotic platform on a single-row early-grown vegetable field. This hoeing mechanism brought out the roots of weeds but due to limited work space and length of operation, they are only deployable on specific crops with certain growth stages. The effectiveness of weed management tools varies based on field conditions and plant types. While recent weeding robots surpass traditional methods in precision, still there is a large space for improvement. As this technology evolves, it exemplifies how innovation can transform traditional farming into smarter, eco-friendly agriculture. Our method with BonnBot-I addresses this by using advanced sensors and AI to precisely target weeds, optimizing efficiency and sustainability in agricultural practices. The software architecture, including sensors (purple), vision perception, localization of robot base frame F R (light blue), intervention planning, intervention planner, and weeding axes controllers (orange).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>III. SELECTIVE PRECISE INTERVENTION</head><p>BonnBot-I <ref type="bibr" target="#b8">[9]</ref> is a versatile agricultural platform designed at the University of Bonn. It is equipped with a novel weeding tool design enabling high-precision plant-level field interventions. In our previous work <ref type="bibr" target="#b8">[9]</ref> we elaborated on the conceptual design of the weeding tool and its associated software components. Fig. <ref type="figure" target="#fig_1">2</ref> shows the software architecture of BonnBot-I, where, different sensors available in the robot are supplied to the localization and crop-weed monitoring modules to enable precision interventions through the weeding tool. The controller system uses ROS (Robot Operating System) to standardize node communications. The weeding tool features four independently controlled high-resolution linear actuators positioned 0.6m above the ground, creating a working area of 1.39m×0.36m. Currently, they are equipped with spot-spray nozzles (with a spray footprint of 5cm on the ground) which enable them to be used independently to engage with weeds. For more details about BonnBot-I platform, we refer the reader to <ref type="bibr" target="#b8">[9]</ref>.</p><p>The most critical challenge in this design is to efficiently plan paths for intervention heads, such that we maximize the number of well-managed weeds in a weeding scenario. A typical weeding scenario is composed of the following stages: (I) Weeds get detected, classified, and tracked within the viewable area of the down-facing detection camera in front of the robot. The monitoring system which runs the Mask-RCNN network for instance-based semantic segmentation and classification is used to estimate necessary phenotypic information about the plants. Finally, the plants are tracked (tracklets) through the viewable area, more details can be found in <ref type="bibr" target="#b8">[9]</ref>. (II) The tracklets, which are identified as valid plants for management, are monitored beneath the robot using its localization system. These tracklets are then relayed to a target-space manager, who efficiently allocates them among the various weeding axes for optimal handling. (III) Each intervention planner plans an optimal path considering phenotypic factors like weed type, size, harmfulness, required action time, and bio-diversity considerations. (IV) The computed paths are transmitted to the relevant axis drivers and nozzle controllers to carry out corresponding actions on the plants.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>A. Crop-Weed Monitoring Pipeline</head><p>The vision system on BonnBot-I uses instance-based semantic segmentation based on the Mask-RCNN <ref type="bibr" target="#b16">[17]</ref> architecture. We use a variant of Mask-RCNN, initially proposed by us in <ref type="bibr" target="#b20">[21]</ref>, which provides a super-class classification (plant versus background), a sub-class classification (crop and weed species), bounding box location, and pixel-wise segmentation for each object in the scene. Providing these classification results and pixel-wise labels allows for the vision system to drive selective intervention tasks so that weeds are only sprayed if they meet certain requirements.</p><p>To train Mask-RCNN with sub-class labels we use our novel dataset SB21 and two previously released crop and weed datasets: SB20 <ref type="bibr" target="#b21">[22]</ref> and WeedAI <ref type="bibr" target="#b22">[23]</ref>. In each dataset, several variations occur naturally, including, weed species, crop and weed densities, illumination variation, and shadowing caused by the platform. These variations make the model able to generalize better to new scenes. To further generalize our approach we also include strong data augmentation.</p><p>We employ multiple data augmentation techniques such as luminance variation and blur, additionally, we propose an "illumination box" approach which simulates self-shadowing effects. For all of our augmentation techniques, we set a probability of 0.5 that they will be used on an individual basis. To augment the image luminance we randomly vary the L channel of the Lab color space between ±15. RGB jitter can also be selected with a random color channel variation of 5% and to simulate noise in the scene we also randomly employ Gaussian blur with a 3 × 3 kernel. Finally, as we see shadowing caused by the robot in the WeedAI dataset and to ensure consistency with the other two datasets we randomly insert an "illumination box". This "illumination box" replicates the shadowing effect by randomly inserting a luminance increase (in the LAB color space) over the area of a random rectangular box. As the natural shadowing does not produce clean edges nor perfectly horizontal boxes we also blur the edges of the rectangle using Gaussian blur with a kernel size of 3 × 3 and a random rotation of the box to ±10 o . These augmentation techniques aim to artificially extend our datasets while also ensuring better generalization.</p><p>One of the tasks we perform here is a weeding intervention based on informed decisions. These informed decisions come from the type of plant being segmented (crop or weed) and the size of the plant (growth stage). To achieve this level of information we utilize the classification scores and the masks generated by Mask-RCNN, and the registered depth information captured from our RGB-D sensor. This enables us to estimate the growth stage of a plant by converting the depth to a per-pixel area and accumulating over the pixelwise instance-based semantic segmentation mask, in a similar method to that described in <ref type="bibr" target="#b15">[16]</ref>.</p><p>The final step in our vision system is the tracking component, which is based on our prior work of crop-agnostic monitoring by Halstead et al. <ref type="bibr" target="#b15">[16]</ref>. We exploit the depth and odometry information to reproject our pixel-wise segmentation to perform better tracklet matching. This reprojection can better align new masks with existing tracklets. We also employed the dynamic radius tracking approach since it improves the tracking of small plants in our complex scenes.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>B. Rolling-view Observation Model</head><p>In our previous work <ref type="bibr" target="#b8">[9]</ref> we developed a segment-view observation model. This segment-view-based model allows us to focus on an individual field segment, enabling us to cope with their distinct weed distributions. We derive the distance between the weeding equipment and individual weeds assuming a weed distribution yielded by a Poisson process with an arrival rate of η = λ × Π, where Π denotes the weeding width illustrated in Fig. <ref type="figure" target="#fig_2">3</ref>. To understand the spacing between the weeds (δ x ) we use the robot's motion along the x-axis within its frame of reference (F R ) depicted in Fig. <ref type="figure" target="#fig_2">3</ref>. While this method has proven its worth, we believe that it is less adaptable to the changing weed spatial distribution patterns and thus harms overall performance. To overcome this we propose a rolling-view observation model. This model integrates discrete camera observations into a comprehensive model of the entire field. This new approach integrates discrete camera observations into a comprehensive model of the entire field. Expanding the planning scope beyond single segments, allowing for more effective weeding strategies over a larger area. A key advantage of this approach is illustrated in Figure <ref type="figure" target="#fig_2">3</ref> which highlights that the previous segment-based approach would treat two views independently whereas the rolling window approach updates the planned intervention across these two views iteratively. This enables the planning to be optimized more flexibly without increasing the planning window size. By simply incorporating only one intermediate frame T 1  2 , we achieve a notable enhancement in the weeding trajectory and overall performance. We have implemented this algorithm using multi-threading and dynamic programming techniques that enable the rolling-view planning to be at a frequency &gt; 500Hz on CPU (Intel® Core™ i7-12700K). The rolling window planner uses the most recent information. This means we take the prior plan and update it only if there are new plants that need to be treated. This rollingview model not only refines the weeding process and interimage tracking but also compensates for the vision system's shortcomings, like missed detections or incorrect classifications. The accumulation of multiple detections over the same area considerably increases the accuracy of our predictions. Furthermore, by analyzing continuous field segments, we can predict more precise weeding paths, leading to improved overall efficiency in weed management.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>C. Target-Space Management</head><p>When a robot encounters multiple targets N beneath it, the primary objective is to engage each target using one of its intervention heads H while the robot is in motion. Hence, before these targets enter the workspace of the weeding tool, it's crucial to plan the motion for each intervention head. Considering sets of weeds in any given workspace motivates a multi-query approach to the problem. We consider weeds to be presented as a set that motivates us to assign them to the H intervention heads.</p><p>Hence, we use a high-level planner to distribute targets between different intervention heads while ensuring that all the targets will be visited at least once and the workload is properly balanced between all weeding axes. In <ref type="bibr" target="#b8">[9]</ref>, we propose the Distance-based Target Assignment, Static Work-space Division-based Target Assignment, and Dynamic Work-space Division-based Target Assignment. In this paper, we will only use the static work-space divisionbased target assignment approach which based on our real field experiments offers stable and reliable performance.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>D. Bio-Diversity-Aware Plant-level Treatment</head><p>Weed harmfulness is influenced by aggressiveness, competition for water, and leaf size, affecting nearby crops. Species like barnyardgrass, pigweed, and lambsquarters can significantly outcompete crops for light, water, and nutrients, reducing yield and quality <ref type="bibr" target="#b10">[11]</ref>. In moisture-limited environments, this competition becomes more critical. Understanding these factors is essential for effective weed management, recognizing that not all weeds are detrimental; some can enhance soil fertility and moisture retention. An example scenario is depicted in Fig. <ref type="figure" target="#fig_3">4</ref> where dicots are considered beneficial.</p><p>Therefore, robots must recognize and adapt to biodiversity when managing these varied weed threats. In this case, a generalized approach to weed management won't suffice due to the diverse competitive behaviors of different weeds. We propose a novel weeding method enabling BonnBot-I to consider bio-diversity factors by differentiating between weed species and their phenotypic characteristics, assessing their threat levels based on competitiveness factors, and acting accordingly. This ensures not only the well-being and productivity of crops but also resource optimization concerning weeding actions (i.e. spraying).</p><p>Relying upon the phenotypic information, we aim to facilitate our robots' understanding of different weeding scenarios in the real field. Using the monitoring technique introduced in Sec. III-A we determine the type, growth stage, and distance of weeds in a cropping area. We introduce the 'harmfulness' factor κ, illustrated in Eq. ( <ref type="formula" target="#formula_0">1</ref>), for each weed type, ranking them based on their threat to the nearby crops. It is important to acknowledge that currently, there is no definitive method for assessing plant-wise harmfulness effects in actual fields on different crops. However, in this work, we aim to build upon existing heuristics to facilitate incorporating this information into future weeding strategies. Hence, we derived this factor from phenotypic data, which helps our robots discern various weeding scenarios. It ranks weeds based on their threat to crops, using a methodology inspired by Dentika et al. <ref type="bibr" target="#b13">[14]</ref>, who proposed a similar concept for pathogen-host and disease risk imposed by weeds on the crops, and was derived from comprehensive on-site experiments and is formulated below:</p><formula xml:id="formula_0">κ(w, p) = α w β w ∆(w, p) α p<label>(1)</label></formula><p>In Eq. ( <ref type="formula" target="#formula_0">1</ref>), the harmfulness effect κ(w, p) of weed w on plant p is calculated where, α w and α p denote the size of weed w and crop p in mm 2 , respectively. This is reflecting the competitive relationship between a weed and its adjacent crop, based on their sizes. Also, β w is the harmfulness factor of each specific weed category, noting that certain weeds should be eliminated from the field regardless of their size or specific location. Furthermore, the ∆(w, p) is the Euclidean distance between crop p to weed w. This acknowledges that weeds situated far from crops may not pose a significant threat, thus requiring no intervention. This approach promotes eco-friendly interventions by prioritizing the most harmful weeds, thereby enhancing biodiversity and resource conservation.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>E. Intervention Heads Route Planning</head><p>We need to generate H independent and efficient routes to guide the intervention heads, taking into account assigned targets, the intervention head's position, the robot's linear speed, and the speed and acceleration limits of its linear axes. To do this, the intervention controller embeds all the details about each plant in a uni-directional graph, including its type, segmentation, estimated size, boundaries, plant center, and corresponding bio-diversity characteristics. In this graph, each node represents a detected plant and every edge scores the motion feasibility between two nodes. As introduced in <ref type="bibr" target="#b8">[9]</ref>, the probability of visiting the j-th weed with i-th weeding nozzle is computed as follows,</p><formula xml:id="formula_1">P ij = P γ ϑ &lt; δ x ij δ y ij ,<label>(2)</label></formula><p>where ϑ and γ denote the maximum velocity of linear axes and maximum linear velocity of the robot, δ x and δ y denote the relative distance between the i-th nozzle to the j-th weed. In this scheme, we define each edge to consist of a feasibility score Γ jk using the logistic function Eq. ( <ref type="formula" target="#formula_2">3</ref>) of motion between nodes (weeds) j and k.</p><formula xml:id="formula_2">Γ jk = 1 1 + e −ω(S jk ) ,<label>(3)</label></formula><p>where S jk is the favorability score in seconds</p><formula xml:id="formula_3">S jk = δ x jk γ − δ y jk ϑ ,<label>(4)</label></formula><p>and the weighting parameter ω adjusts how quickly the favorability score makes the Γ jk change from the boundary score (0.5) to being very likely (1.0). The boundary score occurs when S jk = 0 and represents when there is just enough time for the tool to transition from node j to k.</p><p>In a greedy algorithm, every potential route is calculated by permuting all nodes in the graph, considering the edge directions in the node graph. The best route is the one that visits a high number of nodes with high feasibility. The best performed method utilized in <ref type="bibr" target="#b8">[9]</ref> was nOTSP which is a modification of the conventional traveling salesman problem. The planning strategies generate a set of m possible trajectories ⃗ T = [ ⃗ T 0 , . . . , ⃗ T m−1 ], where each ⃗ T t represents an organized list of weed locations in the trajectory, consisting of q t elements in form of ⃗ T t = [w 0 , . . . , w qt−1 ]. Using the following criteria we calculate the success criterion</p><formula xml:id="formula_4">⃗ C = [C 0 , . . . , C m−1 ] for each trajectory in ⃗ T. ⃗ C( ⃗ T, ρ) =    1 q t qt−1 r=0 Γ(n r , n r+1 ), f or all Γ ≥ ρ 0 otherwise<label>(5)</label></formula><p>where ρ = 0.6 is a cutoff threshold applied to each feasibility score ensuring the planner only considers trajectories with all reachable targets. To incorporate the harmfulness factor, we use the ⃗ T where C t &gt; 0, and pick the trajectory with maximum total harmfulness score K using,</p><formula xml:id="formula_5">argmax t K( ⃗ T); where K( ⃗ T t ) = qt−1 r=0 κ ⃗ T t (r)<label>(6)</label></formula><p>and κ r is the harmfulness factor, Eq. ( <ref type="formula" target="#formula_0">1</ref>), of the r-th node in ⃗ T t . This leads to the best trajectory being the one that has the largest number of reachable targets and high-priority weeds. IV. EXPERIMENTAL SETUP Similar to our prior work <ref type="bibr" target="#b8">[9]</ref>, we consider that the robot moves with constant speed γ = 0.5m/s along a crop row with weed density of λ weeds/m 2 and we set the velocity of the linear actuators to ϑ = 5m/s. All experiments are conducted using 4 linear axes.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>A. Real-Field Models</head><p>The field models are sourced from the crop monitoring method detailed Sec. III-A and compiled into a representative row format. We generate models from three real-world fields captured on either sugar-beet or corn crops at CKA across two years. This creates complex scenes to evaluate as there are large differences in the weed densities across the datasets. These models contain four distinct weed densities: low (CN20), moderate (SB20-S2), high (SB20-S1, SB21-S1), and very high (SB21-S2). To evaluate the performance of conducted operation both in simulation and real-fields we use the number of untreated weeds and from now on we call it loss (in percentage). Furthermore, the traveled distance (in meters) of the linear axis could provide us with useful information about the load balance and effectiveness of planning.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>B. SB21 Dataset</head><p>We utilized BonnBot-I to create a series of distinct datasets tailored for precision agricultural applications. In our prior works, the datasets were acquired at sugar-beet (SB20) <ref type="bibr" target="#b21">[22]</ref> and corn (CN20) <ref type="bibr" target="#b8">[9]</ref> fields within the University of Bonn's Klein-Altendorf campus (CKA). Both datasets featured sparsely annotated video sequences with no overlap between annotated frames. In this work, we introduce a new sugar-beet dataset (SB21) captured at CKA during 2021.</p><p>SB21 is comprised of 84 RGB-D frames of crops and 12 distinct weed categories, totaling 942 instances of sugar beet and 4989 instances of weeds. The images are divided into train, validation, and evaluation sets with respectively 56, 14, and 14 images. Annotations include pixel-wise segmentation on an instance basis, bounding boxes, and stem locations for each instance. Similar to SB20 and CN20, the images are augmented with robot pose and velocity information from BonnBot-I. The data structures proposed here enable the creation of real temporal sequences, where only the final frame in the sequence is labeled, as detailed in <ref type="bibr" target="#b21">[22]</ref>, thereby reestablishing temporal relationships between annotated and non-annotated frames. Fig. <ref type="figure" target="#fig_4">5</ref> provides an example of an annotated image from the SB21 dataset.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>V. EXPERIMENTAL EVALUATIONS</head><p>In this section, we present the outcomes of various experiments conducted both in simulated and real-world settings.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>A. Segment-view observations vs Rolling-view observations</head><p>First, we illustrate the efficiency of the weeding system on real-field models, showcasing the nOTSP approach in two distinct observation modes, Segment-view (baseline) and our novel Rolling-view observations. Our evaluations are applied to the test rows within the three datasets (CN20, SB20, and SB21). Tab. I summarizes the difference in planning performance and traveled distance of weeding axes between the two observation models (Segment-view (baseline) and Rolling-view) deployed on the real-field models. Below we briefly describe the results in Tab. I in terms of weed density, from low to very high.</p><p>Low weed density: both methods demonstrate comparable performance in areas with lower weed density achieving zero loss on CN20 and leaving no untreated weeds in the fields. The Rolling-view model, however, required less travel distance compared to the Segment-view. However, the variance in the traveled distance of the weeding axes seems to be lower when using Segment-view planning. This suggests a more balanced distribution of targets across the different implements. Moderate weed density: Similar to low density, both models achieved 0.0% loss, with no noticeable difference in weeding efficiency. However, the Rolling-view model had a slightly higher travel distance (1.9 ± 0.9m) than the Segment-view (1.4±0.2m). High and very high weed density: In this scenario, the Rolling-view model outperformed the Segment-view model. The Rolling-view achieved only a 6.4% loss compared to the Segment-view's 11.9% loss. Additionally, the Rolling-view required a substantially lower travel distance than the Segment-view, showing the efficiency of the Rolling-view method in more complex situations. Overall, the Rolling-view planning method surpasses the baseline with an average absolute improvement of 3.5% over all the field models with a maximum and minimum absolute improvement of 5.5% on SB20-S1 and 1.7% on SB21-S2, respectively.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>B. Bio-diversity aware weeding operation</head><p>The bio-diversity-aware system should accurately differentiate between crops and weeds. This includes detecting beneficial dicots and only intervening where it is essential for crop health while preserving and promoting biodiversity. This weed classification approach is particularly crucial in challenging scenarios. These scenarios can include high weed density, restricted robot velocity, restricted linear axis speed, or herbicide usage limitations. Hence, the system must manage certain losses while achieving optimal performance. To test our system's resilience and capability under extreme conditions, we devised an experiment where the robot operates at a speed two times the normal γ = 1.0m/s.</p><p>In this analysis, we utilized the field models from our previous experiment but with two modifications. First, we designate two priority levels where a low-priority for weeding is given to potentially beneficial dicots and a high-priority is given to all other weeds. To represent the priority levels we give a weight of 0.1 and 1.0 for low-and high-priority respectively. Second, the occurrence of high-priority weeds was set to be one-tenth of that of low-priority. Consequently, this setup required the bio-diversity-aware system to adjust its weeding trajectories to prioritize the less frequent, highpriority weeds, even if it meant potentially overlooking some of the low-priority weeds. In the following, we compare the bio-diversity-aware (Bio-Div.) approach with a baseline (notbio-diversity-aware) method under extreme conditions on the same real-field models used in the previous experiment. The weeding loss for the Bio-Div. the approach is very similar to the baseline. It leaves no untreated weed in the fields, indicating its comparable effectiveness in scenarios with low to moderate weed densities. However, in cases of very high weed densities (SB21-S1, SB21-S2), there is a minor (&lt; 2%) increase in weeding loss with the Bio-Div. approach. This suggests a small trade-off in performance at extremely high weed densities. The average traveled distance of axes using both observation methods is generally similar or marginally higher (&lt; 0.2m on average) for the Bio-Div. approach across all field models, reflecting the method's thoroughness in targeting specific weed priorities and achieving bio-diversity considerations. Additionally, to enhance our evaluation of the operation's specifics, we detailed the treatment percentage for each weed type individually and their results are presented in Tab. II.</p><p>When considering the low-priority weeds, the Bio-Div. method achieves slightly reduced performance when compared to the baseline. On the other hand, this reduced  performance could be interpreted as a positive point, where keeping low-priority weeds in the field could benefit the ecosystem and align with bio-diversity purposes. However, the benefit of this approach is evident in the ability of the Bio-Div. approach to achieve stronger performance when targeting higher-threat weeds. Our approach is able to improve performance on all but the lowest weed distribution (CN20) where performance is identical. This illustrates the Bio-Div. approach's effectiveness in prioritizing and managing highpriority weeds.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>C. Real-World Intervention Performance</head><p>In <ref type="bibr" target="#b8">[9]</ref> we only evaluated the weeding performance on recorded data and considered non-overlapping segments of observations for running the experiments. To further evaluate the whole system's performance, we deployed BonnBot-I in a series of unseen fields with different weed distributions, illumination conditions, and cultivars. The experiments were conducted on various days, under a mix of weather conditions including partial cloudiness and sunshine, and on different types of soil ranging from solid and compact to relatively muddy. Additionally, the plants tested were at various growth stages, from the two-leaf stage up to the eight-leaf stage. The field experiments with the real robot were conducted at the CKA, covering nearly 100 square meters of sugar-beet field. This evaluation outlines the most important metrics associated with the operation of the robot. These metrics include the number of missed weeds, the number of partially treated weeds, and the number of accurately treated weeds. We quantitatively evaluated our performance on two different weeding scenarios: crop-weed; and weed-only.</p><p>During all evaluations, we used the Rolling-view observation model enabling more accurate planning in real-world scenarios. An example of this planning approach is depicted in Fig. <ref type="figure">7</ref> where only three linear axes are utilized (indicated by the three colors). The weed-only field model was used to evaluate our intervention approach independently of vision system failures (i.e. classifying a weed as crop or vice versa). Our quantitative analysis is based on visually interpreting the footage captured on a camera mounted at the rear of BonnBot-I. Fig. <ref type="figure" target="#fig_5">6</ref> demonstrates the footprint of weeding Fig. <ref type="figure">7</ref>. BonnBot-I Simulation; An example field with weed density λ ≊ 12 with planned trajectories of three linear axes depicted in different colors (blue, green, and orange). All dots that lie along one of the lines are weeds that will be treated, while all the dots that do not lie upon a line are not able to be treated. interventions in the real fields.</p><p>The trial fields contained regions with low (&lt; 5) to high weed (&gt; 10) densities, therefore offering challenging scenarios for testing BonnBot-I weeding capabilities. In total our two fields contain 1038 weeds, the sugar-beets in the crop-weed fields had plants in the four-to six-leaf stage (approximately three to six weeks old). Tab. III summarizes the performance of BonnBot-I in both weed-only and crop-weed regions. Initial evaluations in the crop-weed region showed, that BonnBot-I has treated 23 crops falsely which counts as a total of 4% of visited crops in the field. Furthermore, of the total weeds in the fields, we accurately detected 886. Of these detected weeds BonnBot-I did not perform an intervention on 121 of them.</p><p>Consequently, the weeding loss attributable to planning or intervention constraints stands at 11.6%. This loss could be addressed by fine-tuning planning strategies, adding more weeding axes, increasing the velocity of the linear axis, or decreasing the robot's linear velocity. The remaining 152 weeds (1038 − 886) were missed because of systemic issues, notably the vision system's performance under difficult realtime and challenging lighting conditions. Hence, the overall loss of the system added up to 26.3% of the total number of weed plants in the fields (including the detected-and-missed and not-detected instances). Further examination showed that in the weed-only region, from the total of 98 missed weeds, a total of 39 plants remained untreated solely because of the vision system's inability to detect them. Similarly, in the crop-weed region, 113 weeds were missed due to vision system failure highlighting the limitations of the vision system and the challenges encountered in real-field conditions. This loss could be reduced by improving the vision system and using more advanced DNN architecture in the future.</p><p>In the real-world field trials of BonnBot-I 765 weeds were successfully treated. Of the treated weeds, on average 47% were considered to be treated in a highly accurate manner, 183 and 177 weeds in weed-only and crop-weed regions, respectively. This means the spray footprint was centered on the weed. The remaining 53% were treated successfully but with less accuracy, with an offset of nearly 2cm. They are considered to be partial treatments as they still cover a large proportion of the weed. This reduced performance is likely linked to the variable conditions encountered in real-field settings. Factors such as slight weather changes, like unexpected wind gusts, can alter spray distribution by a few centimeters or move plant leaves, thereby impacting the accuracy of weed detection and treatment. While these errors occurred due to several factors we still consider this to be a successful treatment of the weeds in the field.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>VI. CONCLUSION</head><p>In this paper, we introduced advancements in weed management, enhancing the capabilities of BonnBot-I for conducting precise bio-diversity-aware weeding of sugar-beet fields. We introduce an advanced planning method that employs a rolling-view technique, leading to an average absolute performance enhancement of 3.4%. Furthermore, our experiments in real-fields with real-robot demonstrated that BonnBot-I weeding strategy could be effective only by having a loss of 11.66% due to planning or intervention constraints. We present, for the first time, a concept of biodiversity-aware weed management and assess its practicality in real-world scenarios. Our approach not only improves the precision and effectiveness of agricultural robots but also emphasizes the necessity of incorporating ecological considerations into crop management. In conclusion, our research indicates that performance variations in weeding technologies are often due to dynamic real-field conditions, such as unexpected weather shifts impacting weed detection and treatment accuracy. Future work will aim to enhance these systems' adaptability to such environmental factors, focusing on developing more robust and responsive vision systems to ensure consistent and effective weed management in diverse agricultural settings.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Fig. 1 .</head><label>1</label><figDesc>Fig. 1. An image from underneath the BonnBot-I Platform in sugar beet fields at Campus Klein Altendorf of the University of Bonn, prior to conducting Precision weed management. (n1-n4: Spray nozzles in purple, L1-L4: Linear axes in light-green, and the detection area of the front camera in cyan).</figDesc><graphic coords="1,313.20,163.35,244.79,163.09" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>Fig. 2 .</head><label>2</label><figDesc>Fig. 2.The software architecture, including sensors (purple), vision perception, localization of robot base frame F R (light blue), intervention planning, intervention planner, and weeding axes controllers (orange).</figDesc><graphic coords="2,313.20,55.75,244.78,120.56" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head>Fig. 3 .</head><label>3</label><figDesc>Fig. 3. Segment-view vs Rolling-view Planning; two separate segments T 0 and T 1 with different weeding distributions are shown. An intermediate T i is substantially helping the planner to optimize the planned route of the weeding axis (green) w.r.t the baseline (red).</figDesc><graphic coords="3,319.32,55.76,232.54,157.51" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head>Fig. 4 .</head><label>4</label><figDesc>Fig. 4. Biodiversity in Focus: A field area with low crop density, susceptible to invasive weeds, and the potential role of Dicot plants in controlling weed growth.</figDesc><graphic coords="4,343.80,55.75,183.60,100.72" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_4"><head>Fig. 5 .</head><label>5</label><figDesc>Fig. 5. Example image of dataset SB21 (left) and multi-class annotations representing different types of crops and weeds using different colors (right).</figDesc><graphic coords="5,319.18,55.75,117.50,66.22" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_5"><head>Fig. 6 .</head><label>6</label><figDesc>Fig. 6. Real-field intervention examples; Different spray footprints of BonnBot-I weeding operation in campus CKA of the University of Bonn, with different weed densities and various weed types.</figDesc><graphic coords="7,313.20,231.55,244.79,68.08" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_2"><head>TABLE III REAL</head><label>III</label><figDesc>-WORLD WEEDING PERFORMANCE OF BONNBOT-I IN WEED-ONLY AND CROP-WEED REGIONS.</figDesc><table><row><cell></cell><cell>Crop</cell><cell></cell><cell>Weed</cell><cell></cell><cell></cell></row><row><cell>Field Model</cell><cell>False Hits</cell><cell cols="2">Total Weeds Acc. Hits</cell><cell cols="2">Par. Hits Missed</cell></row><row><cell>Weed-Only</cell><cell>-</cell><cell>473</cell><cell>183</cell><cell>192</cell><cell>98</cell></row><row><cell>Crop-Weed</cell><cell>4%</cell><cell>565</cell><cell>177</cell><cell>213</cell><cell></cell></row></table></figure>
+		</body>
+		<back>
+
+			<div type="acknowledgement">
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>ACKNOWLEDGEMENTS</head><p>This work was funded by the Deutsche Forschungsgemeinschaft (DFG, German Research Foundation) under Ger-many's Excellence Strategy -EXC 2070 -390732324.</p></div>
+			</div>
+
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">What weeding robots need to know about ecology</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">L</forename><surname>Zingsheim</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">F</forename><surname>Döring</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Agriculture, Ecosystems &amp; Environment</title>
+		<imprint>
+			<biblScope unit="volume">364</biblScope>
+			<biblScope unit="page">108861</biblScope>
+			<date type="published" when="2024">2024</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<monogr>
+		<title level="m" type="main">Global perspective of herbicide-resistant weeds</title>
+		<author>
+			<persName><forename type="first">I</forename><surname>Heap</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2014">2014</date>
+			<biblScope unit="volume">70</biblScope>
+			<biblScope unit="page" from="1306" to="1315" />
+		</imprint>
+	</monogr>
+	<note>Pest management science</note>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">Distance-based control system for machine vision-based selective spraying</title>
+		<author>
+			<persName><forename type="first">B</forename><forename type="middle">L</forename><surname>Steward</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><forename type="middle">F</forename><surname>Tian</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Tang</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Transactions of the ASAE</title>
+		<imprint>
+			<biblScope unit="volume">45</biblScope>
+			<biblScope unit="issue">5</biblScope>
+			<biblScope unit="page">1255</biblScope>
+			<date type="published" when="2002">2002</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">Robot for weed species plant-specific management</title>
+		<author>
+			<persName><forename type="first">O</forename><surname>Bawden</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Kulk</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Russell</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Mccool</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>English</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Dayoub</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Lehnert</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Perez</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Field Robotics</title>
+		<imprint>
+			<biblScope unit="volume">34</biblScope>
+			<biblScope unit="page" from="1179" to="1199" />
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">Mechanical control with a deep learning method for precise weeding on a farm</title>
+		<author>
+			<persName><forename type="first">C.-L</forename><surname>Chang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B.-X</forename><surname>Xie</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S.-C</forename><surname>Chung</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Agriculture</title>
+		<imprint>
+			<biblScope unit="volume">11</biblScope>
+			<biblScope unit="issue">11</biblScope>
+			<biblScope unit="page">1049</biblScope>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">Robotic weed control using automated weed and crop classification</title>
+		<author>
+			<persName><forename type="first">X</forename><surname>Wu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Aravecchia</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Lottes</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Stachniss</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Pradalier</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Field Robotics</title>
+		<imprint>
+			<biblScope unit="volume">37</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="322" to="340" />
+			<date type="published" when="2020">2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">10 thermal weed control</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Ascard</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Hatcher</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Melander</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Upadhyaya</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Blackshaw</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Non-chemical weed management: principles, concepts and technology</title>
+				<imprint>
+			<date type="published" when="2007">2007</date>
+			<biblScope unit="page" from="155" to="175" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">Development of a prototype robot and fast path-planning algorithm for static laser weeding</title>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Xiong</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Ge</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Liang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Blackmore</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Computers and Electronics in Agriculture</title>
+		<imprint>
+			<biblScope unit="volume">142</biblScope>
+			<biblScope unit="page" from="494" to="503" />
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">Bonnbot-i: A precise weed management and crop monitoring platform</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Ahmadi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Halstead</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Mccool</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">2022 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)</title>
+				<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">Crop losses to pests</title>
+		<author>
+			<persName><forename type="first">E.-C</forename><surname>Oerke</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">The Journal of Agricultural Science</title>
+		<imprint>
+			<biblScope unit="volume">144</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="31" to="43" />
+			<date type="published" when="2006">2006</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<monogr>
+		<title level="m" type="main">Weed-crop competition: a review</title>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">L</forename><surname>Zimdahl</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2007">2007</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">Autonomous robotic weed control systems: A review</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Slaughter</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Giles</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Downey</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Computers and electronics in agriculture</title>
+		<imprint>
+			<biblScope unit="volume">61</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="63" to="78" />
+			<date type="published" when="2008">2008</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">Competitive ability of five common weed species in competition with soybean</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Guglielmini</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Verdú</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Satorre</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">International journal of pest management</title>
+		<imprint>
+			<biblScope unit="volume">63</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="30" to="36" />
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">Weeds as pathogen hosts and disease risk for crops in the wake of a reduced use of herbicides: Evidence from yam (dioscorea alata) fields and colletotrichum pathogens in the tropics</title>
+		<author>
+			<persName><forename type="first">P</forename><surname>Dentika</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Ozier-Lafontaine</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Penet</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Journal of Fungi</title>
+		<imprint>
+			<biblScope unit="volume">7</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page">283</biblScope>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">Research on improved yolox weed detection based on lightweight attention module</title>
+		<author>
+			<persName><forename type="first">H</forename><surname>Zhu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Mu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Bai</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X</forename><surname>Wu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Zhuang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Li</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Crop Protection</title>
+		<imprint>
+			<biblScope unit="volume">177</biblScope>
+			<biblScope unit="page">106563</biblScope>
+			<date type="published" when="2024">2024</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<analytic>
+		<title level="a" type="main">Crop agnostic monitoring driven by deep learning</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Halstead</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Ahmadi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Smitt</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">O</forename><surname>Schmittmann</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Mccool</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Frontiers in Plant Science</title>
+		<imprint>
+			<biblScope unit="page">2937</biblScope>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<analytic>
+		<title level="a" type="main">Mask r-cnn</title>
+		<author>
+			<persName><forename type="first">K</forename><surname>He</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Gkioxari</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Dollár</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Girshick</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings</title>
+				<meeting>null</meeting>
+		<imprint>
+			<date type="published" when="2017">2017</date>
+			<biblScope unit="page" from="2961" to="2969" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<analytic>
+		<title level="a" type="main">Operational, economic, and environmental assessment of an agricultural robot in seeding and weeding operations</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Vahdanjoo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Gislum</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">A G</forename><surname>Sørensen</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">AgriEngineering</title>
+		<imprint>
+			<biblScope unit="volume">5</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="299" to="324" />
+			<date type="published" when="2023">2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<analytic>
+		<title level="a" type="main">Design and evaluation of the target spray platform</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Zhou</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Jiang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Bing</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Su</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Knoll</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">International Journal of Advanced Robotic Systems</title>
+		<imprint>
+			<biblScope unit="volume">18</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page">1729881421996146</biblScope>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<analytic>
+		<title level="a" type="main">Mechanical control with a deep learning method for precise weeding on a farm</title>
+		<author>
+			<persName><forename type="first">C.-L</forename><surname>Chang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B.-X</forename><surname>Xie</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S.-C</forename><surname>Chung</surname></persName>
+		</author>
+		<ptr target="https://www.mdpi.com/2077-0472/11/11/1049" />
+	</analytic>
+	<monogr>
+		<title level="j">Agriculture</title>
+		<imprint>
+			<biblScope unit="volume">11</biblScope>
+			<biblScope unit="issue">11</biblScope>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<analytic>
+		<title level="a" type="main">Fruit quantity and ripeness estimation using a robotic vision system</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Halstead</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Mccool</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Denman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Perez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Fookes</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Robotics and Automation Letters</title>
+		<imprint>
+			<biblScope unit="volume">3</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="2995" to="3002" />
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<monogr>
+		<title level="m" type="main">Virtual temporal samples for recurrent neural networks: applied to semantic segmentation in agriculture</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Ahmadi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Halstead</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Mccool</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+	<note>in German conference on pattern recognition</note>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<analytic>
+		<title level="a" type="main">A cross-domain challenge with panoptic segmentation in agriculture</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Halstead</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Zimmer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Mccool</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">The International Journal of Robotics Research</title>
+		<imprint>
+			<biblScope unit="volume">0</biblScope>
+			<biblScope unit="issue">0</biblScope>
+			<biblScope unit="page">0</biblScope>
+			<date type="published" when="2024">2024</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>
