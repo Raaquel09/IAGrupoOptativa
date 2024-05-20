@@ -6,10 +6,13 @@ from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.cluster import AgglomerativeClustering
 from sklearn.decomposition import LatentDirichletAllocation
 from sklearn.preprocessing import MinMaxScaler
+from sklearn.metrics import silhouette_score
 from sentence_transformers import SentenceTransformer
 import xml.etree.ElementTree as ET
 import matplotlib.pyplot as plt
 from sklearn.decomposition import PCA
+from gensim.models.coherencemodel import CoherenceModel
+from gensim.corpora.dictionary import Dictionary
 
 def parse_tei_xml(file_path):
     try:
@@ -38,7 +41,7 @@ def perform_topic_modeling_sklearn(abstracts):
     optimal_topics = np.argmin(perplexities) + 1
     lda = LatentDirichletAllocation(n_components=optimal_topics, random_state=0)
     lda.fit(dtm)
-    return lda, vectorizer, optimal_topics
+    return lda, vectorizer, optimal_topics, dtm
 
 def display_topics(model, feature_names, num_top_words):
     topics = []
@@ -48,6 +51,22 @@ def display_topics(model, feature_names, num_top_words):
 
 def save_normalized_matrix(matrix, file_path):
     np.savetxt(file_path, matrix, fmt='%f')
+
+def calculate_coherence_score(lda_model, dtm, vectorizer, abstracts):
+    # Extract topics
+    topics = lda_model.components_
+    terms = vectorizer.get_feature_names_out()
+    topics = [[terms[i] for i in topic.argsort()[:-10 - 1:-1]] for topic in topics]
+    
+    # Create a dictionary and corpus for coherence calculation
+    texts = [abstract.split() for abstract in abstracts]
+    dictionary = Dictionary(texts)
+    corpus = [dictionary.doc2bow(text) for text in texts]
+    
+    # Coherence Model
+    coherence_model_lda = CoherenceModel(topics=topics, texts=texts, dictionary=dictionary, coherence='c_v')
+    coherence_lda = coherence_model_lda.get_coherence()
+    return coherence_lda, coherence_model_lda
 
 def main():
     input_dir = input("Enter the path to the directory containing TEI XML files: ")
@@ -90,9 +109,21 @@ def main():
     save_normalized_matrix(normalized_matrix, output_matrix_file)
     print(f"Normalized similarity matrix saved to: {output_matrix_file}")
 
-    # Perform agglomerative clustering
-    clustering_agglomerative = AgglomerativeClustering()
-    labels_agglomerative = clustering_agglomerative.fit_predict(normalized_matrix)
+    # Determine the optimal number of clusters using silhouette score
+    max_clusters = 10
+    silhouette_scores = []
+    for n_clusters in range(2, max_clusters + 1):
+        clustering_agglomerative = AgglomerativeClustering(n_clusters=n_clusters, metric='precomputed', linkage='complete')
+        cluster_labels = clustering_agglomerative.fit_predict(1 - normalized_matrix)
+        silhouette_avg = silhouette_score(1 - normalized_matrix, cluster_labels, metric='precomputed')
+        silhouette_scores.append(silhouette_avg)
+
+    optimal_clusters = np.argmax(silhouette_scores) + 2
+    print(f"Optimal number of clusters: {optimal_clusters}")
+
+    # Perform agglomerative clustering with the optimal number of clusters
+    clustering_agglomerative = AgglomerativeClustering(n_clusters=optimal_clusters, metric='precomputed', linkage='complete')
+    labels_agglomerative = clustering_agglomerative.fit_predict(1 - normalized_matrix)
 
     # Create DataFrame
     df = pd.DataFrame({
@@ -119,15 +150,23 @@ def main():
     print(f"Agglomerative Clustering: {num_clusters_agglomerative} clusters")
     print(f"Clustering image saved to: {output_image_path}")
 
-    # Print topics
-    lda_model_sklearn, vectorizer_sklearn, num_topics_sklearn = perform_topic_modeling_sklearn(abstracts)
+    # Print topics using sklearn LDA
+    lda_model_sklearn, vectorizer_sklearn, num_topics_sklearn, dtm = perform_topic_modeling_sklearn(abstracts)
     topics_sklearn = display_topics(lda_model_sklearn, vectorizer_sklearn.get_feature_names_out(), 10)
     print("\nTopics found by sklearn LDA:")
     for idx, topic in enumerate(topics_sklearn):
         print(f"Topic {idx}: {topic}")
 
+    # Calculate and print coherence score
+    coherence_score, coherence_model_lda = calculate_coherence_score(lda_model_sklearn, dtm, vectorizer_sklearn, abstracts)
+    print(f"\nCoherence Score for the LDA model: {coherence_score}")
+
+    # Print coherence score for each topic
+    for i, topic in enumerate(coherence_model_lda.topics):
+        topic_coherence = CoherenceModel(topics=[topic], texts=[abstract.split() for abstract in abstracts], dictionary=Dictionary([abstract.split() for abstract in abstracts]), coherence='c_v')
+        print(f"Coherence Score for Topic {i}: {topic_coherence.get_coherence()}")
+
     # Find dominant topic for each document in sklearn LDA
-    dtm = vectorizer_sklearn.transform(abstracts)
     lda_topics_sklearn = lda_model_sklearn.transform(dtm)
     dominant_topics_sklearn = np.argmax(lda_topics_sklearn, axis=1)
     for i, filename in enumerate(filenames):
@@ -136,4 +175,4 @@ def main():
         print(f"{filename} belongs to Topic {dominant_topic} with {topic_percentage * 100:.2f}%")
 
 if __name__ == "__main__":
-    main()
+    main
