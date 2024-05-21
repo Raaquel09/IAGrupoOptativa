@@ -1,0 +1,40 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: Comparing Papers through Topic Modeling and Clustering
+message: >-
+  This project aims to compare the content similarity
+  between academic papers using topic modeling and
+  clustering techniques. By employing these methods, the
+  project identifies common themes and patterns across the
+  papers, allowing for a deeper understanding of their
+  content relationships. Additionally, it utilizes SparkQL
+  queries to validate the accuracy of information retrieval
+  and ensure the effectiveness of the analysis.
+type: software
+authors:
+  - given-names: Iñigo
+    family-names: Rodríguez Saito
+  - given-names: Martin
+    family-names: 'Quevedo Poyal '
+  - given-names: 'Raquel '
+    family-names: Falero Domínguez
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.11231690
+	target: https://zenodo.org/doi/10.5281/zenodo.11231689
+repository-code: 'https://github.com/Raaquel09/IAGrupoOptativa.git'
+abstract: >-
+  This project aims to compare the content similarity
+  between academic papers using topic modeling and
+  clustering techniques. By employing these methods, the
+  project identifies common themes and patterns across the
+  papers, allowing for a deeper understanding of their
+  content relationships. Additionally, it utilizes SparkQL
+  queries to validate the accuracy of information retrieval
+  and ensure the effectiveness of the analysis.
+license: Apache-2.0
+commit: The first official version of the project.
+version: '1.0'
+date-released: '2024-05-22'
