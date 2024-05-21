@@ -1,0 +1,1010 @@
+[
+    {
+        "file_name": "cs1.grobid.tei.xml",
+        "acknowledgment": "Acknowledgements It has been helpful to talk to many people about this work. The 2023/2024 Aria workshops emphasised aspects of imprecise probability as discussion topics (and so it was helpful to discuss with davidad, Dylan Braithwaite, Elena Di Lavore, Alex Lew, Owen Lynch, Sean Moss, Zenna Tavares, and others). It has been helpful to discuss with colleagues in Oxford (particularly Paolo Perrone, who is running an adjoint school project on uncertainty in Markov categories, and some time ago Kwok Ho Cheung regarding his thesis workResearch supported by Clarendon Scholarship, ERC Consolidator Grant BLAST, and AFOSR Project FA9550-21-1-0038.",
+        "entities": [
+            {
+                "entity": "MISC",
+                "text": " Aria"
+            },
+            {
+                "entity": "PER",
+                "text": " davidad"
+            },
+            {
+                "entity": "PER",
+                "text": " Dylan Braithwaite"
+            },
+            {
+                "entity": "PER",
+                "text": " Elena Di Lavore"
+            },
+            {
+                "entity": "PER",
+                "text": " Alex Lew"
+            },
+            {
+                "entity": "PER",
+                "text": " Owen Lynch"
+            },
+            {
+                "entity": "PER",
+                "text": " Sean Moss"
+            },
+            {
+                "entity": "PER",
+                "text": " Zenna Tavares"
+            },
+            {
+                "entity": "LOC",
+                "text": " Oxford"
+            },
+            {
+                "entity": "PER",
+                "text": " Paolo Perrone"
+            },
+            {
+                "entity": "PER",
+                "text": " Markov"
+            },
+            {
+                "entity": "PER",
+                "text": " Kwok Ho Cheung"
+            },
+            {
+                "entity": "MISC",
+                "text": " Clarendon Scholarship"
+            },
+            {
+                "entity": "ORG",
+                "text": " ERC"
+            },
+            {
+                "entity": "MISC",
+                "text": "ator Grant BLAST"
+            },
+            {
+                "entity": "ORG",
+                "text": " AFOSR"
+            }
+        ]
+    },
+    {
+        "file_name": "cs2.grobid.tei.xml",
+        "acknowledgment": "This work was funded by the Deutsche Forschungsgemeinschaft (DFG, German Research Foundation) under Ger-many's Excellence Strategy -EXC 2070 -390732324.",
+        "entities": [
+            {
+                "entity": "ORG",
+                "text": " Deutsche Forschungsgemeinschaft"
+            },
+            {
+                "entity": "ORG",
+                "text": "DFG"
+            },
+            {
+                "entity": "ORG",
+                "text": " German Research Foundation"
+            },
+            {
+                "entity": "PER",
+                "text": " Ger-many"
+            },
+            {
+                "entity": "MISC",
+                "text": " Excellence Strategy"
+            }
+        ]
+    },
+    {
+        "file_name": "cs3.grobid.tei.xml",
+        "acknowledgment": "This research was supported in part by Michigan State University through the computational resources provided by the Institute for Cyber-Enabled Research.",
+        "entities": [
+            {
+                "entity": "ORG",
+                "text": " Michigan State University"
+            },
+            {
+                "entity": "ORG",
+                "text": " Institute for Cyber-Enabled Research."
+            }
+        ]
+    },
+    {
+        "file_name": "cs4.grobid.tei.xml",
+        "acknowledgment": "The author started the research on the RTE and rotated reference frames when he was a postdoc of John C. Schotland and Vadim A. Markel, which he greatly appreciates. To deepen the theory on the RTE with rotated reference frames, fruitful discussion on the occasion of the International Conference on Transport Theory (ICTT), which have been held every other year, was crucial. This work was supported by JSPS KAKENHI Grant Number JP17K05572 and JST PRESTO Grant Number JPMJPR2027.",
+        "entities": [
+            {
+                "entity": "MISC",
+                "text": " R"
+            },
+            {
+                "entity": "ORG",
+                "text": "TE"
+            },
+            {
+                "entity": "PER",
+                "text": " John C. Schotland"
+            },
+            {
+                "entity": "PER",
+                "text": " Vadim A. Markel"
+            },
+            {
+                "entity": "PER",
+                "text": "."
+            },
+            {
+                "entity": "MISC",
+                "text": " R"
+            },
+            {
+                "entity": "ORG",
+                "text": "TE"
+            },
+            {
+                "entity": "MISC",
+                "text": " International Conference on Transport Theory"
+            },
+            {
+                "entity": "MISC",
+                "text": "ICTT"
+            },
+            {
+                "entity": "PER",
+                "text": "."
+            },
+            {
+                "entity": "ORG",
+                "text": " JSPS KAKENHI"
+            },
+            {
+                "entity": "ORG",
+                "text": " JST"
+            },
+            {
+                "entity": "MISC",
+                "text": " PRESTO"
+            },
+            {
+                "entity": "PER",
+                "text": "."
+            }
+        ]
+    },
+    {
+        "file_name": "cs6.grobid.tei.xml",
+        "acknowledgment": "We thank Michael Philippsen for an inspiring review of a late version of this report.This technical report is available for anonymous FTP on the Internet from the following source: machine: ftp.ira.uka.de directory: /pub/uni-karlsruhe/papers/techreports/1994 le: 1994-17.ps.Z",
+        "entities": [
+            {
+                "entity": "PER",
+                "text": " Michael Philippsen"
+            },
+            {
+                "entity": "MISC",
+                "text": " Internet"
+            },
+            {
+                "entity": "ORG",
+                "text": "uka"
+            },
+            {
+                "entity": "ORG",
+                "text": "uni-karlsruhe"
+            }
+        ]
+    },
+    {
+        "file_name": "em1.grobid.tei.xml",
+        "acknowledgment": "The authors would like to thank Mustafa Al-Janabi for software contributions to the messaging system used in this work.",
+        "entities": [
+            {
+                "entity": "PER",
+                "text": " Mustafa Al-Janabi"
+            }
+        ]
+    },
+    {
+        "file_name": "em2.grobid.tei.xml",
+        "acknowledgment": "The work is supported in parts by the National Science Foundation (NSF) (CNS-1722557, CCF-1718474, OIA-2040667, DGE-1723687 and DGE-1821766) and Intel's gift.",
+        "entities": [
+            {
+                "entity": "ORG",
+                "text": " National Science Foundation"
+            },
+            {
+                "entity": "ORG",
+                "text": "NSF"
+            },
+            {
+                "entity": "MISC",
+                "text": "CNS"
+            },
+            {
+                "entity": "MISC",
+                "text": " CCF"
+            },
+            {
+                "entity": "MISC",
+                "text": " OIA"
+            },
+            {
+                "entity": "MISC",
+                "text": " DGE"
+            },
+            {
+                "entity": "MISC",
+                "text": " DGE"
+            },
+            {
+                "entity": "ORG",
+                "text": " Intel"
+            }
+        ]
+    },
+    {
+        "file_name": "em3.grobid.tei.xml",
+        "acknowledgment": "Acknowledgments: The authors are grateful to Prof. Mihir Chakraborty for introducing us to the beautiful world of logic and teaching Gödel numbering, and to Prof. Sukanta Das for his valuable advice and discussions on the design and implementation of the scheme.",
+        "entities": [
+            {
+                "entity": "PER",
+                "text": " Mihir Chakraborty"
+            },
+            {
+                "entity": "PER",
+                "text": " Gödel numbering"
+            },
+            {
+                "entity": "PER",
+                "text": " Sukanta Das"
+            }
+        ]
+    },
+    {
+        "file_name": "em4.grobid.tei.xml",
+        "acknowledgment": "This research is supported by the National Research Foundation, Singapore under its Quantum Engineering Programme Initiative. Any opinions, findings and conclusions or recommendations expressed in this material are those of the authors and do not reflect the views of National Research Foundation, Singapore.",
+        "entities": [
+            {
+                "entity": "ORG",
+                "text": " National Research Foundation, Singapore"
+            },
+            {
+                "entity": "MISC",
+                "text": " Quantum Engineering Programme Initiative"
+            },
+            {
+                "entity": "ORG",
+                "text": " National Research Foundation, Singapore"
+            }
+        ]
+    },
+    {
+        "file_name": "em5.grobid.tei.xml",
+        "acknowledgment": "I want to express my gratitude for the input, feedback, and support I received from colleagues and students at University College Twente and the Knowledge, Transformation and Society section of the Faculty of Behavioural, Management",
+        "entities": [
+            {
+                "entity": "ORG",
+                "text": " University College Twente"
+            },
+            {
+                "entity": "ORG",
+                "text": " Knowledge, Transformation and Society"
+            },
+            {
+                "entity": "ORG",
+                "text": " Faculty of Behavioural, Management"
+            }
+        ]
+    },
+    {
+        "file_name": "fis1.grobid.tei.xml",
+        "acknowledgment": "We acknowledge funding from the CNRS -University of Tokyo \"80 Prime\" Joint Research Program and from the Agence Nationale de la Recherche (ANR-19 Decrypted CE30-0021-01 to S.C. and R.M.).",
+        "entities": [
+            {
+                "entity": "ORG",
+                "text": " CNRS -University of Tokyo"
+            },
+            {
+                "entity": "MISC",
+                "text": " \"80 Prime"
+            },
+            {
+                "entity": "MISC",
+                "text": " Joint Research Program"
+            },
+            {
+                "entity": "ORG",
+                "text": " Agence Nationale de la Recherche"
+            },
+            {
+                "entity": "MISC",
+                "text": "ANR-19"
+            },
+            {
+                "entity": "PER",
+                "text": " S"
+            },
+            {
+                "entity": "LOC",
+                "text": ".C."
+            },
+            {
+                "entity": "PER",
+                "text": " R"
+            },
+            {
+                "entity": "LOC",
+                "text": "."
+            },
+            {
+                "entity": "PER",
+                "text": "M"
+            }
+        ]
+    },
+    {
+        "file_name": "fis2.grobid.tei.xml",
+        "acknowledgment": "RL would like to thank Council of Scientific and Industrial Research, Government of India for the fellowship (file number: 09/1001(0054)/2019-EMR-I). RL and AG would like to thank Department of Science and Technology, Government of India for the financial support through SR/MF/PS-01/2016-IITH/G. We thank Prof. Ulrich Mosel for useful discussions in using GiBUU.All the data that supports the result of this study are included within the article.",
+        "entities": [
+            {
+                "entity": "ORG",
+                "text": " RL"
+            },
+            {
+                "entity": "ORG",
+                "text": " Council of Scientific and Industrial Research"
+            },
+            {
+                "entity": "ORG",
+                "text": " Government of India"
+            },
+            {
+                "entity": "ORG",
+                "text": " RL"
+            },
+            {
+                "entity": "ORG",
+                "text": " AG"
+            },
+            {
+                "entity": "ORG",
+                "text": " Department of Science and Technology"
+            },
+            {
+                "entity": "ORG",
+                "text": " Government of India"
+            },
+            {
+                "entity": "PER",
+                "text": " Ulrich Mosel"
+            },
+            {
+                "entity": "MISC",
+                "text": " GiBUU"
+            }
+        ]
+    },
+    {
+        "file_name": "fis3.grobid.tei.xml",
+        "acknowledgment": "This work is supported by the National Key R&D Program of China (2021YFA0718802 (Y.Y.L., Y.L.W., and H.W.), 2018YFA0209002 (Y.L.W.), and 2023YFF0718400 (Y.D.)), the National Natural Science Foundation of China (62274086 (Y.L.W.), 62288101 (H.W.), 12204434(Y.D.), and 62271245 (X.T.)), Postdoctoral Fellowship Program of CPSF (W.C.Y. and Y.Y.L.), Jiangsu Outstanding Postdoctoral Program (W.C.Y. and Y.Y.L.), Shenzhen Science and Technology Program (KQTD20200820113010023 (X.D.)), and Jiangsu Key Laboratory of Advanced Techniques for Manipulating Electromagnetic Waves.",
+        "entities": [
+            {
+                "entity": "MISC",
+                "text": " National Key R&D Program of China"
+            },
+            {
+                "entity": "MISC",
+                "text": "YFA"
+            },
+            {
+                "entity": "PER",
+                "text": "Y.Y.L"
+            },
+            {
+                "entity": "PER",
+                "text": " Y.L.W"
+            },
+            {
+                "entity": "PER",
+                "text": " H"
+            },
+            {
+                "entity": "PER",
+                "text": "W"
+            },
+            {
+                "entity": "MISC",
+                "text": "FA"
+            },
+            {
+                "entity": "PER",
+                "text": "Y.L.W"
+            },
+            {
+                "entity": "MISC",
+                "text": "FF"
+            },
+            {
+                "entity": "PER",
+                "text": "Y.D"
+            },
+            {
+                "entity": "ORG",
+                "text": " National Natural Science Foundation of China"
+            },
+            {
+                "entity": "PER",
+                "text": "Y.L.W"
+            },
+            {
+                "entity": "PER",
+                "text": "H.W"
+            },
+            {
+                "entity": "PER",
+                "text": "Y.D"
+            },
+            {
+                "entity": "PER",
+                "text": "X.T"
+            },
+            {
+                "entity": "MISC",
+                "text": " Postdoctoral Fellowship Program"
+            },
+            {
+                "entity": "ORG",
+                "text": " CPSF"
+            },
+            {
+                "entity": "PER",
+                "text": "W.C.Y."
+            },
+            {
+                "entity": "PER",
+                "text": " Y.Y.L"
+            },
+            {
+                "entity": "MISC",
+                "text": " Jiangsu Outstanding Postdoctoral Program"
+            },
+            {
+                "entity": "PER",
+                "text": "W.C.Y."
+            },
+            {
+                "entity": "PER",
+                "text": " Y.Y"
+            },
+            {
+                "entity": "ORG",
+                "text": "."
+            },
+            {
+                "entity": "PER",
+                "text": "L"
+            },
+            {
+                "entity": "MISC",
+                "text": " Shenzhen Science and Technology Program"
+            },
+            {
+                "entity": "MISC",
+                "text": "KQTD"
+            },
+            {
+                "entity": "PER",
+                "text": "X.D"
+            },
+            {
+                "entity": "ORG",
+                "text": " Jiangsu Key Laboratory of Advanced Techniques for Manipulating Electromagnetic Waves"
+            },
+            {
+                "entity": "PER",
+                "text": "."
+            }
+        ]
+    },
+    {
+        "file_name": "fis4.grobid.tei.xml",
+        "acknowledgment": "We thank Kaze Wong for insightful discussions regarding normalizing flows. A.P. is supported by the UCL Centre for Doctoral Training in Data Intensive Science (STFC grant number ST/W00674X/1). M.A.P. and J.D.M. are supported by EPSRC (grant number EP/W007673/1). D.P. was supported by a Swiss National Science Foundation (SNSF) Professorship grant",
+        "entities": [
+            {
+                "entity": "PER",
+                "text": " Kaze Wong"
+            },
+            {
+                "entity": "PER",
+                "text": ". A.P."
+            },
+            {
+                "entity": "ORG",
+                "text": " UCL Centre for Doctoral Training in Data Intensive Science"
+            },
+            {
+                "entity": "ORG",
+                "text": "STFC"
+            },
+            {
+                "entity": "PER",
+                "text": " M.A.P."
+            },
+            {
+                "entity": "PER",
+                "text": " J.D.M."
+            },
+            {
+                "entity": "ORG",
+                "text": " EPSRC"
+            },
+            {
+                "entity": "PER",
+                "text": "). D.P."
+            },
+            {
+                "entity": "ORG",
+                "text": " Swiss National Science Foundation"
+            },
+            {
+                "entity": "ORG",
+                "text": "SNSF"
+            }
+        ]
+    },
+    {
+        "file_name": "fis5.grobid.tei.xml",
+        "acknowledgment": "We acknowledge fruitful and stimulating discussions and collaborations during the last few years with Francesca Ferlaino, Albert Gallemí, Kevin Geier, Philipp Hauke, Wolfgang Ketterle, Giovanni Martone, Giovanni Modugno, Tilman Pfau, Francesco Piazza, Santo Roccuzzo, Luis Santos and Leticia Tarruell.We acknowledge funding from Provincia Autonoma di Trento, from the Italian MIUR under the PRIN2017 project CEnTraL (Protocol Number 20172H2SC4), and from PNRR MUR project PE0000023-NQSTI.",
+        "entities": [
+            {
+                "entity": "PER",
+                "text": " Francesca Ferlaino"
+            },
+            {
+                "entity": "PER",
+                "text": " Albert Gallemí"
+            },
+            {
+                "entity": "PER",
+                "text": " Kevin Geier"
+            },
+            {
+                "entity": "PER",
+                "text": " Philipp Hauke"
+            },
+            {
+                "entity": "PER",
+                "text": " Wolfgang Ketterle"
+            },
+            {
+                "entity": "PER",
+                "text": " Giovanni Martone"
+            },
+            {
+                "entity": "PER",
+                "text": " Giovanni Modugno"
+            },
+            {
+                "entity": "PER",
+                "text": " Tilman Pfau"
+            },
+            {
+                "entity": "PER",
+                "text": " Francesco Piazza"
+            },
+            {
+                "entity": "PER",
+                "text": " Santo Roccuzzo"
+            },
+            {
+                "entity": "PER",
+                "text": " Luis Santos"
+            },
+            {
+                "entity": "PER",
+                "text": " Leticia Tarruell"
+            },
+            {
+                "entity": "ORG",
+                "text": " Provincia Autonoma di Trento"
+            },
+            {
+                "entity": "MISC",
+                "text": " Italian"
+            },
+            {
+                "entity": "ORG",
+                "text": " MIUR"
+            },
+            {
+                "entity": "MISC",
+                "text": " PRIN2017"
+            },
+            {
+                "entity": "MISC",
+                "text": " CEnTraL"
+            },
+            {
+                "entity": "ORG",
+                "text": " PNRR"
+            },
+            {
+                "entity": "MISC",
+                "text": " MUR"
+            }
+        ]
+    },
+    {
+        "file_name": "mat6.grobid.tei.xml",
+        "acknowledgment": "Acknowledgements A. Banik is supported in part by a scholarship from the National Board for Higher Mathematics (NBHM) (Ref. No. 0203/16(19)/2018-R&D-II/10706) and by financial assistance from the Indian Institute of Science. Both A. Banik and G. Bharali are supported by the DST-FIST programme (grant no. DST FIST-2021 [TPN-700661]).",
+        "entities": [
+            {
+                "entity": "PER",
+                "text": " A. Banik"
+            },
+            {
+                "entity": "ORG",
+                "text": " National Board for Higher Mathematics"
+            },
+            {
+                "entity": "ORG",
+                "text": "NBHM"
+            },
+            {
+                "entity": "PER",
+                "text": "."
+            },
+            {
+                "entity": "ORG",
+                "text": " Indian Institute of Science"
+            },
+            {
+                "entity": "PER",
+                "text": "."
+            },
+            {
+                "entity": "PER",
+                "text": " A. Banik"
+            },
+            {
+                "entity": "PER",
+                "text": " G. Bharali"
+            },
+            {
+                "entity": "MISC",
+                "text": " DST-FIST"
+            },
+            {
+                "entity": "PER",
+                "text": "."
+            },
+            {
+                "entity": "MISC",
+                "text": " DST"
+            }
+        ]
+    },
+    {
+        "file_name": "mat7.grobid.tei.xml",
+        "acknowledgment": "Acknowledgements. The author would like to thank his advisor Mircea Mustat ¸ȃ for support and helpful discussions. The author would also like to thank Osamu Fujino and Stefano Filipazzi for useful comments and answering his questions.",
+        "entities": [
+            {
+                "entity": "PER",
+                "text": " Mircea Mustat"
+            },
+            {
+                "entity": "PER",
+                "text": "�"
+            },
+            {
+                "entity": "PER",
+                "text": " Osamu Fujino"
+            },
+            {
+                "entity": "PER",
+                "text": " Stefano Filipazzi"
+            }
+        ]
+    },
+    {
+        "file_name": "mat8.grobid.tei.xml",
+        "acknowledgment": "The upper bound follows from our results by considering a stronger density-type variant of induced Ramsey numbers studied by Dudek, Frankl, and RödlThe lower bound in Theorem 6.3 follows from the lower bound on the ordinary Ramsey number for H. Using the symmetric hypergraph theorem (see Chapter 4.4 of",
+        "entities": [
+            {
+                "entity": "PER",
+                "text": " Ramsey"
+            },
+            {
+                "entity": "PER",
+                "text": " Dudek"
+            },
+            {
+                "entity": "PER",
+                "text": " Frankl"
+            },
+            {
+                "entity": "PER",
+                "text": " Rödl"
+            },
+            {
+                "entity": "PER",
+                "text": " Ramsey"
+            }
+        ]
+    },
+    {
+        "file_name": "mat9.grobid.tei.xml",
+        "acknowledgment": "The work of Gugercin and Reiter is based upon work supported by the National Science Foundation under Grant No. AMPS-1923221. We thank Alejandro Diaz and Matthias Heinkenschloss for providing the code for creating the test examples in Section 5.",
+        "entities": [
+            {
+                "entity": "PER",
+                "text": " Gugercin"
+            },
+            {
+                "entity": "PER",
+                "text": " Reiter"
+            },
+            {
+                "entity": "ORG",
+                "text": " National Science Foundation"
+            },
+            {
+                "entity": "PER",
+                "text": " Alejandro Diaz"
+            },
+            {
+                "entity": "PER",
+                "text": " Matthias Heinkenschloss"
+            }
+        ]
+    },
+    {
+        "file_name": "QuantitativeBiology 1.grobid.tei.xml",
+        "acknowledgment": "We thank Anton Persikov, Hayden Nunley, and Gilles Francfort for helpful discussions and suggestions. M.M. gratefully acknowledges travel support by the Simons Foundation. M.S. and S.Y.S. are grateful for ongoing sup-",
+        "entities": [
+            {
+                "entity": "PER",
+                "text": " Anton Persikov"
+            },
+            {
+                "entity": "PER",
+                "text": " Hayden Nunley,"
+            },
+            {
+                "entity": "PER",
+                "text": " Gilles Francfort"
+            },
+            {
+                "entity": "PER",
+                "text": ". M.M."
+            },
+            {
+                "entity": "ORG",
+                "text": " Simons Foundation"
+            },
+            {
+                "entity": "PER",
+                "text": ". M.S."
+            },
+            {
+                "entity": "PER",
+                "text": " S.Y.S."
+            }
+        ]
+    },
+    {
+        "file_name": "QuantitativeBiology 3.grobid.tei.xml",
+        "acknowledgment": "ACKNOWLEDGMENT M. A., M. N., and E. T. performed experiments. M. A. and M. S. analyzed experimental data. M. N. and H. O. conceived the project. M. A. and M. S. wrote the paper.",
+        "entities": [
+            {
+                "entity": "PER",
+                "text": " M. A"
+            },
+            {
+                "entity": "PER",
+                "text": " M. N"
+            },
+            {
+                "entity": "PER",
+                "text": " E. T."
+            },
+            {
+                "entity": "PER",
+                "text": ". M. A."
+            },
+            {
+                "entity": "PER",
+                "text": " M. S."
+            },
+            {
+                "entity": "PER",
+                "text": ". M. N."
+            },
+            {
+                "entity": "PER",
+                "text": " H. O."
+            },
+            {
+                "entity": "PER",
+                "text": ". M. A."
+            },
+            {
+                "entity": "PER",
+                "text": " M. S."
+            },
+            {
+                "entity": "PER",
+                "text": "."
+            }
+        ]
+    },
+    {
+        "file_name": "QuantitativeBiology 4.grobid.tei.xml",
+        "acknowledgment": "The first author received a JSPS Research Fellowship (Grant Number 20J21362). This research was supported by JSPS KAKENHI (Grant Number 19H05799 and 24H02148) and JST CREST (Grant Number JP-MJCR2011).",
+        "entities": [
+            {
+                "entity": "ORG",
+                "text": " JSPS"
+            },
+            {
+                "entity": "ORG",
+                "text": " JSPS KAKENHI"
+            },
+            {
+                "entity": "ORG",
+                "text": " JST CREST"
+            }
+        ]
+    },
+    {
+        "file_name": "QuantitativeBiology 5.grobid.tei.xml",
+        "acknowledgment": "This work is supported by the National Library of Medicine (NLM) Training Grant (T15-LM07088).The authors thank Dr. Yoon for input on DVRL implementation details and Dr. Ben Cordier for the many discussions about data valuation.",
+        "entities": [
+            {
+                "entity": "ORG",
+                "text": " National Library of Medicine"
+            },
+            {
+                "entity": "ORG",
+                "text": "NLM"
+            },
+            {
+                "entity": "MISC",
+                "text": " Training Grant"
+            },
+            {
+                "entity": "PER",
+                "text": " Yoon"
+            },
+            {
+                "entity": "MISC",
+                "text": " DVRL"
+            },
+            {
+                "entity": "PER",
+                "text": " Ben Cordier"
+            }
+        ]
+    },
+    {
+        "file_name": "Teleco1.grobid.tei.xml",
+        "acknowledgment": "Te authors would like to thank the Deanship of Science Research at Imam Mohammad Ibn Saud Islamic University for their funding under Research Group no. RG-21-09-47 and Mr. Tomás Fernández from the Department of Communications Engineering of the University of Cantabria for his software support.",
+        "entities": [
+            {
+                "entity": "ORG",
+                "text": " Deanship of Science Research"
+            },
+            {
+                "entity": "ORG",
+                "text": " Imam Mohammad Ibn Saud Islamic University"
+            },
+            {
+                "entity": "PER",
+                "text": " Tomás Fernández"
+            },
+            {
+                "entity": "ORG",
+                "text": " Department of Communications Engineering"
+            },
+            {
+                "entity": "ORG",
+                "text": " University of Cantabria"
+            }
+        ]
+    },
+    {
+        "file_name": "Teleco2.grobid.tei.xml",
+        "acknowledgment": "Te authors are thankful to the Deanship of Scientifc Research at Najran University for funding this work under the Research Groups Funding program grant code (NU/RG/ SERC/12/2). Moreover, the authors extend their appreciation to the DST INSPIRE Govt. of India for fnancially supporting R. K. Parida.",
+        "entities": [
+            {
+                "entity": "ORG",
+                "text": "anship of Scientifc Research"
+            },
+            {
+                "entity": "ORG",
+                "text": " Najran University"
+            },
+            {
+                "entity": "MISC",
+                "text": " Research Groups Funding"
+            },
+            {
+                "entity": "PER",
+                "text": ","
+            },
+            {
+                "entity": "ORG",
+                "text": " DST INSPIRE"
+            },
+            {
+                "entity": "LOC",
+                "text": " Govt"
+            },
+            {
+                "entity": "PER",
+                "text": "."
+            },
+            {
+                "entity": "LOC",
+                "text": " of India"
+            },
+            {
+                "entity": "PER",
+                "text": " R. K. Parida."
+            }
+        ]
+    },
+    {
+        "file_name": "Teleco3.grobid.tei.xml",
+        "acknowledgment": "Tis work was supported in part by the Natural Science Foundation for Excellent Young Scholars of Jiangsu Province (Grant no. BK20220128) and the National Key R&D Program of China (Grant no. 2019YFE0120700). Tis work was also supported by Research Square https://www. researchsquare.com/article/rs-3214671/v1",
+        "entities": [
+            {
+                "entity": "ORG",
+                "text": " Natural Science Foundation for Excellent Young Scholars of Jiangsu Province"
+            },
+            {
+                "entity": "MISC",
+                "text": " National Key R&D Program of China"
+            },
+            {
+                "entity": "ORG",
+                "text": " Research Square"
+            },
+            {
+                "entity": "ORG",
+                "text": " researchsquare"
+            }
+        ]
+    },
+    {
+        "file_name": "Teleco4.grobid.tei.xml",
+        "acknowledgment": "Tis work was supported by the Pre-Research Project of Civil Aerospace Technology of China (D040202).",
+        "entities": [
+            {
+                "entity": "MISC",
+                "text": " Pre-Research"
+            },
+            {
+                "entity": "ORG",
+                "text": " Project of Civil Aerospace Technology of China"
+            },
+            {
+                "entity": "MISC",
+                "text": "D040202"
+            }
+        ]
+    },
+    {
+        "file_name": "Teleco5.grobid.tei.xml",
+        "acknowledgment": "Tis work was supported in part by the National Nature Science Foundation of China (no. 51867014) and the Department of Education of Gansu Province (Grant number 2024CXPT-11).",
+        "entities": [
+            {
+                "entity": "ORG",
+                "text": " National Nature Science Foundation of China"
+            },
+            {
+                "entity": "ORG",
+                "text": " Department of Education of Gansu Province"
+            }
+        ]
+    }
+]

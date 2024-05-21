@@ -16,6 +16,7 @@ from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 from gensim.models.coherencemodel import CoherenceModel
 from gensim.corpora.dictionary import Dictionary
+import json
 
 # Check if NLTK packages are already downloaded
 try:
@@ -162,8 +163,8 @@ def main():
     topics, probabilities = topic_model.fit_transform([" ".join(doc) for doc in abstracts])
 
     # Calculate coherence score for BERTopic
-    coherence_score = calculate_coherence_score(topics, abstracts)
-    print(f"\nCoherence Score for BERTopic: {coherence_score}")
+    #coherence_score = calculate_coherence_score(topics, abstracts)
+    #print(f"\nCoherence Score for BERTopic: {coherence_score}")
     
     print("\nTopics found by BERTopic:")
     topic_info = topic_model.get_topic_info()
@@ -175,5 +176,27 @@ def main():
         probability = probabilities[i]
         print(f"{filename} belongs to Topic {topic} with probability {probability:.4%}")
     
+    # Collect output data
+    output_data = []
+    for i, filename in enumerate(filenames):
+        topic = topics[i]
+        probability = float(probabilities[i])  # Convert to native Python float
+        similarity_info = {}
+        for j, other_filename in enumerate(filenames):
+            if i != j:  # Exclude self-similarity
+                similarity_info[other_filename] = float(similarity_matrix[i][j])  # Convert to native Python float
+        output_data.append({
+            "filename": filename,
+            "topic": topic,
+            "probability": probability,
+            "similarities": similarity_info
+        })
+
+    # Save output data to JSON file
+    with open("Abstract_And_topics.json", "w", encoding="utf-8") as json_file:
+        json.dump(output_data, json_file, ensure_ascii=False, indent=4)
+
+    print(f"Extracted data from {len(output_data)} files and saved to 'Abstract_And_topics.json'")
+
 if __name__ == "__main__":
     main()
