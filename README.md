@@ -7,9 +7,9 @@ https://zenodo.org/
 
 Zenodo - DOI: https://zenodo.org/doi/10.5281/zenodo.11231689
 
-Este proyecto tiene como objetivo comparar la similitud de contenido entre artículos académicos utilizando modelado de temas y técnicas de agrupación. 
+Este proyecto tiene como objetivo comparar la similitud de contenido entre artículos académicos utilizando modelado de temas y técnicas de agrupación. También se amplia información de estos artículos gracias a Wikidata (obtiene la ocupación de los autores) y ROR (obtiene los países de las organizaciones). 
 Al emplear estos métodos, el proyecto identifica temas y patrones comunes entre los artículos, permitiendo una comprensión más profunda de sus relaciones de contenido. 
-Además, utiliza consultas SparkQL para validar la precisión de la recuperación de información y asegurar la efectividad del análisis.:
+Además, utiliza consultas SparkQL para validar la precisión de la recuperación de información y asegurar la efectividad del análisis.
 
 
 
@@ -52,23 +52,23 @@ Y conda deactivate nombreEntorno si queremos cerrarlo una vez hayamos terminado.
 
 2 Las librerías correspondientes a lo que nos pidan los scripts.
 En este caso con las siguientes librerías sería suficiente:
-pip install PyPDF2
-pip install wordcloud
-pip install matplotlib
-pip install beautifulsoup4
-pip install numpy
-pip install pandas
-pip install scikit-learn
-pip install sentence-transformers
-pip install bertopic
-pip install lxml
-pip install matplotlib
-pip install nltk
-pip install gensim
-pip install transformers
-pip install rdflib
-pip install pydot
-pip install requests
+- pip install PyPDF2
+- pip install wordcloud
+- pip install matplotlib
+- pip install beautifulsoup4
+- pip install numpy
+- pip install pandas
+- pip install scikit-learn
+- pip install sentence-transformers
+- pip install bertopic
+- pip install lxml
+- pip install matplotlib
+- pip install nltk
+- pip install gensim
+- pip install transformers
+- pip install rdflib
+- pip install pydot
+- pip install requests
 
 3 Instalar Docker.
 Entra en el siguiente enlace e instala la versión correspondiente a tu dispositivo.
