@@ -36,6 +36,8 @@ Necesitamos:
 
 7. **Una vez esta todo preparado se puede ejecutar el proyecto**.
 
+8. **Consultas en SPARQL.**
+
 
 ## Instrucciones de Instalación
 
@@ -144,6 +146,24 @@ Al ejecutarlo crea una carpeta "GrafosRDF" en la que tenemos una imagen .png par
 Crea un fichero .rdf por cada pdf que usamos en formato RDF/XML para poder así tener la información suficiente para hacer las consultas en SPARKQL.
 Para poder ejecutarlo tenemos que tener la carpeta "ValidationCorpus" que se encuentra en el repositorio de donde coge los ficheros .xml para sacar los .rdf correspondientes.
 Y el fichero "Abstract_And_topics.json" para añadir también a los ficheros .rdf los datos de la similitud de cada pdf con cada uno de ellos.
+
+8. **Consultas en SPARQL.**
+Después de haber ejecutado todos los archivos anteriores, pasamos a preparar el entorno para realizar las consultas en SPARQL.
+En este caso se ha utilizado Apache Jena y para eso es necesario tener instalado Java en el dispositivo.
+- Enlace para descargar Java
+https://www.oracle.com/java/technologies/downloads/#java11
+- Enlace para descargar Apache Jena Fuseki (es servidor SPARQL para consultas remotas).
+https://jena.apache.org/download/#jena-fuseki
+- Una vez que tenemos todo instalado nos situamos en la carpeta correspondiente (en este caso era: apache-jena-fuseki-5.0.0). Y ejecutamos el siguiente comando para lanzar el servidor.
+.\fuseki-server.bat
+- Hay que abrir un navegador web en el siguiente puerto para acceder a la interfaz de Fuseki.
+http://localhost:3030
+- Una vez allí creamos una base de datos en la que vayamos a cargar los archivos correspondientes para hacer las consultas.
+- Los archivos que tenemos que cargar son:
+El fichero que devuelve el archivo rfds.py (que se guarda en la carpeta GrafosRDF que se crea al ejecutarlo). --> graph.rdf
+Los ficheros que devuelve el archivo datosXML.py (que se guardan en la carpeta GrafosRDF que se crea al ejecutarlo). --> rdfxmls
+- Con esto ya podemos empezar a realizar las consultas en SPARQL.
+- Esto es un ejemplo de las consultas que se pueden hacer (hay más en el fichero examplequerys.txt):
 
 # Instrucciones de Ejecución
 
