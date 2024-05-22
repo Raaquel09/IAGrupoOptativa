@@ -54,7 +54,7 @@ Necesitamos:
        - Y conda deactivate nombreEntorno si queremos cerrarlo una vez hayamos terminado.
 
 3. **Las librerías correspondientes a lo que nos pidan los scripts**.
-En este caso con las siguientes librerías sería suficiente:
+En este caso con las siguientes librerías sería suficiente, recomendado pip install requirements.txt:
 - pip install PyPDF2
 - pip install wordcloud
 - pip install matplotlib
