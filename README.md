@@ -36,7 +36,7 @@ Necesitamos:
 
 6. **Tener los scripts necesarios para que el cliente funcione correctamente**.
 
-7 **Una vez esta todo preparado se puede ejecutar el proyecto**.
+7. **Una vez esta todo preparado se puede ejecutar el proyecto**.
 
 
 # Instrucciones de Instalación
