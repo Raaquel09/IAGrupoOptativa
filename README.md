@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.11231689.svg)](https://doi.org/10.5281/zenodo.11231689)
+
 # IAoptativa
 
 # Descripción
@@ -126,13 +128,13 @@ Y también necesitaremos el fichero config.json (está incluido en el repositori
 Este fichero dado unos pdfs saca el xml correspondiente a cada uno de ellos.
 
 - ClusterBERT.py / ClusterBERTCoherence.py / ClusteringLDACoherence.py / ClusteringLDASilhoutte.py
-Estos ficheros funcionan para
-Al ejecutarlo 
-Y se eligen finalmente estos metodos por los siguientes motivos:
+Estos ficheros funcionan para extraer la similaridad entre abstracts y ordena por clusters los documentos TEI_XML extraidos previamente. Además, calculan cuantos topics hay haciendo una limpieza previa de los abstracts utilizando la librería nltk quitando las "stopwords", que documento pertenece a que topic y con que % pertenece a dicho topic. La diferencia entre los distintos archivos reside en que los que empiezan con ClusterBERT utilizan la libreria BERTopic. Y los que empiezan por ClusteringLDA es porque utilizan la librería sklearn y el método de topic similarity es LDA.
+Al ejecutarlo va a promptear al usuario unas sencillas instrucciones para que introduzca, en primer lugar, el directorio que contiene los TEI_XML, después el directorio al que quiere que se guarde la imagen que muestre el aspecto que tienen los clusters y por último el nombre del archivo donde se quiere que se guarde la matriz de similaridad normalizada (para un mayor entendimiento). Además en la propia carpeta en la que se ejecute el script se va a generar un archivo .json que contiene un listado de los documentos encontrados con su respectivo similarity rate a cada otro documento, a que topic pertenecen y con que porcentaje.
+Y se eligen finalmente estos metodos por los siguientes motivos: Se ha decidido utilizar BERTopic por tener un mayor coherence score. En el caso de BERTopic el coherence score calculado es de 0.8931153646629297 mientras que en el caso de LDA es de tan sólo 0.4523322639352749. 
 
 - NERextractOptimizado.py
-Este fichero funcionan para
-Al ejecutarlo 
+Este fichero utiliza el modelo preentrenado de "Jean-Baptiste/roberta-large-ner-english" encontrado en hugging-face y extrae de los acknowledgements todas las Organizaciones (ORG) y personas (PER) de dichos acknowledgements. 
+Al ejecutarlo va a promptear al usuario para que le facilite la localizacion de la carpeta en la que se encuentran los archivos TEI_XML calculados anteriormente. Cuando termina su ejecución crea un archivo .json en el que hay un listado con los documentos y las entidades que haya encontrado en los acknowledgements.
 
 - rdfs.py
 Este fichero crea el grafo RDF teniendo en cuenta las entidades de nuestro proyecto.
