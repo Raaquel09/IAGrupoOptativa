@@ -1,4 +1,4 @@
-# datosXML.py 
+# datosXML
 
 Este fichero crea un fichero .rdf por cada pdf que usamos en formato RDF/XML para poder así tener la información suficiente para hacer las consultas en SPARKQL.
 
