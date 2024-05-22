@@ -45,10 +45,10 @@ Y si queremos que sea en un entorno virtual como conda:
 El enlace de instalación
 https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html
 A continuación los comandos para crear el entorno virtual:
-conda create -n nombreEntorno python=3(el 3 sería un ejemplo, habría que poner la versión de Python que hayamos instalado antes, esta se puede comprobar con python --version)
-conda env list
-conda activate nombreEntorno
-Y conda deactivate nombreEntorno si queremos cerrarlo una vez hayamos terminado.
+- conda create -n nombreEntorno python=3(el 3 sería un ejemplo, habría que poner la versión de Python que hayamos instalado antes, esta se puede comprobar con python --version)
+- conda env list
+- conda activate nombreEntorno
+- Y conda deactivate nombreEntorno si queremos cerrarlo una vez hayamos terminado.
 
 2 Las librerías correspondientes a lo que nos pidan los scripts.
 En este caso con las siguientes librerías sería suficiente:
