@@ -175,6 +175,7 @@ Los ficheros que devuelve el archivo datosXML.py (que se guardan en la carpeta G
 
 
 PREFIX ns1: <http://prueba.org/>
+
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 
 SELECT ?similarityValue
