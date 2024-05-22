@@ -12,7 +12,8 @@ Es necesario instalar el fichero requirements.txt
 
 ## Ejemplo de uso
 
+```bash
 python datosXML.py
-
+```
 
 
