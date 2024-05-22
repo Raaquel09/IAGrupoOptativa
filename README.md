@@ -1,4 +1,4 @@
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.11231689.svg)](https://doi.org/10.5281/zenodo.11231689) [![ReadTheDocs](https://img.shields.io/badge/Documentation-Read%20The%20Docs-brightgreen)]((https://iagrupooptativa.readthedocs.io/en/latest/))
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.11231689.svg)](https://doi.org/10.5281/zenodo.11231689)[![ReadTheDocs](https://img.shields.io/badge/Documentation-Read%20The%20Docs-brightgreen)](https://iagrupooptativa.readthedocs.io/en/latest/)
 
 # IAoptativa
 
