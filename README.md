@@ -42,10 +42,10 @@ Necesitamos:
 ## Instrucciones de Instalación
 
 1. **Preparar un entorno para comprobar que los scripts funcionan**.
-   ###Usando python:
+          ###Usando python:
        -Si queremos hacerlo en Python, habría que entrar en el siguiente enlace e instalarse la versión correspondiente al dispositivo de cada uno.
           [python.org](https://www.python.org/downloads/).
-   ###Usando conda:
+          ###Usando conda:
        El enlace de instalación
        https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html
        A continuación los comandos para crear el entorno virtual:
