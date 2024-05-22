@@ -39,23 +39,22 @@ Necesitamos:
 7. **Una vez esta todo preparado se puede ejecutar el proyecto**.
 
 
-# Instrucciones de Instalación
+## Instrucciones de Instalación
 
-1 Preparar un entorno para comprobar que los scripts funcionan.
-Si queremos hacerlo en Python, habría que entrar en el siguiente enlace e instalarse la versión correspondiente al dispositivo de cada uno.
-https://www.python.org/downloads/
+1. **Preparar un entorno para comprobar que los scripts funcionan**.
+   ###Usando python:
+       -Si queremos hacerlo en Python, habría que entrar en el siguiente enlace e instalarse la versión correspondiente al dispositivo de cada uno.
+          [python.org](https://www.python.org/downloads/).
+   ###Usando conda:
+       El enlace de instalación
+       https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html
+       A continuación los comandos para crear el entorno virtual:
+       - conda create -n nombreEntorno python=3(el 3 sería un ejemplo, habría que poner la versión de Python que hayamos instalado antes, esta se puede comprobar con python --version)
+       - conda env list
+       - conda activate nombreEntorno
+       - Y conda deactivate nombreEntorno si queremos cerrarlo una vez hayamos terminado.
 
-Y si queremos que sea en un entorno virtual como conda:
-
-El enlace de instalación
-https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html
-A continuación los comandos para crear el entorno virtual:
-- conda create -n nombreEntorno python=3(el 3 sería un ejemplo, habría que poner la versión de Python que hayamos instalado antes, esta se puede comprobar con python --version)
-- conda env list
-- conda activate nombreEntorno
-- Y conda deactivate nombreEntorno si queremos cerrarlo una vez hayamos terminado.
-
-2 Las librerías correspondientes a lo que nos pidan los scripts.
+2. **Las librerías correspondientes a lo que nos pidan los scripts**.
 En este caso con las siguientes librerías sería suficiente:
 - pip install PyPDF2
 - pip install wordcloud
@@ -75,11 +74,11 @@ En este caso con las siguientes librerías sería suficiente:
 - pip install pydot
 - pip install requests
 
-3 Instalar Docker.
+3. **Instalar Docker**.
 Entra en el siguiente enlace e instala la versión correspondiente a tu dispositivo.
 https://docs.docker.com/engine/install/
 
-4 Instalar Grobid (es más fácil hacerlo una vez ya nos hemos instalado Docker).
+4. **Instalar Grobid (es más fácil hacerlo una vez ya nos hemos instalado Docker)**.
 Descarga la imagen de Grobid.
 docker pull lfoppiano/grobid:0.7.2 (esto es la versión que quieras tener, si pones lastest se instalará la última)
 Lanza el servidor de Grobid con Docker.
@@ -91,7 +90,7 @@ En este caso el proyecto está preparado para que se acceda al puerto 8070.
 Para comprobar que todo ha ido bien accedemos desde internet al puerto correspondiente.
 http://localhost:8070/
 
-5 Preparar el cliente de Python para Grobid.
+5. **Preparar el cliente de Python para Grobid**.
 El cliente es recomendable descargarlo en la misma carpeta donde tengas el proyecto para evitar errores.
 Antes de poder clonar el reporitorio es  necesario instalarse Git ( https://git-scm.com/download/win ), puedes verificar que se ha hecho correctamente con el comando git --version.
 
@@ -111,7 +110,7 @@ Cuando termine nos habrá generado un fichero.xml, lo descargamos y ese será el
 
 En este caso vamos a hacer lo segundo, es decir, darle como parametro al script el xml generado por Grobid.
 
-6 Tener los scripts necesarios para que el cliente funcione correctamente.
+6. **Tener los scripts necesarios para que el cliente funcione correctamente**.
 Para que el script se pueda conectar con el cliente es necesario introducir las siguientes líneas de código en nuestro script de Python:
 
 from grobid_client.grobid_client import GrobidClient
@@ -125,7 +124,7 @@ Estos comandos también están en el fichero codigoCliente.txt que se encuentra 
 
 Y también necesitaremos el fichero config.json (está incluido en el repositorio) en el que especifica las características, entre ellas el puerto al que queremos acceder(8070) cuando no sea el que por defecto(8070).
 
-7 Una vez esta todo preparado se puede ejecutar el proyecto.
+7. **Una vez esta todo preparado se puede ejecutar el proyecto**.
 
 - pdftoteixml.py
 Este fichero dado unos pdfs saca el xml correspondiente a cada uno de ellos.
