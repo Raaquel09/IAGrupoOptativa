@@ -178,11 +178,17 @@ PREFIX ns1: <http://prueba.org/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 
 SELECT ?similarityValue
+
 WHERE {
+
   ?similarityNode rdf:type ns1:Similarity ;
+  
                   ns1:sourcePaper <http://prueba.org/paper_9> ;
+                  
                   ns1:targetPaper <http://prueba.org/paper_8> ;
+                  
                   ns1:similarityValue ?similarityValue .
+                  
 }
 
 # Instrucciones de Ejecución
