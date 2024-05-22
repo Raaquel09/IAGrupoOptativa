@@ -1,0 +1,12 @@
+site_name: Text Extraction Project
+nav:
+  - Home: index.md
+  - Rationale: rationale.md
+  - Scripts:
+    - ClusterBERTCoherence.md
+    - ClusteringLDACoherence.md
+    - NERextractOptimizado.md
+    - rdfs.md
+    - datosXML.md
+theme:
+  name: readthedocs
