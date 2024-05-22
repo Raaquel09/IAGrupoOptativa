@@ -12,6 +12,7 @@ Al ejecutarlo crea una carpeta "GrafosRDF" en la que tenemos una imagen .png par
 
 ## Ejemplo de uso
 
+```bash
 python rdfs.py
-
+```
  
