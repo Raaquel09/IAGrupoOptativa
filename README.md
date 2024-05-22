@@ -5,28 +5,13 @@
 Este repositorio está enlazado con Zenodo:
 https://zenodo.org/
 
-Zenodo - DOI: https://zenodo.org/doi/10.5281/zenodo.10783171
- 
+Zenodo - DOI: https://zenodo.org/doi/10.5281/zenodo.11231689
 
-El proyecto se basa en el manejo de programas escritos en el lenguaje de programación Python y en como se pueden ejecutar en local, con Grobid y Docker.
-Tenemos tres tareas a realizar y de cada una de ellas hay dos versiones del script:
+Este proyecto tiene como objetivo comparar la similitud de contenido entre artículos académicos utilizando modelado de temas y técnicas de agrupación. 
+Al emplear estos métodos, el proyecto identifica temas y patrones comunes entre los artículos, permitiendo una comprensión más profunda de sus relaciones de contenido. 
+Además, utiliza consultas SparkQL para validar la precisión de la recuperación de información y asegurar la efectividad del análisis.:
 
-1 La que ejecutaremos en nuestro entorno local para comprobar que funciona correctamente(procesa pdfs).
 
-2 Hace lo mismo pero lleva incluido el código correspondiente para que funcione con el cliente de Python para Grobid.
-O procesa los xmls que nos da la aplicación de Grobid.
-
-## WordCloud
-Crea una nube de palabras basada en la información que obtiene de un pdf/xml.
-El resultado es una imagen.png
-
-## NumberOfFigures
-Dibuja un gráfico en el que se ve cuantas figuras tiene cada pdf/xml.
-El resultado es una imagen.png
-
-## ListOfLinks
-Crea una lista de los links que encuentra en un pdf/xml.
-El resultado es una lista en un fichero.json
 
 
 # Requisitos
@@ -46,7 +31,7 @@ Necesitamos:
 
 6 Tener los scripts necesarios para que el cliente funcione correctamente.
 
-
+7 Una vez esta todo preparado se puede ejecutar el proyecto.
 
 
 # Instrucciones de Instalación
@@ -71,8 +56,19 @@ pip install PyPDF2
 pip install wordcloud
 pip install matplotlib
 pip install beautifulsoup4
-
-
+pip install numpy
+pip install pandas
+pip install scikit-learn
+pip install sentence-transformers
+pip install bertopic
+pip install lxml
+pip install matplotlib
+pip install nltk
+pip install gensim
+pip install transformers
+pip install rdflib
+pip install pydot
+pip install requests
 
 3 Instalar Docker.
 Entra en el siguiente enlace e instala la versión correspondiente a tu dispositivo.
@@ -116,7 +112,7 @@ Para que el script se pueda conectar con el cliente es necesario introducir las 
 from grobid_client.grobid_client import GrobidClient
 
 client = GrobidClient(config_path="./config.json")
-client.process("processFulltextDocument", "C:\\Users\\Admin\\Desktop\\PracticaIndividual", n=20)
+client.process("processFulltextDocument", "C:\\Users\\Admin\\Desktop\\PracticaGrupal", n=20)
 
 
 (La ruta que se ve en la última línea hay que cambiarla por la ruta del directorio en el que esté el proyecto.)
@@ -124,6 +120,28 @@ Estos comandos también están en el fichero codigoCliente.txt que se encuentra 
 
 Y también necesitaremos el fichero config.json (está incluido en el repositorio) en el que especifica las características, entre ellas el puerto al que queremos acceder(8070) cuando no sea el que por defecto(8070).
 
+7 Una vez esta todo preparado se puede ejecutar el proyecto.
+
+- pdftoteixml.py
+Este fichero dado unos pdfs saca el xml correspondiente a cada uno de ellos.
+
+- ClusterBERT.py / ClusterBERTCoherence.py / ClusteringLDACoherence.py / ClusteringLDASilhoutte.py
+Estos ficheros funcionan para
+Al ejecutarlo 
+Y se eligen finalmente estos metodos por los siguientes motivos:
+
+- NERextractOptimizado.py
+Este fichero funcionan para
+Al ejecutarlo 
+
+- rdfs.py
+Este fichero crea el grafo RDF teniendo en cuenta las entidades de nuestro proyecto.
+Al ejecutarlo crea una carpeta "GrafosRDF" en la que tenemos una imagen .png para poder ver el grafo y un fichero .rdf para usarlo en las consultas de SPARKQL
+
+- datosXML.py
+Crea un fichero .rdf por cada pdf que usamos en formato RDF/XML para poder así tener la información suficiente para hacer las consultas en SPARKQL.
+Para poder ejecutarlo tenemos que tener la carpeta "ValidationCorpus" que se encuentra en el repositorio de donde coge los ficheros .xml para sacar los .rdf correspondientes.
+Y el fichero "Abstract_And_topics.json" para añadir también a los ficheros .rdf los datos de la similitud de cada pdf con cada uno de ellos.
 
 # Instrucciones de Ejecución
 
@@ -132,157 +150,7 @@ Y también necesitaremos el fichero config.json (está incluido en el repositori
 
 2 Situarnos en la carpeta en la que tengamos el proyecto.
 
-3 python nombreFichero.py salida.png ejemplo1.pdf ejemplo2.pdf
-En el caso de los links la salida es un fichero.json
-
-### Ejemplos
-Para los ejemplos el repositorio incluye 10 pdfs.
-
-#### WordCloud
-Recordatorio de lo que hacia el script:
-Crea una nube de palabras basada en la información que obtiene de un pdf.
-El resultado es una figura.
-
-1 Con un solo pdf: 1.pdf
-python keywordCloudTotal.py salidaKeyPdf1.png 1.pdf
-Resultado:salidaKeyPdf1.png
-
-2 Con tres pdfs: 2.pdf 3.pdf 4.pdf
-python keywordCloudTotal.py salidaKeyPdf234.png 2.pdf 3.pdf 4.pdf
-Resultado:salidaKeyPdf234.png
-
-3 Con seis pdfs: 5.pdf 6.pdf 7.pdf 8.pdf 9.pdf 10.pdf
-python keywordCloudTotal.py salidaKeyPdf5678910.png 5.pdf 6.pdf 7.pdf 8.pdf 9.pdf 10.pdf
-Resultado:salidaKeyPdf5678910.png
-
-Las imagenes de salida están en la carpeta soluciones pdfs.
-
-
-#### NumberOfFigures
-Recordatorio de lo que hacia el script:
-Dibuja un gráfico en el que se ve cuantas figuras tiene cada pdf.
-El resultado es una figura.
-
-1 Con un solo pdf: 1.pdf
-python numberOfFiguresTotal.py 1.pdf
-Resultado:salidaFiguresPdf1.png
-
-2 Con tres pdfs: 2.pdf 3.pdf 4.pdf
-python numberOfFiguresTotal.py 2.pdf 3.pdf 4.pdf
-Resultado:salidaFiguresPdf234.png
-
-3 Con seis pdfs: 5.pdf 6.pdf 7.pdf 8.pdf 9.pdf 10.pdf
-python numberOfFiguresTotal.py 5.pdf 6.pdf 7.pdf 8.pdf 9.pdf 10.pdf
-Resultado:salidaFiguresPdf5678910.png
-
-Las imagenes de salida están en la carpeta soluciones pdfs.
-
-#### ListOfLinks
-Recordatorio de lo que hacia el script:
-Crea una lista de los links que encuentra en un pdf.
-El resultado es una lista que devuelve por consola en formato json.
-
-1 Con un solo pdf: 1.pdf
-python listOfLinksPdf.py 1.pdf
-Resultado:salidaLinksPdf1.json
-
-2 Con tres pdfs: 2.pdf 3.pdf 4.pdf
-python listOfLinksPdf.py 2.pdf 3.pdf 4.pdf
-Resultado:salidaLinksPdf234.json
-
-3 Con seis pdfs: 5.pdf 6.pdf 7.pdf 8.pdf 9.pdf 10.pdf
-python listOfLinksPdf.py 5.pdf 6.pdf 7.pdf 8.pdf 9.pdf 10.pdf
-Resultado:salidaLinksPdf5678910.json
-
-Los ficheros.json de salida están en la carpeta soluciones pdfs.
-
-## Ejecución con Grobid
-En este caso vamos a hacerlo con el cliente de Python para Grobid.
-
-1 Abrimos una terminal donde se encuentra el proyecto.
-
-2 Si no tenemos todavía la imagen de Grobid descargada la descargamos.
-docker pull lfoppiano/grobid:0.7.2 (esto es la versión que quieras tener, si pones lastest se instalará la última)
-
-3 Lanza el servidor de Grobid con Docker.
-docker run -t --rm -p 8070:8070 lfoppiano/grobid:0.7.2 (esto es la versión que quieras tener, si pones lastest se instalará la última)
-
-4 Accede a Grobid para comprobar que se ha conectado correctamente.
-http://localhost:8070/
-
-Como vamos a hacerlo con los xml generados por Grobid:
-Le damos a la opción TEI
-Ponemos la opción Process Fulltext Document
-Elegimos el pdf que queremos usar 
-Le damos a submit
-Y descargamos el xml
-
-5 Abrimos otra terminal donde se encuentra el proyecto.
-
-6 python nombreFichero.py imagenSalida.png ejemplo1.xml ejemplo2.xml
-En el caso de los links la salida es un fichero.json
-
-
-### Ejemplos
-Para los ejemplos el repositorio incluye 10 xmls.
-
-#### WordCloud
-Recordatorio de lo que hacia el script:
-Crea una nube de palabras basada en la información que obtiene de un pdf.
-El resultado es una figura.
-
-1 Con un solo xml: 1.pdf.tei.xml
-python keywordCloudTotal.py salidaKeyXml1.png 1.pdf.tei.xml
-Resultado:salidaKeyXml1.png
-
-2 Con tres xmls: 2.pdf.tei.xml 3.pdf.tei.xml 4.pdf.tei.xml
-python keywordCloudTotal.py salidaKeyXml234.png 2.pdf.tei.xml 3.pdf.tei.xml 4.pdf.tei.xml
-Resultado:salidaKeyXml234.png
-
-3 Con seis xmls: 5.pdf.tei.xml 6.pdf.tei.xml 7.pdf.tei.xml 8.pdf.tei.xml 9.pdf.tei.xml 10.pdf.tei.xml
-python keywordCloudTotal.py salidaKeyXml5678910.png 5.pdf.tei.xml 6.pdf.tei.xml 7.pdf.tei.xml 8.pdf.tei.xml 9.pdf.tei.xml 10.pdf.tei.xml
-Resultado:salidaKeyXml5678910.png
-
-Las imagenes de salida están en la carpeta soluciones xmls.
-
-
-#### NumberOfFigures
-Recordatorio de lo que hacia el script:
-Dibuja un gráfico en el que se ve cuantas figuras tiene cada pdf.
-El resultado es una figura.
-
-1 Con un solo xml: 1.pdf.tei.xml
-python numberOfFiguresTotal.py salidaFiguresXml1.png 1.pdf.tei.xml
-Resultado:salidaFiguresXml1.png
-
-2 Con tres xmls: 2.pdf.tei.xml 3.pdf.tei.xml 4.pdf.tei.xml
-python numberOfFiguresTotal.py salidaFiguresXml234.png 2.pdf.tei.xml 3.pdf.tei.xml 4.pdf.tei.xml
-Resultado:salidaFiguresXml234.png
-
-3 Con seis xmls: 5.pdf.tei.xml 6.pdf.tei.xml 7.pdf.tei.xml 8.pdf.tei.xml 9.pdf.tei.xml 10.pdf.tei.xml
-python numberOfFiguresTotal.py salidaFiguresXml5678910.png 5.pdf.tei.xml 6.pdf.tei.xml 7.pdf.tei.xml 8.pdf.tei.xml 9.pdf.tei.xml 10.pdf.tei.xml
-Resultado:salidaFiguresXml5678910.png
-
-Las imagenes de salida están en la carpeta soluciones xmls.
-
-#### ListOfLinks
-Recordatorio de lo que hacia el script:
-Crea una lista de los links que encuentra en un pdf.
-El resultado es una lista que devuelve por consola en formato json.
-
-1 Con un solo pdf: 1.pdf.tei.xml
-python listOfLinksPdf.py salidaLinksXml1.json 1.pdf.tei.xml
-Resultado:salidaLinksXml1.json
-
-2 Con tres pdfs: 2.pdf.tei.xml 3.pdf.tei.xml 4.pdf.tei.xml
-python listOfLinksPdf.py salidaLinksXml234.json 2.pdf.tei.xml 3.pdf.tei.xml 4.pdf.tei.xml
-Resultado:salidaLinksXml234.json
-
-3 Con seis pdfs: 5.pdf.tei.xml 6.pdf.tei.xml 7.pdf.tei.xml 8.pdf.tei.xml 9.pdf.tei.xml 10.pdf.tei.xml
-python listOfLinksPdf.py salidaLinksXml5678910.json 5.pdf.tei.xml 6.pdf.tei.xml 7.pdf.tei.xml 8.pdf.tei.xml 9.pdf.tei.xml 10.pdf.tei.xml
-Resultado:salidaLinksXml5678910.json
-
-Los ficheros.json de salida están en la carpeta soluciones xmls.
+3 python nombreFichero.py 
 
 # Dónde Obtener Ayuda
 
