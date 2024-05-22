@@ -41,7 +41,7 @@ Necesitamos:
 
 ## Instrucciones de Instalación
 
-1. **Preparar un entorno para comprobar que los scripts funcionan**.
+1. **Preparar un entorno para comprobar que los scripts funcionan**:
        -Si queremos hacerlo en Python, habría que entrar en el siguiente enlace e instalarse la versión correspondiente al dispositivo de cada uno.
           [python.org](https://www.python.org/downloads/).
        -Si queremos hacerlo con Conda:
