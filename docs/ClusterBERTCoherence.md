@@ -13,6 +13,6 @@ Como el resto de scripts, no hace falta ninguna instalación extra, bastaría co
 Para utilizar este script, tiene que ejecutar el 'ClusterBERTCoherence.py' y seguir los prompts que se van mostrando, facilitando, de este modo la carpeta en la que se encuentran los TEI_XML, el sitio donde le gustaría
 que se guardase el png generado con el resultado del clustering y por último escribir el nombre (con la extension) del archivo que contendrá la matriz de similaridad.
 
-'''bash
+```bash
 python .\ClusterBERTCoherence.py
-'''
+```
