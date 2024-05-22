@@ -2,7 +2,7 @@
 
 # IAoptativa
 
-# Descripción
+## Descripción
 
 Este repositorio está enlazado con Zenodo:
 https://zenodo.org/
@@ -16,24 +16,27 @@ Además, utiliza consultas SparkQL para validar la precisión de la recuperació
 
 
 
-# Requisitos
+## Requisitos
 
 Para que este proyecto funcione hay que instalarse una serie de cosas que explicaremos más adelante como hacerlo.
 Necesitamos:
 
-1 Un entorno de python para ejecutar los scripts y comprobar que funciona (también se puede en un entorno virtual como podría ser conda).
+1. **Entorno Python**:
+       -  Un entorno de python para ejecutar los scripts y comprobar que funciona (también se puede en un entorno virtual como podría ser conda).
 
-2 Las librerías correspondientes a lo que nos pidan los scripts.
+2. **Las librerías correspondientes**:
+      -   Para ello hacer pip install requirements.txt
 
-3 Instalar Docker.
+3. **Instalar Docker.**
 
-4 Instalar Grobid (es más fácil hacerlo una vez ya nos hemos instalado Docker).
+4. **Ejecutar Grobid**.
+      -   Para ello utilizar docker pasar por consola el siguiente comando: "docker run -t --rm -p 8070:8070 lfoppiano/grobid:0.7.2" esto descargará la imagen de grobid y la ejecutará, para pararlo bastaría con               hacer "docker ps" para ver el listado de imagenes corriendo y una vez localizado el id del container hacer el siguiente comando cambiando los datos "docker stop <container_id>"
 
-5 Preparar el cliente de Python para Grobid.
+5. **Preparar el cliente de Python para Grobid**.
 
-6 Tener los scripts necesarios para que el cliente funcione correctamente.
+6. **Tener los scripts necesarios para que el cliente funcione correctamente**.
 
-7 Una vez esta todo preparado se puede ejecutar el proyecto.
+7 **Una vez esta todo preparado se puede ejecutar el proyecto**.
 
 
 # Instrucciones de Instalación
