@@ -42,10 +42,9 @@ Necesitamos:
 ## Instrucciones de Instalación
 
 1. **Preparar un entorno para comprobar que los scripts funcionan**.
-          ###Usando python:
        -Si queremos hacerlo en Python, habría que entrar en el siguiente enlace e instalarse la versión correspondiente al dispositivo de cada uno.
           [python.org](https://www.python.org/downloads/).
-          ###Usando conda:
+       -Si queremos hacerlo con Conda:
        El enlace de instalación
        https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html
        A continuación los comandos para crear el entorno virtual:
@@ -54,7 +53,7 @@ Necesitamos:
        - conda activate nombreEntorno
        - Y conda deactivate nombreEntorno si queremos cerrarlo una vez hayamos terminado.
 
-2. **Las librerías correspondientes a lo que nos pidan los scripts**.
+3. **Las librerías correspondientes a lo que nos pidan los scripts**.
 En este caso con las siguientes librerías sería suficiente:
 - pip install PyPDF2
 - pip install wordcloud
