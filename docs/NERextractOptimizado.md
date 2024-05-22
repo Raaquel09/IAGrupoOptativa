@@ -12,6 +12,7 @@ Al ejecutarlo va a promptear al usuario para que le facilite la localizacion de 
 
 ## Ejemplo de uso
 
+```bash
 python NERextractOptimizado.py
-
+```
  
