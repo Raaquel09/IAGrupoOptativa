@@ -1,0 +1,16 @@
+PyPDF2
+wordcloud
+matplotlib
+beautifulsoup4
+numpy
+pandas
+scikit-learn
+sentence-transformers
+bertopic
+lxml
+nltk
+gensim
+transformers
+rdflib
+pydot
+requests
