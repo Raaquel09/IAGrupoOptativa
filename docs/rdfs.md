@@ -1,4 +1,4 @@
-# rdfs.py 
+# rdfs
 
 Este fichero crea el grafo RDF teniendo en cuenta las entidades de nuestro proyecto.
 
