@@ -1,4 +1,4 @@
-# NERextractOptimizado.py
+# NERextractOptimizado
 
 Este fichero utiliza el modelo preentrenado de "Jean-Baptiste/roberta-large-ner-english" encontrado en hugging-face y extrae de los acknowledgements todas las Organizaciones (ORG) y personas (PER) de dichos acknowledgements.
 
