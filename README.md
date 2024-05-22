@@ -7,8 +7,6 @@
 Este repositorio está enlazado con Zenodo:
 https://zenodo.org/
 
-Zenodo - DOI: https://zenodo.org/doi/10.5281/zenodo.11231689
-
 Este proyecto tiene como objetivo comparar la similitud de contenido entre artículos académicos utilizando modelado de temas y técnicas de agrupación. También se amplia información de estos artículos gracias a Wikidata (obtiene la ocupación de los autores) y ROR (obtiene los países de las organizaciones). 
 Al emplear estos métodos, el proyecto identifica temas y patrones comunes entre los artículos, permitiendo una comprensión más profunda de sus relaciones de contenido. 
 Además, utiliza consultas SparkQL para validar la precisión de la recuperación de información y asegurar la efectividad del análisis.
