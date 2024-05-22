@@ -1,0 +1,77 @@
+
+//SIMILARITY
+
+
+PREFIX ns1: <http://prueba.org/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT ?similarityValue
+WHERE {
+  ?similarityNode rdf:type ns1:Similarity ;
+                  ns1:sourcePaper <http://prueba.org/paper_9> ;
+                  ns1:targetPaper <http://prueba.org/paper_8> ;
+                  ns1:similarityValue ?similarityValue .
+}
+
+
+//OCCUPATION
+
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX ns1: <http://prueba.org/>
+
+SELECT ?occupation
+WHERE {
+  <http://prueba.org/author_6> ns1:occupation ?occupation .
+}
+
+//COUNTRY
+
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX ns1: <http://prueba.org/>
+
+SELECT ?country
+WHERE {
+  <http://prueba.org/organization_6> ns1:country ?country .
+}
+
+
+//ALL ORGS AND DATA
+
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX ns1: <http://prueba.org/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT ?organization ?type ?name ?country
+WHERE {
+  ?organization rdf:type foaf:Organization .
+  OPTIONAL { ?organization foaf:name ?name . }
+  OPTIONAL { ?organization ns1:country ?country . }
+}
+
+//ALL AUTHORS AND DATA
+
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX ns1: <http://prueba.org/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT ?author ?type ?givenName ?familyName ?member ?occupation
+WHERE {
+  ?author rdf:type foaf:Person .
+  OPTIONAL { ?author foaf:givenName ?givenName . }
+  OPTIONAL { ?author foaf:familyName ?familyName . }
+  OPTIONAL { ?author foaf:member ?member . }
+  OPTIONAL { ?author ns1:occupation ?occupation . }
+}
+
+//ALL PAPERS AND TITLE
+
+PREFIX ns1: <http://prueba.org/>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+SELECT ?paper ?title
+WHERE {
+  ?paper rdf:type ns1:Paper .
+  ?paper dc:title ?title .
+}
+
+
